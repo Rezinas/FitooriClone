@@ -245,30 +245,28 @@ $item_codesArr=array_map('intval', explode('|', PRD_ITEM_CODE));
 				</div>
 			</div>
 			<div class="col-md-3 rsidebar span_1_of_left">
-				<section  class="sky-form categories">
-					<div class="product_right">
-						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
-						<?php
-							foreach($categoriesArr as $catkey=>$category) {
-						?>
-						<div class= <?php echo "tab".$catkey ?> >
-							<ul class="place">
-								<li class="sort"><?php echo $category ?></li>
-								<li class= "by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>
-							</ul>
-							<div class="clearfix"> </div>
-							<div class="single-bottom">
-								<?php
-									foreach($itemsArr as  $itemkey=>$item) {
-										echo '<a href="#"><p>'.$item.'</p></a>';
-									}
-								?>
-							</div>
+				<section  class="sky-form">
+					<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
+					<div class="row row1 scroll-pane">
+						<div class="col col-4">
+							<?php
+								foreach($categoriesArr as $catkey=>$category) {
+									echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$category.' </label>';
+								}
+							?>
 						</div>
-
-						<?php
-							} //end of $categoryArr forearch
-						 ?>
+					</div>
+				</section>
+				<section  class="sky-form">
+					<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
+					<div class="row row1 scroll-pane">
+						<div class="col col-4">
+							<?php
+								foreach($itemsArr as  $itemkey=>$item) {
+									echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
+								}
+							?>
+						</div>
 					</div>
 				</section>
 				<section  class="sky-form">
