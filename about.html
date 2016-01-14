@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Plumms</title>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Custom Theme files -->
+<link rel="icon" type="image/ico" href="images/favicon.ico">
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+<!-- js -->
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<!-- //js -->	
+<!-- cart -->
+<script src="js/simpleCart.min.js"> </script>
+<!--<script src="js/custom.js"> </script>*/-->
+<!-- cart -->
+</head>
+<body>
+	<!--header-->
+	<div class="header">
+		<!-- <div class="container"> -->
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<h1 class="navbar-brand"><a  href="index.html" style="font-family:Brush Script MT">Plumms</a></h1>
+				</div>
+				<!--navbar-header-->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">						
+						<li><a href="index.html" class="active"><img src="images/home.png"/></a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+							<ul class="dropdown-menu multi-column columns-3">
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>Type</h4>
+										<ul class="multi-column-dropdown">
+											<li><a class="list" href="products.html">All</a></li>
+											<li><a class="list" href="products.html">Anklets</a></li>
+											<li><a class="list" href="products.html">Bangles</a></li>
+											<li><a class="list" href="products.html">Earrings</a></li>
+											<li><a class="list" href="products.html">Necklace</a></li>
+											<li><a class="list" href="products.html">Pendant Sets</a></li>	
+										</ul>
+									</div>																		
+									<div class="col-sm-6">
+										<h4>Category</h4>
+										<ul class="multi-column-dropdown">
+											<li><a class="list" href="products.html">All</a></li>
+											<li><a class="list" href="products.html">Beaded</a></li>
+											<li><a class="list" href="products.html">Fashion</a></li>
+											<li><a class="list" href="products.html">Teracotta</a></li>
+											<li><a class="list" href="products.html">Quilled</a></li>
+											<!-- <li><a class="list" href="products.html">Vanilla</a></li>
+											<li><a class="list" href="products.html">Eggless Cakes</a></li> -->
+										</ul>
+									</div>
+								</div>
+							</ul>
+						</li>
+						<li class="dropdown grid">
+							<a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Customize<b class="caret"></b></a>
+							<ul class="dropdown-menu multi-column columns-3">
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>Items</h4>
+										<ul class="multi-column-dropdown">											
+											<li><a class="list" href="products.html">Anklets</a></li>
+											<li><a class="list" href="products.html">Bangles</a></li>
+											<li><a class="list" href="products.html">Earrings</a></li>
+											<li><a class="list" href="products.html">Necklace</a></li>
+											<li><a class="list" href="products.html">Pendant Sets</a></li>
+										</ul>
+									</div>																		
+									<div class="col-sm-6">
+										<h4>Take a Tour</h4>
+										<ul class="multi-column-dropdown">
+											<li><a class="list" href="products.html"><i class="glyphicon glyphicon-film" style="    font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Videos</a></li>
+											<li><a class="list" href="products.html"><i class="glyphicon glyphicon-info-sign" style="font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Tutorials</a></li>		
+										</ul>
+									</div>						
+								</div>
+							</ul>
+						</li>						   
+						<li class="dropdown grid">
+							<a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Offers<!--<b class="caret"></b>--></a>							
+						</li>
+						<li><a href="index.html">Join Us</a></li>											
+					</ul> 
+					<!--/.navbar-collapse-->
+				</div>
+				<!--//navbar-header-->
+			</nav>
+			<div class="header-info">
+				<div class="header-right search-box">
+					<a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>				
+					<div class="search">
+						<form class="navbar-form">
+							<input type="text" class="form-control">
+							<button type="submit" class="btn btn-default" aria-label="Left Align">
+								Search
+							</button>
+						</form>
+					</div>	
+				</div>
+				<div class="header-right login">
+					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+					<div id="loginBox">                
+						<form id="loginForm">
+							<fieldset id="body">
+								<fieldset>
+									<label for="email">Email Address</label>
+									<input type="text" name="email" id="email">
+								</fieldset>
+								<fieldset>
+									<label for="password">Password</label>
+									<input type="password" name="password" id="password">
+								</fieldset>
+								<input type="submit" id="login" value="Sign in">
+								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+							</fieldset>
+							<p>New User ? <a class="sign" href="account.html">Sign Up</a> <span><a href="#">Forgot your password?</a></span></p>
+						</form>
+					</div>
+				</div>
+				<div class="header-right cart">
+					<a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+					<div class="cart-box">
+						<h4><a href="checkout.html">
+							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
+						</a></h4>
+						<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+						<div class="clearfix"> </div>
+					</div>
+				</div>	
+				<div class="header-right search-box">
+					<a href="#"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span></a>		
+				</div>			
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		<!-- </div> -->
+
+	</div>
+	<!--//header-->
+	<div class="about">
+		<div class="container">
+			<h2>About Us</h2>
+
+			<div class="about-infom">
+				<!-- <h4>Miscellaneous information :</h4> -->
+				<p>
+					Plumms  is a one of-a-kind initiative to create ‘choice’ in the accessories marketplace. Our journey is about achieving the best buyer-satisfaction , and that comes through delivering our products in the most desirable form. Because we believe art is subjective.We yearn to design and create beautiful and fun products everyday and tweak it till it’s an impeccable piece that’s worth buying. What’s more ?.... We bring to you  a convenient, fun and powerful interface on our website so you can create your own masterpiece.With our best foot forward we hope to expand and improve our craft at every step and make customers keep coming back for something more , something new.<br/>
+					<center>Cheers!</center>
+				</p>
+			</div>			
+		</div>
+		<div class="related-products widgets">
+				<!-- <div class="container"> -->
+					<h3>Meet Our Team</h3>
+						<div class="widgets">
+							<div class="product-grid customised">
+								<img src="images/pick1.png" class="img-responsive" alt="">
+								<div class="product-info-cust prt_name">
+									<h5>Founder & Designer</h5>
+									<h4>Rezina Ershath</h4>
+									<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+								</div>
+							</div>		
+							<div class="product-grid customised">
+								<img src="images/line-up1.png" class="img-responsive" alt="">
+								 <div class="product-info-cust prt_name">
+									<h5>Web Designer & Developer</h5>
+									<h4>Zulaikha & Jasmine</h4>
+									<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+								</div>
+							</div>	
+							<div class="product-grid customised">
+								<img src="images/mix-match1.png" class="img-responsive" alt="">
+								 <div class="product-info-cust prt_name">
+									<h5>Creative Advisor</h5>
+									<h4>Subhan M Ali</h4>
+									<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+								 </div> 
+							</div>					
+						<div class="clearfix"> </div>
+					</div>
+				<!-- </div> -->
+			</div>
+	</div>
+	<!--footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-grids">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+					<h4>company</h4>
+					<ul>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="products.html">Products</a></li>
+						<li><a href="#">Work Here</a></li>
+						<li><a href="#">Team</a></li>						
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+					<h4>service</h4>
+					<ul>						
+						<li><a href="#">FAQ</a></li>						
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="#">Support</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid">
+					<h4>order & returns</h4>
+					<ul>
+						<li><a href="orderStatus.html">Order Status</a></li>
+						<li><a href="shippingPolicy.html">Shipping Policy</a></li>
+						<li><a href="returnPolicy.html">Return Policy</a></li>						
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+					<h4>legal</h4>
+					<ul>
+						<li><a href="privacy.html">Privacy</a></li>
+						<li><a href="T&C.html">Terms and Conditions</a></li>
+						<li><a href="SR.html">Social Responsibility</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid icons">
+					<h4>Connect with Us</h4>
+					<ul>
+						<li><a href="#"><img src="images/i1.png" alt=""/>Facebook</a></li>
+						<li><a href="#"><img src="images/i2.png" alt=""/>Twitter</a></li>
+					</div>
+				</div>				
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--//footer-->
+	<div class="footer-bottom">
+		<div class="container">
+			<p> © 2016 Plumms . All rights reserved.</p>
+		</div>
+	</div>
+</body>
+</html>
