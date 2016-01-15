@@ -193,9 +193,19 @@ else if($currenttab == "report") {
                     pitem: { required: true },
                     pavail: { required: true },
                     pstatus: { required: true },
-                    mainfile: { required: true, accept: "png|jpeg|gif", filesize: 1048576  },
-                    alt1file: { required: true, accept: "png|jpeg|gif", filesize: 1048576  },
-                    alt2file: { required: true, accept: "png|jpeg|gif", filesize: 1048576  },
+                    mainfile: { required: {
+                             depends: function(element) {
+                                    return ($("#mainreadonly").val() == '');}
+                        },
+                        accept: "png|jpeg|gif", filesize: 1048576  },
+                    alt1file: { required: {
+                             depends: function(element) {
+                                    return ($("#alt1readonly").val() == '');}
+                        }, accept: "png|jpeg|gif", filesize: 1048576  },
+                    alt2file: { required: {
+                             depends: function(element) {
+                                    return ($("#alt2readonly").val() == '');}
+                        },, accept: "png|jpeg|gif", filesize: 1048576  },
                     featuredfile: { required: {
                              depends: function(element) {
                                     return ($("input[name=featured").val() == '1');}

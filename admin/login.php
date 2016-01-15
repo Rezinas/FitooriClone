@@ -21,6 +21,7 @@ if(isset($_POST['login']))
         {
             $_SESSION["username"] = $row[1] . ' '. $row[2];
             $_SESSION["agentId"] = $row[0];
+            $_SESSION["useremail"] =  $row[3];
         }
           // Free result set
           mysqli_free_result($result);

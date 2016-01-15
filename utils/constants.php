@@ -59,4 +59,10 @@
 
 	define('PRDIMGDIR', "productImages");
 
+	define('MAINIMG', 1);
+	define('ALTERNATE1IMG', 2);
+	define('ALTERNATE2IMG', 3);
+	define('FEATUREDIMG', 4);
+	define('PROMOTEDIMG', 5);
+
 ?>

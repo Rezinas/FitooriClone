@@ -19,7 +19,6 @@ $featuredimage = "";
 $promotedimage = "";
 $pid= "";
 
-//var_dump($_POST);
 
 if(isset($_GET["product"]) && isset($_GET["id"]) ) {
     $pid=trim($_GET["id"]);
@@ -56,7 +55,7 @@ if (!empty($_POST)) {
 	$alt1image =  uploadPrdImage($_FILES['alt1file'] ['tmp_name'], $_FILES['alt1file'] ['name'], $_FILES['alt1file'] ['error']);
 	$alt2image =  uploadPrdImage($_FILES['alt2file'] ['tmp_name'], $_FILES['alt2file'] ['name'], $_FILES['alt2file'] ['error']);
 
-	if (strpos($mainimage,'ERROR') !== false || strpos($alt1image,'ERROR') !== false || strpos($alt2image,'ERROR') !== false) {
+	if ((strpos($mainimage,'ERROR') !== false || strpos($alt1image,'ERROR') !== false || strpos($alt2image,'ERROR') !== false)   && $mode == "new") {
 	  	$error  .= "Form Error.. image uploads failed.";
 	}
 
@@ -75,15 +74,116 @@ if (!empty($_POST)) {
 
     if ($error  == "")
     {
+
+
     	if($mode == "new") {
     	//insert into database all product values
         	//get the id of the inserted row.
     	//set mode as edit and set $pid.
-    		$mode = "edit";
-    		$pid= "1";
+    	// 	$mode="edit";
+    	// 	$pid ="1";
+    	// }
+
+	  $curr_userID = getCurrentUserID();
+	  $curr_userType = getCurrentUserType();
+	  $curr_userEmail = getCurrentUserEmail();
+
+	$query = "INSERT INTO `products` (`name`, `price`, `item`, `category`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `promoted`, `addedUsertype`, `addedbyUserEmail`, `quantity`) VALUES ( ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?)";
+	$statement = $dbcon->prepare($query);
+
+	//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
+	$statement->bind_param('sdiiisssiiisi', $pname, floatval($price), intval($pitem), intval($pcategory), intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), intval($promoted), $curr_userType, $curr_userEmail, intval($pquantity) );
+
+	if($statement->execute()){
+		$mode = "edit";
+    		$pid=$statement->insert_id;
+
+  	}else{
+	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+	}
+	$statement->close();
+
+	//query for productimages table
+	$query1 = "INSERT INTO `productimages` (`prdid`, `prdimage_name`, `prdimage_type`) VALUES (?,?,?)";
+	$statement1 = $dbcon->prepare($query1);
+	$statement1->bind_param('isi', $pid, $mainimage, MAINIMG);
+
+	if(!$statement1->execute()){
+	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+	}
+	$statement1->bind_param( 'isi', $pid, $alt1img, ALTERNATE1IMG);
+
+	if(!$statement1->execute()){
+	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+	}
+
+	$statement1->bind_param( 'isi', $pid, $alt2img, ALTERNATE2IMG);
+
+	if(!$statement1->execute()){
+	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+	}
+
+	if($promoted == "1") {
+		$statement1->bind_param( 'isi', $pid, $promotedimage, PROMOTEDIMG);
+
+		if(!$statement1->execute()){
+		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+		}
+	}
+	if($featured == "1") {
+		$statement1->bind_param( 'isi', $pid, $featuredimage, FEATUREDIMG);
+
+		if(!$statement1->execute()){
+		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+		}
+	}
+	$statement1->close();
+
     	}
     	else if($mode == "edit") {
-    	 //run the update query for the $pid.
+    	 	//run the update query for the $pid.
+    	 	//UPDATE tblFacilityHrs SET title =? description = ? WHERE uid = ?
+    	 	$updQuery1 =  "UPDATE products SET `name` = ?, `price` = ?, `item` = ?, `category` = ?, `status` = ?, `shortdesc` = ?, `detaildesc` = ?, `addinfo` = ?, `featured` = ?, `promoted` = ?, `addedUsertype` = ?, `addedbyUserEmail` = ?, `quantity`=? WHERE productid=$pid ";
+
+    	 	$stmt = $dbcon->prepare($updQuery1);
+		$stmt->bind_param('sdiiisssiiisi', $pname, floatval($price), intval($pitem), intval($pcategory), intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), intval($promoted), $curr_userType, $curr_userEmail, intval($pquantity) );
+		if(!$stmt->execute()){
+		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+		}
+		$stmt->close();
+
+		//prdimages table update
+		if (strpos($mainimage,'ERROR') === false){
+			$updQry2 = "UPDATE productimages SET `prdimage_name` =?  WHERE prdid = $pid AND prdimage_type='".MAINIMG."'";
+			if (!mysqli_query($dbcon, $updQry2)) {
+				 echo "Error updating record: " . mysqli_error($dbcon);
+			}
+		}
+		if (strpos($alt1image,'ERROR') === false){
+			$updQry2 = "UPDATE productimages SET `prdimage_name` =?  WHERE prdid = $pid AND prdimage_type='".ALTERNATE1IMG."'";
+			if (!mysqli_query($dbcon, $updQry2)) {
+				 echo "Error updating record: " . mysqli_error($dbcon);
+			}
+		}
+		if (strpos($alt2image,'ERROR') === false){
+			$updQry2 = "UPDATE productimages SET `prdimage_name` =?  WHERE prdid = $pid AND prdimage_type='".ALTERNATE2IMG."'";
+			if (!mysqli_query($dbcon, $updQry2)) {
+				 echo "Error updating record: " . mysqli_error($dbcon);
+			}
+		}
+		if (strpos($featuredimage,'ERROR') === false){
+			$updQry2 = "UPDATE productimages SET `prdimage_name` =?  WHERE prdid = $pid AND prdimage_type='".FEATUREDIMG."'";
+			if (!mysqli_query($dbcon, $updQry2)) {
+				 echo "Error updating record: " . mysqli_error($dbcon);
+			}
+		}
+		if (strpos($promotedimage,'ERROR') === false){
+			$updQry2 = "UPDATE productimages SET `prdimage_name` =?  WHERE prdid = $pid AND prdimage_type='".PROMOTEDIMG."'";
+			if (!mysqli_query($dbcon, $updQry2)) {
+				 echo "Error updating record: " . mysqli_error($dbcon);
+			}
+		}
+
     	}
     }
     else {

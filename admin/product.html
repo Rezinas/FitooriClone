@@ -3,14 +3,6 @@ $categoriesArr= explode("|", CATEGORY) ;
 $category_codesArr=array_map('intval', explode('|', CATEGORY_CODES));
 $itemsArr= explode("|", PRD_ITEM) ;
 $item_codesArr=array_map('intval', explode('|', PRD_ITEM_CODE));
-
-if($currenttab == "productedit") {
-    // retireve the product to edit
-    //echo "product id is  = ". $_GET["id"];
-}
-else {
-    //reset the array of values for  the product
-}
 ?>
 
 
@@ -20,8 +12,8 @@ else {
             <div class="panel-heading"><?php echo ($mode == "new") ? "New" : "Update"; ?>  Product Information   </div>
             <div class="panel-body">
             <form  role="form" name="productForm"  id="productForm" enctype="multipart/form-data" action="dashboard.php?product" method="POST">
-                        <input type="hidden" name="mode" <?php if( $mode  != "") echo "value='$mode;'" ?> />
-                        <input type="hidden" name="product_id" <?php if( $pid  != "") echo "value='$pid;'" ?> />
+                        <input type="hidden" name="mode" <?php if( $mode  != "") echo "value='$mode'"; ?> />
+                        <input type="hidden" name="product_id" <?php if( $pid  != "") echo "value='$pid'"; ?> />
 
                     <div class="row">
                         <div class="col-md-4">
@@ -31,7 +23,7 @@ else {
                             </div>
                               <div class="form-group">
                                 <label>ShortDescription</label>
-                                <textarea class="form-control" name="sdesc"  rows="6"><?php echo html_entity_decode($sdesc); ?></textarea>
+                                <textarea class="form-control" name="sdesc"  rows="6" placeholder="Enter Short Description here..." ><?php echo html_entity_decode($sdesc); ?></textarea>
                             </div>
                         </div><!-- col end-->
                         <div class="col-md-4">
@@ -41,7 +33,7 @@ else {
                             </div>
                               <div class="form-group">
                                 <label>Detailed Description</label>
-                                <textarea class="form-control" name="pdesc" rows="6"><?php echo html_entity_decode($pdesc); ?></textarea>
+                                <textarea class="form-control" name="pdesc" rows="6" placeholder="Enter Detailed Description here..." ><?php echo html_entity_decode($pdesc); ?></textarea>
                             </div>
                         </div><!-- col end -->
                         <div class="col-md-4">
@@ -51,7 +43,7 @@ else {
                             </div>
                             <div class="form-group">
                                 <label>Additional Information</label>
-                                <textarea class="form-control" name="addinfo" rows="6"><?php echo html_entity_decode($addinfo); ?></textarea>
+                                <textarea class="form-control" name="addinfo" rows="6" placeholder="Enter Additional Information here..." ><?php echo html_entity_decode($addinfo); ?></textarea>
                             </div>
                         </div><!-- col end-->
                     </div> <!-- row end-->
@@ -119,7 +111,7 @@ else {
                             <div class="form-group">
                                 <label>Product Main Image</label>
                                 <div class="input-group"  id="mainfile">
-                                    <input type="text" class="form-control" readonly="" <?php  if(strpos($mainimage,'ERROR') === false )  echo  "value='$mainimage'"; ?> >
+                                    <input type="text" class="form-control" id="mainreadonly" readonly="" <?php  if(strpos($mainimage,'ERROR') === false && $mode == "edit")  echo  "value='$mainimage'"; ?> >
                                     <span class="input-group-btn">
                                         <span class="btn btn-primary btn-file">
                                             Browse… <input type="file" name="mainfile">
@@ -128,7 +120,7 @@ else {
                                 </div>
                             </div>
                             <div class="imgpreview">
-                            <?php if(strpos($mainimage,'ERROR') === false )  { ?>
+                            <?php if(strpos($mainimage,'ERROR') === false && $mode == "edit")  { ?>
                                 <img src='<?php echo SITE_URL.PRDIMGDIR."/".$mainimage; ?>' class="img-responsive" alt="">
                                 <?php  } ?>
                             </div>
@@ -137,7 +129,7 @@ else {
                             <div class="form-group">
                                 <label>Product Alt Image 1</label>
                                 <div class="input-group"  id="alt1file">
-                                        <input type="text" class="form-control" readonly="" <?php  if(strpos($alt1image,'ERROR') === false )  echo  "value='$alt1image'"; ?> >
+                                        <input type="text" class="form-control" id="alt1readonly" readonly="" <?php  if(strpos($alt1image,'ERROR') === false && $mode == "edit")  echo  "value='$alt1image'"; ?> >
                                         <span class="input-group-btn">
                                             <span class="btn btn-primary btn-file">
                                                 Browse… <input type="file" name="alt1file">
@@ -146,7 +138,7 @@ else {
                                 </div>
                             </div>
                             <div class="imgpreview">
-                            <?php if(strpos($alt1image,'ERROR') === false )  { ?>
+                            <?php if(strpos($alt1image,'ERROR') === false && $mode == "edit")  { ?>
                                 <img src='<?php echo SITE_URL.PRDIMGDIR."/".$alt1image; ?>' class="img-responsive" alt="">
                                 <?php  } ?>
                             </div>
@@ -155,7 +147,7 @@ else {
                             <div class="form-group">
                                 <label>Product Alt Image 2</label>
                                 <div class="input-group" id="alt2file">
-                                        <input type="text" class="form-control" readonly="" <?php  if(strpos($alt2image,'ERROR') === false )  echo  "value='$alt2image'"; ?> >
+                                        <input type="text" class="form-control" id="alt2readonly" readonly="" <?php  if(strpos($alt2image,'ERROR') === false && $mode == "edit")  echo  "value='$alt2image'"; ?> >
                                         <span class="input-group-btn">
                                             <span class="btn btn-primary btn-file">
                                                 Browse… <input type="file" name="alt2file">
@@ -164,7 +156,7 @@ else {
                                 </div>
                             </div>
                             <div class="imgpreview" >
-                                <?php if(strpos($alt2image,'ERROR') === false )  { ?>
+                                <?php if(strpos($alt2image,'ERROR') === false && $mode == "edit")  { ?>
                                 <img src='<?php echo SITE_URL.PRDIMGDIR."/".$alt2image; ?>'  class="img-responsive" alt="">
                                 <?php  } ?>
                             </div>
