@@ -19,8 +19,7 @@ if(!empty($username)){
     <title>Admin Login</title>
     <link href="../css/bootstrap.css" rel="stylesheet" />
     <link href="../css/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/main-style.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
 </head>
 <body class="body-Login-back">
 

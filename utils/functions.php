@@ -11,6 +11,10 @@
 		$username = ($_SESSION['username']);
 	}
 
+
+/* global variables */
+
+
 /*
  * image utility function used while uploading images.
 */
@@ -143,4 +147,38 @@ function GetImageExtension($imagetype)
             default: return false;
         }
 }
+
+
+function prepare_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+function uploadPrdImage($origFile, $filename, $filerror ){
+    $destFile = "../".PRDIMGDIR."/".$filename;
+    if ( move_uploaded_file ($origFile, $destFile) ){
+        return  $filename;
+    }
+else      {
+        $file_err = '';
+        switch ($filerror)
+         {  case 1:
+                   $file_err .= 'The file is bigger than this PHP installation allows';
+                   break;
+            case 2:
+                   $file_err .= 'The file is bigger than this form allows';
+                   break;
+            case 3:
+                   $file_err .= 'Only part of the file was uploaded';
+                   break;
+            case 4:
+                   $file_err .= 'No file was uploaded';
+                   break;
+         }
+        return "ERROR =".$file_err;
+       }
+}
+
 ?>

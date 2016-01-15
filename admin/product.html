@@ -1,94 +1,265 @@
-            <div class="row">
-                <!-- Page Header -->
-                <div class="col-lg-12">
-                    <h1 class="page-header">Manage Product</h1>
-                </div>
-                <!--End Page Header -->
-            </div>
+<?php
+$categoriesArr= explode("|", CATEGORY) ;
+$category_codesArr=array_map('intval', explode('|', CATEGORY_CODES));
+$itemsArr= explode("|", PRD_ITEM) ;
+$item_codesArr=array_map('intval', explode('|', PRD_ITEM_CODE));
 
-            <div class="row">
-                <!-- Welcome -->
-                <div class="col-lg-12">
-                                      <!-- Form Elements -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Basic Form Elements
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                    <form role="form">
-
-                                <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input class="form-control" name="pname" placeholder="Enter Product Name">
-                                        </div>
-                                      <div class="form-group">
-                                            <label>Price</label>
-                                            <input class="form-control" name="pprice" placeholder="Enter Product Price">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea class="form-control" name="pdesc" rows="3"></textarea>
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Featured</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">Yes
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">No
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Category</label>
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
+if($currenttab == "productedit") {
+    // retireve the product to edit
+    //echo "product id is  = ". $_GET["id"];
+}
+else {
+    //reset the array of values for  the product
+}
+?>
 
 
-                                        <div class="form-group">
-                                            <label>Availability</label>
-                                            <select class="form-control">
-                                                <option>Yes</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
+<h2 class="page-header">Manage Product</h2>
+<div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading"><?php echo ($mode == "new") ? "New" : "Update"; ?>  Product Information   </div>
+            <div class="panel-body">
+            <form  role="form" name="productForm"  id="productForm" enctype="multipart/form-data" action="dashboard.php?product" method="POST">
+                        <input type="hidden" name="mode" <?php if( $mode  != "") echo "value='$mode;'" ?> />
+                        <input type="hidden" name="product_id" <?php if( $pid  != "") echo "value='$pid;'" ?> />
 
-                                        <div class="form-group">
-                                            <label>Status</label>
-                                            <select class="form-control">
-                                                <option>Active</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-
-                                </div>
-                                <div class="col-lg-6">
-
-                                </div>
-                                    </form>
-
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control" name="pname" placeholder="Enter Product Name" <?php if( $pname  != "") echo "value='$pname'"; ?> ">
                             </div>
+                              <div class="form-group">
+                                <label>ShortDescription</label>
+                                <textarea class="form-control" name="sdesc"  rows="6"><?php echo html_entity_decode($sdesc); ?></textarea>
+                            </div>
+                        </div><!-- col end-->
+                        <div class="col-md-4">
+                                <div class="form-group">
+                                <label>Price</label>
+                                <input class="form-control" name="pprice" placeholder="Enter Product Price"  <?php if( $pprice  != "") echo "value='$pprice'"; ?> ">
+                            </div>
+                              <div class="form-group">
+                                <label>Detailed Description</label>
+                                <textarea class="form-control" name="pdesc" rows="6"><?php echo html_entity_decode($pdesc); ?></textarea>
+                            </div>
+                        </div><!-- col end -->
+                        <div class="col-md-4">
+                             <div class="form-group">
+                                <label>Quantity</label>
+                                <input class="form-control" name="pquantity" placeholder="Enter Product Quantity"  <?php if( $pquantity  != "") echo "value='$pquantity'"; ?> ">
+                            </div>
+                            <div class="form-group">
+                                <label>Additional Information</label>
+                                <textarea class="form-control" name="addinfo" rows="6"><?php echo html_entity_decode($addinfo); ?></textarea>
+                            </div>
+                        </div><!-- col end-->
+                    </div> <!-- row end-->
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select name="pcategory" id="pcategory" class="form-control">
+                                <option value=''>Select Category</option>
+                                <?php
+
+                                    foreach($categoriesArr as $catkey=>$category) {
+                                        $catkey++;
+                                        echo  "<option value='$catkey'";
+                                         echo ($pcategory  == $catkey) ?   "selected" : "";
+                                         echo  ">$category</option>";
+                                    }
+                                ?>
+                                </select>
+                            </div>
+                        </div><!-- col end -->
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Item</label>
+                                <select  name="pitem" id="pitem" class="form-control">
+                                <option value=''>Select Item</option>
+
+                                  <?php
+                                    foreach($itemsArr as  $itemkey=>$item) {
+                                        $itemkey++;
+                                        echo  "<option value='$itemkey'";
+                                         echo ($pitem  == $itemkey) ?   "selected" : "";
+                                         echo  ">$item</option>";
+                                     }
+                                ?>
+                                </select>
+                            </div>
+                        </div> <!-- col end -->
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Availability</label>
+                                <select name="pavail" id="pavail" class="form-control">
+                                <option value=''>Select Availability</option>
+                                    <option value="1" <?php echo   ($pavail  == "1") ?   "selected" : "";?>>Yes</option>
+                                    <option value="0" <?php echo   ($pavail  == "0") ?   "selected" : "";?>>No</option>
+                                </select>
+                            </div>
+                        </div><!-- col end -->
+                        <div class="col-md-3">
+                                       <div class="form-group">
+                                <label>Status</label>
+                                <select name="pstatus" id="pstatus" class="form-control">
+                                <option value=''>Select Status</option>
+                                    <option value="1" <?php echo   ($pstatus  == "1") ?   "selected" : "";?>>Active</option>
+                                    <option value="0" <?php echo   ($pstatus  == "0") ?   "selected" : "";?>>Inactive</option>
+                                </select>
+                            </div>
+                        </div><!-- col end -->
+                    </div><!-- row end -->
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Product Main Image</label>
+                                <div class="input-group"  id="mainfile">
+                                    <input type="text" class="form-control" readonly="" <?php  if(strpos($mainimage,'ERROR') === false )  echo  "value='$mainimage'"; ?> >
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-primary btn-file">
+                                            Browse… <input type="file" name="mainfile">
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="imgpreview">
+                            <?php if(strpos($mainimage,'ERROR') === false )  { ?>
+                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$mainimage; ?>' class="img-responsive" alt="">
+                                <?php  } ?>
+                            </div>
+                        </div><!-- col end -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Product Alt Image 1</label>
+                                <div class="input-group"  id="alt1file">
+                                        <input type="text" class="form-control" readonly="" <?php  if(strpos($alt1image,'ERROR') === false )  echo  "value='$alt1image'"; ?> >
+                                        <span class="input-group-btn">
+                                            <span class="btn btn-primary btn-file">
+                                                Browse… <input type="file" name="alt1file">
+                                            </span>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="imgpreview">
+                            <?php if(strpos($alt1image,'ERROR') === false )  { ?>
+                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$alt1image; ?>' class="img-responsive" alt="">
+                                <?php  } ?>
+                            </div>
+                        </div><!-- col end -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Product Alt Image 2</label>
+                                <div class="input-group" id="alt2file">
+                                        <input type="text" class="form-control" readonly="" <?php  if(strpos($alt2image,'ERROR') === false )  echo  "value='$alt2image'"; ?> >
+                                        <span class="input-group-btn">
+                                            <span class="btn btn-primary btn-file">
+                                                Browse… <input type="file" name="alt2file">
+                                            </span>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="imgpreview" >
+                                <?php if(strpos($alt2image,'ERROR') === false )  { ?>
+                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$alt2image; ?>'  class="img-responsive" alt="">
+                                <?php  } ?>
+                            </div>
+                        </div><!-- col end -->
+                    </div><!-- row end -->
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Featured</label>
+                                <div class="radio" id="featuredRadio">
+                                    <label>
+                                        <input type="radio" name="featured"  value="1" <?php echo   ($featured  == "1") ?   "checked" : "";?>>Yes
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="featured"  value="0" <?php echo   ($featured  == "0") ?   "checked" : "";?>>No
+                                    </label>
+                                </div>
+                            </div>
+                        </div><!-- col end -->
+                        <div class="col-md-4">
+                            <div class="form-group  featuredImgdiv hide">
+                                <label>Featured Image</label>
+                                <div class="input-group" id="featuredfile">
+                                        <input type="text" class="form-control" readonly="" <?php  if(strpos($featuredimage,'ERROR') === false  && $featured == "1" )  echo  "value='$featuredimage'"; ?> >
+                                        <span class="input-group-btn">
+                                            <span class="btn btn-primary btn-file">
+                                                Browse… <input type="file" name="featuredfile">
+                                            </span>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="imgpreview">
+                                <?php if(strpos($featuredimage,'ERROR') === false  && $featured == "1")  { ?>
+                                <img src="../productImages/<?php echo $featuredimage; ?>" class="img-responsive" alt="">
+                                <?php  } ?>
+                            </div>
+                        </div><!-- col end -->
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Promoted</label>
+                                <div class="radio" id="promotedRadio">
+                                    <label>
+                                        <input type="radio" name="promoted" value="1" <?php echo   ($promoted  == "1") ?   "checked" : "";?>>Yes
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="promoted"  value="0" <?php echo   ($promoted  == "0") ?   "checked" : "";?>>No
+                                    </label>
+                                </div>
+                            </div>
+                        </div><!-- col end -->
+                        <div class="col-md-4 ">
+                            <div class="form-group hide promotedImgdiv">
+                                <label>Promoted Image</label>
+                                <div class="input-group"  id="promotedfile">
+                                        <input type="text" class="form-control" readonly="" <?php  if(strpos($promotedimage,'ERROR') === false && $promoted == "1" )  echo  "value='$promotedimage'"; ?> >
+                                        <span class="input-group-btn">
+                                            <span class="btn btn-primary btn-file">
+                                                Browse… <input type="file" name="promotedfile">
+                                            </span>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="imgpreview">
+                            <?php if(strpos($promotedimage,'ERROR') === false  && $promoted == "1" )  { ?>
+                                <img src="../productImages/<?php echo $promotedimage; ?>" class="img-responsive" alt="">
+                                <?php  } ?>
+                            </div>
+                        </div><!-- col end -->
+
+                    </div><!-- row end -->
+
+                    <div class="row  formsubmit">
+                        <div class="col-lg-12">
+                                        <center>
+                                           <button type="submit" class="btn btn-success" name="submit">
+                                               <?php
+                                                 if($mode == "new")
+                                                    echo "Add New Product";
+                                                else
+                                                    echo "Update Product";
+                                                ?>
+                                           </button>
+
+                                            <?php
+                                              if($mode == "edit") { ?>
+                                                     <a href="#" class="btn btn-primary">View Product</a>
+                                              <?php }  else  { ?>
+                                                <button type="reset" class="btn btn-default">Reset Form</button>
+                                             <?php } ?>
+                                        </center>
                         </div>
                     </div>
-                     <!-- End Form Elements -->
-                </div>
-                <!--end  Welcome -->
-            </div>
+                </form>
+            </div> <!-- panel body ends-->
+        </div> <!-- panel ends -->
+</div> <!-- container ends -->

@@ -29,7 +29,7 @@ if(isset($_POST['login']))
     }
     else
     {
-      echo  ERROR;
+      echo  ERROR." LOGIN QUERY: ".$check_user;
     }
 }
 ?>

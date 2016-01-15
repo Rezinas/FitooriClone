@@ -57,5 +57,6 @@
 	define('DISCOUNT_TYPE_RUPEES' , 1);
 	define('DISCOUNTTYPE_PERCENT' , 2);
 
+	define('PRDIMGDIR', "productImages");
 
 ?>

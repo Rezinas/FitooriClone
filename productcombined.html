@@ -5,8 +5,7 @@ $category_codesArr=array_map('intval', explode('|', CATEGORY_CODES));
 $itemsArr= explode("|", PRD_ITEM) ;
 $item_codesArr=array_map('intval', explode('|', PRD_ITEM_CODE));
 ?>
-
-	<div class="products">
+<h2>Admin Product Search</h2>
 		<div class="container">
 			<div class="col-md-9 product-model-sec">
 				<div class="product-grid">
@@ -245,70 +244,103 @@ $item_codesArr=array_map('intval', explode('|', PRD_ITEM_CODE));
 				</div>
 			</div>
 			<div class="col-md-3 rsidebar span_1_of_left">
-				<section  class="sky-form">
-					<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
-					<div class="row row1 scroll-pane">
-						<div class="col col-4">
-							<?php
-								foreach($categoriesArr as $catkey=>$category) {
-									echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$category.' </label>';
-								}
-							?>
+				<form>
+					<?php if(isset($_SESSION['agentId'])) {   ?>
+					<section  class="sky-form">
+						<div class="row scroll-pane">
+							<div class="col col-4 admin-search">
+								<div class="form-group input-group">
+					                                            <input type="text" class="form-control">
+					                                            <span class="input-group-btn">
+					                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+					                                                </button>
+					                                            </span>
+				                                        </div>
+							</div>
 						</div>
-					</div>
-				</section>
-				<section  class="sky-form">
-					<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
-					<div class="row row1 scroll-pane">
-						<div class="col col-4">
-							<?php
-								foreach($itemsArr as  $itemkey=>$item) {
-									echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
-								}
-							?>
+					</section>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Product Status</h4>
+						<div class="row scroll-pane">
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Active</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Inactive</label>
+							</div>
 						</div>
-					</div>
-				</section>
-				<section  class="sky-form">
-					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
-					<div class="row row1 scroll-pane">
-						<div class="col col-4">
-							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
+					</section>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Product Availability</h4>
+						<div class="row scroll-pane">
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Available</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Unavailable</label>
+							</div>
 						</div>
-						<div class="col col-4">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>70% - 60% (5)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>50% - 40% (7)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (2)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (5)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+					</section>
+					<?php  } ?>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<?php
+									foreach($categoriesArr as $catkey=>$category) {
+										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$category.' </label>';
+									}
+								?>
+							</div>
 						</div>
-					</div>
-				</section>
-				<section  class="sky-form">
-					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
-					<ul class="dropdown-menu1">
-						<li><a href="">
-							<div id="slider-range"></div>
-							<input type="text" id="amount" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
-							</a></li>
-					</ul>
-				</section>
-				<section  class="sky-form">
-					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Color</h4>
-					<div class="row row1 scroll-pane">
-						<div class="col col-4">
-							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>White</label>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
+						<ul class="dropdown-menu1">
+							<li><a href="">
+								<div id="slider-range"></div>
+								<input type="text" id="amount" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
+								</a></li>
+						</ul>
+					</section>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+								<?php
+									foreach($itemsArr as  $itemkey=>$item) {
+										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
+									}
+								?>
+							</div>
 						</div>
-						<div class="col col-4">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Pink</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Gold</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Silver</label>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
+							</div>
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>70% - 60% (5)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>50% - 40% (7)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (2)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (5)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+							</div>
 						</div>
-					</div>
-				</section>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>RATING</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
+							</div>
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+							</div>
+						</div>
+					</section>
+				</form>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
-	</div>
