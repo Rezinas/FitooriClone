@@ -646,7 +646,7 @@ span.glyphicon.glyphicon-eye-open {
     border: 1px solid #eee;
 }
 .gallery-grids {
-    margin-top: 3em;
+    margin-top: 6em;
 }
 .galy-info p {
     font-size: 1em;
@@ -2199,16 +2199,17 @@ span.glyphicon.glyphicon-map-marker {
 	display: inline-block;
 	background:  #fff;
 	border: 1px solid #5D4B33;
-	width: 32.3%;
+	/*width: 32.3%;*/
+    width: 28%;
 	outline: none;
 	padding: 10px 15px 10px 15px;
 	font-size: 13px;
 	color: #999;
 	margin-bottom: 1.5em;
 }
-.contact-form input[type="text"]:nth-child(2) {
+/*.contact-form input[type="text"]:nth-child(2) {
     margin: 0 1em;
-}
+}*/
 .contact-form textarea {
 	background: #fff;
 	border: 1px solid #5D4B33;
@@ -2221,6 +2222,17 @@ span.glyphicon.glyphicon-map-marker {
 	resize: none;
 	padding: 10px 15px 10px 15px;
 	margin-bottom: 1em;
+}
+.contact-form select {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #5D4B33;
+    width: 15%;
+    outline: none;
+    padding: 10px 15px 10px 15px;
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 1.5em;
 }
 .contact-form .btn1 {
     border: 2px solid #F07818;
