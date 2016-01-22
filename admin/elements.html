@@ -1,0 +1,73 @@
+<?php
+$categoriesArr= explode("|", CATEGORY) ;
+$itemsArr= explode("|", PRD_ITEM) ;
+
+$qry = "SELECT pieceid, imagefile from pieceimages";
+$stmt = $dbcon->prepare($qry);
+if(!$stmt->execute()){
+    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+}
+if (!($res = $stmt->get_result()))
+	die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+$allpieces = $res->fetch_all();
+$stmt->close();
+?>
+<h2>Admin Product Search</h2>
+		<div class="container">
+			<div class="col-md-9 product-model-sec">
+			<?php
+				foreach($allpieces as $piece) { ?>
+					<div class="product-grid">
+					<a href="dashboard.php?pieces&id=<?php echo $piece[0]; ?>">
+						<div class="product-img b-link-stripe b-animate-go  thickbox">
+							<img src="../productImages/<?php echo $piece[1]; ?>" class="img-responsive" alt="">
+						</div>
+					</a>
+				</div>
+				<?php }
+			?>
+
+			</div>
+			<div class="col-md-3 rsidebar span_1_of_left">
+				<form>
+					<section  class="sky-form">
+						<div class="row scroll-pane">
+							<div class="col col-4 admin-search">
+								<div class="form-group input-group">
+					                                            <input type="text" class="form-control">
+					                                            <span class="input-group-btn">
+					                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+					                                                </button>
+					                                            </span>
+				                                        </div>
+							</div>
+						</div>
+					</section>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<?php
+									foreach($categoriesArr as $catkey=>$category) {
+										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$category.' </label>';
+									}
+								?>
+							</div>
+						</div>
+					</section>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+								<?php
+									foreach($itemsArr as  $itemkey=>$item) {
+										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
+									}
+								?>
+							</div>
+						</div>
+					</section>
+				</form>
+			</div>
+			<div class="clearfix"> </div>
+		</div>

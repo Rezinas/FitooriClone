@@ -8,6 +8,7 @@ body{
 	margin:0;
 	font-family: 'Roboto-Regular';
 	background-color:#fff;
+            padding-top: 70px;
     /*background:url('../images/background.jpg') repeat;*/
     /*background-size: cover;*/
 }
@@ -51,12 +52,14 @@ body a:hover{
 	position: relative;
 }
 nav.navbar.navbar-default {
-    background: none;
+   /* background: none;*/
+    background-color: #5D4B33;
+
 }
 nav.navbar.navbar-default {
-    background: none;
+/*    background: none;
     border: none;
-    margin: 0;
+    margin: 0;*/
 }
 h1.navbar-brand {
     font-size: 3em;
@@ -68,8 +71,8 @@ h1.navbar-brand a {
     padding: 0.2em 0;
 }
 nav.navbar.navbar-default {
-    float: left;
-    width: 82%;
+/*    float: left;
+    width: 82%;*/
     padding-left: 30px;
     /*padding-left: 235px;*/
 }
@@ -590,7 +593,7 @@ span.glyphicon.glyphicon-eye-open {
    /* left: 2%;
     width: 96%;*/
     left:4%;
-    width: 91.8%; 
+    width: 91.8%;
 	bottom: 14.6%;
 }
 .gallery-grid.glry-two .gallery-info {
@@ -1592,7 +1595,7 @@ p span.overline{
     padding: 0px 0;
     background-color: #fff;
     text-align: center;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 .explore h4 {
 
@@ -3843,7 +3846,7 @@ h2 {
         line-height: 54px;
         font-size: 24px;
     }
-    .service p {        
+    .service p {
         /*padding-top: 0px;*/
         padding-top: 18px;
         padding-bottom: 15px;

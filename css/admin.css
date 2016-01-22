@@ -1,0 +1,27 @@
+#adminNav  .navbar-default .navbar-nav > li > a {
+    padding: 23px 2px;
+    font-size: 1em;
+}
+
+.altImg img {
+	height: 80px;
+	width: 80px;
+}
+
+#carouselImg {
+	height: 225px;
+	width: 225px;
+	background: #eee;
+	position: relative;
+}
+
+.points {
+	height:10px;
+	width:10px;
+	background: red;
+	position: absolute;
+	top: 0px;
+}
+.tcoords input,  .bcoords input {
+	width: 50px;
+}

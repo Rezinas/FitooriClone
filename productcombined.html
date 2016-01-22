@@ -1,12 +1,11 @@
 <?php
-
 $categoriesArr= explode("|", CATEGORY) ;
-$category_codesArr=array_map('intval', explode('|', CATEGORY_CODES));
 $itemsArr= explode("|", PRD_ITEM) ;
-$item_codesArr=array_map('intval', explode('|', PRD_ITEM_CODE));
+
+
 ?>
 <h2>Admin Product Search</h2>
-		<div class="container">
+		<div class="row">
 			<div class="col-md-9 product-model-sec">
 				<div class="product-grid">
 					<a href="single.html">

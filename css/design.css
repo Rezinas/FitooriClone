@@ -1,0 +1,18 @@
+.slick-slide img {
+	height: 100px;
+	width: 100px;
+}
+.slick-prev {
+	left: -10px;
+}
+.slick-next {
+	right: -10px;
+}
+.slick-slider {
+	margin-bottom: 5px;
+}
+
+.selectedProduct img {
+	height: 100px;
+	width: 100px;
+}

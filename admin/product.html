@@ -1,8 +1,6 @@
 <?php
 $categoriesArr= explode("|", CATEGORY) ;
-$category_codesArr=array_map('intval', explode('|', CATEGORY_CODES));
 $itemsArr= explode("|", PRD_ITEM) ;
-$item_codesArr=array_map('intval', explode('|', PRD_ITEM_CODE));
 ?>
 
 
@@ -39,7 +37,7 @@ $item_codesArr=array_map('intval', explode('|', PRD_ITEM_CODE));
                         <div class="col-md-4">
                              <div class="form-group">
                                 <label>Quantity</label>
-                                <input class="form-control" name="pquantity" placeholder="Enter Product Quantity"  <?php if( $pquantity  != "") echo "value='$pquantity'"; ?> ">
+                                <input class="form-control" name="pquantity" placeholder="Enter Product Quantity"  <?php if( $pquantity  != "") echo "value='$pquantity'"; ?> >
                             </div>
                             <div class="form-group">
                                 <label>Additional Information</label>

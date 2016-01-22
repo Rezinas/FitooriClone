@@ -1,0 +1,45 @@
+.mycarousel {
+ /* position: absolute;*/
+  width: 500px;
+  overflow: hidden;
+  height: 200px;
+}
+
+.mycarousel .item {
+  width: 100px;
+  height: 100px;
+ /*  background: url('http://placehold.it/350x250') top left no-repeat; */
+  background-color: #eee;
+  background-size: 100%;
+  vertical-align: middle;
+  line-height: 15px;
+  font-size: 30px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.mycarousel .item center {
+  margin-top: 50%;
+}
+
+.controls a {
+  display: block;
+}
+
+.controls .previous {
+  float: left;
+}
+
+.controls .next {
+  float: right;
+}
+
+.selection {
+  font-size: 35px;
+  border: 1px solid;
+  width: 100px;
+  height: 100px;
+}
+
+.selection, .options {
+  display: none;
+}
