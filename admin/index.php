@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
 
 //$_SESSION['current_page'] = "admins";

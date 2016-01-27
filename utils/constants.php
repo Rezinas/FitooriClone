@@ -25,7 +25,7 @@
 	define('GUEST',  2);
 
 
-	define('CATEGORY', 'Beaded|Fashion|Terracota|Quilled');
+	define('CATEGORY', 'All|Beaded|Fashion|Terracota|Quilled');
 	define('PRD_ITEM', 'Anklets|Bangles|Earrings|Necklace|Pendant Sets');
 
 	define('CAT_BEADED', 1);

@@ -1,11 +1,11 @@
-#adminNav  .navbar-default .navbar-nav > li > a {
+.adminNav .navbar-nav > li > a {
     padding: 23px 2px;
     font-size: 1em;
 }
 
 .altImg img {
-	height: 80px;
-	width: 80px;
+	height: 100px;
+	width: auto;
 }
 
 #carouselImg {
@@ -24,4 +24,9 @@
 }
 .tcoords input,  .bcoords input {
 	width: 50px;
+}
+
+.product-img img {
+	height: 100px;
+	width: auto;
 }

@@ -35,7 +35,7 @@
     helper([], 0);
     return r;
 }
-function getFileInpHTML(inpindex, ctArr){
+function getFileInpHTML(ctArr){
      return  '<div class="col-md-2"><div class="input-group " >'+
                     '<input type="text" class="form-control" readonly="">'+
                    ' <span class="input-group-btn">'+
@@ -53,11 +53,38 @@ function getFilePreviewHTM(ctArr) {
                   '<img src="../images/placeholder.png">'+
               '</div>';
 }
-function getFileRowHTML(idx, ctArr){
-  return '<div class="row altImg" id="'+ctArr[0]+'_' +ctArr[1]+ '">'+ getFileInpNameHTML(ctArr) +getFileInpHTML(idx, ctArr)+getFilePreviewHTM(ctArr) +' </div>';
+function getFileRowHTML(ctArr){
+  return '<div class="row altImg" id="'+ctArr[0]+'_' +ctArr[1]+ '">'+ getFileInpNameHTML(ctArr) +getFileInpHTML(ctArr)+getFilePreviewHTM(ctArr) +' </div>';
 }
 
-function showFileInp() {
+function bringback(domElem, ctArr){
+  var self =  this;
+  self.ctArr = ctArr;
+  var result = null;
+  $.each(domElem, function(index, domE){
+    if(domE.id == self.ctArr[0]+'_' +self.ctArr[1]) {
+      result=domE;
+      return false;
+    }
+  });
+  return result;
+}
+
+function bringbackCoords(domElem, divName) {
+  var self= this;
+  self.divName= divName;
+  var result = null;
+  $.each(domElem, function(ind, domE){
+    if($(domE).hasClass(self.divName)) result= domE;
+    return false;
+  });
+  return result;
+}
+
+
+function showFileInp(filesDom) {
+    var self= this;
+    self.present=false;
     var selectedcolors = $("#pccolors").val();
     var selecteddesigns = $("#pcdesign").val();
     if(!selectedcolors   || !selecteddesigns) {
@@ -75,8 +102,13 @@ function showFileInp() {
               });
         }
         $.each(imageArr, function(inx, combo){
-            if(!$("#"+combo[0]+"_"+combo[1]).length)
-               $("#alternateImg").append(getFileRowHTML(inx,combo));
+            if(!$("#"+combo[0]+"_"+combo[1]).length) {
+              var bringbackDom= bringback(filesDom, combo);
+              if(bringbackDom == null)
+                  $("#alternateImg").append(getFileRowHTML(combo));
+              else
+                $("#alternateImg").append($(bringbackDom));
+            }
         });
     }
 }
@@ -94,7 +126,7 @@ var files = input.files ? input.files : input.currentTarget.files;
 }
 
 
-function xyInputs(points, ptype){
+function xyInputs(domE, points, ptype){
             var coordDiv = (ptype == "top") ? "tcoords" : "bcoords";
             var parentD =  (ptype == "top") ? "#topPdiv" :  "#bottomPdiv";
             var handleD = (ptype == "top") ? "topPoints tp" : "bottomPoints bp";
@@ -103,14 +135,22 @@ function xyInputs(points, ptype){
             var existingCoords = $("."+coordDiv).length;
             if( existingCoords < points) {
                  for(var i =existingCoords; i <points; i++ ){
-                    $(parentD).append('<div class="'+coordDiv+'  '+coordDiv+i+'"><label>x'+i+'</label><input type="text"  placeholder="x'+i+'" name="'+ptype+'x'+i +'" /> &nbsp;<label>y'+i+'</label><input type="text"  placeholder="y'+ i+'" name="'+ptype+'y'+ i+'" /></div>');
+                  var bringbackDom = bringbackCoords(domE, coordDiv+i);
+
+                  if(bringbackDom) {
+                     $(parentD).append($(bringbackDom));
+                  }
+                  else {
+                     $(parentD).append('<div class="'+coordDiv+'  '+coordDiv+i+'"><label>x'+i+'</label><input type="text"  placeholder="x'+i+'" name="'+ptype+'x'+i +'" /> &nbsp;<label>y'+i+'</label><input type="text"  placeholder="y'+ i+'" name="'+ptype+'y'+ i+'" /></div>');
+                  }
                     $("#carouselImg").append("<div class='points "+handleD+i+"'></div>");
+                    $("input[name="+ptype+"x"+i+"]").trigger("change");
                 }
             }
             else {
                 for(var i= points ; i<existingCoords; i++) {
                         $("."+coordDiv+i).remove();
-                        $(pointerD+i).remove();
+                        $("."+pointerD+i).remove();
 
                 }
             }
@@ -122,17 +162,7 @@ $(document).ready( function() {
         $('form input').on('keypress', function(e) {
             return e.which !== 13;
         });
-        // $("#carouselInp").change(function(){
-        //     readURL(this, '#carouselImg img');
-        // });
-        $("#carouselImg img").load(function() {
-                            var h=  $(this).height();
-                            var w = $(this).width();
-                            $("#carouselImg").css("height", h+"px");
-                            $("#carouselImg").css("width", w+"px");
-                            $("#carouselDimensions .imgheight").html(h);
-                            $("#carouselDimensions .imgwidth").html(w);
-         });
+
         $("#clearColors").click(function(){
             $("#pccolors").val("");
             $(".altImg").remove();
@@ -145,18 +175,18 @@ $(document).ready( function() {
 
         $("input[name=pctop]").change(function(){
             var topPoints = parseInt(this.value, 10);
-            xyInputs(topPoints, "top");
+            xyInputs(tcoordsDom, topPoints, "top");
 
         });
         $("input[name=pcbot]").change(function(){
             var botPoints = parseInt(this.value, 10);
-             xyInputs(botPoints, "bottom");
+             xyInputs(bcoordsDom, botPoints, "bottom");
         });
         $("#pccolors").blur(function(){
-            showFileInp();
+            showFileInp(filesDom);
         });
         $("#pcdesign").blur(function(){
-           showFileInp();
+           showFileInp(filesDom);
         });
 
 
@@ -186,6 +216,32 @@ $(document).on('change', '.tcoords input[type=text], .bcoords input[type=text]',
   // Does some stuff and logs the event to the console
 });
 
+        var filesDom = $(".altImg");
+        var tcoordsDom = $(".tcoords");
+        var bcoordsDom = $(".bcoords");
+
+        $.each($(".tcoords"), function(index, elem) {
+          $("#carouselImg").append("<div class='points tp"+index+"'></div>");
+        });
+
+        $.each($(".bcoords"), function(index, elem) {
+               $("#carouselImg").append("<div class='points bp"+index+"'></div>");
+          });
+
+       $("#carouselImg img").load(function() {
+                            var h=  $(this).height();
+                            var w = $(this).width();
+                            $("#carouselImg").css("height", h+"px");
+                            $("#carouselImg").css("width", w+"px");
+                            $("#carouselDimensions .imgheight").html(h);
+                            $("#carouselDimensions .imgwidth").html(w);
+         }).each(function(){
+                            if(this.complete) {
+                              $(this).trigger('load');
+                            }
+                          });
+$(".bcoords input[type=text]").trigger("change");
+$(".tcoords input[type=text]").trigger("change");
 
 $("button[type='reset']").on("click", function(event){
        $("#patterns").empty();

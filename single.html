@@ -27,7 +27,10 @@
 	$(window).load(function() {
 	  $('.flexslider').flexslider({
 		animation: "slide",
-		controlNav: "thumbnails"
+		controlNav: "thumbnails",
+		minItems : 2,
+		itemWidth: "100px",
+		direction:"vertical"
 	  });
 	});
 </script>
@@ -49,7 +52,7 @@
 				</div>
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">						
+					<ul class="nav navbar-nav">
 						<li><a href="index.html" class="active"><img src="images/home.png"/></a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
@@ -63,9 +66,9 @@
 											<li><a class="list" href="products.html">Bangles</a></li>
 											<li><a class="list" href="products.html">Earrings</a></li>
 											<li><a class="list" href="products.html">Necklace</a></li>
-											<li><a class="list" href="products.html">Pendant Sets</a></li>	
+											<li><a class="list" href="products.html">Pendant Sets</a></li>
 										</ul>
-									</div>																		
+									</div>
 									<div class="col-sm-6">
 										<h4>Category</h4>
 										<ul class="multi-column-dropdown">
@@ -87,36 +90,36 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<h4>Items</h4>
-										<ul class="multi-column-dropdown">											
+										<ul class="multi-column-dropdown">
 											<li><a class="list" href="products.html">Anklets</a></li>
 											<li><a class="list" href="products.html">Bangles</a></li>
 											<li><a class="list" href="products.html">Earrings</a></li>
 											<li><a class="list" href="products.html">Necklace</a></li>
 											<li><a class="list" href="products.html">Pendant Sets</a></li>
 										</ul>
-									</div>																		
+									</div>
 									<div class="col-sm-6">
 										<h4>Take a Tour</h4>
 										<ul class="multi-column-dropdown">
 											<li><a class="list" href="products.html"><i class="glyphicon glyphicon-film" style="    font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Videos</a></li>
-											<li><a class="list" href="products.html"><i class="glyphicon glyphicon-info-sign" style="font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Tutorials</a></li>		
+											<li><a class="list" href="products.html"><i class="glyphicon glyphicon-info-sign" style="font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Tutorials</a></li>
 										</ul>
-									</div>						
+									</div>
 								</div>
 							</ul>
-						</li>						   
-						<li class="dropdown grid">
-							<a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Offers<!--<b class="caret"></b>--></a>							
 						</li>
-						<li><a href="joinus.html">Join Us</a></li>											
-					</ul> 
+						<li class="dropdown grid">
+							<a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Offers<!--<b class="caret"></b>--></a>
+						</li>
+						<li><a href="joinus.html">Join Us</a></li>
+					</ul>
 					<!--/.navbar-collapse-->
 				</div>
 				<!--//navbar-header-->
 			</nav>
 			<div class="header-info">
 				<div class="header-right search-box">
-					<a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>				
+					<a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 					<div class="search">
 						<form class="navbar-form">
 							<input type="text" class="form-control">
@@ -124,11 +127,11 @@
 								Search
 							</button>
 						</form>
-					</div>	
+					</div>
 				</div>
 				<div class="header-right login">
 					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-					<div id="loginBox">                
+					<div id="loginBox">
 						<form id="loginForm">
 							<fieldset id="body">
 								<fieldset>
@@ -150,12 +153,12 @@
 					<a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
 						<h4><a href="checkout.html">
-							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
+							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
 						</a></h4>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
 						<div class="clearfix"> </div>
 					</div>
-				</div>	
+				</div>
 				<div class="header-right track-box">
 					<a href="#"><span aria-hidden="true"><img src="images/track.png"/></span></a>
 					<div class="track">
@@ -166,8 +169,8 @@
 								Track
 							</button></p>
 						</form>
-					</div>	
-				</div>			
+					</div>
+				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<div class="clearfix"> </div>
@@ -177,8 +180,8 @@
 	<!--//single-page-->
 	<div class="single">
 		<div class="container">
-			<div class="single-grids">				
-				<div class="col-md-4 single-grid">		
+			<div class="single-grids">
+				<div class="col-md-4 single-grid">
 					<div class="flexslider">
 						<ul class="slides">
 							<li data-thumb="images/s11.png">
@@ -189,11 +192,11 @@
 							</li>
 							<li data-thumb="images/s33.png">
 							   <div class="thumb-image"> <img src="images/s33.png" data-imagezoom="true" class="img-responsive"> </div>
-							</li> 
+							</li>
 						</ul>
 					</div>
-				</div>	
-				<div class="col-md-4 single-grid simpleCart_shelfItem">		
+				</div>
+				<div class="col-md-4 single-grid simpleCart_shelfItem">
 					<h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
 					<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 					<ul class="size">
@@ -224,7 +227,7 @@
 					</div>
 					<p class="qty"> Qty :  </p><input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">
 					<div class="btn_form">
-						<a href="#" class="add-cart item_add">ADD TO CART</a>	
+						<a href="#" class="add-cart item_add">ADD TO CART</a>
 					</div>
 					<div class="tag">
 						<p>Category : <a href="#"> Cakes</a></p>
@@ -321,98 +324,98 @@
 			<div class="product-model-sec single-product-grids">
 				<div class="product-grid single-product">
 					<a href="single.html">
-					<div class="more-product"><span> </span></div>						
+					<div class="more-product"><span> </span></div>
 					<div class="product-img b-link-stripe b-animate-go  thickbox">
 						<img src="images/m11.png" class="img-responsive" alt="">
 						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">							
+						<h4 class="b-animate b-from-left  b-delay03">
 						<button>View</button>
 						</h4>
 						</div>
 					</div>
-					</a>					
+					</a>
 					<div class="product-info simpleCart_shelfItem">
 						<div class="product-info-cust prt_name">
-							<h4>Product #1</h4>								
+							<h4>Product #1</h4>
 							<span class="item_price">$2000</span>
 							<div class="ofr">
 							  <p class="pric1"><del>$2300</del></p>
 							  <p class="disc">[15% Off]</p>
 							</div>
 							<div class="clearfix"> </div>
-						</div>												
+						</div>
 					</div>
 				</div>
 				<div class="product-grid single-product">
 					<a href="single.html">
-					<div class="more-product"><span> </span></div>						
+					<div class="more-product"><span> </span></div>
 					<div class="product-img b-link-stripe b-animate-go  thickbox">
 						<img src="images/m22.png" class="img-responsive" alt="">
 						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">							
+						<h4 class="b-animate b-from-left  b-delay03">
 						<button>View</button>
 						</h4>
 						</div>
 					</div>
-					</a>					
+					</a>
 					<div class="product-info simpleCart_shelfItem">
 						<div class="product-info-cust prt_name">
-							<h4>Product #1</h4>								
+							<h4>Product #1</h4>
 							<span class="item_price">$2000</span>
 							<div class="ofr">
 							  <p class="pric1"><del>$2300</del></p>
 							  <p class="disc">[15% Off]</p>
 							</div>
 							<div class="clearfix"> </div>
-						</div>												
+						</div>
 					</div>
 				</div>
 				<div class="product-grid single-product">
 					<a href="single.html">
-					<div class="more-product"><span> </span></div>						
+					<div class="more-product"><span> </span></div>
 					<div class="product-img b-link-stripe b-animate-go  thickbox">
 						<img src="images/m33.png" class="img-responsive" alt="">
 						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">							
+						<h4 class="b-animate b-from-left  b-delay03">
 						<button>View</button>
 						</h4>
 						</div>
 					</div>
-					</a>					
+					</a>
 					<div class="product-info simpleCart_shelfItem">
 						<div class="product-info-cust prt_name">
-							<h4>Product #1</h4>								
+							<h4>Product #1</h4>
 							<span class="item_price">$2000</span>
 							<div class="ofr">
 							  <p class="pric1"><del>$2300</del></p>
 							  <p class="disc">[15% Off]</p>
 							</div>
 							<div class="clearfix"> </div>
-						</div>												
+						</div>
 					</div>
 				</div>
 				<div class="product-grid single-product">
 					<a href="single.html">
-					<div class="more-product"><span> </span></div>						
+					<div class="more-product"><span> </span></div>
 					<div class="product-img b-link-stripe b-animate-go  thickbox">
 						<img src="images/m44.png" class="img-responsive" alt="">
 						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">							
+						<h4 class="b-animate b-from-left  b-delay03">
 						<button>view</button>
 						</h4>
 						</div>
 					</div>
-					</a>					
+					</a>
 					<div class="product-info simpleCart_shelfItem">
 						<div class="product-info-cust prt_name">
-							<h4>Product #1</h4>								
+							<h4>Product #1</h4>
 							<span class="item_price">$2000</span>
 							<div class="ofr">
 							  <p class="pric1"><del>$2300</del></p>
 							  <p class="disc">[15% Off]</p>
 							</div>
 							<div class="clearfix"> </div>
-						</div>												
+						</div>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -429,13 +432,13 @@
 					<ul>
 						<li><a href="about.html">About Us</a></li>
 						<li><a href="products.html">Products</a></li>
-						<li><a href="joinus.html">Work Here</a></li>												
+						<li><a href="joinus.html">Work Here</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
 					<h4>service</h4>
-					<ul>						
-						<li><a href="#">FAQ</a></li>						
+					<ul>
+						<li><a href="#">FAQ</a></li>
 						<li><a href="contact.html">Contact Us</a></li>
 						<li><a href="support.html">Support</a></li>
 					</ul>
@@ -445,7 +448,7 @@
 					<ul>
 						<li><a href="orderStatus.html">Order Status</a></li>
 						<li><a href="shippingPolicy.html">Shipping Policy</a></li>
-						<li><a href="returnPolicy.html">Return Policy</a></li>						
+						<li><a href="returnPolicy.html">Return Policy</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
@@ -462,7 +465,7 @@
 						<li><a href="#"><img src="images/i1.png" alt=""/>Facebook</a></li>
 						<li><a href="#"><img src="images/i2.png" alt=""/>Twitter</a></li>
 					</div>
-				</div>				
+				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>

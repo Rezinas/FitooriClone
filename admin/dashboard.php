@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
 if(empty($username)){
     //Redirect not logged in user
@@ -53,7 +54,7 @@ else {
 
    </head>
 <body>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"  >
+            <nav class="adminNav navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"  >
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>

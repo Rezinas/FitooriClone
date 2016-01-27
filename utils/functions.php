@@ -38,7 +38,10 @@ function cartesian($input) {
 
         foreach($result as $product) {
             foreach($values as $item) {
-                $product[$key] = $item;
+                if($key == 0)
+                $product['color'] = $item;
+                if($key == 1)
+                $product['design'] = $item;
                 $append[] = $product;
             }
         }
@@ -68,6 +71,8 @@ function getCurrentUserID() {
     }
 }
 
+
+
 function getCurrentUserEmail() {
    if(isset($_SESSION['useremail'])) {
         return $_SESSION['useremail'];
@@ -82,30 +87,32 @@ function prepare_input($data) {
 }
 
 
-function uploadPrdImage($origFile, $filename, $filerror ){
-    $filename = time()."_".$filename;
+function uploadPrdImage($origFile, $filename ){
+    $filename = $filename."_".time();
     $destFile = "../".PRDIMGDIR."/".$filename;
     if ( move_uploaded_file ($origFile, $destFile) ){
         return  $filename;
     }
-else      {
-        $file_err = '';
-        switch ($filerror)
-         {  case 1:
-                   $file_err .= 'The file is bigger than this PHP installation allows';
-                   break;
-            case 2:
-                   $file_err .= 'The file is bigger than this form allows';
-                   break;
-            case 3:
-                   $file_err .= 'Only part of the file was uploaded';
-                   break;
-            case 4:
-                   $file_err .= 'No file was uploaded';
-                   break;
-         }
-        return "ERROR =".$file_err;
-       }
+    // else      {
+    //     $file_err = '';
+    //     switch ($filerror)
+    //      {  case 1:
+    //                $file_err .= 'The file is bigger than this PHP installation allows';
+    //                break;
+    //         case 2:
+    //                $file_err .= 'The file is bigger than this form allows';
+    //                break;
+    //         case 3:
+    //                $file_err .= 'Only part of the file was uploaded';
+    //                break;
+    //         case 4:cartesian
+    //                $file_err .= 'No file was uploaded';
+    //                break;
+    //      }
+    //     return "ERROR =".$file_err;
+    //    }
+    else
+        return "ERROR";
 }
 
 ?>

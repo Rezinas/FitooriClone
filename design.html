@@ -15,8 +15,8 @@
 <h3>Select the first Element</h3>
 <div class="panel panel-default" style="background: #5D4B33;">
 	<div class="panel-body">
-				<slick slides-to-show=3 slides-to-scroll=1 init-onload=true data="firstSlider" class="slider multiple-items">
-				      <div ng-repeat="slide in firstSlider"><img ng-click="selectImage(slide, 0);" ng-src="http://localhost/plumms/productImages/{{slide.images[0].imagefile}}" /></div>
+				<slick slides-to-show=3 slides-to-scroll=1  init-onload=true data="firstSlider" class="slider multiple-items">
+				      <div ng-repeat="slide in firstSlider"><img ng-click="selectImage(slide, 0);" ng-src="http://localhost/plumms/productImages/{{slide.carouselImg}}" /></div>
 				</slick>
 
 	</div>
@@ -28,7 +28,7 @@
 <div class="panel panel-default" style="background: #5D4B33;">
 	<div class="panel-body">
 				<slick slides-to-show=3 slides-to-scroll=1 data="secondSlider" class="slider multiple-items">
-				      <div ng-repeat="slide in secondSlider"><img ng-click="selectImage(slide, 1);" ng-src="http://localhost/plumms/productImages/{{slide.images[0].imagefile}}" /></div>
+				      <div ng-repeat="slide in secondSlider"><img ng-click="selectImage(slide, 1);" ng-src="http://localhost/plumms/productImages/{{slide.carouselImg}}" /></div>
 				</slick>
 
 	</div>
@@ -38,7 +38,7 @@
 	</div>
 	<div class="col-md-6 selectedProduct" style="border-left: 1px solid; height: 500px">
 		<div ng-repeat="imgItem in mySelectedItems">
-			<img  ng-src="http://localhost/plumms/productImages/{{imgItem.images[0].imagefile}}" />
+			<img  ng-src="http://localhost/plumms/productImages/{{imgItem.carouselImg}}" />
 		</div>
 	</div>
 </div>

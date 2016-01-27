@@ -9,6 +9,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
     	$scope.itemModel.items = $window.model.items;
     	$scope.itemModel.selectedItem=$scope.itemModel.items[2];
     	var elements = $window.model.elements;
+
             var findTopPointsElements = function (eitems, num) {
                 var resArr = [];
                 $.each(eitems, function(ind, row){
@@ -16,14 +17,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
                 });
                 return resArr;
             };
-            var getImages= function (eArr) {
-                var imgArr = [];
-                $.each(eArr, function(ind, obj) {
-                    // console.log(obj.images[0].imagefile);
-                   imgArr.push(obj.images[0].imagefile);
-                });
-                return imgArr;
-            };
+
 
             $scope.designObj= {};
 
@@ -57,6 +51,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
 
 
 }]);
+
+/*
+
+offset = topimg_botconnpont.x - curimg_topconnpt.x
+*/
+
 
 des.factory('elementFactory', function() {
     var factory = {};

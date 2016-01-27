@@ -1,26 +1,31 @@
 <?php
 $categoriesArr= explode("|", CATEGORY) ;
 $itemsArr= explode("|", PRD_ITEM) ;
+$allpieces=[];
 
-$qry = "SELECT pieceid, imagefile from pieceimages";
+$qry = "SELECT id, carouselImg from pieces";
 $stmt = $dbcon->prepare($qry);
 if(!$stmt->execute()){
     die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 }
-if (!($res = $stmt->get_result()))
-	die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-$allpieces = $res->fetch_all();
+
+$stmt->store_result();
+$stmt->bind_result($a,$b);
+while ($stmt->fetch()) {
+    $allpieces[] = ['id' => $a, 'carouselImg' => $b];
+}
 $stmt->close();
+
 ?>
 <h2>Admin Product Search</h2>
-		<div class="container">
+		<div class="row">
 			<div class="col-md-9 product-model-sec">
 			<?php
 				foreach($allpieces as $piece) { ?>
 					<div class="product-grid">
-					<a href="dashboard.php?pieces&id=<?php echo $piece[0]; ?>">
+					<a href="dashboard.php?pieces&id=<?php echo $piece['id']; ?>">
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img src="../productImages/<?php echo $piece[1]; ?>" class="img-responsive" alt="">
+							<img src="../productImages/<?php echo $piece['carouselImg']; ?>" class="img-responsive" alt="">
 						</div>
 					</a>
 				</div>
