@@ -25,7 +25,7 @@
 	define('GUEST',  2);
 
 
-	define('CATEGORY', 'All|Beaded|Fashion|Terracota|Quilled');
+	define('CATEGORY', 'All|Beaded|Fashion|Terracota|Quilled|Metal');
 	define('PRD_ITEM', 'Anklets|Bangles|Earrings|Necklace|Pendant Sets');
 
 	define('CAT_BEADED', 1);
@@ -65,7 +65,7 @@
 	define('PROMOTEDIMG', 5);
 
 
-	define('COLORS', 'Unspecified|Red|Blue|Orange|yellow|Gold|Silver|Black|Brown|White');
-	define('TEXTURES', 'Plain|Grilled|Engraved|redWhiteCombo');
+	define('COLORS', 'Unspecified|Red|Blue|Orange|Yellow|Gold|Silver|Pink|Black|Brown|White|Green|Purple|Indigo|Aqua');
+	define('TEXTURES', 'Plain|Grilled|Engraved|Painted|DoubleTone|MutliColor');
 
 ?>

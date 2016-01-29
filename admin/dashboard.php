@@ -8,6 +8,52 @@ if(empty($username)){
       header("Location: ".SITE_URL. "admin/index.php");
 }
 
+
+
+if(isset($_GET["pieces"]) && isset($_GET["deleteid"]) ) {
+  $pieceid = trim($_GET["deleteid"]);
+  $qry = "SELECT imagefile from pieceimages  WHERE pieceid=$pieceid";
+  $stmt = $dbcon->prepare($qry);
+  if(!$stmt->execute()){
+      die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+  }
+  $stmt->store_result();
+  $stmt->bind_result($a);
+  while ($stmt->fetch()) {
+     unlink("../productImages/".$a);
+  }
+  $stmt->close();
+
+  $qry = "SELECT carouselImg from pieces  WHERE id=$pieceid";
+  $stmt = $dbcon->prepare($qry);
+  if(!$stmt->execute()){
+      die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+  }
+  $stmt->store_result();
+  $stmt->bind_result($a);
+  $imgs=[];
+  while ($stmt->fetch()) {
+    if (file_exists("../productImages/".$a)) {
+         unlink("../productImages/".$a);
+    }
+  }
+  $stmt->close();
+
+  $qry = "DELETE  from pieceimages WHERE pieceid=?";
+  $stmt1 = $dbcon->prepare($qry);
+  $stmt1->bind_param('i', $pieceid);
+  $stmt1->execute();
+  $stmt1->close();
+
+  $qry = "DELETE  from pieces WHERE id=?";
+  $stmt1 = $dbcon->prepare($qry);
+  $stmt1->bind_param('i', $pieceid);
+  $stmt1->execute();
+  $stmt1->close();
+        header("Location: ".SITE_URL. "/admin/dashboard.php?pieces");
+
+}
+
 $currenttab = "";
 if(isset($_GET["search"])) {
     $currenttab = 'search';
@@ -47,8 +93,6 @@ else {
     <link href="../css/admin.css" type="text/css" rel="stylesheet" media="all">
 
 <?php if($currenttab == "design") { ?>
-     <link rel="stylesheet" href="../css/slick.css">
-     <link rel="stylesheet" href="../css/slick-theme.css">
      <link rel="stylesheet" href="../css/design.css">
 <?php  } ?>
 

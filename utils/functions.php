@@ -88,7 +88,10 @@ function prepare_input($data) {
 
 
 function uploadPrdImage($origFile, $filename ){
-    $filename = $filename."_".time();
+
+  $path_parts = pathinfo($filename);
+ $filename = $path_parts['filename'].'_'.time().'.'.$path_parts['extension'];
+
     $destFile = "../".PRDIMGDIR."/".$filename;
     if ( move_uploaded_file ($origFile, $destFile) ){
         return  $filename;

@@ -34,7 +34,7 @@ function compareArr($origArr, $newArr){
 		foreach($newArr as $nArr) {
 			$dup = false;
 			foreach($origArr as $oArr) {
-				if($nArr['color'] == $oArr['color'] && $nArr['desgin'] == $oArr['design']) {
+				if($nArr['color'] == $oArr['color'] && $nArr['design'] == $oArr['design']) {
 					array_push($resultArr, $oArr);
 					$dup = true;
 				}
@@ -54,6 +54,7 @@ function fetchImages($p_id, $dbcon) {
 		}
 		$stmt->store_result();
 		$stmt->bind_result($a,$b, $c, $d, $e);
+		$imgs=[];
 		while ($stmt->fetch()) {
 		    $imgs[] = ['color' => $a, 'design' => $b, 'imagefile' => $c, 'imageid' => $d, 'pieceid' => $e];
 		}
@@ -87,7 +88,6 @@ $material = "";
 $tags="";
 $admintags="";
 
-
 if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
     $pieceid=trim($_GET["id"]);
     $pcmode = "edit";
@@ -104,7 +104,7 @@ if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
 	$stmt->store_result();
 	$stmt->bind_result($a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n);
 	while ($stmt->fetch()) {
-		$parr = ['id' => $a, 'carouselImg' => $b, 'bodypart' => $c, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'tags' => $l, 'admintags' => $n, 'material' => $m];
+		$parr = ['id' => $a, 'carouselImg' => $b, 'bodypart' => $c, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'tags' => $l, 'admintags' => $m, 'material' => $n];
 	}
 	$stmt->close();
 	$pieceid=$parr['id'];
@@ -125,7 +125,9 @@ if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
 }
 
 if (!empty($_POST)) {
-// var_dump($_POST);
+// echo "<pre>";
+// var_dump($_FILES);
+// echo "</pre>";
 	// if (file_exists($filename)) {
 	//unlink('path/to/file.jpg');
 	$error = "";
@@ -136,6 +138,9 @@ if (!empty($_POST)) {
 	  if(!empty($pieceid)) {
 	  	$carouselImg = prepare_input($_POST['carouselImgname']);
 		$cartesianArr = fetchImages($pieceid, $dbcon);
+// 		echo "<pre>";
+// var_dump($cartesianArr);
+// echo "</pre>";
 	  }
 
 
@@ -169,13 +174,9 @@ if (!empty($_POST)) {
 
 //TBD: Validations
 
-	var_dump($pccolors);
-	var_dump($pcdesign);
 	  if( (count($pccolors) > 0 && count($pcdesign)> 0) ) {
 	  	$newcartesianArr = cartesian(array($pccolors, $pcdesign));
 	  	$cartesianArr = compareArr($cartesianArr, $newcartesianArr);
-
-	  	var_dump($cartesianArr);
 	  	foreach($cartesianArr as $ind => &$product) {
 		  	$filename = $product['color']."_".$product['design'];
 		  	if($_FILES[$filename]['error'] == 0) {
@@ -211,6 +212,7 @@ if (!empty($_POST)) {
 	//query for pieceimages table
 	$qry = "INSERT INTO `pieceimages` (`pieceid`, `color`, `design`, `imagefile`) VALUES (?,?,?,?)";
 	$ins_stmt1 = $dbcon->prepare($qry);
+
 
 	foreach ($cartesianArr as $findex =>$prod) {
 		$ins_stmt1->bind_param('isss', $pieceid, $prod['color'], $prod['design'], $prod['imagefile']);

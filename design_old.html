@@ -1,0 +1,48 @@
+<div ng-app="cdesign">
+<h2 class="page-header">Design Product</h2>
+
+<div class="container" ng-controller="MainController">
+<div class="row">
+	<div class="col-md-6">
+	<h3 style="display:inline">I want to Design  </h3> : <div style="display:inline">
+		<select name="itemSelect" id="itemSelect" ng-model="itemModel.selectedItem">
+		      <option ng-repeat="item in itemModel.items" value="{{item}}">{{item}}</option>
+		    </select>
+	</div>
+
+<br>
+<br>
+<h3>Select the first Element</h3>
+<div class="panel panel-default" style="background: #5D4B33;">
+	<div class="panel-body">
+				<slick slides-to-show=3 slides-to-scroll=1  init-onload=true data="firstSlider" class="slider multiple-items">
+				      <div ng-repeat="slide in firstSlider"><img ng-click="selectImage(slide, 0);" ng-src="/plumms/productImages/{{slide.carouselImg}}" /></div>
+				</slick>
+
+	</div>
+</div>
+
+
+<div  ng-if="secondSlider.length > 0">
+<h3>Select the Second Element</h3>
+<div class="panel panel-default" style="background: #5D4B33;">
+	<div class="panel-body">
+				<slick slides-to-show=3 slides-to-scroll=1 data="secondSlider" class="slider multiple-items">
+				      <div ng-repeat="slide in secondSlider"><img ng-click="selectImage(slide, 1);" ng-src="/plumms/productImages/{{slide.carouselImg}}" /></div>
+				</slick>
+
+	</div>
+</div></div>
+
+
+	</div>
+	<div class="col-md-6 selectedProduct" style="border-left: 1px solid; height: 500px">
+		<div ng-repeat="imgItem in mySelectedItems">
+			<img  ng-src="/plumms/productImages/{{imgItem.carouselImg}}" />
+		</div>
+	</div>
+</div>
+
+</div><!-- container ends -->
+
+</div><!--topmost  div ends -->

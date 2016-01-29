@@ -1,5 +1,6 @@
 <?php
 $itemsArr= explode("|", PRD_ITEM) ;
+$categoriesArr= explode("|", CATEGORY) ;
 $colorsArr= explode("|", COLORS) ;
 $texturesArr= explode("|", TEXTURES) ;
 $elements =[];
@@ -14,7 +15,7 @@ $stmt->store_result();
 $stmt->bind_result($a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n);
 while ($stmt->fetch()) {
 	$row=[];
-	$row = ['id' => $a, 'carouselImg' => $b, 'bodypart' => $c, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'tags' => $l, 'tags' => $m, 'material' => $n];
+	$row = ['id' => $a, 'carouselImg' => $b, 'bodypart' => $c, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'tags' => $l, 'admintags' => $m, 'material' => $n];
 
 	$qry2 = "SELECT color, design, imagefile, imageid, pieceid from pieceimages where pieceid = ".$a;
 	$stmt1 = $dbcon->prepare($qry2);
@@ -24,6 +25,7 @@ while ($stmt->fetch()) {
 
 	$stmt1->store_result();
 	$stmt1->bind_result($a,$b, $c, $d, $e);
+	$images=[];
 	while ($stmt1->fetch()) {
 	    $images[] = ['color' => $a, 'design' => $b, 'imagefile' => $c, 'imageid' => $d, 'pieceid' => $e];
 	}
@@ -36,6 +38,7 @@ $stmt->close();
 
 $jsondata = array(
 	"items" => $itemsArr,
+	"materials" => $categoriesArr,
 	"colorsArr" => $colorsArr,
 	"textures" => $texturesArr,
 	"elements" =>$elements

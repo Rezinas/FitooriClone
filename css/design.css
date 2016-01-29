@@ -1,6 +1,6 @@
 .slick-slide img {
 	height: 100px;
-	width: 100px;
+	width: auto;
 }
 .slick-prev {
 	left: -10px;
@@ -13,6 +13,34 @@
 }
 
 .selectedProduct img {
+	height: auto;
+	width: auto;
+}
+
+label.material {
+	margin-right: 45px;
+}
+.bgProduct {
+	background: url('../images/silhout.jpg') no-repeat;
+	background-position: 0  -142px;
+	height: 450px;
+}
+
+.designDiv {
+	margin-top: 35px;
+    margin-left: 165px;
+    position: relative;
+}
+
+.felements, .aelements{
+	float: left;
+}
+.felements img, .aelements  img {
 	height: 100px;
-	width: 100px;
+	width:  auto;
+}
+
+.prd_elements {
+	position: absolute;
+	left: 0;
 }
