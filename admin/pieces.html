@@ -11,7 +11,7 @@
             <div class="row">
                   <div class="col-md-4 ">
                       <div class="form-group">
-                          <label>Enter Carousel Image</label>
+                          <label>Enter Main Image</label>
                           <div class="input-group" v>
                               <input type="text" class="form-control" readonly=""  name="carouselImgname" <?php if( $carouselImg  != "") echo "value='$carouselImg'"; ?>>
                               <span class="input-group-btn">
@@ -40,7 +40,7 @@
                             </div>
                         </center>
                     </div>
-                    <div class="col-md-3" id="topPdiv">
+                    <div class="col-md-2" id="topPdiv">
                          <div class="form-group">
                                 <label>Top Edge Points</label>
                                 <input class="form-control" name="pctop" placeholder="Enter Number of Points on Top Edge"  <?php if( $pctop  != "") echo "value='$pctop'"; ?> >
@@ -51,7 +51,7 @@
                             }
                       ?>
                 </div>
-                <div class="col-md-3" id="bottomPdiv">
+                <div class="col-md-2" id="bottomPdiv">
                      <div class="form-group ">
                                 <label>Bottom Edge Points</label>
                                 <input class="form-control" name="pcbot" placeholder="Enter Number of Points at the Bottom"  <?php if( $pcbot  != "") echo "value='$pcbot'"; ?> >
@@ -62,7 +62,10 @@
                             }
                       ?>
                 </div>
-                  <div class="col-md-2">
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
                                <div class="form-group">
                                 <label>Type of Jewelry</label>
                                 <select  name="pcbody" id="pcbody" class="form-control">
@@ -77,6 +80,45 @@
                                      }
                                 ?>
                                 </select>
+                            </div>
+                  </div>
+                   <div class="col-md-2">
+                             <div class="form-group">
+                              <label>Style</label>
+                              <select  name="pstyle" id="pstyle" class="form-control">
+                                <option value=''>Select Style</option>
+                                <?php
+                                    foreach($styleArr as $skey=>$style) {
+                                        $skey++;
+                                        echo  "<option value='$skey'";
+                                         echo ($pstyle  == $skey) ?   "selected" : "";
+                                         echo  ">$style</option>";
+                                    }
+                                ?>
+                              </select>
+                          </div>
+                  </div>
+                   <div class="col-md-2">
+                               <div class="form-group">
+                                <label>Material</label>
+                                <select name="material" id="material" class="form-control">
+                                <option value=''>Select Material</option>
+                                <?php
+
+                                    foreach($categoriesArr as $catkey=>$category) {
+                                        $catkey++;
+                                        echo  "<option value='$catkey'";
+                                         echo ($material  == $catkey) ?   "selected" : "";
+                                         echo  ">$category</option>";
+                                    }
+                                ?>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="col-md-2">
+                               <div class="form-group">
+                                <label>Admin Tags</label>
+                                <textarea class="form-control" name="admintags" rows="8" placeholder="Comma separated values.." ><?php echo html_entity_decode($admintags); ?></textarea>
                             </div>
                     </div>
             </div>
@@ -115,36 +157,6 @@
                                 </select>
                                 <br>
                                 <button type="button" class="btn btn-default pull-right" id="clearTexture">Clear Selection</button>
-                            </div>
-                    </div>
-                    <div class="col-md-2">
-                               <div class="form-group">
-                                <label>Tags</label>
-                                <textarea class="form-control" name="tags" rows="8" placeholder="Comma separated values.." ><?php echo html_entity_decode($tags); ?></textarea>
-                            </div>
-                    </div>
-                     <div class="col-md-2">
-                               <div class="form-group">
-                                <label>Admin Tags</label>
-                                <textarea class="form-control" name="admintags" rows="8" placeholder="Comma separated values.." ><?php echo html_entity_decode($admintags); ?></textarea>
-                            </div>
-                    </div>
-
-                     <div class="col-md-2">
-                               <div class="form-group">
-                                <label>Material</label>
-                                <select name="material" id="material" class="form-control">
-                                <option value=''>Select Material</option>
-                                <?php
-
-                                    foreach($categoriesArr as $catkey=>$category) {
-                                        $catkey++;
-                                        echo  "<option value='$catkey'";
-                                         echo ($material  == $catkey) ?   "selected" : "";
-                                         echo  ">$category</option>";
-                                    }
-                                ?>
-                                </select>
                             </div>
                     </div>
             </div>

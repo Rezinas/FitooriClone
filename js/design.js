@@ -11,6 +11,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
 
         $scope.itemModel.materials = $window.model.materials;
         $scope.itemModel.selectedMaterial = "";
+        $scope.itemModel.styles = $window.model.styles;
+        $scope.itemModel.selectedStyle = "";
+
 
         $scope.uniqueTags = [];
         $scope.designObj = {};
@@ -20,19 +23,39 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.tagFilterSelected = [];
         $scope.designLevel = 0;
         $scope.myProductImgs = [];
-
+        $scope.pageSize = 12;
+        $scope.currentPage = 0;
         var elements = $window.model.elements;
         var tags = "";
 
-        var findConnectionElements = function(eitems, num) {
+        var findConnectionElements = function(eitems) {
             var resArr = [];
+            var prevItem;
+            var topPoints = 0;
+
+            if ($scope.designLevel != 0) {
+                prevItem = $scope.mySelectedItems[$scope.designLevel - 1];
+                topPoints = prevItem.bottompoints;
+            }
+            if ($scope.designLevel != 0 && topPoints == 0) {
+                return resArr;
+            }
+
             $.each(eitems, function(ind, row) {
                 if ($scope.designLevel == 0) {
                     if (row.toppoints == 0) {
                         resArr.push(row);
                     }
                 } else {
-                    if (row.toppoints <= num && row.toppoints != 0) {
+                    if(row.toppoints == 1){
+                        resArr.push(row);
+                    }
+                    if (row.toppoints == topPoints && row.toppoints != 1) {
+                        var Itempoints = topPoints.split(",");
+                        var rowpoints = row.toppoints.split(",");
+                        // for(var i=0; i<Itempoints.length; i++){
+                        //     Itempoints[]
+                        // }
                         resArr.push(row);
                     }
                 }
@@ -42,27 +65,17 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
         };
 
         var getFilteredSet = function() {
-            var topPoints = 0;
-            var prevItem;
             var resArr = [];
-            if ($scope.designLevel != 0) {
-                prevItem = $scope.mySelectedItems[$scope.designLevel - 1];
-                topPoints = prevItem.bottompoints;
-            }
-            if ($scope.designLevel != 0 && topPoints == 0) {
-                return resArr;
-            }
 
-            var currentFilteredElements = findConnectionElements($scope.designObj.Earrings, topPoints);
-            var matIndex = $.inArray($scope.itemModel.selectedMaterial, model.materials);
+            var currentFilteredElements = findConnectionElements($scope.designObj.Earrings);
+            var matIndex = $.inArray($scope.itemModel.selectedMaterial, $window.model.materials);
+            var styleIndex = $.inArray($scope.itemModel.selectedStyle, $window.model.styles);
             matIndex++;
-            $.each(currentFilteredElements, function(idx, elem) {
-                $.each($scope.tagFilterSelected, function(i, tag) {
-                    //one of elem.tags (a,b,c) should be in one of tags [b,c,d]
-                    if (elem.tags.indexOf(tag) > -1 && elem.material == matIndex) {
-                        resArr.push(elem);
-                    }
-                });
+            styleIndex++;
+            $.each( currentFilteredElements, function(idx, elem) {
+                if (($scope.designLevel == 0 && elem.material == "1") || (elem.material == matIndex && elem.style == styleIndex)) {
+                    resArr.push(elem);
+                }
             });
             return resArr;
         };
@@ -78,16 +91,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
             if (element.bodypart == 1) {
                 $scope.designObj["Anklets"].push(element);
             }
-            tags += element.tags + ",";
         });
 
-        tags = tags.replace(/,\s*$/, "");
-        tags = tags.replace(/\s*,\s*/, ",");
-        tags = tags.split(",");
-        tags = tags.filter(function(itm, i, a) {
-            itm = itm.trim();
-            return i == a.indexOf(itm);
-        });
         $scope.uniqueTags = tags;
 
         $scope.toggleSelection = function(stag) {
@@ -109,14 +114,30 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
 
 
         $scope.selectImage = function(elem, pos, mainlist) {
-            if (mainlist) {
-                $scope.mySelectedItems.splice(pos, 1)
-                $scope.myProductImgs.splice(pos, 1);
-                $scope.mySelectedItems[pos] = elem;
-                $scope.myProductImgs[pos] = elem.images[0].imagefile;
-            } else {
-                $scope.myProductImgs[pos] = elem;
+            var bpoints = 1;
+            if(pos > 0) {
+                var prevElem = $scope.mySelectedItems[pos -1];
+                bpoints = prevElem.bottompoints;
             }
+            var tpoints = elem.toppoints;
+
+            $scope.myProductImgs.splice(pos, 1);
+            if (mainlist) {
+                $scope.mySelectedItems.splice(pos, 1);
+                if(tpoints == bpoints) {
+                     tpoints = 1; bpoints= 1;
+                }
+                for(var i=0; i< bpoints; i++){
+                     $scope.mySelectedItems[pos] = elem;
+                     $scope.myProductImgs[pos] = elem.images[0].imagefile;
+                     pos++;
+                }
+            } else {
+                for (var i = 0; i < bpoints; i++) {
+                    $scope.myProductImgs[pos] = elem;
+                }
+            }
+            console.log($scope.myProductImgs);
         };
 
         $scope.updateLevel = function() {
@@ -126,6 +147,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
             } else {
                 alert("you havent selected elements for this level yet.");
             }
+
+        };
+
+        $scope.confirmDesign = function() {
 
         };
 
@@ -150,25 +175,48 @@ des.directive('prdPosition', function($timeout) {
         scope: {
             imgItem: '=',
             selectedItems: '=',
-            designLevel: '='
+            designLevel: '=',
+            elemNumber: '='
         },
         link: function(scope, element, $attrs) {
             var thisScope = scope;
             var curElem = element;
             scope.$watch('imgItem', function(newVal, oldVal) {
                 var currentItem = thisScope.selectedItems[thisScope.designLevel];
-                var topPos = '0px';
-                var leftPos = '0px';
+                var topPos = 0;
+                var leftPos = 0;
                 if (thisScope.designLevel != 0) {
-                    topPos = $(curElem).prev().height() + "px";
-                    var prevElem = thisScope.selectedItems[thisScope.designLevel - 1]
-                    leftPos = (prevElem.botX - currentItem.topX) + "px";
+                    $.each(thisScope.selectedItems, function(idx, childElem){
+                        if(idx == thisScope.designLevel) return false;
+                        if(childElem.bottompoints > 1){
+                            var botPoints = childElem.botY.split(",");
+                            topPos = topPos + parseInt(botPoints[thisScope.elemNumber], 10);
+                        }
+                        else{
+                            topPos = topPos + parseInt(childElem.botY, 10);
+                        }
+                    });
+                    // topPos = $(curElem).prev().height();
+                    var prevElem = thisScope.selectedItems[thisScope.designLevel - 1];
+                    if(prevElem.bottompoints > 0) {
+                        var tPoints = prevElem.botX.split(",");
+                        leftPos = parseInt(tPoints[thisScope.elemNumber], 10) - parseInt(currentItem.topX, 10);
+                    }
+                    else
+                        leftPos = parseInt(prevElem.botX, 10) - parseInt(currentItem.topX, 10);
                 }
-                $(curElem).css("left", leftPos);
-                $(curElem).css("top", topPos);
+                $(curElem).css("left", leftPos+"px");
+                $(curElem).css("top", topPos+"px");
             }, true);
         }
     };
+});
+
+des.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+}
 });
 
 des.factory('elementFactory', function() {

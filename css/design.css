@@ -21,26 +21,49 @@ label.material {
 	margin-right: 45px;
 }
 .bgProduct {
-	background: url('../images/silhout.jpg') no-repeat;
-	background-position: 0  -142px;
-	height: 450px;
+	/*background: url('../images/silhout.jpg') no-repeat;*/
+	/*background-position: 0  -142px;*/
+	min-height: 350px;
+	border: 1px solid black;
+
 }
 
 .designDiv {
 	margin-top: 35px;
-    margin-left: 165px;
+    margin-left: 135px;
     position: relative;
 }
 
+div.elements {
+	padding: 20px;
+	height:250px;
+	position: relative;
+    width: 600px;
+}
+.e-control {
+	position: absolute;
+	top: 30%;
+}
+.e-control.left {
+	left: 0px;
+}
+.e-control.right {
+	right: 0px;
+}
 .felements, .aelements{
 	float: left;
 }
 .felements img, .aelements  img {
-	height: 100px;
+	height: 70px;
 	width:  auto;
+	margin: 15px;
+
 }
 
 .prd_elements {
 	position: absolute;
 	left: 0;
+}
+.prd_elements.current {
+	border: 1px solid black;
 }

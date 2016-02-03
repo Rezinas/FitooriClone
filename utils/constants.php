@@ -25,27 +25,10 @@
 	define('GUEST',  2);
 
 
-	define('CATEGORY', 'All|Beaded|Fashion|Terracota|Quilled|Metal');
+	define('CATEGORY', 'All|Beaded|Quilled|Terracota|Metal');
 	define('PRD_ITEM', 'Anklets|Bangles|Earrings|Necklace|Pendant Sets');
+	define('STYLES', 'Daily Wear|Party Wear|Work Wear');
 
-	define('CAT_BEADED', 1);
-	define('CAT_FASHION', 2);
-	define('CAT_TERRACOTA', 3);
-	define('CAT_QUILLED', 4);
-
-
-	define('ITEM_ANKLETS' , 1);
-	define('ITEM_BANGLES' , 2);
-	define('ITEM_EARRINGS' , 3);
-	define('ITEM_NECKLACE' , 4);
-	define('ITEM_PENDANTS' , 5);
-
-
-	define('ANKLET_PARTS', 5);
-	define('BANGLES_PARTS', 5);
-	define('EARRINGS_PARTS', 5);
-	define('NECKLACE_PARTS', 5);
-	define('PENDANT_PARTS', 5);
 
 	define('PRD_ACTIVE', 1);
 	define('PRD_INACTIVE', 0);
