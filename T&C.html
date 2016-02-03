@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Plumms</title>
+<title>Fitoori</title>
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -37,12 +37,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1 class="navbar-brand"><a  href="index.html" style="font-family:Brush Script MT">Plumms</a></h1>
+					<h1 class="navbar-brand"><img src="images/logo1.png"  class="img-responsive" style="    position: relative;top: -13px;float: left;"/><a  href="index.html">Fitoori</a></h1>
 				</div>
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">						
-						<li><a href="index.html" class="active"><img src="images/home.png"/></a></li>
+						<li><a href="index.html" class="active">Home<!-- <img src="images/home.png"/> --></a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-3">
@@ -51,8 +51,8 @@
 										<h4>Type</h4>
 										<ul class="multi-column-dropdown">
 											<li><a class="list" href="products.html">All</a></li>
-											<li><a class="list" href="products.html">Anklets</a></li>
-											<li><a class="list" href="products.html">Bangles</a></li>
+											<!-- <li><a class="list" href="products.html">Anklets</a></li> -->
+											<li><a class="list" href="products.html">Bracelets</a></li>
 											<li><a class="list" href="products.html">Earrings</a></li>
 											<li><a class="list" href="products.html">Necklace</a></li>
 											<li><a class="list" href="products.html">Pendant Sets</a></li>	
@@ -80,8 +80,8 @@
 									<div class="col-sm-6">
 										<h4>Items</h4>
 										<ul class="multi-column-dropdown">											
-											<li><a class="list" href="products.html">Anklets</a></li>
-											<li><a class="list" href="products.html">Bangles</a></li>
+											<!-- <li><a class="list" href="products.html">Anklets</a></li> -->
+											<li><a class="list" href="products.html">Bracelets</a></li>
 											<li><a class="list" href="products.html">Earrings</a></li>
 											<li><a class="list" href="products.html">Necklace</a></li>
 											<li><a class="list" href="products.html">Pendant Sets</a></li>
@@ -139,9 +139,9 @@
 					</div>
 				</div>
 				<div class="header-right cart">
-					<a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+					<a href="checkoutCart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
-						<h4><a href="checkout.html">
+						<h4><a href="#">
 							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
 						</a></h4>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
@@ -169,15 +169,91 @@
 	<div class="about">
 		<div class="container">
 			<h2>Terms & Conditions</h2>
+			<hr/>
+				<div id="OrderStatus">
+					<div class="about-infom" >
+					<!-- <h4>Miscellaneous information :</h4> -->
+					<h3><center>Order Status</center></h3>
+					<p>
+						An email is sent to you after the order is shipped. It contains the tracking number and details of the service provider. Your order status is updated to you via emails at every step. You can also track your order by clicking on the option Track Order on our web-store.If you are having trouble reading the emails or if you haven't received any updates, please get in touch with our Customer Care personnel immediately. Also you can give us a call on 080-41128219 or drop us an email at <a href="mailto:help@fitoori.com">help@fitoori.com</a>
+					</p>
+					</div>
+					
+					<div class="about-infom">
+						<h3><center>Order Cancellation</center></h3>
+						<h4>For pre-exhisting products:</h4>
+						<p>All orders are eligible for cancellation until they have not been dispatched</p>
+						<h4>For customized products:</h4>
+						<p>
+							You can cancel any order that has not yet been intiated for manufacturing process. The initiation time may vary for different products hence please check the order status before cancellation in the <b>‘Track Order’</b> page our website. In case your product is has not yet been initiated for manufacturing process you can cancel your order by sending a request to <a href="mailto:help@fitoori.com">help@fitoori.com</a>  or call us at <b>080-41128219</b>.
+						</p>
+					</div>	
+				</div>
+				<hr/>
 
-			<div class="about-infom">
-				<!-- <h4>Miscellaneous information :</h4> -->
-				
-				
-			</div>			
+				<div id="ShippingPolicy">
+					<div class="about-infom">
+						<h3><center>Shipping Policy</center></h3>
+						<!-- <h4>Miscellaneous information :</h4> -->
+						<p>
+							Once your order is confirm you will receive an email and an sms  with relevant details. Please contact our helpdesk if you are unsure.
+						</p>
+						<p>
+							<h4>Delivery time</h4>
+						</p>
+						<p>We ship-out all singular orders within 3 business days . The shipment is delivered  within  __ to __ business days(from the day of shipment)  depending on location .Although in case of multiple or bulk orders ,  since we will initiate the manufacturing process after order confirmation, delivery will take longer depending on the number of items ordered. In such cases relevant details shall be provided on the check out page while ordering. 
+						</p>
+						<p>All relevant details of your order shall be available on the ‘Track orders’ page of our website. For any further details or queries mail us at help@plumms.com or call us on 080-41128219.</p>
+						<p><h4>Delivery charges</h4></p>
+						<p>
+							Free Shipping on all orders above Rs.___. An additional charge of Rs. ____ will be levied on orders below that.
+						</p>
+					</div>
+				</div>
+				<hr/>
+				<div id="ReturnPolicy">
+					<div class="about-infom">	
+						<h3><center>Return Policy</center></h3>					
+						<h4>For pre-exhisting finished designs : </h4>
+						<p>
+							Products are eligible for return upto 10 days from the date of order confirmation.Please login and initiate a return procedure through “my orders” option under your account.You will receive a refund, to your account or you may alternately choose to receive a webstore voucher for the same amount as the price of the ordered  product. Please not that the delivery charges will not be refunded.
+						</p>
+						<h4>For customized products:</h4>
+						<p>
+							Since we are selling personally customized products we do not accept return of products once shipped. 
+						</p>
+					</div>				
+					<div class="about-infom">
+						<h3><center>Exchange</center></h3>	
+						<p>
+							Products are liable to exchange only if they are damaged or incorrect product has been delivered. In either of these cases we will resolve the issue to your satisfaction. You will need to inform us of any damages / incorrect delivery within 48 hours of delivery of the product, in order to receive the replacement. <br/>Please mail us at help@plumms.com  or call us on 080-41128219 to initiate an exchange. Please mention the following information clearly in the mail:
+						</p>
+						<ul>
+							<li>Order Number </li>
+							<li>Short description of the condition of the product at the time of delivery.</li>
+							<li>Pick-Up Address and pincode</li>
+						</ul>
+						<p>
+							Replacement will be shipped after the original item has been received in the warehouse, subject to the following conditions:
+						</p>
+						<ul>
+							<li>The item/s should be unused, unsoiled and should not be brought in contact with water.</li>
+							<li>The packaging should have the original tags in place.</li>
+						</ul>
+						<p>
+							Any returned item received by us that does not meet the above mentioned conditions will not be accepted. No amount will be reimbursed in this case. Delivery time for the replacement is ____ to ____ business days after the original product is received at the warehouse and is validated for a replacement. 
+						</p>
+						<h4>Reverse Pickup</h4>
+						<p>We provide reverse pickup service.??? If no then where to mail the return product.</p>
+						<h4>Refund</h4>
+						<p>
+							In case the replacement product  for your order is out of stock, you will receive a full refund to your account or you may alternately choose to receive a webstore voucher for the same amount as the price of the ordered  product.
+						</p>		
+					</div>
+				</div>
+			</div>
 		</div>
-		</div>
-	<!--footer-->
+			<!--footer-->
 	<div class="footer">
 		<div class="container">
 			<div class="footer-grids">
@@ -200,9 +276,9 @@
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid">
 					<h4>order & returns</h4>
 					<ul>
-						<li><a href="orderStatus.html">Order Status</a></li>
-						<li><a href="shippingPolicy.html">Shipping Policy</a></li>
-						<li><a href="returnPolicy.html">Return Policy</a></li>						
+						<li><a href="T&C.html#OrderStatus">Order Status</a></li>
+						<li><a href="T&C.html#ShippingPolicy">Shipping Policy</a></li>
+						<li><a href="T&C.html#ReturnPolicy">Return Policy</a></li>						
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
@@ -227,7 +303,7 @@
 	<!--//footer-->
 	<div class="footer-bottom">
 		<div class="container">
-			<p> © 2016 Plumms . All rights reserved.</p>
+			<p> © 2016 Fitoori . All rights reserved.</p>
 		</div>
 	</div>
 </body>

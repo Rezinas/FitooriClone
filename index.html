@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Plumms</title>
+<title>Fitoori</title>
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,6 +18,18 @@
 <!-- cart -->
 <script src="js/simpleCart.min.js"> </script>
 <!--<script src="js/custom.js"> </script>*/-->
+<style>
+#imageBox .hoverImg, #imageBox1 .hoverImg1, #imageBox2 .hoverImg2, #imageBox3 .hoverImg3  {
+            position: absolute;
+            /*left: 0;*/
+            top: 0;
+            display: none;
+        }
+        #imageBox:hover .hoverImg, #imageBox1:hover .hoverImg1, #imageBox2:hover .hoverImg2, #imageBox3:hover .hoverImg3 {
+            display: block;
+            cursor:pointer;
+        }
+</style>
 <!-- cart -->
 </head>
 <body>
@@ -32,12 +44,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1 class="navbar-brand"><a  href="index.html" style="font-family:Brush Script MT">Plumms</a></h1>
+					<h1 class="navbar-brand"><img src="images/logo1.png"  class="img-responsive" style="    position: relative;top: -13px;float: left;"/><a  href="index.html">Fitoori</a></h1>
 				</div>
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">						
-						<li><a href="index.html" class="active"><img src="images/home.png"/></a></li>
+						<li><a href="index.html" class="active">Home<!-- <img src="images/home.png"/> --></a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-3">
@@ -46,8 +58,8 @@
 										<h4>Type</h4>
 										<ul class="multi-column-dropdown">
 											<li><a class="list" href="products.html">All</a></li>
-											<li><a class="list" href="products.html">Anklets</a></li>
-											<li><a class="list" href="products.html">Bangles</a></li>
+											<!-- <li><a class="list" href="products.html">Anklets</a></li> -->
+											<li><a class="list" href="products.html">Bracelets</a></li>
 											<li><a class="list" href="products.html">Earrings</a></li>
 											<li><a class="list" href="products.html">Necklace</a></li>
 											<li><a class="list" href="products.html">Pendant Sets</a></li>	
@@ -75,11 +87,11 @@
 									<div class="col-sm-6">
 										<h4>Items</h4>
 										<ul class="multi-column-dropdown">											
-											<li><a class="list" href="products.html">Anklets</a></li>
-											<li><a class="list" href="products.html">Bangles</a></li>
-											<li><a class="list" href="products.html">Earrings</a></li>
-											<li><a class="list" href="products.html">Necklace</a></li>
-											<li><a class="list" href="products.html">Pendant Sets</a></li>
+											<!-- <li><a class="list" href="products.html">Anklets</a></li> -->
+											<li><a class="list" href="customize.html">Bracelets</a></li>
+											<li><a class="list" href="customize.html">Earrings</a></li>
+											<li><a class="list" href="customize.html">Necklace</a></li>
+											<li><a class="list" href="customize.html">Pendant Sets</a></li>
 										</ul>
 									</div>																		
 									<div class="col-sm-6">
@@ -134,9 +146,9 @@
 					</div>
 				</div>
 				<div class="header-right cart">
-					<a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+					<a href="checkoutCart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
-						<h4><a href="checkout.html">
+						<h4><a href="#">
 							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
 						</a></h4>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
@@ -163,11 +175,11 @@
 	<!--//header-->
 	<!--banner-->
 	<div class="banner">
-		<img src="images/banner3.jpg" alt=""/>
+		<img src="images/banner3.png" alt=""/>
 	</div>			
 	<!--//banner-->
 	<!-- <div class="explore">
-		<div><h4>Explore Plumms</h4></div>
+		<div><h4>Explore Fitoori</h4></div>
 		<div><img src="images/pull.png"/></div>		
 	</div> -->
 	<!--gallery-->
@@ -185,7 +197,7 @@
 					</a>
 					<div class="galy-info">
 						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
+						<!-- <div class="galry">
 							<div class="prices">
 								<h5 class="item_price">Rs.95.00</h5>
 							</div>
@@ -197,7 +209,7 @@
 								<span>☆</span>
 							</div>						
 							<div class="clearfix"></div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="col-md-4 gallery-grid glry-one">
@@ -211,7 +223,7 @@
 					</a>
 					<div class="galy-info">
 						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
+						<!-- <div class="galry">
 							<div class="prices">
 								<h5 class="item_price">Rs.95.00</h5>
 							</div>
@@ -223,7 +235,7 @@
 								<span>☆</span>
 							</div>						
 							<div class="clearfix"></div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="col-md-4 gallery-grid glry-one">
@@ -237,7 +249,7 @@
 					</a>
 					<div class="galy-info">
 						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
+<!-- <div class="galry">
 							<div class="prices">
 								<h5 class="item_price">Rs.95.00</h5>
 							</div>
@@ -249,7 +261,7 @@
 								<span>☆</span>
 							</div>						
 							<div class="clearfix"></div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="col-md-3 gallery-grid ">
@@ -471,40 +483,32 @@
 	<!--subscribe-->
 	<div class="subscribe">
 		 <div class="container">
-		 	<h3>Make your Own Jewellery</h3>
-			<div class="service">
-				<div class="col-lg-6 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 smxs-margin animated-slide-top">
-					<div class="service-icon colored-background"><i><img src="images/terra.jpg" class="img-responsive"/></i></div>
-					
-						<a class="shop" href="single.html">BRACELETS</a><br/>					
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>					
-					<div class="service-description"></div>
+		 	<h3>Let's Create .......</h3>
+			<div  class="row" style="margin-top:35px;">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="imageBox">
+					<ahref="#"><img src="images/beaded.png" alt id="img1"/>
+					<img src="images/Earring_icon.png" alt class="hoverImg" style="left: 98px;"/></a>
+
 				</div>
-				<div class="col-lg-6 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 smxs-margin animated-slide-right">
-					<div class="service-icon colored-background"><i><img src="images/beaded.jpg" class="img-responsive"/></i></div>
-					<a class="shop" href="single.html">EARRINGS</a><br/>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-					<div class="service-description"></div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="imageBox1">
+					<img src="images/quilled.png" alt/>
+					<img src="images/necklace.png" alt class="hoverImg1" style="left: 98px;"/></a>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="imageBox2">
+					<img src="images/fashion.png" alt/>
+					<img src="images/ps.png" alt class="hoverImg2" style="right: 97px;"/></a>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="imageBox3">
+					<img src="images/terra.png" alt/>
+					<img src="images/bangles.png" alt class="hoverImg3" style="right: 97px;"/></a>
 				</div>
 			</div>
-	        <div class="service">
-                <div class="col-lg-6 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 smxs-margin animated-slide-left">
-                    <div class="service-icon colored-background"><i><img src="images/quilled.jpg" class="img-responsive"/></i></div>
-                    <a class="shop" href="single.html">NECKLACE</a><br/>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                    <div class="service-description"></div>
-                </div>
-                <div class="col-lg-6 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 smxs-margin animated-slide-bottom">
-                    <div class="service-icon colored-background"><i><img src="images/fashion.jpg" class="img-responsive"/></i></div>
-                    <a class="shop" href="single.html">PENDANT SETS</a><br/>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                    <div class="service-description"></div>
-                </div>
 
             </div>
-           <!--  <form>
-            	<input type="submit" value="Get Started">
-        	</form>	 -->		
+            <form style="margin: 65px auto;">
+            	<p style="color: #fff;font-size: 24px; position: relative;font-family: 'Roboto-Regular'; top: 20px;" >Pick a Jewel and have fun designing your own masterpiece... </p>
+            	<!-- <input type="submit" value="Pick One & Get Started"> -->
+        	</form>			
 		 </div>
 	</div>
 	<!--//subscribe-->	
@@ -531,9 +535,9 @@
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid">
 					<h4>order & returns</h4>
 					<ul>
-						<li><a href="orderStatus.html">Order Status</a></li>
-						<li><a href="shippingPolicy.html">Shipping Policy</a></li>
-						<li><a href="returnPolicy.html">Return Policy</a></li>						
+						<li><a href="T&C.html#OrderStatus">Order Status</a></li>
+						<li><a href="T&C.html#ShippingPolicy">Shipping Policy</a></li>
+						<li><a href="T&C.html#ReturnPolicy">Return Policy</a></li>						
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
@@ -558,8 +562,63 @@
 	<!--//footer-->
 	<div class="footer-bottom">
 		<div class="container">
-			<p> © 2016 Plumms . All rights reserved.</p>
+			<p> © 2016 Fitoori . All rights reserved.</p>
 		</div>
 	</div>
+
+
+<!-- SCRIPTS -->
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+			 $('#img_1').hover(function () {
+                    $(this).stop().animate({
+                        opacity: .4
+                    }, 200);
+                    $('.showTxt1').removeClass('hide');
+                }, function () {
+                    $(this).stop().animate({
+                        opacity: 1
+                    }, 500);
+                    $('.showTxt1').addClass('hide');
+                });
+               $('#img_2').hover(function () {
+                    $(this).stop().animate({
+                        opacity: .4
+                    }, 200);
+                    $('.showTxt2').removeClass('hide');
+                }, function () {
+                    $(this).stop().animate({
+                        opacity: 1
+                    }, 500);
+                    $('.showTxt2').addClass('hide');
+                });
+                 $('#img_3').hover(function () {
+                    $(this).stop().animate({
+                        opacity: .4
+                    }, 200);
+                    $('.showTxt3').removeClass('hide');
+                }, function () {
+                    $(this).stop().animate({
+                        opacity: 1
+                    }, 500);
+                    $('.showTxt3').addClass('hide');
+                });
+                  $('#img_4').hover(function () {
+                    $(this).stop().animate({
+                        opacity: .4
+                    }, 200);
+                    $('.showTxt4').removeClass('hide');
+                }, function () {
+                    $(this).stop().animate({
+                        opacity: 1
+                    }, 500);
+                    $('.showTxt4').addClass('hide');
+                });
+            });
+
+        </script>
+
 </body>
 </html>
