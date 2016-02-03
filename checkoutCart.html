@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fitoori</title>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Custom Theme files -->
+    <link rel="icon" type="image/ico" href="images/favicon.ico">
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- js -->
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+    <!-- //js -->
+    <!-- cart -->
+    <script src="js/simpleCart.min.js">
+    </script>
+    <!--<script src="js/custom.js"> </script>*/-->
+    <!-- cart -->
+
+    <style>
+      .address {
+          padding: 10px 0;
+          margin-bottom: -30px;
+      }
+      .contact-form textarea{
+        width: 90.5%;  
+      }
+      .about .container{
+        height: 150px;
+      }
+      .about-inform {
+        margin-top:-10px;
+      }
+      .contact-form input[type="radio"] {
+          font-size: 1em;
+          color: #F07818;
+      }
+      .rdbtn {
+          color: #F07818;
+      }
+      #chkBtn input[type="submit"] {
+          border: 2px solid #F07818;
+          color: #fff;
+          background: #F07818;
+          cursor: pointer;
+          padding: 7px 0;
+          width: 15%;
+          border-radius: 4px;
+          display: inline-block;
+          margin: 1em 0 0;
+          font-size: 1em;
+          outline: none;
+          -webkit-transition: all 0.5s;
+          -moz-transition: all 0.5s;
+          transition: all 0.5s;
+          top: -28px;
+          position: relative;
+      }
+      #chkBtn1 input[type="submit"]:hover {
+          background-color: #5D4B33;
+          color: #FFFFFF;
+          border-color: #5D4B33;
+      }
+      #chkBtn1 input[type="submit"] {
+          border: 2px solid #F07818;
+          color: #fff;
+          background: #F07818;
+          cursor: pointer;
+          padding: 7px 0;
+          width: 15%;
+          border-radius: 4px;
+          display: inline-block;
+          margin: 1em 0 0;
+          font-size: 1em;
+          outline: none;
+          -webkit-transition: all 0.5s;
+          -moz-transition: all 0.5s;
+          transition: all 0.5s;
+          top: -28px;
+          position: relative;
+          margin-right: 0px;
+      }
+      #chkBtn input[type="submit"]:hover {
+          background-color: #5D4B33;
+          color: #FFFFFF;
+          border-color: #5D4B33;
+      }
+      .contact-form input[type="text"] {
+          width: 30%;
+      }
+      .cart-item img {
+          width: 75%;
+      }
+      article.accordion {
+          display: block;
+          width: 100%;
+          margin: 0 auto;
+          background-color: #666;
+          overflow: auto;
+          border-radius: 5px;
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+      }
+      article.accordion section {
+          position: relative;
+          display: block;
+          float: left;
+          /*width: 2em;*/
+          
+          width: 5.3em;
+          /*height: 12em;*/
+          
+          height: 54.8em;
+          margin: 0.5em 0 0.5em 0.5em;
+          color: #333;
+          background-color: #333;
+          overflow: hidden;
+          border-radius: 3px;
+      }
+      article.accordion section h2 {
+          position: absolute;
+          font-size: 1em;
+          font-weight: bold;
+          width: 12em;
+          height: 2em;
+          top: 12em;
+          left: 0;
+          text-indent: 1em;
+          padding: 0;
+          margin: 0;
+          color: #ddd;
+          -webkit-transform-origin: 0 0;
+          -moz-transform-origin: 0 0;
+          -ms-transform-origin: 0 0;
+          -o-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: rotate(-90deg);
+          -moz-transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
+          -o-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+      }
+      article.accordion section h2 a {
+          display: block;
+          width: 100%;
+          line-height: 2em;
+          text-decoration: none;
+          color: inherit;
+          outline: 0 none;
+      }
+      article.accordion section:target {
+          /*width: 30em;*/
+          
+          width: 70%;
+          padding: 0 1em;
+          color: #333;
+          background-color: #fff;
+          height: 765px;
+      }
+      article.accordion section:target h2 {
+          position: relative;
+          font-size: 2.3em;
+          text-indent: 0;
+          color: #333;
+          top: -40px;
+          -webkit-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+      }
+      /*article.accordion section,
+article.accordion section h2
+{
+-webkit-transition: all 1s ease;
+-moz-transition: all 1s ease;
+-ms-transition: all 1s ease;
+-o-transition: all 1s ease;
+transition: all 1s ease;
+}*/
+      
+      p.accnav {
+          font-size: 1.1em;
+          text-transform: uppercase;
+          text-align: right;
+      }
+      p.accnavB {
+          font-size: 1.1em;
+          text-transform: uppercase;
+          text-align: left;
+          position: relative;
+          top: 21px;
+      }
+      p.accnav a,
+      p.accnavB a {
+          text-decoration: none;
+          color: #999;
+      }
+      .cart-items table {
+          border: 0px solid;
+          font-size: 16px;
+      }
+      .cart-items table th {
+          width: 168px;
+          padding: 5px;
+      }
+      .cart-items table tr {
+          border-bottom: 1px solid;
+      }
+      .breadcrumb-body {
+          list-style: outside none none;
+          margin: 30px auto;
+          width: 600px;
+      }
+      .breadcrumb-body li {
+          width: 135px;
+          display: inline-block;
+      }
+      .breadcrumb-body .current .breadcrumb-stage-name {
+          color: #000;
+      }
+      .breadcrumb-body li .breadcrumb-stage-name {
+          margin: 0 auto;
+          padding: 2px 5px;
+          text-align: center;
+          /*font-size: 13px;*/
+          
+          font-size: 16px;
+      }
+      .breadcrumb-body li .breadcrumb-stage-container {
+          position: relative;
+      }
+      .breadcrumb-body li .breadcrumb-stage-container .breadcrumb-dots {
+          color: #ccc;
+          font-size: 23px;
+          font-weight: bolder;
+          position: absolute;
+          top: 0;
+          left: 70px;
+          letter-spacing: 3px;
+          cursor: default;
+          line-height: 12px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+          user-select: none;
+      }
+      .breadcrumb-body .future.disable {
+          pointer-events: none;
+          cursor: default;
+      }
+      .breadcrumb-body .disable {
+          pointer-events: none;
+          cursor: default;
+      }
+      .breadcrumb-body .current .breadcrumb-stage {
+          background-color: #5D4B33; //#33cb98;
+          color: #fff;
+      }
+      .breadcrumb-body li .breadcrumb-stage-container .breadcrumb-stage {
+          height: 30px;
+          width: 100px;
+          border-radius: 16px;
+          text-align: center;
+          line-height: 27px;
+          font-size: 14px;
+          font-weight: normal;
+          margin: 2px auto;
+      }
+      .breadcrumb-body .future .breadcrumb-stage-name {
+          color: #666;
+      }
+      .breadcrumb-dots i.glyphicon.glyphicon-chevron-right {
+          position: relative;
+          left: 55px;
+      }
+      .cart-header,
+      .cart-header2,
+      .cart-header3 {
+          width: 100%;
+      }
+      .about {
+          background: #f3f3f3;
+          padding: 5em 0;
+      }
+      .contact {
+          background: #fff;
+          padding: 5em 0;
+      }
+      .contact-form .btn2 {
+          border: 2px solid #F07818;
+          color: #fff;
+          background: #F07818;
+          cursor: pointer;
+          padding: 7px 0;
+          width: 30%;
+          border-radius: 4px;
+          display: inline-block;
+          margin: 1em 0 0;
+          font-size: 1em;
+          outline: none;
+          -webkit-transition: all 0.5s;
+          -moz-transition: all 0.5s;
+          transition: all 0.5s;
+      }
+      .single-grid1 {
+          line-height: 5;
+      }
+      .address p{
+        font-size: 18px;
+      }
+    </style>
+</head>
+<body>
+   <!--header-->
+   <div class="header">
+      <!-- <div class="container"> -->
+      <nav class="navbar navbar-default" role="navigation">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <h1 class="navbar-brand"><img src="images/logo1.png"  class="img-responsive" style="    position: relative;top: -13px;float: left;"/><a  href="index.html">Fitoori</a></h1>
+         </div>
+         <!--navbar-header-->
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+               <li>
+                  <a href="index.html" class="active">
+                     Home<!-- <img src="images/home.png"/> -->
+                  </a>
+               </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+                  <ul class="dropdown-menu multi-column columns-3">
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <h4>Type</h4>
+                           <ul class="multi-column-dropdown">
+                              <li><a class="list" href="products.html">All</a></li>
+                              <!-- <li><a class="list" href="products.html">Anklets</a></li> -->
+                              <li><a class="list" href="products.html">Bracelets</a></li>
+                              <li><a class="list" href="products.html">Earrings</a></li>
+                              <li><a class="list" href="products.html">Necklace</a></li>
+                              <li><a class="list" href="products.html">Pendant Sets</a></li>
+                           </ul>
+                        </div>
+                        <div class="col-sm-6">
+                           <h4>Category</h4>
+                           <ul class="multi-column-dropdown">
+                              <li><a class="list" href="products.html">All</a></li>
+                              <li><a class="list" href="products.html">Beaded</a></li>
+                              <li><a class="list" href="products.html">Fashion</a></li>
+                              <li><a class="list" href="products.html">Teracotta</a></li>
+                              <li><a class="list" href="products.html">Quilled</a></li>
+                              <!-- <li><a class="list" href="products.html">Vanilla</a></li>
+                                 <li><a class="list" href="products.html">Eggless Cakes</a></li> -->
+                           </ul>
+                        </div>
+                     </div>
+                  </ul>
+               </li>
+               <li class="dropdown grid">
+                  <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Customize<b class="caret"></b></a>
+                  <ul class="dropdown-menu multi-column columns-3">
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <h4>Items</h4>
+                           <ul class="multi-column-dropdown">
+                              <!-- <li><a class="list" href="products.html">Anklets</a></li> -->
+                              <li><a class="list" href="products.html">Bracelets</a></li>
+                              <li><a class="list" href="products.html">Earrings</a></li>
+                              <li><a class="list" href="products.html">Necklace</a></li>
+                              <li><a class="list" href="products.html">Pendant Sets</a></li>
+                           </ul>
+                        </div>
+                        <div class="col-sm-6">
+                           <h4>Take a Tour</h4>
+                           <ul class="multi-column-dropdown">
+                              <li><a class="list" href="products.html"><i class="glyphicon glyphicon-film" style="    font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Videos</a></li>
+                              <li><a class="list" href="products.html"><i class="glyphicon glyphicon-info-sign" style="font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Tutorials</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </ul>
+               </li>
+               <li class="dropdown grid">
+                  <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">
+                     Offers<!--<b class="caret"></b>-->
+                  </a>
+               </li>
+               <li><a href="joinus.html">Join Us</a></li>
+            </ul>
+            <!--/.navbar-collapse-->
+         </div>
+         <!--//navbar-header-->
+      </nav>
+      <div class="header-info">
+         <div class="header-right search-box">
+            <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>				
+            <div class="search">
+               <form class="navbar-form">
+                  <input type="text" class="form-control">
+                  <button type="submit" class="btn btn-default" aria-label="Left Align">
+                  Search
+                  </button>
+               </form>
+            </div>
+         </div>
+         <div class="header-right login">
+            <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+            <div id="loginBox">
+               <form id="loginForm">
+                  <fieldset id="body">
+                     <fieldset>
+                        <label for="email">Email Address</label>
+                        <input type="text" name="email" id="email">
+                     </fieldset>
+                     <fieldset>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                     </fieldset>
+                     <input type="submit" id="login" value="Sign in">
+                     <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+                  </fieldset>
+                  <p>New User ? <a class="sign" href="account.html">Sign Up</a> <span><a href="#">Forgot your password?</a></span></p>
+               </form>
+            </div>
+         </div>
+         <div class="header-right cart">
+            <a href="checkoutCart.html"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+            <div class="cart-box">
+               <h4><a href="#">
+                  <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
+                  </a>
+               </h4>
+               <p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+               <div class="clearfix"> </div>
+            </div>
+         </div>
+         <div class="header-right track-box">
+            <a href="#"><span aria-hidden="true"><img src="images/track.png"/></span></a>
+            <div class="track">
+               <form class="navbar-form">
+                  <!-- <span>Track Order</span> -->
+                  <p>Order ID &nbsp;<input type="text" class="form-control">
+                     <button type="submit" class="btn btn-default" aria-label="Left Align">
+                     Track
+                     </button>
+                  </p>
+               </form>
+            </div>
+         </div>
+         <div class="clearfix"> </div>
+      </div>
+      <div class="clearfix"> </div>
+      <!-- </div> -->
+   </div>
+   <!--//header-->
+
+   <!-- Checkout -->
+   <div class="about">
+   	<!-- START STEPS -->
+      <div class="container">
+         <h2>Check Out</h2>
+         <div class="about-inform">
+            <ol class="breadcrumb-body">
+               <li id="chk" class="current">
+                  <div class="breadcrumb-stage-name">My Cart</div>
+                  <div class="breadcrumb-stage-container">
+                     <div class="breadcrumb-stage">Step - 1</div>
+                     <!--<a href="#">
+                        <div class="breadcrumb-stage">Step - 1</div>
+                        </a>    -->
+                     <div class="breadcrumb-dots"><i class="glyphicon glyphicon-chevron-right"></i></div>
+                  </div>
+               </li>
+               <li id="shp" class="future disable">
+                  <div  class="breadcrumb-stage-name">Shipping</div>
+                  <div class="breadcrumb-stage-container">
+                     <div>
+                        <div class="breadcrumb-stage">Step - 2</div>
+                     </div>
+                     <div class="breadcrumb-dots"><i class="glyphicon glyphicon-chevron-right"></i></div>
+                  </div>
+               </li>
+               <li id="pymt" class="future disable">
+                  <div class="breadcrumb-stage-name">Payment</div>
+                  <div class="breadcrumb-stage-container">
+                     <div>
+                        <div class="breadcrumb-stage">Step - 3</div>
+                     </div>
+                     <div class="breadcrumb-dots"><i class="glyphicon glyphicon-chevron-right"></i></div>
+                  </div>
+               </li>
+               <li id="cnfm" class="last future disable">
+                  <div class="breadcrumb-stage-name">Order Summary</div>
+                  <div class="breadcrumb-stage-container">
+                     <div>
+                        <div class="breadcrumb-stage">Step -4</div>
+                     </div>
+                     <!-- <div class="breadcrumb-dots"><i class="glyphicon glyphicon-chevron-right"></i></div> -->
+                  </div>
+               </li>
+               <!-- <li class="last future disable">
+                  <div class="breadcrumb-stage-name">Payment</div>
+                  <div class="breadcrumb-stage-container">
+                  	<div>
+                  		<div class="breadcrumb-stage">Step - 5</div>
+                  	</div>
+                  </div>
+                  </li> -->
+            </ol>
+         </div>
+      </div>
+      <!-- END STEPS -->
+
+	  <!-- START CARTDETAILS  -->
+      <div id="cartDetails" class="show col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #fff;margin-bottom: 30px;">
+         <div class="container">
+            <div class="cart-items col-lg-9 col-md-9 col-sm-6 col-xs-12" id="acc1">
+               <div class="container">
+                  <h2>My Shopping Cart</h2>                 
+                  <div class="cart-header">
+                     <!-- <div class="close1"></div> -->
+                     <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                           <img src="images/m11.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                           <h3>
+                              <a href="#">Lorem Ipsum is not simply </a>
+                           </h3>
+                           <div class="delivery">
+                              <p>Price:Rs.500.00/-</p>
+                              <br/>
+                             <!--  <p>Gift options not available.<a href="#">&nbsp;Learn more</a></p> --> 
+                             <p><a href="#">Save for later</a> | &nbsp;<a href="#">Delete</a></p>
+                              <br />
+                              <!-- <p>Service Charges : Rs. 10.00/-</p>	 -->
+                              <div class="clearfix"></div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>                 
+                  <div class="cart-header2">
+                     <!-- <div class="close2"></div> -->
+                     <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                           <img src="images/m22.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                           <h3>
+                              <a href="#">Lorem Ipsum is not simply </a>
+                           </h3>
+                           <div class="delivery">
+                              <p>Price:Rs.500.00/-</p>
+                              <br/>
+                              <!-- <p>Gift options not available.<a href="#">&nbsp;Learn more</a></p> -->
+                              <p><a href="#">Save for later</a> | &nbsp;<a href="#">Delete</a></p>
+                              <br />
+                              <!-- <p>Service Charges : Rs. 10.00/-</p> -->
+                              <div class="clearfix"></div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>                
+                  <div class="cart-header3">
+                     <!--  <div class="close3"></div> -->
+                     <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                           <img src="images/m33.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                           <h3>
+                              <a href="#">Lorem Ipsum is not simply </a>
+                           </h3>
+                           <div class="delivery">
+                              <p>Price:Rs.500.00/-</p>
+                              <br/>
+                              <!-- <p>Gift options not available.<a href="#">&nbsp;Learn more</a></p> -->
+                              <p><a href="#">Save for later</a> | &nbsp;<a href="#">Delete</a></p>
+                              <br />
+                              <!-- <p>Service Charges : Rs. 10.00/-</p> -->
+                              <div class="clearfix"></div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12" style="margin-top: 70px;">
+               <p>Estimated time of delivery : 6 - 10 days </p><br/>
+               <table width="100%">
+                  <tr>
+                     <th>Sub - Total</th>
+                     <td>: Rs. 1500.00/-</td>
+                  </tr>
+                  <tr>
+                     <th>Shipping</th>
+                     <td>: Rs. 30.00/-</td>
+                  </tr>
+                  <tr>
+                     <th>Grand - Total</th>
+                     <td>: Rs. 1530.00/-</td>
+                  </tr>                  
+               </table>
+               <div id="chkBtn" style="margin-top: 34px;">
+                  <center><input type="submit" id="proceed" value="Proceed" style="width:100%;"></center> 
+                </div>
+            </div>
+         </div>
+      </div>
+      <!-- END CART DETAILS -->
+
+	  <!-- START SHIPPINGDETAILS  -->
+      <div id="shippingDetails" class="hide col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #fff;margin-bottom: 30px;">
+         <div class="contact">
+            <div class="container">
+               <h4>Shipping Details</h4>
+               <p>
+                  Would you like to use the address displayed below for shipping ? If so, click the corresponding <b>"Deliver"</b> button. Or you can Enter a <a href="#address">New Delivery Address.</a> 
+               </p>
+               <div class="address">
+                  <div class="col-md-12 address-grids">
+                     <h4>Address For Delivery :</h4>
+                     <ul>
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        <p>	B2-201,Genesis Apt.,<br/>
+                           Sarjapur Outer-Ring Road junction,<br/>
+                           Ibblur, Banglore - 560102
+                        </p>
+                     </ul>
+                     <div id="chkBtn" class="address-grids" style="margin-top: 34px;">
+                     <input type="submit" id="dlv" value="Deliver">
+                     <input type="submit" value="Edit">
+                     <input type="submit" value="Delete">
+                     <!--  <a href="#acc2">
+                        <center><input type="submit" id="proceed" value="Proceed"></center>
+                        </a> -->
+                  </div>
+                  </div>
+                  
+                  <div class="clearfix"> </div>
+               </div>
+               <hr/>
+               <div id="address" class="contact-form">
+                  <h4>New Addres For Delivery :</h4>
+                  <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                  <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                  <input type="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}" required="">
+                  <textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address...';}" required="">Address...</textarea>
+                  <!-- <input type="submit" class="btn2" value="Deliver"></button><button class="btn2">Reset</button><button class="btn2"id="bck">Back</button> -->
+                  <div id="chkBtn1" class="col-md-12 address-grids" style="margin-top: 34px;">
+                     <input type="submit" id="dlvy" value="Deliver" style="margin-left: -17px;">
+                     <input type="submit" value="Reset">
+                     <input type="submit" value="Back" id="bck">	                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- END SHIPPING DETAILS-->
+
+      <!-- START PAYMENT DETAILS -->
+      <div id="paymentDetails" class="hide col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #fff;margin-bottom: 30px;">
+         <div class="contact">
+            <div class="container">
+               <h4>Payment Details</h4>
+               <p>Please Select the preffered method for payment</p>
+               <form>
+                  <div class="contact-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                     <input type="radio" name="group2" value="COD" checked class="rdbtn">Cash on Delivery<br>
+                     <input type="radio" name="group2" value="NB">Net Banking<br>
+                     <input type="radio" name="group2" value="CC"> Credit Card
+                  </div>
+               </form>
+               <div id="chkBtn1" class="col-md-12 address-grids" style="margin-top: 34px;">
+                  <input type="submit" id="pcdChk" value="Proceed to Checkout" style="margin-left: -17px;">   
+                  <input type="submit" value="Back" id="back">	                     
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- END PAYMENT DETAILS -->
+
+      <!-- START CONFIRM DETAILS -->
+      <div id="confirmDetails" class="hide col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #fff;margin-bottom: 30px;">
+         <div class="container">
+           <h4 style="margin-bottom:-45px"><center>Thank you for shopping at Fitoori. You will recieve a mail shortly, with relevant order details. </center></h4>
+            <div class="cart-items col-lg-6 col-md-6 col-sm-6 col-xs-12" id="acc1">
+               <div class="container">
+                  <h2>Order Summary</h2>
+                  <div class="cart-header">
+                     <div class="cart-sec simpleCart_shelfItem" style="margin-bottom: 1.2em;">
+                        <div class="cart-item cyc">
+                           <img src="images/m11.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                           <h3>
+                              <a href="#">Lorem Ipsum is not simply </a>
+                           </h3>
+                           <div class="delivery">
+                              <p>Price:Rs.500.00/-</p>
+                              <div class="clearfix"></div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>
+                  <div class="cart-header2">
+                     <!-- <div class="close2"></div> -->
+                     <div class="cart-sec simpleCart_shelfItem" style="margin-bottom: 1.2em;">
+                        <div class="cart-item cyc">
+                           <img src="images/m22.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                           <h3>
+                              <a href="#">Lorem Ipsum is not simply </a>
+                           </h3>
+                           <div class="delivery">
+                              <p>Price:Rs.500.00/-</p>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>
+                  <div class="cart-header3">
+                     <!--  <div class="close3"></div> -->
+                     <div class="cart-sec simpleCart_shelfItem" style="margin-bottom: 1.2em;">
+                        <div class="cart-item cyc">
+                           <img src="images/m33.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="cart-item-info">
+                           <h3>
+                              <a href="#">Lorem Ipsum is not simply </a>
+                           </h3>
+                           <div class="delivery">
+                              <p>Price:Rs.500.00/-</p>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="cart-items col-lg-6 col-md-6 col-sm-6 col-xs-6 single-grid1">
+               <ul>
+                  <li><b>Order ID :</b> 123456789</li>
+                  <li><b>Total :</b> Rs. 1580/-</li>
+                  <li><b>Mode of payment:</b> Cash on delivery</li>
+                  <li><b>Expected Time of Delivery :</b> 6 - 10 Days</li>
+                  <li><b>Gift Coupon Code :</b> 2587</li>
+                  <li>
+                     <b>Shipping Details :</b>
+                     <p style="line-height:2; padding-bottom: 20px;">
+                        B2-201,Genesis Apt.,<br/>
+                        Sarjapur Outer-Ring Road junction,<br/>
+                        Ibblur, Banglore - 560102
+                     </p>
+                  </li>
+                  <li><b>Reward points :</b> 25</li>
+                  <!-- <li><a href="checkout.html.html">wishlist</a></li>
+                     <li><a href="checkout.html.html">Order history</a></li>
+                     <li><a href="#">Downloads</a></li> -->
+               </ul>
+            </div>
+            <div class="cart-items col-lg-12 col-md-12 col-sm-12 col-xs-12" id="chkBtn" style="margin-top:-95px;">
+               <input type="submit" id="CnfmBtn" value="Continue Shopping" style="width:20%;margin-right:10px;">          
+               <!-- <input type="submit" id="backP" value="Back" style="width:20%;"> -->
+            </div>
+         </div>
+      </div>
+      <!-- END CONFIRM DETAILS-->
+   </div>
+   <!-- <div id="thankYou" class="hide col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #fff;margin-bottom: 30px;">
+      <div class="contact">
+      	<div class="container">
+      		<h4>Thank you note</h4>					
+      		<p>
+      			Thank you for your valuable time. Have fun shopping!! 
+      		</p>
+      	</div>
+      </div>
+      </div> -->
+
+   <!-- SCRIPTS START HERE -->
+   <script>$(document).ready(function (c) {
+      //Cart Details page Action
+         $('#proceed').on('click', function (c) {
+             $('#cartDetails').fadeOut('fast', function (c) {                 
+                 $('#cartDetails').addClass("hide");
+                 $('#cartDetails').removeClass("show");
+                 $('#chk').addClass("future disable");
+                 $('#chk').removeClass("current");
+                 
+             });
+             $('#shippingDetails').fadeIn('fast', function (c) {
+               	$('#shippingDetails').addClass("show");
+                $('#shippingDetails').removeClass("hide");               
+                 $('#shp').addClass("current");
+                 $('#shp').removeClass("future disable");
+             });
+         });
+      
+      
+         // Shipping Details page Action
+         $('#dlv').on('click', function (c) {				
+             $('#shippingDetails').fadeOut('fast', function (c) {
+             	   $('#shippingDetails').addClass("hide");
+                 $('#shippingDetails').removeClass("show");                
+                 $('#shp').addClass("future disable");
+                 $('#shp').removeClass("current");
+                 
+             });	      
+      
+             $('#paymentDetails').fadeIn('fast', function (c) {
+                 $('#paymentDetails').addClass("show");
+                 $('#paymentDetails').removeClass("hide");
+                 $('#pymt').addClass("current");
+                 $('#pymt').removeClass("future disable");
+             });
+         });
+      
+      $('#dlvy').on('click', function (c) {				
+             $('#shippingDetails').fadeOut('fast', function (c) {
+             	   $('#shippingDetails').addClass("hide");
+                 $('#shippingDetails').removeClass("show");                 
+                 $('#shp').addClass("future disable");
+                 $('#shp').removeClass("current");
+                 
+             });	      
+      
+             $('#paymentDetails').fadeIn('fast', function (c) {
+                 $('#paymentDetails').addClass("show");
+                 $('#paymentDetails').removeClass("hide");
+                 $('#pymt').addClass("current");
+                 $('#pymt').removeClass("future disable");
+             });
+         });
+      
+      
+        $('#bck').on('click', function (c) {
+             $('#shippingDetails').fadeOut('fast', function (c) {		            
+                 $('#shippingDetails').addClass("hide");
+                $('#shippingDetails').removeClass("show");
+                 $('#shp').addClass("future disable");
+                 $('#shp').removeClass("current");
+                 
+             });
+             $('#cartDetails').fadeIn('fast', function (c) {
+             	   $('#cartDetails').addClass("show");
+             	   $('#cartDetails').removeClass("hide");     
+                 $('#chk').addClass("current");
+                 $('#chk').removeClass("future disable");
+             });
+         });
+      
+        $('#pcdChk').on('click', function (c) {				
+             $('#paymentDetails').fadeOut('fast', function (c) {
+             	$('#paymentDetails').addClass("hide");
+                 $('#paymentDetails').remove();
+                 $('#pymt').addClass("future disable");
+                 $('#pymt').removeClass("current");
+                 
+             });	      
+      
+             $('#confirmDetails').fadeIn('fast', function (c) {
+                 $('#confirmDetails').addClass("show");
+                 $('#confirmDetails').removeClass("hide");
+                 $('#cnfm').addClass("current");
+                 $('#cnfm').removeClass("last future disable");
+             });
+         });
+      
+        $('#back').on('click', function (c) {				
+             $('#paymentDetails').fadeOut('fast', function (c) {
+         	     $('#paymentDetails').addClass("hide");
+               $('#paymentDetails').removeClass("show");
+               $('#pymt').addClass("future disable");
+               $('#pymt').removeClass("current");
+                 
+             });	      
+      
+             $('#shippingDetails').fadeIn('fast', function (c) {
+                 $('#shippingDetails').addClass("show");
+                 $('#shippingDetails').removeClass("hide");
+                 $('#shp').addClass("current");
+                 $('#shp').removeClass("future disable");
+             });
+         });
+      
+      
+      $('#CnfmBtn').on('click', function (c) {				
+             $('#confirmDetails').fadeOut('fast', function (c) {
+             	$('#confirmDetails').addClass("hide");
+                 $('#confirmDetails').removeClass("show");
+                 $('#cnfm').addClass("future disable");
+                 $('#cnfm').removeClass("current");
+                 
+             });	      
+             window.location.href = "file:///D:/Project_Folder/Rezy/NewPlumms/index.html";
+             //window.location.href = "http://samplepapers.com/rezi/NewPlumms/index.html";
+           /*  $('#thankYou').fadeIn('fast', function (c) {
+                 $('#thankYou').addClass("show");
+                 $('.about').addClass("hide");
+                 $('#paymentDetails').show();
+                 $('#cnfm').addClass("current");
+                 $('#cnfm').removeClass("last future disable");
+             });*/
+         });
+      
+        /*$('#backP').on('click', function (c) {				
+             $('#confirmDetails').fadeOut('fast', function (c) {
+             	$('#confirmDetails').addClass("hide");
+                 $('#confirmDetails').removeClass("show");
+                 $('#cnfm').addClass("last future disable");
+                 $('#cnfm').removeClass("current");
+                 
+             });	      
+      
+             $('#paymentDetails').fadeIn('fast', function (c) {
+                 $('#paymentDetails').addClass("show");
+                 $('#paymentDetails').removeClass("hide");
+                 $('#pymt').addClass("current");
+                 $('#pymt').removeClass("future disable");
+             });
+         });*/
+      });	
+   </script>	
+   <!--//Checkout-->
+   <!--footer-->
+   <div class="footer">
+      <div class="container">
+         <div class="footer-grids">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+               <h4>company</h4>
+               <ul>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="products.html">Products</a></li>
+                  <li><a href="joinus.html">Work Here</a></li>
+               </ul>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+               <h4>service</h4>
+               <ul>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                  <li><a href="support.html">Support</a></li>
+               </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid">
+               <h4>order & returns</h4>
+               <ul>
+                  <li><a href="T&C.html#OrderStatus">Order Status</a></li>
+                  <li><a href="T&C.html#ShippingPolicy">Shipping Policy</a></li>
+                  <li><a href="T&C.html#ReturnPolicy">Return Policy</a></li>
+               </ul>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+               <h4>legal</h4>
+               <ul>
+                  <li><a href="privacy.html">Privacy</a></li>
+                  <li><a href="T&C.html">Terms and Conditions</a></li>
+                  <li><a href="SR.html">Social Responsibility</a></li>
+               </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid icons">
+               <h4>Connect with Us</h4>
+               <ul>
+               <li><a href="#"><img src="images/i1.png" alt=""/>Facebook</a></li>
+               <li><a href="#"><img src="images/i2.png" alt=""/>Twitter</a></li>
+            </div>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+   </div>
+   </div>
+   <!--//footer-->
+   <div class="footer-bottom">
+      <div class="container">
+         <p> © 2016 Fitoori . All rights reserved.</p>
+      </div>
+   </div>
+</body>
+</html>
