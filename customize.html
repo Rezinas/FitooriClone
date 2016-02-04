@@ -165,6 +165,42 @@
 	    background: #fff;
 	    padding: 65px 0 0px;
 	}
+
+/**** LIGHTBOX CODE ******/
+	.black_overlay{
+		display: none;
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		z-index:1001;
+		-moz-opacity: 0.8;
+		opacity:.80;
+		filter: alpha(opacity=80);
+	}
+	.white_content {
+		display: none;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    padding: 16px;
+	    border: 1px solid orange;
+	    z-index: 1002;
+	    overflow: auto;
+	}
+	#light a, #light1 a, #light2 a{
+		color: #fff;
+	    text-transform: Uppercase;
+	    float: right;
+	}
+	div#light img, div#light1 img, div#light2 img {
+	    margin: 10px 14px 6px 5px;
+	}
+
 </style>
 </head>
 <body>
@@ -360,7 +396,32 @@
 						<img src="http://placehold.it/80x80">
 						<img src="http://placehold.it/80x80">
 						<img src="http://placehold.it/80x80">
-						<img src="http://placehold.it/80?text=MORE">
+						<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>
+
+						<div id="light" class="white_content">
+							<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a><br/>
+							<img src="images/sample1.png" style="background-color:#fff;">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">												
+						</div>
+						<div id="fade" class="black_overlay"></div>
 
 						<h4>Beaded</h4>
 						<img src="http://placehold.it/80x80">
@@ -370,7 +431,33 @@
 						<img src="http://placehold.it/80x80">
 						<img src="http://placehold.it/80x80">
 						<img src="http://placehold.it/80x80">
-						<img src="http://placehold.it/80?text=MORE">					
+
+						<a href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>	
+
+						<div id="light1" class="white_content">
+							<a href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a><br/>
+							<img src="images/sample1.png" style="background-color:#fff;">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">												
+						</div>
+						<div id="fade1" class="black_overlay"></div>				
 					
 						<h4>Metals</h4>
 						<img src="http://placehold.it/80x80">
@@ -380,7 +467,33 @@
 						<img src="http://placehold.it/80x80">
 						<img src="http://placehold.it/80x80">
 						<img src="http://placehold.it/80x80">
-						<img src="http://placehold.it/80?text=MORE">
+						
+						<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>
+						<div id="light2" class="white_content">
+						<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/>
+							<img src="images/sample1.png" style="background-color:#fff;">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">
+							<img src="http://placehold.it/120x120">											
+						</div>
+						<div id="fade2" class="black_overlay"></div>
+
 
 						<div id="chkBtn" style="margin-top:42px;text-align:center;">
                   			<input type="submit" id="buy" value="Add to Cart"> 
