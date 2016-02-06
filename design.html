@@ -6,7 +6,8 @@
 	<div class="col-md-4">
 		<div class="bgProduct">
 			<div class="designDiv">
-				<div class="prd_elements" ng-class="{current: $index==designLevel}" ng-repeat="imgItem in myProductImgs track by $index" prd-position selected-items="mySelectedItems" design-level="designLevel" img-item="imgItem" elem-number="$index-designLevel">
+					<!-- ng-class="{current: $index==designLevel}" -->
+				<div class="prd_elements elements{{$inde" ng-repeat="imgItem in myProductImgs track by $index" prd-position selected-items="mySelectedItems" design-level="designLevel" img-item="imgItem" elem-number="$index" prd-index="prdIndex">
 					<img  ng-src="/plumms/productImages/{{imgItem}}" />
 				</div>
 				<div class="plusbutton">
@@ -17,26 +18,11 @@
 		</div>
 		<div class="designOptions">
 			<div class="aelements" ng-repeat="altItem in mySelectedItems[designLevel].images">
-				<img ng-src="/plumms/productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, designLevel, false);" />
+				<img ng-src="/plumms/productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, $index, false);" />
 			</div>
 		</div>
 	</div>
 	<div class="col-md-8">
-			<!-- Filters -->
-		<div class="form-group">
-			<div class="radio">
-				<label ng-repeat="style in itemModel.styles" class="material">
-					<input type="radio"  ng-value="style"  ng-model="itemModel.selectedStyle" ng-init="$index==0?(itemModel.selectedStyle=style):''">{{style}}
-				</label>
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="radio">
-				<label ng-repeat="mat in itemModel.materials" class="material">
-					<input type="radio"  ng-value="mat"  ng-model="itemModel.selectedMaterial" ng-init="$index==0?(itemModel.selectedMaterial=mat):''">{{mat}}
-				</label>
-			</div>
-		</div>
 			<!-- main Options -->
 		<div class="elements">
 			<div ng-if="filteredSet.length == 0">
@@ -44,7 +30,7 @@
 			</div>
 			<div class="felements" ng-repeat="imgElem in filteredSet | startFrom:currentPage*pageSize | limitTo:pageSize">
 				<!-- {{ itemModel.selectedMaterial}} | {{tagFilterSelected}} -->
-				<img ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, designLevel, true);">
+				<img ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
 			</div>
 			<div style="clear:both"></div>
 			<button class="e-control left" ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1" >
@@ -55,13 +41,10 @@
 	      	</button>
 		</div>
 
-
-
-
 		<div ng-if="mySelectedItems.length > 0">
 			<button ng-hide="filteredSet.length == 0" class="btn btn-primary" ng-click="confirmDesign()">Confirm!!</button> &nbsp; &nbsp;
-			<button ng-hide="filteredSet.length == 0" class="btn btn-primary" ng-click="updateLevel()">Go Next Level!!</button> &nbsp; &nbsp;
-			<button ng-if="mySelectedItems.length > 1" class="btn btn-primary" ng-click="gobackLevel()">Previous Level</button>
+			<button ng-hide="filteredSet.length == 0" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Go Next Level!!</button> &nbsp; &nbsp;
+			<button ng-if="myProductImgs.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Previous Level</button>
 		</div>
 	</div>
 </div> <!-- row ends -->

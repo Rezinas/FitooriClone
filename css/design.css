@@ -21,16 +21,16 @@ label.material {
 	margin-right: 45px;
 }
 .bgProduct {
-	/*background: url('../images/silhout.jpg') no-repeat;*/
-	/*background-position: 0  -142px;*/
+	background: url('../images/earHolder1.jpg') no-repeat;
+	background-position: 0  -175px;
 	min-height: 350px;
 	border: 1px solid black;
 
 }
 
 .designDiv {
-	margin-top: 35px;
-    margin-left: 135px;
+	margin-top: 65px;
+    margin-left: 150px;
     position: relative;
 }
 

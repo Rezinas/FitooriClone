@@ -50,7 +50,7 @@ if(isset($_GET["pieces"]) && isset($_GET["deleteid"]) ) {
   $stmt1->bind_param('i', $pieceid);
   $stmt1->execute();
   $stmt1->close();
-        header("Location: ".SITE_URL. "/admin/dashboard.php?pieces");
+        header("Location: ".SITE_URL. "admin/dashboard.php?pieces");
 
 }
 
