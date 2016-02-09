@@ -152,6 +152,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
                              }
                         }
                     }
+                    else {
+                        leftPos += parseInt(element.centerx, 10);
+                        topPos += parseInt(element.centery, 10);
+                    }
                     element.topPos = topPos;
                     element.leftPos = leftPos;
                     $scope.mySelectedItems.push(element);
@@ -163,8 +167,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
                 console.log($scope.allConnArr);
             } else {
                 var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
+                bpoints = ($scope.designLevel == 0 ) ? 1 : bpoints;
                 for (var i = 0; i < bpoints; i++) {
-                    $scope.myProductImgs[pos] = elem; pos++;
+                    $scope.mySelectedItems[pos].selectedImage = elem;
+                     pos++;
                 }
             }
         };
@@ -191,7 +197,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
                 $scope.mySelectedItems.splice(indexToRemove, numberToRemove);
             }
             $scope.designLevel--;
-            $scope.levelFilled = false;
+            $scope.levelFilled = true;
             $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
         }
 

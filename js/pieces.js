@@ -175,6 +175,15 @@ $(document).ready( function() {
 
         $("input[name=pctop]").change(function(){
             var topPoints = parseInt(this.value, 10);
+            if(topPoints == 0) {
+              $(".pcenterx").show();
+              $(".pcentery").show();
+
+            }
+            else {
+              $(".pcenterx").hide();
+              $(".pcentery").hide();
+            }
             xyInputs(tcoordsDom, topPoints, "top");
 
         });
@@ -182,6 +191,17 @@ $(document).ready( function() {
             var botPoints = parseInt(this.value, 10);
              xyInputs(bcoordsDom, botPoints, "bottom");
         });
+
+        $("input[name=pcenterx]").change(function(){
+           var mLeft = parseInt(this.value, 10);
+           $("#carouselImg").css("margin-left", mLeft+"px");
+
+        });
+        $("input[name=pcentery]").change(function(){
+           var mTop = parseInt(this.value, 10);
+           $("#carouselImg").css("margin-top", mTop+"px");
+        });
+
         $("#pccolors").blur(function(){
             showFileInp(filesDom);
         });
@@ -242,6 +262,8 @@ $(document).on('change', '.tcoords input[type=text], .bcoords input[type=text]',
                           });
 $(".bcoords input[type=text]").trigger("change");
 $(".tcoords input[type=text]").trigger("change");
+$("input[name=pcenterx]").trigger("change");
+$("input[name=pcentery]").trigger("change");
 
 $("button[type='reset']").on("click", function(event){
        $("#patterns").empty();

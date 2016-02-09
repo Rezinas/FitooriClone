@@ -3,13 +3,9 @@
 
 <div class="container" ng-controller="MainController">
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-6">
 		<div class="bgProduct">
 			<div class="designDiv">
-					<!-- ng-class="{current: $index==designLevel}" -->
-				<!-- <div class="prd_elements elements{{$index}}" ng-repeat="imgItem in myProductImgs track by $index" prd-position selected-items="mySelectedItems" design-level="designLevel" img-item="imgItem" elem-number="$index" prd-index="prdIndex">
-					<img  ng-src="/plumms/productImages/{{imgItem}}" />
-				</div> -->
 				<div class="prd_elements elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem">
 					<img  ng-src="/plumms/productImages/{{imgItem.selectedImage}}" />
 				</div>
@@ -21,7 +17,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-6">
 			<!-- main Options -->
 		<div class="elements">
 			<div ng-if="filteredSet.length == 0">
@@ -43,7 +39,7 @@
 		<div ng-if="mySelectedItems.length > 0">
 			<button ng-hide="filteredSet.length == 0" class="btn btn-primary" ng-click="confirmDesign()">Confirm!!</button> &nbsp; &nbsp;
 			<button ng-hide="filteredSet.length == 0" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Go Next Level!!</button> &nbsp; &nbsp;
-			<button ng-if="myProductImgs.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Previous Level</button>
+			<button ng-if="mySelectedItems.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Previous Level</button>
 		</div>
 	</div>
 </div> <!-- row ends -->
