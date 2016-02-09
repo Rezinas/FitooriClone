@@ -7,13 +7,12 @@
 		<div class="bgProduct">
 			<div class="designDiv">
 					<!-- ng-class="{current: $index==designLevel}" -->
-				<div class="prd_elements elements{{$inde" ng-repeat="imgItem in myProductImgs track by $index" prd-position selected-items="mySelectedItems" design-level="designLevel" img-item="imgItem" elem-number="$index" prd-index="prdIndex">
+				<!-- <div class="prd_elements elements{{$index}}" ng-repeat="imgItem in myProductImgs track by $index" prd-position selected-items="mySelectedItems" design-level="designLevel" img-item="imgItem" elem-number="$index" prd-index="prdIndex">
 					<img  ng-src="/plumms/productImages/{{imgItem}}" />
+				</div> -->
+				<div class="prd_elements elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem">
+					<img  ng-src="/plumms/productImages/{{imgItem.selectedImage}}" />
 				</div>
-				<div class="plusbutton">
-
-				</div>
-
 			</div>
 		</div>
 		<div class="designOptions">

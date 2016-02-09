@@ -1,5 +1,4 @@
 'use strict';
-
 var des = angular.module('cdesign', ['slick']);
 
 des.controller('MainController', ['$scope', '$rootScope', '$window',
@@ -15,6 +14,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.currentPage = 0;
         $scope.levelFilled = false;
         $scope.prdIndex = [];
+        $scope.allConnArr =[];
         var elements = $window.model.elements;
         var bodyparts = $window.model.items;
 
@@ -78,48 +78,95 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.selectImage = function(elem, elementPos, mainlist) {
             $scope.levelFilled = true;
             var bpoints = ($scope.mySelectedItems.length ==0) ? 1 : 0;
-            if($scope.designLevel > 0) {
-                var prevElsArr = $scope.prdIndex[$scope.designLevel-1];
-                var numberOfElemInPrevLevel = prevElsArr.length;
-                $.each(prevElsArr, function(ix, elPos){
-                   bpoints += $scope.mySelectedItems[elPos].bottompoints;
-                });
-            }
             var tpoints = elem.toppoints;
-                var indexToRemove = 0;
-                var numberToRemove = 0;
+            var indexToRemove = 0;
+            var numberToRemove = 0;
+            var prevElsArr=[];
+            var numberOfElemInPrevLevel =0;
+            var lastLevelEl = [];
 
+
+
+            // This is when different images in carousel is selected after
+            //the level is filled but next level is not  reached.
             if($scope.prdIndex[$scope.designLevel]) {
                 indexToRemove = $scope.prdIndex[$scope.designLevel][0];
                 numberToRemove = $scope.prdIndex[$scope.designLevel].length;
             }
 
-            $scope.myProductImgs.splice(indexToRemove, numberToRemove);
+            if($scope.designLevel > 0) {
+              prevElsArr = $scope.prdIndex[$scope.designLevel-1];
+                numberOfElemInPrevLevel = prevElsArr.length;
+                $.each(prevElsArr, function(ix, elPos){
+                   bpoints += $scope.mySelectedItems[elPos].bottompoints;
+                });
+                $.each($scope.allConnArr[$scope.designLevel-1], function(ix, elPos){
+                    lastLevelEl.push($scope.mySelectedItems[elPos.split(',')[0]]);
+                });
+            }
             if (mainlist) {
                 $scope.prdIndex.splice($scope.designLevel, 1);
+                $scope.allConnArr.splice($scope.designLevel, 1);
                 $scope.mySelectedItems.splice(indexToRemove, numberToRemove);
+
                 var pos = $scope.mySelectedItems.length;
                 if(tpoints == bpoints) {
                      tpoints = 1; bpoints= 1;
                 }
+
                 var indexArr =[];
+                var connArr =[];
                 for(var i=0; i< bpoints; i++){
-                    indexArr[i] = pos;
+                    var currBottomPoints = (elem.bottompoints == 0) ? 1 : parseInt(elem.bottompoints, 10);
+                    for(var j=0; j< currBottomPoints; j++) {
+                       connArr.push(pos+","+j);
+                    }
+                    indexArr.push(pos);
+
                     var element = {};
                     angular.copy(elem, element)
+                    element.selectedImage = element.carouselImg;
+                                //Calculating topPos and leftPos
+                    var topPos = 0;
+                    var leftPos = 0;
+
+                    if ($scope.designLevel != 0) {
+                        var prevElement = null;
+                        prevElement = lastLevelEl[i];
+                        topPos += parseInt(prevElement.topPos, 10);
+                        leftPos += parseInt(prevElement.leftPos, 10);
+                        var connPoint = $scope.allConnArr[$scope.designLevel-1][i];
+
+                        if(prevElement.bottompoints > 1){
+                             var botPoints = prevElement.botY.split(",");
+                             topPos += parseInt(botPoints[connPoint.split(",")[1]], 10);
+                             var tPoints = prevElement.botX.split(",");
+                             if(element.toppoints == 1) {
+                                leftPos += parseInt(tPoints[connPoint.split(",")[1]], 10) - parseInt(element.topX, 10);
+                             }
+                        }
+                        else {
+                             topPos += parseInt(prevElement.botY, 10);
+                             if(element.toppoints == 1) {
+                                leftPos += parseInt(prevElement.botX, 10) - parseInt(element.topX, 10);
+                             }
+                        }
+                    }
+                    element.topPos = topPos;
+                    element.leftPos = leftPos;
                     $scope.mySelectedItems.push(element);
-                    $scope.myProductImgs[pos] = elem.images[0].imagefile;
                     pos++;
                 }
                 $scope.prdIndex.push(indexArr);
+                $scope.allConnArr.push(connArr);
                 console.log($scope.prdIndex);
+                console.log($scope.allConnArr);
             } else {
                 var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
                 for (var i = 0; i < bpoints; i++) {
                     $scope.myProductImgs[pos] = elem; pos++;
                 }
             }
-            // console.log($scope.myProductImgs);
         };
 
         $scope.updateLevel = function() {
@@ -141,10 +188,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
             if($scope.prdIndex[$scope.designLevel]){
                 var indexToRemove = $scope.prdIndex[$scope.designLevel][0];
                 var numberToRemove = $scope.prdIndex[$scope.designLevel].length;
-                $scope.myProductImgs.splice(indexToRemove, numberToRemove);
                 $scope.mySelectedItems.splice(indexToRemove, numberToRemove);
             }
-
             $scope.designLevel--;
             $scope.levelFilled = false;
             $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
@@ -162,52 +207,16 @@ des.directive('prdPosition', function($timeout) {
     return {
         restrict: "AE",
         scope: {
-            selectedItems: '=',
-            designLevel: '=',
-            elemNumber: '=',
-            prdIndex: '='
+            selectedItem: '='
         },
         link: function(scope, element, $attrs) {
-            var thisScope = scope;
             var curElem = element;
-            scope.$watch('imgItem', function(newVal, oldVal) {
-                var topPos = 0;
-                var leftPos = 0;
-                var currentElem = thisScope.selectedItems[thisScope.elemNumber];
-
-                if (thisScope.designLevel != 0) {
-                    //single level elements
-                    var currLevelArr = thisScope.prdIndex[thisScope.designLevel];
-                    var prevElsArr = thisScope.prdIndex[thisScope.designLevel-1];
-                    var prevElement = null;
-
-                    var currIndexCurrElem = $.inArray(thisScope.elemNumber, currLevelArr);
-
-                    var prevIndex = prevElsArr[currIndexCurrElem] ? prevElsArr[currIndexCurrElem] : 0;
-                    prevElement = thisScope.selectedItems[prevIndex];
-                    topPos += prevElement.topPos;
-                    leftPos += prevElement.leftPos;
-                    if(prevElement.bottompoints > 1){
-                         var botPoints = prevElement.botY.split(",");
-                         topPos += parseInt(botPoints[currIndexCurrElem], 10);
-                         var tPoints = prevElement.botX.split(",");
-                         if(currentElem.toppoints == 1) {
-                            leftPos += parseInt(tPoints[currIndexCurrElem], 10) - parseInt(currentElem.topX, 10);
-                         }
-                    }
-                    else {
-                         topPos += parseInt(prevElement.botY, 10);
-                         if(currentElem.toppoints == 1) {
-                            leftPos += parseInt(prevElement.botX, 10) - parseInt(currentElem.topX, 10);
-                         }
-                    }
-
-                }
-                    thisScope.selectedItems[thisScope.elemNumber].topPos = topPos;
-                    thisScope.selectedItems[thisScope.elemNumber].leftPos = leftPos;
-                $(curElem).css("left", leftPos+"px");
-                $(curElem).css("top", topPos+"px");
+            var thisScope = scope;
+            scope.$watch('selectedItem.selectedImage', function(newVal, oldVal){
+             $(curElem).css("left", thisScope.selectedItem.leftPos+"px");
+             $(curElem).css("top", thisScope.selectedItem.topPos+"px");
             }, true);
+
         }
     };
 });
