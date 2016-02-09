@@ -6,17 +6,17 @@ $styleArr= explode("|", STYLES) ;
 $texturesArr= explode("|", TEXTURES) ;
 $elements =[];
 
-$qry = "SELECT id, carouselImg, bodypart, toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material from pieces";
+$qry = "SELECT id, carouselImg, bodypart, centerx, centery,  toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material from pieces";
 
  	$stmt = $dbcon->prepare($qry);
 if(!$stmt->execute()){
     die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 }
 $stmt->store_result();
-$stmt->bind_result($a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n);
+$stmt->bind_result($a,$b, $c,  $cx, $cy, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n);
 while ($stmt->fetch()) {
 	$row=[];
-	$row = ['id' => $a, 'carouselImg' => $b, 'bodypart' => $c, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n];
+	$row = ['id' => $a, 'carouselImg' => $b, 'bodypart' => $c,  'centerx' => $cx, 'centery' => $cy, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n];
 
 	$qry2 = "SELECT color, design, imagefile, imageid, pieceid from pieceimages where pieceid = ".$a;
 	$stmt1 = $dbcon->prepare($qry2);

@@ -32,14 +32,29 @@
 
             <div class="row">
                     <div class="col-md-4">
-                        <center>
-                        <div id="carouselImg"><img src=<?php if( $carouselImg  != "") echo "../productImages/".$carouselImg."?t=" . time(); else  echo  "../images/placeholder.png"; ?> /></div>
+                        <div class="silhout">
+                            <div class="designDiv">
+                                <div id="carouselImg"><img src=<?php if( $carouselImg  != "") echo "../productImages/".$carouselImg."?t=" . time(); else  echo  "../images/placeholder.png"; ?> /></div>
+                            </div>
+                        </div>
+
                           <div id="carouselDimensions">
                                         Height: <span class="imgheight">225</span> X
                                         Width: <span class="imgwidth">225</span>
                             </div>
-                        </center>
                     </div>
+                     <div class="col-md-1" id="centerxDiv">
+                         <div class="form-group pcenterx" <?php if( $pctop  != "0") echo "style='display:none'"; ?>>
+                                <label>Center x</label>
+                                <input class="form-control" name="pcenterx" placeholder="Top Element only"  <?php if( $pcenterx  != "") echo "value='$pcenterx'"; ?> >
+                          </div>
+                   </div>
+                   <div class="col-md-1" id="centeryDiv">
+                         <div class="form-group pcentery" <?php if( $pctop != "0") echo "style='display:none'"; ?>>
+                                <label>Center y</label>
+                                <input class="form-control" name="pcentery" placeholder="Top Element only"  <?php if( $pcentery  != "") echo "value='$pcentery'"; ?> >
+                          </div>
+                   </div>
                     <div class="col-md-2" id="topPdiv">
                          <div class="form-group">
                                 <label>Top Edge Points</label>
@@ -82,7 +97,7 @@
                                 </select>
                             </div>
                   </div>
-                   <div class="col-md-2">
+<!--                    <div class="col-md-2">
                              <div class="form-group">
                               <label>Style</label>
                               <select  name="pstyle" id="pstyle" class="form-control">
@@ -97,7 +112,7 @@
                                 ?>
                               </select>
                           </div>
-                  </div>
+                  </div> -->
                    <div class="col-md-2">
                                <div class="form-group">
                                 <label>Material</label>
