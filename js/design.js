@@ -187,7 +187,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
         };
 
         $scope.confirmDesign = function() {
-
+            //send information to design.php to store the selected product in database
+            console.log($scope.mySelectedItems);
         };
 
         $scope.gobackLevel = function() {
@@ -233,6 +234,19 @@ des.filter('startFrom', function() {
         return input.slice(start);
 }
 });
+
+
+des.filter('category', function() {
+  return function(inputArr, catType) {
+    inputArr = inputArr || [];
+    var out = [];
+    for (var i = 0; i < inputArr.length; i++) {
+      if(inputArr[i].material == catType)
+        out.push(inputArr[i]);
+    }
+    return out;
+  };
+})
 
 des.factory('elementFactory', function() {
     var factory = {};

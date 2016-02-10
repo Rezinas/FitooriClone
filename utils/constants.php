@@ -25,7 +25,8 @@
 	define('GUEST',  2);
 
 
-	define('CATEGORY', 'Hooks|Beaded|Quilled|Terracota|Metal');
+	define('CATEGORY', 'Terracota|Beaded|Metal');
+
 	define('PRD_ITEM', 'Anklets|Bangles|Earrings|Necklace|Pendant Sets');
 	define('STYLES', 'Daily Wear|Party Wear|Work Wear');
 

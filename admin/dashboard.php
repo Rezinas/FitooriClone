@@ -98,7 +98,9 @@ else {
 
    </head>
 <body>
-            <nav class="adminNav navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"  >
+
+<div class="header">
+              <nav class="adminNav navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"  >
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
@@ -106,7 +108,7 @@ else {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <h1 class="navbar-brand"><a  href="index.html" style="font-family:Brush Script MT">Plumms</a></h1>
+                    <h1 class="navbar-brand"><img src="../images/logo1.png"  class="img-responsive" style="    position: relative;top: -13px;float: left;"/><a  href="index.html">Fitoori</a></h1>
                 </div>
                 <!--navbar-links-->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -154,6 +156,9 @@ else {
                 </div><!--/.navbar-collapse-->
                 <!--//navbar-links-->
             </nav>
+            <div class="clearfix"> </div>
+</div>
+
 
 
 

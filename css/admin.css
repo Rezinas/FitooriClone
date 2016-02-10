@@ -1,6 +1,10 @@
 .adminNav .navbar-nav > li > a {
-    padding: 23px 2px;
+    padding: 10px;
     font-size: 1em;
+}
+
+.adminNav {
+	width: 100%;
 }
 
 .altImg img {
