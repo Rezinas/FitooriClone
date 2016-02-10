@@ -208,7 +208,7 @@ b.caret {
     display: none;
     position: absolute;
     /*top: 100%;*/
-    top:126%;
+    top:104%;
     /*right: 22.5%;*/
     /*right:14%;*/
     right:220px;
@@ -270,7 +270,7 @@ b.caret {
     display: none;
     position: absolute;
     /*top: 100%;*/
-    top:126%;
+    top:104%;
     /*right: 22.5%;*/
     right:30px;
     background-color:#fff;
@@ -345,7 +345,7 @@ b.caret {
     /*top: 98%;*/
     /*right:18.5%;*/
     /*right: 9.8%;*/
-    top:126%;
+    top:104%;
     right:152px;
     display: none;
     z-index: 99;
@@ -495,7 +495,7 @@ input:focus {
     /*top: 100%;*/
 	/*right: 13%;*/
     /*right: 4.3%;*/
-    top:126%;
+    top:104%;
     right:67px;
     background-color: #fff;
     width: 14%;
@@ -551,8 +551,8 @@ input:focus {
     background-color: #fff;
     padding: 0px;
     /*min-height: 590px;*/
-    min-height: 730px;
-    /*min-height:725px*/
+    min-height: 728px;
+   /*  min-height:725px */
 }
 .banner img {
     width: 100%;
@@ -596,7 +596,7 @@ input:focus {
    /* padding: 5em 0;*/
     /*padding: 2em 0;*/
     padding:0em 0 2em 0;
-    /*margin-top:-68px;*/
+    margin-top: -11px;
 }
 .quick {
     padding: 1em;
@@ -754,7 +754,8 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
   text-decoration: none;
 }
 .prices {
-    float: right;
+    /* float: right; */
+    margin-top: 1em;
 }
 .galry {
     margin-top: 1em;
@@ -1008,11 +1009,11 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
 	-moz-transition: 0.5s all;
 	-o-transition: 0.5s all;
 	min-height: 200px;
-	border:2px solid #fff;
+	/* border:1px solid #F07818;  */
 }
 .product-grid:hover {
 	/*z-index: 1;*/
-    z-index: 1;
+    z-index: 0;
 	/*border-color: #F07818;*/
     font-weight: bold;
     color:#333;
@@ -1085,9 +1086,11 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
 .item_add:hover {
    /* background: none;
     color: #F07818;*/
-    background-color: #5D4B33;
-    color: #FFFFFF;
+    background: transparent;
     border-color: #5D4B33;
+    color: #5D4B33;
+    text-decoration: none;
+    border:2px solid;
 }
 .product-info-price {
 	float: right;
@@ -1141,6 +1144,7 @@ p.disc {
 .product-grid.single-product {
     width: 23%;
     margin: 0 2% 4% 0;
+    background-color: #fff;
 }
 /*-- start scrollpane --*/
 .jspContainer{
@@ -1548,7 +1552,8 @@ p.qty {
     color: #999;
 }
 .single-grid h5 {
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
+    font-size: 1.1em;
     color: #000;
 }
 span.glyphicon.glyphicon-star-empty:hover {
@@ -1573,8 +1578,9 @@ span.glyphicon.glyphicon-star-empty:hover {
 .btn_form a:hover {
     background: transparent;
     border-color: #5D4B33;
-    color:#5D4B33;
+    color: #5D4B33;
     text-decoration: none;
+    border:2px solid;
 }
 .tag a {
     color: #000;
@@ -1618,7 +1624,8 @@ p span.overline{
 }
 .related-products {
     padding: 4em 0;
-    background-color: #FBFBFB;
+   /*  background-color: #FBFBFB; */
+    background-color: #F3F3F3;
 	text-align: center;
 }
 .explore{
@@ -2161,7 +2168,7 @@ i.sele{
     padding: 8em 0;
 }
 .about ul li {
-    margin-left:34px;
+    /* margin-left:34px; */
     color:#999;
 }
 .about ul {
@@ -2294,9 +2301,11 @@ span.glyphicon.glyphicon-map-marker {
 .contact-form button.btn1:hover {
     /*background-color: #fff;
     color: #F07818;*/
-    background-color: #5D4B33;
-    color: #FFFFFF;
+    background: transparent;
     border-color: #5D4B33;
+    color: #5D4B33;
+    text-decoration: none;
+    border:2px solid;
 }
 /*--//contact--*/
 /*---- responsive-design -----*/
