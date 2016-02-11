@@ -197,6 +197,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
                 var numberToRemove = $scope.prdIndex[$scope.designLevel].length;
                 $scope.mySelectedItems.splice(indexToRemove, numberToRemove);
             }
+            $scope.prdIndex.splice($scope.designLevel, 1);
+            $scope.allConnArr.splice($scope.designLevel, 1);
+
             $scope.designLevel--;
             $scope.levelFilled = true;
             $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
