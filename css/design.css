@@ -22,14 +22,19 @@ label.material {
 }
 .bgProduct {
 	background: url("../images/silhoutteversion3.png") no-repeat;
-	background-size: 100% 100%;
-	height: 449px;
-	width: 489px;
-	padding-top: 190px;
-	padding-left: 220px;
+/* 	background-size: 100% 100%;
+height: 449px;
+width: 489px;
+padding-top: 190px;
+padding-left: 220px; */
+background: url("../images/silhoutteversion3.png") no-repeat;
+    background-size: contain;
+    height: 525px;
+    width: 100%;
+    padding-top: 210px;
+    padding-left: 205px;
 
 }
-
 .designDiv {
     position: relative;
 }
