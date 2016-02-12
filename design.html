@@ -1,53 +1,93 @@
 <div ng-app="cdesign">
 <h2 class="page-header">Design Product</h2>
+<div ng-controller="MainController">
 
-<div class="container" ng-controller="MainController">
-<div class="row">
-	<div class="col-md-6">
-		<div class="bgProduct">
-			<div class="designDiv">
-				<div class="prd_elements elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem">
-					<img  ng-src="/plumms/productImages/{{imgItem.selectedImage}}" />
+			<div class="row">
+				<div class="avlOptions col-lg-4 col-md-4 col-sm-4 col-xs-12" style="border:0px solid #333">
+					<div class="bgProduct">
+						<div class="designDiv">
+							<div class="prd_elements elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem">
+								<img  ng-src="/plumms/productImages/{{imgItem.selectedImage}}" />
+							</div>
+						</div>
+					</div>
+
+					<div id="imgOptions" class="designOptions">
+						<div class="aelements" ng-repeat="altItem in mySelectedItems[designLevel].images">
+							<img ng-src="/plumms/productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, $index, false);" />
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-4 col-xs-12" style="border:0px solid #333;">
+					<div class="elements" id="sampleImgs">
+						<div class="fheight">
+							<h4>Metals</h4>
+							<img ng-repeat="imgElem in metal= (filteredSet | category:3) | limitTo:8" ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+
+
+							<a ng-if="metal.length > 6" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>
+
+							<div ng-if="metal.length==0">  No results </div>
+						</div>
+						<div id="light2" class="white_content">
+						<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/>
+
+						<img ng-repeat="imgElem in filteredSet | category:3"  ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+
+						</div>
+						<div id="fade2" class="black_overlay"></div>
+
+						<div class="fheight">
+							<h4>Teracotta </h4>
+							<img ng-repeat="imgElem in terracota = (filteredSet | category:1) | limitTo:8" ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+
+							<a  ng-if="terracota.length > 6"  href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>
+
+							<div ng-if="terracota.length==0">  No results </div>
+						</div>
+						<div id="light" class="white_content">
+							<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a><br/>
+
+							<img ng-repeat="imgElem in filteredSet | category:1"  ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+
+						</div>
+						<div id="fade" class="black_overlay"></div>
+
+						<div class="fheight">
+							<h4>Beaded</h4>
+							<img ng-repeat="imgElem in beaded = (filteredSet | category:2) | limitTo:8" ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+
+							<a ng-if="beaded.length > 6" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>
+
+							<div ng-if="beaded.length==0">  No results </div>
+						</div>
+						<div id="light1" class="white_content">
+							<a href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a><br/>
+
+							<img ng-repeat="imgElem in filteredSet | category:2"  ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+						</div>
+						<div id="fade1" class="black_overlay"></div>
+
+						<div id="chkBtn" style="text-align:center;">
+<!--                   			<input type="submit" id="buy" value="Add to Cart">
+                  			<input type="submit" id="rst" value="Reset"> -->
+                  			<div ng-if="mySelectedItems.length > 0">
+								<button ng-hide="filteredSet.length == 0" class="btn btn-primary" ng-click="confirmDesign()">Add to Cart</button> &nbsp; &nbsp;
+								<button ng-hide="filteredSet.length == 0" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Add Another Level</button> &nbsp; &nbsp;
+								<button ng-if="mySelectedItems.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Go Previous Level</button>
+							</div>
+                		</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12" style="border:0px solid #333;">
+					<div id="designerPick">
+						<h4>Designer's pick for you</h4>
+						<img src="<?php echo SITE_URL; ?>images/m55.png"/>
+						<img src="<?php echo SITE_URL; ?>images/m66.png"/>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="designOptions">
-			<div class="aelements" ng-repeat="altItem in mySelectedItems[designLevel].images">
-				<img ng-src="/plumms/productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, $index, false);" />
-			</div>
-		</div>
-	</div>
-	<div class="col-md-6">
-			<!-- main Options -->
-		<div class="elements">
-			<div ng-if="filteredSet.length == 0">
-				No Further Matching Elements Found.
-			</div>
-			<div class="felements" ng-repeat="imgElem in filteredSet | startFrom:currentPage*pageSize | limitTo:pageSize">
-				<!-- {{ itemModel.selectedMaterial}} | {{tagFilterSelected}} -->
-				<img ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
-			</div>
-			<div style="clear:both"></div>
-			<button class="e-control left" ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1" >
-		        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		      </button>
-			<button class="e-control right" ng-hide="currentPage >= filteredSet.length/pageSize - 1" ng-click="currentPage=currentPage+1"  >
-		        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	      	</button>
-		</div>
 
-		<div ng-if="mySelectedItems.length > 0">
-			<button ng-hide="filteredSet.length == 0" class="btn btn-primary" ng-click="confirmDesign()">Confirm!!</button> &nbsp; &nbsp;
-			<button ng-hide="filteredSet.length == 0" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Go Next Level!!</button> &nbsp; &nbsp;
-			<button ng-if="mySelectedItems.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Previous Level</button>
-		</div>
-	</div>
-</div> <!-- row ends -->
-
-<div class="row">
-
-</div>
-
-</div><!-- container ends -->
-
+	</div><!-- controller ends -->
 </div><!--topmost  div ends -->
