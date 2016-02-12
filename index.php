@@ -763,6 +763,35 @@ else {
 	<!--//FlexSlider -->
 	<script src="js/imagezoom.js"></script>
 <!-- //js -->
+<style>
+  .single{
+    margin-bottom: -92px;
+  }
+  .single h2{
+    margin-top: 65px;
+  }
+  .single-grid h3{
+    font-size: 2.2em;
+  }
+  .single-grid p{
+    text-align: justify;
+  }
+  .related-products h3{
+    margin: -35px 0px;
+  }
+  h4.panel-title a{
+    color: #F07818;
+  }
+  .panel-default > .panel-heading{
+    background-color: transparent;
+    border-color:transparent;
+  }
+  .panel{
+    border:0px;
+    box-shadow: none;
+    text-align: justify;
+  }
+</style>
 <?php } ?>
 </head>
 <body>
