@@ -51,12 +51,13 @@ if (!empty($_POST)) {
 	  	$error .= "Form Error.. some input is empty.";
 	  }
 
+	  var_dump($_FILES);
 	$mainimage =  uploadPrdImage($_FILES['mainfile'] ['tmp_name'], $_FILES['mainfile'] ['name'], $_FILES['mainfile'] ['error']);
 	$alt1image =  uploadPrdImage($_FILES['alt1file'] ['tmp_name'], $_FILES['alt1file'] ['name'], $_FILES['alt1file'] ['error']);
 	$alt2image =  uploadPrdImage($_FILES['alt2file'] ['tmp_name'], $_FILES['alt2file'] ['name'], $_FILES['alt2file'] ['error']);
 
 	if ((strpos($mainimage,'ERROR') !== false || strpos($alt1image,'ERROR') !== false || strpos($alt2image,'ERROR') !== false)   && $mode == "new") {
-	  	$error  .= "Form Error.. image uploads failed.";
+	  	$error  .= "Form Error.. image uploads failed.".$_FILES['mainfile']['error'];
 	}
 
 	if($featured == "1") {
@@ -92,7 +93,7 @@ if (!empty($_POST)) {
 	$statement = $dbcon->prepare($query);
 
 	//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
-	$statement->bind_param('sdiiisssiiisi', $pname, floatval($price), intval($pitem), intval($pcategory), intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), intval($promoted), $curr_userType, $curr_userEmail, intval($pquantity) );
+	$statement->bind_param('sdiiisssiiisi', $pname, floatval($pprice), intval($pitem), intval($pcategory), intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), intval($promoted), $curr_userType, $curr_userEmail, intval($pquantity) );
 
 	if($statement->execute()){
 		$mode = "edit";
@@ -104,34 +105,40 @@ if (!empty($_POST)) {
 	$statement->close();
 
 	//query for productimages table
+
 	$query1 = "INSERT INTO `productimages` (`prdid`, `prdimage_name`, `prdimage_type`) VALUES (?,?,?)";
 	$statement1 = $dbcon->prepare($query1);
-	$statement1->bind_param('isi', $pid, $mainimage, MAINIMG);
+	$mi = MAINIMG;
+	$statement1->bind_param('isi', $pid, $mainimage, $mi);
 
 	if(!$statement1->execute()){
 	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}
-	$statement1->bind_param( 'isi', $pid, $alt1img, ALTERNATE1IMG);
+	$ai1 = ALTERNATE1IMG;
+	$statement1->bind_param( 'isi', $pid, $alt1img, $ai1);
 
 	if(!$statement1->execute()){
 	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}
 
-	$statement1->bind_param( 'isi', $pid, $alt2img, ALTERNATE2IMG);
+	$ai2 = ALTERNATE2IMG;
+	$statement1->bind_param( 'isi', $pid, $alt2img, $ai2);
 
 	if(!$statement1->execute()){
 	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}
 
 	if($promoted == "1") {
-		$statement1->bind_param( 'isi', $pid, $promotedimage, PROMOTEDIMG);
+		$primg= PROMOTEDIMG;
+		$statement1->bind_param( 'isi', $pid, $promotedimage, $primg);
 
 		if(!$statement1->execute()){
 		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 		}
 	}
 	if($featured == "1") {
-		$statement1->bind_param( 'isi', $pid, $featuredimage, FEATUREDIMG);
+		$fimg= FEATUREDIMG;
+		$statement1->bind_param( 'isi', $pid, $featuredimage, $fimg);
 
 		if(!$statement1->execute()){
 		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
