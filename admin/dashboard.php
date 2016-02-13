@@ -8,6 +8,51 @@ if(empty($username)){
       header("Location: ".SITE_URL. "admin/index.php");
 }
 
+function insertElement($conn, $obj, $prdid){
+
+  return true;
+}
+
+if(isset($_GET["addcustom"])) {
+    if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
+      $_POST = array_merge($_POST, (array) json_decode(trim(file_get_contents('php://input')), true));
+      // var_dump($_POST["custom_product"]);
+      if(!empty($_POST["custom_product"])){
+        $prd_qry  = "insert into products () VALUES ()";
+
+        $ins_stmt = $dbcon->prepare($prd_qry);
+        if(!$ins_stmt) {
+         die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+        }
+        if($ins_stmt->execute()){
+              $prodid=$ins_stmt->insert_id;
+          }else{
+            die('Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
+        }
+        $ins_stmt->close();
+
+        $elements = $_POST["custom_product"];
+
+        $elem_qry = "INSERT into customdesign (`productid`, `elementid`,`leftPos`, `topPos`, `selectedImage`  ) VALUES (?,?,?,?,?)";
+        $ins_stmt1 = $dbcon->prepare($elem_qry);
+
+        foreach($elements as $elem){
+        //  var_dump($elem);
+          $ins_stmt1->bind_param('iiiis', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage']);
+
+          if(!$ins_stmt1->execute()){
+              die('Image Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
+          }
+        }
+        $ins_stmt1->close();
+        echo "success";
+      }
+      else echo "ERROR";
+      exit();
+  }
+}
+
+
 
 
 if(isset($_GET["pieces"]) && isset($_GET["deleteid"]) ) {
@@ -60,6 +105,9 @@ if(isset($_GET["search"])) {
 }
 else if(isset($_GET["elements"])) {
     $currenttab = 'elements';
+}
+else if(isset($_GET["custom"])) {
+    $currenttab = 'custom';
 }
 else if(isset($_GET["orders"])) {
     $currenttab = 'orders';
@@ -120,6 +168,9 @@ else {
                                 <a href="dashboard.php?design" <?php if($currenttab == "design") echo 'class="active"'; ?>><i class="fa fa-dashboard fa-fw"></i>Design Product</a>
                             </li>
                             <li >
+                                <a href="dashboard.php?custom" <?php if($currenttab == "custom") echo 'class="active"'; ?>><i class="fa fa-search fa-fw"></i>Custom Designs</a>
+                            </li>
+                            <li>
                                 <a href="dashboard.php?elements" <?php if($currenttab == "elements") echo 'class="active"'; ?>><i class="fa fa-search fa-fw"></i>Elements Search</a>
                             </li>
                                <li>
@@ -175,6 +226,10 @@ if($currenttab == "dash") {
 else if($currenttab == "design") {
     include(SITE_ROOT. "admin/design.php");
     include(SITE_ROOT. "design.html");
+}
+else if($currenttab == "custom") {
+    include(SITE_ROOT. "admin/custom.php");
+    include(SITE_ROOT. "admin/custom.html");
 }
 else if($currenttab == "search") {
     include(SITE_ROOT. "productcombined.html");

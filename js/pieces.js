@@ -255,6 +255,8 @@ $(document).on('change', '.tcoords input[type=text], .bcoords input[type=text]',
                             $("#carouselImg").css("width", w+"px");
                             $("#carouselDimensions .imgheight").html(h);
                             $("#carouselDimensions .imgwidth").html(w);
+                            $("#carouselDimensions input#imgheight").val(h);
+                            $("#carouselDimensions input#imgwidth").val(w);
          }).each(function(){
                             if(this.complete) {
                               $(this).trigger('load');

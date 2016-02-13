@@ -1,8 +1,8 @@
 'use strict';
 var des = angular.module('cdesign', ['slick']);
 
-des.controller('MainController', ['$scope', '$rootScope', '$window',
-    function($scope, $rootScope, $window) {
+des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document',
+    function($scope, $rootScope, $http, $window, $document) {
 
         $scope.designObj = {};
         $scope.filteredSet = [];
@@ -17,6 +17,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.allConnArr =[];
         var elements = $window.model.elements;
         var bodyparts = $window.model.items;
+
+        var isOdd = function(num){
+            return num % 2;
+        };
 
         var findConnectionElements = function(eitems) {
             var resArr = [];
@@ -84,7 +88,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
             var prevElsArr=[];
             var numberOfElemInPrevLevel =0;
             var lastLevelEl = [];
-
+            var fits = true;
 
 
             // This is when different images in carousel is selected after
@@ -96,13 +100,40 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
 
             if($scope.designLevel > 0) {
               prevElsArr = $scope.prdIndex[$scope.designLevel-1];
-                numberOfElemInPrevLevel = prevElsArr.length;
+              numberOfElemInPrevLevel = prevElsArr.length;
+
+                //for multi point elements we need to figure out if there are going to be
+                //multiple next level elements or only one in the middle
                 $.each(prevElsArr, function(ix, elPos){
-                   bpoints += $scope.mySelectedItems[elPos].bottompoints;
+                    var cElem = $scope.mySelectedItems[elPos];
+                    var curBpoints =  cElem.bottompoints;
+                    if(isOdd(curBpoints) && curBpoints > 1 && elem.toppoints == 1) {
+                        var botXs=  cElem.botX.split(",");
+                        var curWidth = elem.imgwidth;
+                        for(var i=0; i < botXs.length && fits; i++){
+                            if(botXs[i+1] - botXs[i] <= curWidth){
+                                fits=false;
+                            }
+                        }
+                    }
+                        if(fits) {
+                             bpoints += $scope.mySelectedItems[elPos].bottompoints;
+                        }
+                        else {
+                             bpoints += 1;
+                        }
                 });
+
+                var prevConnArrLength = $scope.allConnArr[$scope.designLevel-1].length;
                 $.each($scope.allConnArr[$scope.designLevel-1], function(ix, elPos){
-                    lastLevelEl.push($scope.mySelectedItems[elPos.split(',')[0]]);
+                    if(fits) {
+                        lastLevelEl.push($scope.mySelectedItems[elPos.split(',')[0]]);
+                    }
+                    else if(ix == Math.floor(prevConnArrLength/2))  {
+                        lastLevelEl.push($scope.mySelectedItems[elPos.split(',')[0]]);
+                    }
                 });
+                console.log(lastLevelEl);
             }
             if (mainlist) {
                 $scope.prdIndex.splice($scope.designLevel, 1);
@@ -118,9 +149,15 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
                 var connArr =[];
                 for(var i=0; i< bpoints; i++){
                     var currBottomPoints = (elem.bottompoints == 0) ? 1 : parseInt(elem.bottompoints, 10);
-                    for(var j=0; j< currBottomPoints; j++) {
-                       connArr.push(pos+","+j);
+                    if(!fits) {
+                        connArr.push(pos+","+Math.floor(prevConnArrLength/2));
                     }
+                    else {
+                        for(var j=0; j< currBottomPoints; j++) {
+                           connArr.push(pos+","+j);
+                        }
+                    }
+
                     indexArr.push(pos);
 
                     var element = {};
@@ -135,7 +172,13 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
                         prevElement = lastLevelEl[i];
                         topPos += parseInt(prevElement.topPos, 10);
                         leftPos += parseInt(prevElement.leftPos, 10);
-                        var connPoint = $scope.allConnArr[$scope.designLevel-1][i];
+                        var connPoint;
+                        if(fits) {
+                            connPoint = $scope.allConnArr[$scope.designLevel-1][i];
+                        }
+                        else  {
+                            connPoint = $scope.allConnArr[$scope.designLevel-1][Math.floor(prevConnArrLength/2)];
+                        }
 
                         if(prevElement.bottompoints > 1){
                              var botPoints = prevElement.botY.split(",");
@@ -163,7 +206,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
                 }
                 $scope.prdIndex.push(indexArr);
                 $scope.allConnArr.push(connArr);
+                console.log("prdIndex");
                 console.log($scope.prdIndex);
+                console.log("allConnArr");
                 console.log($scope.allConnArr);
             } else {
                 var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
@@ -189,6 +234,22 @@ des.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.confirmDesign = function() {
             //send information to design.php to store the selected product in database
             console.log($scope.mySelectedItems);
+        };
+
+        $scope.processForm = function() {
+              var payload = {
+                            custom_product : $scope.mySelectedItems
+                            };
+
+          $http({
+          method  : 'POST',
+          url     : 'dashboard.php?addcustom',
+          data    : payload  // pass in data as strings
+         })
+          .success(function(data) {
+            console.log(data);
+           // $window.location ="dashboard.php?custom"
+          });
         };
 
         $scope.gobackLevel = function() {
