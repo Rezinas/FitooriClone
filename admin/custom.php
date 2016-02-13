@@ -6,10 +6,6 @@ $styleArr= explode("|", STYLES) ;
 $texturesArr= explode("|", TEXTURES) ;
 $elements =[];
 
-// if (!empty($_POST)) {
-// echo "success";
-// exit();
-// }
 
 
 // $qry = "SELECT id, carouselImg,  imgheight, imgwidth, bodypart, centerx, centery,  toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material from pieces";

@@ -68,83 +68,22 @@
                           echo   '<div class="tcoords tcoords'.$i.'"><label>x'.$i.'</label><input type="text"  placeholder="x'.$i.'" name="topx'.$i.'"  value="'.$topx[$i].'"/> &nbsp;<label>y'.$i.'</label><input type="text"  placeholder="y'.$i.'" name="topy'.$i.'"  value="'.$topy[$i].'"/></div>';
                             }
                       ?>
-                </div>
-                <div class="col-md-2" id="bottomPdiv">
-                     <div class="form-group ">
-                                <label>Bottom Edge Points</label>
-                                <input class="form-control" name="pcbot" placeholder="Enter Number of Points at the Bottom"  <?php if( $pcbot  != "") echo "value='$pcbot'"; ?> >
-                            </div>
-                              <?php
-                        for($i=0; $i<intval($pcbot); $i++){
-                          echo   '<div class="bcoords bcoords'.$i.'"><label>x'.$i.'</label><input type="text"  placeholder="x'.$i.'" name="bottomx'.$i.'"  value="'.$bottomx[$i].'"/> &nbsp;<label>y'.$i.'</label><input type="text"  placeholder="y'.$i.'" name="bottomy'.$i.'"  value="'.$bottomy[$i].'"/></div>';
-                            }
-                      ?>
-                </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2">
-                               <div class="form-group">
-                                <label>Type of Jewelry</label>
-                                <select  name="pcbody" id="pcbody" class="form-control">
-                                <option value=''>Select Type</option>
-
-                                  <?php
-                                    foreach($itemsArr as  $itemkey=>$item) {
-                                        $itemkey++;
-                                        echo  "<option value='$itemkey'";
-                                         echo ($pcbody  == $itemkey) ?   "selected" : "";
-                                         echo  ">$item</option>";
-                                     }
-                                ?>
-                                </select>
-                            </div>
-                  </div>
-<!--                    <div class="col-md-2">
-                             <div class="form-group">
-                              <label>Style</label>
-                              <select  name="pstyle" id="pstyle" class="form-control">
-                                <option value=''>Select Style</option>
-                                <?php
-                                    foreach($styleArr as $skey=>$style) {
-                                        $skey++;
-                                        echo  "<option value='$skey'";
-                                         echo ($pstyle  == $skey) ?   "selected" : "";
-                                         echo  ">$style</option>";
-                                    }
-                                ?>
-                              </select>
-                          </div>
-                  </div> -->
-                   <div class="col-md-2">
-                               <div class="form-group">
-                                <label>Material</label>
-                                <select name="material" id="material" class="form-control">
-                                <option value=''>Select Material</option>
-                                <?php
-
-                                    foreach($categoriesArr as $catkey=>$category) {
-                                        $catkey++;
-                                        echo  "<option value='$catkey'";
-                                         echo ($material  == $catkey) ?   "selected" : "";
-                                         echo  ">$category</option>";
-                                    }
-                                ?>
-                                </select>
-                            </div>
-                    </div>
-                    <div class="col-md-2">
-                               <div class="form-group">
-                                <label>Admin Tags</label>
-                                <textarea class="form-control" name="admintags" rows="8" placeholder="Comma separated values.." ><?php echo html_entity_decode($admintags); ?></textarea>
-                            </div>
-                    </div>
-            </div>
-
-            <div class="row">
-             <div class="col-md-3">
-                        <div class="form-group">
-                                <label>Colors</label>
+                    <div class="form-group">
+                      <label>Type of Jewelry</label>
+                      <select  name="pcbody" id="pcbody" class="form-control">
+                        <option value=''>Select Type</option>
+                        <?php
+                        foreach($itemsArr as  $itemkey=>$item) {
+                        $itemkey++;
+                        echo  "<option value='$itemkey'";
+                        echo ($pcbody  == $itemkey) ?   "selected" : "";
+                        echo  ">$item</option>";
+                        }
+                        ?>
+                      </select>
+                      </div>
+                      <div class="form-group ">
+                      <label>Colors</label>
                                  <select name="pccolors[]" id="pccolors" class="form-control" multiple  style="height:200px">
                                 <option value='' disabled>Select All that Apply</option>
                                      <?php
@@ -157,12 +96,36 @@
                                 </select>
                                 <br>
                                 <button type="button" class="btn btn-default pull-right" id="clearColors">Clear Selection</button>
-                            </div>
                     </div>
 
-                      <div class="col-md-3">
-                        <div class="form-group">
-                                <label>Texture Name</label>
+                </div>
+                <div class="col-md-2" id="bottomPdiv">
+                     <div class="form-group ">
+                                <label>Bottom Edge Points</label>
+                                <input class="form-control" name="pcbot" placeholder="Enter Number of Points at the Bottom"  <?php if( $pcbot  != "") echo "value='$pcbot'"; ?> >
+                             </div> 
+                              <?php
+                        for($i=0; $i<intval($pcbot); $i++){
+                          echo   '<div class="bcoords bcoords'.$i.'"><label>x'.$i.'</label><input type="text"  placeholder="x'.$i.'" name="bottomx'.$i.'"  value="'.$bottomx[$i].'"/> &nbsp;<label>y'.$i.'</label><input type="text"  placeholder="y'.$i.'" name="bottomy'.$i.'"  value="'.$bottomy[$i].'"/></div>';
+                            }
+                      ?>
+                    <div class="form-group ">
+                      <label>Material</label>
+                      <select name="material" id="material" class="form-control">
+                      <option value=''>Select Material</option>
+                      <?php
+
+                          foreach($categoriesArr as $catkey=>$category) {
+                              $catkey++;
+                              echo  "<option value='$catkey'";
+                               echo ($material  == $catkey) ?   "selected" : "";
+                               echo  ">$category</option>";
+                          }
+                      ?>
+                      </select>
+                      </div>
+                      <div class="form-group ">
+                       <label>Texture Name</label>
                                <select name="pcdesign[]" id="pcdesign" class="form-control" multiple  style="height:200px">
                                 <option value='' disabled>Select All that Apply</option>
                                 <?php
@@ -175,9 +138,112 @@
                                 </select>
                                 <br>
                                 <button type="button" class="btn btn-default pull-right" id="clearTexture">Clear Selection</button>
-                            </div>
-                    </div>
+                      </div>      
+                </div>
+                <div class="col-md-2">
+                           <div class="form-group">
+                            <label>Admin Tags</label>
+                            <textarea class="form-control" name="admintags" rows="8" placeholder="Comma separated values.." ><?php echo html_entity_decode($admintags); ?></textarea>
+                        </div>
+                </div>
             </div>
+
+            <div class="row">
+<!--               <div class="col-md-2">
+                 <div class="form-group">
+                  <label>Type of Jewelry</label>
+                  <select  name="pcbody" id="pcbody" class="form-control">
+                  <option value=''>Select Type</option>
+
+                    <php
+                      foreach($itemsArr as  $itemkey=>$item) {
+                          $itemkey++;
+                          echo  "<option value='$itemkey'";
+                           echo ($pcbody  == $itemkey) ?   "selected" : "";
+                           echo  ">$item</option>";
+                       }
+                  ?>
+                  </select>
+              </div>
+    </div> -->
+<!--                    <div class="col-md-2">
+                             <div class="form-group">
+                              <label>Style</label>
+                              <select  name="pstyle" id="pstyle" class="form-control">
+                                <option value=''>Select Style</option>
+                                <php
+                                    foreach($styleArr as $skey=>$style) {
+                                        $skey++;
+                                        echo  "<option value='$skey'";
+                                         echo ($pstyle  == $skey) ?   "selected" : "";
+                                         echo  ">$style</option>";
+                                    }
+                                ?>
+                              </select>
+                          </div>
+                  </div> -->
+<!--                    <div class="col-md-2">
+            <div class="form-group">
+             <label>Material</label>
+             <select name="material" id="material" class="form-control">
+             <option value=''>Select Material</option>
+             <php
+
+                 foreach($categoriesArr as $catkey=>$category) {
+                     $catkey++;
+                     echo  "<option value='$catkey'";
+                      echo ($material  == $catkey) ?   "selected" : "";
+                      echo  ">$category</option>";
+                 }
+             ?>
+             </select>
+         </div>
+ </div> -->
+<!--                     <div class="col-md-2">
+           <div class="form-group">
+            <label>Admin Tags</label>
+            <textarea class="form-control" name="admintags" rows="8" placeholder="Comma separated values.." ><php echo html_entity_decode($admintags); ?></textarea>
+        </div>
+</div> -->
+            </div>
+
+          <!--   <div class="row">
+           <div class="col-md-3">
+                      <div class="form-group">
+                              <label>Colors</label>
+                               <select name="pccolors[]" id="pccolors" class="form-control" multiple  style="height:200px">
+                              <option value='' disabled>Select All that Apply</option>
+                                   <php
+                                       foreach($colorsArr as  $color) {
+                                              echo  "<option value='$color'";
+                                               echo (in_array($color, $pccolors)) ?   "selected" : "";
+                                               echo  ">$color</option>";
+                                           }
+                                      ?>
+                              </select>
+                              <br>
+                              <button type="button" class="btn btn-default pull-right" id="clearColors">Clear Selection</button>
+                          </div>
+                  </div>
+          
+                    <div class="col-md-3">
+                      <div class="form-group">
+                              <label>Texture Name</label>
+                             <select name="pcdesign[]" id="pcdesign" class="form-control" multiple  style="height:200px">
+                              <option value='' disabled>Select All that Apply</option>
+                              <php
+                               foreach($texturesArr  as $texture) {
+                                      echo  "<option value='$texture'";
+                                       echo (in_array($texture, $pcdesign)) ?   "selected" : "";
+                                       echo  ">$texture</option>";
+                                   }
+                                      ?>
+                              </select>
+                              <br>
+                              <button type="button" class="btn btn-default pull-right" id="clearTexture">Clear Selection</button>
+                          </div>
+                  </div>
+          </div> -->
 
 <br>
 <br>

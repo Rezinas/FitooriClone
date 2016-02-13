@@ -1,3 +1,6 @@
+div#page-wrapper h2 {
+    margin-top: 60px;
+}
 .adminNav .navbar-nav > li > a {
     padding: 10px 3px;
     font-size: 1em;
@@ -28,7 +31,6 @@ nav.navbar.navbar-default.adminNav {
     width: 380px;
     padding-top: 170px;
     padding-left: 155px;
-
 }
 
 .points {
@@ -42,12 +44,24 @@ nav.navbar.navbar-default.adminNav {
 	width: 50px;
 }
 
-.product-img img {
+/* .product-img img {
 	height: 100px;
 	width: auto;
+} */
+.product-img img {
+    height: 80px;
+    width: auto;
+    margin: 1px auto;
+    padding: 10px;
 }
-
+/*.product-grid {
+ 	width: 15%;
+min-height: 90px; */
 .product-grid {
-	width: 15%;
-	min-height: 90px;
+    width: 15%;
+    min-height: 90px;
+    border: 1px solid #EFE9E9;
+    margin: 0 1% 1% 0;
+    /* box-shadow: 1px 1px 1px #D8D6D6;
+     */
 }
