@@ -23,7 +23,44 @@ $pid= "";
 if(isset($_GET["product"]) && isset($_GET["id"]) ) {
     $pid=trim($_GET["id"]);
     $mode = "edit";
-    //retrieve the product with this id and populate all the above variables.
+
+    //TBD: add Availability to the table
+
+    $qry = "SELECT  `name`, `price`, `item`, `category`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `promoted`, `addedUsertype`, `addedbyUserEmail`, `quantity`  from products WHERE id=$pid";
+ 	if(!$stmt = $dbcon->prepare($qry)){
+	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+	}
+
+	if(!$stmt->execute()){
+	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+	}
+
+	$stmt->store_result();
+	$stmt->bind_result($a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m);
+	while ($stmt->fetch()) {
+		$parr = ['name' => $a, 'price' => $b,  'item' => $c, 'category' => $d, 'status' => $e, 'shortdesc' => $f, 'detaildesc' => $g, 'addinfo' => $h, 'featured' => $i, 'promoted' => $j, 'addedUsertype' => $k, 'addedbyUserEmail' => $l, 'quantity' => $m];
+	}
+	$stmt->close();
+
+	$pname  = $parr['name'];
+	$sdesc  = $parr['shortdesc'];
+	$pprice  = $parr['price'];
+	$pdesc  = $parr['detaildesc'];
+	$pquantity  = $parr['quantity'];
+	$addinfo  = $parr['addinfo'];
+	$pcategory  = $parr['category'];
+	$pitem  = $parr['item'];
+	$pavail  = '1';
+	$pstatus  = $parr['status'];
+	$featured  = $parr['featured'];
+	$promoted  = $parr['promoted'];
+
+
+	$mainimage = $parr['material'];
+	$alt1image = $parr['material'];
+	$alt2image = $parr['material'];
+	$featuredimage = $parr['material'];
+	$promotedimage = $parr['material'];
 
 }
 
@@ -56,8 +93,8 @@ if (!empty($_POST)) {
 	$alt1image =  uploadPrdImage($_FILES['alt1file'] ['tmp_name'], $_FILES['alt1file'] ['name'], $_FILES['alt1file'] ['error']);
 	$alt2image =  uploadPrdImage($_FILES['alt2file'] ['tmp_name'], $_FILES['alt2file'] ['name'], $_FILES['alt2file'] ['error']);
 
-	if ((strpos($mainimage,'ERROR') !== false || strpos($alt1image,'ERROR') !== false || strpos($alt2image,'ERROR') !== false)   && $mode == "new") {
-	  	$error  .= "Form Error.. image uploads failed.".$_FILES['mainfile']['error'];
+	if ((strpos($mainimage,'ERROR') !== false  && $mode == "new") {
+	  	$error  .= "Form Error.. main image uploads failed.".$_FILES['mainfile']['error'];
 	}
 
 	if($featured == "1") {
@@ -114,18 +151,23 @@ if (!empty($_POST)) {
 	if(!$statement1->execute()){
 	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}
-	$ai1 = ALTERNATE1IMG;
-	$statement1->bind_param( 'isi', $pid, $alt1img, $ai1);
 
-	if(!$statement1->execute()){
-	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+	if (strpos($alt1img,'ERROR') === false){
+		$ai1 = ALTERNATE1IMG;
+		$statement1->bind_param( 'isi', $pid, $alt1img, $ai1);
+
+		if(!$statement1->execute()){
+		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+		}
 	}
 
-	$ai2 = ALTERNATE2IMG;
-	$statement1->bind_param( 'isi', $pid, $alt2img, $ai2);
+	if (strpos($alt2img,'ERROR') === false){
+		$ai2 = ALTERNATE2IMG;
+		$statement1->bind_param( 'isi', $pid, $alt2img, $ai2);
 
-	if(!$statement1->execute()){
-	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+		if(!$statement1->execute()){
+		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+		}
 	}
 
 	if($promoted == "1") {
