@@ -68,3 +68,7 @@ min-height: 90px; */
     /* box-shadow: 1px 1px 1px #D8D6D6;
      */
 }
+
+.product-grid.cdesign {
+    width: 45%;
+}

@@ -5,36 +5,21 @@ $itemsArr= explode("|", PRD_ITEM) ;
 
 $allproducts=[];
 
-$qry = "SELECT id, carouselImg from pieces";
-$stmt = $dbcon->prepare($qry);
+$qry = "SELECT  `productid`,`name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `promotedimg`,`featuredimg`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `promoted`, `addedUsertype`, `addedbyUserEmail`, `quantity`  from products";
+if(!$stmt = $dbcon->prepare($qry)){
+die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+}
+
 if(!$stmt->execute()){
-    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 }
 
 $stmt->store_result();
-$stmt->bind_result($a,$b);
+$stmt->bind_result( $a1, $a,$b, $c, $d, $i1, $i2, $i3, $i4, $i5, $e, $f, $g, $h, $i, $j, $k, $l, $m);
 while ($stmt->fetch()) {
-    $allpieces[] = ['id' => $a, 'carouselImg' => $b];
+$allproducts[] = [ 'productid' => $a1, 'name' => $a, 'price' => $b,  'bodypart' => $c, 'material' => $d, 'mainimg' => $i1, 'alt1img' => $i2, 'alt2img' => $i3, 'promotedimg' => $i4, 'featuredimg' => $i5, 'status' => $e, 'shortdesc' => $f, 'detaildesc' => $g, 'addinfo' => $h, 'featured' => $i, 'promoted' => $j, 'addedUsertype' => $k, 'addedbyUserEmail' => $l, 'quantity' => $m];
 }
 $stmt->close();
-
-
-
-    $qry = "SELECT  `productid`,`name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `promotedimg`,`featuredimg`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `promoted`, `addedUsertype`, `addedbyUserEmail`, `quantity`  from products";
- 	if(!$stmt = $dbcon->prepare($qry)){
-	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
-	}
-
-	if(!$stmt->execute()){
-	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-	}
-
-	$stmt->store_result();
-	$stmt->bind_result( $a1, $a,$b, $c, $d, $i1, $i2, $i3, $i4, $i5, $e, $f, $g, $h, $i, $j, $k, $l, $m);
-	while ($stmt->fetch()) {
-		$allproducts[] = [ 'productid' => $a1, 'name' => $a, 'price' => $b,  'bodypart' => $c, 'material' => $d, 'mainimg' => $i1, 'alt1img' => $i2, 'alt2img' => $i3, 'promotedimg' => $i4, 'featuredimg' => $i5, 'status' => $e, 'shortdesc' => $f, 'detaildesc' => $g, 'addinfo' => $h, 'featured' => $i, 'promoted' => $j, 'addedUsertype' => $k, 'addedbyUserEmail' => $l, 'quantity' => $m];
-	}
-	$stmt->close();
 
 ?>
 <h2>Admin Product Search</h2>
@@ -43,7 +28,7 @@ $stmt->close();
 				<?php
 					foreach($allproducts as $prod) { ?>
 				<div class="product-grid">
-					<a href="<?php echo   SITE_URL; ?>single.html?id=<?php echo $prod['productid']; ?>">
+					<a href="<?php echo   SITE_URL; ?>index.php?single&id=<?php echo $prod['productid']; ?>">
 						<div class="more-product"><span> </span></div>
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
 							<img src="<?php echo  SITE_URL.PRDIMGDIR."/".$prod['mainimg'];  ?>" class="img-responsive" alt="">
@@ -57,7 +42,7 @@ $stmt->close();
 					<div class="product-info simpleCart_shelfItem">
 						<div class="product-info-cust prt_name">
 							<h4><?php echo $prod['name']; ?></h4>
-							<span class="item_price"><?php echo $prod['price']; ?></span>
+							<span class="item_price">Rs.<?php echo $prod['price']; ?></span>
 							<div class="ofr">
 								<!-- <p class="pric1"><del>$2300.00</del></p>
 								<p class="disc">[15% Off]</p> -->

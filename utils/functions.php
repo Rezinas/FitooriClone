@@ -117,4 +117,9 @@ if($filename == "") return "ERROR";
        }
 }
 
+function showCustomDesign($config) {
+  $htmlStr = "";
+  return  $htmlStr;
+}
+
 ?>

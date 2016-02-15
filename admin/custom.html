@@ -1,1 +1,31 @@
 <h2>Custom Products</h2>
+<div class="row">
+	<div class="col-md-9 product-model-sec">
+	<?php
+		foreach($designs as $des) { ?>
+			<div class="product-grid cdesign">
+				construct the design here....
+				<?php echo showCustomDesign($des); ?>
+			</div>
+		<?php }
+	?>
+
+	</div>
+	<div class="col-md-3 rsidebar span_1_of_left">
+		<form>
+			<section  class="sky-form">
+				<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
+				<div class="row row1 scroll-pane">
+					<div class="col col-4">
+						<?php
+							foreach($itemsArr as  $itemkey=>$item) {
+								echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
+							}
+						?>
+					</div>
+				</div>
+			</section>
+		</form>
+	</div>
+	<div class="clearfix"> </div>
+</div>

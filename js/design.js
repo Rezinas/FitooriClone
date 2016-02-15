@@ -237,9 +237,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         $scope.processForm = function() {
-              var payload = {
-                            custom_product : $scope.mySelectedItems
-                            };
+          var payload = {
+                        custom_product : $scope.mySelectedItems
+                        };
 
           $http({
           method  : 'POST',
@@ -247,8 +247,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
           data    : payload  // pass in data as strings
          })
           .success(function(data) {
-            console.log(data);
-           // $window.location ="dashboard.php?custom"
+            if(data == "SUCCESS")
+                $window.location ="dashboard.php?custom";
+            else
+                alert("insert into database failed");
           });
         };
 
