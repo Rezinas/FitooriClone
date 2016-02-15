@@ -87,8 +87,9 @@ function prepare_input($data) {
 }
 
 
-function uploadPrdImage($origFile, $filename ){
+function uploadPrdImage($origFile, $filename, $filerror){
 
+if($filename == "") return "ERROR";
   $path_parts = pathinfo($filename);
  $filename = $path_parts['filename'].'_'.time().'.'.$path_parts['extension'];
 
@@ -96,26 +97,24 @@ function uploadPrdImage($origFile, $filename ){
     if ( move_uploaded_file ($origFile, $destFile) ){
         return  $filename;
     }
-    // else      {
-    //     $file_err = '';
-    //     switch ($filerror)
-    //      {  case 1:
-    //                $file_err .= 'The file is bigger than this PHP installation allows';
-    //                break;
-    //         case 2:
-    //                $file_err .= 'The file is bigger than this form allows';
-    //                break;
-    //         case 3:
-    //                $file_err .= 'Only part of the file was uploaded';
-    //                break;
-    //         case 4:cartesian
-    //                $file_err .= 'No file was uploaded';
-    //                break;
-    //      }
-    //     return "ERROR =".$file_err;
-    //    }
-    else
-        return "ERROR";
+    else      {
+        $file_err = '';
+        switch ($filerror)
+         {  case 1:
+                   $file_err .= 'The file is bigger than this PHP installation allows';
+                   break;
+            case 2:
+                   $file_err .= 'The file is bigger than this form allows';
+                   break;
+            case 3:
+                   $file_err .= 'Only part of the file was uploaded';
+                   break;
+            case 4:
+                   $file_err .= 'No file was uploaded';
+                   break;
+         }
+        return "ERROR =".$file_err;
+       }
 }
 
 ?>

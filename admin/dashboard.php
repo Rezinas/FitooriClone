@@ -304,6 +304,17 @@ else if($currenttab == "report") {
    <?php if($currenttab == "product") { ?>
   <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
     <script type='text/javascript'>//<![CDATA[
+    function readURL(input, outputImg) {
+var files = input.files ? input.files : input.currentTarget.files;
+    if (files && files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(outputImg).attr('src', e.target.result);
+        }
+        reader.readAsDataURL(files[0]);
+    }
+}
+
         $(document).on('change', '.btn-file :file', function() {
                 var input = $(this),
                 numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -319,6 +330,8 @@ else if($currenttab == "report") {
                 } else {
                      if( log ) alert(log);
                 }
+                var inpname = this.name;
+                 readURL(this, ".imgpreview."+inpname+" img");
             });
 
             $('#productForm input[type="radio"]').on('change', function() {

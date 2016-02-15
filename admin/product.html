@@ -82,16 +82,6 @@ $itemsArr= explode("|", PRD_ITEM) ;
                             </div>
                         </div> <!-- col end -->
                         <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Availability</label>
-                                <select name="pavail" id="pavail" class="form-control">
-                                <option value=''>Select Availability</option>
-                                    <option value="1" <?php echo   ($pavail  == "1") ?   "selected" : "";?>>Yes</option>
-                                    <option value="0" <?php echo   ($pavail  == "0") ?   "selected" : "";?>>No</option>
-                                </select>
-                            </div>
-                        </div><!-- col end -->
-                        <div class="col-md-3">
                                        <div class="form-group">
                                 <label>Status</label>
                                 <select name="pstatus" id="pstatus" class="form-control">
@@ -109,7 +99,7 @@ $itemsArr= explode("|", PRD_ITEM) ;
                             <div class="form-group">
                                 <label>Product Main Image</label>
                                 <div class="input-group"  id="mainfile">
-                                    <input type="text" class="form-control" id="mainreadonly" readonly="" <?php  if(strpos($mainimage,'ERROR') === false && $mode == "edit")  echo  "value='$mainimage'"; ?> >
+                                    <input type="text" name="mi" class="form-control" id="mainreadonly" readonly="" <?php  if($mi != "")  echo  "value='$mi'"; ?> >
                                     <span class="input-group-btn">
                                         <span class="btn btn-primary btn-file">
                                             Browse… <input type="file" name="mainfile">
@@ -117,9 +107,9 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                     </span>
                                 </div>
                             </div>
-                            <div class="imgpreview">
-                            <?php if(strpos($mainimage,'ERROR') === false && $mode == "edit")  { ?>
-                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$mainimage; ?>' class="img-responsive" alt="">
+                            <div class="imgpreview mainfile">
+                            <?php if($mi != "")  { ?>
+                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$mi; ?>' class="img-responsive" alt="">
                                 <?php  } ?>
                             </div>
                         </div><!-- col end -->
@@ -127,7 +117,7 @@ $itemsArr= explode("|", PRD_ITEM) ;
                             <div class="form-group">
                                 <label>Product Alt Image 1</label>
                                 <div class="input-group"  id="alt1file">
-                                        <input type="text" class="form-control" id="alt1readonly" readonly="" <?php  if(strpos($alt1image,'ERROR') === false && $mode == "edit")  echo  "value='$alt1image'"; ?> >
+                                        <input type="text" name="ai1" class="form-control" id="alt1readonly" readonly="" <?php  if($ai1 != "")  echo  "value='$ai1'"; ?> >
                                         <span class="input-group-btn">
                                             <span class="btn btn-primary btn-file">
                                                 Browse… <input type="file" name="alt1file">
@@ -135,9 +125,9 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                         </span>
                                 </div>
                             </div>
-                            <div class="imgpreview">
-                            <?php if(strpos($alt1image,'ERROR') === false && $mode == "edit")  { ?>
-                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$alt1image; ?>' class="img-responsive" alt="">
+                            <div class="imgpreview alt1file">
+                            <?php if($ai1 != "")  { ?>
+                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$ai1; ?>' class="img-responsive" alt="">
                                 <?php  } ?>
                             </div>
                         </div><!-- col end -->
@@ -145,7 +135,7 @@ $itemsArr= explode("|", PRD_ITEM) ;
                             <div class="form-group">
                                 <label>Product Alt Image 2</label>
                                 <div class="input-group" id="alt2file">
-                                        <input type="text" class="form-control" id="alt2readonly" readonly="" <?php  if(strpos($alt2image,'ERROR') === false && $mode == "edit")  echo  "value='$alt2image'"; ?> >
+                                        <input type="text" name="ai2" class="form-control" id="alt2readonly" readonly="" <?php  if($ai2 != "")  echo  "value='$ai2'"; ?> >
                                         <span class="input-group-btn">
                                             <span class="btn btn-primary btn-file">
                                                 Browse… <input type="file" name="alt2file">
@@ -153,9 +143,9 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                         </span>
                                 </div>
                             </div>
-                            <div class="imgpreview" >
-                                <?php if(strpos($alt2image,'ERROR') === false && $mode == "edit")  { ?>
-                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$alt2image; ?>'  class="img-responsive" alt="">
+                            <div class="imgpreview alt2file" >
+                                <?php if($ai2 != "")  { ?>
+                                <img src='<?php echo SITE_URL.PRDIMGDIR."/".$ai2; ?>'  class="img-responsive" alt="">
                                 <?php  } ?>
                             </div>
                         </div><!-- col end -->
@@ -180,7 +170,7 @@ $itemsArr= explode("|", PRD_ITEM) ;
                             <div class="form-group  featuredImgdiv hide">
                                 <label>Featured Image</label>
                                 <div class="input-group" id="featuredfile">
-                                        <input type="text" class="form-control" readonly="" <?php  if(strpos($featuredimage,'ERROR') === false  && $featured == "1" )  echo  "value='$featuredimage'"; ?> >
+                                        <input type="text" name="fimg" class="form-control" readonly="" <?php  if($fimg = "" )  echo  "value='$fimg'"; ?> >
                                         <span class="input-group-btn">
                                             <span class="btn btn-primary btn-file">
                                                 Browse… <input type="file" name="featuredfile">
@@ -188,9 +178,9 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                         </span>
                                 </div>
                             </div>
-                            <div class="imgpreview">
-                                <?php if(strpos($featuredimage,'ERROR') === false  && $featured == "1")  { ?>
-                                <img src="../productImages/<?php echo $featuredimage; ?>" class="img-responsive" alt="">
+                            <div class="imgpreview featuredfile">
+                                <?php if($fimg != "")  { ?>
+                                <img src="../productImages/<?php echo $fimg; ?>" class="img-responsive" alt="">
                                 <?php  } ?>
                             </div>
                         </div><!-- col end -->
@@ -211,7 +201,7 @@ $itemsArr= explode("|", PRD_ITEM) ;
                             <div class="form-group hide promotedImgdiv">
                                 <label>Promoted Image</label>
                                 <div class="input-group"  id="promotedfile">
-                                        <input type="text" class="form-control" readonly="" <?php  if(strpos($promotedimage,'ERROR') === false && $promoted == "1" )  echo  "value='$promotedimage'"; ?> >
+                                        <input type="text" name="primg" class="form-control" readonly="" <?php  if($primg != "" )  echo  "value='$primg'"; ?> >
                                         <span class="input-group-btn">
                                             <span class="btn btn-primary btn-file">
                                                 Browse… <input type="file" name="promotedfile">
@@ -219,9 +209,9 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                         </span>
                                 </div>
                             </div>
-                            <div class="imgpreview">
-                            <?php if(strpos($promotedimage,'ERROR') === false  && $promoted == "1" )  { ?>
-                                <img src="../productImages/<?php echo $promotedimage; ?>" class="img-responsive" alt="">
+                            <div class="imgpreview promotedfile">
+                            <?php if($primg != "" )  { ?>
+                                <img src="../productImages/<?php echo $primg; ?>" class="img-responsive" alt="">
                                 <?php  } ?>
                             </div>
                         </div><!-- col end -->

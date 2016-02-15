@@ -74,7 +74,7 @@
                   			<input type="submit" id="rst" value="Reset"> -->
                   			<div ng-if="mySelectedItems.length > 0">
                   			 <form name="designForm" ng-submit="processForm()">
-								<button ng-hide="filteredSet.length == 0" class="btn btn-primary" ng-click="confirmDesign()">Confirm Design</button> &nbsp; &nbsp;
+								<button ng-show="mySelectedItems.length > 0" class="btn btn-primary" ng-click="confirmDesign()">Confirm Design</button> &nbsp; &nbsp;
 							</form>
 								<button ng-hide="filteredSet.length == 0" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Add Another Level</button> &nbsp; &nbsp;
 								<button ng-if="mySelectedItems.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Go Previous Level</button>
