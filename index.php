@@ -60,11 +60,11 @@ else {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
-<script type="application/x-javascript"> 
-	addEventListener("load", function() { 
-		setTimeout(hideURLbar, 0); }, false); 
-		function hideURLbar(){ window.scrollTo(0,1); 
-	} 
+<script type="application/x-javascript">
+	addEventListener("load", function() {
+		setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1);
+	}
 </script>
 <!-- //Custom Theme files -->
 <link rel="icon" type="image/ico" href="images/favicon.ico">
@@ -76,7 +76,7 @@ else {
 <!-- js -->
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-<!-- //js -->	
+<!-- //js -->
 <!-- cart -->
 <script src="js/simpleCart.min.js"> </script>
 <!-- Login Script-->
@@ -109,9 +109,9 @@ else {
                             timeout: 3000,
                             success: function(data) {
                                 if (data && data == "SUCCESS") {
-                                    window.location = "<?php echo SITE_URL ?>index.php";
-                                    $("#loginForm").css("display","none");                                   
-                                    $("#userList").css("display","block");                                   
+                                   // window.location = "<?php echo SITE_URL ?>index.php";
+                                    $("#loginForm").css("display","none");
+                                    $(".userprofile").css("display","block");
 
                                 } else {
                                     $(".alert-danger").addClass("hide");
@@ -155,37 +155,37 @@ else {
 			</script>
 	<!-- //the jScrollPane script -->
 	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-	<!-- the mousewheel plugin -->	
+	<!-- the mousewheel plugin -->
 <?php  } ?>
 
 <?php if($currenttab == "customize") { ?>
 	<style>
 		.avlOptions div{
-			float: left;		
+			float: left;
 		}
-		.avlOptions #imgOptions{		
+		.avlOptions #imgOptions{
 			position: relative;
 			width:100%;
 			margin-top: -25px;
-			text-align: center; 
+			text-align: center;
 		}
 		.avlOptions #imgOptions img{
 			margin-bottom: 19px;
 			margin-top: 17px;
 		}
-		.avlOptions img{		
+		.avlOptions img{
 		    margin-bottom: 20px;
-		    margin-top: 40px; 	  
+		    margin-top: 40px;
 		    margin-right: 7px;
 	    	width: 60px;
 		}
 		#ear{
 			width:100%;
 		}
-		
-		#ear img{		
+
+		#ear img{
 			 width: 100%;
-			
+
 		}
 		#chkBtn input[type="submit"] {
 	        border: 2px solid #F07818;
@@ -201,7 +201,7 @@ else {
 	    outline: none;
 	    -webkit-transition: all 0.5s;
 	    -moz-transition: all 0.5s;
-	    transition: all 0.5s;  
+	    transition: all 0.5s;
 	    position: relative;
 	    margin-right: 14px;
 	    left: -12px;
@@ -212,7 +212,7 @@ else {
 	      color: #5D4B33;
 	      border-color: #5D4B33;
 	  	}
-		#chkBtn{		
+		#chkBtn{
 			width:100%;
 		}
 
@@ -239,15 +239,15 @@ else {
 	      position: relative;
 		  margin-top: 28px;
 		  margin-bottom: 0px;
-		  float: right;	  
-		}	
+		  float: right;
+		}
 		#chkBtn1 input[type="submit"]:hover {
 	      background-color: #5D4B33;
 	      color: #FFFFFF;
 	      border-color: #5D4B33;
 	  	}
 
-		div#type {	  
+		div#type {
 		   border:0px solid;
 		}
 
@@ -257,11 +257,11 @@ else {
 		    vertical-align: baseline;
 		}
 		div#material{
-			float: left;	   
+			float: left;
 		    margin-top: 10px;
 		    position: relative;
-		    font-size: 17px;	
-		    width:16%;    
+		    font-size: 17px;
+		    width:16%;
 		}
 
 		div#material input[type="radio"] {
@@ -274,7 +274,7 @@ else {
 		    width: 100%;
 		    float: left;
 		    position: relative;
-		    top: 10px;	  
+		    top: 10px;
 		}
 		div#sampleImgs img{
 			margin: 20px 0px 20px 5px;
@@ -287,7 +287,7 @@ else {
 		div#sampleImgs span{
 		    position: relative;
 	 	   float: right;
-		}	
+		}
 		div#sampleImgs h4 span a{
 		   font-size: 12px;
 		   float: right;
@@ -303,7 +303,7 @@ else {
 		    width: 100%;
 		    margin-bottom: 15px;
 		}
-			
+
 		.about {
 		    background: #fff;
 		    padding: 65px 0 0px;
@@ -360,7 +360,7 @@ else {
 			display: inline-block;
 			background:  #fff;
 			border: 1px solid #5D4B33;
-			width: 32.3%;    
+			width: 32.3%;
 			outline: none;
 			padding: 10px 15px 10px 15px;
 			font-size: 13px;
@@ -390,7 +390,7 @@ else {
 		background-color: #fff;
 	}
 </style>
-<?php }?> 
+<?php }?>
 
 <?php if($currenttab == "checkout") { ?>
 
@@ -400,7 +400,7 @@ else {
           margin-bottom: -30px;
       }
       .contact-form textarea{
-        width: 90.5%;  
+        width: 90.5%;
       }
       .about .container{
         height: 150px;
@@ -482,10 +482,10 @@ else {
           display: block;
           float: left;
           /*width: 2em;*/
-          
+
           width: 5.3em;
           /*height: 12em;*/
-          
+
           height: 54.8em;
           margin: 0.5em 0 0.5em 0.5em;
           color: #333;
@@ -526,7 +526,7 @@ else {
       }
       article.accordion section:target {
           /*width: 30em;*/
-          
+
           width: 70%;
           padding: 0 1em;
           color: #333;
@@ -544,7 +544,7 @@ else {
           -ms-transform: rotate(0deg);
           -o-transform: rotate(0deg);
           transform: rotate(0deg);
-      }      
+      }
       p.accnav {
           font-size: 1.1em;
           text-transform: uppercase;
@@ -590,7 +590,7 @@ else {
           padding: 2px 5px;
           text-align: center;
           /*font-size: 13px;*/
-          
+
           font-size: 16px;
       }
       .breadcrumb-body li .breadcrumb-stage-container {
@@ -682,32 +682,32 @@ else {
    <script>$(document).ready(function (c) {
       //Cart Details page Action
          $('#proceed').on('click', function (c) {
-             $('#cartDetails').fadeOut('fast', function (c) {                 
+             $('#cartDetails').fadeOut('fast', function (c) {
                  $('#cartDetails').addClass("hide");
                  $('#cartDetails').removeClass("show");
                  $('#chk').addClass("future disable");
                  $('#chk').removeClass("current");
-                 
+
              });
              $('#shippingDetails').fadeIn('fast', function (c) {
                	$('#shippingDetails').addClass("show");
-                $('#shippingDetails').removeClass("hide");               
+                $('#shippingDetails').removeClass("hide");
                  $('#shp').addClass("current");
                  $('#shp').removeClass("future disable");
              });
          });
-      
-      
+
+
          // Shipping Details page Action
-         $('#dlv').on('click', function (c) {				
+         $('#dlv').on('click', function (c) {
              $('#shippingDetails').fadeOut('fast', function (c) {
              	   $('#shippingDetails').addClass("hide");
-                 $('#shippingDetails').removeClass("show");                
+                 $('#shippingDetails').removeClass("show");
                  $('#shp').addClass("future disable");
                  $('#shp').removeClass("current");
-                 
-             });	      
-      
+
+             });
+
              $('#paymentDetails').fadeIn('fast', function (c) {
                  $('#paymentDetails').addClass("show");
                  $('#paymentDetails').removeClass("hide");
@@ -715,16 +715,16 @@ else {
                  $('#pymt').removeClass("future disable");
              });
          });
-      
-      $('#dlvy').on('click', function (c) {				
+
+      $('#dlvy').on('click', function (c) {
              $('#shippingDetails').fadeOut('fast', function (c) {
              	   $('#shippingDetails').addClass("hide");
-                 $('#shippingDetails').removeClass("show");                 
+                 $('#shippingDetails').removeClass("show");
                  $('#shp').addClass("future disable");
                  $('#shp').removeClass("current");
-                 
-             });	      
-      
+
+             });
+
              $('#paymentDetails').fadeIn('fast', function (c) {
                  $('#paymentDetails').addClass("show");
                  $('#paymentDetails').removeClass("hide");
@@ -732,33 +732,33 @@ else {
                  $('#pymt').removeClass("future disable");
              });
          });
-      
-      
+
+
         $('#bck').on('click', function (c) {
-             $('#shippingDetails').fadeOut('fast', function (c) {		            
+             $('#shippingDetails').fadeOut('fast', function (c) {
                  $('#shippingDetails').addClass("hide");
                 $('#shippingDetails').removeClass("show");
                  $('#shp').addClass("future disable");
                  $('#shp').removeClass("current");
-                 
+
              });
              $('#cartDetails').fadeIn('fast', function (c) {
              	   $('#cartDetails').addClass("show");
-             	   $('#cartDetails').removeClass("hide");     
+             	   $('#cartDetails').removeClass("hide");
                  $('#chk').addClass("current");
                  $('#chk').removeClass("future disable");
              });
          });
-      
-        $('#pcdChk').on('click', function (c) {				
+
+        $('#pcdChk').on('click', function (c) {
              $('#paymentDetails').fadeOut('fast', function (c) {
              	$('#paymentDetails').addClass("hide");
                  $('#paymentDetails').remove();
                  $('#pymt').addClass("future disable");
                  $('#pymt').removeClass("current");
-                 
-             });	      
-      
+
+             });
+
              $('#confirmDetails').fadeIn('fast', function (c) {
                  $('#confirmDetails').addClass("show");
                  $('#confirmDetails').removeClass("hide");
@@ -766,16 +766,16 @@ else {
                  $('#cnfm').removeClass("last future disable");
              });
          });
-      
-        $('#back').on('click', function (c) {				
+
+        $('#back').on('click', function (c) {
              $('#paymentDetails').fadeOut('fast', function (c) {
          	     $('#paymentDetails').addClass("hide");
                $('#paymentDetails').removeClass("show");
                $('#pymt').addClass("future disable");
                $('#pymt').removeClass("current");
-                 
-             });	      
-      
+
+             });
+
              $('#shippingDetails').fadeIn('fast', function (c) {
                  $('#shippingDetails').addClass("show");
                  $('#shippingDetails').removeClass("hide");
@@ -783,22 +783,22 @@ else {
                  $('#shp').removeClass("future disable");
              });
          });
-      
-      
-      $('#CnfmBtn').on('click', function (c) {				
+
+
+      $('#CnfmBtn').on('click', function (c) {
              $('#confirmDetails').fadeOut('fast', function (c) {
              	$('#confirmDetails').addClass("hide");
                  $('#confirmDetails').removeClass("show");
                  $('#cnfm').addClass("future disable");
                  $('#cnfm').removeClass("current");
-                 
-             });	      
+
+             });
              window.location.href = "<?php echo SITE_URL; ?>index.php";
-             //window.location.href = "http://samplepapers.com/rezi/NewPlumms/index.html";         
-         });      
-        
-      });	
-   </script>	
+             //window.location.href = "http://samplepapers.com/rezi/NewPlumms/index.html";
+         });
+
+      });
+   </script>
 <?php } ?>
 
 <?php if($currenttab == "single") {?>
@@ -894,7 +894,7 @@ else {
 				</div>
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">						
+					<ul class="nav navbar-nav">
 						<li><a href="index.php" <?php if($currenttab == "home") echo 'class="active"'; ?>>Home<!-- <img src="images/home.png"/> --></a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" <?php if($currenttab == "products") echo 'class="active"'; ?>>Products<b class="caret"></b></a>
@@ -903,13 +903,13 @@ else {
 									<div class="col-sm-6">
 										<h4>Type</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="index.php?products">All</a></li>											
+											<li><a class="list" href="index.php?products">All</a></li>
 											<li><a class="list" href="index.php?products">Bracelets</a></li>
 											<li><a class="list" href="index.php?products">Earrings</a></li>
 											<li><a class="list" href="index.php?products">Necklace</a></li>
-											<li><a class="list" href="index.php?products">Pendant Sets</a></li>	
+											<li><a class="list" href="index.php?products">Pendant Sets</a></li>
 										</ul>
-									</div>																		
+									</div>
 									<div class="col-sm-6">
 										<h4>Category</h4>
 										<ul class="multi-column-dropdown">
@@ -917,7 +917,7 @@ else {
 											<li><a class="list" href="index.php?products">Beaded</a></li>
 											<li><a class="list" href="index.php?products">Fashion</a></li>
 											<li><a class="list" href="index.php?products">Teracotta</a></li>
-											<li><a class="list" href="index.php?products">Quilled</a></li>											
+											<li><a class="list" href="index.php?products">Quilled</a></li>
 										</ul>
 									</div>
 								</div>
@@ -929,35 +929,35 @@ else {
 								<div class="row">
 									<div class="col-sm-6">
 										<h4>Items</h4>
-										<ul class="multi-column-dropdown">							
+										<ul class="multi-column-dropdown">
 											<li><a class="list" href="index.php?customize">Bracelets</a></li>
 											<li><a class="list" href="index.php?customize">Earrings</a></li>
 											<li><a class="list" href="index.php?customize">Necklace</a></li>
 											<li><a class="list" href="index.php?customize">Pendant Sets</a></li>
 										</ul>
-									</div>																		
+									</div>
 									<div class="col-sm-6">
 										<h4>Take a Tour</h4>
 										<ul class="multi-column-dropdown">
 											<li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-film" style="    font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Videos</a></li>
-											<li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-info-sign" style="font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Tutorials</a></li>		
+											<li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-info-sign" style="font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Tutorials</a></li>
 										</ul>
-									</div>						
+									</div>
 								</div>
 							</ul>
-						</li>						   
-						<li class="dropdown grid">
-							<a href="#" class="dropdown-toggle list1" data-toggle="dropdown" <?php if($currenttab == "offers") echo 'class="active"'; ?>>Offers<!--<b class="caret"></b>--></a>							
 						</li>
-						<li><a href="index.php?join" <?php if($currenttab == "join") echo 'class="active"'; ?>>Join Us</a></li>											
-					</ul> 
+						<li class="dropdown grid">
+							<a href="#" class="dropdown-toggle list1" data-toggle="dropdown" <?php if($currenttab == "offers") echo 'class="active"'; ?>>Offers<!--<b class="caret"></b>--></a>
+						</li>
+						<li><a href="index.php?join" <?php if($currenttab == "join") echo 'class="active"'; ?>>Join Us</a></li>
+					</ul>
 					<!--/.navbar-collapse-->
 				</div>
 				<!--//navbar-header-->
 			</nav>
 			<div class="header-info">
 				<div class="header-right search-box">
-					<a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>				
+					<a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 					<div class="search">
 						<form class="navbar-form">
 							<input type="text" class="form-control">
@@ -965,11 +965,11 @@ else {
 								Search
 							</button>
 						</form>
-					</div>	
+					</div>
 				</div>
 				<div class="header-right login">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-					<div id="loginBox"> 
+					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+					<div id="loginBox">
             <form  id="loginForm" name="loginForm" role="form">
               <div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Login Failed! Please try again</div>
               <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
@@ -986,40 +986,44 @@ else {
                   <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
               </fieldset>
               <p>New User ? <a class="sign" href="index.php?account">Sign Up</a> <span><a href="index.php?forgotpassword">Forgot your password?</a></span></p>
-            </form>                       
-              <ul class="dropdown-menu dropdown-user" id="userList">
-              <li><?php echo $_SESSION["useremail"]; ?><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
-              <li class="divider"></li>                
+            </form>
+            <div class="userprofile" style="display:none">
+               <ul class="dropdown-menu dropdown-user" id="userList" style=
+               "display:block">
+              <li><a id="loginemail" href="#"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a></li>
+              <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+              <li class="divider"></li>
               <li><a href="index.php?myaccount"><i class="fa fa-user fa-fw"></i>My Account</a>
               </li>
               <li><a href="#"><i class="fa fa-gear fa-fw"></i>My Orders</a>
               </li>
               <li><a href="#"><i class="fa fa-gear fa-fw"></i>My Wishlist</a>
-              </li>                 
+              </li>
               </ul>
+            </div>
             </div>
         </div>
 				<div class="header-right cart">
 					<a href="index.php?checkout"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
 						<h4><a href="#">
-							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
+							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
 						</a></h4>
 						<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
 						<div class="clearfix"> </div>
 					</div>
-				</div>	
+				</div>
 				<div class="header-right track-box">
 					<a href="#"><span aria-hidden="true"><img src="images/track.png"/></span></a>
 					<div class="track">
-						<form class="navbar-form">							
+						<form class="navbar-form">
 							<p>Order ID &nbsp;<input type="text" class="form-control">
 							<button type="submit" class="btn btn-default" aria-label="Left Align">
 								Track
 							</button></p>
 						</form>
-					</div>	
-				</div>			
+					</div>
+				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<div class="clearfix"> </div>
@@ -1030,49 +1034,49 @@ else {
 	if($currenttab == "home") {
 	    include(SITE_ROOT. "index.html");
 	}
-	else if($currenttab == "products") {    
+	else if($currenttab == "products") {
 	    include(SITE_ROOT. "products.html");
 	}
 	else if($currenttab == "customize") {
 	    include(SITE_ROOT. "customize.html");
 	}
-	else if($currenttab == "offers") {    
+	else if($currenttab == "offers") {
 	    include(SITE_ROOT. "offers.html");
 	}
-	else if($currenttab == "join") {   
+	else if($currenttab == "join") {
 	    include(SITE_ROOT. "joinus.html");
 	}
-	else if($currenttab == "about") {   
+	else if($currenttab == "about") {
 	    include(SITE_ROOT. "about.html");
 	}
-	else if($currenttab == "contact") {   
+	else if($currenttab == "contact") {
 	    include(SITE_ROOT. "contact.html");
 	}
-	else if($currenttab == "support") {   
+	else if($currenttab == "support") {
 	    include(SITE_ROOT. "support.html");
 	}
-	else if($currenttab == "privacy") {   
+	else if($currenttab == "privacy") {
 	    include(SITE_ROOT. "privacy.html");
 	}
-	else if($currenttab == "sr") {   
+	else if($currenttab == "sr") {
 	    include(SITE_ROOT. "SR.html");
 	}
-	else if($currenttab == "tc") {   
+	else if($currenttab == "tc") {
 	    include(SITE_ROOT. "T&C.html");
 	}
-	else if($currenttab == "account") {   
+	else if($currenttab == "account") {
 	    include(SITE_ROOT. "account.html");
 	}
-	else if($currenttab == "checkout") {   
+	else if($currenttab == "checkout") {
 	    include(SITE_ROOT. "checkoutCart.html");
 	}
-	else if($currenttab == "single") {   
+	else if($currenttab == "single") {
 	    include(SITE_ROOT. "single.html");
 	}
-  else if($currenttab == "myaccount") {   
+  else if($currenttab == "myaccount") {
       include(SITE_ROOT. "myAccount.html");
   }
-  else if($currenttab == "forgotpassword") {   
+  else if($currenttab == "forgotpassword") {
       include(SITE_ROOT. "forgotPassword.html");
   }
 ?>
@@ -1086,13 +1090,13 @@ else {
 					<ul>
 						<li><a href="index.php?about">About Us</a></li>
 						<li><a href="index.php?products">Products</a></li>
-						<li><a href="index.php?join">Work Here</a></li>												
+						<li><a href="index.php?join">Work Here</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
 					<h4>service</h4>
-					<ul>						
-						<li><a href="#">FAQ</a></li>						
+					<ul>
+						<li><a href="#">FAQ</a></li>
 						<li><a href="index.php?contact">Contact Us</a></li>
 						<li><a href="index.php?support">Support</a></li>
 					</ul>
@@ -1102,7 +1106,7 @@ else {
 					<ul>
 						<li><a href="index.php?tc#OrderStatus">Order Status</a></li>
 						<li><a href="index.php?tc#ShippingPolicy">Shipping Policy</a></li>
-						<li><a href="index.php?tc#ReturnPolicy">Return Policy</a></li>						
+						<li><a href="index.php?tc#ReturnPolicy">Return Policy</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
@@ -1119,7 +1123,7 @@ else {
 						<li><a href="#"><img src="images/i1.png" alt=""/>Facebook</a></li>
 						<li><a href="#"><img src="images/i2.png" alt=""/>Twitter</a></li>
 					</div>
-				</div>				
+				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>
