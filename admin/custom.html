@@ -3,9 +3,14 @@
 	<div class="col-md-9 product-model-sec">
 	<?php
 		foreach($designs as $des) { ?>
+
 			<div class="product-grid cdesign">
-				construct the design here....
-				<?php echo showCustomDesign($des); ?>
+				<?php foreach ($des['images'] as $sindx => $selImage){ ?>
+					<div class="prd_elements" style="left: <?php echo $des['leftpositions'][$sindx]; ?>px; top:  <?php echo $des['toppositions'][$sindx]; ?>px;">
+						<img src="../productImages/<?php echo $selImage; ?>">
+					</div>
+				<?php } ?>
+				<!-- <?php echo showCustomDesign($des); ?> -->
 			</div>
 		<?php }
 	?>

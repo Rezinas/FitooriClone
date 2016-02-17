@@ -133,7 +133,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                         lastLevelEl.push($scope.mySelectedItems[elPos.split(',')[0]]);
                     }
                 });
-                console.log(lastLevelEl);
             }
             if (mainlist) {
                 $scope.prdIndex.splice($scope.designLevel, 1);
@@ -206,10 +205,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 }
                 $scope.prdIndex.push(indexArr);
                 $scope.allConnArr.push(connArr);
-                console.log("prdIndex");
-                console.log($scope.prdIndex);
-                console.log("allConnArr");
-                console.log($scope.allConnArr);
             } else {
                 var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
                 bpoints = ($scope.designLevel == 0 ) ? 1 : bpoints;
@@ -229,11 +224,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 alert("you havent selected elements for this level yet.");
             }
 
-        };
-
-        $scope.confirmDesign = function() {
-            //send information to design.php to store the selected product in database
-            console.log($scope.mySelectedItems);
         };
 
         $scope.processForm = function() {

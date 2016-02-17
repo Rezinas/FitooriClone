@@ -26,7 +26,9 @@ $stmt->close();
 		<div class="row">
 			<div class="col-md-9 product-model-sec">
 				<?php
-					foreach($allproducts as $prod) { ?>
+					foreach($allproducts as $prod) {
+					if(is_null($prod['name']) && is_null($prod['price'])) continue;
+				?>
 				<div class="product-grid">
 					<a href="<?php echo   SITE_URL; ?>index.php?single&id=<?php echo $prod['productid']; ?>">
 						<div class="more-product"><span> </span></div>

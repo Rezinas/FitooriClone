@@ -43,14 +43,14 @@ if(isset($_GET["addcustom"])) {
 
         foreach($elements as $elem){
         //  var_dump($elem);
-          $ins_stmt1->bind_param('iiiis', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage'],$currUserEmail);
+          $ins_stmt1->bind_param('iiiiss', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage'],$currUserEmail);
 
           if(!$ins_stmt1->execute()){
               die('Image Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
           }
         }
         $ins_stmt1->close();
-        echo "success";
+        echo "SUCCESS";
       }
       else echo "ERROR";
       exit();
@@ -145,7 +145,7 @@ else {
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="all">
     <link href="../css/admin.css" type="text/css" rel="stylesheet" media="all">
 
-<?php if($currenttab == "design") { ?>
+<?php if($currenttab == "design" || $currenttab == "custom") { ?>
      <link rel="stylesheet" href="../css/design.css">
 <?php  } ?>
 
