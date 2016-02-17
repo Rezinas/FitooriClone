@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
-
 $currenttab = "";
 if(isset($_GET["products"])) {
     $currenttab = 'products';
@@ -42,10 +41,17 @@ else if(isset($_GET["checkout"])) {
 else if(isset($_GET["single"])) {
     $currenttab = 'single';
 }
+else if(isset($_GET["myacount"])){
+  $currenttab = 'myaccount';
+}
+else if(isset($_GET["forgotpassword"])){
+  $currenttab = 'forgotpassword';
+}
 else {
     $currenttab = 'home';
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,6 +79,57 @@ else {
 <!-- //js -->	
 <!-- cart -->
 <script src="js/simpleCart.min.js"> </script>
+<!-- Login Script-->
+  <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  $(function() {
+                $("#loginForm").validate({
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        pass: {
+                            required: true,
+                            minlength: 5
+                        }
+                    },
+                    messages: {
+                        pass: {
+                            required: "Please provide a password",
+                            minlength: "Your password must be at least 5 characters long"
+                        },
+                        email: "Please enter a valid email address"
+                    },
+                    submitHandler: function(form) {
+                        $.ajax({
+                            type: "POST",
+                            url: "<?php echo SITE_URL ?>login.php",
+                            data: $(form).serialize(),
+                            timeout: 3000,
+                            success: function(data) {
+                                if (data && data == "SUCCESS") {
+                                    window.location = "<?php echo SITE_URL ?>index.php";
+                                    $("#loginForm").css("display","none");                                   
+                                    $("#userList").css("display","block");                                   
+
+                                } else {
+                                    $(".alert-danger").addClass("hide");
+                                    $("#loginFailedMsg").removeClass("hide");
+                                }
+                            },
+                            error: function() {
+                                    $(".alert-danger").addClass("hide");
+                                     $("#systemErrorMsg").removeClass("hide");
+                            }
+                        });
+                        return false;
+                    }
+                });
+
+});
+ </script>
+
 <?php if($currenttab == "home") { ?>
 	<style>
 	#imageBox .hoverImg, #imageBox1 .hoverImg1, #imageBox2 .hoverImg2, #imageBox3 .hoverImg3  {
@@ -564,7 +621,7 @@ else {
           cursor: default;
       }
       .breadcrumb-body .current .breadcrumb-stage {
-          background-color: #5D4B33; //#33cb98;
+          background-color: #5D4B33;
           color: #fff;
       }
       .breadcrumb-body li .breadcrumb-stage-container .breadcrumb-stage {
@@ -762,37 +819,64 @@ else {
 	</script>
 	<!--//FlexSlider -->
 	<script src="js/imagezoom.js"></script>
-<!-- //js -->
-<style>
-  .single{
-    margin-bottom: -92px;
-  }
-  .single h2{
-    margin-top: 65px;
-  }
-  .single-grid h3{
-    font-size: 2.2em;
-  }
-  .single-grid p{
-    text-align: justify;
-  }
-  .related-products h3{
-    margin: -35px 0px;
-  }
-  h4.panel-title a{
-    color: #F07818;
-  }
-  .panel-default > .panel-heading{
-    background-color: transparent;
-    border-color:transparent;
-  }
-  .panel{
-    border:0px;
-    box-shadow: none;
-    text-align: justify;
-  }
-</style>
+  <!-- //js -->
+  <style>
+    .single{
+      margin-bottom: -92px;
+    }
+    .single h2{
+      margin-top: 65px;
+    }
+    .single-grid h3{
+      font-size: 2.2em;
+    }
+    .single-grid p{
+      text-align: justify;
+    }
+    .related-products h3{
+      margin: -35px 0px;
+    }
+    h4.panel-title a{
+      color: #F07818;
+    }
+    .panel-default > .panel-heading{
+      background-color: transparent;
+      border-color:transparent;
+    }
+    .panel{
+      border:0px;
+      box-shadow: none;
+      text-align: justify;
+    }
+  </style>
 <?php } ?>
+
+  <?php if($currenttab == "account") {?>
+    <style>
+      #regForm #register {
+          background: #F07818;
+          color: #fff;
+          font-size: 1em;
+          padding: 5px 20px;
+          border: 1px solid #F07818;
+          transition: all .5s;
+          -webkit-transition: all .5s;
+          -moz-transition: all .5s;
+          -o-transition: all .5s;
+          font-family: 'Roboto-Regular';
+      }
+      #regForm #register:hover {
+        background: #fff;
+        color: #F07818;
+      }
+      label{
+        margin: 0 0px 0 4px;
+      }
+      .register-top-grid span, .register-bottom-grid span{
+        color: #F07818;
+      }
+    </style>
+  <?php } ?>
 </head>
 <body>
 	<!--header-->
@@ -884,25 +968,37 @@ else {
 					</div>	
 				</div>
 				<div class="header-right login">
-					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-					<div id="loginBox">                
-						<form id="loginForm">
-							<fieldset id="body">
-								<fieldset>
-									<label for="email">Email Address</label>
-									<input type="text" name="email" id="email">
-								</fieldset>
-								<fieldset>
-									<label for="password">Password</label>
-									<input type="password" name="password" id="password">
-								</fieldset>
-								<input type="submit" id="login" value="Sign in">
-								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
-							</fieldset>
-							<p>New User ? <a class="sign" href="index.php?account">Sign Up</a> <span><a href="#">Forgot your password?</a></span></p>
-						</form>
-					</div>
-				</div>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+					<div id="loginBox"> 
+            <form  id="loginForm" name="loginForm" role="form">
+              <div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Login Failed! Please try again</div>
+              <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
+              <fieldset id="body">
+                  <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input class="form-control" placeholder="Email Address" name="email" type="email" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <input class="form-control" placeholder="Password" name="pass" type="password" value="">
+                  </div>
+                  <input type="submit" id="login" value="Login" name="login">
+                  <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+              </fieldset>
+              <p>New User ? <a class="sign" href="index.php?account">Sign Up</a> <span><a href="index.php?forgotpassword">Forgot your password?</a></span></p>
+            </form>                       
+              <ul class="dropdown-menu dropdown-user" id="userList">
+              <li><?php echo $_SESSION["useremail"]; ?><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+              <li class="divider"></li>                
+              <li><a href="index.php?myaccount"><i class="fa fa-user fa-fw"></i>My Account</a>
+              </li>
+              <li><a href="#"><i class="fa fa-gear fa-fw"></i>My Orders</a>
+              </li>
+              <li><a href="#"><i class="fa fa-gear fa-fw"></i>My Wishlist</a>
+              </li>                 
+              </ul>
+            </div>
+        </div>
 				<div class="header-right cart">
 					<a href="index.php?checkout"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
@@ -973,6 +1069,12 @@ else {
 	else if($currenttab == "single") {   
 	    include(SITE_ROOT. "single.html");
 	}
+  else if($currenttab == "myaccount") {   
+      include(SITE_ROOT. "myAccount.html");
+  }
+  else if($currenttab == "forgotpassword") {   
+      include(SITE_ROOT. "forgotPassword.html");
+  }
 ?>
 
 <!--footer-->
