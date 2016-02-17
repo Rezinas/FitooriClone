@@ -128,7 +128,8 @@ var files = input.files ? input.files : input.currentTarget.files;
 
 function xyInputs(domE, points, ptype){
             var coordDiv = (ptype == "top") ? "tcoords" : "bcoords";
-            var parentD =  (ptype == "top") ? "#topPdiv" :  "#bottomPdiv";
+            var parentD =  (ptype == "top") ? "#topPointDiv" :  "#bottomPointsDiv";
+            /*var parentD =  (ptype == "top") ? "#topPdiv" :  "#bottomPdiv";*/
             var handleD = (ptype == "top") ? "topPoints tp" : "bottomPoints bp";
             var pointerD = (ptype == "top") ? "tp" : "bp";
 
@@ -141,7 +142,7 @@ function xyInputs(domE, points, ptype){
                      $(parentD).append($(bringbackDom));
                   }
                   else {
-                     $(parentD).append('<div class="'+coordDiv+'  '+coordDiv+i+'"><label>x'+i+'</label><input type="text"  placeholder="x'+i+'" name="'+ptype+'x'+i +'" /> &nbsp;<label>y'+i+'</label><input type="text"  placeholder="y'+ i+'" name="'+ptype+'y'+ i+'" /></div>');
+                     $(parentD).append('<div class="'+ coordDiv +'  '+ coordDiv + i +'"><label>x'+ i +'</label><input type="text"  placeholder="x'+i+'" name="'+ptype+'x'+i +'" /> &nbsp;<label>y'+i+'</label><input type="text"  placeholder="y'+ i+'" name="'+ptype+'y'+ i+'" /></div>');
                   }
                     $("#carouselImg").append("<div class='points "+handleD+i+"'></div>");
                     $("input[name="+ptype+"x"+i+"]").trigger("change");
@@ -159,6 +160,9 @@ function xyInputs(domE, points, ptype){
 
 
 $(document).ready( function() {
+
+        $("#topPointDiv").hide();
+        $("#bottomPointsDiv > h4").hide();
         $('form input').on('keypress', function(e) {
             return e.which !== 13;
         });
@@ -178,11 +182,17 @@ $(document).ready( function() {
             if(topPoints == 0) {
               $(".pcenterx").show();
               $(".pcentery").show();
+              $("#topPointDiv").hide();
+              $("#centeryDiv").show();
+              $("#centerxDiv").show();
 
             }
             else {
+              $("#centeryDiv").hide();
+              $("#centerxDiv").hide();
               $(".pcenterx").hide();
               $(".pcentery").hide();
+              $("#topPointDiv").show();
             }
             xyInputs(tcoordsDom, topPoints, "top");
 
@@ -190,6 +200,7 @@ $(document).ready( function() {
         $("input[name=pcbot]").change(function(){
             var botPoints = parseInt(this.value, 10);
              xyInputs(bcoordsDom, botPoints, "bottom");
+             $("#bottomPointsDiv > h4").show();
         });
 
         $("input[name=pcenterx]").change(function(){

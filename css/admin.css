@@ -12,6 +12,18 @@ nav.navbar.navbar-default.adminNav {
 	width: 95%;
 }
 
+div#page-wrapper h2.page-header{
+    margin-top:-20px;
+}
+.formsubmit .buttons{
+    margin-top: 20px;
+}
+#manageElementsPanelBody{
+    padding-bottom: 0px;   
+}
+#piecesForm {    
+    max-height: 595px;
+}
 .adminNav {
 	width: 100%;
 }
