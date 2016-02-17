@@ -40,31 +40,31 @@
                      <input type="hidden" id="imgwidth" name="pimgwidth" <?php if( $pimgwidth  != "") echo "value='$pimgwidth'"; ?> >
                   </div>
                </div>
-               <div class="col-md-1" id="centerxDiv">
-                  <div class="form-group pcenterx" <?php if( $pctop  != "0") echo "style='display:none'"; ?>>
+               <div class="col-md-1" id="centerxDiv" <?php if( $pctop  != "0") echo "style='display:none'"; ?>>
+                  <div class="form-group pcenterx" >
                      <label>Center x</label>
                      <input class="form-control" name="pcenterx" placeholder="Top Element only"  <?php if( $pcenterx  != "") echo "value='$pcenterx'"; ?> >
                   </div>
                </div>
-               <div class="col-md-1" id="centeryDiv">
-                  <div class="form-group pcentery" <?php if( $pctop != "0") echo "style='display:none'"; ?>>
+               <div class="col-md-1" id="centeryDiv" <?php if( $pctop != "0") echo "style='display:none'"; ?>>
+                  <div class="form-group pcentery">
                      <label>Center y</label>
                      <input class="form-control" name="pcentery" placeholder="Top Element only"  <?php if( $pcentery  != "") echo "value='$pcentery'"; ?> >
                   </div>
                </div>
-               <div class="col-md-2" id="topPointDiv">
-                  <h4>Top Points</h4>  
+               <div class="col-md-2" id="topPointDiv" <?php if( $pctop == "0") echo "style='display:none'"; ?>>
+                  <h4>Top Points</h4>
                   <?php
                   for($i=0; $i<intval($pctop); $i++){
                    echo   '<div class="tcoords tcoords'.$i.'"><label>x'.$i.'</label><input type="text"  placeholder="x'.$i.'" name="topx'.$i.'"  value="'.$topx[$i].'"/> &nbsp;<label>y'.$i.'</label><input type="text"  placeholder="y'.$i.'" name="topy'.$i.'"  value="'.$topy[$i].'"/></div>';
                      }
                   ?>
-               </div> 
+               </div>
                <div class="col-md-2" id="topPdiv">
                   <div class="form-group">
                      <label>Top Edge Points</label>
                      <input class="form-control" name="pctop" placeholder="Enter Number of Points on Top Edge"  <?php if( $pctop  != "") echo "value='$pctop'"; ?> >
-                  </div>                
+                  </div>
                   <div class="form-group">
                      <label>Type of Jewelry</label>
                      <select  name="pcbody" id="pcbody" class="form-control">
@@ -136,7 +136,7 @@
                   </div>
                </div>
                <div class="col-md-2" id="bottomPointsDiv">
-                 <h4>Bottom Points</h4>  
+                 <h4>Bottom Points</h4>
                  <?php
                        for($i=0; $i<intval($pcbot); $i++){
                          echo   '<div class="bcoords bcoords'.$i.'"><label>x'.$i.'</label><input type="text"  placeholder="x'.$i.'" name="bottomx'.$i.'"  value="'.$bottomx[$i].'"/> &nbsp;<label>y'.$i.'</label><input type="text"  placeholder="y'.$i.'" name="bottomy'.$i.'"  value="'.$bottomy[$i].'"/></div>';
@@ -174,7 +174,7 @@
                   </div>
                 </div>
                 <div class="col-md-2"></div>
-            </div>          
+            </div>
             <br>
             <br>
             <div  id="alternateImg">
@@ -186,7 +186,7 @@
                   }
                   ?>
             </div>
-         </form>    
+         </form>
       <!-- panel body ends-->
    </div>
    <!-- panel ends -->

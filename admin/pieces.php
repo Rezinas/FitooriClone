@@ -178,7 +178,7 @@ if (!empty($_POST)) {
 	  $admintags = prepare_input($_POST['admintags' ]);
 
 	if($_FILES['carouselImg']['error'] == 0) {
-		$carouselImg = uploadPrdImage($_FILES['carouselImg'] ['tmp_name'], $_FILES['carouselImg'] ['name']);
+		$carouselImg = uploadPrdImage($_FILES['carouselImg'] ['tmp_name'], $_FILES['carouselImg'] ['name'], $_FILES['carouselImg'] ['error']);
 		if(strpos($carouselImg,'ERROR') !== false) { $error .= "Image upload error"; }
 
 	}
@@ -204,10 +204,10 @@ if (!empty($_POST)) {
     	//insert into database all product values
 
 
-	$query = "INSERT INTO `pieces` (`carouselImg`,`imgheight`, `imgwidth`,`bodypart`, `centerx`, `centery`, `toppoints`,  `topX`, `topY`,`bottompoints`,  `botX`, `botY`,`color`, `texture`,`material`,`style`, `admintags`) VALUES (?, ?, ?, ?, ?, ?,?,?, ?,?, ?, ?,?,?,?)";
+	$query = "INSERT INTO `pieces` (`carouselImg`,`imgheight`, `imgwidth`,`bodypart`, `centerx`, `centery`, `toppoints`,  `topX`, `topY`,`bottompoints`,  `botX`, `botY`,`color`, `texture`,`material`,`style`, `admintags`) VALUES (?, ?, ?, ?, ?, ?,?,?, ?,?, ?, ?,?,?,?,?,?)";
 	$ins_stmt = $dbcon->prepare($query);
 	if(!$ins_stmt) {
-	 die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+	 die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error. ' query= '.$query);
 	}
 	// bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
 	$ins_stmt->bind_param('siiiiiississssiss', $carouselImg, intval($pimgheight), intval($pimgwidth), intval($pcbody),  intval($pcenterx),  intval($pcentery), intval($pctop), implode(",", $topx), implode(",", $topy),  intval($pcbot), implode(",", $bottomx), implode(",", $bottomy), implode(",", $pccolors),  implode(",", $pcdesign), $material, intval($pstyle), $admintags);

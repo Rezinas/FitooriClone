@@ -161,8 +161,8 @@ function xyInputs(domE, points, ptype){
 
 $(document).ready( function() {
 
-        $("#topPointDiv").hide();
-        $("#bottomPointsDiv > h4").hide();
+        //$("#topPointDiv").hide();
+       // $("#bottomPointsDiv > h4").hide();
         $('form input').on('keypress', function(e) {
             return e.which !== 13;
         });
@@ -195,6 +195,7 @@ $(document).ready( function() {
               $("#topPointDiv").show();
             }
             xyInputs(tcoordsDom, topPoints, "top");
+            $("#topPointDiv > h4").show();
 
         });
         $("input[name=pcbot]").change(function(){
