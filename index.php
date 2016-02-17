@@ -102,6 +102,7 @@ else {
                         email: "Please enter a valid email address"
                     },
                     submitHandler: function(form) {
+                      var email_add = $(form).find("input[name='email']").val();
                         $.ajax({
                             type: "POST",
                             url: "<?php echo SITE_URL ?>login.php",
@@ -111,6 +112,7 @@ else {
                                 if (data && data == "SUCCESS") {
                                    // window.location = "<?php echo SITE_URL ?>index.php";
                                     $("#loginForm").css("display","none");
+                                    $(".userprofile #loginemail").html(email_add);
                                     $(".userprofile").css("display","block");
 
                                 } else {
@@ -970,7 +972,7 @@ else {
 				<div class="header-right login">
 					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 					<div id="loginBox">
-            <form  id="loginForm" name="loginForm" role="form">
+            <form  id="loginForm" name="loginForm" role="form" <?php  if(isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
               <div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Login Failed! Please try again</div>
               <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
               <fieldset id="body">
@@ -987,7 +989,7 @@ else {
               </fieldset>
               <p>New User ? <a class="sign" href="index.php?account">Sign Up</a> <span><a href="index.php?forgotpassword">Forgot your password?</a></span></p>
             </form>
-            <div class="userprofile" style="display:none">
+            <div class="userprofile"  <?php  if(!isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
                <ul class="dropdown-menu dropdown-user" id="userList" style=
                "display:block">
               <li><a id="loginemail" href="#"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a></li>
