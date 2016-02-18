@@ -1,4 +1,4 @@
-	<!--contact-->
+<!--contact-->
 	<div class="contact">
 		<div class="container">
 			<h2>Contact Us</h2>
@@ -30,15 +30,86 @@
 			</div>		
 			<div class="contact-form">
 				<h4>Contact form</h4>
-				<form>
-					<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-					<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}" required="">
-					<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-					<button class="btn1">Submit</button>
+				<form id="contactForm" name="contactForm" role="form" action="contact.php" method="POST">
+					<div class="form-group">						
+						<input class="form-control" data-validation="alphabets" placeholder="Full Name" name="fullname" type="text" autofocus>
+					</div>
+					<div class="form-group">						
+						<input class="form-control" placeholder="Email" name="email" type="text" autofocus>
+					</div>
+					<div class="form-group">						
+						<input class="form-control" placeholder="Phone" name="phone" type="text" autofocus>
+					</div>
+					<div class="form-group" id="textareaForm">
+						<textarea class="form-control" type="text" placeholder="Message...." name="messageArea"></textarea>
+					</div>
+					<input type="submit" value="Submit" id="cnct" name="cnct" class="btn1">	
 				</form>
 			</div>	
 		</div>
 	</div>
+  <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  $(function() {
+		jQuery.validator.addMethod("lettersonly", function(value, element) 
+		{
+		return this.optional(element) || /^[a-z ]+$/i.test(value);
+		});
+		jQuery.validator.addMethod("numbersonly", function(value, element) 
+		{
+		return this.optional(element) || /^[0-9]+$/i.test(value);
+		});
+
+        $("#contactForm").validate({
+            rules: {
+            	fullname:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 80,
+		        	lettersonly:"letters only mate"
+		        },            	
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    numbersonly:"0-9"
+                },
+                messageArea:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 5000		        	
+		        }
+            },
+            messages: {
+            	fullname: {
+                    required: "Please provide a first name",
+                    minlength: "Your firstname must be at least 2 characters long",
+                    maxlength: "Your firstname must not exceed 100 characters",
+                    lettersonly:"Letters and spaces only please"
+
+                },
+                messageArea: {
+                    required: "Please provide some details",
+                    minlength: "Your lastname must be at least 2 characters long",
+                    maxlength: "Your lastname must not exceed 5000 characters"                    
+
+                },
+                phone: {
+                    required: "Please provide a contact details",
+                    minlength: "Your contact number must be at least 10 characters long",
+                    numbersonly:"Enter only digits"
+                },
+                email: "Please enter a valid email address"
+            },
+                submitHandler: function(form) {
+                   $(form).submit();
+                    return false;
+                }
+            });
+        });
+ </script>
 	<!--//contact-->
 		

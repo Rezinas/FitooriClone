@@ -41,11 +41,14 @@ else if(isset($_GET["checkout"])) {
 else if(isset($_GET["single"])) {
     $currenttab = 'single';
 }
-else if(isset($_GET["myacount"])){
+else if(isset($_GET["myaccount"])){
   $currenttab = 'myaccount';
 }
 else if(isset($_GET["forgotpassword"])){
   $currenttab = 'forgotpassword';
+}
+else if(isset($_GET["logout"])){
+  $currenttab = 'logout';
 }
 else {
     $currenttab = 'home';
@@ -146,6 +149,7 @@ else {
 	        }
 	</style>
 <?php  } ?>
+
 <?php if($currenttab == "products") { ?>
 	<!-- the jScrollPane script -->
 	<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
@@ -377,13 +381,63 @@ else {
 
 <?php if($currenttab == "contact") { ?>
 	<style>
+    .contact-form .form-group {
+        width: 32.3%;
+        float: left;
+        position: relative;
+    }
 		.contact-form input[type="text"] {
-			width:32.3%;
+			width:97%;
 		}
 		.contact-form input[type="text"]:nth-child(2) {
 		    margin: 0 1em;
 		}
+    .contact-form .form-group#textareaForm {
+      width:96%;
+    }
 	</style>
+<?php  } ?>
+
+<?php if($currenttab == "support") { ?>
+  <style>
+      .chkBtn {
+          float: left;
+          width: 100%;
+          margin-bottom: 20px;
+      }
+      .contact-form #selectGrp {
+          width: 15%;
+          float: left;
+          position: relative;
+      }
+      .contact-form .form-group {
+          width: 27.3%;
+          float: left;
+          position: relative;
+      }
+      .contact-form input[type="text"] {
+        width:97%;
+      }
+      .contact-form input[type="text"]:nth-child(2) {
+          margin: 0 1em;
+      }
+      .contact-form .form-group#textareaForm {
+        width:96%;
+      }
+      .contact-form select {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid #5D4B33;
+        width: 88%;
+        outline: none;
+        padding: 6px 6px 6px 12px;
+        font-size: 13px;
+        color: #999;
+        margin-bottom: 1.5em;
+        border-radius: 4px;
+        height: 35px;
+      }
+  </style>
 <?php  } ?>
 
 <?php if($currenttab == "sr" || $currenttab == "privacy" || $currenttab == "tc"){?>
@@ -879,6 +933,12 @@ else {
       }
     </style>
   <?php } ?>
+  <?php if($currenttab == "logout") { 
+    session_start();//session is a way to store information (in variables) to be used across multiple pages.
+    session_destroy();
+    header("Location: index.php");//use for the redirection to some page
+  }
+?>
 </head>
 <body>
 	<!--header-->
@@ -992,14 +1052,20 @@ else {
             <div class="userprofile"  <?php  if(!isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
                <ul class="dropdown-menu dropdown-user" id="userList" style=
                "display:block">
-              <li><a id="loginemail" href="#"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a></li>
-              <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
-              <li class="divider"></li>
+              <li>
+                  <span class="username">               
+                    <a id="loginemail" href="#"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a>               
+                  </span> 
+                  <span class="logout">
+                    <a href="index.php?logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                  </span>
+              </li>                                         
               <li><a href="index.php?myaccount"><i class="fa fa-user fa-fw"></i>My Account</a>
               </li>
-              <li><a href="#"><i class="fa fa-gear fa-fw"></i>My Orders</a>
+              <li><a href="#"><i class="fa fa-shopping-cart fa-fw"></i>My Orders</a>
               </li>
-              <li><a href="#"><i class="fa fa-gear fa-fw"></i>My Wishlist</a>
+              <li><a href="#"><i class="fa fa-gift fa-fw"></i>My Credits</a>
+              <li><a href="#"><i class="fa fa-heart-o fa-fw"></i>My Wishlist</a>
               </li>
               </ul>
             </div>
