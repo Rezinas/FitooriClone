@@ -205,7 +205,7 @@ b.caret {
 }
 
 .header-right #userList {
-        left: -67px;
+        left: -200px;
 }
 /*--search--*/
 .search {
@@ -344,7 +344,7 @@ b.caret {
     cursor:pointer;
 }
 /* Login Box */
-#loginBox {
+#loginBox{
     position: absolute;
     top: 98%;
     /*right:18.5%;*/
@@ -354,6 +354,16 @@ b.caret {
     display: none;
     z-index: 99;
 }
+
+.userprofile ul#userList {
+    width: 300px;
+    background: #fff;
+    padding: 1px;
+    top:0px;
+    z-index: 0;
+    border: 0px;
+    box-shadow: none;
+}
 #loginForm:after {
     content: '';
     position: absolute;
@@ -362,6 +372,50 @@ b.caret {
     border-left: 10px solid rgba(0, 0, 0, 0);
     border-right: 10px solid rgba(0, 0, 0, 0);
     border-bottom: 10px solid #FFFFFF;
+}
+.userprofile ul#userList:after {
+    content: '';
+    position: absolute;
+    right: 42%;
+    top: -10px;
+    border-left: 10px solid rgba(0, 0, 0, 0);
+    border-right: 10px solid rgba(0, 0, 0, 0);
+    border-bottom: 10px solid #FFFFFF;
+}
+ul#userList li:first-child{
+    padding: 25px 0px;
+    border-bottom: 0px;
+}
+ul#userList li{
+    padding: 10px 0px;
+    border-bottom: 1px solid #eee;
+}
+#userList li span {
+    width: 50%;
+    float: left;
+    position: relative;
+    border-bottom: 3px solid #eee;
+    height: 25px;
+    padding: 0px 22px;
+}
+.logout {
+    border: 0px solid;
+    padding: 3px 20px;
+    float: left;
+    position: relative;
+}
+span.username a {
+    position: relative;
+    top:-9px;
+    color: #333;
+}
+.logout a {
+    background-color: #eee;
+    color: #333;
+    padding: 3px;
+    position: relative;
+    top: -13px;
+    right: -17px;
 }
 /* Login Form */
 #loginForm {
@@ -1694,6 +1748,19 @@ p span.overline{
 }
 /*--//single--*/
 /*--register--*/
+#emailInput{
+    width: 96%;
+}
+#errorMessages {
+    display: none;
+    margin-bottom: 20px;
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+}
+.errorbox {
+    border: 1px solid red;
+}
 .register {
     padding: 6em 0;
     width: 60%;
@@ -1718,7 +1785,7 @@ p span.overline{
 	text-transform: uppercase;
 	margin-bottom: 4px;
 }
-.register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+.register-top-grid input[type="text"], .register-bottom-grid input[type="password"]{
 	border: 1px solid #555;
 	outline-color:#FD9F3E;
 	width: 96%;
