@@ -47,11 +47,11 @@ $itemsArr= explode("|", PRD_ITEM) ;
                     </div> <!-- row end-->
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <label>Category</label>
+                                <label>Material</label>
                                 <select name="pcategory" id="pcategory" class="form-control">
-                                <option value=''>Select Category</option>
+                                <option value=''>Select Material</option>
                                 <?php
 
                                     foreach($categoriesArr as $catkey=>$category) {
@@ -64,7 +64,7 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                 </select>
                             </div>
                         </div><!-- col end -->
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group">
                                 <label>Item</label>
                                 <select  name="pitem" id="pitem" class="form-control">
@@ -81,8 +81,8 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                 </select>
                             </div>
                         </div> <!-- col end -->
-                        <div class="col-md-3">
-                                       <div class="form-group">
+                        <div class="col-md-2">
+                            <div class="form-group">
                                 <label>Status</label>
                                 <select name="pstatus" id="pstatus" class="form-control">
                                 <option value=''>Select Status</option>
@@ -91,6 +91,18 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                 </select>
                             </div>
                         </div><!-- col end -->
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Size</label>
+                                <input class="form-control" name="psize" placeholder="Enter Product size"  <?php if( $psize  != "") echo "value='$psize'"; ?> ">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <input class="form-control" name="ptags" placeholder="Enter Comma separated values"  <?php if( $ptags  != "") echo "value='$ptags'"; ?> ">
+                            </div>
+                        </div>
                     </div><!-- row end -->
 
 

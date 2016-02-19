@@ -151,17 +151,8 @@ else {
 <?php  } ?>
 
 <?php if($currenttab == "products") { ?>
-	<!-- the jScrollPane script -->
-	<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
-			<script type="text/javascript" id="sourcecode">
-				$(function()
-				{
-					$('.scroll-pane').jScrollPane();
-				});
-			</script>
-	<!-- //the jScrollPane script -->
-	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-	<!-- the mousewheel plugin -->
+  <script src="js/angular.min.js"></script>
+  <script src="js/searchapp.js"></script>
 <?php  } ?>
 
 <?php if($currenttab == "customize") { ?>
@@ -933,7 +924,7 @@ else {
       }
     </style>
   <?php } ?>
-  <?php if($currenttab == "logout") { 
+  <?php if($currenttab == "logout") {
     session_start();//session is a way to store information (in variables) to be used across multiple pages.
     session_destroy();
     header("Location: index.php");//use for the redirection to some page
@@ -1053,13 +1044,13 @@ else {
                <ul class="dropdown-menu dropdown-user" id="userList" style=
                "display:block">
               <li>
-                  <span class="username">               
-                    <a id="loginemail" href="#"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a>               
-                  </span> 
+                  <span class="username">
+                    <a id="loginemail" href="#"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a>
+                  </span>
                   <span class="logout">
                     <a href="index.php?logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                   </span>
-              </li>                                         
+              </li>
               <li><a href="index.php?myaccount"><i class="fa fa-user fa-fw"></i>My Account</a>
               </li>
               <li><a href="#"><i class="fa fa-shopping-cart fa-fw"></i>My Orders</a>
@@ -1103,6 +1094,7 @@ else {
 	    include(SITE_ROOT. "index.html");
 	}
 	else if($currenttab == "products") {
+      include(SITE_ROOT. "productsearch.php");
 	    include(SITE_ROOT. "products.html");
 	}
 	else if($currenttab == "customize") {

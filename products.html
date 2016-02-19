@@ -1,247 +1,41 @@
-<?php
-$categoriesArr= explode("|", CATEGORY) ;
-$itemsArr= explode("|", PRD_ITEM) ;
-
-
-?>
-<div class="products">	 
-	<div class="container">
-		<h2>Our Products</h2>	
+<div class="products" ng-app="productsearch">
+	<div class="container" ng-controller="MainController">
+		<h2>Our Products</h2>
 		<div class="col-md-9 product-model-sec">
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m11.png" class="img-responsive" alt="">
-						<div class="b-wrapper">
-							<h4 class="b-animate b-from-left  b-delay03">
-								<button>View</button>
-							</h4>
+				<div ng-repeat="product in ::allProducts | filter:criterias|startFrom:currentPage*pageSize | limitTo:pageSize" class="product-grid">
+					<a href="index.php?single&amp;id={{product['productid']}}">
+						<div class="more-product"><span> </span></div>
+						<div class="product-img b-link-stripe b-animate-go  thickbox">
+							<img ng-src="/plumms/productImages/{{product['mainimg']}}" />
+							<div class="b-wrapper">
+								<h4 class="b-animate b-from-left  b-delay03">
+									<button>View</button>
+								</h4>
+							</div>
 						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
+					</a>
+					<div class="product-info simpleCart_shelfItem">
+						<div class="product-info-cust prt_name">
+							<h4>{{product['name']}}</h4>
+							<span class="item_price">Rs.{{product['price']}}</span>
+							<!-- <div class="ofr">
+								<p class="pric1"><del>$2300.00</del></p>
+								<p class="disc">[15% Off]</p>
+							</div> -->
+
+							<a ng-if="isAgent" ng-href="admin/dashboard.php?product&amp;id={{product['productid']}}" class="item_add items">Edit</a>
+							<div class="clearfix"> </div>
 						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
 					</div>
 				</div>
-			</div>
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m22.png" class="img-responsive" alt=""/>
-						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">
-						<button>View</button>
-						</h4>
-						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
-						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m33.png" class="img-responsive" alt=""/>
-						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">
-						<button> View </button>
-						</h4>
-						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
-						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m44.png" class="img-responsive" alt=""/>
-						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">
-						<button> View </button>
-						</h4>
-						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
-						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m55.png" class="img-responsive" alt=""/>
-						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">
-						<button> View </button>
-						</h4>
-						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
-						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m66.png" class="img-responsive" alt=""/>
-						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">
-						<button> View </button>
-						</h4>
-						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
-						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m77.png" class="img-responsive" alt=""/>
-						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">
-						<button> View </button>
-						</h4>
-						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
-						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m88.png" class="img-responsive" alt=""/>
-						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">
-						<button> View </button>
-						</h4>
-						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
-						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
-			<div class="product-grid">
-				<a href="index.php?single">
-					<div class="more-product"><span> </span></div>
-					<div class="product-img b-link-stripe b-animate-go  thickbox">
-						<img src="<?php echo SITE_URL; ?>images/m99.png" class="img-responsive" alt=""/>
-						<div class="b-wrapper">
-						<h4 class="b-animate b-from-left  b-delay03">
-						<button> View </button>
-						</h4>
-						</div>
-					</div>
-				</a>
-				<div class="product-info simpleCart_shelfItem">
-					<div class="product-info-cust prt_name">
-						<h4>Product #1</h4>
-						<span class="item_price">$2000.00</span>
-						<div class="ofr">
-							<p class="pric1"><del>$2300.00</del></p>
-							<p class="disc">[15% Off]</p>
-						</div>
-						<input type="text" class="item_quantity" value="1" />
-						<input type="button" class="item_add items" value="Add">
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-			</div>
+				  <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+				        Previous
+				    </button>
+				    {{currentPage+1}}/{{numberOfPages()}}
+				    <button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1">
+				        Next
+				    </button>
+
 		</div>
 		<div class="col-md-3 rsidebar span_1_of_left">
 			<form>
@@ -249,24 +43,24 @@ $itemsArr= explode("|", PRD_ITEM) ;
 					<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
 					<div class="row  scroll-pane">
 						<div class="col col-4">
-							<?php
+							<!-- <?php
 								foreach($categoriesArr as $catkey=>$category) {
 									echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$category.' </label>';
 								}
-							?>
+							?> -->
 						</div>
 					</div>
 				</section>
 				<section  class="sky-form">
 					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
 					<ul class="dropdown-menu1">
-						<li><a href="">
+						<li>
 							<div id="slider-range"></div>
 							<input type="text" id="amount" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
-							</a></li>
+						</li>
 					</ul>
 				</section>
-				<section  class="sky-form">
+			<!-- 	<section  class="sky-form">
 					<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
 					<div class="row row1 scroll-pane">
 						<div class="col col-4">
@@ -306,9 +100,9 @@ $itemsArr= explode("|", PRD_ITEM) ;
 							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
 						</div>
 					</div>
-				</section>
+				</section> -->
 			</form>
 		</div>
-		<div class="clearfix"> </div>		
-	</div> 
+		<div class="clearfix"> </div>
+	</div>
 </div>

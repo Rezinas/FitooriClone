@@ -1,9 +1,4 @@
- body {
-    padding-top: 70px;
- }
-div#page-wrapper h2 {
-    margin-top: 60px;
-}
+
 .adminNav .navbar-nav > li > a {
     padding: 10px 3px;
     font-size: 1em;
@@ -19,9 +14,9 @@ div#page-wrapper h2.page-header{
     margin-top: 20px;
 }
 #manageElementsPanelBody{
-    padding-bottom: 0px;   
+    padding-bottom: 0px;
 }
-#piecesForm {    
+#piecesForm {
     max-height: 595px;
 }
 .adminNav {
@@ -69,18 +64,21 @@ div#page-wrapper h2.page-header{
     margin: 1px auto;
     padding: 10px;
 }
-/*.product-grid {
- 	width: 15%;
-min-height: 90px; */
+
 .product-grid {
     width: 15%;
     min-height: 90px;
     border: 1px solid #EFE9E9;
     margin: 0 1% 1% 0;
-    /* box-shadow: 1px 1px 1px #D8D6D6;
-     */
 }
 
-.product-grid.cdesign {
+/*.product-grid.custom {
     border: none;
+}
+*/
+.cdesign {
+    position: relative;
+    min-height: 200px;
+    margin-top: 15px;
+    margin-left: 40px;
 }

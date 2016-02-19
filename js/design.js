@@ -1,5 +1,5 @@
 'use strict';
-var des = angular.module('cdesign', ['slick']);
+var des = angular.module('cdesign', []);
 
 des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document',
     function($scope, $rootScope, $http, $window, $document) {

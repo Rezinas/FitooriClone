@@ -8,10 +8,6 @@ if(empty($username)){
       header("Location: ".SITE_URL. "admin/index.php");
 }
 
-function insertElement($conn, $obj, $prdid){
-
-  return true;
-}
 
 if(isset($_GET["addcustom"])) {
     if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
@@ -57,7 +53,20 @@ if(isset($_GET["addcustom"])) {
   }
 }
 
+if(isset($_GET["custom"]) && isset($_GET["deleteid"]) ) {
+      $prdid = $_GET["deleteid"];
+    $qry = "DELETE  from customdesign WHERE productid=?";
+    $stmt1 = $dbcon->prepare($qry);
+    $stmt1->bind_param('i', $prdid);
+    $stmt1->execute();
+    $stmt1->close();
 
+    $qry = "DELETE from products WHERE productid=?";
+    $stmt1 = $dbcon->prepare($qry);
+    $stmt1->bind_param('i', $prdid);
+    $stmt1->execute();
+    $stmt1->close();
+}
 
 
 if(isset($_GET["pieces"]) && isset($_GET["deleteid"]) ) {
@@ -237,7 +246,8 @@ else if($currenttab == "custom") {
     include(SITE_ROOT. "admin/custom.html");
 }
 else if($currenttab == "search") {
-    include(SITE_ROOT. "productcombined.html");
+    include(SITE_ROOT. "productsearch.php");
+    include(SITE_ROOT. "products.html");
 }
 else if($currenttab == "elements") {
     include(SITE_ROOT. "admin/elements.php");
@@ -275,28 +285,12 @@ else if($currenttab == "report") {
 
    <?php if($currenttab == "design") { ?>
   <script src="../js/angular.min.js"></script>
- <script src="../js/slick-carousel.js"></script>
-  <script src="../js/slick.js"></script>
   <script src="../js/design.js"></script>
 
    <?php } ?>
    <?php if($currenttab == "search") { ?>
-    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
-                <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css">
-                    <script type='text/javascript'>//<![CDATA[
-                        $(document).ready(function(){
-                         $( "#slider-range" ).slider({
-                                    range: true,
-                                    min: 0,
-                                    max: 10000,
-                                    values: [ 50, 10000 ],
-                                    slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-                                    }
-                         });
-                        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-                        });
-                        //]]>
-                    </script>
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/searchapp.js"></script>
    <?php } ?>
 
 <?php if($currenttab == "pieces") { ?>

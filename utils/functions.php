@@ -53,13 +53,13 @@ function cartesian($input) {
 }
 
 
-function getCurrentUserType() {
+function isAgent() {
     if(isset($_SESSION['agentId'])) {
-        return 0;
+        return true;
     }
     else {
         //will have to check if user is logged in or guest here.
-        return 1;
+        return false;
     }
 }
 function getCurrentUserID() {

@@ -3,15 +3,21 @@
 	<div class="col-md-9 product-model-sec">
 	<?php
 		foreach($designs as $des) { ?>
-
-			<div class="product-grid cdesign">
-				<?php foreach ($des['images'] as $sindx => $selImage){ ?>
-					<div class="prd_elements" style="left: <?php echo $des['leftpositions'][$sindx]; ?>px; top:  <?php echo $des['toppositions'][$sindx]; ?>px;">
-						<img src="../productImages/<?php echo $selImage; ?>">
-					</div>
-				<?php } ?>
-				<!-- <?php echo showCustomDesign($des); ?> -->
+			<div class="product-grid custom">
+				<div class="cdesign">
+					<?php foreach ($des['images'] as $sindx => $selImage){ ?>
+						<div class="prd_elements" style="left: <?php echo $des['leftpositions'][$sindx]; ?>px; top:  <?php echo $des['toppositions'][$sindx]; ?>px;">
+							<img src="../productImages/<?php echo $selImage; ?>">
+						</div>
+					<?php } ?>
+					<!-- <?php echo showCustomDesign($des); ?> -->
+				</div>
+				<div class="design_actions">
+					<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Add to DB</a>
+					<a href="<?php echo SITE_URL; ?>admin/dashboard.php?custom&amp;deleteid=<?php echo $des['productid']; ?>" class="btn btn-primary">Delete</a>
+				</div>
 			</div>
+
 		<?php }
 	?>
 
