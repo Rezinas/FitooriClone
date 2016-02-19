@@ -72,6 +72,9 @@ div#page-wrapper h2.page-header{
     margin: 0 1% 1% 0;
 }
 
+.adminsearch {
+    width: 25%;
+}
 /*.product-grid.custom {
     border: none;
 }

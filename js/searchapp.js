@@ -8,8 +8,8 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.currentPage = 0;
         $scope.pageSize = 10;
         $scope.selectedMaterial =1;
-        $scope.lowerPrice = 100;
-        $scope.upperPrice = 200;
+        $scope.lowerPrice = 0;
+        $scope.upperPrice = 3000;
 
         $scope.criterias = function(item) {
             return (item.material == $scope.selectedMaterial && item.price >= $scope.lowerPrice && item.price <= $scope.upperPrice);
