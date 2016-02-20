@@ -79,6 +79,7 @@ function getCurrentUserEmail() {
     } else  return null;
 }
 
+
 function prepare_input($data) {
   $data = trim($data);
   $data = stripslashes($data);

@@ -41,7 +41,10 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
                   options: {
                     floor: 0,
                     step: 10,
-                    ceil: 1000
+                    ceil: 1000,
+                    translate: function(value) {
+                      return 'Rs.' + value;
+                    }
                   }
             };
 

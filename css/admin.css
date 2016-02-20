@@ -1,4 +1,6 @@
-
+body{
+padding-top: 70px;
+}
 .adminNav .navbar-nav > li > a {
     padding: 10px 3px;
     font-size: 1em;

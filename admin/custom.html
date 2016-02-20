@@ -2,8 +2,14 @@
 <div class="row">
 	<div class="col-md-9 product-model-sec">
 	<?php
-		foreach($designs as $des) { ?>
-			<div class="product-grid custom">
+		foreach($designs as $des) {
+		$filterClasses = "";
+		if($des["isProduct"] == "1") $filterClasses .= "prdDes ";
+		else $filterClasses .= "customDes ";
+		if($des["addedByType"] == "0") $filterClasses .= "adminDes ";
+		else $filterClasses .= "userDes ";
+		?>
+			<div class="product-grid custom <?php echo $filterClasses; ?>">
 				<div class="cdesign">
 					<?php foreach ($des['images'] as $sindx => $selImage){ ?>
 						<div class="prd_elements" style="left: <?php echo $des['leftpositions'][$sindx]; ?>px; top:  <?php echo $des['toppositions'][$sindx]; ?>px;">
@@ -13,7 +19,11 @@
 					<!-- <?php echo showCustomDesign($des); ?> -->
 				</div>
 				<div class="design_actions">
-					<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Add to DB</a>
+					<?php if($des['isProduct'] == 0){ ?>
+						<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;cdesign&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Add to DB</a>
+					<?php } else  {?>
+						<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Edit Product</a>
+					<?php } ?>
 					<a href="<?php echo SITE_URL; ?>admin/dashboard.php?custom&amp;deleteid=<?php echo $des['productid']; ?>" class="btn btn-primary">Delete</a>
 				</div>
 			</div>
@@ -24,6 +34,18 @@
 	</div>
 	<div class="col-md-3 rsidebar span_1_of_left">
 		<form>
+			<section  class="sky-form">
+			<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Created By</h4>
+				<label><input type="radio" class="rdbtn" name="adminUser" value="0" >Admin</label>
+				<label ><input type="radio"  class="rdbtn" name="adminUser" value="1" >User</label>
+				<label ><input type="radio"  class="rdbtn" name="adminUser" checked value="-1" >All</label>
+			</section>
+			<section  class="sky-form">
+			<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Status</h4>
+				<label><input type="radio" class="rdbtn" name="prdAdded" value="0" >Not In Product</label>
+				<label ><input type="radio"  class="rdbtn" name="prdAdded" value="1" >In Product</label>
+				<label ><input type="radio"  class="rdbtn" name="prdAdded" checked value="-1" >All</label>
+			</section>
 			<section  class="sky-form">
 				<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
 				<div class="row row1 scroll-pane">

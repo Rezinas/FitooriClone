@@ -24,11 +24,16 @@ $primg="";
 $fimg= "";
 $ptags ="";
 $psize ="";
+$pcustomized ="0";
 
 
 if(isset($_GET["product"]) && isset($_GET["id"]) ) {
     $pid=trim($_GET["id"]);
     $mode = "edit";
+
+    if(isset($_GET["cdesign"])){
+    	$pcustomized ="1";
+    }
 
     $qry = "SELECT  `name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `promotedimg`,`featuredimg`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `promoted`, `addedUsertype`, `addedbyUserEmail`, `quantity`,  `tags`,  `size` from products WHERE productid=$pid";
  	if(!$stmt = $dbcon->prepare($qry)){
@@ -98,6 +103,7 @@ if (!empty($_POST)) {
 		  $ai2 = prepare_input($_POST['ai2' ]);
 		  $primg = prepare_input($_POST['primg' ]);
 		  $fimg = prepare_input($_POST['fimg' ]);
+		  $pcustomized  = prepare_input($_POST['pcustomized' ]);
 	  }
 
 
@@ -171,12 +177,24 @@ if (!empty($_POST)) {
     	else if($mode == "edit") {
     	 	//run the update query for the $pid.
     	 	//UPDATE tblFacilityHrs SET title =? description = ? WHERE uid = ?
-    	 	$updQuery1 =  "UPDATE products SET `name` = ?, `price` = ?, `bodypart` = ?, `material` = ?,  `mainimg` = ?, `alt1img` = ?, `alt2img` = ?, `promotedimg` = ?,`featuredimg` = ?,`status` = ?, `shortdesc` = ?, `detaildesc` = ?, `addinfo` = ?, `featured` = ?, `promoted` = ?, `addedUsertype` = ?, `addedbyUserEmail` = ?, `quantity`=?,  `size`=?, `tags`=? WHERE productid=$pid ";
+    	 	$updQuery1 =  "UPDATE products SET `name` = ?, `price` = ?, `bodypart` = ?, `material` = ?,  `mainimg` = ?, `alt1img` = ?, `alt2img` = ?, `promotedimg` = ?,`featuredimg` = ?,`status` = ?, `shortdesc` = ?, `detaildesc` = ?, `addinfo` = ?, `featured` = ?, `promoted` = ?, `addedUsertype` = ?, `addedbyUserEmail` = ?, `quantity`=?,  `size`=?, `tags`=?, `customized`=? WHERE productid=$pid ";
 
     	 	$stmt = $dbcon->prepare($updQuery1);
-		$stmt->bind_param('sdiisssssisssiiisiss', $pname, floatval($pprice), intval($pitem), intval($pcategory), $mi, $ai1, $ai2, $primg, $fimg,  intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), intval($promoted), $curr_userType, $curr_userEmail, intval($pquantity), $psize, $ptags );
+		$stmt->bind_param('sdiisssssisssiiisissi', $pname, floatval($pprice), intval($pitem), intval($pcategory), $mi, $ai1, $ai2, $primg, $fimg,  intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), intval($promoted), $curr_userType, $curr_userEmail, intval($pquantity), $psize, $ptags, intval($pcustomized) );
 		if(!$stmt->execute()){
 		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+		}
+		else {
+			if($pcustomized == "1") {
+				//query to update custom design isProduct
+				$qry = "UPDATE customdesign SET `isProduct`=? WHERE productid=$pid";
+				$stmt1 = $dbcon->prepare($qry);
+				$stmt1->bind_param('i', $pcustomized);
+				if(!$stmt1->execute()){
+				    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+				}
+				$stmt1->close();
+			}
 		}
 		$stmt->close();
     	}

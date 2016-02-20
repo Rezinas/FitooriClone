@@ -30,7 +30,21 @@ if(isset($_GET["addcustom"])) {
 
         $elements = $_POST["custom_product"];
         $currUserEmail =getCurrentUserEmail();
-        $elem_qry = "INSERT into customdesign (`productid`, `elementid`,`leftPos`, `topPos`, `selectedImage`, `addedBy` ) VALUES (?,?,?,?,?,?)";
+        $currUsertype="";
+
+        $qry = "SELECT usertype  from user WHERE email=?";
+        $result=mysqli_query($dbcon,$qry);
+       if ($result && mysqli_num_rows($result) > 0)
+        {
+            while ($row=mysqli_fetch_row($result))
+            {
+              $currUsertype = $row[0];
+            }
+              mysqli_free_result($result);
+        }
+
+
+        $elem_qry = "INSERT into customdesign (`productid`, `elementid`,`leftPos`, `topPos`, `selectedImage`, `addedBy`, `addedByType` ) VALUES (?,?,?,?,?,?,?)";
         $ins_stmt1 = $dbcon->prepare($elem_qry);
 
         if(!$ins_stmt1) {
@@ -39,7 +53,7 @@ if(isset($_GET["addcustom"])) {
 
         foreach($elements as $elem){
         //  var_dump($elem);
-          $ins_stmt1->bind_param('iiiiss', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage'],$currUserEmail);
+          $ins_stmt1->bind_param('iiiisss', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage'],$currUserEmail, $currUsertype);
 
           if(!$ins_stmt1->execute()){
               die('Image Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
@@ -62,6 +76,22 @@ if(isset($_GET["custom"]) && isset($_GET["deleteid"]) ) {
     $stmt1->close();
 
     $qry = "DELETE from products WHERE productid=?";
+    $stmt1 = $dbcon->prepare($qry);
+    $stmt1->bind_param('i', $prdid);
+    $stmt1->execute();
+    $stmt1->close();
+}
+
+if(isset($_GET["product"]) && isset($_GET["deleteid"]) ) {
+    $prdid = $_GET["deleteid"];
+
+    $qry = "DELETE from customdesign WHERE productid=?";
+    $stmt1 = $dbcon->prepare($qry);
+    $stmt1->bind_param('i', $prdid);
+    $stmt1->execute();
+    $stmt1->close();
+
+    $qry = "DELETE  from products WHERE productid=?";
     $stmt1 = $dbcon->prepare($qry);
     $stmt1->bind_param('i', $prdid);
     $stmt1->execute();
@@ -283,6 +313,44 @@ else if($currenttab == "report") {
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
 
 
+
+   <?php if($currenttab == "custom") { ?>
+    <script type='text/javascript'>//<![CDATA[
+    $(document).ready( function() {
+          $('input:radio[name=adminUser]').change(function () {
+            if ($("input[name='adminUser']:checked").val() == '0') {
+                $(".product-grid.userDes").hide();
+                $(".product-grid.adminDes").show();
+            }
+            else if ($("input[name='adminUser']:checked").val() == '1') {
+                $(".product-grid.adminDes").hide();
+                $(".product-grid.userDes").show();
+            }
+            else{
+                $(".product-grid.adminDes").show();
+                $(".product-grid.userDes").show();
+            }
+        });
+
+        $('input:radio[name=prdAdded]').change(function () {
+            if ($("input[name='prdAdded']:checked").val() == '0') {
+                $(".product-grid.prdDes").hide();
+                $(".product-grid.customDes").show();
+            }
+            else if ($("input[name='prdAdded']:checked").val() == '1') {
+                $(".product-grid.customDes").hide();
+                $(".product-grid.prdDes").show();
+            }
+            else{
+                $(".product-grid.customDes").show();
+                $(".product-grid.prdDes").show();
+            }
+        });
+     });
+    //]]>
+    </script>
+   <?php } ?>
+
    <?php if($currenttab == "design") { ?>
   <script src="../js/angular.min.js"></script>
   <script src="../js/design.js"></script>
@@ -313,15 +381,15 @@ else if($currenttab == "report") {
   <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
     <script type='text/javascript'>//<![CDATA[
     function readURL(input, outputImg) {
-var files = input.files ? input.files : input.currentTarget.files;
-    if (files && files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $(outputImg).attr('src', e.target.result);
+        var files = input.files ? input.files : input.currentTarget.files;
+        if (files && files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $(outputImg).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(files[0]);
         }
-        reader.readAsDataURL(files[0]);
     }
-}
 
         $(document).on('change', '.btn-file :file', function() {
                 var input = $(this),

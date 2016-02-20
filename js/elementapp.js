@@ -8,7 +8,9 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.currentPage = 0;
         $scope.pageSize = 50;
         $scope.materials = $window.model.materials;
+        $scope.items = $window.model.items;
         $scope.selectedMaterial =[];
+        $scope.selectedItem=[3];
          $scope.selectedSort ="phigh";
          $scope.reverseorder = true;
          $scope.sortItem="'price'";
@@ -34,11 +36,14 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
          $scope.priceSlider = {
                  min: 0,
-                  max: 30,
+                  max: 50,
                   options: {
                     floor: 0,
                     step: 5,
-                    ceil: 500
+                    ceil: 500,
+                    translate: function(value) {
+                      return 'Rs.' + value;
+                    }
                   }
             };
 
@@ -54,11 +59,25 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
               $scope.selectedMaterial.push(matIndex);
             }
         };
+        $scope.toggleItemSelection = function toggleItemSelection(itmIndex) {
+            var idx = $scope.selectedItem.indexOf(itmIndex);
+            // is currently selected
+            if (idx > -1) {
+              $scope.selectedItem.splice(idx, 1);
+            }
+            // is newly selected
+            else {
+              $scope.selectedItem.push(matIndex);
+            }
+        };
+
+
 
         $scope.criterias = function(item) {
             var foundMat = false;
             var foundPrice = false;
             var foundpoints = false;
+            var foundItem = false;
             if( ($scope.bottompoints == 0 && $scope.toppoints == 0) || ($scope.bottompoints == item.bottompoints && $scope.toppoints == item.toppoints)){
                 foundpoints = true;
             }
@@ -68,7 +87,10 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             if(item.price >= $scope.priceSlider.min && item.price <= $scope.priceSlider.max ){
                 foundPrice = true;
             }
-            return (foundMat && foundpoints && foundPrice);
+            if(($scope.selectedItem.length == 0) || ($scope.selectedItem.indexOf(item.bodypart) > -1)){
+                foundItem = true;
+            }
+            return (foundMat && foundpoints && foundPrice && foundItem);
         };
 
         $scope.numberOfPages=function(){

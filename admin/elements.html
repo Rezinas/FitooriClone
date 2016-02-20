@@ -39,17 +39,15 @@
 					</section>
 					<section  class="sky-form">
 						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Points</h4>
-								<label>Top points&nbsp;&nbsp; <input type="text" size="5" name="toppoints" ng-model="toppoints"></label> <label> &nbsp; &nbsp; Bottom Points <input type="text" size="5"  name="bottompoints" ng-model="bottompoints"></label>
+								<label>Top points&nbsp;&nbsp; <input type="text" size="3" name="toppoints" ng-model="toppoints"></label> <label> &nbsp; &nbsp; Bottom Points <input type="text" size="3"  name="bottompoints" ng-model="bottompoints"></label>
 					</section>
 					<section  class="sky-form">
-						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Jewelry Type</h4>
 						<div class="row row1 scroll-pane">
 							<div class="col col-4">
-								<!-- <?php
-									foreach($itemsArr as  $itemkey=>$item) {
-										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
-									}
-								?> -->
+								<label ng-repeat="itm in items" class="checkbox">
+									  <input type="checkbox"  ng-checked="selectedItem.indexOf($index+1) > -1" ng-click="toggleItemSelection($index+1)"> <i></i>{{itm}}
+								</label>
 							</div>
 						</div>
 					</section>
