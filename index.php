@@ -151,7 +151,9 @@ else {
 <?php  } ?>
 
 <?php if($currenttab == "products") { ?>
+  <link href="css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
   <script src="js/angular.min.js"></script>
+  <script src="js/rzslider.min.js"></script>
   <script src="js/searchapp.js"></script>
 <?php  } ?>
 

@@ -1,31 +1,28 @@
 'use strict';
-var searchapp = angular.module('productsearch', ['rzModule']);
+var searchapp = angular.module('elementsearch', ['rzModule']);
 //https://github.com/angular-slider/angularjs-slider
 searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
     function($scope, $rootScope, $window) {
-        $scope.allProducts = $window.model.products;
+        $scope.allPieces = $window.model.pieces;
         $scope.isAgent = $window.model.isAgent;
         $scope.currentPage = 0;
-        $scope.pageSize = 20;
+        $scope.pageSize = 50;
         $scope.materials = $window.model.materials;
         $scope.selectedMaterial =[];
-        $scope.selectedSort ="new";
-        $scope.reverseorder = true;
-        $scope.sortItem="'dateAdded'";
+         $scope.selectedSort ="phigh";
+         $scope.reverseorder = true;
+         $scope.sortItem="'price'";
+         $scope.toppoints=0;
+         $scope.bottompoints=0;
 
-
-        $.each($scope.allProducts, function(ix, prd){
-             prd.dateAdded = new Date(prd.dateAdded* 1000);
-         });
-
-        console.log($scope.allProducts);
+        console.log($scope.allPieces);
 
         $scope.orderByOptions = function() {
-            if($scope.selectedSort == "new") {
-                $scope.reverseorder = true;
-                $scope.sortItem = "'dateAdded'";
-            }
-            else if($scope.selectedSort == "phigh" ){
+            // if($scope.selectedSort == "new") {
+            //     $scope.reverseorder = true;
+            //     $scope.sortItem = "'dateAdded'";
+            // }
+            if($scope.selectedSort == "phigh" ){
                 $scope.reverseorder = true;
                 $scope.sortItem = "'price'";
             }
@@ -37,11 +34,11 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
          $scope.priceSlider = {
                  min: 0,
-                  max: 500,
+                  max: 30,
                   options: {
                     floor: 0,
-                    step: 10,
-                    ceil: 1000
+                    step: 5,
+                    ceil: 500
                   }
             };
 
@@ -61,22 +58,21 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.criterias = function(item) {
             var foundMat = false;
             var foundPrice = false;
-            if($scope.selectedMaterial.length > 0) {
-                if($scope.selectedMaterial.indexOf(item.material) > -1){
-                    foundMat = true;
-                }
+            var foundpoints = false;
+            if( ($scope.bottompoints == 0 && $scope.toppoints == 0) || ($scope.bottompoints == item.bottompoints && $scope.toppoints == item.toppoints)){
+                foundpoints = true;
             }
-            else {
-                foundMat = true;//make it true for all materials here.
+            if(($scope.selectedMaterial.length == 0) || ($scope.selectedMaterial.indexOf(item.material) > -1)){
+                foundMat = true;
             }
             if(item.price >= $scope.priceSlider.min && item.price <= $scope.priceSlider.max ){
                 foundPrice = true;
             }
-            return (foundMat && foundPrice);
+            return (foundMat && foundpoints && foundPrice);
         };
 
         $scope.numberOfPages=function(){
-            return Math.ceil($scope.allProducts.length/$scope.pageSize);
+            return Math.ceil($scope.allPieces.length/$scope.pageSize);
         };
 
 }]);

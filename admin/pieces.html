@@ -65,6 +65,10 @@
                      <label>Top Edge Points</label>
                      <input class="form-control" name="pctop" placeholder="Enter Number of Points on Top Edge"  <?php if( $pctop  != "") echo "value='$pctop'"; ?> >
                   </div>
+                   <div class="form-group">
+                     <label>Price</label>
+                     <input class="form-control" name="pprice" placeholder="Enter Price"  <?php if( $pprice  != "") echo "value='$pprice'"; ?> >
+                  </div>
                   <div class="form-group">
                      <label>Type of Jewelry</label>
                      <select  name="pcbody" id="pcbody" class="form-control">
@@ -100,11 +104,10 @@
                      <label>Bottom Edge Points</label>
                      <input class="form-control" name="pcbot" placeholder="Enter Number of Points at the Bottom"  <?php if( $pcbot  != "") echo "value='$pcbot'"; ?> >
                   </div>
-                  <!-- <php
-                     for($i=0; $i<intval($pcbot); $i++){
-                       echo   '<div class="bcoords bcoords'.$i.'"><label>x'.$i.'</label><input type="text"  placeholder="x'.$i.'" name="bottomx'.$i.'"  value="'.$bottomx[$i].'"/> &nbsp;<label>y'.$i.'</label><input type="text"  placeholder="y'.$i.'" name="bottomy'.$i.'"  value="'.$bottomy[$i].'"/></div>';
-                         }
-                     ?> -->
+                  <div class="form-group">
+                     <label>Price</label>
+                     <input class="form-control" name="pprice" placeholder="Enter Price"  <?php if( $pprice  != "") echo "value='$pprice'"; ?> disabled >
+                  </div>
                   <div class="form-group ">
                      <label>Material</label>
                      <select name="material" id="material" class="form-control">

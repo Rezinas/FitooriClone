@@ -289,8 +289,17 @@ else if($currenttab == "report") {
 
    <?php } ?>
    <?php if($currenttab == "search") { ?>
+  <link href="../css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
   <script src="../js/angular.min.js"></script>
+  <script src="../js/rzslider.min.js"></script>
   <script src="../js/searchapp.js"></script>
+   <?php } ?>
+
+   <?php if($currenttab == "elements") { ?>
+  <link href="../css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/rzslider.min.js"></script>
+  <script src="../js/elementapp.js"></script>
    <?php } ?>
 
 <?php if($currenttab == "pieces") { ?>

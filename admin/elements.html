@@ -1,74 +1,55 @@
-<?php
-$categoriesArr= explode("|", CATEGORY) ;
-$itemsArr= explode("|", PRD_ITEM) ;
-$allpieces=[];
-
-$qry = "SELECT id, carouselImg from pieces";
-$stmt = $dbcon->prepare($qry);
-if(!$stmt->execute()){
-    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-}
-
-$stmt->store_result();
-$stmt->bind_result($a,$b);
-while ($stmt->fetch()) {
-    $allpieces[] = ['id' => $a, 'carouselImg' => $b];
-}
-$stmt->close();
-
-?>
-<h2>Admin Product Search</h2>
+<div ng-app="elementsearch">
+	<div ng-controller="MainController">
+		<h2>Admin Product Search</h2>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="pull-right">
+					<select  ng-change="orderByOptions()"  ng-model="selectedSort" >
+						<option value="phigh">Price:High to Low</option>
+						<option value="plow">Price:Low to High</option>
+					</select>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-9 product-model-sec">
-			<?php
-				foreach($allpieces as $piece) { ?>
-					<div class="product-grid">
-					<a href="dashboard.php?pieces&id=<?php echo $piece['id']; ?>">
+					<div ng-repeat="piece in allPieces | orderBy:sortItem:reverseorder | filter:criterias|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid elements">
+					<a href="dashboard.php?pieces&id={{piece['id']}}">
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img src="../productImages/<?php echo $piece['carouselImg']; ?>" class="img-responsive" alt="">
+							<img ng-src="../productImages/{{ piece['carouselImg']}}" class="img-responsive" alt="">
 						</div>
 					</a>
 				</div>
-				<?php }
-			?>
-
 			</div>
 			<div class="col-md-3 rsidebar span_1_of_left">
 				<form>
 					<section  class="sky-form">
-						<div class="row scroll-pane">
-							<div class="col col-4 admin-search">
-								<div class="form-group input-group">
-                                        <input type="text" class="form-control">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                            </button>
-                                        </span>
-                                </div>
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Material</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<label ng-repeat="mat in materials" class="checkbox">
+									  <input type="checkbox"  ng-checked="selectedMaterial.indexOf($index+1) > -1" ng-click="toggleSelection($index+1)"> <i></i>{{mat}}
+								</label>
 							</div>
 						</div>
 					</section>
 					<section  class="sky-form">
-						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
-						<div class="row  scroll-pane">
-							<div class="col col-4">
-								<?php
-									foreach($categoriesArr as $catkey=>$category) {
-										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$category.' </label>';
-									}
-								?>
-							</div>
-						</div>
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
+								<rzslider rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max" rz-slider-options="priceSlider.options" ></rzslider>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Points</h4>
+								<label>Top points&nbsp;&nbsp; <input type="text" size="5" name="toppoints" ng-model="toppoints"></label> <label> &nbsp; &nbsp; Bottom Points <input type="text" size="5"  name="bottompoints" ng-model="bottompoints"></label>
 					</section>
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
 						<div class="row row1 scroll-pane">
 							<div class="col col-4">
-								<?php
+								<!-- <?php
 									foreach($itemsArr as  $itemkey=>$item) {
 										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
 									}
-								?>
+								?> -->
 							</div>
 						</div>
 					</section>
@@ -76,3 +57,14 @@ $stmt->close();
 			</div>
 			<div class="clearfix"> </div>
 		</div>
+		<div class="row">
+			<div class="col-xs-12">
+					<div class="pull-right">
+						<button ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</button>
+										<span ng-hide="currentPage == 0 && currentPage >= allProducts.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
+						<button ng-hide="currentPage >= allProducts.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

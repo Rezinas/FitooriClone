@@ -1,108 +1,117 @@
 <div class="products" ng-app="productsearch">
 	<div class="container" ng-controller="MainController">
 		<h2>Our Products</h2>
-		<div class="col-md-9 product-model-sec">
-				<div ng-repeat="product in ::allProducts | filter:criterias|startFrom:currentPage*pageSize | limitTo:pageSize" class="product-grid adminsearch">
-					<a href="index.php?single&amp;id={{product['productid']}}">
-						<div class="more-product"><span> </span></div>
-						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img ng-src="/plumms/productImages/{{product['mainimg']}}" />
-							<div class="b-wrapper">
-								<h4 class="b-animate b-from-left  b-delay03">
-									<button>View</button>
-								</h4>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="pull-right">
+					<select  ng-change="orderByOptions()"  ng-model="selectedSort" >
+						<option value="new">Latest Designs</option>
+						<option value="phigh">Price:High to Low</option>
+						<option value="plow">Price:Low to High</option>
+						<!-- <option value="pop">Most Popular</option>
+						<option value="disc">Highest Discount</option> -->
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9 product-model-sec">
+					<div ng-repeat="product in allProducts | orderBy:sortItem:reverseorder | filter:criterias|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid adminsearch">
+						<a href="index.php?single&amp;id={{product['productid']}}">
+							<div class="more-product"><span> </span></div>
+							<div class="product-img b-link-stripe b-animate-go  thickbox">
+								<img ng-src="/plumms/productImages/{{product['mainimg']}}" />
+								<div class="b-wrapper">
+									<h4 class="b-animate b-from-left  b-delay03">
+										<button>View</button>
+									</h4>
+								</div>
+							</div>
+						</a>
+						<div class="product-info simpleCart_shelfItem">
+							<div class="product-info-cust prt_name">
+								<h4>{{product['name']}}</h4>
+								<!-- <h4>{{product['dateAdded']}}</h4> -->
+								<span class="item_price">Rs.{{product['price']}}</span>
+								<!-- <div class="ofr">
+									<p class="pric1"><del>$2300.00</del></p>
+									<p class="disc">[15% Off]</p>
+								</div> -->
+
+								<a ng-if="isAgent" ng-href="dashboard.php?product&amp;id={{product['productid']}}" class="item_add items">Edit</a>
+								<div class="clearfix"> </div>
 							</div>
 						</div>
-					</a>
-					<div class="product-info simpleCart_shelfItem">
-						<div class="product-info-cust prt_name">
-							<h4>{{product['name']}}</h4>
-							<span class="item_price">Rs.{{product['price']}}</span>
-							<!-- <div class="ofr">
-								<p class="pric1"><del>$2300.00</del></p>
-								<p class="disc">[15% Off]</p>
-							</div> -->
-
-							<a ng-if="isAgent" ng-href="dashboard.php?product&amp;id={{product['productid']}}" class="item_add items">Edit</a>
-							<div class="clearfix"> </div>
-						</div>
 					</div>
-				</div>
-				  <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-				        Previous
-				    </button>
-				    {{currentPage+1}}/{{numberOfPages()}}
-				    <button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1">
-				        Next
-				    </button>
-
+			</div>
+			<div class="col-md-3 rsidebar span_1_of_left">
+				<form>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Material</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<label ng-repeat="mat in materials" class="checkbox">
+									  <input type="checkbox"  ng-checked="selectedMaterial.indexOf($index+1) > -1" ng-click="toggleSelection($index+1)"> <i></i>{{mat}}
+								</label>
+							</div>
+						</div>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
+								<rzslider rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max" rz-slider-options="priceSlider.options" ></rzslider>
+					</section>
+				<!-- 	<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+								<?php
+									foreach($itemsArr as  $itemkey=>$item) {
+										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
+									}
+								?>
+							</div>
+						</div>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
+							</div>
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>70% - 60% (5)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>50% - 40% (7)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (2)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (5)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+							</div>
+						</div>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>RATING</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
+							</div>
+							<div class="col col-4">
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
+								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+							</div>
+						</div>
+					</section> -->
+				</form>
+			</div>
 		</div>
-		<div class="col-md-3 rsidebar span_1_of_left">
-			<form>
-				<section  class="sky-form">
-					<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
-					<div class="row  scroll-pane">
-						<div class="col col-4">
-							<!-- <?php
-								foreach($categoriesArr as $catkey=>$category) {
-									echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$category.' </label>';
-								}
-							?> -->
-						</div>
+		<div class="row">
+			<div class="col-xs-12">
+					<div class="pull-right">
+						<button ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</button>
+										<span ng-hide="currentPage == 0 && currentPage >= allProducts.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
+						<button ng-hide="currentPage >= allProducts.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next</button>
 					</div>
-				</section>
-				<section  class="sky-form">
-					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
-					<ul class="dropdown-menu1">
-						<li>
-							<div id="slider-range"></div>
-							<input type="text" id="amount" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
-						</li>
-					</ul>
-				</section>
-			<!-- 	<section  class="sky-form">
-					<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
-					<div class="row row1 scroll-pane">
-						<div class="col col-4">
-							<?php
-								foreach($itemsArr as  $itemkey=>$item) {
-									echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
-								}
-							?>
-						</div>
-					</div>
-				</section>
-				<section  class="sky-form">
-					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
-					<div class="row row1 scroll-pane">
-						<div class="col col-4">
-							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
-						</div>
-						<div class="col col-4">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>70% - 60% (5)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>50% - 40% (7)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (2)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (5)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
-						</div>
-					</div>
-				</section>
-				<section  class="sky-form">
-					<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>RATING</h4>
-					<div class="row  scroll-pane">
-						<div class="col col-4">
-							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
-						</div>
-						<div class="col col-4">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
-						</div>
-					</div>
-				</section> -->
-			</form>
+			</div>
 		</div>
-		<div class="clearfix"> </div>
 	</div>
 </div>
