@@ -75,7 +75,10 @@ else {
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
 <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
-<!-- <link href="css/admin.css" type="text/css" rel="stylesheet" media="all"> -->
+<?php if($currenttab == "customize") { ?>
+     <link rel="stylesheet" href="css/design.css">
+<?php  } ?>
+
 <!-- js -->
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
@@ -135,6 +138,12 @@ else {
 });
  </script>
 
+   <?php if($currenttab == "customize") { ?>
+  <script src="js/angular.min.js"></script>
+  <script src="js/design.js"></script>
+
+   <?php } ?>
+
 <?php if($currenttab == "home") { ?>
 	<style>
 	#imageBox .hoverImg, #imageBox1 .hoverImg1, #imageBox2 .hoverImg2, #imageBox3 .hoverImg3  {
@@ -157,194 +166,6 @@ else {
   <script src="js/searchapp.js"></script>
 <?php  } ?>
 
-<?php if($currenttab == "customize") { ?>
-	<style>
-		.avlOptions div{
-			float: left;
-		}
-		.avlOptions #imgOptions{
-			position: relative;
-			width:100%;
-			margin-top: -25px;
-			text-align: center;
-		}
-		.avlOptions #imgOptions img{
-			margin-bottom: 19px;
-			margin-top: 17px;
-		}
-		.avlOptions img{
-		    margin-bottom: 20px;
-		    margin-top: 40px;
-		    margin-right: 7px;
-	    	width: 60px;
-		}
-		#ear{
-			width:100%;
-		}
-
-		#ear img{
-			 width: 100%;
-
-		}
-		#chkBtn input[type="submit"] {
-	        border: 2px solid #F07818;
-	    color: #fff;
-	    background: #F07818;
-	    cursor: pointer;
-	    padding: 7px 0;
-	    width: 30%;
-	    border-radius: 4px;
-	    display: inline-block;
-	    margin: 1em 0 0;
-	    font-size: 1em;
-	    outline: none;
-	    -webkit-transition: all 0.5s;
-	    -moz-transition: all 0.5s;
-	    transition: all 0.5s;
-	    position: relative;
-	    margin-right: 14px;
-	    left: -12px;
-	    margin-bottom: 20px;
-	}
-	  	#chkBtn input[type="submit"]:hover {
-	      background-color: transparent;
-	      color: #5D4B33;
-	      border-color: #5D4B33;
-	  	}
-		#chkBtn{
-			width:100%;
-		}
-
-		#chkBtn1{
-			width: 100%;
-		}
-
-		#chkBtn1 input[type="submit"] {
-	      border: 2px solid #F07818;
-	      color: #fff;
-	      background: #F07818;
-	      cursor: pointer;
-	      padding: 7px 0;
-	      width: 20%;
-	      border-radius: 4px;
-	      display: inline-block;
-	      margin: 1em 0 0;
-	      font-size: 1em;
-	      outline: none;
-	      -webkit-transition: all 0.5s;
-	      -moz-transition: all 0.5s;
-	      transition: all 0.5s;
-	      top: -20px;
-	      position: relative;
-		  margin-top: 28px;
-		  margin-bottom: 0px;
-		  float: right;
-		}
-		#chkBtn1 input[type="submit"]:hover {
-	      background-color: #5D4B33;
-	      color: #FFFFFF;
-	      border-color: #5D4B33;
-	  	}
-
-		div#type {
-		   border:0px solid;
-		}
-
-		div#type input[type="radio"] {
-		    margin-top: 11px;
-		    margin-left: 50px;
-		    vertical-align: baseline;
-		}
-		div#material{
-			float: left;
-		    margin-top: 10px;
-		    position: relative;
-		    font-size: 17px;
-		    width:16%;
-		}
-
-		div#material input[type="radio"] {
-		    margin-bottom: 30px;
-		    margin-top: 30px;
-		    vertical-align: middle;
-		}
-		div#sampleImgs{
-		    border: 0px solid;
-		    width: 100%;
-		    float: left;
-		    position: relative;
-		    top: 10px;
-		}
-		div#sampleImgs img{
-			margin: 20px 0px 20px 5px;
-		}
-		div#sampleImgs h4 {
-		    margin-bottom: 1%;
-		    font-size: 15px;
-		    margin-top: 1%;
-		}
-		div#sampleImgs span{
-		    position: relative;
-	 	   float: right;
-		}
-		div#sampleImgs h4 span a{
-		   font-size: 12px;
-		   float: right;
-		}
-		div#designerPick{
-			position: relative;
-			top: 13px;
-		}
-		div#designerPick h4{
-			font-size: 15px;
-		}
-		div#designerPick img {
-		    width: 100%;
-		    margin-bottom: 15px;
-		}
-
-		.about {
-		    background: #fff;
-		    padding: 65px 0 0px;
-		}
-
-	/**** LIGHTBOX CODE ******/
-		.black_overlay{
-			display: none;
-			position: absolute;
-			top: 0%;
-			left: 0%;
-			width: 100%;
-			height: 100%;
-			background-color: black;
-			z-index:1001;
-			-moz-opacity: 0.8;
-			opacity:.80;
-			filter: alpha(opacity=80);
-		}
-		.white_content {
-			display: none;
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    width: 100%;
-		    height: 100%;
-		    padding: 16px;
-		    border: 1px solid orange;
-		    z-index: 1002;
-		    overflow: auto;
-		}
-		#light a, #light1 a, #light2 a{
-			color: #fff;
-		    text-transform: Uppercase;
-		    float: right;
-		}
-		div#light img, div#light1 img, div#light2 img {
-		    margin: 10px 14px 6px 5px;
-		}
-
-	</style>
-<?php  } ?>
 
 <?php if($currenttab == "join") { ?>
 	<style>
@@ -1100,8 +921,16 @@ else {
 	    include(SITE_ROOT. "products.html");
 	}
 	else if($currenttab == "customize") {
-	    include(SITE_ROOT. "customize.html");
-	}
+      if(empty($username)) {
+        echo '<link rel="stylesheet" href="css/customize.css">';
+        include(SITE_ROOT. "customize.html");
+      }
+      else {
+        // include(SITE_ROOT. "customize.html");
+        include(SITE_ROOT. "design.php");
+        include(SITE_ROOT. "design.html");
+      }
+    }
 	else if($currenttab == "offers") {
 	    include(SITE_ROOT. "offers.html");
 	}

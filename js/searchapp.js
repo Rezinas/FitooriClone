@@ -1,18 +1,37 @@
 'use strict';
 var searchapp = angular.module('productsearch', ['rzModule']);
+
+
+searchapp.config(function($locationProvider) {
+  $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+      });
+});
+
 //https://github.com/angular-slider/angularjs-slider
-searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
-    function($scope, $rootScope, $window) {
+searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$location',
+    function($scope, $rootScope, $window, $location) {
+
+        $scope.siteUrl = $window.model.siteUrl;
         $scope.allProducts = $window.model.products;
         $scope.isAgent = $window.model.isAgent;
         $scope.currentPage = 0;
         $scope.pageSize = 20;
         $scope.materials = $window.model.materials;
+        $scope.items = $window.model.items;
         $scope.selectedMaterial =[];
+        $scope.selectedItem=[3];
         $scope.selectedSort ="new";
         $scope.reverseorder = true;
         $scope.sortItem="'dateAdded'";
-
+        $scope.prdStatus={ "active" : "",
+                            "custom": "",
+                            "despick": ""};
+        var queryParam = $location.search();
+        if(queryParam.m){
+              $scope.selectedMaterial.push(parseInt(queryParam.m,10));
+        }
 
         $.each($scope.allProducts, function(ix, prd){
              prd.dateAdded = new Date(prd.dateAdded* 1000);
@@ -61,9 +80,44 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             }
         };
 
+        $scope.toggleItemSelection = function toggleItemSelection(itmIndex) {
+            var idx = $scope.selectedItem.indexOf(itmIndex);
+            // is currently selected
+            if (idx > -1) {
+              $scope.selectedItem.splice(idx, 1);
+            }
+            // is newly selected
+            else {
+              $scope.selectedItem.push(itmIndex);
+            }
+        };
+
+
         $scope.criterias = function(item) {
             var foundMat = false;
             var foundPrice = false;
+             var foundItem = false;
+             var foundStatus=false;
+             var foundCustom=false;
+             var foundDpick=false;
+             if(!$scope.isAgent || $scope.prdStatus.active == "") foundStatus = true;
+             else {
+                if(parseInt($scope.prdStatus.active, 10) == item.status){
+                    foundStatus= true;
+                }
+             }
+             if(!$scope.isAgent || $scope.prdStatus.despick == "") foundDpick = true;
+             else {
+                if(parseInt($scope.prdStatus.despick, 10) == item.designerPick){
+                    foundDpick= true;
+                }
+             }
+            if(!$scope.isAgent || $scope.prdStatus.custom == "") foundCustom = true;
+             else {
+                if(parseInt($scope.prdStatus.custom, 10) == item.customized){
+                    foundCustom= true;
+                }
+             }
             if($scope.selectedMaterial.length > 0) {
                 if($scope.selectedMaterial.indexOf(item.material) > -1){
                     foundMat = true;
@@ -75,7 +129,10 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             if(item.price >= $scope.priceSlider.min && item.price <= $scope.priceSlider.max ){
                 foundPrice = true;
             }
-            return (foundMat && foundPrice);
+            if(($scope.selectedItem.length == 0) || ($scope.selectedItem.indexOf(item.bodypart) > -1)){
+                foundItem = true;
+            }
+            return (foundMat && foundPrice && foundItem && foundStatus && foundCustom && foundDpick);
         };
 
         $scope.numberOfPages=function(){

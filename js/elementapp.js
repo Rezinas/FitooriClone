@@ -67,7 +67,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             }
             // is newly selected
             else {
-              $scope.selectedItem.push(matIndex);
+              $scope.selectedItem.push(itmIndex);
             }
         };
 

@@ -4,6 +4,7 @@ var des = angular.module('cdesign', []);
 des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document',
     function($scope, $rootScope, $http, $window, $document) {
 
+        $scope.siteUrl = $window.model.siteUrl;
         $scope.designObj = {};
         $scope.filteredSet = [];
         $scope.myAltItems = [];
@@ -15,6 +16,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.levelFilled = false;
         $scope.prdIndex = [];
         $scope.allConnArr =[];
+        $scope.isAgent = $window.model.isAgent;
         var elements = $window.model.elements;
         var bodyparts = $window.model.items;
 
@@ -233,12 +235,16 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
           $http({
           method  : 'POST',
-          url     : 'dashboard.php?addcustom',
+          url     : $scope.siteUrl+'ajax.php?addcustom',
           data    : payload  // pass in data as strings
          })
           .success(function(data) {
-            if(data == "SUCCESS")
-                $window.location ="dashboard.php?custom";
+            if(data == "SUCCESS"){
+                if($scope.isAgent)
+                    $window.location = $scope.siteUrl+"dashboard.php?custom";
+                else
+                    $window.location =$scope.siteUrl+"index.php?checkout";
+            }
             else
                 alert("insert into database failed");
           });

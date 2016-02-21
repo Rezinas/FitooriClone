@@ -7,23 +7,23 @@
 					<div class="bgProduct">
 						<div class="designDiv">
 							<div class="prd_elements elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem">
-								<img  ng-src="/plumms/productImages/{{imgItem.selectedImage}}" />
+								<img  ng-src="{{siteUrl}}productImages/{{imgItem.selectedImage}}" />
 							</div>
 						</div>
 					</div>
 
 					<div id="imgOptions" class="designOptions">
 						<div class="aelements" ng-repeat="altItem in mySelectedItems[designLevel].images">
-							<img ng-src="/plumms/productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, $index, false);" />
+							<img ng-src="{{siteUrl}}productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, $index, false);" />
 						</div>
 					</div>
 				</div>
 
 				<div class="col-lg-6 col-md-6 col-sm-4 col-xs-12" style="border:0px solid #333;">
 					<div class="elements" id="sampleImgs">
-						<div class="fheight">
+						<div>
 							<h4>Metals</h4>
-							<img ng-repeat="imgElem in metal= (filteredSet | category:3) | limitTo:8" ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+							<img ng-repeat="imgElem in metal= (filteredSet | category:3) | limitTo:8" ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
 
 
 							<a ng-if="metal.length > 6" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>
@@ -33,14 +33,14 @@
 						<div id="light2" class="white_content">
 						<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/>
 
-						<img ng-repeat="imgElem in filteredSet | category:3"  ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+						<img ng-repeat="imgElem in filteredSet | category:3"  ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
 
 						</div>
 						<div id="fade2" class="black_overlay"></div>
 
-						<div class="fheight">
+						<div>
 							<h4>Teracotta </h4>
-							<img ng-repeat="imgElem in terracota = (filteredSet | category:1) | limitTo:8" ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+							<img ng-repeat="imgElem in terracota = (filteredSet | category:1) | limitTo:8" ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
 
 							<a  ng-if="terracota.length > 6"  href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>
 
@@ -49,14 +49,14 @@
 						<div id="light" class="white_content">
 							<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a><br/>
 
-							<img ng-repeat="imgElem in filteredSet | category:1"  ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+							<img ng-repeat="imgElem in filteredSet | category:1"  ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
 
 						</div>
 						<div id="fade" class="black_overlay"></div>
 
-						<div class="fheight">
+						<div>
 							<h4>Beaded</h4>
-							<img ng-repeat="imgElem in beaded = (filteredSet | category:2) | limitTo:8" ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+							<img ng-repeat="imgElem in beaded = (filteredSet | category:2) | limitTo:8" ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
 
 							<a ng-if="beaded.length > 6" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><img src="http://placehold.it/80?text=MORE"></a>
 
@@ -65,19 +65,21 @@
 						<div id="light1" class="white_content">
 							<a href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a><br/>
 
-							<img ng-repeat="imgElem in filteredSet | category:2"  ng-src="/plumms/productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
+							<img ng-repeat="imgElem in filteredSet | category:2"  ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem, $index, true);">
 						</div>
 						<div id="fade1" class="black_overlay"></div>
 
-						<div id="chkBtn" style="text-align:center;">
+						<div id="chkBtn" style="text-align:left;">
 <!--                   			<input type="submit" id="buy" value="Add to Cart">
                   			<input type="submit" id="rst" value="Reset"> -->
                   			<div ng-if="mySelectedItems.length > 0">
                   			 <form name="designForm" ng-submit="processForm()">
-								<button type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Confirm Design</button> &nbsp; &nbsp;
+								<button ng-if="isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Confirm Design</button> &nbsp; &nbsp;
+								<button ng-if="!isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button> &nbsp; &nbsp;
+									<button type="button" ng-hide="filteredSet.length == 0" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Add Another Level</button> &nbsp; &nbsp;
+								<button type="button" ng-if="mySelectedItems.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Go Previous Level</button>
 							</form>
-								<button ng-hide="filteredSet.length == 0" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Add Another Level</button> &nbsp; &nbsp;
-								<button ng-if="mySelectedItems.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Go Previous Level</button>
+
 							</div>
                 		</div>
 					</div>

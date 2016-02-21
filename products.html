@@ -17,10 +17,10 @@
 		<div class="row">
 			<div class="col-md-9 product-model-sec">
 					<div ng-repeat="product in allProducts | orderBy:sortItem:reverseorder | filter:criterias|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid adminsearch">
-						<a href="index.php?single&amp;id={{product['productid']}}">
+						<a href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">
 							<div class="more-product"><span> </span></div>
 							<div class="product-img b-link-stripe b-animate-go  thickbox">
-								<img ng-src="/plumms/productImages/{{product['mainimg']}}" />
+								<img ng-src="{{siteUrl}}/productImages/{{product['mainimg']}}" />
 								<div class="b-wrapper">
 									<h4 class="b-animate b-from-left  b-delay03">
 										<button>View</button>
@@ -38,7 +38,7 @@
 									<p class="disc">[15% Off]</p>
 								</div> -->
 
-								<a ng-if="isAgent" ng-href="dashboard.php?product&amp;id={{product['productid']}}" class="item_add items">Edit</a>
+								<a ng-if="isAgent" ng-href="{{siteUrl}}admin/dashboard.php?product&amp;id={{product['productid']}}" class="item_add items">Edit</a>
 								<div class="clearfix"> </div>
 							</div>
 						</div>
@@ -46,6 +46,51 @@
 			</div>
 			<div class="col-md-3 rsidebar span_1_of_left">
 				<form>
+					<section ng-if="isAgent"  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Customized</h4>
+							 <label>
+				                <input type="radio" name="prdCustom" value="1" class="rdbtn" ng-model="prdStatus.custom">
+				                Yes
+				            </label>
+				            <label>
+				                <input type="radio" name="prdCustom" value="0" class="rdbtn" ng-model="prdStatus.custom">
+				                No
+				            </label>
+				            <label>
+				                <input type="radio" name="prdCustom" value="" class="rdbtn" ng-model="prdStatus.custom">
+				                All
+				            </label>
+					</section>
+					<section ng-if="isAgent"  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Designer's Pick</h4>
+							 <label>
+				                <input type="radio" name="dpick" value="1" class="rdbtn" ng-model="prdStatus.despick">
+				                Yes
+				            </label>
+				            <label>
+				                <input type="radio" name="dpick" value="0" class="rdbtn" ng-model="prdStatus.despick">
+				                No
+				            </label>
+				            <label>
+				                <input type="radio" name="dpick" value="" class="rdbtn" ng-model="prdStatus.despick">
+				                All
+				            </label>
+					</section>
+					<section ng-if="isAgent"  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Status</h4>
+							 <label>
+				                <input type="radio" name="pstatus" value="1" class="rdbtn" ng-model="prdStatus.active">
+				                Active
+				            </label>
+				            <label>
+				                <input type="radio" name="pstatus" value="0" class="rdbtn" ng-model="prdStatus.active">
+				                InActive
+				            </label>
+				            <label>
+				                <input type="radio" name="pstatus" value="" class="rdbtn" ng-model="prdStatus.active">
+				                All
+				            </label>
+					</section>
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Material</h4>
 						<div class="row  scroll-pane">
@@ -60,18 +105,17 @@
 						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
 								<rzslider rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max" rz-slider-options="priceSlider.options" ></rzslider>
 					</section>
-				<!-- 	<section  class="sky-form">
-						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Jewelry Type</h4>
 						<div class="row row1 scroll-pane">
 							<div class="col col-4">
-								<?php
-									foreach($itemsArr as  $itemkey=>$item) {
-										echo '<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>'.$item.' </label>';
-									}
-								?>
+								<label ng-repeat="itm in items" class="checkbox">
+									  <input type="checkbox"  ng-checked="selectedItem.indexOf($index+1) > -1" ng-click="toggleItemSelection($index+1)"> <i></i>{{itm}}
+								</label>
 							</div>
 						</div>
 					</section>
+				<!--
 					<section  class="sky-form">
 						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
 						<div class="row row1 scroll-pane">

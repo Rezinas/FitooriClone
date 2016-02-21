@@ -87,3 +87,7 @@ div#page-wrapper h2.page-header{
     margin-top: 15px;
     margin-left: 40px;
 }
+
+.prd_elements {
+    position: absolute;
+}

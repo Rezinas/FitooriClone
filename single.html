@@ -74,27 +74,16 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 				<p><?php echo $parr['shortdesc']; ?></p>
 				<ul class="size">
 					<h3>Size (wxh)</h3>
-						<li><a href="#"><?php echo $parr['size']; ?></a></li>
-						<!-- <li><a href="#">2 KG</a></li>
-						<li><a href="#">3 KG</a></li>
-						<li><a href="#">4 KG</a></li> -->
+						<li><a href="javascript:void(0);"><?php echo $parr['size']; ?></a></li>
 				</ul>
 				<ul class="size">
 					<h3>Material</h3>
-						<li><a href="#"> <?php echo $categoriesArr[$parr['material']-1]; ?> </a></li>
-						<!-- <li><a href="#">2 Step</a></li>
-						<li><a href="#">3 Step</a></li> -->
+					<?php
+						$mat = $parr['material'];
+						$url = (isAgent())? SITE_URL."admin/dashboard.php?search&amp;m=$mat" : SITE_URL."index.php?products&amp;m=$mat";
+					?>
+						<li><a href="<?php echo $url; ?>"> <?php echo $categoriesArr[$parr['material']-1]; ?> </a></li>
 				</ul>
-				<!-- <div class="galry">
-					<div class="rating">
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
-					</div>
-					<div class="clearfix"></div>
-				</div> -->
 				<div class="prices">
 						<h5 class="item_price">Price : Rs.<?php echo $parr['price']; ?>/-</h5>
 					</div>

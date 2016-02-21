@@ -22,7 +22,7 @@
 					<?php if($des['isProduct'] == 0){ ?>
 						<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;cdesign&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Add to DB</a>
 					<?php } else  {?>
-						<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Edit Product</a>
+						<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;cdesign&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Edit Product</a>
 					<?php } ?>
 					<a href="<?php echo SITE_URL; ?>admin/dashboard.php?custom&amp;deleteid=<?php echo $des['productid']; ?>" class="btn btn-primary">Delete</a>
 				</div>
@@ -46,7 +46,7 @@
 				<label ><input type="radio"  class="rdbtn" name="prdAdded" value="1" >In Product</label>
 				<label ><input type="radio"  class="rdbtn" name="prdAdded" checked value="-1" >All</label>
 			</section>
-			<section  class="sky-form">
+			<!-- TBD later. <section  class="sky-form">
 				<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Item</h4>
 				<div class="row row1 scroll-pane">
 					<div class="col col-4">
@@ -57,7 +57,7 @@
 						?>
 					</div>
 				</div>
-			</section>
+			</section> -->
 		</form>
 	</div>
 	<div class="clearfix"> </div>

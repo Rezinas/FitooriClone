@@ -38,11 +38,11 @@ while ($stmt->fetch()) {
 $stmt->close();
 
 $jsondata = array(
+	"siteUrl"  => SITE_URL,
+	"isAgent" => isAgent(),
 	"items" => $itemsArr,
 	"materials" => $categoriesArr,
 	"colorsArr" => $colorsArr,
-	"styles" => $styleArr,
-	"textures" => $texturesArr,
 	"elements" =>$elements
 );
 
