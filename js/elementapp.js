@@ -9,13 +9,16 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.pageSize = 50;
         $scope.materials = $window.model.materials;
         $scope.items = $window.model.items;
+         $scope.tags = $.unique($window.model.tags);
         $scope.selectedMaterial =[];
+        $scope.selectedTags =[];
         $scope.selectedItem=[3];
          $scope.selectedSort ="phigh";
          $scope.reverseorder = true;
          $scope.sortItem="'price'";
          $scope.toppoints=0;
          $scope.bottompoints=0;
+
 
         console.log($scope.allPieces);
 
@@ -59,6 +62,18 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
               $scope.selectedMaterial.push(matIndex);
             }
         };
+        $scope.toggleTagSelection = function toggleTagSelection(tagIndx) {
+            var idx = $scope.selectedTags.indexOf(tagIndx);
+            // is currently selected
+            if (idx > -1) {
+              $scope.selectedTags.splice(idx, 1);
+            }
+            // is newly selected
+            else {
+              $scope.selectedTags.push(tagIndx);
+            }
+        };
+
         $scope.toggleItemSelection = function toggleItemSelection(itmIndex) {
             var idx = $scope.selectedItem.indexOf(itmIndex);
             // is currently selected
@@ -78,11 +93,15 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             var foundPrice = false;
             var foundpoints = false;
             var foundItem = false;
+            var foundTags = false;
             if( ($scope.bottompoints == 0 && $scope.toppoints == 0) || ($scope.bottompoints == item.bottompoints && $scope.toppoints == item.toppoints)){
                 foundpoints = true;
             }
             if(($scope.selectedMaterial.length == 0) || ($scope.selectedMaterial.indexOf(item.material) > -1)){
                 foundMat = true;
+            }
+             if(($scope.selectedTags.length == 0) || ($scope.selectedTags.indexOf(item.admintags) > -1)){
+                foundTags    = true;
             }
             if(item.price >= $scope.priceSlider.min && item.price <= $scope.priceSlider.max ){
                 foundPrice = true;
@@ -90,7 +109,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             if(($scope.selectedItem.length == 0) || ($scope.selectedItem.indexOf(item.bodypart) > -1)){
                 foundItem = true;
             }
-            return (foundMat && foundpoints && foundPrice && foundItem);
+            return (foundMat && foundpoints && foundPrice && foundItem && foundTags);
         };
 
         $scope.numberOfPages=function(){

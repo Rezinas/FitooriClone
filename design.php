@@ -37,6 +37,24 @@ while ($stmt->fetch()) {
 }
 $stmt->close();
 
+// //get all designerPick products
+//     $qry = "SELECT  `name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `promotedimg`,`featuredimg`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `promoted`, `addedUsertype`, `addedbyUserEmail`, `quantity`,  `tags`,  `size`, `designerPick` from products WHERE productid=$pid";
+//  	if(!$stmt = $dbcon->prepare($qry)){
+// 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+// 	}
+
+// 	if(!$stmt->execute()){
+// 	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+// 	}
+
+// 	$stmt->store_result();
+// 	$stmt->bind_result($a,$b, $c, $d, $i1, $i2, $i3, $i4, $i5, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p);
+// 	while ($stmt->fetch()) {
+// 		$parr = ['name' => $a, 'price' => $b,  'bodypart' => $c, 'material' => $d, 'mainimg' => $i1, 'alt1img' => $i2, 'alt2img' => $i3, 'promotedimg' => $i4, 'featuredimg' => $i5, 'status' => $e, 'shortdesc' => $f, 'detaildesc' => $g, 'addinfo' => $h, 'featured' => $i, 'promoted' => $j, 'addedUsertype' => $k, 'addedbyUserEmail' => $l, 'quantity' => $m, 'tags' => $n, 'size' => $o, 'designerPick' => $p];
+// 	}
+// 	$stmt->close();
+
+
 $jsondata = array(
 	"siteUrl"  => SITE_URL,
 	"isAgent" => isAgent(),

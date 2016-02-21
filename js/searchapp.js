@@ -19,8 +19,10 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         $scope.currentPage = 0;
         $scope.pageSize = 20;
         $scope.materials = $window.model.materials;
+        $scope.tags = $.unique($window.model.tags);
         $scope.items = $window.model.items;
         $scope.selectedMaterial =[];
+        $scope.selectedTags =[];
         $scope.selectedItem=[3];
         $scope.selectedSort ="new";
         $scope.reverseorder = true;
@@ -79,6 +81,17 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
               $scope.selectedMaterial.push(matIndex);
             }
         };
+        $scope.toggleTagSelection = function toggleTagSelection(tagIndx) {
+            var idx = $scope.selectedTags.indexOf(tagIndx);
+            // is currently selected
+            if (idx > -1) {
+              $scope.selectedTags.splice(idx, 1);
+            }
+            // is newly selected
+            else {
+              $scope.selectedTags.push(tagIndx);
+            }
+        };
 
         $scope.toggleItemSelection = function toggleItemSelection(itmIndex) {
             var idx = $scope.selectedItem.indexOf(itmIndex);
@@ -100,12 +113,16 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
              var foundStatus=false;
              var foundCustom=false;
              var foundDpick=false;
+             var foundTags= false;
              if(!$scope.isAgent || $scope.prdStatus.active == "") foundStatus = true;
              else {
                 if(parseInt($scope.prdStatus.active, 10) == item.status){
                     foundStatus= true;
                 }
              }
+              if(($scope.selectedTags.length == 0) || ($scope.selectedTags.indexOf(item.tags) > -1)){
+                foundTags = true;
+            }
              if(!$scope.isAgent || $scope.prdStatus.despick == "") foundDpick = true;
              else {
                 if(parseInt($scope.prdStatus.despick, 10) == item.designerPick){
@@ -132,7 +149,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
             if(($scope.selectedItem.length == 0) || ($scope.selectedItem.indexOf(item.bodypart) > -1)){
                 foundItem = true;
             }
-            return (foundMat && foundPrice && foundItem && foundStatus && foundCustom && foundDpick);
+            return (foundMat && foundPrice && foundItem && foundStatus && foundCustom && foundDpick && foundTags);
         };
 
         $scope.numberOfPages=function(){

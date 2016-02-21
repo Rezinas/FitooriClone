@@ -24,6 +24,24 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             return num % 2;
         };
 
+        var findEligibleElement = function(eitems, celem){
+            var resArr = [];
+            /*
+             var prevXs = prevItem.botX.split(",");
+            var currXs = row.topX.split(",");
+            var matchingPoints =true;
+            for(var i=0; i< topPoints && matchingPoints; i++){
+
+                if(Math.abs((currXs[i+1] - currXs[i]) - (prevXs[i+1] - prevXs[i])) > 5)
+                    matchingPoints=false;
+                        }
+            */
+            $.each(eitems, function(ind, row) {
+                resArr.push(row);
+            });
+            return resArr;
+        };
+
         var findConnectionElements = function(eitems) {
             var resArr = [];
             var prevItem;
@@ -81,7 +99,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.filteredSet =  findConnectionElements($scope.designObj.Earrings);
 
-        $scope.selectImage = function(elem, elementPos, mainlist) {
+        $scope.selectImage = function(elem, mainlist) {
             $scope.levelFilled = true;
             var bpoints = ($scope.mySelectedItems.length ==0) ? 1 : 0;
             var tpoints = elem.toppoints;
@@ -117,6 +135,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                 fits=false;
                             }
                         }
+                    }
+                    else {
+                        $scope.filteredSet = findEligibleElement($scope.filteredSet, elem);
                     }
                         if(fits) {
                              bpoints += $scope.mySelectedItems[elPos].bottompoints;

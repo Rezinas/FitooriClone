@@ -23,12 +23,36 @@ $allproducts[] = [ 'productid' => $a1, 'name' => $a, 'price' => $b,  'bodypart' 
 }
 $stmt->close();
 
+$tags=[];
+$qry = "SELECT DISTINCT tags from products";
+$stmt = $dbcon->prepare($qry);
+if(!$stmt->execute()){
+    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+}
+
+$stmt->store_result();
+$stmt->bind_result($a);
+while ($stmt->fetch()) {
+	if($a == "") continue;
+   if(strpos($a, ",") !== false) {
+		$a_parts = explode(",", $a);
+		foreach($a_parts as $ap){
+			$tags[]=ucwords($ap);
+		}
+	}
+	else {
+    	$tags[] = ucwords($a);
+	}
+}
+$stmt->close();
+
 $jsondata = array(
 	"siteUrl" => SITE_URL,
 	"items" => $itemsArr,
 	"isAgent" => isAgent(),
 	"materials" => $categoriesArr,
-	"products" =>$allproducts
+	"products" =>$allproducts,
+	"tags" => $tags
 );
 
 // var_dump($elements);

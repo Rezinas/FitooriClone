@@ -16,11 +16,36 @@ while ($stmt->fetch()) {
 }
 $stmt->close();
 
+$tags=[];
+$qry = "SELECT DISTINCT admintags from pieces";
+$stmt = $dbcon->prepare($qry);
+if(!$stmt->execute()){
+    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+}
+
+$stmt->store_result();
+$stmt->bind_result($a);
+while ($stmt->fetch()) {
+	if($a == "") continue;
+	if(strpos($a, ",") !== false) {
+		$a_parts = explode(",", $a);
+		foreach($a_parts as $ap){
+			$tags[]=ucwords($ap);
+		}
+	}
+	else {
+    	$tags[] = ucwords($a);
+	}
+}
+$stmt->close();
+
+
 $jsondata = array(
 	"items" => $itemsArr,
 	"isAgent" => isAgent(),
 	"materials" => $categoriesArr,
-	"pieces" =>$allpieces
+	"pieces" =>$allpieces,
+	"tags" => $tags
 );
 ?>
 <script type="text/javascript">
