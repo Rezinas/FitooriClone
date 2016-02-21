@@ -19,7 +19,7 @@ $stmt->store_result();
 $stmt->bind_result( $a1, $a,$b, $c, $d, $i1, $i2, $i3, $i4, $i5, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p, $q, $r);
 while ($stmt->fetch()) {
 if(is_null($a) && is_null($b)) continue;
-$allproducts[] = [ 'productid' => $a1, 'name' => $a, 'price' => $b,  'bodypart' => $c, 'material' => $d, 'mainimg' => $i1, 'alt1img' => $i2, 'alt2img' => $i3, 'promotedimg' => $i4, 'featuredimg' => $i5, 'status' => $e, 'shortdesc' => $f, 'detaildesc' => $g, 'addinfo' => $h, 'featured' => $i, 'promoted' => $j, 'addedUsertype' => $k, 'addedbyUserEmail' => $l, 'quantity' => $m,'size' => $n, 'tags' => $o, 'dateAdded' => $p,  'customized' => $q, 'designerPick' => $r];
+$allproducts[] = [ 'productid' => $a1, 'name' => $a, 'price' => $b,  'bodypart' => $c, 'material' => $d, 'mainimg' => $i1, 'alt1img' => $i2, 'alt2img' => $i3, 'promotedimg' => $i4, 'featuredimg' => $i5, 'status' => $e, 'shortdesc' => $f, 'detaildesc' => $g, 'addinfo' => $h, 'featured' => $i, 'promoted' => $j, 'addedUsertype' => $k, 'addedbyUserEmail' => $l, 'quantity' => $m,'size' => $n, 'tags' => ucwords($o), 'dateAdded' => $p,  'customized' => $q, 'designerPick' => $r];
 }
 $stmt->close();
 

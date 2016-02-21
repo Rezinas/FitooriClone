@@ -12,7 +12,7 @@ if(!$stmt->execute()){
 $stmt->store_result();
 $stmt->bind_result($a,$b, $c, $d, $e, $f, $g, $h, $i);
 while ($stmt->fetch()) {
-    $allpieces[] = ['id' => $a, 'carouselImg' => $b, 'price' => $c, 'toppoints' => $d,'bottompoints' => $e, 'material' => $f,'bodypart' => $g,'style' => $h,'admintags' => $i];
+    $allpieces[] = ['id' => $a, 'carouselImg' => $b, 'price' => $c, 'toppoints' => $d,'bottompoints' => $e, 'material' => $f,'bodypart' => $g,'style' => $h,'admintags' => ucwords($i)];
 }
 $stmt->close();
 
