@@ -113,7 +113,7 @@ if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
 		$parr = ['id' => $a, 'carouselImg' => $b, 'imgheight'=>  $bh, 'imgwidth'=>  $bw,  'bodypart' => $c, 'centerx' => $cx, 'centery' => $cy, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n, 'price' => $o];
 	}
 	$stmt->close();
-	$pieceid=$parr['id'];
+	$pieceid=$parr['id']."";
 	$pcbody=$parr['bodypart'];
 	$pcenterx=$parr['centerx']."";
 	$pcentery=$parr['centery']."";
@@ -240,8 +240,8 @@ if (!empty($_POST)) {
     	else if($pcmode == "edit") {
     	 	//run the update query for the $pieceid.
     	 	$updQuery1 =  "UPDATE pieces  SET `carouselImg`=?, `imgheight` =?, `imgwidth` =?, `bodypart` = ?, `centerx` = ?, `centery` = ?, `toppoints` = ?,  `topX`= ?, `topY`=?,`bottompoints` = ?, `botX`=?, `botY`=?, `color` = ?, `texture` = ? , `material` = ? , `style` = ?, `admintags` = ?, `price` = ? WHERE id=$pieceid ";
-
     	 	$stmt = $dbcon->prepare($updQuery1);
+
 		$stmt->bind_param('siiiiiississssissd', $carouselImg, intval($pimgheight), intval($pimgwidth), intval($pcbody), intval($pcenterx), intval($pcentery), intval($pctop), implode(",", $topx), implode(",", $topy),  intval($pcbot), implode(",", $bottomx), implode(",", $bottomy), implode(",", $pccolors),  implode(",", $pcdesign), $material, intval($pstyle), $admintags, $pprice);
 
 		if(!$stmt->execute()){

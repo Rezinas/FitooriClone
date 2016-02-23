@@ -171,12 +171,13 @@ label.material {
 	    top: 10px;
 	}
 	div#sampleImgs img{
-		margin: 7px;
+		/*margin: 7px;*/
 	}
 	div#sampleImgs h4 {
-	    margin-bottom: 1%;
-	    font-size: 15px;
+	    margin-bottom: 0;
+	    font-size: 1em;
 	    margin-top: 1%;
+	    border: none;
 	}
 	div#sampleImgs span{
 	    position: relative;

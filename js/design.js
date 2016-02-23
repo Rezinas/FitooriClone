@@ -16,9 +16,11 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.levelFilled = false;
         $scope.prdIndex = [];
         $scope.allConnArr =[];
+        $scope.designerPicks=[];
         $scope.isAgent = $window.model.isAgent;
         var elements = $window.model.elements;
         var bodyparts = $window.model.items;
+
 
         var isOdd = function(num){
             return num % 2;
@@ -82,7 +84,31 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             return resArr;
         };
 
+        var updateDesignerPick = function() {
+            console.log($scope.mySelectedItems);
+            var elementIdArr = [];
+            $.each($scope.mySelectedItems, function(ind, itm){
+                elementIdArr.push(itm.id);
+            });
+            if(elementIdArr.length == 0) return;
+            var payload = {
+                        elementids : elementIdArr
+                        };
 
+            $http({
+              method  : 'POST',
+              url     : $scope.siteUrl+'ajax.php?despicks',
+              data    : payload  // pass in data as strings
+             })
+              .success(function(data) {
+                 if(data.products && data.products.length > 0) {
+                    $scope.designerPicks = data.products;
+                 }
+                 else {
+                    $scope.designerPicks = [];
+                 }
+              });
+        };
 
         $.each(bodyparts, function(index, item) {
             $scope.designObj[item] = [];
@@ -139,12 +165,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     else {
                         $scope.filteredSet = findEligibleElement($scope.filteredSet, elem);
                     }
-                        if(fits) {
-                             bpoints += $scope.mySelectedItems[elPos].bottompoints;
-                        }
-                        else {
-                             bpoints += 1;
-                        }
+                    if(fits) {
+                         bpoints += $scope.mySelectedItems[elPos].bottompoints;
+                    }
+                    else {
+                         bpoints += 1;
+                    }
                 });
 
                 var prevConnArrLength = $scope.allConnArr[$scope.designLevel-1].length;
@@ -228,6 +254,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 }
                 $scope.prdIndex.push(indexArr);
                 $scope.allConnArr.push(connArr);
+                //mainlist ends here
+                //call the service to update designer's pick
+                updateDesignerPick();
             } else {
                 var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
                 bpoints = ($scope.designLevel == 0 ) ? 1 : bpoints;
@@ -247,6 +276,14 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 alert("you havent selected elements for this level yet.");
             }
 
+        };
+
+        $scope.designTotal = function(){
+            var total = 0;
+            $.each($scope.mySelectedItems, function(indx, sitem){
+                  total = total + parseFloat(sitem.price, 10);
+            });
+            return total;
         };
 
         $scope.processForm = function() {

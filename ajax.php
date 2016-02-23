@@ -59,4 +59,71 @@ if(isset($_GET["addcustom"])) {
   }
 }
 
+
+if(isset($_GET["despicks"])) {
+  if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
+      $_POST = array_merge($_POST, (array) json_decode(trim(file_get_contents('php://input')), true));
+      // var_dump($_POST["custom_product"]);
+
+    if(!empty($_POST["elementids"])){
+      $elementStr = implode($_POST['elementids'], ",");
+      $pids =[];
+      $desprod=[];
+      $qry = "SELECT productid from customdesign WHERE elementid IN ( $elementStr )";
+       if(!$stmt = $dbcon->prepare($qry)){
+         die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+     }
+
+     if(!$stmt->execute()){
+         die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+     }
+
+     $stmt->store_result();
+     $stmt->bind_result($a);
+     while ($stmt->fetch()) {
+      $pids[] = $a;
+     }
+     $stmt->close();
+     if(count($pids) > 0) {
+        $pidStr = implode($pids, ",");
+        $qry = "SELECT productid, name, price, mainimg from products WHERE productid IN ( $pidStr )  AND mainimg<>'' LIMIT 2 ";
+         if(!$stmt = $dbcon->prepare($qry)){
+           die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+       }
+
+       if(!$stmt->execute()){
+           die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+       }
+
+       $stmt->store_result();
+       $stmt->bind_result($a,$b, $c, $d);
+       while ($stmt->fetch()) {
+        $desprod[] = ['productid' => $a, 'name' => $b,  'price' => $c, 'mainimg' => $d];
+     }
+     $stmt->close();
+    $jsondata = array(
+      "products"  => $desprod,
+      "error" => ""
+    );
+
+     }
+     else {
+      //there are no designer picks for these elements.
+        $jsondata = array(
+          "error" => ""
+        );
+     }
+
+    }
+    else {
+        $jsondata = array(
+          "error" => ""
+        );
+    }
+
+     echo json_encode($jsondata);
+    exit();
+  }
+}
+
 ?>
