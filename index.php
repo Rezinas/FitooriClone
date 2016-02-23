@@ -750,8 +750,143 @@ else {
     session_start();//session is a way to store information (in variables) to be used across multiple pages.
     session_destroy();
     header("Location: index.php");//use for the redirection to some page
-  }
-?>
+  }?>
+  <?php if($currenttab == "myaccount") { ?>
+    <style>
+      .about{
+        background-color:#fff;
+      }
+      div#left-pane{
+        border-right: 1px solid #C5C4C4;
+        height: 100%  
+      }
+      .userProfile {
+        border-bottom: 3px solid #C5C4C4;
+        padding-bottom: 10px;
+      }
+      span i.fa.fa-user {
+          font-size: 65px;
+          border: 10px solid #bbb;
+          padding: 10px;
+          color: #bbb;
+      }
+      .userList ul li {
+        list-style: none;
+        padding: 10px;
+        color: #333;
+      }
+      .userList ul li:nth-child(3), .userList ul li:nth-child(4){
+        border-bottom: 3px solid #5D4B33;
+        padding: 10px;
+      }
+      .userList a {
+        color: #333;
+      }
+      .userList i {
+        font-size: 20px;
+      }
+      .userList span {
+        font-family: 'Roboto-Regular';
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      .subUL {
+        border-top: 3px solid #5D4B33;
+        margin-top: 10px;
+        width: 100%;
+      }
+      .userDetail{
+        font-size: 16px;
+        font-weight: bold;
+        vertical-align: bottom;
+        margin-left: 10px;
+      }
+      .subUL ul li {
+        border-bottom: 1px solid #F07818;
+        height: 32px;
+        font-size: 15px;
+        text-transform: capitalize;
+        position: relative;    
+        padding: 5px;    
+        margin-left: 10px
+      }
+      .subUL ul li:nth-child(3){
+        border-bottom: 1px solid #F07818;
+        height: 32px;
+        font-size: 15px;
+        text-transform: capitalize;
+        position: relative;  
+        padding: 5px;
+      }
+      .subUL ul li a{
+        color:#555;
+      }
+      .register-top-grid span, .register-bottom-grid span {
+        color: #F07818;
+      }
+      #chngPwd{
+        position: relative;
+        top: 26px;
+      }
+      #editAddress{
+        position: relative;
+        top: 83px;
+      }
+      #viewOrders{
+        position: relative;
+        top:83px;
+      }
+      #editProfile{
+        position: relative;
+        top: 83px;
+      }
+      .contact-form .form-group{
+        width: 32.3%;
+        float: left;
+
+      }
+      .contact-form input[type="text"]
+      {
+        width: 97%;
+      }
+      #textareaForm{
+        width: 96%;
+      }
+      #emailInput{
+        border:1px solid #555;
+      }
+      .orders table{
+        width:100%;
+      }
+      .orders table tr th{
+        border: 1px solid #ddd;
+        width: auto;
+        text-align: center;
+        text-transform: uppercase;
+        color:#F07818;
+        padding:10px;
+      }
+      .orders tr td{
+        border: 1px solid #ddd;
+        width: auto;
+        text-align: center;
+        text-transform: capitalize;
+        color:#333;
+        padding:10px;
+      }
+      .orders div {
+        width: 100%;
+        border: 1px solid #ddd;
+        padding: 7px;
+        position: relative;
+      }
+      .orders div span{
+        width: 20%;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    </style>
+  <?php }?>
 </head>
 <body>
 	<!--header-->

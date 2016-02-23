@@ -1,68 +1,524 @@
-  <div class="row">
-    <div class="col-md-4 col-sm-5">
-      <div class="tabs-left">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-heart"></span></a></li>
-          <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-user"></span></a></li>
-          <li><a href="#favourite" data-toggle="tab"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
-          <li><a href="#download" data-toggle="tab"><span class="glyphicon glyphicon-cloud-download"></span></a></li>
-          <li><a href="#stars" data-toggle="tab"><span class="glyphicon glyphicon-star"></span></a></li>
-          <li><a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span></a></li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-  <div class="tab-pane active" id="home">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed felis massa, commodo eu nisi eget, ornare bibendum orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Integer convallis est vel lectus placerat, quis aliquam magna iaculis. </p>
-  </div>
-  <div class="tab-pane" id="profile">
-    <p>Quisque mattis lobortis nibh, vitae dictum nisl. Cras consectetur aliquam nisi, sit amet facilisis nisi volutpat vitae. Fusce vitae risus quis eros facilisis fringilla. Quisque eget ultrices ipsum. Mauris nec euismod est, sit amet rhoncus turpis. </p>
-  </div>
-  <div class="tab-pane" id="favourite">
-    <p>Suspendisse blandit libero id suscipit consectetur. Cras ultrices sem sit amet est efficitur iaculis ut non est. Morbi porttitor eu felis ac aliquet.</p>
-  </div>
-  <div class="tab-pane" id="download">
-    <p>Vestibulum viverra ex ut arcu lobortis tempor. Vivamus suscipit dictum nisl gravida malesuada. Nulla et quam eget massa cursus sodales a quis augue. Maecenas ultrices vitae felis ut faucibus. Vivamus vitae convallis nunc, quis vestibulum eros. Morbi vel purus nec justo efficitur consequat ac sit amet risus. Duis laoreet hendrerit bibendum. Nam tempor volutpat sagittis.</p>
-  </div>
-  <div class="tab-pane" id="stars">
-    <p>Duis laoreet hendrerit bibendum. Nam tempor volutpat sagittis. Etiam convallis posuere rhoncus. Donec sit amet faucibus magna, vel fermentum velit. Vivamus euismod cursus sollicitudin. Aliquam tortor libero, venenatis id nibh consectetur, pretium tincidunt est. Nullam neque odio, auctor in nisl vel, facilisis convallis massa. </p>
-  </div>
-  <div class="tab-pane" id="settings">
-    <p>Curabitur vel urna vestibulum, egestas sapien accumsan, varius ipsum. Aenean eu elit laoreet, sagittis velit in, facilisis ligula. Maecenas dictum, lacus sed faucibus lobortis, turpis ante ultricies ligula, et posuere nisl mauris non erat.</p>
-  </div>
-</div><!-- /tab-content -->
-      </div><!-- /tabbable -->
-    </div><!-- /col -->
-  </div><!-- /row -->
-</div><!-- /container -->
-<script>
-var tabsFn = (function() {
-  
-  function init() {
-    setHeight();
-  }
-  
-  function setHeight() {
-    var $tabPane = $('.tab-pane'),
-        tabsHeight = $('.nav-tabs').height();
-    
-    $tabPane.css({
-      height: tabsHeight
-    });
-  }
-    
-  $(init);
-})();
-</script>
+ <div class="about">
+	 <div class="container">
+	 	<h2>User Detail page</h2>		
+	 	<div class="about-inform">
+	 		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="left-pane">
+	 			<div class="userProfile">
+	 				<span><i class="fa fa-user"></i></span>
+	 				<span class="userDetail"><?php  if(isset($_SESSION["username"])) echo $_SESSION["username"]; ?></span>
+	 			</div>
+	 			<div class="userList">
+	 				<ul>
+	 					<li>
+	 						<i class="fa fa-user"><span>&nbsp;My Account</span></i>
+	 						<div class="subUL">
+		 						<ul>
+		 							<li>
+		 								<a id="pwd" href="#">Change Password</a>
+		 							</li>
+		 							<li>
+		 								<a id="ep" href="#">Edit Profile</a>
+		 							</li>
+		 							<li>
+		 								<a id="ea" href="#">Edit Address</a>
+		 							</li>
+		 						</ul>
+	 						</div>
+	 					</li>
+	 					<li>
+	 						<i class="fa fa-shopping-cart"><span>&nbsp;My Orders</span></i>
+	 						<div class="subUL">
+		 						<ul>
+		 							<li><a id="vo" href="#">View All Orders</a></li>
+		 						</ul>
+	 						</div>
+	 					</li>
+	 					<li>
+	 						<a id="credit" href="#"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
+	 					</li>
+	 					<li>
+	 						<a id="wish" href="#"><i class="fa fa-heart-o"><span>&nbsp;My Wishlist</span></i></a>
+	 					</li>
+	 				</ul>
+	 			</div>
+	 		</div>
+	 		<div class="col-lg-9 col-md-9 col-sm-6 col-xs-12" id="right-pane">
+	 			<div id="chngPwd" class="show">
+	 				<form id="chngPwdForm" name="chngPwdForm" role="form" action="changepassword.php" method="POST">			
+					    <div class="register-bottom-grid">
+							<h4>Change Password</h4><br>
+							 <div class="form-group">
+								<span>Password</span>
+								<input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pass">
+							</div>
+							 <div class="form-group">
+								<span>Re-Type Password</span>
+								<input class="form-control" placeholder="Re-Type Password" name="cpass" type="password" value="">
+							 </div>
+						</div>
+						 <input type="submit" value="Change Password" id="chngpwd" name="chngpwd">		
+					</form>
+				</div>
+				<div id="editProfile" class="hide">
+					<div class="profile">						
+						<form id="profileForm" name="profileForm" role="form" action="profile.php" method="POST">
+							<div class="register-top-grid">
+								<h4>Personal information</h4><br/>
+								 <div class="form-group">
+									<span>First Name</span>
+									<input class="form-control" data-validation="alphabets" placeholder="First Name" name="fname" type="text" autofocus>
+								</div>
+								 <div class="form-group">
+									<span>Last Name</span>
+									<input class="form-control" placeholder="Last Name" name="lname" type="text" autofocus>
+								</div>
+								 <div class="form-group">
+									<span>Email Address</span>
+									<input class="form-control" placeholder="Email" name="email" type="email" autofocus id="emailInput">
+								</div>	
+								<div class="form-group">	
+									<span>Phone</span>					
+									<input class="form-control" placeholder="Phone" name="phone" type="text" autofocus>
+								</div>	
+								<div class="form-group">	
+									<span>Gender</span>					
+									 <input type="radio" name="gender" value="male" checked> Male								 <input type="radio" name="gender" value="female"> Female									 
+								</div>												
+							</div>
+							 <input type="submit" value="Edit Profile" id="updateprofile" name="updateprofile">		
+						</form>										 
+					</div>
+				</div>		 			
+				<div id="editAddress" class="hide">	
+					<div class="contact-form">
+						<h4>Contact form</h4><br/>
+						<form id="AddressForm" name="AddressForm" role="form" action="shipping.php" method="POST">
+							<div class="form-group">						
+								<input class="form-control" data-validation="alphabets" placeholder="Full Name" name="fullname" type="text" autofocus>
+							</div>
+							<div class="form-group">						
+								<input class="form-control" placeholder="Email" name="email" type="text" autofocus>
+							</div>
+							<div class="form-group">						
+								<input class="form-control" placeholder="Phone" name="phone" type="text" autofocus>
+							</div>
+							<div class="form-group" id="textareaForm">
+								<textarea class="form-control" type="text" placeholder="Address...." name="messageArea"></textarea>
+							</div>
+							<input type="submit" value="Update" id="editAddr" name="editAddr" class="btn1">	
+						</form>
+					</div>
+				</div>	
+				<div id="viewOrders" class="hide">
+					<div class="orders">
+						<h4>View Orders</h4><br/>
+						<table>
+							<tr>
+								<th>Orders</th>
+								<th>Recipient</th>
+								<th>Billed To</th>
+								<th>Order Total</th>
+								<th>Status</th>
+							</tr>	
+							<tr>
+								<td>Antique Jhumka, Casual Earring</td>
+								<td>Rezina Shaikh</td>
+								<td>Mrs. Rezina Ershath</td>
+								<td>Rs. 5000/-</td>
+								<td>Pending</td>								
+							</tr>
+							<tr>
+								<td>Antique Jhumka, Casual Earring</td>
+								<td>Rezina Shaikh</td>
+								<td>Mrs. Rezina Ershath</td>
+								<td>Rs. 5000/-</td>
+								<td>Pending</td>								
+							</tr>
+							<tr>
+								<td>Antique Jhumka, Casual Earring</td>
+								<td>Rezina Shaikh</td>
+								<td>Mrs. Rezina Ershath</td>
+								<td>Rs. 5000/-</td>
+								<td>Pending</td>								
+							</tr>						 
+							<tr>
+								<td>Antique Jhumka, Casual Earring</td>
+								<td>Rezina Shaikh</td>
+								<td>Mrs. Rezina Ershath</td>
+								<td>Rs. 5000/-</td>
+								<td>Pending</td>								
+							</tr>
+							<tr>
+								<td>Antique Jhumka, Casual Earring</td>
+								<td>Rezina Shaikh</td>
+								<td>Mrs. Rezina Ershath</td>
+								<td>Rs. 5000/-</td>
+								<td>Pending</td>								
+							</tr>
+							<tr>
+								<td>Antique Jhumka, Casual Earring</td>
+								<td>Rezina Shaikh</td>
+								<td>Mrs. Rezina Ershath</td>
+								<td>Rs. 5000/-</td>
+								<td>Pending</td>								
+							</tr>							
+						</table>
+						<div>
+							<span>1</span><span>2</span><span>3</span><span>4</span><span>..</span>							
+						</div>
+					</div>
+				</div>					
+	 			<div id="credits" class="hide">
+	 				<p>Credits</p>
+	 			</div>
+	 			<div id="wishlist" class="hide">	
+					<p>Wishlist</p>				
+	 			</div>
+	 		</div>
+	 	</div>	
+ 	</div>
+ </div>
+
+ <!-- SCRIPT STARTS HERE -->
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+  $(function() {
+		jQuery.validator.addMethod("lettersonly", function(value, element) 
+		{
+		return this.optional(element) || /^[a-z ]+$/i.test(value);
+		});
+		jQuery.validator.addMethod("numbersonly", function(value, element) 
+		{
+		return this.optional(element) || /^[0-9]+$/i.test(value);
+		});
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
+        $("#chngPwdForm").validate({
+            rules: {
+                pass: {
+                    required: true,
+                    minlength: 5
+                },
+                cpass: {
+                    required: true,
+                    equalTo: "#pass",
+                    minlength: 5
+                }
+            },
+            messages: {
+                pass: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                cpass: {
+                    required: "Please provide a confirm password",
+                    equalTo:"Password and Confirm password do not match",
+                    minlength: "Your password must be at least 5 characters long"
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+                }
+            },
+                submitHandler: function(form) {
+                   $(form).submit();
+                    return false;
+                }
+            });
+       
 
-</script>
+ 		$("#AddressForm").validate({
+            rules: {
+            	fullname:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 80,
+		        	lettersonly:"letters only mate"
+		        },            	
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    numbersonly:"0-9"
+                },
+                messageArea:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 5000		        	
+		        }
+            },
+            messages: {
+            	fullname: {
+                    required: "Please provide a first name",
+                    minlength: "Your fullname must be at least 2 characters long",
+                    maxlength: "Your fullname must not exceed 100 characters",
+                    lettersonly:"Letters and spaces only please"
+
+                },
+                messageArea: {
+                    required: "Please provide some details",
+                    minlength: "Your address must be at least 2 characters long",
+                    maxlength: "Your lastname must not exceed 5000 characters"                    
+
+                },
+                phone: {
+                    required: "Please provide a contact details",
+                    minlength: "Your contact number must be at least 10 characters long",
+                    numbersonly:"Enter only digits"
+                },
+                email: "Please enter a valid email address"
+            },
+                submitHandler: function(form) {
+                   $(form).submit();
+                    return false;
+                }
+            });
+
+			$("#profileForm").validate({
+				rules: {
+					fname:{
+						required:true,
+						minlength: 2,
+						maxlength: 80,
+						lettersonly:"letters only mate"
+					},    
+					lname:{
+						required:true,
+						minlength: 2,
+						maxlength: 80,
+						lettersonly:"letters only mate"
+					},           	
+					email: {
+						required: true,
+						email: true
+					},
+					phone: {
+						required: true,
+						minlength: 10,
+						numbersonly:"0-9"
+					},
+					gender:{
+						required:true
+					}
+					
+				},
+				messages: {
+					fname: {
+						required: "Please provide a first name",
+						minlength: "Your firstname must be at least 2 characters long",
+						maxlength: "Your firstname must not exceed 100 characters",
+						lettersonly:"Letters and spaces only please"
+					},
+					lname: {
+						required: "Please provide a first name",
+						minlength: "Your lasttname must be at least 2 characters long",
+						maxlength: "Your lastname must not exceed 100 characters",
+						lettersonly:"Letters and spaces only please"
+					},					
+					phone: {
+						required: "Please provide a contact details",
+						minlength: "Your contact number must be at least 10 characters long",
+						numbersonly:"Enter only digits"
+					},
+					gender: { // <- NAME of every radio in the same group
+			            required: true
+			        },
+					email: "Please enter a valid email address"
+				},
+			submitHandler: function(form) {
+			$(form).submit();
+			return false;
+			}
+		});
+
+  	});
+ </script>
+ <script>$(document).ready(function (c) {
+      //Cart Details page Action
+         $('#pwd').on('click', function (c) {
+             $('#editProfile').fadeOut('fast', function (c) {
+                 $('#editProfile').addClass("hide");
+                 $('#editProfile').removeClass("show");                
+
+             });
+              $('#editAddress').fadeOut('fast', function (c) {
+                 $('#editAddress').addClass("hide");
+                 $('#editAddress').removeClass("show");                
+
+             });
+	         $('#viewOrders').fadeOut('fast', function (c) {
+	             $('#viewOrders').addClass("hide");
+	             $('#viewOrders').removeClass("show");                
+
+	         });
+	         $('#credits').fadeOut('fast', function (c) {
+	             $('#credits').addClass("hide");
+	             $('#credits').removeClass("show");                
+
+	         });
+	         $('#wishlist').fadeOut('fast', function (c) {
+	             $('#wishlist').addClass("hide");
+	             $('#wishlist').removeClass("show");                
+
+	         });
+             $('#chngPwd').fadeIn('fast', function (c) {
+               	$('#chngPwd').addClass("show");
+                $('#chngPwd').removeClass("hide");                 
+             });
+         });
+         $('#ep').on('click', function (c) {
+             $('#chngPwd').fadeOut('fast', function (c) {
+                 $('#chngPwd').addClass("hide");
+                 $('#chngPwd').removeClass("show");                
+
+             });
+              $('#editAddress').fadeOut('fast', function (c) {
+                 $('#editAddress').addClass("hide");
+                 $('#editAddress').removeClass("show");                
+
+             });
+	         $('#viewOrders').fadeOut('fast', function (c) {
+	             $('#viewOrders').addClass("hide");
+	             $('#viewOrders').removeClass("show");                
+
+	         });
+	          $('#credits').fadeOut('fast', function (c) {
+	             $('#credits').addClass("hide");
+	             $('#credits').removeClass("show");                
+
+	         });
+	         $('#wishlist').fadeOut('fast', function (c) {
+	             $('#wishlist').addClass("hide");
+	             $('#wishlist').removeClass("show");                
+
+	         });
+             $('#editProfile').fadeIn('fast', function (c) {
+               	$('#editProfile').addClass("show");
+                $('#editProfile').removeClass("hide");                 
+             });
+         });
+         $('#ea').on('click', function (c) {
+             $('#chngPwd').fadeOut('fast', function (c) {
+                 $('#chngPwd').addClass("hide");
+                 $('#chngPwd').removeClass("show");                
+
+             });
+              $('#editProfile').fadeOut('fast', function (c) {
+                 $('#editProfile').addClass("hide");
+                 $('#editProfile').removeClass("show");                
+
+             });
+	         $('#viewOrders').fadeOut('fast', function (c) {
+	             $('#viewOrders').addClass("hide");
+	             $('#viewOrders').removeClass("show");                
+
+	         });
+	         $('#credits').fadeOut('fast', function (c) {
+	             $('#credits').addClass("hide");
+	             $('#credits').removeClass("show");                
+
+	         });
+	         $('#wishlist').fadeOut('fast', function (c) {
+	             $('#wishlist').addClass("hide");
+	             $('#wishlist').removeClass("show");                
+
+	         });
+             $('#editAddress').fadeIn('fast', function (c) {
+               	$('#editAddress').addClass("show");
+                $('#editAddress').removeClass("hide");                 
+             });
+         });
+         $('#vo').on('click', function (c) {
+             $('#chngPwd').fadeOut('fast', function (c) {
+                 $('#chngPwd').addClass("hide");
+                 $('#chngPwd').removeClass("show");                
+
+             });
+              $('#editProfile').fadeOut('fast', function (c) {
+                 $('#editProfile').addClass("hide");
+                 $('#editProfile').removeClass("show");                
+
+             });
+	         $('#editAddress').fadeOut('fast', function (c) {
+	             $('#editAddress').addClass("hide");
+	             $('#editAddress').removeClass("show");                
+
+	         });
+	         $('#credits').fadeOut('fast', function (c) {
+	             $('#credits').addClass("hide");
+	             $('#credits').removeClass("show");                
+
+	         });
+	         $('#wishlist').fadeOut('fast', function (c) {
+	             $('#wishlist').addClass("hide");
+	             $('#wishlist').removeClass("show");                
+
+	         });
+             $('#viewOrders').fadeIn('fast', function (c) {
+               	$('#viewOrders').addClass("show");
+                $('#viewOrders').removeClass("hide");                 
+             });
+         });
+ 		 $('#credit').on('click', function (c) {
+             $('#chngPwd').fadeOut('fast', function (c) {
+                 $('#chngPwd').addClass("hide");
+                 $('#chngPwd').removeClass("show");                
+
+             });
+              $('#editProfile').fadeOut('fast', function (c) {
+                 $('#editProfile').addClass("hide");
+                 $('#editProfile').removeClass("show");                
+
+             });
+	         $('#editAddress').fadeOut('fast', function (c) {
+	             $('#editAddress').addClass("hide");
+	             $('#editAddress').removeClass("show");                
+
+	         });
+	         $('#viewOrders').fadeOut('fast', function (c) {
+	             $('#viewOrders').addClass("hide");
+	             $('#viewOrders').removeClass("show");                
+
+	         });
+	         $('#wishlist').fadeOut('fast', function (c) {
+	             $('#wishlist').addClass("hide");
+	             $('#wishlist').removeClass("show");                
+
+	         });
+             $('#credits').fadeIn('fast', function (c) {
+               	$('#credits').addClass("show");
+                $('#credits').removeClass("hide");                 
+             });
+         });
+	 	 $('#wish').on('click', function (c) {
+             $('#chngPwd').fadeOut('fast', function (c) {
+                 $('#chngPwd').addClass("hide");
+                 $('#chngPwd').removeClass("show");                
+
+             });
+              $('#editProfile').fadeOut('fast', function (c) {
+                 $('#editProfile').addClass("hide");
+                 $('#editProfile').removeClass("show");                
+
+             });
+	         $('#editAddress').fadeOut('fast', function (c) {
+	             $('#editAddress').addClass("hide");
+	             $('#editAddress').removeClass("show");                
+
+	         });
+	         $('#viewOrders').fadeOut('fast', function (c) {
+	             $('#viewOrders').addClass("hide");
+	             $('#viewOrders').removeClass("show");                
+
+	         });
+	         $('#credits').fadeOut('fast', function (c) {
+	             $('#credits').addClass("hide");
+	             $('#credits').removeClass("show");                
+
+	         });
+             $('#wishlist').fadeIn('fast', function (c) {
+               	$('#wishlist').addClass("show");
+                $('#wishlist').removeClass("hide");                 
+             });
+         });
+    });
+   </script>
