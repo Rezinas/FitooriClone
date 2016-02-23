@@ -365,7 +365,7 @@ b.caret {
     z-index: 99;
 }
 
-.userprofile ul#userList {
+.userprofile ul#userList, .submitForm {
     width: 300px;
     background: #fff;
     padding: 1px;
@@ -383,10 +383,19 @@ b.caret {
     border-right: 10px solid rgba(0, 0, 0, 0);
     border-bottom: 10px solid #FFFFFF;
 }
-.userprofile ul#userList:after {
+.userprofile ul#userList:after{
     content: '';
     position: absolute;
     right: 42%;
+    top: -10px;
+    border-left: 10px solid rgba(0, 0, 0, 0);
+    border-right: 10px solid rgba(0, 0, 0, 0);
+    border-bottom: 10px solid #FFFFFF;
+}
+.submitForm:after{
+    content: '';
+    position: absolute;
+    right: 9%;
     top: -10px;
     border-left: 10px solid rgba(0, 0, 0, 0);
     border-right: 10px solid rgba(0, 0, 0, 0);
@@ -474,7 +483,7 @@ fieldset#body {
     margin-bottom: 20px;
 }
 /* Default Input */
-#loginForm input {
+#loginForm input, #submitForm input{
     width:100%;
     border:1px solid #DADADA;
 	color: #222;
@@ -483,7 +492,7 @@ fieldset#body {
     -webkit-apperance:none;
 }
 /* Sign In Button */
-#loginForm #login {
+#loginForm #login, #submitForm #submitEmail {
     background: #F07818;
     color: #fff;
     font-size: 1em;
@@ -495,7 +504,7 @@ fieldset#body {
     -o-transition: all .5s;
     font-family: 'Roboto-Regular';
 }
-#loginForm #login:hover {
+#loginForm #login:hover, #submitForm #submitEmail:hover {
 	background: #fff;
 	color: #F07818;
 }
