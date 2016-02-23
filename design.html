@@ -25,6 +25,9 @@
 					</div>
 			</div>
 			<div class="col-md-8">
+				<div ng-if="userMessage != ''" class="alert {{alertClass}}" role="alert">
+				  {{userMessage}}
+				</div>
 					<div class='steps-container'>
 						<div class='steps' ng-class="{'done': designLevel>0, 'active': designLevel==0}">
 						  <span>Hook/Stud</span>
@@ -99,7 +102,7 @@
 								<!-- <button ng-if="!isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button> &nbsp; &nbsp; -->
 							<!-- 	<button type="button" ng-hide="filteredSet.length == 0 || designLevel == 3" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Add Another Level</button> &nbsp; &nbsp;
 								<button type="button" ng-if="mySelectedItems.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Go Previous Level</button> -->
-								<button type="button" ng-disabled="!levelFilled || designLevel == 3" class="btn btn-primary" ng-click="updateLevel()">Next</button> &nbsp; &nbsp;
+								<button type="button" ng-disabled="nextDisable()" class="btn btn-primary" ng-click="updateLevel()">Next</button> &nbsp; &nbsp;
 								<button type="button" ng-disabled="designLevel == 0"  class="btn btn-primary" ng-click="gobackLevel()">Back</button>
 							</form>
                 		</div>
@@ -114,7 +117,7 @@
 			<table width="100%">
                   <tbody>
                   <tr ng-repeat="costItem in mySelectedItems" >
-                     <th>Design{{$index}}</th>
+                     <th>Design {{$index}}</th>
                      <td>:  {{costItem.price | currency:"&#8377":2}}</td>
                   </tr>
                   <tr>
@@ -122,9 +125,9 @@
                   	<td>:  {{designTotal() | currency:"&#8377":2}}
                   	</td>
                   </tr>
-                  <tr>
-                  	<td colspan="2">
-						<button ng-if="!isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button>
+                  <tr style="border:none">
+                  	<td colspan="2" style="text-align: center">
+						<button  style="margin-top: 10px;" ng-if="!isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button>
                   	</td>
                   </tr>
                </tbody></table>

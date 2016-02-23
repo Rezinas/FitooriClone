@@ -1,4 +1,34 @@
 'use strict';
+
+
+$(document).ready(function() {
+  adjustBar();
+  $(window).on('resize', function() {
+    adjustBar();
+  });
+});
+
+function adjustBar() {
+  var items = $('.steps').length;
+  var elHeight = $('.steps').height() / 2; //Division by 2 because each pseudo which is skewed is only 50% of its parent.
+  var skewOffset = Math.tan(45 * (Math.PI / 180)) * elHeight;
+  var reduction = skewOffset + ((items - 1) * 4);
+  var leftOffset = $('.steps').css('left').replace('px', '');
+  var factor = leftOffset * (-1) - 2;
+  $('.steps').css({
+    'width': '-webkit-calc((100% + 4px - ' + reduction + 'px)/' + items + ')',
+    'width': 'calc((100% + 4px - ' + reduction + 'px)/' + items + ')'
+  }); // 4px for borders on either side
+  $('.steps:first-child, .steps:last-child').css({
+    'width': '-webkit-calc((100% + 4px - ' + reduction + 'px)/' + items + ' + ' + factor + 'px)',
+    'width': 'calc((100% + 4px - ' + reduction + 'px)/' + items + ' + ' + factor + 'px)'
+  }); // 26px because to make up for the left offset. Size of last-child is also increased to avoid the skewed area on right being shown
+  $('.steps span').css('padding-left', (skewOffset + 15) + "px");
+  $('.steps:first-child span, .steps:last-child span').css({
+    'width': '-webkit-calc(100% - ' + factor + 'px)',
+    'width': 'calc(100% - ' + factor + 'px)',
+  });
+}
 var des = angular.module('cdesign', []);
 
 des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document',
@@ -17,6 +47,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.prdIndex = [];
         $scope.allConnArr =[];
         $scope.designerPicks=[];
+        $scope.userMessage= "";
+        $scope.alertClass="alert-info";
         $scope.isAgent = $window.model.isAgent;
         var elements = $window.model.elements;
         var bodyparts = $window.model.items;
@@ -257,6 +289,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 //mainlist ends here
                 //call the service to update designer's pick
                 updateDesignerPick();
+                $scope.userMessage = "Well Done!"
+                $scope.alertClass = "alert-success";
             } else {
                 var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
                 bpoints = ($scope.designLevel == 0 ) ? 1 : bpoints;
@@ -284,6 +318,26 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                   total = total + parseFloat(sitem.price, 10);
             });
             return total;
+        };
+
+        $scope.nextDisable = function(){
+            var currElement = $scope.mySelectedItems[$scope.designLevel];
+            if(currElement && currElement.bottompoints == 0){
+                $scope.userMessage = "Well done!. Note: The element you have selected has no more connection point for adding another level.";
+                $scope.alertClass= "alert-success";
+                return true;
+            }
+            else if(!$scope.levelFilled)  {
+                $scope.userMessage = "Select one of our design elements for your Earring for this level.";
+                $scope.alertClass= "alert-info";
+                return true;
+            }
+            else if($scope.designLevel == 3){
+                $scope.userMessage = "You have added all of the levels that could be designed.";
+                $scope.alertClass= "alert-warning";
+                return true;
+            }
+            else return false;
         };
 
         $scope.processForm = function() {
