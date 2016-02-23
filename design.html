@@ -28,7 +28,7 @@
 				<div ng-if="userMessage != ''" class="alert {{alertClass}}" role="alert">
 				  {{userMessage}}
 				</div>
-					<div class='steps-container'>
+					<!-- <div class='steps-container'>
 						<div class='steps' ng-class="{'done': designLevel>0, 'active': designLevel==0}">
 						  <span>Hook/Stud</span>
 						</div>
@@ -41,7 +41,7 @@
 						<div class='steps'  ng-class="{'done': designLevel>3, 'active': designLevel==3}">
 						  <span>Last Dangler/Jhumka </span>
 						</div>
-					</div>
+					</div> -->
 					<div class="elements" id="sampleImgs">
 					<div style="height: 330px">
 						<div>
@@ -116,15 +116,27 @@
 			<h4>Cost Details</h4>
 			<table width="100%">
                   <tbody>
-                  <tr ng-repeat="costItem in mySelectedItems" >
-                     <th>Design {{$index}}</th>
-                     <td>:  {{costItem.price | currency:"&#8377":2}}</td>
+                  <tr>
+                  	<th>Base Price</th>
+                  	<td>:  {{basePrice = (designTotal() + (0.02*100)) | currency:"&#8377":2}}
+                  	</td>
+                  </tr>
+                  <tr>
+                  	<th>Shipping & Handling</th>
+                  	<td>:  {{ shipping = (60) | currency:"&#8377":2}}
+                  	</td>
+                  </tr>
+                  <tr>
+                  	<th>Tax</th>
+                  	<td>:  {{ tax=( basePrice * (0.05/100)) | currency:"&#8377":2}}
+                  	</td>
                   </tr>
                   <tr>
                   	<th>Total</th>
-                  	<td>:  {{designTotal() | currency:"&#8377":2}}
+                  	<td>:  {{  basePrice + shipping + tax | currency:"&#8377":2}}
                   	</td>
                   </tr>
+
                   <tr style="border:none">
                   	<td colspan="2" style="text-align: center">
 						<button  style="margin-top: 10px;" ng-if="!isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button>
