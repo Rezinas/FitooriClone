@@ -1,6 +1,22 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
 
+if(isset($_GET["checkEmail"])) {
+$requestedEmail  = $_REQUEST['email'];
+  $check_user="select userid from user WHERE email='$requestedEmail'";
+  $result=mysqli_query($dbcon,$check_user);
+  if ($result && mysqli_num_rows($result) > 0)
+  {
+   // Free result set
+   mysqli_free_result($result);
+    echo 'false';
+  }
+  else
+    echo   'true';
+
+exit();
+}
+
 if(isset($_GET["addcustom"])) {
     if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
       $_POST = array_merge($_POST, (array) json_decode(trim(file_get_contents('php://input')), true));

@@ -32,8 +32,8 @@
    else if(isset($_GET["tc"])) {
        $currenttab = 'tc';
    }
-   else if(isset($_GET["account"])) {
-       $currenttab = 'account';
+   else if(isset($_GET["register"])) {
+       $currenttab = 'register';
    }
    else if(isset($_GET["checkout"])) {
        $currenttab = 'checkout';
@@ -42,10 +42,8 @@
        $currenttab = 'single';
    }
    else if(isset($_GET["myaccount"])){
-     $currenttab = 'myaccount';
-   }
-   else if(isset($_GET["forgotpassword"])){
-     $currenttab = 'forgotpassword';
+    if(!isset($_SESSION["userid"])) $currenttab = 'register';
+    else $currenttab = 'myaccount';
    }
    else if(isset($_GET["logout"])){
      $currenttab = 'logout';
@@ -73,170 +71,7 @@
       <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
       <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
       <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
-      <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />      
-      <!-- js -->
-      <script src="js/jquery.min.js"></script>
-      <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-      <!-- //js -->
-      <!-- cart -->
-      <script src="js/simpleCart.min.js"> </script>
-      <!-- Login Script-->
-      <script src="js/jquery.validate.min.js" type="text/javascript"></script>
-      <script type="text/javascript">
-         $(function() {
-           $("#loginForm").validate({
-               rules: {
-                   email: {
-                       required: true,
-                       email: true
-                   },
-                   pass: {
-                       required: true,
-                       minlength: 5
-                   }
-               },
-               messages: {
-                   pass: {
-                       required: "Please provide a password",
-                       minlength: "Your password must be at least 5 characters long"
-                   },
-                   email: "Please enter a valid email address"
-               },
-               submitHandler: function(form) {
-                 var email_add = $(form).find("input[name='email']").val();
-                   $.ajax({
-                       type: "POST",
-                       url: "<?php echo SITE_URL ?>login.php",
-                       data: $(form).serialize(),
-                       timeout: 3000,
-                       success: function(data) {
-                           if (data && data == "SUCCESS") {
-                              // window.location = "<?php echo SITE_URL ?>index.php";
-                               $("#loginForm").css("display","none");
-                               $(".userprofile #loginemail").html(email_add);
-                               $(".userprofile").css("display","block");
-
-                           } else {
-                               $(".alert-danger").addClass("hide");
-                               $("#loginFailedMsg").removeClass("hide");
-                           }
-                       },
-                       error: function() {
-                               $(".alert-danger").addClass("hide");
-                                $("#systemErrorMsg").removeClass("hide");
-                       }
-                   });
-                   return false;
-               }
-           });  
-
-
-           $("#loginForm #fgtpwd" ).click(function() {
-              $("#loginForm").css('display','none');
-              $("#submitForm").css('display','block');
-              $("#submitForm #forgotpwdMessage").removeClass("hide");
-           });
-
-
-          $("#loginBox #submitForm").validate({
-                 rules: {
-                     email: {
-                         required: true,
-                         email: true
-                     }
-                 },
-                 messages: {                    
-                     email: "Please enter a valid email address"
-                 },
-                 submitHandler: function(form) {
-                   var email_add = $(form).find("input[name='email']").val();
-                     $.ajax({
-                         type: "POST",
-                         url: "<?php echo SITE_URL ?>forgotPassword.php?email="+ email_add,
-                         data: $(form).serialize(),
-                         timeout: 3000,
-                         success: function(data) {
-                             if (data && data == "SUCCESS") {
-                                $(".alert-danger").addClass("hide");
-                                $("#fgtPwdMsg").removeClass("hide");
-                                // window.location = "<?php echo SITE_URL ?>index.php";
-                                 $("#loginForm").css("display","block");                                 
-
-                             } 
-                         },
-                         error: function() {
-                                 $(".alert-danger").addClass("hide");
-                                  $("#errorMsg").removeClass("hide");
-                         }
-                     });
-                     return false;
-                 }
-             });  
-           /*$("#fgtpwd" ).click(function() {
-            $("#emailAddr" ).css("border","1px solid red");
-            $("#forgotpwdMessage").removeClass("hide");
-            $("#loginBox p").addClass("hide");
-            $("#loginBox .sign").addClass("hide");
-            $("#pwd").addClass("hide");
-            $("#login").addClass("hide");
-            $("#submitEmail").addClass("show");
-            $("#submitEmail").removeClass("hide");           
-            $("#loginBox #checkbox").addClass("hide");
-            $("#loginBox i").addClass("hide");
-            $("#loginBox #pwdLabel").addClass("hide"); 
-            $("#loginBox #login").addClass("hide"); 
-            
-         });     
-
-           $("#submitEmail").validate({
-               rules: {
-                   email: {
-                       required: true,
-                       email: true
-                   }
-               },
-               messages: {                  
-                   email: "Please enter a valid email address"
-               },
-               submitHandler: function(form) {
-                 var email_add = $(form).find("input[name='email']").val();
-                   $.ajax({
-                       type: "POST",
-                       url: "<?php echo SITE_URL ?>forgotPassword.php?email=" + email_add ,
-                       data: $(form).serialize(),
-                       timeout: 3000,
-                       success: function(data) {
-                           if (data && data == "SUCCESS") {
-                              // window.location = "<?php echo SITE_URL ?>index.php";
-                               $("#loginForm").css("display","block"); 
-                               $("#emailAddr" ).css("border","0px");
-                               $("#forgotpwdMessage").removeClass("show");
-                               $("#forgotpwdMessage").addClass("hide");
-                               $("#loginBox p").removeClass("hide");
-                               $("#loginBox .sign").removeClass("hide");
-                               $("#pwd").removeClass("hide");
-                               $("#login").removeClass("hide");
-                               $("#submitEmail").removeClass("show");
-                               $("#submitEmail").addClass("hide");           
-                               $("#loginBox #checkbox").removeClass("hide");
-                               $("#loginBox i").removeClass("hide");
-                               $("#loginBox #pwdLabel").removeClass("hide"); 
-                               $("#loginBox #login").removeClass("hide"); 
-                           } 
-                       }
-                   });
-                   return false;
-               }
-           });  */
-
-      });
-      </script>   
-   
-      <?php if($currenttab == "customize") { ?>
-        <script src="js/angular.min.js"></script>
-        <script src="js/design.js"></script>
-        <link rel="stylesheet" href="css/design.css">
-      <?php } ?>
+      <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
       <?php if($currenttab == "home") { ?>
         <style>
            #imageBox .hoverImg, #imageBox1 .hoverImg1, #imageBox2 .hoverImg2, #imageBox3 .hoverImg3  {
@@ -251,13 +86,7 @@
            }
         </style>
       <?php  } ?>
-      <?php if($currenttab == "products") { ?>
-        <link href="css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
-        <script src="js/angular.min.js"></script>
-        <script src="js/rzslider.min.js"></script>
-        <script src="js/searchapp.js"></script>
-      <?php  } ?>
-      <?php if($currenttab == "join") { ?>
+       <?php if($currenttab == "join") { ?>
         <style>
            .contact ul li {
            margin-left: 34px;
@@ -628,148 +457,10 @@
            font-size: 18px;
            }
         </style>
-        <!-- SCRIPTS START HERE -->
-        <script>$(document).ready(function (c) {
-           //Cart Details page Action
-              $('#proceed').on('click', function (c) {
-                  $('#cartDetails').fadeOut('fast', function (c) {
-                      $('#cartDetails').addClass("hide");
-                      $('#cartDetails').removeClass("show");
-                      $('#chk').addClass("future disable");
-                      $('#chk').removeClass("current");
-           
-                  });
-                  $('#shippingDetails').fadeIn('fast', function (c) {
-                      $('#shippingDetails').addClass("show");
-                     $('#shippingDetails').removeClass("hide");
-                      $('#shp').addClass("current");
-                      $('#shp').removeClass("future disable");
-                  });
-              });
-           
-           
-              // Shipping Details page Action
-              $('#dlv').on('click', function (c) {
-                  $('#shippingDetails').fadeOut('fast', function (c) {
-                       $('#shippingDetails').addClass("hide");
-                      $('#shippingDetails').removeClass("show");
-                      $('#shp').addClass("future disable");
-                      $('#shp').removeClass("current");
-           
-                  });
-           
-                  $('#paymentDetails').fadeIn('fast', function (c) {
-                      $('#paymentDetails').addClass("show");
-                      $('#paymentDetails').removeClass("hide");
-                      $('#pymt').addClass("current");
-                      $('#pymt').removeClass("future disable");
-                  });
-              });
-           
-           $('#dlvy').on('click', function (c) {
-                  $('#shippingDetails').fadeOut('fast', function (c) {
-                       $('#shippingDetails').addClass("hide");
-                      $('#shippingDetails').removeClass("show");
-                      $('#shp').addClass("future disable");
-                      $('#shp').removeClass("current");
-           
-                  });
-           
-                  $('#paymentDetails').fadeIn('fast', function (c) {
-                      $('#paymentDetails').addClass("show");
-                      $('#paymentDetails').removeClass("hide");
-                      $('#pymt').addClass("current");
-                      $('#pymt').removeClass("future disable");
-                  });
-              });
-           
-           
-             $('#bck').on('click', function (c) {
-                  $('#shippingDetails').fadeOut('fast', function (c) {
-                      $('#shippingDetails').addClass("hide");
-                     $('#shippingDetails').removeClass("show");
-                      $('#shp').addClass("future disable");
-                      $('#shp').removeClass("current");
-           
-                  });
-                  $('#cartDetails').fadeIn('fast', function (c) {
-                       $('#cartDetails').addClass("show");
-                       $('#cartDetails').removeClass("hide");
-                      $('#chk').addClass("current");
-                      $('#chk').removeClass("future disable");
-                  });
-              });
-           
-             $('#pcdChk').on('click', function (c) {
-                  $('#paymentDetails').fadeOut('fast', function (c) {
-                    $('#paymentDetails').addClass("hide");
-                      $('#paymentDetails').remove();
-                      $('#pymt').addClass("future disable");
-                      $('#pymt').removeClass("current");
-           
-                  });
-           
-                  $('#confirmDetails').fadeIn('fast', function (c) {
-                      $('#confirmDetails').addClass("show");
-                      $('#confirmDetails').removeClass("hide");
-                      $('#cnfm').addClass("current");
-                      $('#cnfm').removeClass("last future disable");
-                  });
-              });
-           
-             $('#back').on('click', function (c) {
-                  $('#paymentDetails').fadeOut('fast', function (c) {
-                     $('#paymentDetails').addClass("hide");
-                    $('#paymentDetails').removeClass("show");
-                    $('#pymt').addClass("future disable");
-                    $('#pymt').removeClass("current");
-           
-                  });
-           
-                  $('#shippingDetails').fadeIn('fast', function (c) {
-                      $('#shippingDetails').addClass("show");
-                      $('#shippingDetails').removeClass("hide");
-                      $('#shp').addClass("current");
-                      $('#shp').removeClass("future disable");
-                  });
-              });
-           
-           
-           $('#CnfmBtn').on('click', function (c) {
-                  $('#confirmDetails').fadeOut('fast', function (c) {
-                    $('#confirmDetails').addClass("hide");
-                      $('#confirmDetails').removeClass("show");
-                      $('#cnfm').addClass("future disable");
-                      $('#cnfm').removeClass("current");
-           
-                  });
-                  window.location.href = "<?php echo SITE_URL; ?>index.php";
-                  //window.location.href = "http://samplepapers.com/rezi/NewPlumms/index.html";
-              });
-           
-           });
-        </script>
-      <?php } ?>
+      <?php  } ?>
       <?php if($currenttab == "single") {?>
-        <!-- FlexSlider -->
-        <script defer src="js/jquery.flexslider.js"></script>
         <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-        <script>
-           // Can also be used with $(document).ready()
-           $(window).load(function() {
-             $('.flexslider').flexslider({
-            animation: "slide",
-            controlNav: "thumbnails",
-            minItems : 2,
-            itemWidth: "100px",
-            direction:"vertical"
-             });
-           });
-        </script>
-        <!--//FlexSlider -->
-        <script src="js/imagezoom.js"></script>
-        <!-- //js -->
-        <style>
+         <style>
            .single{
            margin-bottom: -92px;
            }
@@ -798,8 +489,8 @@
            text-align: justify;
            }
         </style>
-      <?php } ?>
-      <?php if($currenttab == "account") {?>
+      <?php  } ?>
+            <?php if($currenttab == "register") {?>
         <style>
            #regForm #register {
            background: #F07818;
@@ -825,19 +516,17 @@
            }
         </style>
       <?php } ?>
-      <?php if($currenttab == "logout") {
-         session_start();//session is a way to store information (in variables) to be used across multiple pages.
-         session_destroy();
-         header("Location: index.php");//use for the redirection to some page
-         }?>
-      <?php if($currenttab == "myaccount") { ?>
+            <?php if($currenttab == "myaccount") { ?>
         <style>
+        .pagecontent {
+          display: none;
+        }
            .about{
            background-color:#fff;
            }
            div#left-pane{
            border-right: 1px solid #C5C4C4;
-           height: 100%  
+           height: 100%
            }
            .userProfile {
            border-bottom: 3px solid #C5C4C4;
@@ -885,8 +574,8 @@
            height: 32px;
            font-size: 15px;
            text-transform: capitalize;
-           position: relative;    
-           padding: 5px;    
+           position: relative;
+           padding: 5px;
            margin-left: 10px
            }
            .subUL ul li:nth-child(3){
@@ -894,7 +583,7 @@
            height: 32px;
            font-size: 15px;
            text-transform: capitalize;
-           position: relative;  
+           position: relative;
            padding: 5px;
            }
            .subUL ul li a{
@@ -965,6 +654,67 @@
            }
         </style>
       <?php }?>
+
+      <?php if($currenttab == "customize") { ?>
+        <link rel="stylesheet" href="css/design.css">
+      <?php } ?>
+      <?php if($currenttab == "products") { ?>
+        <link href="css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
+      <?php } ?>
+
+      <!-- js -->
+      <script type="text/javascript"  src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+      <script type="text/javascript"  src="js/simpleCart.min.js"> </script>
+
+      <!-- Login Script-->
+      <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+      <script src="js/additional-methods.js" type="text/javascript"></script>
+
+      <script src="js/login.js" type="text/javascript"></script>
+
+      <?php if($currenttab == "myaccount") { ?>
+      <script src="js/myaccount.js" type="text/javascript"></script>
+      <?php } ?>
+
+
+      <?php if($currenttab == "customize") { ?>
+        <script src="js/angular.min.js"></script>
+        <script src="js/design.js"></script>
+      <?php } ?>
+
+      <?php if($currenttab == "products") { ?>
+        <script src="js/angular.min.js"></script>
+        <script src="js/rzslider.min.js"></script>
+        <script src="js/searchapp.js"></script>
+      <?php  } ?>
+
+      <?php if($currenttab == "checkout") { ?>
+        <script src="js/checkout.js"></script>
+      <?php } ?>
+
+      <?php if($currenttab == "single") {?>
+        <script defer src="js/jquery.flexslider.js"></script>
+        <script src="js/imagezoom.js"></script>
+        <script>
+           $(window).load(function() {
+             $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails",
+            minItems : 2,
+            itemWidth: "100px",
+            direction:"vertical"
+             });
+           });
+        </script>
+      <?php } ?>
+
+      <?php if($currenttab == "logout") {
+         session_start();//session is a way to store information (in variables) to be used across multiple pages.
+         session_destroy();
+         header("Location: index.php");//use for the redirection to some page
+         }?>
+
    </head>
    <body>
       <!--header-->
@@ -1052,7 +802,7 @@
          <div class="header-info">
             <div class="header-right search-box">
                <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-               <div class="search">
+               <div class="header-popup search">
                   <form class="navbar-form">
                      <input type="text" class="form-control">
                      <button type="submit" class="btn btn-default" aria-label="Left Align">
@@ -1063,13 +813,13 @@
             </div>
             <div class="header-right login">
                <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-               <div id="loginBox">
+               <div class="header-popup" id="loginBox">
                   <form  id="loginForm" name="loginForm" role="form" <?php  if(isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
                      <div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Login Failed! Please try again</div>
                      <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
                      <div class="alert alert-danger hide" id="forgotpwdMessage" role="alert"> Please provide yor email address, you will recieve an email with your password.</div>
                      <div class="alert alert-danger hide" id="fgtPwdMsg" role="alert">We have sent you an Email with password.</div>
-                     
+
                      <fieldset id="body">
                         <div class="form-group">
                            <label for="email">Email Address</label>
@@ -1083,7 +833,7 @@
                         <input type="submit" id="submitEmail" value="Sumit" name="submit" class="hide">
                         <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
                      </fieldset>
-                     <p>New User ? <a class="sign" href="index.php?account">Sign Up</a> 
+                     <p>New User ? <a class="sign" href="index.php?register">Sign Up</a>
                      <span><a href="#" id="fgtpwd">Forgot your password?</a></span></p>
                   </form>
                   <div class="userprofile"  <?php  if(!isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
@@ -1097,17 +847,17 @@
                            <a href="index.php?logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                            </span>
                         </li>
-                        <li><a href="index.php?myaccount"><i class="fa fa-user fa-fw"></i>My Account</a>
+                        <li><a href="index.php?myaccount=profile"><i class="fa fa-user fa-fw"></i>My Account</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-shopping-cart fa-fw"></i>My Orders</a>
+                        <li><a href="index.php?myaccount=orders"><i class="fa fa-shopping-cart fa-fw"></i>My Orders</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gift fa-fw"></i>My Credits</a>
-                        <li><a href="#"><i class="fa fa-heart-o fa-fw"></i>My Wishlist</a>
+                        <li><a href="index.php?myaccount=credits"><i class="fa fa-gift fa-fw"></i>My Credits</a>
+                        <li><a href="index.php?myaccount=wishlist"><i class="fa fa-heart-o fa-fw"></i>My Wishlist</a>
                         </li>
                      </ul>
-                  </div> 
+                  </div>
                   <div class="submitForm">
-                    <form  id="submitForm" name="submitForm" role="form" style="display:none;">                     
+                    <form  id="submitForm" name="submitForm" role="form" style="display:none;">
                        <div class="alert alert-danger hide" id="forgotpwdMessage" role="alert"> Please provide yor email address, you will recieve an email with your password.</div>
                        <div class="alert alert-danger hide" id="fgtPwdMsg" role="alert">We have sent you an Email with password.</div>
                        <div class="alert alert-danger hide" id="errorMsg" role="alert">Some Error</div>
@@ -1115,27 +865,28 @@
                           <div class="form-group">
                              <label for="email">Email Address</label><br/>
                              <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus>
-                          </div>                        
-                          <input type="submit" id="submitEmail" value="Submit" name="submitEmail">                      
-                       </fieldset>                    
-                    </form>  
-                  </div>               
+                          </div>
+                          <input type="submit" id="submitEmail" value="Submit" name="submitEmail">
+                       </fieldset>
+                    </form>
+                  </div>
                </div>
             </div>
             <div class="header-right cart">
-               <a href="index.php?checkout"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
-               <div class="cart-box">
+               <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+               <div class="header-popup cart-box">
                   <h4><a href="#">
                      <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
                      </a>
                   </h4>
+                  <p><a href="index.php?checkout">Open cart</a></p>
                   <p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
                   <div class="clearfix"> </div>
                </div>
             </div>
             <div class="header-right track-box">
                <a href="#"><span aria-hidden="true"><img src="images/track.png"/></span></a>
-               <div class="track">
+               <div class="header-popup track">
                   <form class="navbar-form">
                      <p>Order ID &nbsp;<input type="text" class="form-control">
                         <button type="submit" class="btn btn-default" aria-label="Left Align">
@@ -1194,8 +945,8 @@
          else if($currenttab == "tc") {
              include(SITE_ROOT. "T&C.html");
          }
-         else if($currenttab == "account") {
-             include(SITE_ROOT. "account.html");
+         else if($currenttab == "register") {
+             include(SITE_ROOT. "register.html");
          }
          else if($currenttab == "checkout") {
              include(SITE_ROOT. "checkoutCart.html");
@@ -1204,6 +955,7 @@
              include(SITE_ROOT. "single.html");
          }
           else if($currenttab == "myaccount") {
+              include(SITE_ROOT. "user.php");
               include(SITE_ROOT. "myAccount.html");
           }
           else if($currenttab == "forgotpassword") {

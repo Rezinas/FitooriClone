@@ -31,6 +31,6 @@ if(isset($_POST['register']))
       $_SESSION["userid"] = $userid;
       $_SESSION["useremail"] =  $user_email;
       header("Location: ".SITE_URL. "index.php");
-    }     
+    }
   }
   ?>

@@ -214,9 +214,9 @@ b.caret {
     padding: 0;
 }
 
-.header-right #userList {
+/*.header-right #userList {
         left: -200px;
-}
+}*/
 /*--search--*/
 .search {
     display: none;
@@ -265,9 +265,7 @@ b.caret {
 .admin-search  input[type="text"] {
     display: inline-block;
 }
-.header-right.search-box:hover div.search {
-	display:block;
-}
+
 .search form.navbar-form:before {
     content: '';
     position: absolute;
@@ -325,9 +323,7 @@ b.caret {
     color: #fff;
     padding: 0.5em;
 }
-.header-right.track-box:hover div.track {
-    display:block;
-}
+
 .track form.navbar-form:before {
     content: '';
     position: absolute;
@@ -383,7 +379,7 @@ b.caret {
     border-right: 10px solid rgba(0, 0, 0, 0);
     border-bottom: 10px solid #FFFFFF;
 }
-.userprofile ul#userList:after{
+/*.userprofile ul#userList:after{
     content: '';
     position: absolute;
     right: 42%;
@@ -391,7 +387,7 @@ b.caret {
     border-left: 10px solid rgba(0, 0, 0, 0);
     border-right: 10px solid rgba(0, 0, 0, 0);
     border-bottom: 10px solid #FFFFFF;
-}
+}*/
 .submitForm:after{
     content: '';
     position: absolute;
@@ -559,9 +555,6 @@ form label.info {
 input:focus {
     outline:none;
 }
-.header-right.login:hover #loginBox {
-	display:block;
-}
 
 
 /*--//Login --*/
@@ -603,9 +596,8 @@ input:focus {
     background-color: rgb(255, 255, 255);
     color: #F07818;
 }
-.header-right.cart:hover div.cart-box{
-	display:block;
-}
+
+
 .cart-box:before {
     content: '';
     position: absolute;
