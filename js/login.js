@@ -94,14 +94,13 @@ $(function() {
       var email_add = $(form).find("input[name='email']").val();
       $.ajax({
        type: "POST",
-       url: "forgotPassword.php?email=" + email_add,
+       url: "user.php?emailPass",
        data: $(form).serialize(),
        timeout: 3000,
        success: function(data) {
         if (data && data == "SUCCESS") {
-         $(".alert-danger").addClass("hide");
+         $(".alert-danger").removeClass("alert-danger").addClass("alert-success").html("Email has been sent successfully");
          $("#fgtPwdMsg").removeClass("hide");
-         // window.location = "<?php echo SITE_URL ?>index.php";
          $("#loginForm").css("display", "block");
 
         }

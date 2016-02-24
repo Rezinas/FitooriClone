@@ -1,7 +1,31 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
-
+if(isset($_GET["emailPass"])) {
+	if(!empty($_POST)){
+		$user_email = prepare_input($_POST['email']);
+		$qry =  "SELECT password from user WHERE email='$user_email'";
+		if(!$stmt = $dbcon->prepare($qry)){
+		    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+		}
+		if(!$stmt->execute()){
+		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+		}
+		$stmt->store_result();
+		$stmt->bind_result($a);
+		while ($stmt->fetch()) {
+			$from = "admin@plumms.com";
+		    $to = $user_email;
+		    $subject = "Fitoori Login information";
+		    $message = "Your password is ".$a;
+		    $headers = "From:" . $from;
+		    mail($to,$subject,$message, $headers);
+		}
+		$stmt->close();
+		echo "SUCCESS";
+	}
+	exit();
+}
 if(isset($_GET["address"])) {
 	if(!empty($_POST)){
 		$user_id=$_SESSION['userid'];
