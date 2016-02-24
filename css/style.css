@@ -3891,89 +3891,33 @@ h2 {
     border-right: 20px solid transparent;
     border-top: 20px solid blue;
 }
-.steps-container {
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-  white-space: nowrap;
-  border-left: 2px solid;
-  border-right: 2px solid;
-  width: 100%;
-}
 .steps {
- position: relative;
-  display: inline-block;
-  left: -28px; /* -2px default + 26px offset to hide skewed area on the left side of first element*/
-  height: 30px;
-  line-height: 30px;
-  margin-left: 0px;
-  margin-right: 0px;
-  transition: background 1s;
-  min-height: 30px;
-  color: black;
+     height: 100px;
+    width: 100px;
+    padding: 35px 5px;
+    background: #ccc;
+    border: 1px solid;
+    word-wrap: break-word;
+}
+.steps.active{
+    background: #E39172;
+}
+.steps.done{
+    background: #5DE36D;
 }
 
-.steps:after,
-.steps:before {
-  position: absolute;
-  content: '';
-  left: 0px;
-  height: 50%;
-  width: 100%;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-left: 3px solid; /* thicker border as skew makes them look thin */
-  border-right: 3px solid;
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.steps:before {
-  transform: skew(45deg);
-  top: 0px;
-  border-bottom: none;
-  transform-origin: top left;
-}
-
-.steps:after {
-  transform: skew(-45deg);
-  bottom: 0px;
-  border-top: none;
-  transform-origin: bottom left;
-}
-
-.steps span{
-  display: block;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  height: 75%;
-  vertical-align: middle;
-}
-
-.steps.active span{
-  font-weight: bold;
-}
-.steps.active:before,
-.steps.active:after {
-   background: rgba(224, 94, 19, 0.38);
-}
-.steps.done:before,
-.steps.done:after {
-   background: rgba(126, 188, 250, 0.38);
-}
 
  .cart-items table {
           border: 0px solid;
           font-size: 16px;
       }
       .cart-items table th {
-          width: 168px;
           padding: 5px;
       }
       .cart-items table tr {
           border-bottom: 1px solid;
       }
+
 
 /*--//responsive-design---*/
 

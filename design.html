@@ -24,7 +24,13 @@
 						<div class="clearfix"></div>
 					</div>
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-1">
+				<div class="steps" ng-class="{'done': designLevel>0, 'active': designLevel==0}"> Hook/Stud</div>
+				<div class="steps" ng-class="{'done': designLevel>1, 'active': designLevel==1}"> Dangler/Jhumka</div>
+				<div class="steps" ng-class="{'done': designLevel>2, 'active': designLevel==2}"> More Dangler/Jhumka</div>
+				<div class="steps" ng-class="{'done': designLevel>3, 'active': designLevel==3}"> Final Dangler/Jhumka</div>
+			</div>
+			<div class="col-md-7">
 				<div ng-if="userMessage != ''" class="alert {{alertClass}}" role="alert">
 				  {{userMessage}}
 				</div>
@@ -118,17 +124,17 @@
                   <tbody>
                   <tr>
                   	<th>Base Price</th>
-                  	<td>:  {{basePrice = (designTotal() + (0.02*100)) | currency:"&#8377":2}}
+                  	<td>:  {{designTotal() | currency:"&#8377":2}}
                   	</td>
                   </tr>
                   <tr>
                   	<th>Shipping & Handling</th>
-                  	<td>:  {{ shipping = (60) | currency:"&#8377":2}}
+                  	<td>:  {{ shipping | currency:"&#8377":2}}
                   	</td>
                   </tr>
                   <tr>
                   	<th>Tax</th>
-                  	<td>:  {{ tax=( basePrice * (0.05/100)) | currency:"&#8377":2}}
+                  	<td>:  {{ tax | currency:"&#8377":2}}
                   	</td>
                   </tr>
                   <tr>

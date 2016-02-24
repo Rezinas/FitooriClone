@@ -19,7 +19,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.designerPicks=[];
         $scope.userMessage= "";
         $scope.alertClass="alert-info";
+        $scope.basePrice=0;
+        $scope.shipping=60;
+        $scope.tax=0;
         $scope.isAgent = $window.model.isAgent;
+        var marginPercent =2;
+        var taxPercent =5;
         var elements = $window.model.elements;
         var bodyparts = $window.model.items;
 
@@ -284,10 +289,13 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.designTotal = function(){
             var total = 0;
+            var marginFactor = 1 + marginPercent/100;
             $.each($scope.mySelectedItems, function(indx, sitem){
                   total = total + parseFloat(sitem.price, 10);
             });
-            return total;
+            $scope.basePrice = total*marginFactor;
+            $scope.tax = $scope.basePrice*taxPercent/100;
+            return $scope.basePrice;
         };
 
         $scope.nextDisable = function(){
