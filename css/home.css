@@ -1,0 +1,10 @@
+#imageBox .hoverImg, #imageBox1 .hoverImg1, #imageBox2 .hoverImg2, #imageBox3 .hoverImg3  {
+    position: absolute;
+    /*left: 0;*/
+    top: 0;
+    display: none;
+}
+#imageBox:hover .hoverImg, #imageBox1:hover .hoverImg1, #imageBox2:hover .hoverImg2, #imageBox3:hover .hoverImg3 {
+    display: block;
+    cursor:pointer:;
+}

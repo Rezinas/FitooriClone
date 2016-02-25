@@ -1,0 +1,14 @@
+ .contact-form .form-group {
+  width: 32.3%;
+  float: left;
+  position: relative;
+}
+.contact-form input[type="text"] {
+  width:97%;
+}
+.contact-form input[type="text"]:nth-child(2) {
+  margin: 0 1em;
+}
+.contact-form .form-group#textareaForm {
+  width:96%;
+}
