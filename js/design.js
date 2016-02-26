@@ -20,11 +20,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.userMessage= "";
         $scope.alertClass="alert-info";
         $scope.basePrice=0;
-        $scope.shipping=60;
-        $scope.tax=0;
         $scope.isAgent = $window.model.isAgent;
-        var marginPercent =2;
-        var taxPercent =5;
+        $scope.shipping=$window.model.shipping;
+        var marginPercent =$window.model.margin;
+        var taxPercent =$window.model.vat;
+        var overheads =$window.model.overheads;
+
         var elements = $window.model.elements;
         var bodyparts = $window.model.items;
 
@@ -290,11 +291,17 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.designTotal = function(){
             var total = 0;
             var marginFactor = 1 + marginPercent/100;
+            var overheadFactor = 1 + overheads/100;
+            var taxFactor = 1 + taxPercent/100;
+
             $.each($scope.mySelectedItems, function(indx, sitem){
                   total = total + parseFloat(sitem.price, 10);
             });
-            $scope.basePrice = total*marginFactor;
-            $scope.tax = $scope.basePrice*taxPercent/100;
+
+            total = total*marginFactor;
+            total = total*overheadFactor;
+            total = total*taxFactor;
+            $scope.basePrice = total;
             return $scope.basePrice;
         };
 

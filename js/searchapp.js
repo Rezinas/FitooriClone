@@ -30,6 +30,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         $scope.prdStatus={ "active" : "",
                             "custom": "",
                             "despick": ""};
+        var cartObj = $window.cart;
         var queryParam = $location.search();
         if(queryParam.m){
               $scope.selectedMaterial.push(parseInt(queryParam.m,10));
@@ -150,6 +151,11 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
                 foundItem = true;
             }
             return (foundMat && foundPrice && foundItem && foundStatus && foundCustom && foundDpick && foundTags);
+        };
+
+        $scope.addCartItem = function(pid, pprice){
+            cartObj.updateCart(pid, parseFloat(pprice,10));
+
         };
 
         $scope.numberOfPages=function(){

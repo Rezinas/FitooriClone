@@ -209,7 +209,7 @@ if($currenttab == "dash") {
     include(SITE_ROOT. "admin/dashboard.html");
 }
 else if($currenttab == "design") {
-    include(SITE_ROOT. "design.php");
+    include(SITE_ROOT. "php/design.php");
     include(SITE_ROOT. "design.html");
 }
 else if($currenttab == "custom") {
@@ -217,7 +217,7 @@ else if($currenttab == "custom") {
     include(SITE_ROOT. "admin/custom.html");
 }
 else if($currenttab == "search") {
-    include(SITE_ROOT. "productsearch.php");
+    include(SITE_ROOT. "php/productsearch.php");
     include(SITE_ROOT. "products.html");
 }
 else if($currenttab == "elements") {

@@ -76,13 +76,10 @@
        <!-- js -->
       <script type="text/javascript"  src="js/jquery.min.js"></script>
       <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-      <script type="text/javascript"  src="js/simpleCart.min.js"> </script>
-
-      <!-- Login Script-->
       <script src="js/jquery.validate.min.js" type="text/javascript"></script>
       <script src="js/additional-methods.js" type="text/javascript"></script>
-
-      <script src="js/login.js" type="text/javascript"></script>   
+      <script src="js/login.js" type="text/javascript"></script>
+      <script src="js/cart.js" type="text/javascript"></script>
 
       <?php if($currenttab == "home") { ?>
         <link href="css/home.css" rel="stylesheet" type="text/css" media="all" />
@@ -101,7 +98,7 @@
       <?php  } ?>
 
       <?php if($currenttab == "sr" || $currenttab == "privacy" || $currenttab == "tc"){?>
-       <link href="css/tc.css" rel="stylesheet" type="text/css" media="all" />        
+       <link href="css/tc.css" rel="stylesheet" type="text/css" media="all" />
       <?php }?>
 
       <?php if($currenttab == "checkout") { ?>
@@ -128,12 +125,12 @@
       <?php  } ?>
 
       <?php if($currenttab == "register") {?>
-        <link href="css/register.css" type="text/css" rel="stylesheet" media="all">        
+        <link href="css/register.css" type="text/css" rel="stylesheet" media="all">
       <?php } ?>
 
       <?php if($currenttab == "myaccount") { ?>
-        <link href="css/myaccount.css" type="text/css" rel="stylesheet" media="all">  
-        <script src="js/myaccount.js" type="text/javascript"></script>         
+        <link href="css/myaccount.css" type="text/css" rel="stylesheet" media="all">
+        <script src="js/myaccount.js" type="text/javascript"></script>
       <?php }?>
 
       <?php if($currenttab == "customize") { ?>
@@ -144,7 +141,7 @@
 
       <?php if($currenttab == "products") { ?>
         <link href="css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
-        script src="js/angular.min.js"></script>
+        <script src="js/angular.min.js"></script>
         <script src="js/rzslider.min.js"></script>
         <script src="js/searchapp.js"></script>
       <?php } ?>
@@ -155,7 +152,7 @@
          header("Location: index.php");//use for the redirection to some page
       }?>
    </head>
-   <body>
+   <body style="padding-top: 70px;">
       <!--header-->
       <div class="header">
          <!-- <div class="container"> -->
@@ -312,14 +309,14 @@
                </div>
             </div>
             <div class="header-right cart">
-               <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+               <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a>
                <div class="header-popup cart-box">
                   <h4><a href="#">
-                     <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
+                     <span class="simpleCart_total"> &#8377; 0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
                      </a>
                   </h4>
                   <p><a href="index.php?checkout">Open cart</a></p>
-                  <p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+                  <p><a href="javascript:window.cart.emptyCart();" class="simpleCart_empty">Empty cart</a></p>
                   <div class="clearfix"> </div>
                </div>
             </div>
@@ -346,7 +343,7 @@
              include(SITE_ROOT. "index.html");
          }
          else if($currenttab == "products") {
-              include(SITE_ROOT. "productsearch.php");
+              include(SITE_ROOT. "php/productsearch.php");
              include(SITE_ROOT. "products.html");
          }
          else if($currenttab == "customize") {
@@ -356,7 +353,7 @@
               // }
               // else {
                 // include(SITE_ROOT. "customize.html");
-                include(SITE_ROOT. "design.php");
+                include(SITE_ROOT. "php/design.php");
                 include(SITE_ROOT. "design.html");
               // }
             }
@@ -388,18 +385,16 @@
              include(SITE_ROOT. "register.html");
          }
          else if($currenttab == "checkout") {
+             include(SITE_ROOT. "php/checkout.php");
              include(SITE_ROOT. "checkoutCart.html");
          }
          else if($currenttab == "single") {
              include(SITE_ROOT. "single.html");
          }
-          else if($currenttab == "myaccount") {
-              include(SITE_ROOT. "user.php");
-              include(SITE_ROOT. "myAccount.html");
-          }
-          else if($currenttab == "forgotpassword") {
-              include(SITE_ROOT. "forgotPassword.html");
-          }
+        else if($currenttab == "myaccount") {
+            include(SITE_ROOT. "php/user.php");
+            include(SITE_ROOT. "myAccount.html");
+        }
          ?>
       <!--footer-->
       <div class="footer">
@@ -447,6 +442,16 @@
             <div class="clearfix"></div>
          </div>
       </div>
+      </div>
+
+      <div class="debug" style="background: #aaa; color:red; width: 500px; min-height: 300px;">
+        <?php
+          echo "cart ids <br/>";
+
+        if(isset($_SESSION['cartids'])){
+          var_dump($_SESSION['cartids']);
+        }
+        ?>
       </div>
       <!--//footer-->
       <div class="footer-bottom">

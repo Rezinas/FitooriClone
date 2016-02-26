@@ -1,6 +1,26 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
 
+if(isset($_REQUEST["cartUpdate"])) {
+    $_SESSION['cartids'] = $_POST['productids'];
+    $_SESSION['cartPrice'] = $_POST['totalPrice'];
+  exit();
+}
+if(isset($_REQUEST["getCart"])) {
+  $cpids = isset($_SESSION['cartids']) ? $_SESSION['cartids'] : [];
+  $cprice = isset($_SESSION['cartPrice']) ? $_SESSION['cartPrice'] : [];
+      $jsondata = array(
+      "productids"  => $cpids,
+      "totalPrice"  => $cprice,
+      "vat" => TAXPERCENT,
+      "overhead" => OVERHEADS,
+      "margin" => PROFITPERCENT,
+      "shipping" => [SHIPPINGCHARGES_SMALL, SHIPPINGCHARGES_MEDIUM, SHIPPINGCHARGES_LARGE]
+    );
+    echo json_encode($jsondata);
+  exit();
+}
+
 if(isset($_GET["checkEmail"])) {
 $requestedEmail  = $_REQUEST['email'];
   $check_user="select userid from user WHERE email='$requestedEmail'";

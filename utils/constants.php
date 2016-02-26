@@ -48,6 +48,14 @@
 	define('FEATUREDIMG', 4);
 	define('PROMOTEDIMG', 5);
 
+	define('SHIPPINGCHARGES_LARGE', 40);
+	define('SHIPPINGCHARGES_MEDIUM', 40);
+	define('SHIPPINGCHARGES_SMALL', 40);
+	define('OVERHEADS', 40);
+	define('TAXPERCENT', 14.5);
+	define('PROFITPERCENT', 20);
+
+
 
 	define('COLORS', 'Unspecified|Red|Blue|Orange|Yellow|Gold|Silver|Pink|Black|Brown|White|Green|Purple|Indigo|Aqua');
 	define('TEXTURES', 'Plain|Grilled|Engraved|Painted|DoubleTone|MutliColor');
