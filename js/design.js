@@ -7,10 +7,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.siteUrl = $window.model.siteUrl;
         $scope.designObj = {};
         $scope.filteredSet = [];
-        $scope.myAltItems = [];
         $scope.mySelectedItems = [];
         $scope.designLevel = 0;
-        $scope.myProductImgs = [];
         $scope.pageSize = 12;
         $scope.currentPage = 0;
         $scope.levelFilled = false;
@@ -22,6 +20,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.basePrice=0;
         $scope.isAgent = $window.model.isAgent;
         $scope.shipping=$window.model.shipping;
+        $scope.productAdded = false;
         var marginPercent =$window.model.margin;
         var taxPercent =$window.model.vat;
         var overheads =$window.model.overheads;
@@ -105,7 +104,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
             $http({
               method  : 'POST',
-              url     : $scope.siteUrl+'ajax.php?despicks',
+              url     : $scope.siteUrl+'php/ajax.php?despicks',
               data    : payload  // pass in data as strings
              })
               .success(function(data) {
@@ -298,11 +297,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                   total = total + parseFloat(sitem.price, 10);
             });
 
-            total = total*marginFactor;
-            total = total*overheadFactor;
-            total = total*taxFactor;
-            $scope.basePrice = total;
-            return $scope.basePrice;
+            $scope.basePrice  = total;
+            $scope.subTotalPrice = total * marginFactor *overheadFactor *taxFactor;
+            return $scope.subTotalPrice;
         };
 
         $scope.nextDisable = function(){
@@ -326,25 +323,47 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         $scope.processForm = function() {
+          if(!$scope.productAdded) {
+                $scope.userMessage= "Your Design Already Added to Cart.";
+             return;
+          }
           var payload = {
-                        custom_product : $scope.mySelectedItems
+                        custom_product : $scope.mySelectedItems,
+                        product_price : $scope.basePrice
                         };
 
           $http({
           method  : 'POST',
-          url     : $scope.siteUrl+'ajax.php?addcustom',
+          url     : $scope.siteUrl+'php/ajax.php?addcustom',
           data    : payload  // pass in data as strings
          })
           .success(function(data) {
             if(data == "SUCCESS"){
-                if($scope.isAgent)
-                    $window.location = $scope.siteUrl+"dashboard.php?custom";
-                else
-                    $window.location =$scope.siteUrl+"index.php?checkout";
+                $scope.productAdded = true;
+                $scope.userMessage= "Your Design Successfully Added to Cart.";
+
+                if(!$scope.isAgent){
+                    $window.cart.getCart();
+                }
+                // else {
+                //      $window.location = $scope.siteUrl+"admin/dashboard.php?custom";
+                // }
             }
             else
                 alert("insert into database failed");
           });
+        };
+
+        $scope.resetDesign = function(){
+                $scope.mySelectedItems = [];
+                $scope.designLevel = 0;
+                $scope.currentPage = 0;
+                $scope.levelFilled = false;
+                $scope.prdIndex = [];
+                $scope.allConnArr =[];
+                $scope.designerPicks=[];
+                $scope.basePrice=0;
+                $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
         };
 
         $scope.gobackLevel = function() {

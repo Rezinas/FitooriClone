@@ -43,12 +43,19 @@ if(isset($_GET["addcustom"])) {
       // var_dump($_POST["custom_product"]);
 
       if(!empty($_POST["custom_product"])){
-        $prd_qry  = "insert into products () VALUES ()";
+
+        $elements = $_POST["custom_product"];
+        $prod_price = $_POST["product_price"];
+        $customized = 1;
+
+        $prd_qry  = "insert into products (price, customized) VALUES (?, ?)";
 
         $ins_stmt = $dbcon->prepare($prd_qry);
         if(!$ins_stmt) {
          die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
         }
+        $ins_stmt->bind_param('di', $prod_price, $customized);
+
         if($ins_stmt->execute()){
               $prodid=$ins_stmt->insert_id;
           }else{
@@ -56,21 +63,38 @@ if(isset($_GET["addcustom"])) {
         }
         $ins_stmt->close();
 
-        $elements = $_POST["custom_product"];
-        $currUserEmail =getCurrentUserEmail();
-        $currUsertype="";
+        if(!isAgent()){
+            $cartSessionIds = isset($_SESSION['cartids'])?$_SESSION['cartids'] : [];
+            $cartSessionPrice= isset($_SESSION['cartPrice'])?$_SESSION['cartPrice'] : 0;
 
-        $qry = "SELECT usertype  from user WHERE email=?";
-        $result=mysqli_query($dbcon,$qry);
-       if ($result && mysqli_num_rows($result) > 0)
-        {
-            while ($row=mysqli_fetch_row($result))
-            {
-              $currUsertype = $row[0];
-            }
-              mysqli_free_result($result);
+            $prd_id = $prodid."";
+
+            array_push($cartSessionIds, $prd_id);
+            $cartSessionPrice = $cartSessionPrice + $prod_price;
+
+            $_SESSION['cartids'] = $cartSessionIds;
+            $_SESSION['cartPrice'] = $cartSessionPrice;
+
         }
 
+        $currUserEmail = isGuest() ? "guest" :  getCurrentUserEmail();
+        $currUsertype="";
+
+        if(!isGuest()) {
+            $qry = "SELECT usertype  from user WHERE email=$currUserEmail";
+            $result=mysqli_query($dbcon,$qry);
+           if ($result && mysqli_num_rows($result) > 0)
+            {
+                while ($row=mysqli_fetch_row($result))
+                {
+                  $currUsertype = $row[0];
+                }
+                  mysqli_free_result($result);
+            }
+        }
+        else {
+           $currUsertype= "2";
+        }
 
         $elem_qry = "INSERT into customdesign (`productid`, `elementid`,`leftPos`, `topPos`, `selectedImage`, `addedBy`, `addedByType` ) VALUES (?,?,?,?,?,?,?)";
         $ins_stmt1 = $dbcon->prepare($elem_qry);

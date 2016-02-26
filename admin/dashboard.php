@@ -262,12 +262,21 @@ else if($currenttab == "report") {
             if ($("input[name='adminUser']:checked").val() == '0') {
                 $(".product-grid.userDes").hide();
                 $(".product-grid.adminDes").show();
+                $(".product-grid.guestDes").hide();
             }
             else if ($("input[name='adminUser']:checked").val() == '1') {
                 $(".product-grid.adminDes").hide();
                 $(".product-grid.userDes").show();
+                $(".product-grid.guestDes").hide();
+
+            }
+            else if ($("input[name='adminUser']:checked").val() == '2') {
+                $(".product-grid.adminDes").hide();
+                $(".product-grid.userDes").hide();
+                $(".product-grid.guestDes").show();
             }
             else{
+                $(".product-grid.guestDes").show();
                 $(".product-grid.adminDes").show();
                 $(".product-grid.userDes").show();
             }

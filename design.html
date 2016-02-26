@@ -103,14 +103,9 @@
 						<div id="fade1" class="black_overlay"></div>
 						</div>
 						<div id="chkBtn" style="text-align:left;">
-                  			 <form name="designForm" ng-submit="processForm()">
-								<button ng-if="isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Confirm Design</button> &nbsp; &nbsp;
-								<!-- <button ng-if="!isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button> &nbsp; &nbsp; -->
-							<!-- 	<button type="button" ng-hide="filteredSet.length == 0 || designLevel == 3" ng-disabled="!levelFilled" class="btn btn-primary" ng-click="updateLevel()">Add Another Level</button> &nbsp; &nbsp;
-								<button type="button" ng-if="mySelectedItems.length > 1"  class="btn btn-primary" ng-click="gobackLevel()">Go Previous Level</button> -->
 								<button type="button" ng-disabled="nextDisable()" class="btn btn-primary" ng-click="updateLevel()">Next</button> &nbsp; &nbsp;
 								<button type="button" ng-disabled="designLevel == 0"  class="btn btn-primary" ng-click="gobackLevel()">Back</button>
-							</form>
+								<button type="button" ng-if="designLevel > 0"  class="btn btn-primary" ng-click="resetDesign()">Reset</button>
                 		</div>
 					</div>
 			</div>
@@ -129,18 +124,19 @@
                   </tr>
                   <tr>
                   	<th>Shipping Charges</th>
-                  	<td>:  {{ currShipping = basePrice > 0 ? shipping[0] : 0 | currency:"&#8377":2}}
+                  	<td>:  {{ currShipping = subTotalPrice > 0 ? shipping[0] : 0 | currency:"&#8377":2}}
                   	</td>
                   </tr>
                   <tr>
                   	<th>Total</th>
-                  	<td>:  {{  basePrice + currShipping | currency:"&#8377":2}}
+                  	<td>:  {{  subTotalPrice + currShipping | currency:"&#8377":2}}
                   	</td>
                   </tr>
 
                   <tr style="border:none">
                   	<td colspan="2" style="text-align: center">
-						<button  style="margin-top: 10px;" ng-if="!isAgent" type="submit" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button>
+                  		<button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Confirm Design</button> &nbsp; &nbsp;
+						<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button>
                   	</td>
                   </tr>
                </tbody></table>

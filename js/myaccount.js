@@ -81,7 +81,7 @@ $(function() {
       }
     },
     submitHandler: function(form) {
-      submitAjaxForms(form, "user.php?changePass");
+      submitAjaxForms(form, "php/user.php?changePass");
       return false;
     }
   });
@@ -132,7 +132,7 @@ $(function() {
       email: "Please enter a valid email address"
     },
     submitHandler: function(form) {
-      submitAjaxForms(form, "user.php?address");
+      submitAjaxForms(form, "php/user.php?address");
       return false;
     }
   });
@@ -189,7 +189,7 @@ $(function() {
       email: "Please enter a valid email address"
     },
     submitHandler: function(form) {
-      submitAjaxForms(form, "user.php?profile");
+      submitAjaxForms(form, "php/user.php?profile");
       return false;
     }
   });

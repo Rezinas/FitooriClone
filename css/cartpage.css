@@ -275,3 +275,18 @@ p.accnavB a {
 .address p{
   font-size: 18px;
 }
+
+.cdesign {
+    position: relative;
+    min-height: 200px;
+    margin-top: 15px;
+    margin-left: 40px;
+}
+
+.prd_elements {
+    position: absolute;
+}
+
+.prd_elements  img {
+    width: 100%;
+}

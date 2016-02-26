@@ -7,6 +7,7 @@
 		if($des["isProduct"] == "1") $filterClasses .= "prdDes ";
 		else $filterClasses .= "customDes ";
 		if($des["addedByType"] == "0") $filterClasses .= "adminDes ";
+		else if($des["addedByType"] == "2") $filterClasses .= "guestDes ";
 		else $filterClasses .= "userDes ";
 		?>
 			<div class="product-grid custom <?php echo $filterClasses; ?>">
@@ -38,6 +39,7 @@
 			<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Created By</h4>
 				<label><input type="radio" class="rdbtn" name="adminUser" value="0" >Admin</label>
 				<label ><input type="radio"  class="rdbtn" name="adminUser" value="1" >User</label>
+				<label ><input type="radio"  class="rdbtn" name="adminUser" value="2" >Guest</label>
 				<label ><input type="radio"  class="rdbtn" name="adminUser" checked value="-1" >All</label>
 			</section>
 			<section  class="sky-form">

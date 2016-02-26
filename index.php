@@ -443,16 +443,6 @@
          </div>
       </div>
       </div>
-
-      <div class="debug" style="background: #aaa; color:red; width: 500px; min-height: 300px;">
-        <?php
-          echo "cart ids <br/>";
-
-        if(isset($_SESSION['cartids'])){
-          var_dump($_SESSION['cartids']);
-        }
-        ?>
-      </div>
       <!--//footer-->
       <div class="footer-bottom">
          <div class="container">
