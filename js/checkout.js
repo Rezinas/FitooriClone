@@ -14,10 +14,17 @@ $(document).ready(function (c) {
         $("div#cart"+thisId[1]).html("1 Item removed");
       }
       window.cart.removeItem(currQty, currPrice);
-      var updatedPrice=window.cart.getCartTotalPrice();
-      $("#subTotal").html(window.cart.formatCurrency(updatedPrice));
-      $("#grandTotal").html( window.cart.formatCurrency(updatedPrice+ window.cart.shipping[0]));
-
+      var updatedQty = window.cart.getCartTotalItems();
+      if(updatedQty == 0) {
+          $("div#cart-items-all").find(".cart-header").remove();
+          $("div#cart-cost").empty();
+          $("div#cart-items-all").append("<p class='text-uppercase'>your shopping bag is empty</p>");
+      }
+      else {
+          var updatedPrice=window.cart.getCartTotalPrice();
+          $("#subTotal").html(window.cart.formatCurrency(updatedPrice));
+          $("#grandTotal").html( window.cart.formatCurrency(updatedPrice+ window.cart.shipping[0]));
+      }
   });
 
 

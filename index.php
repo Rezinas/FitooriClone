@@ -152,7 +152,7 @@
          header("Location: index.php");//use for the redirection to some page
       }?>
    </head>
-   <body style="padding-top: 70px;">
+   <body>
       <!--header-->
       <div class="header">
          <!-- <div class="container"> -->

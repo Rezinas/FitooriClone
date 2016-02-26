@@ -19,7 +19,7 @@ if(count($cartItems)  > 0) {
 	$stmt->store_result();
 	$stmt->bind_result( $a,$b, $c, $d, $e);
 	while ($stmt->fetch()) {
-		$cartTotal = $cartTotal + $c;
+		$cartTotal = $cartTotal + ($c * $cart[$a]);
 		$cartProducts[] = [ 'productid' => $a, 'name' => $b, 'price' => $c, 'mainimg'=>$d, 'customized' => $e];
 	}
 	$stmt->close();

@@ -8,7 +8,7 @@ if(isset($_REQUEST["cartUpdate"])) {
 }
 if(isset($_REQUEST["getCart"])) {
   $cpids = isset($_SESSION['cartids']) ? $_SESSION['cartids'] : [];
-  $cprice = isset($_SESSION['cartPrice']) ? $_SESSION['cartPrice'] : [];
+  $cprice = isset($_SESSION['cartPrice']) ? $_SESSION['cartPrice'] : 0;
       $jsondata = array(
       "productids"  => $cpids,
       "totalPrice"  => $cprice,
