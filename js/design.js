@@ -323,7 +323,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         $scope.processForm = function() {
-          if(!$scope.productAdded) {
+          if($scope.productAdded) {
                 $scope.userMessage= "Your Design Already Added to Cart.";
              return;
           }
