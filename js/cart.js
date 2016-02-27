@@ -1,10 +1,6 @@
 var cart = {
 	items : [],
 	itemsTotal: 0,
-	vat: 0,
-	overhead: 0,
-	margin: 0,
-	shipping: [],
 	formatCurrency: function (total) {
 	    var neg = false;
 	    if(total < 0) {
@@ -17,20 +13,13 @@ var cart = {
 		return this.items.length;
 	},
 	getCartTotalPrice: function() {
-		 var marginFactor = 1 + this.margin/100;
-        var overheadFactor = 1 + this.overhead/100;
-        var taxFactor = 1 + this.vat/100;
-		return this.itemsTotal * marginFactor * overheadFactor *  taxFactor;
+		return this.itemsTotal;
 	},
 	getCart: function(){
 		//gets the current cart object from server's session.
 		var self = this;
 		  $.getJSON( "php/ajax.php?getCart", function(json){
 		      	 self.items=json.productids;
-		      	 self.vat=json.vat;
-		      	 self.overhead=json.overhead;
-		      	 self.margin=json.margin;
-		      	 self.shipping=json.shipping;
 		      	 self.itemsTotal=parseFloat(json.totalPrice, 10);
 		      	 self.updateCartPopup();
 		        });

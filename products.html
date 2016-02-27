@@ -17,10 +17,10 @@
 		<div class="row">
 			<div class="col-md-9 product-model-sec">
 					<div ng-repeat="product in allProducts | orderBy:sortItem:reverseorder | filter:criterias|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid adminsearch">
-						<a href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">
+						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">
 							<div class="more-product"><span> </span></div>
 							<div class="product-img b-link-stripe b-animate-go  thickbox">
-								<img ng-src="{{siteUrl}}/productImages/{{product['mainimg']}}" />
+								<img ng-src="{{siteUrl}}productImages/{{product['mainimg']}}" />
 								<div class="b-wrapper">
 									<h4 class="b-animate b-from-left  b-delay03">
 										<button>View</button>
@@ -38,7 +38,7 @@
 									<p class="disc">[15% Off]</p>
 								</div> -->
 
-								<a ng-if="isAgent" ng-href="{{siteUrl}}admin/dashboard.php?product&amp;id={{product['productid']}}" class="item_add items">Edit</a>
+								<a ng-if="isAgent" target="_self" ng-href="{{siteUrl}}admin/dashboard.php?product&amp;id={{product['productid']}}" class="item_add items">Edit</a>
 								<button ng-if="!isAgent" ng-click="addCartItem(product['productid'], product['price']);" class="add-cart item_add">ADD TO CART</a>
 
 								<div class="clearfix"> </div>

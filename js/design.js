@@ -17,7 +17,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.designerPicks=[];
         $scope.userMessage= "";
         $scope.alertClass="alert-info";
-        $scope.basePrice=0;
+        $scope.designPrice=0;
         $scope.isAgent = $window.model.isAgent;
         $scope.shipping=$window.model.shipping;
         $scope.productAdded = false;
@@ -297,9 +297,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                   total = total + parseFloat(sitem.price, 10);
             });
 
-            $scope.basePrice  = total;
-            $scope.subTotalPrice = total * marginFactor *overheadFactor *taxFactor;
-            return $scope.subTotalPrice;
+            $scope.designPrice  = total * marginFactor *overheadFactor *taxFactor;
+            return $scope.designPrice;
         };
 
         $scope.nextDisable = function(){
@@ -329,7 +328,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
           }
           var payload = {
                         custom_product : $scope.mySelectedItems,
-                        product_price : $scope.basePrice
+                        product_price : $scope.designPrice
                         };
 
           $http({
@@ -362,7 +361,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.prdIndex = [];
                 $scope.allConnArr =[];
                 $scope.designerPicks=[];
-                $scope.basePrice=0;
+                $scope.designPrice=0;
+                $scope.productAdded = false;
+
                 $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
         };
 

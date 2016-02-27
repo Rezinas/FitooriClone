@@ -124,19 +124,19 @@
                   </tr>
                   <tr>
                   	<th>Shipping Charges</th>
-                  	<td>:  {{ currShipping = subTotalPrice > 0 ? shipping[0] : 0 | currency:"&#8377":2}}
+                  	<td>:  {{ currShipping = designPrice > 0 ? shipping[0] : 0 | currency:"&#8377":2}}
                   	</td>
                   </tr>
                   <tr>
                   	<th>Total</th>
-                  	<td>:  {{  subTotalPrice + currShipping | currency:"&#8377":2}}
+                  	<td>:  {{  designPrice + currShipping | currency:"&#8377":2}}
                   	</td>
                   </tr>
 
                   <tr style="border:none">
                   	<td colspan="2" style="text-align: center">
                   		<button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Confirm Design</button> &nbsp; &nbsp;
-						<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" class="btn btn-primary">Add to Cart</button>
+						<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" ng-disabled="productAdded" class="btn btn-primary">Add to Cart</button>
                   	</td>
                   </tr>
                </tbody></table>
@@ -144,7 +144,7 @@
 		<div id="designerPick" ng-if="designerPicks.length > 0">
 			<h4>Designer's pick for you</h4>
 				<div class="product-grid despick" ng-repeat="despick in designerPicks">
-						<a href="{{siteUrl}}index.php?single&amp;id={{despick['productid']}}">
+						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{despick['productid']}}">
 							<div class="more-product"><span> </span></div>
 							<div class="product-img b-link-stripe b-animate-go  thickbox">
 								<img ng-src="{{siteUrl}}/productImages/{{despick['mainimg']}}" />

@@ -39,7 +39,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
          $scope.priceSlider = {
                  min: 0,
-                  max: 50,
+                  max: 200,
                   options: {
                     floor: 0,
                     step: 5,

@@ -175,7 +175,7 @@
                      </a>
                   </li>
                   <li class="dropdown">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" <?php if($currenttab == "products") echo 'class="active"'; ?>>Products<b class="caret"></b></a>
+                     <a href="#" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Products<b class="caret"></b></a>
                      <ul class="dropdown-menu multi-column columns-3">
                         <div class="row">
                            <div class="col-sm-6">
@@ -202,7 +202,7 @@
                      </ul>
                   </li>
                   <li class="dropdown grid">
-                     <a href="#" class="dropdown-toggle list1" data-toggle="dropdown" <?php if($currenttab == "customize") echo 'class="active"'; ?>>Customize<b class="caret"></b></a>
+                     <a href="#" class="dropdown-toggle list1 <?php if($currenttab == "customize") echo 'active'; ?>" data-toggle="dropdown">Customize<b class="caret"></b></a>
                      <ul class="dropdown-menu multi-column columns-3">
                         <div class="row">
                            <div class="col-sm-6">
@@ -225,7 +225,7 @@
                      </ul>
                   </li>
                   <li class="dropdown grid">
-                     <a href="#" class="dropdown-toggle list1" data-toggle="dropdown" <?php if($currenttab == "offers") echo 'class="active"'; ?>>
+                     <a href="#" class="dropdown-toggle list1 <?php if($currenttab == "offers") echo 'active'; ?>" data-toggle="dropdown" >
                         Offers<!--<b class="caret"></b>-->
                      </a>
                   </li>

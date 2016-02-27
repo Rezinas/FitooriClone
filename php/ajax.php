@@ -11,11 +11,7 @@ if(isset($_REQUEST["getCart"])) {
   $cprice = isset($_SESSION['cartPrice']) ? $_SESSION['cartPrice'] : 0;
       $jsondata = array(
       "productids"  => $cpids,
-      "totalPrice"  => $cprice,
-      "vat" => TAXPERCENT,
-      "overhead" => OVERHEADS,
-      "margin" => PROFITPERCENT,
-      "shipping" => [SHIPPINGCHARGES_SMALL, SHIPPINGCHARGES_MEDIUM, SHIPPINGCHARGES_LARGE]
+      "totalPrice"  => $cprice
     );
     echo json_encode($jsondata);
   exit();

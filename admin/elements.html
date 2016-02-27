@@ -13,8 +13,8 @@
 		</div>
 		<div class="row">
 			<div class="col-md-9 product-model-sec">
-					<div ng-repeat="piece in allPieces | orderBy:sortItem:reverseorder | filter:criterias|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid elements">
-					<a href="dashboard.php?pieces&id={{piece['id']}}">
+					<div ng-repeat="piece in allPieces | orderBy:sortItem:reverseorder | filter:criterias | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid elements">
+					<a target="_self" ng-href="dashboard.php?pieces&id={{piece['id']}}">
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
 							<img ng-src="../productImages/{{ piece['carouselImg']}}" class="img-responsive" alt="">
 						</div>

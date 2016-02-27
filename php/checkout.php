@@ -42,12 +42,7 @@ if(count($cartItems)  > 0) {
 	}
 	$stmt->close();
 
-	// var_dump($cartProducts);
-	$marginFactor = 1 + PROFITPERCENT/100;
-	$overheadFactor = 1 + OVERHEADS/100;
-	$taxFactor = 1 + TAXPERCENT/100;
-
-	$cartTotal = $cartTotal * $marginFactor * $overheadFactor * $taxFactor;
+	$cartTotal = $cartTotal;
 	setlocale(LC_MONETARY, 'en_IN');
 
 }

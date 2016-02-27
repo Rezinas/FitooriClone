@@ -3,7 +3,7 @@
 $db_user = "root";
 $db_pass = "";
 $db_host = "localhost";
-$db_name = "plumms";
+$db_name = "fitoori";
 
 //  $db_user = "samplep1_web";
 // $db_pass = "Site12";
