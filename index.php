@@ -315,7 +315,7 @@
                      <span class="simpleCart_total"> &#8377; 0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
                      </a>
                   </h4>
-                  <p><a href="index.php?checkout">Open cart</a></p>
+                  <p><a href="index.php?checkout">View cart</a></p>
                   <!-- <p><a href="javascript:window.cart.emptyCart();" class="simpleCart_empty">Empty cart</a></p> -->
                   <div class="clearfix"> </div>
                </div>
