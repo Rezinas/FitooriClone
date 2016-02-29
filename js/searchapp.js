@@ -35,6 +35,9 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         if(queryParam.m){
               $scope.selectedMaterial.push(parseInt(queryParam.m,10));
         }
+        if(queryParam.t){
+              $scope.selectedTags.push(queryParam.t);
+        }
 
         $.each($scope.allProducts, function(ix, prd){
              prd.dateAdded = new Date(prd.dateAdded* 1000);
@@ -160,7 +163,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         };
 
         $scope.numberOfPages=function(){
-            return Math.ceil($scope.allProducts.length/$scope.pageSize);
+            return Math.ceil($scope.resultSet.length/$scope.pageSize);
         };
 
 }]);

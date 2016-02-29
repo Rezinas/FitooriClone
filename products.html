@@ -16,7 +16,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-9 product-model-sec">
-					<div ng-repeat="product in allProducts | orderBy:sortItem:reverseorder | filter:criterias|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid adminsearch">
+					<div ng-repeat="product in resultSet =(allProducts | orderBy:sortItem:reverseorder | filter:criterias)|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid adminsearch">
 						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">
 							<div class="more-product"><span> </span></div>
 							<div class="product-img b-link-stripe b-animate-go  thickbox">
@@ -164,8 +164,8 @@
 			<div class="col-xs-12">
 					<div class="pull-right">
 						<button ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</button>
-										<span ng-hide="currentPage == 0 && currentPage >= allProducts.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
-						<button ng-hide="currentPage >= allProducts.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next</button>
+										<span ng-hide="currentPage == 0 && currentPage >= resultSet.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
+						<button ng-hide="currentPage >= resultSet.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next</button>
 					</div>
 			</div>
 		</div>

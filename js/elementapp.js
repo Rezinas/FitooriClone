@@ -113,7 +113,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         };
 
         $scope.numberOfPages=function(){
-            return Math.ceil($scope.allPieces.length/$scope.pageSize);
+            return Math.ceil($scope.resultSet.length/$scope.pageSize);
         };
 
 }]);

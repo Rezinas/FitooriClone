@@ -316,7 +316,7 @@
                      </a>
                   </h4>
                   <p><a href="index.php?checkout">Open cart</a></p>
-                  <p><a href="javascript:window.cart.emptyCart();" class="simpleCart_empty">Empty cart</a></p>
+                  <!-- <p><a href="javascript:window.cart.emptyCart();" class="simpleCart_empty">Empty cart</a></p> -->
                   <div class="clearfix"> </div>
                </div>
             </div>
