@@ -1,78 +1,296 @@
-      <div id="cartDetails" class="show row" style="background-color: #fff;margin-bottom: 30px;">
+<!--  ORIGINAL CODE (BEFORE LAYOUT CHANGE) -->
+<!-- <div id="cartDetails" class="show row" style="background-color: #fff;margin-bottom: 30px;">
+   <div class="container">
+      <div class="cart-items col-lg-9 col-md-9 col-sm-6 col-xs-12" id="cart-items-all">
          <div class="container">
-            <div class="cart-items col-lg-9 col-md-9 col-sm-6 col-xs-12" id="cart-items-all">
-               <div class="container">
-                  <h2>My Shopping Cart</h2>
+            <h2>My Shopping Cart</h2>
+   
+            <?php if(count($cartItems) > 0) {
+      foreach($cartProducts as $prod) { ?>
+                  <div id="cart<?php echo $prod['productid']; ?>" class="cart-header">
+                     <div class="close1"></div>
+                     <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                           <?php if($prod['customized'] == 0) { ?>
+                            <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
+                           <?php }  else  { ?>
+                           <div class="cdesign">
+                              <?php foreach ($prod['design'] as  $des){ ?>
+                              <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
+                                  <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
+                              </div>
+                          <?php } ?>
+                              <?php echo showCustomDesign($des); ?>
+                           </div>
+                           <?php } ?>
+   
+   
+                        </div>
+                        <div class="cart-item-info">
+                           <h3>
+                              <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
+                           </h3>
+                           <div class="delivery">
+                              <p>Unit Price: &#8377;<span class="cartPrice"> <?php echo $prod['price']; ?></span></p><br>
+                              <p>Quantity: &nbsp;<span class="cartQty"> <?php echo $cart[$prod['productid']]; ?></span></p>
+                              <br/>
+                             <p>Gift options not available.<a href="#">&nbsp;Learn more</a></p>
+                             <p><a href="#">Save for later</a> | &nbsp;
+                              <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete">Delete</a></p>
+                              <br />
+                              <p>Service Charges : Rs. 10.00/-</p>
+                              <div class="clearfix"></div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>
+              <?php }
+      }  else { ?>
+                 <p class="text-uppercase">your shopping bag is empty</p>
+            <?php } ?>
+         </div>
+      </div>
+      <?php if(count($cartItems) > 0) { ?>
+   
+      <div id="cart-cost" class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12" style="margin-top: 70px;">
+         <p>Estimated time of delivery : 6 - 10 days </p><br/>
+         <table width="100%">
+            <tr>
+               <th>Total( including Tax)</th>
+               <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+            </tr>
+            <tr>
+               <th>Shipping</th>
+               <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+            </tr>
+            <tr>
+               <th>Grand - Total</th>
+               <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+            </tr>
+         </table>
+         <div id="chkBtn" style="margin-top: 34px;">
+            <center><input type="submit" id="proceed" value="Proceed" style="width:100%;"></center>
+          </div>
+      </div>
+      <?php } ?>
+   
+   </div>
+   </div> -->
 
+<!--  NEW CODE (AFTER LAYOUT CHANGE) -->
+<!-- <div id="cartDetails" class="show row" style="background-color: #fff;margin-bottom: 30px;">
+   <div class="container">
+     <div class="cart-items col-lg-9 col-md-9 col-sm-6 col-xs-12" id="cart-items-all">
+       <div class="container">
+         <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12" style="padding:10px;" >
+           <span>
+             You have <b><?php if(count($cartItems) > 0) echo count($cartItems); else echo "0";?></b> items in your shopping bag
+           </span>
+         </div>
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <div class="panel panel-default">
+             <div class="panel-heading">Currently in your shopping bag</div>
+             <div class="panel-body" id="cart-items-all">
+                <table style="width:100%;">
+                   <tr style="text-align:center;background-color:aliceblue;">
+                      <th style="padding: 10px;">Your Item</th>
+                      <th style="padding: 10px;">Item Price</th>
+                      <th style="padding: 10px;">Quantity</th>
+                      <th style="padding: 10px;">Item Price</th>
+                   </tr>
+                   <?php if(count($cartItems) > 0) {
+      foreach($cartProducts as $prod) { ?> 
+                   <tr>
+                      <td style="padding:10px 0px;" class="cart-header">
+                         <img src="http://placehold.it/150x150" style="float:left;margin-right:20px">
+                         <?php if($prod['customized'] == 0) { ?>
+                         <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="" style="width: 150px;float: left;border: 1px solid #F3f3f3;margin-right: 20px;">
+                         <?php }  else  { ?>
+                         <div class="cdesign">
+                            <?php foreach ($prod['design'] as  $des){ ?>
+                            <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
+                               <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
+                            </div>
+                            <?php } ?>
+                            <?php echo showCustomDesign($des); ?>
+                         </div>
+                         <?php } ?>
+                         <div style="float:left;line-height:2.5;text-transform:uppercase">
+                            <span>
+                            <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>" style="color:#F07818"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> 
+                            </a>
+                            </span><br/>
+                            <span>Item ID : #123456789</span><br/>
+                            <span>Color: Blue</span><br/>
+                            <span>Size: WxH</span><br/>
+                         </div>
+                      </td>
+                    <td><span class="cartPrice">Rs. <?php echo $prod['price']; ?> /-</span><br/><span class="cartPrice" style="color:#F07818;"s>DISCOUNT</span><br/><span class="cartPrice" style="text-decoration:line-through;color:#7D7A7A">Rs.500 /-</span></td>
+                    <td> 
+                         <input type="text" name="qty" id="qty" class="cartQty" value="<?php echo $cart[$prod['productid']]; ?>" style="width: 50px;
+                            text-align: center;" /><br/>
+                         <a href="#" class="cartUpdate" style="color:#555">Update Quantity</a><br/>
+                         <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete" style="color:#555">Delete Product</a><br/>
+                         <a href="#" class="cartMove" style="color:#555">Move to wishlist</a>
+                      </td>
+                      <td>
+                         <span class="cartPrice">Rs. <?php echo $prod['price']; ?> /-</span>
+                      </td>
+                   </tr>
+                   <?php }
+      } else { ?>
+                   <p class="text-uppercase">your shopping bag is empty</p>
+                   <?php } ?>
+                </table>
+             </div>
+             <?php if(count($cartItems) > 0) { ?>
+             <div id="cart-cost" class="cart-items col-lg-12 col-md-12 col-sm-12 col-xs-12;" style="text-align:right;background-color:aliceblue; box-shadow:1px 1px 1px #ccc;margin:10px 0;padding:10px;border-radius:3px" >
+                <p>Estimated time of delivery : 8 - 14 business days </p>
+                <br/>
+                <table width="100%"style="float:right;">
+                   <tr>
+                      <th>SUB TOTAL <b><?php echo count($cartItems); ?></b> ITEMS (INCLUDING TAX)</th>
+                      <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+                   </tr>
+                   <tr>
+                      <th >SHIPPPING AND HANDLING</th>
+                      <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                   </tr>
+                   <tr>
+                      <th style="color:#F07818;">GRAND - TOTAL</th>
+                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+                   </tr>
+                </table>
+                <br/>
+                <div id="chkBtn">
+                   
+                   <span style="position: relative;top: 25px;margin-right: 18px;font-size:13px;">Use Credits&nbsp;<i class="fa fa-chevron-down"></i></span><input type="submit" id="proceed" value="PROCEED TO SHIPPING">
+                </div>
+               <p style="top: 40px;position: relative;right: -162px;">Estimated time of delivery : 8 - 14 business days </p>
+             </div>
+             <?php } ?>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   </div> -->
+
+<div id="cartDetails" class="show row" style="background-color: #fff;margin-bottom: 30px;">
+   <div class="container">
+      <div class="cart-items col-lg-12 col-md-12 col-sm-12 col-xs-12" id="cart-items-all">
+         <div class="container">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height: 30px;">
+               <span>
+               You have <b><?php if(count($cartItems) > 0) echo count($cartItems); else echo "0";?></b> items in your shopping bag
+               </span>
+            </div>
+            <div class="panel panel-default" id="panelCart" style="border:0px;box-shadow:none;">
+              <div class="panel-heading">                   
+                <span>Currently in your shopping bag</span>
+              </div>
+              <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
+                <table style="width:100%;">
+                  <tr>
+                    <th>Your Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>                  
+                  </tr>
                   <?php if(count($cartItems) > 0) {
                      foreach($cartProducts as $prod) { ?>
-                        <div id="cart<?php echo $prod['productid']; ?>" class="cart-header">
+                      <tr>
+                        <td>
+                          <div id="cart<?php echo $prod['productid']; ?>" class="cart-header">
                            <!-- <div class="close1"></div> -->
-                           <div class="cart-sec simpleCart_shelfItem">
+                            <!--  <div class="cart-sec simpleCart_shelfItem"> -->
                               <div class="cart-item cyc">
                                  <?php if($prod['customized'] == 0) { ?>
-                                  <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
+                                    <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
                                  <?php }  else  { ?>
                                  <div class="cdesign">
                                     <?php foreach ($prod['design'] as  $des){ ?>
                                     <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
-                                        <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
+                                       <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
                                     </div>
-                                <?php } ?>
-                                    <!-- <?php echo showCustomDesign($des); ?> -->
+                                    <?php } ?>
+                                    <?php echo showCustomDesign($des); ?>
                                  </div>
                                  <?php } ?>
-
-
                               </div>
-                              <div class="cart-item-info">
-                                 <h3>
-                                    <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
-                                 </h3>
-                                 <div class="delivery">
-                                    <p>Unit Price: &#8377;<span class="cartPrice"> <?php echo $prod['price']; ?></span></p><br>
-                                    <p>Quantity: &nbsp;<span class="cartQty"> <?php echo $cart[$prod['productid']]; ?></span></p>
-                                    <br/>
-                                   <!--  <p>Gift options not available.<a href="#">&nbsp;Learn more</a></p> -->
-                                   <p><!-- <a href="#">Save for later</a> | --> &nbsp;
-                                    <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete">Delete</a></p>
-                                    <br />
-                                    <!-- <p>Service Charges : Rs. 10.00/-</p>  -->
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-                              <div class="clearfix"></div>
-                           </div>
-                        </div>
-                    <?php }
+                             <div class="cart-item-info">
+                               <span>
+                                  <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
+                               </span>
+                               <div class="delivery">
+                                  <p>Item ID: &nbsp;<span>#12345</span></p>
+                                  <br>
+                                  <p>Color: &nbsp;<span>Blue</span></p>
+                                  <br/>
+                                  <p>Size: &nbsp;<span>W x H</span></p>
+                                </div> 
+                            </div>                             
+                           <!-- </div> -->
+                          </div>
+                        </td>
+                        <td class="links">
+                          <div>
+                            <input type="text" value="<?php echo $cart[$prod['productid']]; ?>" class="cartQty">
+                          </div>
+                          <div>
+                            <a href="#">Update Quantity</a>
+                          </div>
+                          <div>
+                            <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete">Delete Product</a>
+                          </div>
+                          <div>
+                            <a href="#">Move to Wishlist</a>
+                          </div>                        
+                        </td>
+                        <td>
+                          <div class="cartPrice">
+                              Rs. <?php echo $prod['price']; ?>
+                          </div>
+                        </td>
+                      </tr>
+                  <?php }
                      }  else { ?>
-                       <p class="text-uppercase">your shopping bag is empty</p>
+                  <p class="text-uppercase">your shopping bag is empty</p>
                   <?php } ?>
-               </div>
-            </div>
-            <?php if(count($cartItems) > 0) { ?>
-
-            <div id="cart-cost" class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12" style="margin-top: 70px;">
-               <p>Estimated time of delivery : 6 - 10 days </p><br/>
-               <table width="100%">
-                  <tr>
-                     <th>Total( including Tax)</th>
-                     <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
-                  </tr>
-                  <tr>
-                     <th>Shipping</th>
-                     <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
-                  </tr>
-                  <tr>
-                     <th>Grand - Total</th>
-                     <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
-                  </tr>
-               </table>
-               <div id="chkBtn" style="margin-top: 34px;">
-                  <center><input type="submit" id="proceed" value="Proceed" style="width:100%;"></center>
-                </div>
-            </div>
-            <?php } ?>
-
+                  <?php if(count($cartItems) > 0) { ?>
+                </table>
+              </div>
+           </div>
          </div>
       </div>
+      <div id="cart-cost" class="cart-items col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <div class="tableClass">
+            <table>
+               <tr>
+                  <th>Total( including Tax)</th>
+                  <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+               </tr>
+               <tr>
+                  <th>Shipping</th>
+                  <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+               </tr>
+               <tr>
+                  <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
+                  <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+               </tr>
+            </table>
+         </div>
+         <div id="chkBtns">            
+            <input type="submit" id="proceed" value="Proceed to Shipping">
+         </div>
+         <div class="estimate">
+            <p>
+               Use Credits&nbsp;<i class="fa fa-chevron-down"></i>
+            </p>
+            <br/>
+            <p>Estimated time of delivery : 6 - 10 days </p>
+         </div>
+         <?php } ?>      
+      </div>
+   </div>
+</div>
