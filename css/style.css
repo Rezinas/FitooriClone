@@ -177,7 +177,26 @@ b.caret {
     cursor: inherit;
     display: block;
 }
-
+.container.ng-scope h2 {
+    border-bottom: 1px solid #eee;
+}
+select.ng-pristine.ng-untouched.ng-valid {
+    height: 40px;
+    position: relative;
+    top: 11px;
+    border-radius: 5px;
+    width: 185px;
+    padding: 7px;
+    font-size: 16px;
+    border-color: #f07818;
+}
+.container.ng-scope {
+    position: relative;
+    margin-top: -20px;
+}
+.product-model-sec{       
+        border-left: 1px solid #eee 
+}
 @media (max-width: 767px) {
 	.dropdown-menu.multi-column {
 		min-width: 240px !important;
@@ -190,6 +209,7 @@ b.caret {
 		margin: 50px auto;
 		padding: 10px;
 	}
+    
 }
 /*--//navigation--*/
 /*--//start menu--*/
@@ -1107,9 +1127,13 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
 .products-row a:hover{
 	text-decoration:none;
 }
+/* .product-img img {
+    width: 100%;
+    padding:1em 2.5em 0;
+} */
 .product-img img {
-	width: 100%;
-	padding:1em 2.5em 0;
+    width: 100%;
+    padding: 2em 2.5em 2em 2.5em;
 }
 .customised {
     border:0px solid #fbfbfb;
@@ -1163,7 +1187,7 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
     border-color: #5D4B33;
     color: #5D4B33;
     text-decoration: none;
-    border:2px solid;
+    border:1px solid;
 }
 .product-info-price {
 	float: right;
@@ -1685,9 +1709,11 @@ h4.panel-title a {
 }
 .panel-body {
   padding: 15px;
-  color: #999;
+  /* color: #999; */
+  color: #555;
   line-height: 1.8em;
   font-size: 1em;
+  font-weight: bold;
 }
 .panel-default > .panel-heading {
   color: #fff;
@@ -2038,7 +2064,8 @@ a.order:hover{
 }
 .total-item,.cart-items{
 	margin-top:0em;
-	padding:5em 0;
+	/* padding:5em 0; */
+    padding:1em 0;
 }
 
 .total-item h3 {
@@ -2263,13 +2290,17 @@ i.sele{
     width: 22%;
 }
 /*--contact & about--*/
+/* .contact {
+    background: #f3f3f3;
+    padding: 7em 0;
+} */
 .contact {
-	background: #f3f3f3;
-	padding: 7em 0;
+    background: #fff;
+    padding: 6em 0px 0px 0px;
 }
 .about {
     background: #f3f3f3;
-    padding: 8em 0;
+    padding: 4em 0px 0px 0px;
 }
 .about ul li {
     /* margin-left:34px; */
@@ -2439,45 +2470,104 @@ span.glyphicon.glyphicon-map-marker {
 }
 }
 @media(max-width:1366px){
-.search {
-    /*right: 18%;*/
-    right:185px;
-}
-#loginBox {
-    /*right: 13%;*/
-    right:127px;
-}
-.cart-box {
-   /* right: 7%;*/
-   right:58px;
-}
-.track{
-    /*right:18%;*/
-    right:20px;
-}
+    .navbar-default .navbar-nav > li > a{
+        font-size: 1.2em;
+    }
+    .about-infom p, center{
+        font-size: 1.3em;
+     } 
+     .about {
+        background: #f3f3f3;
+        padding: 6em 0 0 0;
+    }
+    .about ul li{
+        font-size: 1.2em;
+    }
+    .about-inform h4{
+        font-size: 19px;
+    }
+    .contact-infom p{
+        font-size:1.3em;
+    }
+    .contact ul li{
+        font-size: 1.2em;
+    }
+    .contact-form .btn1{
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    ul.size h3{
+        font-weight: normal;
+    }
+    .address p{
+        font-size: 1.2em;
+    }
+    .address a{
+        font-size: 1.1em;
+    }
+    .search {
+        /*right: 18%;*/
+        right:185px;
+    }
+    #loginBox {
+        /*right: 13%;*/
+        right:127px;
+    }
+    .cart-box {
+       /* right: 7%;*/
+       right:58px;
+    }
+    .track{
+        /*right:18%;*/
+        right:20px;
+    }
+    .gallery {       
+        padding: 0em 0 2em 0;
+        margin-top: -120px;
+    }   
+    .galy-info p{
+        font-size:1.2em;
+    }
+    .footer-bottom p{
+            font-size: 1.2em;
+
+    }
+    
+
+    .footer-grid ul li a{
+        font-size: 1.2em;
+    }
 }
 @media(max-width:1280px){
-.dropdown-menu.columns-4 {
+
+    .about-infom p, center{
+    font-size: 1.5em;
+    }   
+    .dropdown-menu.columns-4 {
     min-width: 605px;
-}
-.dropdown-menu.columns-3 {
+    }
+    .dropdown-menu.columns-3 {
     min-width: 430px;
-}
-.search {
+    }
+    .search {
     /*right: 16%;*/
     right:170px;
-}
-#loginBox {
-   /* right: 10.5%;*/
-   right:116px;
-}
-.cart-box {
+    }
+    #loginBox {
+    /* right: 10.5%;*/
+    right:116px;
+    }
+    .cart-box {
     /*right: 4%;*/
     right:52px;
-}
-.track {
+    }
+    .track {
     right:20px;
-}
+    }
+    .footer-bottom p{
+        font-size: 1.5em;
+
+    }
 }
 @media(max-width:1080px){
 .navbar-default .navbar-nav > li > a {
@@ -3925,9 +4015,6 @@ h2 {
 h4.panel-title {
     margin: 0;
 }
-
-
-
 /*--//responsive-design---*/
 
 /* ---------------------------------------------------------------

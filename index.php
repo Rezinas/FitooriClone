@@ -104,6 +104,7 @@
       <?php if($currenttab == "checkout") { ?>
         <link href="css/cartpage.css" type="text/css" rel="stylesheet" media="all">
         <script src="js/checkout.js"></script>
+        <script src="js/checkoutMenu.js"></script>
       <?php  } ?>
 
       <?php if($currenttab == "single") {?>
@@ -164,7 +165,7 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                </button>
-               <h1 class="navbar-brand"><img src="images/logo1.png"  class="img-responsive" style="    position: relative;top: -13px;float: left;"/><a  href="index.php">Fitoori</a></h1>
+               <h1 class="navbar-brand"><img src="images/logo1.png"  class="img-responsive" style="position: relative;top: -13px;float: left;"/><a  href="index.php" class="hidden-xs">Fitoori</a></h1>
             </div>
             <!--navbar-header-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

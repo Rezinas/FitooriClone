@@ -91,12 +91,12 @@
                               <input type="submit" id="submitEmail" value="Sumit" name="submit" class="hide">
                            </form>
                         </div>
-                        <div class="col-xs-12 col-sm-6">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                            <form class="form-guest-checkout">
                               <p id="title-p">Guest Checkout</p>                             
-                              <button class="btn btn-primary ">Continue as Guest</button>
+                              <input type="submit" value="Continue as Guest">
                               <div>OR</div><br/>
-                              <a class="btn btn-sm btn-link" href="index.php?register"> Register</a>
+                              <a href="index.php?register"> Register</a>
                            </form>
                         </div>
                      </div>
@@ -109,7 +109,7 @@
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h4 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Shopping Details</a>
+                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Shipping Details</a>
                      </h4>
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse">
@@ -189,13 +189,13 @@
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h4 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Place Order</a>
+                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Order Confirmation</a>
                      </h4>
                   </div>
                   <div id="collapseThree" class="panel-collapse collapse">
                      <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
                         <h4 style="margin-bottom:-45px"><center>Thank you for shopping at Fitoori. You will recieve a mail shortly, with relevant order details. </center></h4><br/>
-                        <h4>Order Summary</h4>
+                        <!-- <h4>Order Summary</h4> -->
                         <!-- <div class="cart-header">
                            <div class="cart-sec simpleCart_shelfItem" style="margin-bottom: 1.2em;">
                               <div class="cart-item cyc">
@@ -322,6 +322,7 @@
             </div>
          </div>
          <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 single-grid1">
+            <h4>Order Summary</h4>
             <ul>
                <li><b>Order ID :</b> 123456789</li>
                <li><b>Total :</b> Rs. 1580/-</li>

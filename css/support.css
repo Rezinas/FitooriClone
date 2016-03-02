@@ -35,3 +35,13 @@
   border-radius: 4px;
   height: 35px;
 }
+
+@media(max-width:1366px){
+  .contact-form select{
+    width: 96%;
+    font-size: 14.5px;
+  }
+  .contact-form input[type="text"], .contact-form textarea{
+    font-size: 14.5px;
+  }
+}

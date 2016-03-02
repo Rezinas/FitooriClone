@@ -108,7 +108,9 @@ section.sky-form{
 .sky-form .radio input:checked + i,
 .sky-form .checkbox input:checked + i,
 .sky-form .toggle input:checked + i {
-	border-color:#888;	
+	/* border-color:#888;	 */
+	border-color: #ccc;
+    background-color: #555;
 }
 /*-- start scrollpane --*/
 .jspContainer{
@@ -197,5 +199,10 @@ section.sky-form{
 	}
 	.sky-form .radio, .sky-form .checkbox {
 		font-size: 12px;
-	}
+	}	
+}
+@media screen and (max-width:1366px){
+	.sky-form .radio, .sky-form .checkbox{
+    	font-size: 14.5px;
+   }	
 }

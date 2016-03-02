@@ -285,6 +285,7 @@ input#proceed{
   top: -31px;
   position: relative;
   float: right;
+  right: 30px;
 
 }
 .cart-items img {
@@ -531,6 +532,7 @@ border-bottom: 1px solid #eee;
   position: relative;
   width: 100%;
   margin-top: -20px;
+  right: 30px;
 }
 #cart-cost .estimate p{
   text-align: right;
@@ -556,6 +558,26 @@ border-bottom: 1px solid #eee;
   background-color: white;
 }
 
+form.form-guest-checkout input[type="submit"] {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 4px 0;
+    width: 30%;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 0 0;
+    font-size: 14px;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    top: 0;
+    position: relative;
+    margin-right: 0px;
+    font-weight: normal;
+}
 input#login {
     border: 2px solid #F07818;
     color: #fff;
@@ -576,10 +598,14 @@ input#login {
     margin-right: 0px;
     font-weight: normal;
 }
-input#login:hover {
+input#login:hover,form.form-guest-checkout input[type="submit"]:hover {
   background-color: #5D4B33;
   color: #FFFFFF;
   border-color: #5D4B33;
+}
+form.form-guest-checkout a{
+  color:#333;
+  margin-left: 33px;
 }
 .row h4{
     font-size: 16px;

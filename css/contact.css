@@ -12,3 +12,9 @@
 .contact-form .form-group#textareaForm {
   width:96%;
 }
+@media(max-width:1366px){
+	.contact-form input[type="text"], .contact-form textarea{
+		font-size: 14.5px;
+	}
+
+}
