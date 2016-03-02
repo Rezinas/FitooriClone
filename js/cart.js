@@ -1,6 +1,8 @@
 var cart = {
 	items : [],
 	itemsTotal: 0,
+	shipping: [],
+
 	formatCurrency: function (total) {
 	    var neg = false;
 	    if(total < 0) {
@@ -21,6 +23,7 @@ var cart = {
 		  $.getJSON( "php/ajax.php?getCart", function(json){
 		      	 self.items=json.productids;
 		      	 self.itemsTotal=parseFloat(json.totalPrice, 10);
+		      	 self.shipping=json.shipping;
 		      	 self.updateCartPopup();
 		        });
 	},

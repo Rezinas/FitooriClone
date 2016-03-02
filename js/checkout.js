@@ -2,29 +2,42 @@ $(document).ready(function (c) {
 
   $(".cartDelete").on('click', function(e){
       var thisId = (this.id).split("_");
-      var qtyObj = $("div#cart"+thisId[1]).find("span.cartQty");
-      var priceObj = $("div#cart"+thisId[1]).find("span.cartPrice");
-      console.log(qtyObj);
-      var currQty = $.trim(qtyObj.html());
+      var qtyObj = $("tr#cart"+thisId[1]).find("input.cartQty");
+      var priceObj = $("tr#cart"+thisId[1]).find("span.cartPrice");
+      var currQty = $.trim(qtyObj.val());
       var currPrice = $.trim(priceObj.html());
       if(currQty-1 != 0) {
-         qtyObj.html(currQty-1)
+         qtyObj.val(currQty-1);
       }
       else {
-        $("div#cart"+thisId[1]).html("1 Item removed");
+        $("tr#cart"+thisId[1]).remove();
       }
       window.cart.removeItem(currQty, currPrice);
-      var updatedQty = window.cart.getCartTotalItems();
-      if(updatedQty == 0) {
-          $("div#cart-items-all").find(".cart-header").remove();
-          $("div#cart-cost").empty();
-          $("div#cart-items-all").append("<p class='text-uppercase'>your shopping bag is empty</p>");
+      var updatedTotalQty = window.cart.getCartTotalItems();
+      if(updatedTotalQty == 0) {
+          $(".cartRows").remove();
+          $("#emptyCartMsg").removeClass("hide");
       }
       else {
           var updatedPrice=window.cart.getCartTotalPrice();
           $("#subTotal").html(window.cart.formatCurrency(updatedPrice));
           $("#grandTotal").html( window.cart.formatCurrency(updatedPrice+ window.cart.shipping[0]));
       }
+  });
+
+   $(".cartUpdate").on('click', function(e){
+      var thisId = (this.id).split("_");
+      var qtyObj = $("tr#cart"+thisId[1]).find("input.cartQty");
+      var priceObj = $("tr#cart"+thisId[1]).find("span.cartPrice");
+      var currQty = $.trim(qtyObj.val());
+      var currPrice = $.trim(priceObj.html());
+      currQty = parseInt(currQty, 10);
+      qtyObj.val(currQty +1)
+      window.cart.updateCart(currQty, currPrice);
+
+      var updatedPrice=window.cart.getCartTotalPrice();
+      $("#subTotal").html(window.cart.formatCurrency(updatedPrice));
+      $("#grandTotal").html( window.cart.formatCurrency(updatedPrice+ window.cart.shipping[0]));
   });
 
 

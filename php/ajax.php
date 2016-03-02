@@ -3,7 +3,10 @@ require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
 
 if(isset($_REQUEST["cartUpdate"])) {
     $_SESSION['cartids'] = $_POST['productids'];
-    $_SESSION['cartPrice'] = $_POST['totalPrice'];
+
+    $totalPrice = $_POST['totalPrice'];
+    if($totalPrice == "0") $totalPrice =0;
+    $_SESSION['cartPrice'] = $totalPrice;
   exit();
 }
 if(isset($_REQUEST["getCart"])) {
@@ -11,7 +14,9 @@ if(isset($_REQUEST["getCart"])) {
   $cprice = isset($_SESSION['cartPrice']) ? $_SESSION['cartPrice'] : 0;
       $jsondata = array(
       "productids"  => $cpids,
-      "totalPrice"  => $cprice
+      "totalPrice"  => $cprice,
+      "shipping" => [SHIPPINGCHARGES_SMALL, SHIPPINGCHARGES_MEDIUM, SHIPPINGCHARGES_LARGE]
+
     );
     echo json_encode($jsondata);
   exit();
