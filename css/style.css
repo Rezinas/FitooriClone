@@ -74,11 +74,17 @@ body a:hover{
 li.list {
     display: block;
     color: #999;
-    line-height: 2.5em;    
+    line-height: 2.5em;
     font-size: 14px;
 }
 li.list sup{
-    color:#f07818;
+    color: #fff;
+    background: #f07818;
+    padding: 2px 5px;
+    left: -1em;
+    border-radius: 4px;
+    font-size: 73%;
+    top: -1em;
 }
 nav.navbar.navbar-default {
     background: none;
@@ -208,8 +214,8 @@ select.ng-pristine.ng-untouched.ng-valid {
     position: relative;
     margin-top: -20px;
 }
-.product-model-sec{       
-        border-left: 0px solid #eee 
+.product-model-sec{
+        border-left: 0px solid #eee
 }
 @media (max-width: 767px) {
 	.dropdown-menu.multi-column {
@@ -223,7 +229,7 @@ select.ng-pristine.ng-untouched.ng-valid {
 		margin: 50px auto;
 		padding: 10px;
 	}
-    
+
 }
 /*--//navigation--*/
 /*--//start menu--*/
@@ -1117,7 +1123,7 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
 	-moz-transition: 0.5s all;
 	-o-transition: 0.5s all;
 	min-height: 200px;
-    border:1px solid #F07818;  
+    border:1px solid #F07818;
 }*/
 .product-grid {
     width: 19%;
@@ -1129,7 +1135,7 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     min-height: 200px;
-    border: 1px solid #eee; 
+    border: 1px solid #eee;
 }
 .product-grid:hover {
 	/*z-index: 1;*/
@@ -2525,7 +2531,7 @@ span.glyphicon.glyphicon-map-marker {
     }
     .about-infom p, center{
         font-size: 1.3em;
-     } 
+     }
      .about {
         background: #f3f3f3;
         padding: 6em 0 0 0;
@@ -2571,10 +2577,10 @@ span.glyphicon.glyphicon-map-marker {
         /*right:18%;*/
         right:20px;
     }
-    .gallery {       
+    .gallery {
         padding: 0em 0 2em 0;
         margin-top: -120px;
-    }   
+    }
     .galy-info p{
         font-size:1.2em;
     }
@@ -2582,7 +2588,7 @@ span.glyphicon.glyphicon-map-marker {
             font-size: 1.2em;
 
     }
-    
+
 
     .footer-grid ul li a{
         font-size: 1.2em;
@@ -2592,7 +2598,7 @@ span.glyphicon.glyphicon-map-marker {
 
     .about-infom p, center{
     font-size: 1.5em;
-    }   
+    }
     .dropdown-menu.columns-4 {
     min-width: 605px;
     }

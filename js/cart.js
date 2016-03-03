@@ -58,6 +58,7 @@ var cart = {
 	updateCart : function(pid, pprice){
 		//add a cart item to the cart object and update the cart total items
 		pprice = parseFloat(pprice, 10);
+		pid = pid+"";
 		this.items.push(pid);
 		this.itemsTotal = this.itemsTotal + pprice;
 		this.updateCartPopup();

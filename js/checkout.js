@@ -1,24 +1,18 @@
 $(document).ready(function (c) {
 
-  $(".cartDelete").on('click', function(e){
-      var thisId = (this.id).split("_");
-      var qtyObj = $("tr#cart"+thisId[1]).find("input.cartQty");
-      var priceObj = $("tr#cart"+thisId[1]).find("span.cartPrice");
-      var rowTotalObj = $("tr#cart"+thisId[1]).find("span.rowTotal");
-      var currQty = parseInt($.trim(qtyObj.val()), 10);
-      var currPrice = parseFloat($.trim(priceObj.html()), 10);
-      currQty--;
-      var rowTotalPrice = currPrice * currQty;
-      if(currQty != 0) {
-         qtyObj.val(currQty);
-         rowTotalObj.html(rowTotalPrice);
+  $(".removeItem").on('click', function(e){
+    var thisId = (this.id).split("_");
+    var qtyObj = $("tr#cart"+thisId[1]).find(".cartQty");
+    var priceObj = $("tr#cart"+thisId[1]).find(".cartPrice");
+    var currQty = parseInt($.trim(qtyObj.html()), 10);
+    var currPrice = parseFloat($.trim(priceObj.html()), 10);
 
-      }
-      else {
-        $("tr#cart"+thisId[1]).remove();
-      }
-      window.cart.removeItem(currQty, currPrice);
-      var updatedTotalQty = window.cart.getCartTotalItems();
+    for(var i=0; i<currQty; i++){
+      window.cart.removeItem(thisId[1], currPrice);
+    }
+
+     $("tr#cart"+thisId[1]).remove();
+    var updatedTotalQty = window.cart.getCartTotalItems();
       if(updatedTotalQty == 0) {
           $(".cartRows").remove();
           $("#emptyCartMsg").removeClass("hide");
@@ -29,16 +23,40 @@ $(document).ready(function (c) {
           $("#grandTotal").html( window.cart.formatCurrency(updatedPrice+ window.cart.shipping[0]));
       }
   });
+  $(".cartDelete").on('click', function(e){
+      var thisId = (this.id).split("_");
+      var qtyObj = $("tr#cart"+thisId[1]).find(".cartQty");
+      var priceObj = $("tr#cart"+thisId[1]).find(".cartPrice");
+      var rowTotalObj = $("tr#cart"+thisId[1]).find(".rowTotal");
+      var currQty = parseInt($.trim(qtyObj.html()), 10);
+      var currPrice = parseFloat($.trim(priceObj.html()), 10);
+      currQty--;
+      var rowTotalPrice = currPrice * currQty;
+      qtyObj.html(currQty);
+      rowTotalObj.html(rowTotalPrice);
+      if(currQty == 1) {
+        $("tr#cart"+thisId[1]).find(".cartDelete").addClass('hide');
+      }
+      window.cart.removeItem(thisId[1], currPrice);
+
+  });
 
    $(".cartUpdate").on('click', function(e){
       var thisId = (this.id).split("_");
-      var qtyObj = $("tr#cart"+thisId[1]).find("input.cartQty");
-      var priceObj = $("tr#cart"+thisId[1]).find("span.cartPrice");
-      var currQty = $.trim(qtyObj.val());
-      var currPrice = $.trim(priceObj.html());
+      var qtyObj = $("tr#cart"+thisId[1]).find(".cartQty");
+      var priceObj = $("tr#cart"+thisId[1]).find(".cartPrice");
+      var rowTotalObj = $("tr#cart"+thisId[1]).find(".rowTotal");
+
+      var currQty = $.trim(qtyObj.html());
+      var currPrice = parseFloat($.trim(priceObj.html()), 10);
       currQty = parseInt(currQty, 10);
-      qtyObj.val(currQty +1)
-      window.cart.updateCart(currQty, currPrice);
+      qtyObj.html(++currQty);
+
+      var rowTotalPrice = currPrice * currQty;
+      rowTotalObj.html(rowTotalPrice);
+
+      window.cart.updateCart(thisId[1], currPrice);
+      $("tr#cart"+thisId[1]).find(".cartDelete").removeClass('hide');
 
       var updatedPrice=window.cart.getCartTotalPrice();
       $("#subTotal").html(window.cart.formatCurrency(updatedPrice));

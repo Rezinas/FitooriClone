@@ -91,7 +91,11 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 					<a href="#" class="add-cart item_add">ADD TO CART</a>
 				</div>
 				<div class="tag">
-					<p>Tag : <a href="#"> <?php echo $parr['tags']; ?> </a></p>
+					<?php
+						$qtag = $parr['tags'];
+						$url = (isAgent())? SITE_URL."admin/dashboard.php?search&amp;m=$mat" : SITE_URL."index.php?products&amp;t=$qtag";
+					?>
+					<p>Tag : <a href="<?php echo $url; ?>"> <?php echo $parr['tags']; ?> </a></p>
 				</div>
 			</div>
 			<div class="col-md-4 single-grid1">

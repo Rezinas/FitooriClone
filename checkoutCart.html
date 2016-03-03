@@ -1,28 +1,12 @@
 <!-- Checkout -->
 <div class="about" style="background-color:#fff">
    <!-- START STEPS -->
-   <div class="container">
       <h2>Cart Page</h2>
-         <div class="breadcrumb flat" id="lgScreen">
-            <a href="#" class="active">My Shopping Bag</a>
-            <a href="#">Shipping</a>
-            <a href="#">Payment</a>
-            <a href="#">Order Summary</a>
-         </div>
-         <div class="breadcrumb flat" id="smScreen">
-            <a href="#" class="active">&nbsp;</a>
-            <a href="#">&nbsp;</a>
-            <a href="#">&nbsp;</a>
-            <a href="#">&nbsp;</a>
-         </div>
-    </div>
     <hr/>
    <!-- END STEPS -->
    <!-- START CARTDETAILS  -->
-      <div id="cartDetails" class="show row" style="background-color: #fff;margin-bottom: 30px;">
-   <div class="container">
-      <div class="cart-items col-lg-12 col-md-12 col-sm-12 col-xs-12" id="cart-items-all">
-         <div class="container">
+   <div id="cartDetails"  class="container">
+         <div class="cart-items col-lg-8 col-md-8 col-sm-6 col-xs-12" id="cart-items-all">
             <div class="panel panel-default" id="panelCart" style="border:0px;box-shadow:none;">
               <div class="panel-heading">
                 <span>Currently in your shopping bag</span>
@@ -31,9 +15,8 @@
                 <table style="width:100%;">
                   <tr>
                     <th>Your Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Item Total</th>
+                    <th>Quantity / Price</th>
+                    <th>Total Amount</th>
 
                   </tr>
                   <?php if(count($cartItems) > 0) {
@@ -61,9 +44,11 @@
                                <div class="delivery">
                                   <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
                                   <br>
-                                  <p>Color: &nbsp;<span>Blue</span></p>
+                                  <p>Type: &nbsp;<span><?php echo $prod['material']; ?></span></p>
                                   <br/>
                                   <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
+                                  <br/>
+                                  <p><a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove From Cart</a></p>
                                 </div>
                             </div>
                            <!-- </div> -->
@@ -71,23 +56,19 @@
                         </td>
                         <td class="links">
                           <div>
-                            <input type="text" value="<?php echo $cart[$prod['productid']]; ?>" class="cartQty">
-                          </div>
-                          <div>
-                            <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate">+ Add</a>
-                            <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete">- Remove</a>
+                            <span class="cartQty"><?php echo $cart[$prod['productid']]; ?> </span>
+                             <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
+                             <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete <?php if($cart[$prod['productid']] == 1)  echo 'hide'; ?>"><i class="fa  fa-minus-circle"></i></a>
+
+                              / Rs. <span class="cartPrice"> <?php echo $prod['price'];?> </span>
+
+
                           </div>
                             <!-- <div><a href="#">Move to Wishlist</a></div>-->
                         </td>
+
                         <td>
-                          <div>
-                              Rs. <span class="cartPrice"> <?php echo $prod['price'];?> </span>
-                          </div>
-                        </td>
-                        <td>
-                          <div>
                               Rs. <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span>
-                          </div>
                         </td>
                       </tr>
                   <?php }
@@ -96,15 +77,15 @@
                 </table>
               </div>
            </div>
-         </div>
       </div>
 
        <?php if(count($cartItems) > 0) { ?>
 
-      <div id="cart-cost" class="cart-items col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         <div class="estimate">
-            <p>Estimated time of delivery : 6 - 10 days </p>
-         </div>
+      <div id="cart-cost" class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="panel-heading">
+         <h4>Cart Summary</h4>
+      </div>
+       <p>Estimated time of delivery : 6 - 10 days </p>
          <div class="tableClass">
             <table>
                <tr>
@@ -126,12 +107,19 @@
             <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
          </div>
 
+      <div class="cart-items" style="min-height: 500px;">
+         <h4>You May Also Like</h4>
+
+<!-- these should be maximum 2 suggestions here. if this and the summary are two separate panels it will be good -->
+         <img src="images/m11.png" alt="">
+         <img src="images/m77.png" alt="">
       </div>
+
+      </div>
+
+
          <?php } ?>
    </div>
 </div>
-   <!-- END CART DETAILS -->
 
 
-</div>
-<!--//Checkout-->
