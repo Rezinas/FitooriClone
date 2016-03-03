@@ -1,0 +1,274 @@
+<!-- Order Page -->
+<div class="" style="background-color:#fff">
+   <!-- START STEPS -->
+   <div class="container">
+      <h2>Cart Page</h2>
+         <div class="breadcrumb flat" id="lgScreen">
+            <a href="#">My Shopping Bag</a>
+            <a href="#" class="active">Shipping</a>
+            <a href="#">Payment</a>
+            <a href="#">Order Summary</a>
+         </div>
+         <div class="breadcrumb flat" id="smScreen">
+            <a href="#" class="active">&nbsp;</a>
+            <a href="#">&nbsp;</a>
+            <a href="#">&nbsp;</a>
+            <a href="#">&nbsp;</a>
+         </div>
+    </div>
+    <hr/>
+<!-- REST OF CHECKOUT -->
+<div class="container">
+      <div id="shippingDetails" class="row" style="background-color: #fff;margin-bottom: 30px;">
+      <div id="cart-cost" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <h4>Order Summary</h4>
+                       <table style="width:100%;">
+                                <?php if(count($cartItems) > 0) {
+                                 foreach($cartProducts as $prod) { ?>
+                                  <tr>
+                                    <td>
+                                      <div id="cart<?php echo $prod['productid']; ?>" class="cart-header">
+                                       <!-- <div class="close1"></div> -->
+                                        <!--  <div class="cart-sec simpleCart_shelfItem"> -->
+                                          <div class="cart-item cyc" style="width: 50%;">
+                                             <?php if($prod['customized'] == 0) { ?>
+                                                <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
+                                             <?php }  else  { ?>
+                                             <div class="cdesign">
+                                                <?php foreach ($prod['design'] as  $des){ ?>
+                                                <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
+                                                   <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
+                                                </div>
+                                                <?php } ?>
+                                                <?php echo showCustomDesign($des); ?>
+                                             </div>
+                                             <?php } ?>
+                                          </div>
+                                         <div class="cart-item-info">
+                                           <span>
+                                              <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
+                                           </span>
+                                           <div class="delivery">
+                                              <p>Item ID: &nbsp;<span>#12345</span></p>
+                                              <br>
+                                              <p>Color: &nbsp;<span>Blue</span></p>
+                                              <br/>
+                                              <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
+                                              <br>
+                                              <p>Quantity: &nbsp;<span> <?php echo $cart[$prod['productid']]; ?></span></p>
+                                               <br>
+                                              <p>Price: &nbsp;<span>  Rs. <?php echo $prod['price']; ?></span></p>
+                                                <br>
+                                              <p>Total: &nbsp;<span>  Rs. <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span></p>
+                                            </div>
+                                        </div>
+                                       <!-- </div> -->
+                                      </div>
+                                  </tr>
+                              <?php }
+                                 }  ?>
+                        </table>
+            <!-- <ul>
+                <li><b>Order ID :</b> 123456789</li>
+               <li><b>Total :</b> Rs. 1580/-</li>
+               <li><b>Mode of payment:</b> Cash on delivery</li>
+               <li><b>Expected Time of Delivery :</b> 8 - 14 Days</li>
+               <li><b>Gift Coupon Code :</b> 2587</li>
+               <li>
+                  <b>Shipping Details :</b>
+                  <p style="line-height:2; padding-bottom: 20px;">
+                     B2-201,Genesis Apt.,<br/>
+                     Sarjapur Outer-Ring Road junction,<br/>
+                     Ibblur, Banglore - 560102
+                  </p>
+               </li>
+               <li><b>Reward points :</b> 25</li> -->
+               <!-- <li><a href="checkout.html.html">wishlist</a></li>
+               <li><a href="checkout.html.html">Order history</a></li>
+               <li><a href="#">Downloads</a></li> -->
+            <!-- </ul> -->
+         </div>
+
+         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12" id="cart-items-all">
+            <div class="panel-group" id="accordion">
+            <!-- LOGIN PANEL -->
+            <?php if(!isset($_SESSION['userid'])) { ?>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h4 class="panel-title">
+                        Login
+                     </h4>
+                  </div>
+                  <div id="collapseZero" class="panel-collapse collapse in">
+                     <div class="panel-body">
+                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 returnCustomer">
+                           <p id="title-p">Returning Customers</p>
+                           <form method="post" action="php/login.php">
+                           <input type="hidden" name="backto" value="orders" />
+                              <div class="form-group">
+                                 <label for="email">Email Address</label>
+                                 <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
+                              </div>
+                              <div class="form-group">
+                                 <label for="password" id="pwdLabel">Password</label>
+                                 <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
+                              </div>
+                              <input type="submit" id="login" value="Login" name="login">
+                              <input type="submit" id="submitEmail" value="Sumit" name="submit" class="hide">
+                           </form>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                              <p id="title-p">Guest Checkout</p><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Continue as Guest</a><br>
+                              <div>OR</div><br/>
+                              <a href="index.php?register"> Register</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            <!-- LOGIN PANEL END-->
+            <?php }   //    var_dump($curr_user); ?>
+            <!-- SHIPPING ADDRESS PANEL -->
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h4 class="panel-title">
+                        Shipping Details
+                     </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse  <?php if(isset($_SESSION['userid'])) { echo 'in'; }?> ">
+                     <div class="panel-body">
+                        <h4>Shipping Details</h4>
+                           <form id="orderForm" name="AddressForm" role="form" action="user.php?address" method="POST">
+                           <input type="hidden" name="currOrderId" value="<?php echo $orderid; ?>">
+                                <div class="col-sm-6">
+                                    <span>Shipping Address</span>
+                                    <div class="form-group">
+                                       <span>Address Line 1</span>
+                                       <input class="form-control" data-validation="alphabets"  name="ship_address1" type="text" autofocus value="<?php echo $curr_user['address1']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>Address Line 2</span>
+                                       <input class="form-control" data-validation="alphabets"  name="ship_address2" type="text" autofocus value="<?php echo $curr_user['address2']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>City</span>
+                                       <input class="form-control" data-validation="alphabets"  name="ship_city" type="text" autofocus value="<?php echo $curr_user['city']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>State</span>
+                                       <input class="form-control" data-validation="alphabets"  name="ship_state" type="text" autofocus value="<?php echo $curr_user['state']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>Postal Code</span>
+                                       <input class="form-control" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="<?php echo $curr_user['postalcode']; ?>">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <span>Billing Address</span><label><input type="checkbox" name="sameBilling" value="1">Same as Shipping Address</label>
+                                    <div class="form-group">
+                                       <span>Address Line 1</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_address1" type="text" autofocus value="">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>Address Line 2</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_address2" type="text" autofocus value="">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>City</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_city" type="text" autofocus value="">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>State</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_state" type="text" autofocus value="">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>Postal Code</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_postalcode" type="text" autofocus value="">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <!-- <input type="submit" value="Update" id="editAddr" name="editAddr" class="btn1"> -->
+                                    <a  class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Payment Details</a>
+                                      <a  class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseZero">Back</a>
+                                </div>
+                           </form>
+                     </div>
+                  </div>
+               </div>
+            <!-- SHIPPING ADDRESS PANEL END -->
+
+            <!-- PAYMENT OPTIONS PANEL -->
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h4 class="panel-title">
+                        Payment Details
+                     </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse">
+                     <div class="panel-body">
+                        <h4>Payment Details</h4>
+                        <p>Please Select the preffered method for payment</p>
+                        <form>
+                           <div class="contact-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <input type="radio" name="group2" value="COD" checked class="rdbtn">Cash on Delivery<br>
+                              <input type="radio" name="group2" value="NB">Net Banking<br>
+                              <input type="radio" name="group2" value="CC"> Credit Card
+                           </div>
+                        </form>
+                        <div id="chkBtn1" class="col-md-12 address-grids" style="margin-top: 34px;">
+                          <!--  <input type="submit" id="pcdChk" value="Proceed to Checkout" style="margin-left: -17px;">
+                           <input type="submit" value="Back" id="back"> -->
+                             <a  class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Review Order Details</a>
+                               <a  class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Back</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            <!-- PAYMENT OPTIONS PANEL END -->
+
+            <!-- PLACE ORDER PANEL -->
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h4 class="panel-title">
+                        Order Confirmation
+                     </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse">
+                     <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
+                        <!-- <h4 style="margin-bottom:-45px"><center>Thank you for shopping at Fitoori. You will recieve a mail shortly, with relevant order details. </center></h4><br/> -->
+                        <div class="estimate">
+                            <p>Estimated time of delivery : 6 - 10 days </p>
+                         </div>
+                         <div class="tableClass">
+                            <table>
+                               <tr>
+                                  <th>Total( including Tax)</th>
+                                  <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+                               </tr>
+                               <tr>
+                                  <th>Shipping</th>
+                                  <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                               </tr>
+                               <tr>
+                                  <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
+                                  <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+                               </tr>
+                            </table>
+                         </div>
+
+                         <div> Shipping Address: ------</div>
+                         <div> Payment Method: ------</div>
+                        <a data-toggle="collapse" class="btn btn-primary" data-parent="#accordion" href="#">Place Order</a>
+                          <a  class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Back</a>
+                     </div>
+                  </div>
+               </div>
+            <!-- PLACE ORDER PANEL END -->
+
+            </div>
+         </div>
+
+      </div>
+</div>
+   <!-- END OF REST OF CHECKOUT -->
+
+</div><!-- end of order page

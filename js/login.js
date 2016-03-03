@@ -48,7 +48,7 @@ $(function() {
       var email_add = $(form).find("input[name='email']").val();
       $.ajax({
        type: "POST",
-       url: "login.php",
+       url: "php/login.php",
        data: $(form).serialize(),
        timeout: 3000,
        success: function(data) {

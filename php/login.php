@@ -5,7 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/constants.php");
 
 if(isset($_POST['login']))
 {
-  
+
     $user_email=$_POST['email'];
     $user_pass=$_POST['pass'];
 
@@ -23,6 +23,13 @@ if(isset($_POST['login']))
         }
           // Free result set
           mysqli_free_result($result);
+
+      if(isset($_POST["backto"])) {
+        $gotoPage = "index.php?".$_POST["backto"];
+        header("Location: ".SITE_URL. $gotoPage);
+        exit();
+
+      }
 
       echo   SUCCESS;
     }

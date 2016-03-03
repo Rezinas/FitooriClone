@@ -4,7 +4,7 @@
 		<div class="register">
 			<div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Registration Failed! Please try again</div>
             <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
-			<form id="regForm" name="regForm" role="form" action="register.php" method="POST">
+			<form id="regForm" name="regForm" role="form" action="php/register.php" method="POST">
 				<section id="errorMessages">
 					<div></div>
 				</section>
@@ -50,13 +50,8 @@
 		</div>
     </div>
 </div>
-<script src="js/jquery.validate.min.js" type="text/javascript"></script>
   <script type="text/javascript">
   $(function() {
-		jQuery.validator.addMethod("lettersonly", function(value, element)
-		{
-		return this.optional(element) || /^[a-z ]+$/i.test(value);
-		});
 
         $("#regForm").validate({
             rules: {
@@ -76,7 +71,7 @@
                     required: true,
                     email: true,
                     remote: {
-				            url: "ajax.php?checkEmail",
+				            url: "php/ajax.php?checkEmail",
 				            type: "post"
 				        }
                 },
@@ -121,7 +116,7 @@
                 }
             },
                 submitHandler: function(form) {
-                   $(form).submit();
+                   form.submit();
                     return false;
                 }
             });

@@ -2,264 +2,45 @@
 <div class="about" style="background-color:#fff">
    <!-- START STEPS -->
    <div class="container">
-      <h2>Cart Page</h2>         
+      <h2>Cart Page</h2>
          <div class="breadcrumb flat" id="lgScreen">
             <a href="#" class="active">My Shopping Bag</a>
             <a href="#">Shipping</a>
             <a href="#">Payment</a>
             <a href="#">Order Summary</a>
-         </div> 
+         </div>
          <div class="breadcrumb flat" id="smScreen">
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-         </div> 
-      <!-- <div class="about-inform">
-         <ol class="breadcrumb-body">
-            <li id="chk" class="current">
-               <div class="breadcrumb-stage-name">My Cart</div>
-               <div class="breadcrumb-stage-container">
-                  <div class="breadcrumb-stage">Step - 1</div>
-                  <a href="#">
-                     <div class="breadcrumb-stage">Step - 1</div>
-                  </a>
-                  <div class="breadcrumb-dots"><i class="glyphicon glyphicon-chevron-right"></i></div>
-               </div>
-            </li>
-            <li id="shp" class="future disable">
-               <div  class="breadcrumb-stage-name">Shipping</div>
-               <div class="breadcrumb-stage-container">
-                  <div>
-                     <div class="breadcrumb-stage">Step - 2</div>
-                  </div>
-                  <div class="breadcrumb-dots"><i class="glyphicon glyphicon-chevron-right"></i></div>
-               </div>
-            </li>
-            <li id="pymt" class="future disable">
-               <div class="breadcrumb-stage-name">Payment</div>
-               <div class="breadcrumb-stage-container">
-                  <div>
-                     <div class="breadcrumb-stage">Step - 3</div>
-                  </div>
-                  <div class="breadcrumb-dots"><i class="glyphicon glyphicon-chevron-right"></i></div>
-               </div>
-            </li>
-            <li id="cnfm" class="last future disable">
-               <div class="breadcrumb-stage-name">Order Summary</div>
-               <div class="breadcrumb-stage-container">
-                  <div>
-                     <div class="breadcrumb-stage">Step -4</div>
-                  </div>
-                  <div class="breadcrumb-dots"><i class="glyphicon glyphicon-chevron-right"></i></div>
-               </div>
-            </li>            
-         </ol>
-      </div> -->
-    </div> 
+            <a href="#" class="active">&nbsp;</a>
+            <a href="#">&nbsp;</a>
+            <a href="#">&nbsp;</a>
+            <a href="#">&nbsp;</a>
+         </div>
+    </div>
     <hr/>
    <!-- END STEPS -->
    <!-- START CARTDETAILS  -->
-      <?php include("cartDetails.html"); ?>
-   <!-- END CART DETAILS -->
+      <div id="cartDetails" class="show row" style="background-color: #fff;margin-bottom: 30px;">
+   <div class="container">
+      <div class="cart-items col-lg-12 col-md-12 col-sm-12 col-xs-12" id="cart-items-all">
+         <div class="container">
+            <div class="panel panel-default" id="panelCart" style="border:0px;box-shadow:none;">
+              <div class="panel-heading">
+                <span>Currently in your shopping bag</span>
+              </div>
+              <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
+                <table style="width:100%;">
+                  <tr>
+                    <th>Your Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Item Total</th>
 
-   <!-- REST OF CHECKOUT -->
-      <div id="shippingDetails" class="hide row" style="background-color: #fff;margin-bottom: 30px;">
-         <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 shippingClass" id="cart-items-all">
-            <div class="panel-group" id="accordion">
-            <!-- LOGIN PANEL -->
-               <div class="panel panel-default">
-                  <div class="panel-heading">
-                     <h4 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero">Login</a>
-                     </h4>
-                  </div>
-                  <div id="collapseZero" class="panel-collapse collapse in">
-                     <div class="panel-body">
-                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 returnCustomer">
-                           <p id="title-p">Returning Customers</p>
-                           <form method="post" action="">
-                              <div class="form-group">
-                                 <label for="email">Email Address</label>
-                                 <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
-                              </div>
-                              <div class="form-group">
-                                 <label for="password" id="pwdLabel">Password</label>
-                                 <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
-                              </div>
-                              <input type="submit" id="login" value="Login" name="login">
-                              <input type="submit" id="submitEmail" value="Sumit" name="submit" class="hide">
-                           </form>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                           <form class="form-guest-checkout">
-                              <p id="title-p">Guest Checkout</p>                             
-                              <input type="submit" value="Continue as Guest">
-                              <div>OR</div><br/>
-                              <a href="index.php?register"> Register</a>
-                           </form>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            <!-- LOGIN PANEL END-->
-
-
-            <!-- SHIPPING ADDRESS PANEL -->
-               <div class="panel panel-default">
-                  <div class="panel-heading">
-                     <h4 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Shipping Details</a>
-                     </h4>
-                  </div>
-                  <div id="collapseOne" class="panel-collapse collapse">
-                     <div class="panel-body">
-                        <h4>Shipping Details</h4>
-                        <p>
-                           Would you like to use the address displayed below for shipping ? If so, click the corresponding <b>"Deliver"</b> button. Or you can Enter a <a href="#address">New Delivery Address.</a>
-                        </p>
-                        <div class="address">
-                           <div class="col-md-12 address-grids">
-                              <h4>Address For Delivery :</h4>
-                              <ul>
-                                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                                 <p> B2-201,Genesis Apt.,<br/>
-                                    Sarjapur Outer-Ring Road junction,<br/>
-                                    Ibblur, Banglore - 560102
-                                 </p>
-                              </ul>
-                              <div id="chkBtn" class="address-grids" style="margin-top: 34px;">
-                                 <input type="submit" id="dlv" value="Deliver">
-                                 <input type="submit" value="Edit">
-                                 <input type="submit" value="Delete">
-                                 <!--  <a href="#acc2">
-                                    <center><input type="submit" id="proceed" value="Proceed"></center>
-                                 </a> -->
-                              </div>
-                           </div>
-                           <div class="clearfix"> </div>
-                        </div>
-                        <hr/>
-                        <div id="address" class="contact-form">
-                           <h4>New Addres For Delivery :</h4>
-                           <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-                           <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                           <input type="text" value="Phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone';}" required="">
-                           <textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address...';}" required="">Address...</textarea>
-                           <!-- <input type="submit" class="btn2" value="Deliver"></button><button class="btn2">Reset</button><button class="btn2"id="bck">Back</button> -->
-                           <div id="chkBtn1" class="col-md-12 address-grids" style="margin-top: 34px;">
-                              <input type="submit" id="dlvy" value="Deliver" style="margin-left: -17px;">
-                              <input type="submit" value="Reset">
-                              <input type="submit" value="Back" id="bck">
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            <!-- SHIPPING ADDRESS PANEL END -->
-
-            <!-- PAYMENT OPTIONS PANEL -->
-               <div class="panel panel-default">
-                  <div class="panel-heading">
-                     <h4 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Payment Details</a>
-                     </h4>
-                  </div>
-                  <div id="collapseTwo" class="panel-collapse collapse">
-                     <div class="panel-body">
-                        <h4>Payment Details</h4>
-                        <p>Please Select the preffered method for payment</p>
-                        <form>
-                           <div class="contact-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                              <input type="radio" name="group2" value="COD" checked class="rdbtn">Cash on Delivery<br>
-                              <input type="radio" name="group2" value="NB">Net Banking<br>
-                              <input type="radio" name="group2" value="CC"> Credit Card
-                           </div>
-                        </form>
-                        <div id="chkBtn1" class="col-md-12 address-grids" style="margin-top: 34px;">
-                           <input type="submit" id="pcdChk" value="Proceed to Checkout" style="margin-left: -17px;">
-                           <input type="submit" value="Back" id="back">
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            <!-- PAYMENT OPTIONS PANEL END -->
-
-            <!-- PLACE ORDER PANEL -->
-               <div class="panel panel-default">
-                  <div class="panel-heading">
-                     <h4 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Order Confirmation</a>
-                     </h4>
-                  </div>
-                  <div id="collapseThree" class="panel-collapse collapse">
-                     <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
-                        <h4 style="margin-bottom:-45px"><center>Thank you for shopping at Fitoori. You will recieve a mail shortly, with relevant order details. </center></h4><br/>
-                        <!-- <h4>Order Summary</h4> -->
-                        <!-- <div class="cart-header">
-                           <div class="cart-sec simpleCart_shelfItem" style="margin-bottom: 1.2em;">
-                              <div class="cart-item cyc">
-                                 <img src="images/m11.png" class="img-responsive" alt="">
-                              </div>
-                              <div class="cart-item-info">
-                                 <h3>
-                                 <a href="#">Lorem Ipsum is not simply </a>
-                                 </h3>
-                                 <div class="delivery">
-                                    <p>Price:Rs.500.00/-</p>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-                              <div class="clearfix"></div>
-                           </div>
-                        </div>
-                        <div class="cart-header2">
-                           <div class="close2"></div>
-                           <div class="cart-sec simpleCart_shelfItem" style="margin-bottom: 1.2em;">
-                              <div class="cart-item cyc">
-                                 <img src="images/m22.png" class="img-responsive" alt="">
-                              </div>
-                              <div class="cart-item-info">
-                                 <h3>
-                                 <a href="#">Lorem Ipsum is not simply </a>
-                                 </h3>
-                                 <div class="delivery">
-                                    <p>Price:Rs.500.00/-</p>
-                                 </div>
-                              </div>
-                              <div class="clearfix"></div>
-                           </div>
-                        </div>
-                        <div class="cart-header3">
-                           <div class="close3"></div>
-                           <div class="cart-sec simpleCart_shelfItem" style="margin-bottom: 1.2em;">
-                              <div class="cart-item cyc">
-                                 <img src="images/m33.png" class="img-responsive" alt="">
-                              </div>
-                              <div class="cart-item-info">
-                                 <h3>
-                                 <a href="#">Lorem Ipsum is not simply </a>
-                                 </h3>
-                                 <div class="delivery">
-                                    <p>Price:Rs.500.00/-</p>
-                                 </div>
-                              </div>
-                              <div class="clearfix"></div>
-                           </div>
-                        </div> -->
-                        <table style="width:100%;">
-                           <tr>
-                             <th>Your Item</th>
-                             <th>Quantity</th>
-                             <th>Price</th>                  
-                           </tr>
-                                   <?php if(count($cartItems) > 0) {
+                  </tr>
+                  <?php if(count($cartItems) > 0) {
                      foreach($cartProducts as $prod) { ?>
-                      <tr>
+                      <tr class="cartRows" id="cart<?php echo $prod['productid']; ?>">
                         <td>
-                          <div id="cart<?php echo $prod['productid']; ?>" class="cart-header">
-                           <!-- <div class="close1"></div> -->
-                            <!--  <div class="cart-sec simpleCart_shelfItem"> -->
+                          <div class="cart-header">
                               <div class="cart-item cyc">
                                  <?php if($prod['customized'] == 0) { ?>
                                     <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
@@ -270,7 +51,6 @@
                                        <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
                                     </div>
                                     <?php } ?>
-                                    <?php echo showCustomDesign($des); ?>
                                  </div>
                                  <?php } ?>
                               </div>
@@ -279,13 +59,13 @@
                                   <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
                                </span>
                                <div class="delivery">
-                                  <p>Item ID: &nbsp;<span>#12345</span></p>
+                                  <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
                                   <br>
                                   <p>Color: &nbsp;<span>Blue</span></p>
                                   <br/>
-                                  <p>Size: &nbsp;<span>W x H</span></p>
-                                </div> 
-                            </div>                             
+                                  <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
+                                </div>
+                            </div>
                            <!-- </div> -->
                           </div>
                         </td>
@@ -294,56 +74,64 @@
                             <input type="text" value="<?php echo $cart[$prod['productid']]; ?>" class="cartQty">
                           </div>
                           <div>
-                            <a href="#">Update Quantity</a>
+                            <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate">+ Add</a>
+                            <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete">- Remove</a>
                           </div>
-                          <div>
-                            <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete">Delete Product</a>
-                          </div>
-                          <div>
-                            <a href="#">Move to Wishlist</a>
-                          </div>                        
+                            <!-- <div><a href="#">Move to Wishlist</a></div>-->
                         </td>
                         <td>
-                          <div class="cartPrice">
-                              Rs. <?php echo $prod['price']; ?>
+                          <div>
+                              Rs. <span class="cartPrice"> <?php echo $prod['price'];?> </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                              Rs. <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span>
                           </div>
                         </td>
                       </tr>
                   <?php }
-                     }  else { ?>
-                  <p class="text-uppercase">your shopping bag is empty</p>
-                  <?php } ?>                           
-                        </table>
-                     </div>
-                  </div>
-               </div>
-            <!-- PLACE ORDER PANEL END -->
-
-            </div>
-         </div>
-         <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 single-grid1">
-            <h4>Order Summary</h4>
-            <ul>
-               <li><b>Order ID :</b> 123456789</li>
-               <li><b>Total :</b> Rs. 1580/-</li>
-               <li><b>Mode of payment:</b> Cash on delivery</li>
-               <li><b>Expected Time of Delivery :</b> 8 - 14 Days</li>
-               <li><b>Gift Coupon Code :</b> 2587</li>
-               <li>
-                  <b>Shipping Details :</b>
-                  <p style="line-height:2; padding-bottom: 20px;">
-                     B2-201,Genesis Apt.,<br/>
-                     Sarjapur Outer-Ring Road junction,<br/>
-                     Ibblur, Banglore - 560102
-                  </p>
-               </li>
-               <li><b>Reward points :</b> 25</li>
-               <!-- <li><a href="checkout.html.html">wishlist</a></li>
-               <li><a href="checkout.html.html">Order history</a></li>
-               <li><a href="#">Downloads</a></li> -->
-            </ul>
+                     } ?>
+                  <tr id="emptyCartMsg" <?php if(count($cartItems) > 0) echo 'class="hide"'; else echo 'class="show"'; ?>><td colspan="4"><p class="text-uppercase">your shopping bag is empty</p></td></tr>
+                </table>
+              </div>
+           </div>
          </div>
       </div>
-   <!-- END OF REST OF CHECKOUT -->
+
+       <?php if(count($cartItems) > 0) { ?>
+
+      <div id="cart-cost" class="cart-items col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <div class="estimate">
+            <p>Estimated time of delivery : 6 - 10 days </p>
+         </div>
+         <div class="tableClass">
+            <table>
+               <tr>
+                  <th>Total( including Tax)</th>
+                  <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+               </tr>
+               <tr>
+                  <th>Shipping</th>
+                  <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+               </tr>
+               <tr>
+                  <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
+                  <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+               </tr>
+            </table>
+         </div>
+         <div id="chkBtns">
+            <a href="index.php?orders" class="btn btn-primary">Checkout</a>
+            <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
+         </div>
+
+      </div>
+         <?php } ?>
+   </div>
+</div>
+   <!-- END CART DETAILS -->
+
+
 </div>
 <!--//Checkout-->

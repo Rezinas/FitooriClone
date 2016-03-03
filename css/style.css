@@ -1994,10 +1994,9 @@ p span.overline{
 	margin-bottom:3em;
 }
 .cart-item{
-	width:20%;
+	width: 50%;
 	float:left;
 	margin-right:5%;
-
 }
 .cart-item img{
 	width:100%;

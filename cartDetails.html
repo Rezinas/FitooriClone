@@ -11,7 +11,9 @@
                   <tr>
                     <th>Your Item</th>
                     <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Price</th> 
+                    <th>Item Total</th>
+ 
                   </tr>
                   <?php if(count($cartItems) > 0) {
                      foreach($cartProducts as $prod) { ?>
@@ -36,11 +38,11 @@
                                   <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
                                </span>
                                <div class="delivery">
-                                  <p>Item ID: &nbsp;<span>#12345</span></p>
+                                  <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
                                   <br>
                                   <p>Color: &nbsp;<span>Blue</span></p>
                                   <br/>
-                                  <p>Size: &nbsp;<span>W x H</span></p>
+                                  <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
                                 </div>
                             </div>
                            <!-- </div> -->
@@ -59,6 +61,11 @@
                         <td>
                           <div>
                               Rs. <span class="cartPrice"> <?php echo $prod['price'];?> </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                              Rs. <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span>
                           </div>
                         </td>
                       </tr>

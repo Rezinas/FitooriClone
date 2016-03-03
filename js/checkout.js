@@ -4,10 +4,15 @@ $(document).ready(function (c) {
       var thisId = (this.id).split("_");
       var qtyObj = $("tr#cart"+thisId[1]).find("input.cartQty");
       var priceObj = $("tr#cart"+thisId[1]).find("span.cartPrice");
-      var currQty = $.trim(qtyObj.val());
-      var currPrice = $.trim(priceObj.html());
-      if(currQty-1 != 0) {
-         qtyObj.val(currQty-1);
+      var rowTotalObj = $("tr#cart"+thisId[1]).find("span.rowTotal");
+      var currQty = parseInt($.trim(qtyObj.val()), 10);
+      var currPrice = parseFloat($.trim(priceObj.html()), 10);
+      currQty--;
+      var rowTotalPrice = currPrice * currQty;
+      if(currQty != 0) {
+         qtyObj.val(currQty);
+         rowTotalObj.html(rowTotalPrice);
+
       }
       else {
         $("tr#cart"+thisId[1]).remove();
@@ -41,121 +46,23 @@ $(document).ready(function (c) {
   });
 
 
- //Cart Details page Action
-    $('#proceed').on('click', function (c) {
-        $('#cartDetails').fadeOut('fast', function (c) {
-            $('#cartDetails').addClass("hide");
-            $('#cartDetails').removeClass("show");
-            $('#chk').addClass("future disable");
-            $('#chk').removeClass("current");
+   $("input[name='sameBilling'").click(function(e){
+       if (!$(this).is(':checked')) {
+            $("input[name='bill_address1").val("");
+            $("input[name='bill_address2").val("");
+            $("input[name='bill_city").val("");
+            $("input[name='bill_state").val("");
+            $("input[name='bill_postalcode").val("");
+        }
+        else {
+            $("input[name='bill_address1").val($("input[name='ship_address1").val());
+            $("input[name='bill_address2").val($("input[name='ship_address2").val());
+            $("input[name='bill_city").val($("input[name='ship_city").val());
+            $("input[name='bill_state").val($("input[name='ship_state").val());
+            $("input[name='bill_postalcode").val($("input[name='ship_postalcode").val());
 
-        });
-        $('#shippingDetails').fadeIn('fast', function (c) {
-            $('#shippingDetails').addClass("show");
-           $('#shippingDetails').removeClass("hide");
-            $('#shp').addClass("current");
-            $('#shp').removeClass("future disable");
-        });
-    });
+        }
+   });
 
-
-    // Shipping Details page Action
-    $('#dlv').on('click', function (c) {
-        $('#shippingDetails').fadeOut('fast', function (c) {
-             $('#shippingDetails').addClass("hide");
-            $('#shippingDetails').removeClass("show");
-            $('#shp').addClass("future disable");
-            $('#shp').removeClass("current");
-
-        });
-
-        $('#paymentDetails').fadeIn('fast', function (c) {
-            $('#paymentDetails').addClass("show");
-            $('#paymentDetails').removeClass("hide");
-            $('#pymt').addClass("current");
-            $('#pymt').removeClass("future disable");
-        });
-    });
-
- $('#dlvy').on('click', function (c) {
-        $('#shippingDetails').fadeOut('fast', function (c) {
-             $('#shippingDetails').addClass("hide");
-            $('#shippingDetails').removeClass("show");
-            $('#shp').addClass("future disable");
-            $('#shp').removeClass("current");
-
-        });
-
-        $('#paymentDetails').fadeIn('fast', function (c) {
-            $('#paymentDetails').addClass("show");
-            $('#paymentDetails').removeClass("hide");
-            $('#pymt').addClass("current");
-            $('#pymt').removeClass("future disable");
-        });
-    });
-
-
-   $('#bck').on('click', function (c) {
-        $('#shippingDetails').fadeOut('fast', function (c) {
-            $('#shippingDetails').addClass("hide");
-           $('#shippingDetails').removeClass("show");
-            $('#shp').addClass("future disable");
-            $('#shp').removeClass("current");
-
-        });
-        $('#cartDetails').fadeIn('fast', function (c) {
-             $('#cartDetails').addClass("show");
-             $('#cartDetails').removeClass("hide");
-            $('#chk').addClass("current");
-            $('#chk').removeClass("future disable");
-        });
-    });
-
-   $('#pcdChk').on('click', function (c) {
-        $('#paymentDetails').fadeOut('fast', function (c) {
-          $('#paymentDetails').addClass("hide");
-            $('#paymentDetails').remove();
-            $('#pymt').addClass("future disable");
-            $('#pymt').removeClass("current");
-
-        });
-
-        $('#confirmDetails').fadeIn('fast', function (c) {
-            $('#confirmDetails').addClass("show");
-            $('#confirmDetails').removeClass("hide");
-            $('#cnfm').addClass("current");
-            $('#cnfm').removeClass("last future disable");
-        });
-    });
-
-   $('#back').on('click', function (c) {
-        $('#paymentDetails').fadeOut('fast', function (c) {
-           $('#paymentDetails').addClass("hide");
-          $('#paymentDetails').removeClass("show");
-          $('#pymt').addClass("future disable");
-          $('#pymt').removeClass("current");
-
-        });
-
-        $('#shippingDetails').fadeIn('fast', function (c) {
-            $('#shippingDetails').addClass("show");
-            $('#shippingDetails').removeClass("hide");
-            $('#shp').addClass("current");
-            $('#shp').removeClass("future disable");
-        });
-    });
-
-
- $('#CnfmBtn').on('click', function (c) {
-        $('#confirmDetails').fadeOut('fast', function (c) {
-          $('#confirmDetails').addClass("hide");
-            $('#confirmDetails').removeClass("show");
-            $('#cnfm').addClass("future disable");
-            $('#cnfm').removeClass("current");
-
-        });
-        window.location.href = "<?php echo SITE_URL; ?>index.php";
-        //window.location.href = "http://samplepapers.com/rezi/NewPlumms/index.html";
-    });
 
  });

@@ -157,7 +157,7 @@ font-size: 12px; */
   width: 90.5%;
 }
 .about .container{
-  height: 150px;
+  /* height: 150px; */
 }
 .about-inform {
   margin-top:-10px;
@@ -552,7 +552,7 @@ border-bottom: 1px solid #eee;
     background-color: white;
 }
 #shippingDetails .shippingClass{
-  margin-top: 70px;
+  /* margin-top: 70px; */
   border:0px;
   box-shadow:none;
   background-color: white;

@@ -33,7 +33,7 @@ if(isset($_GET["address"])) {
 		$addr2 = prepare_input($_POST['address2']);
 		$city = prepare_input($_POST['city']);
 		$state = prepare_input($_POST['state']);
-		$postal = prepare_input($_POST['postalcode']);
+		$postalcode = prepare_input($_POST['postalcode']);
 
 		$updQuery1 =  "UPDATE user  SET `address1`=?, `address2` =?, `city` =?, `state` = ?, `postalcode` = ? WHERE userid=$user_id";
     	 	$stmt = $dbcon->prepare($updQuery1);

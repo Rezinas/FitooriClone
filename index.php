@@ -32,6 +32,9 @@
    else if(isset($_GET["tc"])) {
        $currenttab = 'tc';
    }
+   else if(isset($_GET["orders"])) {
+       $currenttab = 'orders';
+   }
    else if(isset($_GET["register"])) {
        $currenttab = 'register';
    }
@@ -101,7 +104,7 @@
        <link href="css/tc.css" rel="stylesheet" type="text/css" media="all" />
       <?php }?>
 
-      <?php if($currenttab == "checkout") { ?>
+      <?php if($currenttab == "checkout" || $currenttab == "orders") { ?>
         <link href="css/cartpage.css" type="text/css" rel="stylesheet" media="all">
         <script src="js/checkout.js"></script>
         <script src="js/checkoutMenu.js"></script>
@@ -394,6 +397,11 @@
         else if($currenttab == "myaccount") {
             include(SITE_ROOT. "php/user.php");
             include(SITE_ROOT. "myAccount.html");
+        }
+        else if($currenttab == "orders") {
+            include(SITE_ROOT. "php/checkout.php");
+            include(SITE_ROOT. "php/orders.php");
+            include(SITE_ROOT. "orderpage.html");
         }
          ?>
       <!--footer-->
