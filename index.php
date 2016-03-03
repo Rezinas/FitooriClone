@@ -165,7 +165,7 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                </button>
-               <h1 class="navbar-brand"><img src="images/logo1.png"  class="img-responsive" style="position: relative;top: -13px;float: left;"/><a  href="index.php" class="hidden-xs">Fitoori</a></h1>
+               <h1 class="navbar-brand"><img src="images/logo2.png"  class="img-responsive" id="logo"/><a  href="index.php" class="hidden-xs">Fitoori</a></h1>
             </div>
             <!--navbar-header-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -183,10 +183,10 @@
                               <h4>Type</h4>
                               <ul class="multi-column-dropdown">
                                  <li><a class="list" href="index.php?products">All</a></li>
-                                 <li><a class="list" href="index.php?products">Bracelets</a></li>
+                                 <li class="list">Bracelets<sup>Coming Soon</sup></li>
                                  <li><a class="list" href="index.php?products">Earrings</a></li>
-                                 <li><a class="list" href="index.php?products">Necklace</a></li>
-                                 <li><a class="list" href="index.php?products">Pendant Sets</a></li>
+                                 <li class="list">Necklace<sup>Coming Soon</sup></li>
+                                 <li class="list">Pendant Sets<sup>Coming Soon</sup></li>
                               </ul>
                            </div>
                            <div class="col-sm-6">
@@ -194,9 +194,8 @@
                               <ul class="multi-column-dropdown">
                                  <li><a class="list" href="index.php?products">All</a></li>
                                  <li><a class="list" href="index.php?products">Beaded</a></li>
-                                 <li><a class="list" href="index.php?products">Fashion</a></li>
-                                 <li><a class="list" href="index.php?products">Teracotta</a></li>
-                                 <li><a class="list" href="index.php?products">Quilled</a></li>
+                                 <li><a class="list" href="index.php?products">Metal</a></li>
+                                 <li><a class="list" href="index.php?products">Teracotta</a></li>                                
                               </ul>
                            </div>
                         </div>
@@ -209,10 +208,10 @@
                            <div class="col-sm-6">
                               <h4>Items</h4>
                               <ul class="multi-column-dropdown">
-                                 <li><a class="list" href="index.php?customize">Bracelets</a></li>
+                                 <li class="list">Bracelets<sup>Coming Soon</sup></li>
                                  <li><a class="list" href="index.php?customize">Earrings</a></li>
-                                 <li><a class="list" href="index.php?customize">Necklace</a></li>
-                                 <li><a class="list" href="index.php?customize">Pendant Sets</a></li>
+                                 <li class="list">Necklace<sup>Coming Soon</sup></li>
+                                 <li class="list">Pendant Sets<sup>Coming Soon</sup></li>
                               </ul>
                            </div>
                            <div class="col-sm-6">
@@ -412,7 +411,7 @@
                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
                   <h4>service</h4>
                   <ul>
-                     <li><a href="#">FAQ</a></li>
+                     <li>FAQ</li>
                      <li><a href="index.php?contact">Contact Us</a></li>
                      <li><a href="index.php?support">Support</a></li>
                   </ul>
@@ -430,14 +429,14 @@
                   <ul>
                      <li><a href="index.php?privacy">Privacy</a></li>
                      <li><a href="index.php?tc">Terms and Conditions</a></li>
-                     <li><a href="index.php?sr">Social Responsibility</a></li>
+                     <li>Social Responsibility</li>
                   </ul>
                </div>
                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid icons">
                   <h4>Connect with Us</h4>
                   <ul>
-                  <li><a href="#"><img src="images/i1.png" alt=""/>Facebook</a></li>
-                  <li><a href="#"><img src="images/i2.png" alt=""/>Twitter</a></li>
+                  <li><img src="images/i1.png" alt=""/>&nbsp;Facebook</li>
+                  <li><img src="images/i2.png" alt=""/>&nbsp;Twitter</li>
                </div>
             </div>
             <div class="clearfix"></div>

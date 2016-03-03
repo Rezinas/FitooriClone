@@ -1,21 +1,22 @@
 <div class="products" ng-app="productsearch">
-	<div class="container" ng-controller="MainController">
-		<h2>Our Products</h2>
-<!-- 		<div class="row">
-	<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12">
-		<div class="pull-left">
-			<select  ng-change="orderByOptions()"  ng-model="selectedSort" >
-				<option value="new">Latest Designs</option>
-				<option value="phigh">Price:High to Low</option>
-				<option value="plow">Price:Low to High</option>
-				<option value="pop">Most Popular</option>
-				<option value="disc">Highest Discount</option>
-			</select>
-		</div>
-	</div>
-</div> -->
-		<div class="row">
-			<div class="col-lg-9 col-md-9 col-sm-6 col-xs-12 product-model-sec">
+	<div ng-controller="MainController" >
+		
+		<!--<div class="row">
+			<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12">
+				<div class="pull-left">
+					<select  ng-change="orderByOptions()"  ng-model="selectedSort" >
+						<option value="new">Latest Designs</option>
+						<option value="phigh">Price:High to Low</option>
+						<option value="plow">Price:Low to High</option>
+						<option value="pop">Most Popular</option>
+						<option value="disc">Highest Discount</option>
+					</select>
+				</div>
+			</div>
+		</div> -->
+		<!-- <div class="row"> -->
+			<div class="col-lg-10 col-md-10 col-sm-6 col-xs-12 product-model-sec">
+				<h2 id="mainContainer">Our Products</h2>
 					<div ng-repeat="product in resultSet =(allProducts | orderBy:sortItem:reverseorder | filter:criterias)|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid adminsearch">
 						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">
 							<div class="more-product"><span> </span></div>
@@ -46,9 +47,9 @@
 						</div>
 					</div>
 			</div>
-			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 rsidebar span_1_of_left">
+			<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 rsidebar span_1_of_left">
 				<form>
-				<section class="sky-form">
+				<section class="sky-form" id="sorter">
 					<select  ng-change="orderByOptions()"  ng-model="selectedSort" >
 						<option value="new">Latest Designs</option>
 						<option value="phigh">Price:High to Low</option>
@@ -168,7 +169,7 @@
 					</section> -->
 				</form>
 			</div>
-		</div>
+		<!-- </div> -->
 		<div class="row">
 			<div class="col-xs-12">
 					<div class="pull-right">

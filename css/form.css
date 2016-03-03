@@ -2,18 +2,38 @@
 	outline: none;
 	margin: 0px 0 0px 0px;
 	overflow: auto;
-	padding-bottom: 15px;
-	height: 162px;
+	padding-bottom: 0px;
+	min-height: 162px;
 }
 .sky-form h4{
-	padding: 10px 0;
-	text-transform: uppercase;
-	color: #000;
-	font-size:1.1em;
+	/*padding: 10px 0;*/	
+    padding: 5px 10px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1em;
+    border-bottom: 1px solid #5D4B33;
+    margin-top: -14px;
+    font-family: 'Roboto-Regular';
+    background-color: #5D4B33;
+    height: 30px;
+
 }
-section.sky-form{
+/*section.sky-form{
 	border-top:1px solid #eee;
 	padding:1em 0;
+}*/
+section.sky-form {
+    border: 1px solid #5D4B33;
+    padding: 1em 0;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+section#sorter{
+	border:0px;
+	padding: 10px 0px;
+}
+section#sorter select{
+	width:100%;
 }
 .sky-form .input,
 .sky-form .select,
@@ -31,7 +51,8 @@ section.sky-form{
 	outline: none;
 	border: none;
 	margin-bottom: 4px;
-	padding-left: 27px;
+	/*padding-left: 27px;*/
+	padding-left: 35px;
 	font-size: 12.5px;
 	line-height: 30px;
 	font-weight: 400;
@@ -56,7 +77,8 @@ section.sky-form{
 .sky-form .checkbox i {
 	position: absolute;
 	top: 9px;
-	left: 0;
+	/*left: 0;*/
+	left:12px;
 	display: block;
 	width: 13px;
 	height: 13px;
@@ -109,8 +131,8 @@ section.sky-form{
 .sky-form .checkbox input:checked + i,
 .sky-form .toggle input:checked + i {
 	/* border-color:#888;	 */
-	border-color: #ccc;
-    background-color: #555;
+	border-color: #5D4B33;
+    background-color: #5D4B33;
 }
 /*-- start scrollpane --*/
 .jspContainer{
