@@ -27,7 +27,36 @@ if(isset($_GET["confirmOrder"])) {
     }
     $stmt->close();
 
-    //send email to user and admin about the order
+    $toemail="";
+    $qry = "SELECT  useremail from orders WHERE orderid=$sess_orderID";
+
+    if(!$stmt = $dbcon->prepare($qry)){
+        die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+    }
+
+    if(!$stmt->execute()){
+        die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+    }
+
+    $stmt->store_result();
+    $stmt->bind_result( $aa);
+    while ($stmt->fetch()) {
+       $toemail = $aa;
+    }
+    $stmt->close();
+
+
+    //send email to user and admin about the order: TBD
+    // the body can contain just a link to the orderpage.
+    // we still have to build the order page.
+
+
+    // $from = "admin@plumms.com";
+    // $to = $user_email;
+    // $subject = "Fitoori Login information";
+    // $message = "Your password is ".$a;
+    // $headers = "From:" . $from;
+    // mail($to,$subject,$message, $headers);
 
     echo "SUCCESS";
     exit();

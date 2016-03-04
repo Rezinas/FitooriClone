@@ -264,6 +264,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 //mainlist ends here
                 //call the service to update designer's pick
                 updateDesignerPick();
+                designTotal();
                 $scope.userMessage.msg = "Well Done!"
                 $scope.alertClass = "alert-success";
             } else {
@@ -281,7 +282,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.designLevel++;
                 $scope.levelFilled = false;
                 $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
-                designTotal();
             } else {
                 alert("you havent selected elements for this level yet.");
             }
