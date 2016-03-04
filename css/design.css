@@ -44,15 +44,20 @@ label.material {
     width: 380px;
     padding-top: 172px;
     padding-left: 160px;
-    margin-left: -25px;
+    margin-left: -10px;
 }
 .row h4{
-	text-align: right;
+	text-align: center;
+	/* color: #fff; */
+	/* background-color: #5D4B33; */
+	padding: 0px;
+	margin-top: -14px;
+	width: 100%;
 }
 div#designDet {
     border-radius: 3px;
-    border: 1px solid #eee;
-    padding: 5px;
+    border: 1px solid #5D4B33;
+    /* padding: 5px; */
 }
 .cart-items table {
     border: 0px solid;
@@ -60,6 +65,8 @@ div#designDet {
     font-weight: normal;
     color: #676363;
     text-align: right;
+    position: relative;
+    left: 5px;
 }
 .cart-items table th{
 	text-align: right;
@@ -136,10 +143,10 @@ button.addtoCart:hover{
 	}
 	.product-img{
 		width: 80px;
-	    margin: 0px auto;
-	    border: 0px solid;
-	    text-align: center;
-	    box-shadow: inset 10px 10px 50px #f3f3f3;
+		margin: 0px auto;
+		border: 0px solid;
+		text-align: center;
+		box-shadow: inset 10px 10px 50px #f3f3f3;
 	}
 	.product-grid.elem {
 	    border: 0px solid #EFE9E9;
@@ -149,9 +156,9 @@ button.addtoCart:hover{
 	}
 	.product-grid.elem .product-img img {
     width: auto;
-    height: 80px;
     padding: 1.2em;
-	}
+    height: 80px;
+ }
 	.avlOptions #imgOptions{
 		position: relative;
 		width:100%;
@@ -274,10 +281,18 @@ button.addtoCart:hover{
 	}
 	div#designerPick{
 		position: relative;
-		top: 13px;
+		top: 27px;
+		border: 1px solid #5D4B33;
+		border-radius: 5px;
+		height: auto;
+		margin-bottom: 20px;
 	}
 	div#designerPick h4{
 		font-size: 15px;
+		margin-top: 0px;
+		border-radius: 1px;
+		height: 30px;
+		margin-bottom: 0px;
 	}
 	div#designerPick img {
 	    width: 100%;
@@ -311,7 +326,7 @@ button.addtoCart:hover{
 	    width: 100%;
 	    height: 100%;
 	    padding: 16px;
-	    border: 1px solid orange;
+	    border: 1px solid #eee;
 	    z-index: 1002;
 	    overflow: auto;
 	}
@@ -322,20 +337,40 @@ button.addtoCart:hover{
 	    text-decoration: underline;
 	}
 	div#light img, div#light1 img, div#light2 img {
-	   /*  margin: 10px 14px 6px 5px; */
-	    margin: 10px 3px 6px 3px;
+	   margin: 10px 14px 6px 5px;
+	   /*margin: 10px 3px 6px 3px;
 	    border: 0px solid;
 	    height: 80px;
 	    width: 80px;
 	    padding: 10px;
-	    box-shadow: inset 10px 10px 50px #BBB8B8;
+	    box-shadow: inset 10px 10px 50px #BBB8B8;*/
+	   width: auto;
+	   min-height: 20px;
+	   max-height: 80px;
+	   margin: 0 auto;
+	   padding: 10px;
+	   display:table-cell;
+	   /*margin: -9px 0px 0px -6px;*/
+	   vertical-align: middle;
+	}
+	.popupImageDiv{
+		margin: 10px 3px 6px 3px;
+		display: table;
+		border: 0px solid;
+		/*height: 80px;
+	    width: 80px;*/
+		width: 15%;
+		height: 100px;
+		padding: 10px;
+		box-shadow: inset 10px 10px 50px #BBB8B8;
+		float: left;
 	}
 	#chkBtn {
 	    width: 100%;
 	    position: relative;
 	    top: -37px;
 	}
-	@media only screen and (max-width:1366px){
+	@media only screen and (min-width:1281px) and (max-width:1366px){
 		.product-grid.elem {
 		    border: 0px solid #EFE9E9;
 		    margin: 0 5px 8px 4px;
@@ -355,5 +390,58 @@ button.addtoCart:hover{
 		    width: 60px;
 		    position: relative;
 		    top: 10px;
+		}
+		.bgProduct{
+			margin-left:-25px;
+		}
+	}
+	@media (min-width:1081px) and (max-width:1280px){
+		#subElementDiv{
+			padding: 0px;
+			border: 0px solid;
+			width: 60%;
+    		margin-left: 66px;
+
+		}
+		.product-grid.elem {
+		    border: 0px solid #EFE9E9;
+		    margin: 0 5px 8px 4px;
+	    	width: 9.8%;
+		    min-height: 80px;
+		}
+		.product-img{
+			width: 70px;
+		    margin: 0px auto;
+		    border: 0px solid;
+		    text-align: center;
+		    box-shadow: inset 10px 10px 50px #f3f3f3;
+		}
+
+		.placeholdit {
+		    margin-left: 10px;
+		    width: 50px;
+		    position: relative;
+		    top: 10px;
+		}
+		.bgProduct{
+			margin-left:-25px;
+		}
+		.product-grid.elem .product-img img{
+			height: 70px;
+		}
+		.popupImageDiv{
+			height: 60px;
+		}
+		div#light img, div#light1 img, div#light2 img{
+			height: 60px;
+		}
+		div#designerPick h4 {
+    		font-size: 14px;
+		}
+		.row h4{
+			font-size: 1em;
+		}
+		.cart-items table th{
+			font-size: 13px;
 		}
 	}

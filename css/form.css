@@ -28,12 +28,15 @@ section.sky-form {
     border-radius: 3px;
     margin-bottom: 15px;
 }
-section#sorter{
+section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
 	border:0px;
 	padding: 10px 0px;
 }
 section#sorter select{
 	width:100%;
+	border: 1px solid;
+    border-radius: 3px;
+    margin-top: 10px;
 }
 .sky-form .input,
 .sky-form .select,
@@ -223,8 +226,13 @@ section#sorter select{
 		font-size: 12px;
 	}	
 }
-@media screen and (max-width:1366px){
+@media screen and (min-width:1281px) (max-width:1366px){
 	.sky-form .radio, .sky-form .checkbox{
     	font-size: 14.5px;
+   }	
+}
+@media screen and (min-width:1081px) (max-width:1280px){
+	.sky-form .radio, .sky-form .checkbox{
+    	font-size: 12.5px;
    }	
 }

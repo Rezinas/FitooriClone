@@ -1,7 +1,7 @@
 <div ng-app="cdesign" id="mainContainer">
 	<div ng-controller="MainController">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<h3 class="page-header">Make My Own Design</h3>
+			<h3 class="page-header">Make My Own Design 1 2 3</h3>
 			<p class="page-content">Welcome to our design earring section. There could be 4 levels in the design. Start by choosing one of the categories for the first level. </p>
 		</div>
 		<div class="row">
@@ -33,7 +33,7 @@
 						<div class="steps" ng-class="{'done': designLevel>2, 'active': designLevel==2}"> More Dangler/Jhumka</div>
 						<div class="steps" ng-class="{'done': designLevel>3, 'active': designLevel==3}"> Final Dangler/Jhumka</div>
 					</div> -->
-					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="subElementDiv">
 						<div ng-if="userMessage.msg != ''" class="alert {{alertClass}}" role="alert" id="alertDiv">
 						  {{userMessage.msg}}
 						</div>
@@ -60,12 +60,13 @@
 											<img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 										</div>
 									</div>
-									<a  ng-if="terracota.length > 6"  href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img src="http://placehold.it/80?text=MORE" class="placeholdit"></a>
+									<a  ng-if="terracota.length > 6"  href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+										<img src="http://placehold.it/80?text=MORE" class="placeholdit"></a>
 									<div class="clearfix"></div>
 								</div>
 								<div id="light" class="white_content">
 									<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a><br/>
-									<div ng-repeat="imgElem in filteredSet | category:1">
+									<div ng-repeat="imgElem in filteredSet | category:1" class="popupImageDiv">
 										<img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 									</div>
 
@@ -83,8 +84,9 @@
 								</div>
 								<div id="light2" class="white_content">
 									<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/>
-
-									<img ng-repeat="imgElem in filteredSet | category:3"  ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
+									<div ng-repeat="imgElem in filteredSet | category:3" class="popupImageDiv">
+										<img   ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
+									</div>
 								</div>
 								<div id="fade2" class="black_overlay"></div>
 								<div ng-if="(filteredSet | category:2).length > 0">
@@ -99,8 +101,9 @@
 								</div>
 								<div id="light1" class="white_content">
 									<a href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a><br/>
-
-									<img ng-repeat="imgElem in filteredSet | category:2"  ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
+									<div ng-repeat="imgElem in filteredSet | category:2" class="popupImageDiv">
+										<img  ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
+									</div>
 								</div>
 								<div id="fade1" class="black_overlay"></div>
 							</div>
@@ -116,7 +119,7 @@
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 				<div id="designDet" class="cart-items">
 					<h4>Cost Details</h4>
-					<table width="100%">
+					<table width="95%">
 		                <tbody>
 			                <tr>
 			                  	<th>Price&nbsp;(with Tax)</th>

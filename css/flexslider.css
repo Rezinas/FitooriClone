@@ -74,17 +74,18 @@ html[xmlns] .flexslider .slides {
  * ====================================================================================================================*/
 .flexslider {
   margin: 0 0 60px;
-  background: #ffffff;
-  border: 4px solid #ffffff;
+  /*background: #ffffff;*/
+  border: 0px solid #eee;
   position: relative;
   zoom: 1;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  -webkit-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+ /* -webkit-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
   -o-box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
-  box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: '' 0 1px 4px rgba(0, 0, 0, 0.2);*/
+  box-shadow: inset 10px 10px 50px #f3f3f3;
 }
 .flexslider .slides {
   zoom: 1;
@@ -100,6 +101,7 @@ html[xmlns] .flexslider .slides {
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
+  border-bottom: 1px solid #eee;
 }
 .loading .flex-viewport {
   max-height: 300px;
@@ -238,7 +240,7 @@ html[xmlns] .flexslider .slides {
 .flex-control-thumbs li {
   width: 25%;
   float: left;
-  margin: 0;
+  margin: 0 5px;
 }
 .flex-control-thumbs img {
   width: 100%;
@@ -246,6 +248,7 @@ html[xmlns] .flexslider .slides {
   display: block;
   opacity: .7;
   cursor: pointer;
+  border: 1px solid #B9B5B5;
   -moz-user-select: none;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -259,6 +262,8 @@ html[xmlns] .flexslider .slides {
 .flex-control-thumbs .flex-active {
   opacity: 1;
   cursor: default;
+  border: 1px solid #B9B5B5;
+  box-shadow: 1px 1px 1px 1px #ccc;
 }
 /* ====================================================================================================================
  * RESPONSIVE

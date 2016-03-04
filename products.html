@@ -170,12 +170,12 @@
 				</form>
 			</div>
 		<!-- </div> -->
-		<div class="row">
-			<div class="col-xs-12">
-					<div class="pull-right">
-						<button ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</button>
+		<div class="row"> 
+			<div class="col-lg-10 col-md-10 col-sm-6 col-xs-12" id="pagination">
+					<div>
+						<button ng-hide="currentPage == 0" ng-click="currentPage=currentPage-1" class="pageBtn">Previous</button>
 										<span ng-hide="currentPage == 0 && currentPage >= resultSet.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
-						<button ng-hide="currentPage >= resultSet.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next</button>
+						<button ng-hide="currentPage >= resultSet.length/pageSize - 1" ng-click="currentPage=currentPage+1" class="pageBtn">Next</button>
 					</div>
 			</div>
 		</div>

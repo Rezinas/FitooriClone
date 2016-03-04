@@ -47,10 +47,10 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 ?>
 <!--//single-page-->
 <div class="single">
-	<div class="container">
+	<div style="margin:0px 50px;">
 	<h2>Product Details</h2>
 		<div class="single-grids">
-			<div class="col-md-4 single-grid">
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 single-grid">
 				<div class="flexslider">
 					<ul class="slides">
 						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>">
@@ -69,7 +69,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-4 single-grid simpleCart_shelfItem">
+			<div class="col-lg-5 col-md-4 col-sm-4 col-xs-12 single-grid simpleCart_shelfItem" style="border-right: 1px solid #eee;">
 				<h3><?php echo $parr['name']; ?></h3>
 				<p><?php echo $parr['shortdesc']; ?></p>
 				<ul class="size">
@@ -98,7 +98,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 					<p>Tag : <a href="<?php echo $url; ?>"> <?php echo $parr['tags']; ?> </a></p>
 				</div>
 			</div>
-			<div class="col-md-4 single-grid1">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 single-grid1">
 				<div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingOne">
@@ -109,7 +109,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 							</h4>
 						</div>
 						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-							<div class="panel-body">
+							<div class="panel-body" style="border-top-color: #5D4B33;">
 							<?php echo $parr['detaildesc']; ?>
 							</div>
 						</div>
@@ -123,7 +123,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-							<div class="panel-body">
+							<div class="panel-body" style="border-top-color: #5D4B33;">
 								<?php echo $parr['addinfo']; ?>
 							</div>
 						</div>

@@ -3,11 +3,21 @@
 }
  .about{
   background-color:#fff;
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-bottom: 10px;  
  }
  div#left-pane{
    border-right: 1px solid #C5C4C4;
-   height: 100%
+   min-height: 550px
  }
+ div#right-pane {
+
+    border: 0px solid;
+    min-height: 550px;
+}
  .userProfile {
    border-bottom: 3px solid #C5C4C4;
    padding-bottom: 10px;
@@ -88,6 +98,23 @@
    position: relative;
    top: 83px;
  }
+ input#updateprofile, input#editAddr, input#chngpwd {
+    border: 2px solid #F07818;
+    color: #FFF;
+    font-size: 1.1em;
+    padding: 0.5em 2em;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    outline: none;
+    background-color: #F07818;
+}
+input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
+  background: #FFF;
+  color: #F07818;
+}
  .contact-form .form-group{
    width: 32.3%;
    float: left;
