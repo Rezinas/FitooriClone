@@ -83,4 +83,43 @@ $(document).ready(function (c) {
    });
 
 
+    $("#addressForm").validate({
+         rules: {
+          email_info: {required:true, email:true},
+          ship_address1: { required: true  },
+          ship_city: { required: true },
+          ship_state: { required: true },
+          ship_postalcode: { required: true },
+          bill_address1: { required:"#sameBilling:unchecked"  },
+          bill_city: { required:"#sameBilling:unchecked" },
+          bill_state: { required:"#sameBilling:unchecked" },
+          bill_postalcode: { required:"#sameBilling:unchecked" }
+         },
+         messages: {
+          email_info: {required:"Please enter your email address", email:"Please enter valid email address"},
+          ship_address1: { required: "Please Provide Address"  },
+          ship_city: { required: "Please Provide City" },
+          ship_state: { required: "Please Provide State" },
+          ship_postalcode: { required: "Please Provide Postal Code" },
+          bill_address1: { required:"Please Provide Address"  },
+          bill_city: { required:"Please Provide City" },
+          bill_state: { required:"Please Provide State" },
+          bill_postalcode: { required:"Please Provide Postal Code" },
+         submitHandler: function(form) {
+          form.submit();
+          return false;
+         }
+       }
+    });
+
+    $("a.placeorder").click(function(e){
+       $.get("php/orders.php?confirmOrder", function(data, status){
+          console.log(data);
+          if(data == "SUCCESS") {
+            $("#collapseThree").removeClass("in");
+            $("#collapseFour").addClass("in");
+          }
+      });
+    });
+
  });

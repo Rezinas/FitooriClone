@@ -28,7 +28,6 @@ if(isset($_POST['login']))
         $gotoPage = "index.php?".$_POST["backto"];
         header("Location: ".SITE_URL. $gotoPage);
         exit();
-
       }
 
       echo   SUCCESS;

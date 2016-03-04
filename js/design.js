@@ -1,8 +1,8 @@
 'use strict';
 var des = angular.module('cdesign', []);
 
-des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document',
-    function($scope, $rootScope, $http, $window, $document) {
+des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout',
+    function($scope, $rootScope, $http, $window, $document, $timeout) {
 
         $scope.siteUrl = $window.model.siteUrl;
         $scope.designObj = {};
@@ -15,7 +15,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.prdIndex = [];
         $scope.allConnArr =[];
         $scope.designerPicks=[];
-        $scope.userMessage= "";
+        $scope.userMessage= { msg : ""};
         $scope.alertClass="alert-info";
         $scope.designPrice=0;
         $scope.isAgent = $window.model.isAgent;
@@ -264,7 +264,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 //mainlist ends here
                 //call the service to update designer's pick
                 updateDesignerPick();
-                $scope.userMessage = "Well Done!"
+                $scope.userMessage.msg = "Well Done!"
                 $scope.alertClass = "alert-success";
             } else {
                 var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
@@ -281,13 +281,14 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.designLevel++;
                 $scope.levelFilled = false;
                 $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
+                designTotal();
             } else {
                 alert("you havent selected elements for this level yet.");
             }
 
         };
 
-        $scope.designTotal = function(){
+        var designTotal = function(){
             var total = 0;
             var marginFactor = 1 + marginPercent/100;
             var overheadFactor = 1 + overheads/100;
@@ -304,17 +305,17 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.nextDisable = function(){
             var currElement = $scope.mySelectedItems[$scope.designLevel];
             if(currElement && currElement.bottompoints == 0){
-                $scope.userMessage = "Well done!. Note: The element you have selected has no more connection point for adding another level.";
+                $scope.userMessage.msg = "Well done!. Note: The element you have selected has no more connection point for adding another level.";
                 $scope.alertClass= "alert-success";
                 return true;
             }
             else if(!$scope.levelFilled)  {
-                $scope.userMessage = "Select one of our design elements for your Earring for this level.";
+                $scope.userMessage.msg = "Select one of our design elements for your Earring for this level.";
                 $scope.alertClass= "alert-info";
                 return true;
             }
             else if($scope.designLevel == 3){
-                $scope.userMessage = "You have added all of the levels that could be designed.";
+                $scope.userMessage.msg = "You have added all of the levels that could be designed.";
                 $scope.alertClass= "alert-warning";
                 return true;
             }
@@ -323,7 +324,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.processForm = function() {
           if($scope.productAdded) {
-                $scope.userMessage= "Your Design Already Added to Cart.";
+                $scope.userMessage.msg = "Your Design Already Added to Cart.";
              return;
           }
           var payload = {
@@ -338,9 +339,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
          })
           .success(function(data) {
             if(data == "SUCCESS"){
-                $scope.productAdded = true;
-                $scope.userMessage= "Your Design Successfully Added to Cart.";
-
+                  $scope.productAdded = true;
                 if(!$scope.isAgent){
                     $window.cart.getCart();
                 }

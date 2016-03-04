@@ -6,9 +6,6 @@ $cartItems = (isset($_SESSION['cartids'])) ? $_SESSION['cartids'] : [];
 if(count($cartItems)  > 0) {
 	$cart = array_count_values($cartItems);
 	$cartids = array_keys($cart);
-
-var_dump($cart);
-
 	$cartProducts=[];
 	$cartTotal=0;
 	$qry = "SELECT  `productid`,`name`, `price`, `size`, `mainimg`, `customized`, `material` from products WHERE productid IN (".implode($cartids, ",")." )";

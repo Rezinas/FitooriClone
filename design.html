@@ -4,7 +4,7 @@
 			<h3 class="page-header">Make My Own Design</h3>
 			<p class="page-content">Welcome to our design earring section. There could be 4 levels in the design. Start by choosing one of the categories for the first level. </p>
 		</div>
-		<div class="row">			
+		<div class="row">
 			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 				<div class="row">
 					<div class="avlOptions col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -34,8 +34,8 @@
 						<div class="steps" ng-class="{'done': designLevel>3, 'active': designLevel==3}"> Final Dangler/Jhumka</div>
 					</div> -->
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-						<div ng-if="userMessage != ''" class="alert {{alertClass}}" role="alert" id="alertDiv">
-						  {{userMessage}}
+						<div ng-if="userMessage.msg != ''" class="alert {{alertClass}}" role="alert" id="alertDiv">
+						  {{userMessage.msg}}
 						</div>
 						<!-- <div class='steps-container'>
 							<div class='steps' ng-class="{'done': designLevel>0, 'active': designLevel==0}">
@@ -64,11 +64,11 @@
 									<div class="clearfix"></div>
 								</div>
 								<div id="light" class="white_content">
-									<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a><br/>									
+									<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a><br/>
 									<div ng-repeat="imgElem in filteredSet | category:1">
-										<img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">										
+										<img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 									</div>
-									
+
 								</div>
 								<div id="fade" class="black_overlay"></div>
 								<div>
@@ -105,8 +105,8 @@
 								<div id="fade1" class="black_overlay"></div>
 							</div>
 							<div id="chkBtn" style="text-align:left;">
-								<button type="button" ng-disabled="nextDisable()" class="btn btn-primary" ng-click="updateLevel()">Next</button> &nbsp; &nbsp;
-								<button type="button" ng-disabled="designLevel == 0"  class="btn btn-primary" ng-click="gobackLevel()">Back</button>
+								<button type="button" ng-disabled="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()">Next</button> &nbsp; &nbsp;
+								<button type="button" ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Back</button>
 								<button type="button" ng-if="designLevel > 0"  class="btn btn-primary" ng-click="resetDesign()" style="margin-left: 15px;">Reset</button>
 		            		</div>
 						</div>
@@ -114,13 +114,13 @@
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-				<div id="designDet" class="cart-items" ng-if="mySelectedItems.length > 0">
+				<div id="designDet" class="cart-items">
 					<h4>Cost Details</h4>
 					<table width="100%">
 		                <tbody>
 			                <tr>
 			                  	<th>Price&nbsp;(with Tax)</th>
-			                  	<td>:  {{designTotal() | currency:"&#8377":2}}
+			                  	<td>:  {{designPrice | currency:"&#8377":2}}
 			                  	</td>
 			                </tr>
 			                <tr>
@@ -136,7 +136,7 @@
 
 			                <tr style="border:none">
 			                  	<td colspan="2" style="text-align: center">
-			                  		<button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" class="cnfBtn">Confirm Design</button> &nbsp; &nbsp;
+			                  		<button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && !productAdded" class="cnfBtn">Confirm Design</button> &nbsp; &nbsp;
 									<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" ng-disabled="productAdded" class="addtoCart">Add to Cart</button>
 			                  	</td>
 			                </tr>

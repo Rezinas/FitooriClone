@@ -54,6 +54,15 @@
    else {
        $currenttab = 'home';
    }
+
+if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" && $currenttab != "orders" ) {
+  unset($_SESSION['orderStatus']);
+  unset($_SESSION['orderID']);
+  unset($_SESSION['cartids']);
+  unset($_SESSION['cartPrice']);
+}
+
+
    ?>
 <!DOCTYPE html>
 <html>
@@ -156,7 +165,7 @@
          header("Location: index.php");//use for the redirection to some page
       }?>
    </head>
-   <body>
+   <body style="padding-top:80px;">
       <!--header-->
       <div class="header">
          <!-- <div class="container"> -->
@@ -198,7 +207,7 @@
                                  <li><a class="list" href="index.php?products">All</a></li>
                                  <li><a class="list" href="index.php?products">Beaded</a></li>
                                  <li><a class="list" href="index.php?products">Metal</a></li>
-                                 <li><a class="list" href="index.php?products">Teracotta</a></li>                                
+                                 <li><a class="list" href="index.php?products">Teracotta</a></li>
                               </ul>
                            </div>
                         </div>
