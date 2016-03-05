@@ -49,7 +49,7 @@ label.material {
 .row h4{
 	text-align: center;
 	/* color: #fff; */
-	/* background-color: #5D4B33; */
+	/* background-color: silver; */
 	padding: 0px;
 	margin-top: -14px;
 	width: 100%;
@@ -347,7 +347,7 @@ button.addtoCart:hover{
 	   width: auto;
 	   min-height: 20px;
 	   max-height: 80px;
-	   margin: 0 auto;
+	   margin: 0px auto;
 	   padding: 10px;
 	   display:table-cell;
 	   /*margin: -9px 0px 0px -6px;*/

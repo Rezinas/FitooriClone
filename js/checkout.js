@@ -118,6 +118,8 @@ $(document).ready(function (c) {
           if(data == "SUCCESS") {
             $("#collapseThree").removeClass("in");
             $("#collapseFour").addClass("in");
+            $("#panelThree span").removeClass("hide");
+
           }
       });
     });

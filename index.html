@@ -1,9 +1,9 @@
 	<!--banner-->
 	<div class="banner">
 		<img src="images/banner3.png" alt=""/>
-	</div>			
-	<!--//banner-->	
-	
+	</div>
+	<!--//banner-->
+
 	<!--gallery-->
 	<div class="gallery">
 		<div class="container">
@@ -18,7 +18,7 @@
 						</div>
 					</a>
 					<div class="galy-info">
-						<p>The Earthen Collection</p>						
+						<p>The Earthen Collection</p>
 					</div>
 				</div>
 				<div class="col-md-4 gallery-grid glry-one">
@@ -31,7 +31,7 @@
 						</div>
 					</a>
 					<div class="galy-info">
-						<p>Beautiful Metal</p>						
+						<p>Beautiful Metal</p>
 					</div>
 				</div>
 				<div class="col-md-4 gallery-grid glry-one">
@@ -47,219 +47,42 @@
 						<p>Beading Brdige</p>
 					</div>
 				</div>
+
+				<?php foreach($featuredPrd as $fprd) { ?>
+
 				<div class="col-md-3 gallery-grid ">
-					<a href="products.html"><!-- <img src="images/g3.png" class="img-responsive" alt=""/> -->
-						<img src="images/004.png" class="img-responsive" alt=""/>
+					<a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $fprd['productid']; ?>"><!-- <img src="images/g3.png" class="img-responsive" alt=""/> -->
+						<img src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" class="img-responsive" alt=""/>
 						<div class="gallery-info">
 							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
+							<a class="shop" href="<?php echo SITE_URL; ?>index.php?products&m=<?php echo $fprd['material']; ?>">SHOP NOW</a>
 							<div class="clearfix"> </div>
 						</div>
 					</a>
 					<div class="galy-info">
-						<p>Lorem Ipsum is simply</p>
+						<p><?php echo $fprd['name']; ?></p>
 						<div class="galry">
 							<div class="prices">
-								<h5 class="item_price">Rs.95.00</h5>
+								<h5 class="item_price">Rs.<?php echo $fprd['price']; ?></h5>
 							</div>
-							<div class="rating">
+							<!-- <div class="rating">
 								<span>☆</span>
 								<span>☆</span>
 								<span>☆</span>
 								<span>☆</span>
 								<span>☆</span>
-							</div>						
+							</div> -->
 							<div class="clearfix"></div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html">
-						<img src="images/001.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">Rs.95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html">
-						<img src="images/010.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">Rs.95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html">
-						<img src="images/003.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">Rs.95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html">
-						<img src="images/011.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">Rs.95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html">
-						<img src="images/pendantset2.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">Rs.95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html">
-						<img src="images/pendantset.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">Rs.95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 gallery-grid ">
-					<a href="products.html">
-						<img src="images/pendantset3.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="single.html">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Lorem Ipsum is simply</p>
-						<div class="galry">
-							<div class="prices">
-								<h5 class="item_price">Rs.95.00</h5>
-							</div>
-							<div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div>						
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-			</div>	
+
+		<?php } ?>
+			</div>
 		</div>
 	</div>
 	<!--//gallery-->
-	
+
 	<!--subscribe-->
 	<div class="subscribe">
 		 <div class="container">
@@ -286,8 +109,8 @@
 
             </div>
             <form style="margin: 65px auto;">
-            	<p style="color: #fff;font-size: 24px; position: relative;font-family: 'Roboto-Regular'; top: 20px;" >Pick a Jewel and have fun designing your own masterpiece... </p>            	
-        	</form>			
+            	<p style="color: #fff;font-size: 24px; position: relative;font-family: 'Roboto-Regular'; top: 20px;" >Pick a Jewel and have fun designing your own masterpiece... </p>
+        	</form>
 		 </div>
 	</div>
-	<!--//subscribe-->	
+	<!--//subscribe-->

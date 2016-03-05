@@ -159,7 +159,6 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         $scope.addCartItem = function(pid, pprice){
             cartObj.updateCart(pid, parseFloat(pprice,10));
             $("div.cart-box").slideDown('slow').delay(1000).slideUp('slow');
-
         };
 
         $scope.numberOfPages=function(){

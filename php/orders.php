@@ -63,6 +63,7 @@ if(isset($_GET["confirmOrder"])) {
 }
 
 if(!empty($_POST) && isset($_POST['shippay']) ){
+    $email_info = prepare_input($_POST['email_info']);
     $ship_address1 = prepare_input($_POST['ship_address1']);
     $ship_address2 = prepare_input($_POST['ship_address2']);
     $ship_city = prepare_input($_POST['ship_city']);
@@ -76,31 +77,56 @@ if(!empty($_POST) && isset($_POST['shippay']) ){
     $bill_postalcode =  ($sameBilling == "1") ? $ship_postalcode :prepare_input($_POST['bill_postalcode']);
     $paytype = prepare_input($_POST['paytype']);
 
+    var_dump($_POST);
 
     $sess_orderID = prepare_input($_POST["currOrderId"]);
     $_SESSION['orderStatus'] = $sess_orderStatus = "review";
 
     //update orders table with these values.
-                //run the update query for the $pieceid.
-        $updQuery1 =  "UPDATE `orders` SET `status` = ?, `paymenttype` = ?, `shippingaddress1` = ?, `shippingaddress2` = ?, `shippingstate` = ?, `shippingcity` = ?, `shippingpostal` = ?, `billingaddress1` = ?, `billingaddress2` = ?, `billingcity` = ?, `billingstate` = ?, `billingpostal` = ? WHERE `orders`.`orderid` = $sess_orderID ";
+            //run the update query for the $pieceid.
+    $updQuery1 =  "UPDATE `orders` SET `status` = ?, `paymenttype` = ?, `shippingaddress1` = ?, `shippingaddress2` = ?, `shippingstate` = ?, `shippingcity` = ?, `shippingpostal` = ?, `billingaddress1` = ?, `billingaddress2` = ?, `billingcity` = ?, `billingstate` = ?, `billingpostal` = ?, `useremail`= ? WHERE `orders`.`orderid` = $sess_orderID ";
+
+    $stmt = $dbcon->prepare($updQuery1);
+    $stmt->bind_param('sssssssssssss', $sess_orderStatus, $paytype, $ship_address1, $ship_address2, $ship_state, $ship_city, $ship_postalcode, $bill_address1, $bill_address2, $bill_state, $bill_city, $bill_postalcode, $email_info);
+
+    if(!$stmt->execute()){
+        die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+    }
+    $stmt->close();
+
+    if(isset($_SESSION["useraddress"])){
+        $uid = $_SESSION['userid'];
+        $updQuery1 =  "UPDATE `user` SET `address1` = ?, `address2` = ?, `city` = ?, `state` = ?, `postalcode` = ? WHERE `user`.`userid` = $uid";
 
         $stmt = $dbcon->prepare($updQuery1);
-        $stmt->bind_param('ssssssssssss', $sess_orderStatus, $paytype, $ship_address1, $ship_address2, $ship_state, $ship_city, $ship_postalcode, $bill_address1, $bill_address2, $bill_state, $bill_city, $bill_postalcode);
+        $stmt->bind_param('sssss', $ship_address1, $ship_address2, $ship_city, $ship_state, $ship_postalcode);
 
         if(!$stmt->execute()){
             die('Error : ('. $dbcon->errno .') '. $dbcon->error);
         }
         $stmt->close();
+        unset($_SESSION['useraddress']);
+
+    }
 
     header("Location: ".SITE_URL. "index.php?orders");
     exit();
 }
 
 
+if($sess_orderID == -1) {
+    //new order to be created if there was no orderid in the session
+    //order status could be new, shippingInfo, review, confirmed, cancelled, shipped, delivered, completed
+    $_SESSION['orderStatus'] = $sess_orderStatus = "new";
+
+}
+
 $currUserEmail = isGuest() ? "" :  getCurrentUserEmail();
 $currUsertype="2";
 $curr_user = ['userid' => '', 'firstname' => '', 'lastname' => '', 'email' => '', 'phone' => '', 'gender' => '', 'address1' => '', 'address2' => '', 'city' => '', 'state' => '', 'postalcode' => ''];
 $order_add = ['email' => '', 'ship_add1' => '', 'ship_add2' => '', 'ship_city' => '', 'ship_state' => '', 'ship_postal' => '', 'bill_add1' => '', 'bill_add2' => '', 'bill_city' => '', 'bill_state' => '', 'bill_postal' => '', 'paymenttype' => 'COD'];
+
+
 
 if(isset($_SESSION['userid'])) {
     $user_id=$_SESSION['userid'];
@@ -122,6 +148,9 @@ if(isset($_SESSION['userid'])) {
     }
     $stmt->close();
 
+    if($curr_user['address1'] == "" || is_null($curr_user['address1'])) {
+        $_SESSION["useraddress"] = 0;
+    }
 
     if($sess_orderStatus == "new") {
         $_SESSION['orderStatus'] = $sess_orderStatus = "shippingInfo";
@@ -148,8 +177,6 @@ if($sess_orderID == -1) {
 
     //new order to be created now
     //order status could be new, shippingInfo, review, confirmed, cancelled, shipped, delivered, completed
-    $_SESSION['orderStatus'] = $sess_orderStatus = "new";
-
     if(count($cartItems) > 0) {
         $ord_qry  = "insert into orders (`useremail`, `usertype`, `status`, `shippingaddress1`,`shippingaddress2`,`shippingcity`,`shippingstate`,`shippingpostal`,`billingaddress1`,`billingaddress2`,`billingcity`,`billingstate`,`billingpostal`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $ins_stmt = $dbcon->prepare($ord_qry);
@@ -161,7 +188,7 @@ if($sess_orderID == -1) {
               $sess_orderID =$ins_stmt->insert_id;
               $_SESSION['orderID'] = $sess_orderID;
           }else{
-            die('Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
+            die('Insert Error 3 : ('. $dbcon->errno .') '. $dbcon->error);
         }
         $ins_stmt->close();
 
@@ -228,8 +255,5 @@ else {
     $stmt->close();
 
 }
-
-
-
 
 ?>

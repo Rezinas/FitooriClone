@@ -53,6 +53,25 @@
    }
    else {
        $currenttab = 'home';
+
+      $rqry = "SELECT productid, name, price, material, mainimg, dateAdded FROM products WHERE featured=1 ORDER BY dateAdded DESC LIMIT 8";
+
+       if(!$stmt = $dbcon->prepare($rqry)){
+          die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+      }
+
+      if(!$stmt->execute()){
+          die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+      }
+
+      $stmt->store_result();
+      $stmt->bind_result($a,$b, $c, $d, $e, $f);
+      $featuredPrd =[];
+      while ($stmt->fetch()) {
+        $featuredPrd[] = ['productid' => $a, 'name' => $b, 'price' => $c, 'material' => $d, 'mainimg' => $e, 'dateAdded' =>$f];
+      }
+      $stmt->close();
+
    }
 
 if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" && $currenttab != "orders" ) {
@@ -205,9 +224,9 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                               <h4>Category</h4>
                               <ul class="multi-column-dropdown">
                                  <li><a class="list" href="index.php?products">All</a></li>
-                                 <li><a class="list" href="index.php?products">Beaded</a></li>
-                                 <li><a class="list" href="index.php?products">Metal</a></li>
-                                 <li><a class="list" href="index.php?products">Teracotta</a></li>
+                                 <li><a class="list" href="index.php?products&m=2">Beaded</a></li>
+                                 <li><a class="list" href="index.php?products&m=3">Metal</a></li>
+                                 <li><a class="list" href="index.php?products&m=1">Teracotta</a></li>
                               </ul>
                            </div>
                         </div>

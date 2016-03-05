@@ -374,7 +374,6 @@ else if($currenttab == "report") {
                     sdesc: { required:true},
                     pdesc: { required:true},
                     addinfo: { required:true},
-                    promoted: { required: true},
                     featured: { required: true},
                     pcategory: {required: true },
                     pitem: { required: true },
@@ -392,15 +391,7 @@ else if($currenttab == "report") {
                     alt2file: { required: {
                              depends: function(element) {
                                     return ($("#alt2readonly").val() == '');}
-                        },accept: "png|jpeg|gif", filesize: 1048576  },
-                    featuredfile: { required: {
-                             depends: function(element) {
-                                    return ($("input[name=featured").val() == '1');}
-                        }, accept: "png|jpeg|gif", filesize: 1048576  },
-                    promotedfile: { required: {
-                        depends: function(element) {
-                            return ($("input[name=promoted").val() == '1');  }
-                        }, accept: "png|jpeg|gif", filesize: 1048576  }
+                        },accept: "png|jpeg|gif", filesize: 1048576  }
                 },
                 messages: {
                     pname: { required: "This is required"},
@@ -409,7 +400,6 @@ else if($currenttab == "report") {
                     sdesc: { required: "This is required"},
                     pdesc: { required: "This is required"},
                     addinfo: { required: "This is required"},
-                    promoted: { required: "This is required"},
                     featured: { required: "This is required"},
                      pcategory: { required: "This is required"},
                      pitem: { required: "This is required"},
@@ -418,8 +408,7 @@ else if($currenttab == "report") {
                     mainfile: "This is required. File must be JPG, GIF or PNG, less than 1MB",
                     alt1file: "This is required. File must be JPG, GIF or PNG, less than 1MB",
                     alt2file: "This is required. File must be JPG, GIF or PNG, less than 1MB",
-                    featuredfile: "File must be JPG, GIF or PNG, less than 1MB",
-                    promotedfile: "File must be JPG, GIF or PNG, less than 1MB",
+
                 },
                  errorPlacement: function(error, element) {
 
@@ -434,17 +423,9 @@ else if($currenttab == "report") {
                     else if (element.attr("name") == "alt2file" ) {
                          error.insertAfter("#alt2file");
                       }
-                       else if (element.attr("name") == "promotedfile" ) {
-                         error.insertAfter("#promotedfile");
-                      }
-                       else if (element.attr("name") == "featuredfile" ) {
-                         error.insertAfter("#featuredfile");
-                      }
+
                     else if (element.attr("type") == "radio" && element.attr("name") == "featured" ) {
                         error.insertAfter("#featuredRadio");
-                    }
-                    else if (element.attr("type") == "radio" && element.attr("name") == "promoted" ) {
-                        error.insertAfter("#promotedRadio");
                     }
                     else {
                         error.insertAfter(element);

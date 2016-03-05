@@ -15,8 +15,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.prdIndex = [];
         $scope.allConnArr =[];
         $scope.designerPicks=[];
-        $scope.userMessage= { msg : ""};
-        $scope.alertClass="alert-info";
         $scope.designPrice=0;
         $scope.isAgent = $window.model.isAgent;
         $scope.shipping=$window.model.shipping;
@@ -71,7 +69,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     }
                 } else {
                     if(row.toppoints == 1){
-                        resArr.push(row);
+                        if($scope.designLevel == 3){
+                            if(row.bottompoints == 0)
+                                resArr.push(row);
+                        }
+                        else
+                          resArr.push(row);
                     }
                     if (row.toppoints == topPoints && row.toppoints != 1) {
                         var prevXs = prevItem.botX.split(",");
@@ -82,7 +85,11 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                             if(Math.abs((currXs[i+1] - currXs[i]) - (prevXs[i+1] - prevXs[i])) > 5)
                                 matchingPoints=false;
                         }
-                        if(matchingPoints)
+                        if($scope.designLevel == 3){
+                            if(matchingPoints && row.bottompoints == 0)
+                            resArr.push(row);
+                        }
+                        else if(matchingPoints)
                          resArr.push(row);
                     }
                 }
@@ -265,8 +272,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 //call the service to update designer's pick
                 updateDesignerPick();
                 designTotal();
-                $scope.userMessage.msg = "Well Done!"
-                $scope.alertClass = "alert-success";
             } else {
                 var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
                 bpoints = ($scope.designLevel == 0 ) ? 1 : bpoints;
@@ -304,19 +309,14 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.nextDisable = function(){
             var currElement = $scope.mySelectedItems[$scope.designLevel];
+            var $startmsg = "";
             if(currElement && currElement.bottompoints == 0){
-                $scope.userMessage.msg = "Well done!. Note: The element you have selected has no more connection point for adding another level.";
-                $scope.alertClass= "alert-success";
                 return true;
             }
             else if(!$scope.levelFilled)  {
-                $scope.userMessage.msg = "Select one of our design elements for your Earring for this level.";
-                $scope.alertClass= "alert-info";
                 return true;
             }
             else if($scope.designLevel == 3){
-                $scope.userMessage.msg = "You have added all of the levels that could be designed.";
-                $scope.alertClass= "alert-warning";
                 return true;
             }
             else return false;
@@ -324,7 +324,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.processForm = function() {
           if($scope.productAdded) {
-                $scope.userMessage.msg = "Your Design Already Added to Cart.";
              return;
           }
           var payload = {

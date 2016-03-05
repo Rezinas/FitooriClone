@@ -10,18 +10,13 @@ $pcategory  = "";
 $pitem  = "";
 $pstatus  = "";
 $featured  = "";
-$promoted  = "";
 $mainimage = "";
 $alt1image = "";
 $alt2image = "";
-$featuredimage = "";
-$promotedimage = "";
 $pid= "";
 $mi="";
 $ai1 = "";
 $ai2 = "";
-$primg="";
-$fimg= "";
 $ptags ="";
 $psize ="";
 $pcustomized ="0";
@@ -37,7 +32,7 @@ if(isset($_GET["product"]) && isset($_GET["id"]) ) {
     	$pcustomized ="1";
     }
 
-    $qry = "SELECT  `name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `promotedimg`,`featuredimg`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `promoted`, `addedUsertype`, `addedbyUserEmail`, `quantity`,  `tags`,  `size`, `designerPick` from products WHERE productid=$pid";
+    $qry = "SELECT  `name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `addedUsertype`, `addedbyUserEmail`, `quantity`,  `tags`,  `size`, `designerPick` from products WHERE productid=$pid";
  	if(!$stmt = $dbcon->prepare($qry)){
 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}
@@ -47,9 +42,9 @@ if(isset($_GET["product"]) && isset($_GET["id"]) ) {
 	}
 
 	$stmt->store_result();
-	$stmt->bind_result($a,$b, $c, $d, $i1, $i2, $i3, $i4, $i5, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p);
+	$stmt->bind_result($a,$b, $c, $d, $i1, $i2, $i3, $e, $f, $g, $h, $i,  $k, $l, $m, $n, $o, $p);
 	while ($stmt->fetch()) {
-		$parr = ['name' => $a, 'price' => $b,  'bodypart' => $c, 'material' => $d, 'mainimg' => $i1, 'alt1img' => $i2, 'alt2img' => $i3, 'promotedimg' => $i4, 'featuredimg' => $i5, 'status' => $e, 'shortdesc' => $f, 'detaildesc' => $g, 'addinfo' => $h, 'featured' => $i, 'promoted' => $j, 'addedUsertype' => $k, 'addedbyUserEmail' => $l, 'quantity' => $m, 'tags' => $n, 'size' => $o, 'designerPick' => $p];
+		$parr = ['name' => $a, 'price' => $b,  'bodypart' => $c, 'material' => $d, 'mainimg' => $i1, 'alt1img' => $i2, 'alt2img' => $i3, 'status' => $e, 'shortdesc' => $f, 'detaildesc' => $g, 'addinfo' => $h, 'featured' => $i, 'addedUsertype' => $k, 'addedbyUserEmail' => $l, 'quantity' => $m, 'tags' => $n, 'size' => $o, 'designerPick' => $p];
 	}
 	$stmt->close();
 
@@ -63,17 +58,12 @@ if(isset($_GET["product"]) && isset($_GET["id"]) ) {
 	$pitem  = $parr['bodypart'];
 	$pstatus  = $parr['status'];
 	$featured  = $parr['featured'];
-	$promoted  = $parr['promoted'];
 	$mainimage = ($parr['mainimg'] == "") ? "ERROR" : $parr['mainimg'];
 	$alt1image = ($parr['alt1img'] == "") ? "ERROR" : $parr['alt1img'];
 	$alt2image = ($parr['alt2img'] == "") ? "ERROR" : $parr['alt2img'];
-	$featuredimage = ($parr['promotedimg'] == "") ? "ERROR" : $parr['promotedimg'];
-	$promotedimage = ($parr['featuredimg'] == "") ? "ERROR" : $parr['featuredimg'];
 	$mi = $parr['mainimg'];
 	$ai1 = $parr['alt1img'];
 	$ai2 = $parr['alt2img'];
-	$fimg =  $parr['promotedimg'];
-	$primg = $parr['featuredimg'];
 	$psize = $parr['size'];
 	$designerPick = $parr['designerPick'];
 	$ptags = $parr['tags'];
@@ -97,14 +87,11 @@ if (!empty($_POST)) {
 	  $pitem  = prepare_input($_POST['pitem' ]);
 	  $pstatus  = prepare_input($_POST['pstatus' ]);
 	  $featured  = prepare_input($_POST['featured' ]);
-	  $promoted  = prepare_input($_POST['promoted' ]);
 
 	  if($mode != "new"){
 		  $mi = prepare_input($_POST['mi' ]);
 		  $ai1 = prepare_input($_POST['ai1' ]);
 		  $ai2 = prepare_input($_POST['ai2' ]);
-		  $primg = prepare_input($_POST['primg' ]);
-		  $fimg = prepare_input($_POST['fimg' ]);
 		  $pcustomized  = prepare_input($_POST['pcustomized' ]);
 		  if(isset($_POST['designerPick'])){
 		  	$designerPick = $_POST["designerPick"];
@@ -113,7 +100,7 @@ if (!empty($_POST)) {
 	  }
 
 
-	  if($pname == ""  || $sdesc == "" || $pprice == "" || $pdesc == "" || $pquantity == "" || $addinfo == "" || $pcategory == "" || $pitem == "" ||  $pstatus == "" || $featured == "" || $promoted == "" ) {
+	  if($pname == ""  || $sdesc == "" || $pprice == "" || $pdesc == "" || $pquantity == "" || $addinfo == "" || $pcategory == "" || $pitem == "" ||  $pstatus == "" || $featured == "" ) {
 	  	$error .= "Form Error.. some input is empty.";
 	  }
 
@@ -131,12 +118,6 @@ if (!empty($_POST)) {
 			$error .= "Form Error... featured  image upload failed";
 		}
 	}
-	if($promoted == "1") {
-		$promotedimage =  uploadPrdImage($_FILES['promoted'] ['tmp_name'], $_FILES['promoted'] ['name'], $_FILES['promoted'] ['error']);
-		if (strpos($promotedimage,'ERROR') !== false  && $mode == "new" ) {
-			$error .= "Form Error... promoted  image upload failed";
-		}
-	}
 
 	if (strpos($mainimage,'ERROR') === false){
 			$mi = $mainimage;
@@ -147,12 +128,7 @@ if (!empty($_POST)) {
 	if (strpos($alt2image,'ERROR') === false){
 		$ai2 = $alt2image;
 	}
-	if($promoted == "1") {
-		 $primg = $promotedimage;
-	}
-	if($featured == "1") {
-		$fimg= $featuredimage;
-	}
+
 
     if ($error  == "")
     {
@@ -162,11 +138,11 @@ if (!empty($_POST)) {
 	  $curr_userType = isAgent()? 0 : 1;
 	  $curr_userEmail = getCurrentUserEmail();
 
-	$query = "INSERT INTO `products` (`name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `promotedimg`,`featuredimg`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `promoted`, `addedUsertype`, `addedbyUserEmail`, `quantity`, `size`, `tags`) VALUES ( ?, ?, ?, ?, ?,?,?,?,?, ?,?, ?, ?, ?, ?, ?, ?, ?,?,?)";
+	$query = "INSERT INTO `products` (`name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`,  `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`, `addedUsertype`, `addedbyUserEmail`, `quantity`, `size`, `tags`) VALUES ( ?, ?, ?,?,?,?, ?,?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 	$statement = $dbcon->prepare($query);
 
 	//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
-	$statement->bind_param('sdiisssssisssiiisiss', $pname, floatval($pprice), intval($pitem), intval($pcategory), $mi, $ai1, $ai2, $primg, $fimg, intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), intval($promoted), $curr_userType, $curr_userEmail, intval($pquantity), $psize, $ptags );
+	$statement->bind_param('sdiisssisssiisiss', $pname, floatval($pprice), intval($pitem), intval($pcategory), $mi, $ai1, $ai2,  intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), $curr_userType, $curr_userEmail, intval($pquantity), $psize, $ptags );
 
 	if($statement->execute()){
 		$mode = "edit";
@@ -183,10 +159,10 @@ if (!empty($_POST)) {
     	else if($mode == "edit") {
     	 	//run the update query for the $pid.
     	 	//UPDATE tblFacilityHrs SET title =? description = ? WHERE uid = ?
-    	 	$updQuery1 =  "UPDATE products SET `name` = ?, `price` = ?, `bodypart` = ?, `material` = ?,  `mainimg` = ?, `alt1img` = ?, `alt2img` = ?, `promotedimg` = ?,`featuredimg` = ?,`status` = ?, `shortdesc` = ?, `detaildesc` = ?, `addinfo` = ?, `featured` = ?, `promoted` = ?, `addedUsertype` = ?, `addedbyUserEmail` = ?, `quantity`=?,  `size`=?, `tags`=?, `customized`=?, `designerPick`=? WHERE productid=$pid ";
+    	 	$updQuery1 =  "UPDATE products SET `name` = ?, `price` = ?, `bodypart` = ?, `material` = ?,  `mainimg` = ?, `alt1img` = ?, `alt2img` = ?, `status` = ?, `shortdesc` = ?, `detaildesc` = ?, `addinfo` = ?, `featured` = ?, `addedUsertype` = ?, `addedbyUserEmail` = ?, `quantity`=?,  `size`=?, `tags`=?, `customized`=?, `designerPick`=? WHERE productid=$pid ";
 
     	 	$stmt = $dbcon->prepare($updQuery1);
-		$stmt->bind_param('sdiisssssisssiiisissii', $pname, floatval($pprice), intval($pitem), intval($pcategory), $mi, $ai1, $ai2, $primg, $fimg,  intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), intval($promoted), $curr_userType, $curr_userEmail, intval($pquantity), $psize, $ptags, intval($pcustomized), intval($designerPick) );
+		$stmt->bind_param('sdiisssisssiisissii', $pname, floatval($pprice), intval($pitem), intval($pcategory), $mi, $ai1, $ai2,  intval($pstatus), $sdesc, $pdesc, $addinfo, intval($featured), $curr_userType, $curr_userEmail, intval($pquantity), $psize, $ptags, intval($pcustomized), intval($designerPick) );
 		if(!$stmt->execute()){
 		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 		}

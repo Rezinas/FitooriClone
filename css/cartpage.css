@@ -235,10 +235,10 @@ font-size: 12px; */
     margin-bottom: 0.5em;
 }
 #cart-items-all {
-  border:1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: 1px 1px 1px #ccc;
-  margin-bottom: 20px;
+  /* border:1px solid #ccc; */
+  /* border-radius: 3px; */
+  /* box-shadow: 1px 1px 1px #ccc; */
+  /* margin-bottom: 20px; */
 }
 .cart-item{
   padding:5px;

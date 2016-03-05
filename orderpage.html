@@ -82,7 +82,7 @@
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h4 class="panel-title">
-                        Login
+                       <i class="fa fa-user"></i> Login <?php if($sess_orderStatus != 'new') { ?>  <span class="pull-right"><i class="fa fa-check"></i> </span> <?php }?>
                      </h4>
                   </div>
                   <div id="collapseZero" class="panel-collapse collapse <?php if($sess_orderStatus == '' || $sess_orderStatus == 'new' ) { echo 'in'; }?>">
@@ -117,7 +117,7 @@
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h4 class="panel-title">
-                        Shipping &amp; Payment Details
+                        <i class="fa fa-gift"></i> Shipping &amp; Payment Details <?php if($sess_orderStatus == 'review' || $sess_orderStatus == 'confirmed') { ?>  <span class="pull-right"><i class="fa fa-check"></i> </span> <?php }?>
                      </h4>
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse  <?php if($sess_orderStatus == 'shippingInfo') { echo 'in'; }?> ">
@@ -183,14 +183,16 @@
                                     <h4>Payment Options</h4>
 
                                      <div class="contact-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                          <input type="radio" name="paytype" value="COD" checked class="rdbtn" disabled="true">Cash on Delivery<br>
+                                          <input type="radio" name="paytype" value="COD" checked class="rdbtn">Cash on Delivery<br>
                                           <input type="radio" name="paytype" value="NB" disabled="true">Net Banking (not available at this time)<br>
                                           <input type="radio" name="paytype" value="CC" disabled="true"> Credit Card  (not available at this time)
                                        </div>
                                 </div>
                                 <div class="col-xs-12">
                                     <input type="submit" value="Review Order" id="shippay" name="shippay" class="btn1">
+                                    <?php if(isGuest()) { ?>
                                       <a  class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseZero">Back</a>
+                                    <?php } ?>
                                 </div>
                            </form>
                      </div>
@@ -201,8 +203,8 @@
             <!-- PLACE ORDER PANEL -->
                <div class="panel panel-default">
                   <div class="panel-heading">
-                     <h4 class="panel-title">
-                        Review &amp; Place Order
+                     <h4 class="panel-title" id="panelThree">
+                        <i class="fa fa-list-alt"></i> Review &amp; Confirm <span class="pull-right <?php if($sess_orderStatus != 'confirmed') {  echo 'hide'; } ?>  "><i class="fa fa-check"></i> </span>
                      </h4>
                   </div>
                   <div id="collapseThree" class="panel-collapse collapse <?php if($sess_orderStatus == 'review') { echo 'in'; }?>">
@@ -253,7 +255,7 @@
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h4 class="panel-title">
-                        Order Confirmation
+                        <i class="fa fa-thumbs-up"></i> Order Confirmation
                      </h4>
                   </div>
                   <div id="collapseFour" class="panel-collapse collapse <?php if($sess_orderStatus == 'confirmed') { echo 'in'; }?>">

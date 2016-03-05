@@ -207,62 +207,6 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                 </div>
                             </div>
                         </div><!-- col end -->
-                        <div class="col-md-4">
-                            <div class="form-group  featuredImgdiv hide">
-                                <label>Featured Image</label>
-                                <div class="input-group" id="featuredfile">
-                                        <input type="text" name="fimg" class="form-control" readonly="" <?php  if($fimg = "" )  echo  "value='$fimg'"; ?> >
-                                        <span class="input-group-btn">
-                                            <span class="btn btn-primary btn-file">
-                                                Browse… <input type="file" name="featuredfile">
-                                            </span>
-                                        </span>
-                                </div>
-                                <div class="imgpreview featuredfile">
-                                <?php if($fimg != "")  { ?>
-                                <img src="../productImages/<?php echo $fimg; ?>" class="img-responsive" alt="">
-                                <?php  } else  { ?>
-                                     <img src='<?php echo SITE_URL."/images/placeholder.png" ?>' class="img-responsive" alt="">
-                                <?php  }  ?>
-                            </div>
-                            </div>
-
-                        </div><!-- col end -->
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label>Promoted</label>
-                                <div class="radio" id="promotedRadio">
-                                    <label>
-                                        <input type="radio" name="promoted" value="1" <?php echo   ($promoted  == "1") ?   "checked" : "";?>>Yes
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="promoted"  value="0" <?php echo   ($promoted  == "0") ?   "checked" : "";?>>No
-                                    </label>
-                                </div>
-                            </div>
-                        </div><!-- col end -->
-                        <div class="col-md-4 ">
-                            <div class="form-group hide promotedImgdiv">
-                                <label>Promoted Image</label>
-                                <div class="input-group"  id="promotedfile">
-                                        <input type="text" name="primg" class="form-control" readonly="" <?php  if($primg != "" )  echo  "value='$primg'"; ?> >
-                                        <span class="input-group-btn">
-                                            <span class="btn btn-primary btn-file">
-                                                Browse… <input type="file" name="promotedfile">
-                                            </span>
-                                        </span>
-                                </div>
-                                <div class="imgpreview promotedfile">
-                                <?php if($primg != "" )  { ?>
-                                    <img src="../productImages/<?php echo $primg; ?>" class="img-responsive" alt="">
-                                     <?php  } else  { ?>
-                                         <img src='<?php echo SITE_URL."/images/placeholder.png" ?>' class="img-responsive" alt="">
-                                    <?php  }  ?>
-                                </div>
-                            </div>
-
-                        </div><!-- col end -->
-
                     </div><!-- row end -->
 
                     <div class="row  formsubmit">
