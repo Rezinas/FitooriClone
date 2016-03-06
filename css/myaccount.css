@@ -159,3 +159,32 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
    padding-left: 10px;
    padding-right: 10px;
  }
+@media (min-width:1280px) and (max-width:1801px){
+  .userList span{
+    font-size: 13px;
+  }
+  .subUL ul li a{
+    font-size: 12.5px;
+  }
+  .register-top-grid span, .register-bottom-grid span{
+    font-size: 12px;
+  }
+  input#updateprofile, input#editAddr, input#chngpwd{
+    font-size: 1em
+  }
+
+  input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
+    background-color: #fff;
+    border-color: #5D4B33;
+    color: #5D4B33;
+  }
+  .register-top-grid input[type="text"], .register-bottom-grid input[type="password"],#emailInput{
+    font-size: 0.95em;
+  }
+  .orders table tr td{
+    font-size: 12.5px;
+  }
+  .orders div span{
+    font-size: 12.5px;
+  }
+}

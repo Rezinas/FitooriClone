@@ -181,3 +181,7 @@
 		div#light img, div#light1 img, div#light2 img {
 		    margin: 10px 14px 6px 5px;
 		}
+
+@media screen and (min-width:1081px) and (max-width:1280px);{
+	
+}

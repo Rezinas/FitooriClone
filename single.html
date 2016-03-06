@@ -52,9 +52,11 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 		<div class="single-grids">
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 single-grid">
 				<div class="flexslider">
+					<p style="padding:0px 15px; 10px">Roll over image to zoom in</p>
 					<ul class="slides">
 						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>">
-							<div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>" data-imagezoom="true" class="img-responsive"> </div>
+							<div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>" data-imagezoom="true" class="img-responsive">								
+							 </div>
 						</li>
 						<?php if(!empty($parr['alt1img'])) { ?>
 						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['alt1img'];  ?>">

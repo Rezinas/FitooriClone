@@ -440,8 +440,10 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                   <h4>company</h4>
                   <ul>
                      <li><a href="index.php?about">About Us</a></li>
-                     <li><a href="index.php?products">Products</a></li>
+                     <li>Our Partners</li>
+                     <li>Social Responsibility</li>
                      <li><a href="index.php?join">Work Here</a></li>
+
                   </ul>
                </div>
                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
@@ -464,8 +466,8 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                   <h4>legal</h4>
                   <ul>
                      <li><a href="index.php?privacy">Privacy</a></li>
-                     <li><a href="index.php?tc">Terms and Conditions</a></li>
-                     <li>Social Responsibility</li>
+                     <li><a href="index.php?tc">Terms & Conditions</a></li>
+                     <!-- <li>Social Responsibility</li> -->
                   </ul>
                </div>
                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid icons">

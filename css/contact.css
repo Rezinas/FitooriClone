@@ -12,8 +12,61 @@
 .contact-form .form-group#textareaForm {
   width:96%;
 }
+input#cnct:hover{
+	background-color: #fff;
+	border-color: #5D4B33;
+	color: #5D4B33;
+}
+  .contact-form textarea, .contact-form input[type="text"]{
+        font-size: 13.5px;
+    }
+    .contact hr {
+        margin-bottom: 10px;
+    }    
+    .contact{
+    	padding: 4em
+    }
+@media (min-width:1367px) and (max-width:1440px){
+  .contact-form textarea, .contact-form input[type="text"]{
+        font-size: 13.5px;
+    }
+    .contact hr {
+        margin-bottom: 10px;
+    }
+    .contact h2{
+        font-size: 3em;
+    }
+    .contact{
+    	padding: 4em
+    }
+}
 @media (min-width:1281px) and (max-width:1366px) {
 	.contact-form input[type="text"], .contact-form textarea{
-		font-size: 14.5px;
+		font-size: 12.5px;
 	}
+	.contact hr {
+        margin-bottom: 10px;
+    }
+    .contact h2{
+        font-size: 3em;
+    }
+    .contact{
+  		padding:4em 0 0 0 ;
+	}
+}
+@media (max-width:1280px) and (min-width:1801px){
+
+.contact{
+  padding:4em 0 0 0 ;
+
+}
+.contact-form input[type="text"], .contact-form textarea{
+    font-size: 12.5px;
+  }
+.contact hr {
+        margin-bottom: 10px;
+    }
+    .contact h2{
+        font-size: 3em;
+    }
 }

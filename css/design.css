@@ -15,6 +15,11 @@
     font-size: 16px;
     font-family: 'Roboto-Regular';
 }
+#designDet h4{
+	background-color:#5D4B33;
+	color:#fff;
+	font-size: 15px;
+}
 .slick-slide img {
 	height: 100px;
 	width: auto;
@@ -89,10 +94,15 @@ button.addtoCart {
   position: relative;
   float: right;
 }
+#chkBtn button:hover {
+    color: #5D4B33;
+    background-color: #fff;
+    border-color: #5D4B33;
+}
 button.addtoCart:hover{
-	background-color: #5D4B33;
-  	color: #FFFFFF;
-  	border-color: #5D4B33;
+	background-color: #fff;
+    color: #5D4B33;
+    border-color: #5D4B33;
 }
 #alertDiv{
 	background-color:#f3f3f3;
@@ -255,6 +265,12 @@ button.addtoCart:hover{
 	    margin-top: 30px;
 	    vertical-align: middle;
 	}
+	div#alertDiv1, div#alertDiv2, div#alertDiv3, div#alertDiv4{
+	    border: 1px solid #eee;
+	    box-shadow: 1px 1px 1px 1px #ccc;
+	    background-color: #eee;
+	    text-align: center;
+	}
 	div#sampleImgs{
 	    border: 0px solid;
 	    width: 100%;
@@ -263,7 +279,7 @@ button.addtoCart:hover{
 	    top: 10px;
 	}
 	div#sampleImgs img{
-		/*margin: 7px;*/
+		/* margin: 7px; */
 	}
 	div#sampleImgs h4 {
 	    margin-bottom: 0;
@@ -273,7 +289,7 @@ button.addtoCart:hover{
 	}
 	div#sampleImgs span{
 	    position: relative;
- 	   float: right;
+	    float: right;
 	}
 	div#sampleImgs h4 span a{
 	   font-size: 12px;
@@ -293,6 +309,7 @@ button.addtoCart:hover{
 		border-radius: 1px;
 		height: 30px;
 		margin-bottom: 0px;
+		color: #fff;
 	}
 	div#designerPick img {
 	    width: 100%;
@@ -370,7 +387,27 @@ button.addtoCart:hover{
 	    position: relative;
 	    top: -37px;
 	}
+	.moreoptions{
+		color:#f07818;
+		text-align:center;
+	}
+	.moreoptions p {
+		position: relative;
+		left: 10px;
+		text-align: right;
+	}
+	@media only screen and (min-width:1367px) and (max-width:1440px){
+		button.addtoCart{
+			font-size: 12.5px;
+		}
+	}
 	@media only screen and (min-width:1281px) and (max-width:1366px){
+		#designDet h4,div#designerPick h4{
+			font-size:13px;
+		}
+		button.addtoCart{
+			font-size: 12px;
+		}
 		.product-grid.elem {
 		    border: 0px solid #EFE9E9;
 		    margin: 0 5px 8px 4px;
@@ -402,6 +439,24 @@ button.addtoCart:hover{
 			width: 60%;
     		margin-left: 66px;
 
+		}
+		#subElementsDiv p{
+			font-size: 12px;
+		}
+		button.addtoCart{
+			font-size: 11px;
+		}
+		#designDet h4{
+			font-size: 13px;
+		}
+		.moreoptions{
+			color:#f07818;
+			text-align:center;
+		}
+		.moreoptions p {
+			text-align: right;
+			position: relative;
+			left: 12px;
 		}
 		.product-grid.elem {
 		    border: 0px solid #EFE9E9;
@@ -436,8 +491,8 @@ button.addtoCart:hover{
 			height: 60px;
 		}
 		div#designerPick h4 {
-    		font-size: 14px;
-		}
+    		font-size: 13px;
+  		}
 		.row h4{
 			font-size: 1em;
 		}

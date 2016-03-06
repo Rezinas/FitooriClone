@@ -12,17 +12,58 @@
   width: 32.3%;
   outline: none;
   padding: 10px 15px 10px 15px;
-  font-size: 13px;
+  font-size: 12.5px;
   color: #999;
   margin-bottom: 1.5em;
 }
 .contact-form textarea[type="text"]:nth-child(2) {
   margin: 0 1em;
 }
+.contact-form textarea, .contact-form input[type="text"]{
+      font-size: 13.5px;
+  }
+  .contact hr {
+      margin-bottom: -45px;
+  }
+  .contact{
+    padding: 4em
+  }
+@media (min-width:1367px) and (max-width:1440px){
+  .contact-form textarea, .contact-form input[type="text"]{
+        font-size: 13.5px;
+    }
+    .contact hr {
+        margin-bottom: -45px;
+    }
+    .contact h2{
+        font-size: 3em;
+    }
 
+}
 @media (min-width:1281px) and (max-width:1366px){
   .contact-form textarea, .contact-form input[type="text"]{
-        font-size: 14.5px;
+        font-size: 12.5px;
+    }
+    .contact hr {
+        margin-bottom: -45px;
+    }
+    .contact h2{
+        font-size: 3em;
     }
 }
+@media (min-width:1801px) and (max-width:1280px){
 
+.contact{
+  padding:4em 0 0 0 ;
+
+}
+.contact-form input[type="text"], .contact-form textarea{
+    font-size: 12.5px;
+  }
+.contact hr {
+        margin-bottom: 10px;
+    }
+    .contact h2{
+        font-size: 3em;
+    }
+}

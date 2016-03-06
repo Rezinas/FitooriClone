@@ -714,7 +714,7 @@ input:focus {
 .quick {
     padding: 1em;
 }
-span.glyphicon.glyphicon-eye-open {
+span.glyphicon.glyphicon-eye-open:hover {
     top: 3px;
 	color: #fff;
 	margin-right: 5px;
@@ -757,6 +757,9 @@ span.glyphicon.glyphicon-eye-open {
     font-size: 1em;
     margin-top: 0.5em;
     float: left;
+}
+.gallery-info p:hover{
+    color:#F07818;
 }
 .gallery-info a.shop {
     font-size: 0.8em;
@@ -1198,7 +1201,7 @@ div#pagination {
 .product-img img {
     width: 100%;
     padding: 4em;
-    box-shadow: inset 10px 10px 50px #f3f3f3;
+    /* box-shadow: inset 10px 10px 50px #f3f3f3; */
 }
 .customised {
     border:0px solid #fbfbfb;
@@ -2462,16 +2465,17 @@ span.glyphicon.glyphicon-map-marker {
     font-size: 1em;
     margin: 1em 0 1em;
     line-height: 1.8em;
+    text-align: justify;
 }
 .contact-form input[type="text"] {
 	display: inline-block;
 	background:  #fff;
 	border: 1px solid #5D4B33;
 	/*width: 32.3%;*/
-    width: 28%;
+	width: 28%;
 	outline: none;
 	padding: 10px 15px 10px 15px;
-	font-size: 13px;
+	font-size: 12.5px;
 	color: #999;
 	margin-bottom: 1.5em;
 }
@@ -2518,6 +2522,14 @@ span.glyphicon.glyphicon-map-marker {
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
+.contact-form .btn1:hover:{
+    background: transparent;
+    border-color: #5D4B33;
+    color: #5D4B33;
+    text-decoration: none;
+    border:2px solid;
+
+}
 .contact-form button.btn1:hover {
     /*background-color: #fff;
     color: #F07818;*/
@@ -2549,9 +2561,7 @@ span.glyphicon.glyphicon-map-marker {
 .steps.done{
     background: #5DE36D;
 }
-
-
- .cart-items table {
+.cart-items table {
           border: 0px solid;
           font-size: 16px;
       }
@@ -2565,10 +2575,26 @@ span.glyphicon.glyphicon-map-marker {
 h4.panel-title {
     margin: 0;
 }
-
+.about hr {
+    margin-bottom: 0px;
+    border-top: 1px solid #ccc;
+}
+.about h2{
+    font-size: 3em;
+}
 /*--//contact--*/
 /*---- responsive-design -----*/
 @media (min-width:1367px) and (max-width:1440px){
+    .gallery{
+        margin-top: -70px;
+    }
+    .about hr {
+        margin-bottom: 0px;
+        border-top: 1px solid #ccc;
+    }
+    .about h2{
+        font-size: 3em;
+    }
     .dropdown-menu.columns-4 {
         min-width: 640px;
         padding: 2em 1em 3em;
@@ -2594,11 +2620,18 @@ h4.panel-title {
     }
 }
 @media (min-width:1281px) and (max-width:1366px){
+    .about hr {
+        margin-bottom: 0px;
+        border-top: 1px solid #ccc;
+    }
+    .about h2{
+        font-size: 3em;
+    }
     .navbar-default .navbar-nav > li > a{
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .about-infom p, center{
-        font-size: 1.3em;
+        font-size: 1em;
      }
      .about {
         background: #f3f3f3;
@@ -2611,20 +2644,20 @@ h4.panel-title {
         font-size: 19px;
     }
     .contact-infom p{
-        font-size:1.3em;
+        font-size: 1em;
     }
     .contact ul li{
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .contact-form .btn1{
-        font-size: 1.2em;
+        font-size: 1em;
         margin-bottom: 20px;
     }
     ul.size h3{
         font-weight: normal;
     }
     .address p{
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .address a{
         font-size: 1.1em;
@@ -2653,7 +2686,7 @@ h4.panel-title {
         margin-top: -120px;
     }
     .galy-info p{
-        font-size:1.2em;
+        font-size: 1em;
     }
     .footer-bottom p{
             font-size: 1.2em;
@@ -2661,11 +2694,20 @@ h4.panel-title {
     }
 
     .footer-grid ul li a{
-        font-size: 1.2em;
+        font-size: 1em;
     }
 }
 @media (min-width:1081px) and (max-width:1280px){
-
+    .product-img img{
+        padding: 2em;
+    }
+    .about hr {
+        margin-bottom: 0px;
+        border-top: 1px solid #ccc;
+    }
+    .about h2{
+        font-size: 3em;
+    }
     .navbar-default .navbar-nav > li > a {
         font-size: 1em;
     }
@@ -2704,8 +2746,7 @@ h4.panel-title {
     right:20px;
     }
     .footer-bottom p{
-        font-size: 1.5em;
-
+        font-size: 1em;
     }
 }
 @media(max-width:1080px){
