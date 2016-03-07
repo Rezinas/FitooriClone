@@ -15,8 +15,13 @@ body {
   background: linear-gradient(#689976, #ACDACC);
   font-family: 'Merriweather Sans', arial, verdana;
 } */
+
 .about h2{
       margin-bottom: 20px;
+      font-size: 4em;
+}
+#Orderpage{
+  background-color:#fff; margin-top:15px
 }
   #smScreen{
     display:none;
@@ -296,8 +301,12 @@ input#proceed{
 .cart-items img {
     width: auto;
     padding: 2em;
-    border: 1px solid #eee;
-    box-shadow: inset 10px 10px 50px #f3f3f3;
+/*border: 1px solid #eee;
+  box-shadow: inset 10px 10px 50px #f3f3f3; */
+}
+.product-img.b-link-stripe.b-animate-go.thickbox{
+  border: 1px solid #eee;
+  box-shadow: inset 10px 10px 50px #f3f3f3;
 }
 .cart-item-info {
     width: auto;
@@ -627,7 +636,7 @@ div#cart-items-all span {
 div#shippingDetails center {
     margin-top: -30px;
 }
-input#shippay, a.placeorder, a.back, a.confirm {
+input#shippay, a.placeorder, div#shippingDetails a.back, a.confirm {
     border: 2px solid #F07818;
     color: #fff;
     background: #F07818;
@@ -643,7 +652,7 @@ input#shippay, a.placeorder, a.back, a.confirm {
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
-input#shippay:hover, a.placeorder:hover, a.back:hover, a.confirm:hover{
+input#shippay:hover, a.placeorder:hover, div#shippingDetails a.back:hover, a.confirm:hover{
     background: transparent;
     border-color: #5D4B33;
     color: #5D4B33;
@@ -667,7 +676,7 @@ div#shippingDetails div#cart-items-all span {
     margin-top: -25px;
 }*/
 div#shippingDetails .cart-item img{
-  box-shadow:inset 10px 10px 50px #f3f3f3
+  /* box-shadow:inset 10px 10px 50px #f3f3f3 */
 }
 div#shippingDetails .cart-item-info span a{
   float: left;
@@ -786,8 +795,11 @@ form.form-guest-checkout div {
 
 
 .about {
-  background: #f3f3f3;
-  padding: 5em 0;
+  background: #fff;
+  padding: 5em 0; 
+  float:left;
+  width:100%;
+  margin-top:-45px;
 }
 .contact {
   background: #fff;
