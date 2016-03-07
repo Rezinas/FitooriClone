@@ -96,12 +96,12 @@
 				<p><!-- <i class="fa fa-exclamation-circle"></i> -->&nbsp;Begin with a stud or simply a hook. Click ‘Next’ to continue designing.</p>
 			</div>
 			<div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv2">
-				<p>Good start! Go on and explore your options. Click ‘Next’ to continue designing. OR You could ‘Add to Cart’ if you like your design this way.</p>
+				<p>Good start! Go on and explore your options. Click ‘Next’ to continue designing. OR You could ‘Add to Cart’.</p>
 				<!-- <p ng-if='mySelectedItems[designLevel].bottompoints == 0'></p> -->
 			</div>
 			<div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv3">
 				<p>That looks good! Keep exploring , click ‘Next’ to continue designing	OR
-				You could ‘Add to Cart’ if you like your design this way.</p>
+				You could ‘Add to Cart’.</p>
 			</div>
 			<div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv4">
 				<p>That looks amazing!  That just cant get any better, Choose a final option and go ahead and ‘Add to Cart’. </p>
@@ -145,7 +145,7 @@
 			                <tr style="border:none">
 			                  	<td colspan="2" style="text-align: center">
 			                  		<button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && !productAdded" class="cnfBtn">Confirm Design</button> &nbsp; &nbsp;
-									<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" ng-disabled="productAdded" class="addtoCart">Add My Design to Cart</button>
+									<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" ng-disabled="productAdded" class="addtoCart">I'm Done. Add My Design to Cart</button>
 			                  	</td>
 			                </tr>
 		               </tbody>

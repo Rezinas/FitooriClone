@@ -1,153 +1,144 @@
 <!-- Checkout -->
-<div class="about" style="background-color:#fff">
+<div class="about" style="background-color:#fff;float:left;width:100%;">
    <!-- START STEPS -->
-      <h2>Cart Page</h2>
-    <hr/>
+   <h2>Cart Page</h2>
+   <hr/>
    <!-- END STEPS -->
    <!-- START CARTDETAILS  -->
-   <div id="cartDetails"  class="container">
-         <div class="cart-items col-lg-8 col-md-8 col-sm-6 col-xs-12" id="cart-items-all">
-            <div class="panel panel-default" id="panelCart" style="border:0px;box-shadow:none;">
-              <div class="panel-heading">
-                <span>Currently in your shopping bag</span>
-              </div>
-              <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
-                <table style="width:100%;">
+   <div id="cartDetails" style="margin:0px 50px">
+      <div class="cart-items col-lg-9 col-md-9 col-sm-6 col-xs-12" id="cart-items-all">
+         <div class="panel panel-default" id="panelCart" style="border:0px;box-shadow:none;">
+            <div class="panel-heading">
+               <span>Currently in your shopping bag</span>
+            </div>
+            <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
+               <table style="width:100%;">
                   <tr>
-                    <th>Your Item</th>
-                    <th>Quantity / Price</th>
-                    <th>Total Amount</th>
-
+                     <th>Your Item</th>
+                     <th>Quantity / Price</th>
+                     <th>Total Amount</th>
                   </tr>
                   <?php if(count($cartItems) > 0) {
                      foreach($cartProducts as $prod) { ?>
                       <tr class="cartRows" id="cart<?php echo $prod['productid']; ?>">
-                        <td>
-                          <div class="cart-header">
-                              <div class="cart-item cyc">
-                                 <?php if($prod['customized'] == 0 || $prod['design'][0]['isProduct'] == 1) { ?>
-                                    <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
-                                 <?php }  else  { ?>
-                                 <div class="cdesign">
-                                    <?php foreach ($prod['design'] as  $des){ ?>
-                                    <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
-                                       <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
-                                    </div>
-                                    <?php } ?>
-                                 </div>
-                                 <?php } ?>
-                              </div>
-                             <div class="cart-item-info">
-                               <span>
+                         <td>
+                            <div class="cart-header">
+                               <div class="cart-item cyc">
+                                  <?php if($prod['customized'] == 0 || $prod['design'][0]['isProduct'] == 1) { ?>
+                                  <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
+                                  <?php }  else  { ?>
+                                  <div class="cdesign">
+                                     <?php foreach ($prod['design'] as  $des){ ?>
+                                     <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
+                                        <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
+                                     </div>
+                                     <?php } ?>
+                                  </div>
+                                  <?php } ?>
+                               </div>
+                               <div class="cart-item-info">
+                                  <span>
                                   <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
-                               </span>
-                               <div class="delivery">
-                                  <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
-                                  <br>
-                                  <p>Type: &nbsp;<span><?php echo $prod['material']; ?></span></p>
-                                  <br/>
-                                  <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
-                                  <br/>
-                                  <p><a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove From Cart</a></p>
-                                </div>
+                                  </span>
+                                  <div class="delivery">
+                                     <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
+                                     <br>
+                                     <p>Type: &nbsp;<span><?php echo $prod['material']; ?></span></p>
+                                     <br/>
+                                     <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
+                                     <br/>
+                                     <p><a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);" style="color:#555">Remove From Cart</a></p>
+                                  </div>
+                               </div>
+                               <!-- </div> -->
                             </div>
-                           <!-- </div> -->
-                          </div>
-                        </td>
-                        <td class="links">
-                          <div>
-                          <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete <?php if($cart[$prod['productid']] == 1)  echo 'hide'; ?>"><i class="fa  fa-minus-circle"></i></a>
-                            <span class="cartQty"><?php echo $cart[$prod['productid']]; ?> </span>
-                             <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
-
-
-                              / Rs. <span class="cartPrice"> <?php echo $prod['price'];?> </span>
-
-
-                          </div>
+                         </td>
+                         <td class="links">
+                            <div>
+                               <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete <?php if($cart[$prod['productid']] == 1)  echo 'hide'; ?>"><i class="fa  fa-minus-circle"></i></a>
+                               <span class="cartQty"><?php echo $cart[$prod['productid']]; ?> </span>
+                               <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
+                               / Rs. <span class="cartPrice"> <?php echo $prod['price'];?> </span>
+                            </div>
                             <!-- <div><a href="#">Move to Wishlist</a></div>-->
-                        </td>
-
-                        <td>
-                              Rs. <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span>
-                        </td>
+                         </td>
+                         <td>
+                            Rs. <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span>
+                         </td>
                       </tr>
                   <?php }
                      } ?>
-                  <tr id="emptyCartMsg" <?php if(count($cartItems) > 0) echo 'class="hide"'; else echo 'class="show"'; ?>><td colspan="4"><p class="text-uppercase">your shopping bag is empty</p></td></tr>
+                      <tr id="emptyCartMsg" <?php if(count($cartItems) > 0) echo 'class="hide"'; else echo 'class="show"'; ?>>
+                         <td colspan="4">
+                            <p class="text-uppercase">your shopping bag is empty</p>
+                         </td>
+                      </tr>
+               </table>
+            </div>
+         </div>
+      </div>
+      <?php if(count($cartItems) > 0) { ?>
+        <div id="cart-cost" class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12">
+           <div class="cart-summary">
+             <div class="panel-heading">
+                <h4>Cart Summary</h4>
+             </div>
+             <p>Estimated time of delivery : 6 - 10 days </p>
+             <div class="tableClass">
+                <table>
+                   <tr>
+                      <th>Total( including Tax)</th>
+                      <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+                   </tr>
+                   <tr>
+                      <th>Shipping</th>
+                      <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                   </tr>
+                   <tr>
+                      <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
+                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+                   </tr>
                 </table>
+             </div>
+             <div id="chkBtns">
+                <a href="index.php?orders" class="btn btn-primary">Checkout</a>
+                <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
+             </div>
+          </div>
+           <div class="cart-items">
+              <div class="panel-heading">
+                <h4>You May Also Like</h4>
+             </div>
+              <!-- these should be maximum 2 suggestions here. if this and the summary are two separate panels it will be good -->
+              <div class="product-model-sec single-product-grids">
+                 <?php
+                    foreach($relatedPrd as $rprod) {
+                    ?>
+                 <div class="product-grid single-product">
+                    <a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $rprod['productid']; ?>">
+                       <div class="more-product"><span> </span></div>
+                       <div class="product-img b-link-stripe b-animate-go  thickbox">
+                          <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$rprod['mainimg'];  ?>" class="img-responsive" alt="">
+                          <div class="b-wrapper">
+                             <h4 class="b-animate b-from-left  b-delay03">
+                                <button>View</button>
+                             </h4>
+                          </div>
+                       </div>
+                    </a>
+                    <div class="product-info simpleCart_shelfItem">
+                       <div class="product-info-cust prt_name">
+                          <h4><?php echo $rprod['name']; ?></h4>
+                          <span class="item_price">Rs.<?php echo $rprod['price']; ?></span>
+                          <div class="clearfix"> </div>
+                       </div>
+                    </div>
+                 </div>
+                 <?php } ?>
+                 <div class="clearfix"> </div>
               </div>
            </div>
-      </div>
-
-       <?php if(count($cartItems) > 0) { ?>
-
-      <div id="cart-cost" class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="panel-heading">
-         <h4>Cart Summary</h4>
-      </div>
-       <p>Estimated time of delivery : 6 - 10 days </p>
-         <div class="tableClass">
-            <table>
-               <tr>
-                  <th>Total( including Tax)</th>
-                  <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
-               </tr>
-               <tr>
-                  <th>Shipping</th>
-                  <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
-               </tr>
-               <tr>
-                  <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
-                  <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
-               </tr>
-            </table>
-         </div>
-         <div id="chkBtns">
-            <a href="index.php?orders" class="btn btn-primary">Checkout</a>
-            <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
-         </div>
-
-      <div class="cart-items" style="min-height: 500px;">
-         <h4>You May Also Like</h4>
-
-<!-- these should be maximum 2 suggestions here. if this and the summary are two separate panels it will be good -->
-         <div class="product-model-sec single-product-grids">
-    <?php
-      foreach($relatedPrd as $rprod) {
-    ?>
-      <div class="product-grid single-product" style="width: 100%;">
-        <a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $rprod['productid']; ?>">
-        <div class="more-product"><span> </span></div>
-        <div class="product-img b-link-stripe b-animate-go  thickbox">
-          <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$rprod['mainimg'];  ?>" class="img-responsive" alt="">
-          <div class="b-wrapper">
-            <h4 class="b-animate b-from-left  b-delay03">
-              <button>View</button>
-            </h4>
-          </div>
         </div>
-        </a>
-        <div class="product-info simpleCart_shelfItem">
-          <div class="product-info-cust prt_name">
-            <h4><?php echo $rprod['name']; ?></h4>
-            <span class="item_price">Rs.<?php echo $rprod['price']; ?></span>
-            <div class="clearfix"> </div>
-          </div>
-        </div>
-      </div>
       <?php } ?>
-      <div class="clearfix"> </div>
-    </div>
-
-
-      </div>
-
-      </div>
-
-
-         <?php } ?>
    </div>
 </div>
-
-

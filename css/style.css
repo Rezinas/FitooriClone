@@ -742,7 +742,7 @@ span.glyphicon.glyphicon-eye-open:hover {
 .gallery-info {
     position: absolute;
     width: 90%;
-    bottom: 25%;
+    bottom: 20%;
     left: 5%;
     display: none;
     background-color: rgba(6, 6, 6, 0.79);
@@ -793,10 +793,10 @@ span.glyphicon.glyphicon-eye-open:hover {
     margin-top: 6em;
 }
 .galy-info p {
-    font-size: 1em;
+    font-size: 1.1em;
     color: #000;
     margin: 1em 0 0;
-	font-weight: 600;
+    font-weight: 600;
 }
 .galy-info h5 {
     font-size: 1.5em;
@@ -1030,7 +1030,7 @@ div#pagination {
     float: right;
     border: 0px solid;
     height: auto;
-    padding: 10px 15px;
+    padding: 10px 17px;
 }
 .pageBtn{
     color: #fff;
@@ -1201,7 +1201,7 @@ div#pagination {
 .product-img img {
     width: 100%;
     padding: 4em;
-     box-shadow: inset 10px 10px 50px #f3f3f3;
+    /* box-shadow: inset 10px 10px 50px #f3f3f3; */
 }
 .customised {
     border:0px solid #fbfbfb;
@@ -2686,7 +2686,7 @@ h4.panel-title {
         margin-top: -120px;
     }
     .galy-info p{
-        font-size: 1em;
+        font-size: 1.1em;
     }
     .footer-bottom p{
             font-size: 1.2em;

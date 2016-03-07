@@ -1,14 +1,14 @@
 <?php
 
-$db_user = "fitoori_admin";
+/*$db_user = "fitoori_admin";
 $db_pass = "custom123";
 $db_host = "localhost";
-$db_name = "fitoori_fitooritest";
+$db_name = "fitoori_fitooritest";*/
 
-// $db_user = "root";
-// $db_pass = "";
-// $db_host = "localhost";
-// $db_name = "fitoori";
+$db_user = "root";
+$db_pass = "";
+$db_host = "localhost";
+$db_name = "fitoori";
 
 //  $db_user = "samplep1_web";
 // $db_pass = "Site12";

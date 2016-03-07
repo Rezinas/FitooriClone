@@ -1,12 +1,12 @@
 <!-- Order Page -->
-<div class="" style="background-color:#fff">
+<div class="" style="background-color:#fff; margin:60px">
    <!-- START STEPS -->
       <h2>Cart Page</h2>
     <hr/>
 <!-- REST OF CHECKOUT -->
-<div class="container">
+<div style="margin:0px 50px">
       <div id="shippingDetails" class="row" style="background-color: #fff;margin-bottom: 30px;">
-      <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+         <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <h4>Order Summary</h4>
             <h4>Order Number: ORD000<?php echo $sess_orderID; ?></h4>
             <h4>Order Total: Rs.<?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></h4>
@@ -33,7 +33,7 @@
                                              <?php } ?>
                                           </div>
                                          <div class="cart-item-info">
-                                           <span>
+                                           <span style="float:left:margin-bottom:5px;">
                                               <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
                                            </span>
                                            <div class="delivery">
@@ -75,7 +75,7 @@
             <!-- </ul> -->
          </div>
 
-         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12" id="cart-items-all">
+         <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12" id="cart-items-all">
             <div class="panel-group" id="accordion">
             <!-- LOGIN PANEL -->
             <?php if(!isset($_SESSION['userid'])) { ?>
@@ -103,10 +103,10 @@
                               <input type="submit" id="submitEmail" value="Sumit" name="submit" class="hide">
                            </form>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                              <p id="title-p">Guest Checkout</p><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Continue as Guest</a><br>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" class="guest">
+                              <p id="title-p">Guest Checkout</p><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="color:#555">Continue as Guest</a><br/><br/>
                               <div>OR</div><br/>
-                              <a href="index.php?register"> Register</a>
+                              <a href="index.php?register" style="color:#555"> Register</a>
                         </div>
                      </div>
                   </div>
@@ -124,7 +124,7 @@
                      <div class="panel-body">
                         <form id="addressForm" name="addressForm" role="form" action="php/orders.php?address" method="POST">
                         <input type="hidden" name="currOrderId" value="<?php echo $sess_orderID; ?>">
-                        <h4>Contact Information</h4>
+                        <h4 style="color:#333;padding-left: 14px;text-decoration: underline;">Contact Information</h4>
                             <div class="col-xs-12">
                                 <div class="form-group">
                                        <span>Email Address</span>
@@ -132,8 +132,8 @@
                                 </div>
 
                             </div>
-                        <h4>Shipping Information</h4>
-                                <div class="col-sm-6">
+                        <h4 style="color:#333;padding-left: 14px;text-decoration: underline;">Shipping Information</h4>
+                                <div class="col-sm-6 shippingAddress">
                                     <span>Shipping Address</span>
                                     <div class="form-group">
                                        <span>Address Line 1</span>
@@ -156,7 +156,7 @@
                                        <input class="form-control" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="<?php echo $order_add['ship_postal']; ?>">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6 billingAddress">
                                     <span>Billing Address</span><label><input type="checkbox" id="sameBilling" name="sameBilling" value="1" <?php if(!empty($order_add['ship_add1']) && $order_add['ship_add1'] == $order_add['bill_add1']) echo 'checked'; ?> >Same as Shipping Address</label>
                                     <div class="form-group">
                                        <span>Address Line 1</span>
@@ -180,8 +180,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12">
-                                    <h4>Payment Options</h4>
-
+                                    <h4 style="color:#333;padding-left: 14px;text-decoration: underline;">Payment Options</h4>
                                      <div class="contact-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                           <input type="radio" name="paytype" value="COD" checked class="rdbtn">Cash on Delivery<br>
                                           <input type="radio" name="paytype" value="NB" disabled="true">Net Banking (not available at this time)<br>
@@ -231,15 +230,15 @@
                              <?php } ?>
                                <tr>
                                   <td>Total( including Tax)</td>
-                                  <th>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></th>
+                                  <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
                                </tr>
                                <tr>
                                   <td>Shipping</td>
-                                  <th>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></th>
+                                  <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
                                </tr>
                                <tr>
                                   <td style="color:#F07818;font-weight:bold;">Grand - Total</td>
-                                  <th>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></th>
+                                  <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
                                </tr>
                             </table>
                          </div>
@@ -252,8 +251,8 @@
 
                          </div> <br>
                          <div> <strong>Payment Method:</strong> Cash on Delivery </div>
-                        <a href="javascript:void(0);" class="placeorder btn btn-primary">Confirm Order</a>
-                          <a  class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Back</a>
+                        <a href="javascript:void(0);" class="placeorder">Confirm Order</a>
+                          <a  class="back" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Back</a>
                      </div>
                   </div>
                </div>
@@ -271,7 +270,7 @@
                         <h4> Your ORDER ORD000<?php echo $sess_orderID; ?> has been successfully placed. </h4>
                         <h4 style="margin-bottom:-45px"><center>Thank you for shopping at Fitoori. You will recieve a mail shortly, with relevant order details. </center></h4><br/>
 
-                        <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
+                        <a href="index.php?products" class="confirm">Continue Shopping</a>
                      </div>
                   </div>
                </div>

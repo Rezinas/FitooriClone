@@ -15,6 +15,9 @@ body {
   background: linear-gradient(#689976, #ACDACC);
   font-family: 'Merriweather Sans', arial, verdana;
 } */
+.about h2{
+      margin-bottom: 20px;
+}
   #smScreen{
     display:none;
   }
@@ -291,9 +294,10 @@ input#proceed{
 
 }
 .cart-items img {
-  width: auto;
-  padding: 2px;
-  border: 1px solid #eee;
+    width: auto;
+    padding: 2em;
+    border: 1px solid #eee;
+    box-shadow: inset 10px 10px 50px #f3f3f3;
 }
 .cart-item-info {
     width: auto;
@@ -303,6 +307,7 @@ input#proceed{
 }
 .cart-item-info span a{
   color:#F07818;
+  font-weight: normal;
 }
 .links a{
   color:#555;
@@ -418,12 +423,14 @@ p.accnavB a {
   border: 0px solid;
   font-size: 16px;
   float: right;
+  width:100%;
 }
 #cart-cost table th {
   /* width: 168px; */
   /* padding: 5px; */
   text-align: right;
   font-weight: normal;
+  font-size: 16px;
 }
 #cart-cost table tr {
   border-bottom: 0px solid;
@@ -436,9 +443,10 @@ p.accnavB a {
 border-bottom: 1px solid #eee;
 }
 #cart-cost table tr:last-child{
-  /* background-color: #F2F6F7; */
+ /* background-color: #F2F6F7; */
   height: 50px;
   font-weight: bold;
+  border:1px solid #ccc;
   
 }
 
@@ -509,22 +517,27 @@ border-bottom: 1px solid #eee;
   position: relative;
   left: 55px;
 } */
+.delivery p a:hover {
+    text-decoration: underline;
+}
 .cart-header,
 .cart-header2,
 .cart-header3 {
   /* width: 100%; */
 }
 #cart-cost {
-    background-color: aliceblue;
+    background-color: #fff;
     box-shadow: 1px 1px 1px 1px #ccc;
     border-radius: 3px;
-    padding: 10px;
-    margin-left: 15px;
+    padding: 0px;
+    margin-left: 0px;
+    margin-top: 17px;
 }
 #cart-cost .tableClass{
   width: 100%;
   position:relative;
   float: right;
+  padding: 0px 10px 10px 10px;
 }
 #cart-cost #chkBtn{
   float: right;
@@ -546,8 +559,136 @@ border-bottom: 1px solid #eee;
   width: 97%;
   margin:0px;
 }
-/*Shipping page*/
+div#cart-items-all span {
+    font-size: 16px;
+}
+.cart-summary{
+  background-color: aliceblue;
+  border: 1px;
+}
+.cart-summary .panel-heading {
+    background-color: #5d4b33;
+    border-radius: 3px;
+}
+.cart-summary h4 {
+    color: #fff;
+    font-size: 16px;
+}
+.cart-summary p{
+  padding: 10px 10px 10px 15px;
+}
 
+#chkBtns a {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 7px;
+    width: auto;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 5px 1em 10px;
+    font-size: 1em;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#chkBtns a:hover{
+    background: transparent;
+    border-color: #5D4B33;
+    color: #5D4B33;
+    text-decoration: none;
+    border:2px solid;
+
+}
+.cart-items .panel-heading h4{
+  font-size: 16px;
+  color:#fff;
+}
+.cart-items .panel-heading {
+    background-color: #5d4b33;
+    border-radius: 3px;
+}
+.product-model-sec {
+    margin: 1em 0 0 0;
+}
+
+.product-grid.single-product {    
+    width: 46%;
+    float: left;
+    position: relative;
+    margin-right: 2px;
+    border: 0px solid;
+    margin-left: 9px;
+}
+
+/*Shipping page*/
+div#shippingDetails center {
+    margin-top: -30px;
+}
+input#shippay, a.placeorder, a.back, a.confirm {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 7px;
+    width: auto;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 5px 1em 3px;
+    font-size: 1em;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+input#shippay:hover, a.placeorder:hover, a.back:hover, a.confirm:hover{
+    background: transparent;
+    border-color: #5D4B33;
+    color: #5D4B33;
+    text-decoration: none;
+    border:2px solid;
+
+}
+
+div#shippingDetails #cart-cost table tr:last-child{
+ /* background-color: #F2F6F7; */
+  height: 50px;
+  font-weight: bold;
+  border:0px solid #ccc;
+  
+}
+div#shippingDetails div#cart-items-all span {
+    font-size: 14px;
+}
+
+/*div#shippingDetails .shippingAddress, div#shippingDetails .billingAddress {
+    margin-top: -25px;
+}*/
+div#shippingDetails .cart-item img{
+  box-shadow:inset 10px 10px 50px #f3f3f3
+}
+div#shippingDetails .cart-item-info span a{
+  float: left;
+}
+div#shippingDetails #cart-cost {
+    margin-top: 0px;
+    padding: 5px;
+}
+div#shippingDetails form#addressForm {
+    border: 0px solid;
+    float: left;
+    margin-top: -5px;
+}
+div#shippingDetails .tableClass{
+  margin-top:-25px;
+}
+
+div#shippingDetails .guest a{
+  color:#555;
+
+}
 #cart-cost.single-grid1 {
     line-height: 3.4;
     width: 24%;    
@@ -692,6 +833,35 @@ form.form-guest-checkout div {
     width: 100%;
 }
 
+@media only screen and (min-width:1367px) and (max-width:1440px){
+  
+  div#shippingDetails .cart-item-info span a{
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+}
+@media only screen and (min-width:1281px) and (max-width:1366px){
+
+  div#shippingDetails .cart-item-info span a{
+    font-size: 14px;
+    font-weight: normal;
+  }
+  div#shippingDetails center{
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width:1081px) and (max-width:1280px){
+  div#shippingDetails .cart-item-info span a{
+    font-size: 14px;
+    font-weight: normal;
+  }
+  div#shippingDetails center{
+    font-size: 13.5px;
+  }
+}
+
 @media only screen and (max-width:360px){
   .cart-item{
     padding: 2px;
@@ -708,7 +878,7 @@ form.form-guest-checkout div {
   }
   .cart-items table th{
     font-size: 13px;
-  }
+  } 
   .about hr{
     margin-top: -35px;
   }
