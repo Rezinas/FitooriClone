@@ -58,9 +58,9 @@ body a:hover{
 .header {
     background-color: #5D4B33;
     padding: 0;
-	/*position: relative;*/
+    /*position: relative;*/
     position: fixed;
-    z-index: 1;
+    z-index: 10004;
     width: 100%;
     top:0px;
     height: 40px;

@@ -358,6 +358,7 @@ button.addtoCart:hover{
 	    color: #555;
 	    text-transform: Uppercase;
 	    float: right;
+	    font-size: 40px;
 	    text-decoration: underline;
 	}
 	div#light img, div#light1 img, div#light2 img {
