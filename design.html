@@ -95,17 +95,21 @@
 							<div ng-if="designLevel == 0 && !productAdded" class="alert" role="alert" id="alertDiv1">
 				<p><!-- <i class="fa fa-exclamation-circle"></i> -->&nbsp;Begin with a stud or simply a hook. Click ‘Next’ to continue designing.</p>
 			</div>
-			<div ng-if="designLevel == 1 && !productAdded" class="alert" role="alert" id="alertDiv2">
-				<p>Good start! Go on and explore your options. Click ‘Next’ to continue designing. OR You could ‘Add to Cart’ if you like your design this way. <span ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" > Wonderful! That just cant get any better... Go on and add to cart.</span></p>
+			<div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv2">
+				<p>Good start! Go on and explore your options. Click ‘Next’ to continue designing. OR You could ‘Add to Cart’ if you like your design this way.</p>
 				<!-- <p ng-if='mySelectedItems[designLevel].bottompoints == 0'></p> -->
 			</div>
-			<div ng-if="designLevel == 2 &&  !productAdded" class="alert" role="alert" id="alertDiv3">
+			<div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv3">
 				<p>That looks good! Keep exploring , click ‘Next’ to continue designing	OR
-				You could ‘Add to Cart’ if you like your design this way. <span ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" > Wonderful! That just cant get any better... Go on and add to cart.</span></p>
+				You could ‘Add to Cart’ if you like your design this way.</p>
 			</div>
-			<div ng-if="designLevel == 3 &&  !productAdded" class="alert" role="alert" id="alertDiv4">
-				<p>That looks amazing!  That just cant get any better, Choose a final option and go ahead and ‘Add to Cart’. <span ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" > Wonderful! That just cant get any better... Go on and add to cart.</span> </p>
+			<div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv4">
+				<p>That looks amazing!  That just cant get any better, Choose a final option and go ahead and ‘Add to Cart’. </p>
 			</div>
+			 <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" class="alert" role="alert" id="alertDiv4">
+                  <p>Wonderful! That just cant get any better... Go on and add to cart.</p>
+              </div>
+
 			<div ng-if="productAdded" class="alert" role="alert" id="alertDiv4">
 				<p> <i class="fa fa-thumbs-up"></i> Your Design Added successfully to the Cart</p>
 			</div>
@@ -150,7 +154,7 @@
 				<div id="designerPick" ng-if="designerPicks.length > 0">
 					<h4 style="background-color:#5D4B33">Designer's pick for you</h4>
 					<div class="product-grid despick" ng-repeat="despick in designerPicks">
-						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{despick['productid']}}">
+						<a target="_blank" ng-href="{{siteUrl}}index.php?single&amp;id={{despick['productid']}}">
 							<div class="more-product"><span> </span></div>
 							<div class="product-img b-link-stripe b-animate-go  thickbox">
 								<img ng-src="{{siteUrl}}/productImages/{{despick['mainimg']}}" />

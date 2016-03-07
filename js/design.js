@@ -341,6 +341,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                   $scope.productAdded = true;
                 if(!$scope.isAgent){
                     $window.cart.getCart();
+                     $('div.cart-box').slideDown('slow').delay(2000).slideUp('slow');
                 }
                 // else {
                 //      $window.location = $scope.siteUrl+"admin/dashboard.php?custom";

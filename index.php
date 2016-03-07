@@ -371,7 +371,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <!--//header-->
       <?php
          if($currenttab == "home") {
-             include(SITE_ROOT. "index.html");
+             include(SITE_ROOT. "startindex.html");
          }
          else if($currenttab == "products") {
               include(SITE_ROOT. "php/productsearch.php");

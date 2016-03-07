@@ -112,12 +112,7 @@ if (!empty($_POST)) {
 	  	$error  .= "Form Error.. main image uploads failed.".$_FILES['mainfile']['error'];
 	}
 
-	if($featured == "1") {
-		$featuredimage =  uploadPrdImage($_FILES['featured'] ['tmp_name'], $_FILES['featured'] ['name'], $_FILES['featured'] ['error']);
-		if (strpos($featuredimage,'ERROR') !== false  && $mode == "new" ) {
-			$error .= "Form Error... featured  image upload failed";
-		}
-	}
+
 
 	if (strpos($mainimage,'ERROR') === false){
 			$mi = $mainimage;

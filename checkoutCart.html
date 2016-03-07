@@ -56,9 +56,10 @@
                         </td>
                         <td class="links">
                           <div>
+                          <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete <?php if($cart[$prod['productid']] == 1)  echo 'hide'; ?>"><i class="fa  fa-minus-circle"></i></a>
                             <span class="cartQty"><?php echo $cart[$prod['productid']]; ?> </span>
                              <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
-                             <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete <?php if($cart[$prod['productid']] == 1)  echo 'hide'; ?>"><i class="fa  fa-minus-circle"></i></a>
+
 
                               / Rs. <span class="cartPrice"> <?php echo $prod['price'];?> </span>
 
