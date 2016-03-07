@@ -268,8 +268,10 @@ button.addtoCart:hover{
 	div#alertDiv1, div#alertDiv2, div#alertDiv3, div#alertDiv4{
 	    border: 1px solid #eee;
 	    box-shadow: 1px 1px 1px 1px #ccc;
+	    height: 45px;
+	    font-weight: bold;
 	    background-color: #eee;
-	    text-align: center;
+	    text-align: left;
 	}
 	div#sampleImgs{
 	    border: 0px solid;

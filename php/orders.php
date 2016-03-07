@@ -15,10 +15,13 @@ $sess_orderStatus = (isset($_SESSION['orderStatus'])) ? $_SESSION['orderStatus']
 
 // }
 
-if(isset($_GET["confirmOrder"])) {
+if(isset($_REQUEST["confirmOrder"])) {
+
+    $cartItemlist = $_SESSION['cartitemlist'];
+    $shippingaddr = $_SESSION['shippingaddress'];
+
     $_SESSION['orderStatus'] = $sess_orderStatus = "confirmed";
     $updQuery1 =  "UPDATE `orders` SET `status` = ? WHERE `orders`.`orderid` = $sess_orderID";
-
     $stmt = $dbcon->prepare($updQuery1);
     $stmt->bind_param('s', $sess_orderStatus);
 
@@ -51,13 +54,18 @@ if(isset($_GET["confirmOrder"])) {
     // we still have to build the order page.
 
 
-    // $from = "admin@plumms.com";
-    // $to = $user_email;
-    // $subject = "Fitoori Login information";
-    // $message = "Your password is ".$a;
-    // $headers = "From:" . $from;
-    // mail($to,$subject,$message, $headers);
+$to = 'bob@example.com';
 
+$subject = 'Website Change Request';
+
+$headers = "From: " . strip_tags($_POST['req-email']) . "\r\n";
+$headers .= "Reply-To: ". strip_tags($_POST['req-email']) . "\r\n";
+$headers .= "CC: susan@example.com\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+$message = "";
+// mail($to, $subject, $message, $headers);
     echo "SUCCESS";
     exit();
 }
@@ -77,8 +85,6 @@ if(!empty($_POST) && isset($_POST['shippay']) ){
     $bill_postalcode =  ($sameBilling == "1") ? $ship_postalcode :prepare_input($_POST['bill_postalcode']);
     $paytype = prepare_input($_POST['paytype']);
 
-    var_dump($_POST);
-
     $sess_orderID = prepare_input($_POST["currOrderId"]);
     $_SESSION['orderStatus'] = $sess_orderStatus = "review";
 
@@ -93,6 +99,13 @@ if(!empty($_POST) && isset($_POST['shippay']) ){
         die('Error : ('. $dbcon->errno .') '. $dbcon->error);
     }
     $stmt->close();
+
+    $shipAddressStr = $ship_address1.", <br>";
+    if(!empty($ship_address2)) { $shipAddressStr .= $ship_address2 .", <br>"; }
+    $shipAddressStr .= $ship_city. ", ".$ship_state.", India <br>";
+    $shipAddressStr .= $ship_postalcode;
+
+    $_SESSION["shippingaddress"] = $shipAddressStr;
 
     if(isset($_SESSION["useraddress"])){
         $uid = $_SESSION['userid'];
@@ -150,6 +163,7 @@ if(isset($_SESSION['userid'])) {
 
     if($curr_user['address1'] == "" || is_null($curr_user['address1'])) {
         $_SESSION["useraddress"] = 0;
+        $_SESSION["userflname"] = $curr_user['firstname'] ." ".$curr_user["lastname"];
     }
 
     if($sess_orderStatus == "new") {

@@ -210,41 +210,49 @@
                   <div id="collapseThree" class="panel-collapse collapse <?php if($sess_orderStatus == 'review') { echo 'in'; }?>">
                      <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
                         <!-- <h4 style="margin-bottom:-45px"><center>Thank you for shopping at Fitoori. You will recieve a mail shortly, with relevant order details. </center></h4><br/> -->
-                        <div class="estimate">
-                            <p>Estimated time of delivery : 6 - 10 days </p>
-                         </div>
                          <div class="tableClass">
-                            <table>
+                           <h4>Order Number: ORD000<?php echo $sess_orderID; ?></h4>
+                            <table style="width: 100%">
+                            <tr>
+                              <th>Item</th>
+                              <th>Price</th>
+                            </tr>
+                             <?php foreach($cartProducts as $prod) { ?>
+                                  <tr>
+                                    <td>
+                                      <p><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?></p>
+                                       <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
+                                        <p>Quantity: &nbsp;<span> <?php echo $cart[$prod['productid']]; ?></span></p>
+                                    </td>
+                                    <td>
+                                      <span>  &#8377; <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span>
+                                    </td>
+                                  </tr>
+                             <?php } ?>
                                <tr>
-                                  <th>Total( including Tax)</th>
-                                  <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+                                  <td>Total( including Tax)</td>
+                                  <th>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></th>
                                </tr>
                                <tr>
-                                  <th>Shipping</th>
-                                  <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                                  <td>Shipping</td>
+                                  <th>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></th>
                                </tr>
                                <tr>
-                                  <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
-                                  <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+                                  <td style="color:#F07818;font-weight:bold;">Grand - Total</td>
+                                  <th>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></th>
                                </tr>
                             </table>
                          </div>
-
-                         <div> Shipping Address: <br/>
-                            <?php
-                                echo $order_add['ship_add1'] .",";
-                                echo "<br>";
-                                echo $order_add['ship_add2'] .",";
-                                echo "<br>";
-                                echo $order_add['ship_city']. ", ". $order_add['ship_add1'];
-                                echo "<br>";
-                                echo $order_add['ship_postal'] .",";
-
-                            ?>
-
+                          <div class="estimate" style="text-align: right;">
+                            <p>Estimated time of delivery : 6 - 10 days </p>
                          </div>
-                         <div> Payment Method: Cash on Delivery </div>
-                        <a href="javascript:void(0);" class="placeorder btn btn-primary">Place Order</a>
+
+                         <div> <strong>Shipping Address:</strong> <br/>
+                            <?php echo $_SESSION["shippingaddress"]; ?>
+
+                         </div> <br>
+                         <div> <strong>Payment Method:</strong> Cash on Delivery </div>
+                        <a href="javascript:void(0);" class="placeorder btn btn-primary">Confirm Order</a>
                           <a  class="btn btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Back</a>
                      </div>
                   </div>

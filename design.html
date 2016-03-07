@@ -5,29 +5,7 @@
 			<!-- <p class="page-content">DESIGNING WAS NEVER SO EASY!  NEVER SO FUN! ITS SIMPLE…. YOU DESIGN, WE DELIVER.</p> -->
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<div ng-if="designLevel == 0 && !productAdded" class="alert" role="alert" id="alertDiv1">
-				<p><!-- <i class="fa fa-exclamation-circle"></i> -->&nbsp;Begin with a stud or simply a hook. Click ‘Next’ to continue designing.</p>
-			</div>
-			<div ng-if="designLevel == 1 && !productAdded" class="alert" role="alert" id="alertDiv2">
-				<p><i class="fa  fa-comment"></i>&nbsp;Good start! Go on and explore your options. Click ‘Next’ to continue designing.</p>
-					OR
-				<p>You could ‘Add to Cart’ if you like your design this way.</p>
-				<!-- <p ng-if='mySelectedItems[designLevel].bottompoints == 0'></p> -->
-			</div>
-			<div ng-if="designLevel == 2 &&  !productAdded" class="alert" role="alert" id="alertDiv3">
-				<p><i class="fa fa-exclamation-triangle"></i>&nbsp;That looks good! Keep exploring , click ‘Next’ to continue designing</p>
-				OR
-				<p>You could ‘Add to Cart’ if you like your design this way.</p>
-			</div>
-			<div ng-if="designLevel == 3 &&  !productAdded" class="alert" role="alert" id="alertDiv4">
-				<p><i class="fa fa-hand-o-right"></i>That looks amazing!  That just cant get any better, Choose a final option and go ahead and ‘Add to Cart’. </p>
-			</div>
-			<div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" class="alert" role="alert" id="alertDiv4">
-				<p> <i class="fa fa-exclamation-triangle"></i>&nbsp;Wonderful! That just cant get any better... Go on and add to cart.</p>
-			</div>
-			<div ng-if="productAdded" class="alert" role="alert" id="alertDiv4">
-				<p> <i class="fa fa-thumbs-up"></i> Your Design Added successfully to the Cart</p>
-			</div>
+
 
 		</div>
 		<div class="row">
@@ -114,6 +92,23 @@
 								<div id="fade1" class="black_overlay"></div>
 							</div>
 							<div id="chkBtn" style="text-align:left;">
+							<div ng-if="designLevel == 0 && !productAdded" class="alert" role="alert" id="alertDiv1">
+				<p><!-- <i class="fa fa-exclamation-circle"></i> -->&nbsp;Begin with a stud or simply a hook. Click ‘Next’ to continue designing.</p>
+			</div>
+			<div ng-if="designLevel == 1 && !productAdded" class="alert" role="alert" id="alertDiv2">
+				<p>Good start! Go on and explore your options. Click ‘Next’ to continue designing. OR You could ‘Add to Cart’ if you like your design this way. <span ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" > Wonderful! That just cant get any better... Go on and add to cart.</span></p>
+				<!-- <p ng-if='mySelectedItems[designLevel].bottompoints == 0'></p> -->
+			</div>
+			<div ng-if="designLevel == 2 &&  !productAdded" class="alert" role="alert" id="alertDiv3">
+				<p>That looks good! Keep exploring , click ‘Next’ to continue designing	OR
+				You could ‘Add to Cart’ if you like your design this way. <span ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" > Wonderful! That just cant get any better... Go on and add to cart.</span></p>
+			</div>
+			<div ng-if="designLevel == 3 &&  !productAdded" class="alert" role="alert" id="alertDiv4">
+				<p>That looks amazing!  That just cant get any better, Choose a final option and go ahead and ‘Add to Cart’. <span ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" > Wonderful! That just cant get any better... Go on and add to cart.</span> </p>
+			</div>
+			<div ng-if="productAdded" class="alert" role="alert" id="alertDiv4">
+				<p> <i class="fa fa-thumbs-up"></i> Your Design Added successfully to the Cart</p>
+			</div>
 								<button type="button" ng-disabled="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()">Next</button> &nbsp; &nbsp;
 								<button type="button" ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Back</button>
 								<button type="button" ng-if="designLevel > 0"  class="btn btn-primary" ng-click="resetDesign()" style="margin-left: 15px;">Reset</button>
@@ -146,7 +141,7 @@
 			                <tr style="border:none">
 			                  	<td colspan="2" style="text-align: center">
 			                  		<button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && !productAdded" class="cnfBtn">Confirm Design</button> &nbsp; &nbsp;
-									<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" ng-disabled="productAdded" class="addtoCart">I’m Done. Add My Design to Cart</button>
+									<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" ng-disabled="productAdded" class="addtoCart">Add My Design to Cart</button>
 			                  	</td>
 			                </tr>
 		               </tbody>

@@ -55,6 +55,14 @@ $cartProducts[] = [ 'productid' => $a, 'name' => $b, 'price' => $c, 'size'=>$d, 
 
 	setlocale(LC_MONETARY, 'en_IN');
 
+	$cartItemList = [];
+	foreach ($cartProducts as $cp) {
+		$cartItemList [] =['pid' => $cp['productid'], 'name' => $cp['name'], 'price' => $cp['price'], 'quantity' => $cart[$cp['productid']]];
+	}
+	$_SESSION['cartitemlist'] = $cartItemList;
+
+
+
 	$cartLowPrice = abs($cartLowPrice - 100);
 	$cartHighPrice = abs($cartHighPrice + 100);
 
