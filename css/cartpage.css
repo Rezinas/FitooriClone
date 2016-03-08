@@ -848,20 +848,27 @@ form.form-guest-checkout div {
 .prd_elements  img {
     width: 100%;
 }
-
+div#Orderpage h2 {
+      margin-top: 60px;
+  }
 @media only screen and (min-width:1367px) and (max-width:1440px){
 
   div#shippingDetails .cart-item-info span a{
     font-size: 14px;
     font-weight: normal;
   }
-
+  div#Orderpage h2 {
+        margin-top: 60px;
+    }
 }
 @media only screen and (min-width:1281px) and (max-width:1366px){
 
-.about {
-  margin-top:-45px;
-}
+  .about {
+    margin-top:0px;
+  }
+  div#Orderpage h2 {
+      margin-top: 60px;
+  }
   div#shippingDetails .cart-item-info span a{
     font-size: 14px;
     font-weight: normal;
@@ -878,6 +885,9 @@ form.form-guest-checkout div {
   }
   div#shippingDetails center{
     font-size: 13.5px;
+  }
+  div#Orderpage h2 {
+      margin-top: 60px;
   }
 }
 
