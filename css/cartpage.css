@@ -37,7 +37,7 @@ body {
   overflow: hidden;
   border-radius: 5px;
   /*Lets add the numbers for each link using CSS counters. flag is the name of the counter. to be defined using counter-reset in the parent element of the links*/
-  counter-reset: flag; 
+  counter-reset: flag;
   padding:0px;
   width: 100%;
   margin: 20px 0px 0px 0px;
@@ -87,12 +87,12 @@ body {
 .breadcrumb a:after {
   content: '';
   position: absolute;
-  top: 0; 
+  top: 0;
   right: -18px; /*half of square's length*/
   /*same dimension as the line-height of .breadcrumb a */
-  width: 36px; 
+  width: 36px;
   height: 36px;
-  /*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's: 
+  /*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's:
   length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
   if diagonal required = 1; length = 1/1.414 = 0.707*/
   transform: scale(0.707) rotate(45deg);
@@ -102,11 +102,11 @@ body {
   background: #666;
   background: linear-gradient(135deg, #666, #333);
   /*stylish arrow design using box shadow*/
-  box-shadow: 
-    2px -2px 0 2px rgba(0, 0, 0, 0.4), 
+  box-shadow:
+    2px -2px 0 2px rgba(0, 0, 0, 0.4),
     3px -3px 0 2px rgba(255, 255, 255, 0.1);
   /*
-    5px - for rounded arrows and 
+    5px - for rounded arrows and
     50px - to prevent hover glitches on the border created using shadows*/
   border-radius: 0 5px 0 50px;
 }
@@ -148,7 +148,7 @@ font-size: 12px; */
   font-size: 12px;
   color: #5D4B33;
 }
-.flat a:hover, .flat a.active, 
+.flat a:hover, .flat a.active,
 .flat a:hover:after, .flat a.active:after{
   /* background: #9EEB62; */
   background: #5D4B33;
@@ -253,6 +253,10 @@ font-size: 12px; */
 .cart-item{
   padding:5px;
   margin-right: 2%;
+  width: 35%;
+  box-shadow: inset 10px 10px 50px #f3f3f3;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .cart-items table{
   margin-top: 10px;
@@ -324,7 +328,7 @@ input#proceed{
   font-size: 15px;
 }
 .delivery span {
-    color: #555;    
+    color: #555;
     font-weight: normal;
     float: right;
     font-size: 13.5px;
@@ -456,7 +460,7 @@ border-bottom: 1px solid #eee;
   height: 50px;
   font-weight: bold;
   border:1px solid #ccc;
-  
+
 }
 
 /* .breadcrumb-body {
@@ -563,7 +567,7 @@ border-bottom: 1px solid #eee;
   text-align: right;
 }
 #panelCart{
-  position: relative; 
+  position: relative;
   float: left;
   width: 97%;
   margin:0px;
@@ -623,7 +627,7 @@ div#cart-items-all span {
     margin: 1em 0 0 0;
 }
 
-.product-grid.single-product {    
+.product-grid.single-product {
     width: 46%;
     float: left;
     position: relative;
@@ -636,7 +640,7 @@ div#cart-items-all span {
 div#shippingDetails center {
     margin-top: -30px;
 }
-input#shippay, a.placeorder, div#shippingDetails a.back, a.confirm {
+input#shippay, a.shippay, a.placeorder, div#shippingDetails a.back, a.confirm {
     border: 2px solid #F07818;
     color: #fff;
     background: #F07818;
@@ -666,7 +670,7 @@ div#shippingDetails #cart-cost table tr:last-child{
   height: 50px;
   font-weight: bold;
   border:0px solid #ccc;
-  
+
 }
 div#shippingDetails div#cart-items-all span {
     font-size: 14px;
@@ -700,7 +704,7 @@ div#shippingDetails .guest a{
 }
 #cart-cost.single-grid1 {
     line-height: 3.4;
-    width: 24%;    
+    width: 24%;
     margin-top: 70px;
     background-color: white;
 }
@@ -796,10 +800,10 @@ form.form-guest-checkout div {
 
 .about {
   background: #fff;
-  padding: 5em 0; 
+  padding: 5em 0;
   float:left;
   width:100%;
-  margin-top:-45px;
+  margin-top:0px;
 }
 .contact {
   background: #fff;
@@ -834,7 +838,7 @@ form.form-guest-checkout div {
     position: relative;
     min-height: 200px;
     margin-top: 15px;
-    margin-left: 40px;
+    margin-left: 25px;
 }
 
 .prd_elements {
@@ -846,7 +850,7 @@ form.form-guest-checkout div {
 }
 
 @media only screen and (min-width:1367px) and (max-width:1440px){
-  
+
   div#shippingDetails .cart-item-info span a{
     font-size: 14px;
     font-weight: normal;
@@ -855,6 +859,9 @@ form.form-guest-checkout div {
 }
 @media only screen and (min-width:1281px) and (max-width:1366px){
 
+.about {
+  margin-top:-45px;
+}
   div#shippingDetails .cart-item-info span a{
     font-size: 14px;
     font-weight: normal;
@@ -890,7 +897,7 @@ form.form-guest-checkout div {
   }
   .cart-items table th{
     font-size: 13px;
-  } 
+  }
   .about hr{
     margin-top: -35px;
   }

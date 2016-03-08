@@ -430,3 +430,24 @@ des.factory('elementFactory', function() {
     var factory = {};
     return factory;
 });
+
+
+function openOverlay(num) {
+    var lightDiv, fadeDiv;
+    if(num == 0){
+        lightDiv = "#light";
+        fadeDiv = "#fade";
+    }
+    else if(num == 1){
+        lightDiv = "#light1";
+        fadeDiv = "#fade1";
+    }
+    else if(num == 2) {
+        lightDiv = "#light2";
+        fadeDiv = "#fade2";
+    }
+
+    $(lightDiv).show();
+    $(fadeDiv).show();
+    $('.lightboxClose').show();
+}

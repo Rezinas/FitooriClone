@@ -1,5 +1,5 @@
 #mainContainer{
-	margin-top: 40px; 
+	margin-top: 40px;
 	margin-bottom: 25px;
 }
 .page-header{
@@ -90,7 +90,7 @@ button.addtoCart {
   outline: none;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
-  transition: all 0.5s;  
+  transition: all 0.5s;
   position: relative;
   float: right;
 }
@@ -354,13 +354,25 @@ button.addtoCart:hover{
 		z-index: 1002;
 		overflow: auto;
 	}
-	#light a, #light1 a, #light2 a {
+/*	#light a, #light1 a, #light2 a {
 	    color: #555;
 	    text-transform: Uppercase;
 	    float: right;
 	    font-size: 40px;
 	    text-decoration: underline;
-	}
+	}*/
+
+    a.lightboxClose {
+        position: absolute;
+        display: none;
+        z-index: 1003;
+        top: -35px;
+        right: -10px;
+        color: #555;
+        text-transform: Uppercase;
+        float: right;
+        font-size: 40px;
+    }
 	div#light img, div#light1 img, div#light2 img {
 	   margin: 10px 14px 6px 5px;
 	   /*margin: 10px 3px 6px 3px;

@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/constants.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
     require_once(SITE_ROOT."/utils/functions.php");
 
 
@@ -19,6 +19,9 @@ if(isset($_REQUEST["confirmOrder"])) {
 
     $cartItemlist = $_SESSION['cartitemlist'];
     $shippingaddr = $_SESSION['shippingaddress'];
+    $toemail=$_SESSION['orderemail'];
+    $ctotal=$_SESSION['cartTotal'];
+
 
     $_SESSION['orderStatus'] = $sess_orderStatus = "confirmed";
     $updQuery1 =  "UPDATE `orders` SET `status` = ? WHERE `orders`.`orderid` = $sess_orderID";
@@ -30,23 +33,47 @@ if(isset($_REQUEST["confirmOrder"])) {
     }
     $stmt->close();
 
-    $toemail="";
-    $qry = "SELECT  useremail from orders WHERE orderid=$sess_orderID";
-
-    if(!$stmt = $dbcon->prepare($qry)){
-        die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+    $message= "<strong>Thank you for choosing Fitoori. Here is your order information.</strong>";
+    $message .= '<div class="tableClass">';
+    $message .= '<h4>Order Number: ORD000'. $sess_orderID .'</h4>';
+    $message .= '<table style="width: 100%;border: 1px solid #eee">';
+    $message .= '<tr>';
+    $message .= '<th>Item</th>';
+    $message .= '<th>Price</th>';
+    $message .= '</tr>';
+    foreach($cartItemlist as $citem) {
+        $message .= '<tr>';
+        $message .= '<td style="border-right: 1px solid #eee; border-top: 1px solid #eee;border-bottom: 1px solid #eee">';
+        $message .= '<p>'.$citem["name"] ? $citem["name"] : "My Design".'</p>';
+        $message .= '<p>Item ID: &nbsp;<span>PNR00'.$citem["pid"].'</span></p>';
+        $message .= '<p>Quantity: &nbsp;<span> '.$citem["quantity"].'</span></p>';
+        $message .= '</td>';
+        $message .= '<td style="border-bottom: 1px solid #eee; border-top: 1px solid #eee">';
+        $message .= '<span>  &#8377;'. floatval($citem["price"]) * intval($citem["quantity"]) .'</span>';
+        $message .= '</td>';
+        $message .= '</tr>';
     }
-
-    if(!$stmt->execute()){
-        die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-    }
-
-    $stmt->store_result();
-    $stmt->bind_result( $aa);
-    while ($stmt->fetch()) {
-       $toemail = $aa;
-    }
-    $stmt->close();
+    $message .= '<tr>';
+    $message .= '<td>Total( including Tax)</td>';
+    $message .= '<td>: &#8377; <span id="subTotal">'. money_format("%!i", $ctotal) .'</span></td>';
+    $message .= '</tr>';
+    $message .= '<tr>';
+    $message .= '<td>Shipping</td>';
+    $message .= '<td>: &#8377;'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
+    $message .= '</tr>';
+    $message .= '<tr>';
+    $message .= '<td style="color:#F07818;font-weight:bold;">Grand - Total</td>';
+    $message .= '<td>: &#8377; <span id="grandTotal">'. money_format("%!i",$ctotal + SHIPPINGCHARGES_SMALL) .'</span></td>';
+    $message .= '</tr>';
+    $message .= '</table>';
+    $message .= '</div>';
+    $message .= '<div class="estimate" style="text-align: right;">';
+    $message .= '<p>Estimated time of delivery : 6 - 10 days </p>';
+    $message .= '</div>';
+    $message .= '<div> <strong>Shipping Address:</strong> <br/>';
+    $message .= $shippingaddr;
+    $message .= '</div> <br>';
+    $message .= '<div> <strong>Payment Method:</strong> Cash on Delivery </div>';
 
 
     //send email to user and admin about the order: TBD
@@ -54,19 +81,26 @@ if(isset($_REQUEST["confirmOrder"])) {
     // we still have to build the order page.
 
 
-$to = 'bob@example.com';
 
-$subject = 'Website Change Request';
+$subject = 'Fitoori Order Confirmation';
 
-$headers = "From: " . strip_tags($_POST['req-email']) . "\r\n";
-$headers .= "Reply-To: ". strip_tags($_POST['req-email']) . "\r\n";
-$headers .= "CC: susan@example.com\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+$headers  = "From: Admin@fitoori.com";
+$headers .= "Content-type: text/html";
 
-$message = "";
-// mail($to, $subject, $message, $headers);
-    echo "SUCCESS";
+mail($toemail, $subject, $message, $headers);
+
+$adminMessage = "New Order Placed: ".$sess_orderID;
+
+$adminheaders = "From: Admin@fitoori.com";
+
+mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminheaders);
+
+unset($_SESSION['cartitemlist']);
+unset($_SESSION['shippingaddress']);
+unset($_SESSION['orderemail']);
+unset($_SESSION['cartTotal']);
+
+echo "SUCCESS";
     exit();
 }
 
@@ -106,6 +140,7 @@ if(!empty($_POST) && isset($_POST['shippay']) ){
     $shipAddressStr .= $ship_postalcode;
 
     $_SESSION["shippingaddress"] = $shipAddressStr;
+    $_SESSION["orderemail"] = $email_info;
 
     if(isset($_SESSION["useraddress"])){
         $uid = $_SESSION['userid'];

@@ -36,6 +36,7 @@
 						<!-- all the messages come here -->
 
 						<div class="elements" id="sampleImgs">
+						<a href="javascript:void(0)" onclick="$('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide(); " class="lightboxClose"><i class="fa fa-times-circle"></i></a>
 							<div id="subElementsDiv">
 								<div>
 									<!-- <h4>Teracotta Options<j/h4> -->
@@ -44,12 +45,12 @@
 											<img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 										</div>
 									</div>
-									<a  ng-if="terracota.length > 6"  href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+									<a  ng-if="terracota.length > 6"  href = "javascript:void(0)" onclick = "openOverlay(0);">
 										<div  class="moreoptions"><p >Terracotta<br/> <span>Options</span><br/><!-- <img src="http://placehold.it/80?text=MORE" class="placeholdit"> --><i class="fa fa-chevron-down placeholdit"></i></p></div></a>
 									<div class="clearfix"></div>
 								</div>
 								<div id="light" class="white_content">
-								  <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><i class="fa fa-times-circle"></i></a>
+								  <!-- <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><i class="fa fa-times-circle"></i></a> -->
 									<div ng-repeat="imgElem in filteredSet | category:1" class="popupImageDiv">
 										<img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 									</div>
@@ -63,11 +64,11 @@
 											<img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 										</div>
 									</div>
-									<a ng-if="metal.length > 6" href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'"><div  class="moreoptions"><p>Metal<br/> <span >Options</span><br/><!-- <img src="http://placehold.it/80?text=MORE" class="placeholdit"> --><i class="fa fa-chevron-down placeholdit"></i></p></div></a>
+									<a ng-if="metal.length > 6" href = "javascript:void(0)" onclick = "openOverlay(2);"><div  class="moreoptions"><p>Metal<br/> <span >Options</span><br/><!-- <img src="http://placehold.it/80?text=MORE" class="placeholdit"> --><i class="fa fa-chevron-down placeholdit"></i></p></div></a>
 									<div class="clearfix"></div>
 								</div>
 								<div id="light2" class="white_content">
-									<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/>
+									<!-- <a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/> -->
 									<div ng-repeat="imgElem in filteredSet | category:3" class="popupImageDiv">
 										<img   ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 									</div>
@@ -80,11 +81,11 @@
 											<img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 										</div>
 									</div>
-									<a ng-if="beaded.length > 6" href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade1').style.display='block'"><div  class="moreoptions"><p >Beaded<br/> <span >Options</span><br/><!-- <img src="http://placehold.it/80?text=MORE" class="placeholdit"> --><i class="fa fa-chevron-down placeholdit"></i></p></div></a>
+									<a ng-if="beaded.length > 6" href = "javascript:void(0)" onclick = "openOverlay(1);"><div  class="moreoptions"><p >Beaded<br/> <span >Options</span><br/><!-- <img src="http://placehold.it/80?text=MORE" class="placeholdit"> --><i class="fa fa-chevron-down placeholdit"></i></p></div></a>
 									<div class="clearfix"></div>
 								</div>
 								<div id="light1" class="white_content">
-									<a href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a><br/>
+									<!-- <a href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a><br/> -->
 									<div ng-repeat="imgElem in filteredSet | category:2" class="popupImageDiv">
 										<img  ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
 									</div>
@@ -145,7 +146,7 @@
 			                <tr style="border:none">
 			                  	<td colspan="2" style="text-align: center">
 			                  		<button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && !productAdded" class="cnfBtn">Confirm Design</button> &nbsp; &nbsp;
-									<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0" ng-show="productAdded" class="addtoCart">I'm Done. Add My Design to Cart</button>
+									<button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 || mySelectedItems[designLevel].admintags.indexOf('hooks') > -1" ng-show="productAdded" class="addtoCart">I'm Done. Add My Design to Cart</button>
 			                  	</td>
 			                </tr>
 		               </tbody>

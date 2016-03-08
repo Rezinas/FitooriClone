@@ -1,5 +1,5 @@
 <!-- Checkout -->
-<div class="about">
+<div class="about" style="margin-top: 0px;">
    <!-- START STEPS -->
    <h2>Cart Page</h2>
    <hr/>
@@ -11,7 +11,7 @@
             <div class="panel-heading">
                <span>Currently in your shopping bag</span>
             </div>
-            <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
+            <div class="panel-body table-responsive"style="color:#333;font-weight:normal;overflow: hidden;">
                <table style="width:100%;">
                   <tr>
                      <th>Your Item</th>
@@ -43,10 +43,13 @@
                                   <div class="delivery">
                                      <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
                                      <br>
-                                     <p>Type: &nbsp;<span><?php echo $prod['material']; ?></span></p>
-                                     <br/>
-                                     <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
-                                     <br/>
+                                      <?php if($prod['customized'] == 0) { ?>
+
+                                      <p>Type: &nbsp;<span><?php echo $prod['material']; ?></span></p>
+                                      <br/>
+                                      <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
+                                      <br>
+                                      <?php } ?>
                                      <p><a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);" style="color:#555">Remove From Cart</a></p>
                                   </div>
                                </div>
@@ -142,3 +145,4 @@
       <?php } ?>
    </div>
 </div>
+<div class="clearfix"> </div>
