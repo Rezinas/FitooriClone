@@ -1,0 +1,77 @@
+<!-- Checkout -->
+<div class="about">
+   <h2>Order Summary</h2>
+   <hr/>
+   <div class="panel">
+     <div class="panel-body">
+        <?php if(empty($mainErrorMsg)) { ?>
+          <div class="tableClass">
+               <h4>Order Number: ORD000<?php echo $orderid; ?></h4>
+                <table style="width: 100%">
+                <tr>
+                  <th>Item</th>
+                  <th>Details</th>
+                  <th>Price</th>
+                </tr>
+                 <?php foreach($orderProducts as $prod) { ?>
+                    <tr class="cartRows">
+                      <td>
+                      <div class="cart-header">
+                       <div class="cart-item cyc" style="width: 50%;">
+                         <?php if($prod['customized'] == 0) { ?>
+                            <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
+                         <?php }  else  { ?>
+                         <div class="cdesign">
+                            <?php foreach ($prod['design'] as  $des){ ?>
+                            <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
+                               <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
+                            </div>
+                            <?php } ?>
+                         </div>
+                         <?php } ?>
+                      </div>
+                    </div>
+                   </td>
+                        <td>
+                          <p><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?></p>
+                           <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
+                            <p>Quantity: &nbsp;<span> <?php echo $prod['quantity' ]; ?></span></p>
+                        </td>
+                        <td>
+                          <span>  &#8377; <?php echo floatval($prod['order_price']) * intval($prod['quantity']); ?></span>
+                        </td>
+                      </tr>
+                 <?php } ?>
+                   <tr>
+                      <td>Total( including Tax)</td>
+                      <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+                   </tr>
+                   <tr>
+                      <td>Shipping</td>
+                      <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                   </tr>
+                   <tr>
+                      <td style="color:#F07818;font-weight:bold;">Grand - Total</td>
+                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+                   </tr>
+                </table>
+             </div>
+              <div class="estimate" style="text-align: right;">
+                <p>Estimated time of delivery : 6 - 10 days </p>
+             </div>
+
+             <div> <strong>Shipping Address:</strong> <br/>
+                <?php echo ""; ?>
+
+             </div> <br>
+             <div> <strong>Payment Method:</strong> Cash on Delivery </div>
+       <?php } else { ?>
+          <div class="alert alert-warning">
+            <?php echo $mainErrorMsg; ?>
+          </div>
+      <?php } ?>
+     </div>
+   </div>
+
+</div>
+<div class="clearfix"> </div>

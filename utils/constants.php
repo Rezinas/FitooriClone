@@ -1,7 +1,7 @@
 <?php
 
-	define('SITE_URL', "http://" . $_SERVER['SERVER_NAME']."/plumms/");
-	define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']."/plumms/");
+	define('SITE_URL', "http://" . $_SERVER['SERVER_NAME'] . "/");
+	define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 	define('ORIGINAL_IMAGE_MAX_WIDTH', 420);
 	define('ORIGINAL_IMAGE_MAX_HEIGHT', 420);

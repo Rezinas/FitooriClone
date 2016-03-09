@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
 if(isset($_GET["emailPass"])) {
 	if(!empty($_POST)){
 		$user_email = prepare_input($_POST['email']);

@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/db_connection.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/constants.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/db_connection.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
 
 if(isset($_POST['login']))
 {
@@ -25,7 +25,7 @@ if(isset($_POST['login']))
           mysqli_free_result($result);
 
       if(isset($_POST["backto"])) {
-        $gotoPage = "index.php?".$_POST["backto"];
+        $gotoPage = "/index.php?".$_POST["backto"];
         header("Location: ".SITE_URL. $gotoPage);
         exit();
       }

@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
 if(empty($username)){
     //Redirect not logged in user
     //TBD: later have to add check for users who are not agents.
@@ -206,37 +206,37 @@ else {
 
 <?php
 if($currenttab == "dash") {
-    include(SITE_ROOT. "admin/dashboard.html");
+    include(SITE_ROOT. "/admin/dashboard.html");
 }
 else if($currenttab == "design") {
-    include(SITE_ROOT. "php/design.php");
-    include(SITE_ROOT. "design.html");
+    include(SITE_ROOT. "/php/design.php");
+    include(SITE_ROOT. "/design.html");
 }
 else if($currenttab == "custom") {
-    include(SITE_ROOT. "admin/custom.php");
-    include(SITE_ROOT. "admin/custom.html");
+    include(SITE_ROOT. "/admin/custom.php");
+    include(SITE_ROOT. "/admin/custom.html");
 }
 else if($currenttab == "search") {
-    include(SITE_ROOT. "php/productsearch.php");
-    include(SITE_ROOT. "products.html");
+    include(SITE_ROOT. "/php/productsearch.php");
+    include(SITE_ROOT. "/products.html");
 }
 else if($currenttab == "elements") {
-    include(SITE_ROOT. "admin/elements.php");
-    include(SITE_ROOT. "admin/elements.html");
+    include(SITE_ROOT. "/admin/elements.php");
+    include(SITE_ROOT. "/admin/elements.html");
 }
 else if($currenttab == "product") {
-    include(SITE_ROOT. "admin/products.php");
-    include(SITE_ROOT. "admin/product.html");
+    include(SITE_ROOT. "/admin/products.php");
+    include(SITE_ROOT. "/admin/product.html");
 }
 else if($currenttab == "pieces") {
-    include(SITE_ROOT. "admin/pieces.php");
-    include(SITE_ROOT. "admin/pieces.html");
+    include(SITE_ROOT. "/admin/pieces.php");
+    include(SITE_ROOT. "/admin/pieces.html");
 }
 else if($currenttab == "orders") {
-    include(SITE_ROOT. "admin/orders.html");
+    include(SITE_ROOT. "/admin/orders.html");
 }
 else if($currenttab == "report") {
-    include(SITE_ROOT. "admin/report.html");
+    include(SITE_ROOT. "/admin/report.html");
 }
 ?>
 

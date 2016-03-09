@@ -20,7 +20,7 @@
                                        <!-- <div class="close1"></div> -->
                                         <!--  <div class="cart-sec simpleCart_shelfItem"> -->
                                           <div class="cart-item cyc" style="width: 50%;">
-                                             <?php if($prod['customized'] == 0) { ?>
+                                             <?php if($prod['customized'] == 0 || $prod['design'][0]['isProduct'] == 1) { ?>
                                                 <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
                                              <?php }  else  { ?>
                                              <div class="cdesign">

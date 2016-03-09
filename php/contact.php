@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/db_connection.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/constants.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/db_connection.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
 //require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/email_functions.php");
 
 if(isset($_POST['cnct']))

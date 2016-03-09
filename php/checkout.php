@@ -13,6 +13,7 @@ if(count($cartItems)  > 0) {
 	$cartHighPrice=500;
 
 	$qry = "SELECT  `productid`,`name`, `price`, `size`, `mainimg`, `customized`, `material` from products WHERE productid IN (".implode($cartids, ",")." )";
+
 	if(!$stmt = $dbcon->prepare($qry)){
 	die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}
@@ -48,7 +49,9 @@ if(count($cartItems)  > 0) {
 			$stmt1->close();
 		}
 
-$cartProducts[] = [ 'productid' => $a, 'name' => $b, 'price' => $c, 'size'=>$d, 'mainimg' => $e, 'customized'=> $f, 'design' => $desArr, 'material' => $categoriesArr[$g]];
+		$mat = ($g === NULL) ?  "" : $categoriesArr[$g-1];
+
+	$cartProducts[] = [ 'productid' => $a, 'name' => $b, 'price' => $c, 'size'=>$d, 'mainimg' => $e, 'customized'=> $f, 'design' => $desArr, 'material' => $mat];
 
 	}
 	$stmt->close();
@@ -60,6 +63,7 @@ $cartProducts[] = [ 'productid' => $a, 'name' => $b, 'price' => $c, 'size'=>$d, 
 		$cartItemList [] =['pid' => $cp['productid'], 'name' => $cp['name'], 'price' => $cp['price'], 'quantity' => $cart[$cp['productid']]];
 	}
 	$_SESSION['cartitemlist'] = $cartItemList;
+	$_SESSION['cartTotal'] = $cartTotal;
 
 
 

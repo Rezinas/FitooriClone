@@ -114,4 +114,20 @@ $(function() {
      }
     });
 
+    $("#trackorderForm").validate({
+      rules: {
+        orderid: {required: true}
+      },
+      messages: {
+        orderid: {required: "Please enter an order id."}
+      },
+     errorPlacement: function(error, element) {
+            error.insertAfter(element.parents("p"));
+    },
+      submitHandler: function(form) {
+          form.submit();
+          return false;
+      }
+    });
+
 });

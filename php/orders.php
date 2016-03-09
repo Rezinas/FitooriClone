@@ -20,7 +20,8 @@ if(isset($_REQUEST["confirmOrder"])) {
     $cartItemlist = $_SESSION['cartitemlist'];
     $shippingaddr = $_SESSION['shippingaddress'];
     $toemail=$_SESSION['orderemail'];
-    $ctotal=$_SESSION['cartTotal'];
+    $userflname=isset($_SESSION['userflname']) ? $_SESSION['userflname'] : "Guest";
+    $ctotal=$_SESSION['cartPrice'];
 
 
     $_SESSION['orderStatus'] = $sess_orderStatus = "confirmed";
@@ -32,8 +33,8 @@ if(isset($_REQUEST["confirmOrder"])) {
         die('Error : ('. $dbcon->errno .') '. $dbcon->error);
     }
     $stmt->close();
-
-    $message= "<strong>Thank you for choosing Fitoori. Here is your order information.</strong>";
+    $message= "<strong>Dear $userflname, </strong><br>";
+    $message .= "<p>Thank you for choosing Fitoori. Here is your order information.</p>";
     $message .= '<div class="tableClass">';
     $message .= '<h4>Order Number: ORD000'. $sess_orderID .'</h4>';
     $message .= '<table style="width: 100%;border: 1px solid #eee">';
@@ -98,7 +99,8 @@ mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminhea
 unset($_SESSION['cartitemlist']);
 unset($_SESSION['shippingaddress']);
 unset($_SESSION['orderemail']);
-unset($_SESSION['cartTotal']);
+unset($_SESSION['userflname']);
+
 
 echo "SUCCESS";
     exit();

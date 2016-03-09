@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/constants.php");
+	require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
 	require_once(SITE_ROOT."/utils/db_connection.php");
 
 	//check for logged in user

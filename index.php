@@ -1,6 +1,6 @@
 <?php
-   error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-   require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
+   error_reporting(E_ALL);
+   require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
    $currenttab = "";
    if(isset($_GET["products"])) {
        $currenttab = 'products';
@@ -34,6 +34,12 @@
    }
    else if(isset($_GET["orders"])) {
        $currenttab = 'orders';
+   }
+   else if(isset($_GET["myorder"])) {
+    if(!isset($_SESSION["userid"])) $currenttab = 'register';
+    if(!isset($_POST["orderid"])) $currenttab = 'home';
+     else
+       $currenttab = 'myorder';
    }
    else if(isset($_GET["register"])) {
        $currenttab = 'register';
@@ -131,6 +137,10 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <?php if($currenttab == "sr" || $currenttab == "privacy" || $currenttab == "tc"){?>
        <link href="css/tc.css" rel="stylesheet" type="text/css" media="all" />
       <?php }?>
+
+        <?php if($currenttab == "myorder") { ?>
+        <link href="css/cartpage.css" type="text/css" rel="stylesheet" media="all">
+        <?php }?>
 
       <?php if($currenttab == "checkout" || $currenttab == "orders") { ?>
         <link href="css/cartpage.css" type="text/css" rel="stylesheet" media="all">
@@ -354,8 +364,8 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
             <div class="header-right track-box">
                <a href="#"><span aria-hidden="true"><img src="images/track.png"/></span></a>
                <div class="header-popup track">
-                  <form class="navbar-form">
-                     <p>Order ID &nbsp;<input type="text" class="form-control">
+                  <form id="trackorderForm" action="index.php?myorder" method="POST" class="navbar-form">
+                     <p>Order ID &nbsp;<input type="text"  name="orderid" class="form-control">
                         <button type="submit" class="btn btn-default" aria-label="Left Align">
                         Track
                         </button>
@@ -371,65 +381,69 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <!--//header-->
       <?php
          if($currenttab == "home") {
-             include(SITE_ROOT. "startindex.html");
+             include(SITE_ROOT. "/startindex.html");
          }
          else if($currenttab == "products") {
-              include(SITE_ROOT. "php/productsearch.php");
-             include(SITE_ROOT. "products.html");
+              include(SITE_ROOT. "/php/productsearch.php");
+             include(SITE_ROOT. "/products.html");
          }
          else if($currenttab == "customize") {
               // if(empty($username)) {
               //   echo '<link rel="stylesheet" href="css/customize.css">';
-              //   include(SITE_ROOT. "customize.html");
+              //   include(SITE_ROOT. "/customize.html");
               // }
               // else {
-                // include(SITE_ROOT. "customize.html");
-                include(SITE_ROOT. "php/design.php");
-                include(SITE_ROOT. "design.html");
+                // include(SITE_ROOT. "/customize.html");
+                include(SITE_ROOT. "/php/design.php");
+                include(SITE_ROOT. "/design.html");
               // }
             }
          else if($currenttab == "offers") {
-             include(SITE_ROOT. "offers.html");
+             include(SITE_ROOT. "/offers.html");
          }
          else if($currenttab == "join") {
-             include(SITE_ROOT. "joinus.html");
+             include(SITE_ROOT. "/joinus.html");
          }
          else if($currenttab == "about") {
-             include(SITE_ROOT. "about.html");
+             include(SITE_ROOT. "/about.html");
          }
          else if($currenttab == "contact") {
-             include(SITE_ROOT. "contact.html");
+             include(SITE_ROOT. "/contact.html");
          }
          else if($currenttab == "support") {
-             include(SITE_ROOT. "support.html");
+             include(SITE_ROOT. "/support.html");
          }
          else if($currenttab == "privacy") {
-             include(SITE_ROOT. "privacy.html");
+             include(SITE_ROOT. "/privacy.html");
          }
          else if($currenttab == "sr") {
-             include(SITE_ROOT. "SR.html");
+             include(SITE_ROOT. "/SR.html");
          }
          else if($currenttab == "tc") {
-             include(SITE_ROOT. "T&C.html");
+             include(SITE_ROOT. "/T&C.html");
          }
          else if($currenttab == "register") {
-             include(SITE_ROOT. "register.html");
+             include(SITE_ROOT. "/register.html");
          }
          else if($currenttab == "checkout") {
-             include(SITE_ROOT. "php/checkout.php");
-             include(SITE_ROOT. "checkoutCart.html");
+             include(SITE_ROOT. "/php/checkout.php");
+             include(SITE_ROOT. "/checkoutCart.html");
          }
          else if($currenttab == "single") {
-             include(SITE_ROOT. "single.html");
+             include(SITE_ROOT. "/single.html");
          }
         else if($currenttab == "myaccount") {
-            include(SITE_ROOT. "php/user.php");
-            include(SITE_ROOT. "myAccount.html");
+            include(SITE_ROOT. "/php/user.php");
+            include(SITE_ROOT. "/myAccount.html");
         }
         else if($currenttab == "orders") {
-            include(SITE_ROOT. "php/checkout.php");
-            include(SITE_ROOT. "php/orders.php");
-            include(SITE_ROOT. "orderpage.html");
+            include(SITE_ROOT. "/php/checkout.php");
+            include(SITE_ROOT. "/php/orders.php");
+            include(SITE_ROOT. "/orderpage.html");
+        }
+       else if($currenttab == "myorder") {
+            include(SITE_ROOT. "/php/myorder.php");
+            include(SITE_ROOT. "/myorder.html");
         }
          ?>
       <!--footer-->

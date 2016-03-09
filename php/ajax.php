@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
 
 if(isset($_REQUEST["cartUpdate"])) {
     $_SESSION['cartids'] = $_POST['productids'];

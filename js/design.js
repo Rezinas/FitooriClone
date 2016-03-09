@@ -287,6 +287,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.designLevel++;
                 $scope.levelFilled = false;
                 $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
+                $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
             } else {
                 alert("you havent selected elements for this level yet.");
             }
