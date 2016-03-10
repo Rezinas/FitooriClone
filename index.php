@@ -1,6 +1,8 @@
 <?php
    error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
    require_once($_SERVER['DOCUMENT_ROOT']."/plumms/utils/functions.php");
+   
    $currenttab = "";
    if(isset($_GET["products"])) {
        $currenttab = 'products';
@@ -371,7 +373,24 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <!--//header-->
       <?php
          if($currenttab == "home") {
-             include(SITE_ROOT. "startindex.html");
+            $check_user="select is_undermaintenance from sitevariable";
+            $result=mysqli_query($dbcon,$check_user);
+            if ($result && mysqli_num_rows($result) > 0)
+              {
+                while ($row=mysqli_fetch_row($result))
+                  {                    
+                    $sitevar = $row[0];
+                    if( $sitevar == 0)
+                    {
+                      include(SITE_ROOT. "startindex.html");
+                    }
+                    else{
+                      include(SITE_ROOT. "undermaintenance.html");
+                    }
+                }
+                  // Free result set
+                  mysqli_free_result($result);                
+              }             
          }
          else if($currenttab == "products") {
               include(SITE_ROOT. "php/productsearch.php");
