@@ -5,8 +5,8 @@
    <div class="panel">
      <div class="panel-body">
         <?php if(empty($mainErrorMsg)) { ?>
-          <div class="tableClass">
-               <h4>Order Number: ORD000<?php echo $orderid; ?></h4>
+          <div class="cart-items container">
+               <h4 style="color:#F07818;">Order Number: ORD000<?php echo $orderid; ?>  &nbsp; &nbsp; &nbsp; Order Status: <?php echo $currOrder['status']; ?></h4>
                 <table style="width: 100%">
                 <tr>
                   <th>Item</th>
@@ -17,7 +17,7 @@
                     <tr class="cartRows">
                       <td>
                       <div class="cart-header">
-                       <div class="cart-item cyc" style="width: 50%;">
+                       <div class="cart-item cyc">
                          <?php if($prod['customized'] == 0) { ?>
                             <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
                          <?php }  else  { ?>
@@ -43,28 +43,37 @@
                       </tr>
                  <?php } ?>
                    <tr>
-                      <td>Total( including Tax)</td>
+                      <td colspan="2">Total( including Tax)</td>
                       <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
                    </tr>
                    <tr>
-                      <td>Shipping</td>
+                      <td colspan="2">Shipping</td>
                       <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
                    </tr>
                    <tr>
-                      <td style="color:#F07818;font-weight:bold;">Grand - Total</td>
+                      <td colspan="2" style="color:#F07818;font-weight:bold;">Grand - Total</td>
                       <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
                    </tr>
                 </table>
              </div>
-              <div class="estimate" style="text-align: right;">
+              <div class="container estimate" style="text-align: right;">
                 <p>Estimated time of delivery : 6 - 10 days </p>
              </div>
 
-             <div> <strong>Shipping Address:</strong> <br/>
-                <?php echo ""; ?>
+             <div class="container">
+                <p style="color:#F07818;font-size: 16px;"><strong>Shipping Address:</strong></strong></p>
+                <?php
+                 $shipAddressStr = $currOrder['ship_add1']. ", <br>";
+                  if(!empty($currOrder['ship_add2'])) { $shipAddressStr .= $currOrder['ship_add2'] .", <br>"; }
+                  $shipAddressStr .= $currOrder['ship_city']. ", ".$currOrder['ship_state'].", India <br>";
+                  $shipAddressStr .= $currOrder['ship_postal'];
 
-             </div> <br>
-             <div> <strong>Payment Method:</strong> Cash on Delivery </div>
+                  echo $shipAddressStr;
+
+                 ?>
+
+                <p style="color:#F07818; font-size: 16px;"><strong>Payment Method:</strong> Cash on Delivery </p>
+             </div>
        <?php } else { ?>
           <div class="alert alert-warning">
             <?php echo $mainErrorMsg; ?>

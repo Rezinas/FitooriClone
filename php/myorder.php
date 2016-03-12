@@ -28,7 +28,6 @@ $ordqry = "SELECT UNIX_TIMESTAMP(dateCreated) as dateCreated, useremail, status,
     if(empty($mainErrorMsg)) {
          $ordprdqry = "SELECT order_products.productid, order_products.quantity, order_products.order_price, products.name, products.mainimg, products.customized FROM order_products inner join products  on order_products.productid=products.productid WHERE order_products.orderid=$orderid";
 
-         echo $ordprdqry;
          $stmt = $dbcon->prepare($ordprdqry);
         if(!$stmt->execute()){
             die('Error : ('. $dbcon->errno .') '. $dbcon->error);
