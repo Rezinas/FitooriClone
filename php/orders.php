@@ -88,13 +88,13 @@ $subject = 'Fitoori Order Confirmation';
 $headers  = "From: Admin@fitoori.com";
 $headers .= "Content-type: text/html";
 
-mail($toemail, $subject, $message, $headers);
+// mail($toemail, $subject, $message, $headers);
 
 $adminMessage = "New Order Placed: ".$sess_orderID;
 
 $adminheaders = "From: Admin@fitoori.com";
 
-mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminheaders);
+// mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminheaders);
 
 unset($_SESSION['cartitemlist']);
 unset($_SESSION['shippingaddress']);
@@ -243,7 +243,7 @@ if($sess_orderID == -1) {
         }
         $ins_stmt->close();
 
-        $ord_prd_qry = "INSERT into order_products (`orderid`, `productid`,`quantity`, `order_price`) VALUES (?,?,?,?)";
+        $ord_prd_qry = "INSERT into order_products (`orderid`, `productid`, `name`, `quantity`, `order_price`) VALUES (?,?,?,?,?)";
         $ins_stmt1 = $dbcon->prepare($ord_prd_qry);
 
         if(!$ins_stmt1) {
@@ -251,7 +251,7 @@ if($sess_orderID == -1) {
         }
 
         foreach($cartProducts as $prd){
-          $ins_stmt1->bind_param('iiid', $sess_orderID, $prd['productid'], $cart[$prd['productid']], $prd['price']);
+          $ins_stmt1->bind_param('iisid', $sess_orderID, $prd['productid'],$prd['name'], $cart[$prd['productid']], $prd['price']);
 
           if(!$ins_stmt1->execute()){
               die('Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
@@ -271,7 +271,7 @@ else {
         $stmt1->close();
 
 
-        $ord_prd_qry = "INSERT into order_products (`orderid`, `productid`,`quantity`, `order_price`) VALUES (?,?,?,?)";
+        $ord_prd_qry = "INSERT into order_products (`orderid`, `productid`, `name`, `quantity`, `order_price`) VALUES (?,?,?,?,?)";
         $ins_stmt1 = $dbcon->prepare($ord_prd_qry);
 
         if(!$ins_stmt1) {
@@ -279,7 +279,7 @@ else {
         }
 
         foreach($cartProducts as $prd){
-            $ins_stmt1->bind_param('iiid', $sess_orderID, $prd['productid'], $cart[$prd['productid']], $prd['price']);
+            $ins_stmt1->bind_param('iisid', $sess_orderID, $prd['productid'], $prd['name'], $cart[$prd['productid']], $prd['price']);
 
             if(!$ins_stmt1->execute()){
               die('Insert Error : ('. $dbcon->errno .') '. $dbcon->error);

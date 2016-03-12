@@ -107,6 +107,29 @@ else {
 		$curr_user = ['userid' => $a, 'firstname' => $b, 'lastname' => $c, 'email' => $d, 'phone' => $e, 'gender' => $f, 'address1' => $g, 'address2' => $h, 'city' => $i, 'state' => $j, 'postalcode' => $k];
 	}
 	$stmt->close();
+
+
+	$em = $curr_user['email'];
+	$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype from orders  where dateCreated  >= date_sub(now(), interval 6 month) and useremail='$em' order by dateCreated DESC";
+
+ 	if(!$stmt = $dbcon->prepare($ordqry)){
+	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+	}
+
+	if(!$stmt->execute()){
+	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+	}
+
+	$stmt->store_result();
+	$stmt->bind_result($a,$b,$c,$d, $e, $f, $g, $h, $i);
+	$curr_orders=[];
+	while ($stmt->fetch()) {
+		if($c == "shippinginfo" || $c == "new" || "Review") { $c= "Not Placed"}
+		$curr_orders[] = ['orderid' => $a, 'useremail' => $b, 'status' => $c, 'shippingaddress1' => $d, 'shippingaddress2' => $e, 'shippingcity' => $f, 'shippingstate' => $g, 'shippingpostal' => $h, 'paymenttype' => $i];
+	}
+	$stmt->close();
+
+
 }
 
 

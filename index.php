@@ -37,7 +37,7 @@
    }
    else if(isset($_GET["myorder"])) {
     if(!isset($_SESSION["userid"])) $currenttab = 'register';
-    if(!isset($_POST["orderid"])) $currenttab = 'home';
+    if(!isset($_REQUEST["orderid"])) $currenttab = 'home';
      else
        $currenttab = 'myorder';
    }
@@ -145,7 +145,6 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <?php if($currenttab == "checkout" || $currenttab == "orders") { ?>
         <link href="css/cartpage.css" type="text/css" rel="stylesheet" media="all">
         <script src="js/checkout.js"></script>
-        <script src="js/checkoutMenu.js"></script>
       <?php  } ?>
 
       <?php if($currenttab == "single") {?>
@@ -381,7 +380,25 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <!--//header-->
       <?php
          if($currenttab == "home") {
-             include(SITE_ROOT. "/startindex.html");
+              $check_user="select is_undermaintenance from sitevariable";
+              $result=mysqli_query($dbcon,$check_user);
+              if ($result && mysqli_num_rows($result) > 0)
+                {
+                  while ($row=mysqli_fetch_row($result))
+                    {
+                      $sitevar = $row[0];
+                      if( $sitevar == 0)
+                      {
+                        include(SITE_ROOT. "/startindex.html");
+                      }
+                      else{
+                        include(SITE_ROOT. "/undermaintenance.html");
+                      }
+                  }
+                    // Free result set
+                    mysqli_free_result($result);
+                }
+
          }
          else if($currenttab == "products") {
               include(SITE_ROOT. "/php/productsearch.php");

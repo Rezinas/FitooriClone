@@ -200,7 +200,7 @@ b.caret {
 .container.ng-scope h2 {
     border-bottom: 1px solid #eee;
 }
-select.ng-pristine.ng-untouched.ng-valid {
+.rsidebar select  {
     height: 40px;
     position: relative;
     top: 11px;

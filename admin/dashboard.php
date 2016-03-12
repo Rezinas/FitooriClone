@@ -128,7 +128,9 @@ else {
 <?php if($currenttab == "design" || $currenttab == "custom") { ?>
      <link rel="stylesheet" href="../css/design.css">
 <?php  } ?>
-
+<?php if($currenttab == "orders") { ?>
+     <link rel="stylesheet" href="../css/cartpage.css">
+<?php  } ?>
    </head>
 <body>
 
