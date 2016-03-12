@@ -124,7 +124,7 @@ else {
 	$stmt->bind_result($a,$b,$c,$d, $e, $f, $g, $h, $i);
 	$curr_orders=[];
 	while ($stmt->fetch()) {
-		if($c == "shippinginfo" || $c == "new" || "Review") { $c= "Not Placed"}
+		if($c == "shippinginfo" || $c == "new" || $c == "Review") { $c= "Not Placed" ; }
 		$curr_orders[] = ['orderid' => $a, 'useremail' => $b, 'status' => $c, 'shippingaddress1' => $d, 'shippingaddress2' => $e, 'shippingcity' => $f, 'shippingstate' => $g, 'shippingpostal' => $h, 'paymenttype' => $i];
 	}
 	$stmt->close();

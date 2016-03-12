@@ -169,9 +169,13 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     var curBpoints =  cElem.bottompoints;
                     if(isOdd(curBpoints) && curBpoints > 1 && elem.toppoints == 1) {
                         var botXs=  cElem.botX.split(",");
+                        var botYs=  cElem.botY.split(",");
                         var curWidth = elem.imgwidth;
                         for(var i=0; i < botXs.length && fits; i++){
-                            if(botXs[i+1] - botXs[i] <= curWidth){
+                            var  a = botXs[i+1] - botXs[i];
+                            var b = botYs[i+1] - botYs[i];
+                            console.log(Math.sqrt(a*a + b*b));
+                            if(Math.sqrt(a*a + b*b) <= curWidth) {
                                 fits=false;
                             }
                         }

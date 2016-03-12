@@ -37,7 +37,7 @@
    }
    else if(isset($_GET["myorder"])) {
     if(!isset($_SESSION["userid"])) $currenttab = 'register';
-    if(!isset($_REQUEST["orderid"])) $currenttab = 'home';
+    else if(!isset($_REQUEST["orderid"])) $currenttab = 'home';
      else
        $currenttab = 'myorder';
    }
