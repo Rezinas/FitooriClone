@@ -1,6 +1,6 @@
 	<!--banner-->
 	<div class="banner">
-		<img src="images/banner6.png" alt=""/>
+		<img src="images/banner6.jpg" alt=""/>
 	</div>
 	<!--//banner-->
 
@@ -49,12 +49,12 @@
 				</div>
 				<hr style="width:100%;"/>
 					<h2>Our Featured Products</h2>
-				<hr/>
+				<hr style="width:100%;"/>
 				<?php foreach($featuredPrd as $fprd) { ?>
 
 				<div class="col-md-3 gallery-grid ">
 					<a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $fprd['productid']; ?>"><!-- <img src="images/g3.png" class="img-responsive" alt=""/> -->
-						<img src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" class="img-responsive" alt=""/ style="padding:30px;">
+						<img src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" class="img-responsive feturedImg" alt=""/>
 						<div class="gallery-info">
 							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
 							<a class="shop" href="<?php echo SITE_URL; ?>index.php?products&m=<?php echo $fprd['material']; ?>">SHOP NOW</a>

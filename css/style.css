@@ -711,6 +711,9 @@ input:focus {
     padding:0em 0 2em 0;
     margin-top: -11px;
 }
+.gallery h2 {
+        font-size: 3.5em;
+    }
 .quick {
     padding: 1em;
 }
@@ -1237,15 +1240,20 @@ div#pagination {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -o-border-radius: 5px;
-    margin: 1.5em 16px 0px 0px;
+    margin: 0.5em 16px 0px 0px;
     background: #F07818;
     border: 1px solid #F07818;
     outline: none;
+    width: 100%;
 }
-.prt_name{
-	padding: 0.8em 1.2em;
+/*.prt_name{
+	padding: 0.8em 1em;
 	float:none;
-}
+}*/
+.prt_name{
+        padding: 0px 10px 10px 10px;
+        float: none;
+    }
 .items {
     margin: 12px 0 0px 100px;
 }
@@ -1272,11 +1280,21 @@ div#pagination {
     text-transform: uppercase;
 }*/
 .product-info-cust h4 {
+/*    color: #555;
+    font-size: 0.95em;
+    font-family: 'Roboto-Regular';
+    text-transform: uppercase;
+    font-weight: bold;*/   
     color: #555;
     font-size: 0.95em;
     font-family: 'Roboto-Regular';
     text-transform: uppercase;
     font-weight: bold;
+    float: left;
+    width: 100%;
+    text-align: center;
+    border: 0px solid;
+    padding-top: 10px;
 }
 .customised h4{
     font-size: 018px;
@@ -1290,11 +1308,21 @@ div#pagination {
 	 color:#C7C7C7;
 }
 span.item_price{
-	color: #000;
+/*	color: #000;
     font-size: 1em;
     font-weight: 600;
     margin: 10px 0 5px;
-	display:block;
+	display:block;*/
+    color: #000;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0px 0 0px;
+    display: block;
+    width: 100%;
+    float: left;
+    margin-left: 0px;
+    text-align: center;
+    padding-top: 10px;
 }
 .customised span{
     margin: 10px 0 5px;
@@ -2369,6 +2397,7 @@ h2#mainContainer {
     border-bottom: 0px solid #DAD8D5;
     border-bottom-style: ridge;
     margin-bottom: 14px;
+    font-size: 3.5em;
 
 }
 .rsidebar {
@@ -2580,20 +2609,40 @@ h4.panel-title {
     border-top: 1px solid #ccc;
 }
 .about h2{
-    font-size: 3em;
+    font-size: 3.5em;
+}
+.feturedImg{
+    padding:30px;
 }
 /*--//contact--*/
 /*---- responsive-design -----*/
 @media (min-width:1367px) and (max-width:1440px){
     .gallery{
         margin-top: -70px;
-    }
+    }       
     .about hr {
         margin-bottom: 0px;
         border-top: 1px solid #ccc;
     }
     .about h2{
         font-size: 3em;
+    }
+    .prt_name{
+        padding: 0px 10px 10px 10px;
+    }
+    .product-info-cust h4 {
+        font-size: 0.95em;
+        width: 100%;
+        text-align: center;
+        padding-top: 10px;
+    }
+    span.item_price {       
+        font-size: 0.95em;
+        margin: 0px 0 0px;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        padding-top: 10px;
     }
     .dropdown-menu.columns-4 {
         min-width: 640px;
@@ -2620,6 +2669,38 @@ h4.panel-title {
     }
 }
 @media (min-width:1281px) and (max-width:1366px){
+    .gallery h2{
+        font-size: 3em;
+    }
+    .feturedImg {
+        padding: 45px;
+    }
+    .gallery-info{
+       bottom: 19%;
+    }
+    h2#mainContainer{
+        font-size: 3em;
+    }
+    .prt_name{
+        padding: 0px 10px 10px 10px;
+    }
+    .product-info-cust h4 {
+        font-size: 0.95em;
+        width: 100%;
+        text-align: center;
+        padding-top: 10px;
+    }
+    span.item_price {       
+        font-size: 0.95em;
+        margin: 0px 0 0px;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        padding-top: 10px;
+    }
+   .related-products h3{
+    font-size: 3em;
+   }
     .about hr {
         margin-bottom: 0px;
         border-top: 1px solid #ccc;
@@ -2629,6 +2710,9 @@ h4.panel-title {
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
+    }
+    .about .about-infom.tcDiv h4 {
+        font-size: 16px;
     }
     .about-infom p, center{
         font-size: 1em;
@@ -2686,7 +2770,7 @@ h4.panel-title {
         margin-top: -120px;
     }
     .galy-info p{
-        font-size: 1.1em;
+        font-size: 1em;
     }
     .footer-bottom p{
             font-size: 1.2em;
@@ -2698,6 +2782,44 @@ h4.panel-title {
     }
 }
 @media (min-width:1081px) and (max-width:1280px){
+   .about .about-infom.tcDiv h4 {
+        font-size: 16px;
+    }
+    .gallery h2{
+        font-size: 3em;
+    }
+    .galy-info p{
+        font-size: 1em;
+    }
+    .gallery-info {
+       bottom: 19%;
+    }
+    .feturedImg{
+        padding:50px;
+    }
+    h2#mainContainer{
+        font-size: 3em;
+    }
+    .prt_name{
+        padding: 0px 10px 10px 10px;
+    }
+    .product-info-cust h4 {
+        font-size: 0.95em;
+        width: 100%;
+        text-align: center;
+        padding-top: 10px;
+    }
+    span.item_price {       
+        font-size: 0.95em;
+        margin: 0px 0 0px;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .single {
+        margin-bottom: -105px;
+    }
     .product-img img{
         padding: 2em;
     }
@@ -2706,6 +2828,9 @@ h4.panel-title {
         border-top: 1px solid #ccc;
     }
     .about h2{
+        font-size: 3em;
+    }
+    .related-products h3{
         font-size: 3em;
     }
     .navbar-default .navbar-nav > li > a {

@@ -3,7 +3,7 @@
 	margin-bottom: 25px;
 }
 .page-header{
-	font-size: 3em;
+	font-size: 3.5em;
     color: #F07818;
     font-family: 'Marvel-Regular';
     text-align: center;
@@ -151,6 +151,12 @@ button.addtoCart:hover{
 	    border: 0px solid;
 	    margin: -17px 0px 15px 0px;
 	}
+	i.fa.fa-times-circle {    
+	    font-size: 25px;
+	    position: relative;
+	    top: -13px;
+	    left: -5px;
+	}
 	.product-img{
 		width: 80px;
 		margin: 0px auto;
@@ -268,6 +274,7 @@ button.addtoCart:hover{
 	div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
 	    margin-top: -2px;
 	    font-size: 13px;
+	    text-transform: uppercase;
 	}
 	div#alertDiv1, div#alertDiv2, div#alertDiv3, div#alertDiv4{
 	    border: 1px solid #eee;
@@ -435,6 +442,9 @@ button.addtoCart:hover{
 		}
 	}
 	@media only screen and (min-width:1281px) and (max-width:1366px){
+		.page-header{
+			font-size: 3em;
+		}
 		.moreoptions{
 			left: 6px;
     		position: relative;
@@ -444,7 +454,7 @@ button.addtoCart:hover{
 			font-size:13px;
 		}
 		button.addtoCart{
-			font-size: 12px;
+			font-size: 11.9px;
 		}
 		.product-grid.elem {
 		    border: 0px solid #EFE9E9;
@@ -475,6 +485,9 @@ button.addtoCart:hover{
 		}
 	}
 	@media (min-width:1081px) and (max-width:1280px){
+		.page-header{
+			font-size: 3em;
+		}
 		#subElementDiv{
 			padding: 0px;
 			border: 0px solid;
@@ -544,6 +557,11 @@ button.addtoCart:hover{
 			font-size: 1em;
 		}
 		.cart-items table th{
-			font-size: 13px;
+			font-size: 12.5px;
+		}
+		i.fa.fa-times-circle {
+		    font-size: 25px;
+		    position: relative;
+		    top: -11px;
 		}
 	}

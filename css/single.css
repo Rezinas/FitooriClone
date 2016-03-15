@@ -3,6 +3,10 @@
 }
 .single h2{
   margin-top: 65px;
+  font-size: 3.5em;
+}
+.single hr{
+  margin-bottom: -30px;
 }
 .single-grid h3{
   font-size: 2.2em;
@@ -24,4 +28,44 @@ h4.panel-title a{
   border:0px;
   box-shadow: none;
   text-align: justify;
+}
+@media (min-width:1281px) and (max-width:1366px){
+  .single {
+      margin-bottom: -105px;
+  }
+  .single h2{
+    font-size: 3em;
+  }
+  .related-products h3 {
+    margin: -45px 0px -35px 0px;
+  }
+  .related-products .product-img img{
+    padding:4em;
+  }   
+}
+@media (min-width:1081px) and (max-width:1280px){
+  .single {
+      margin-bottom: -105px;
+  }
+  .single h2{
+    font-size: 3em;
+  }
+  .related-products h3 {
+    margin: -45px 0px -35px 0px;
+  }
+  .related-products .product-img img{
+    padding:4em;
+  }
+/*  .related-products .product-info-cust h4 {
+    font-size: 0.9em;
+    width: 90%;
+    text-align: left;
+  }
+  .related-products span.item_price {
+    font-size: 0.9em;
+    margin-left: -28px;
+  }*/
+  .panel-body{
+    font-size: 0.95em;
+  }
 }

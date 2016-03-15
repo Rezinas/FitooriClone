@@ -180,6 +180,12 @@ font-size: 12px; */
 #cart-items-all h4{
   color:#fff;
 }
+.cart-details{
+  color:#333;
+  font-weight:normal;
+  overflow: hidden;
+  padding: 15px 0px;
+}
 #chkBtn input[type="submit"] {
     border: 2px solid #F07818;
     color: #fff;
@@ -655,6 +661,7 @@ input#shippay, a.shippay, a.placeorder, div#shippingDetails a.back, a.confirm {
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
+    font-weight: normal;
 }
 input#shippay:hover, a.placeorder:hover, div#shippingDetails a.back:hover, a.confirm:hover{
     background: transparent;
@@ -850,7 +857,12 @@ form.form-guest-checkout div {
 }
 div#Orderpage h2 {
       margin-top: 60px;
-  }
+}
+.about h2{
+    font-size: 3em;
+}
+
+
 @media only screen and (min-width:1367px) and (max-width:1440px){
 
   div#shippingDetails .cart-item-info span a{
@@ -860,6 +872,21 @@ div#Orderpage h2 {
   div#Orderpage h2 {
         margin-top: 60px;
     }
+  .cart-summary p{
+    font-size: 14px;
+  }
+  #cart-cost table th ,#cart-cost table th td{
+    font-size: 14px;
+  }
+  div#cart-items-all span{
+    font-size: 15px;
+  }
+  .delivery p{
+    font-size: 14px;
+  }
+  .cart-items .panel-heading h4{
+    font-size: 15px;
+  } 
 }
 @media only screen and (min-width:1281px) and (max-width:1366px){
 
@@ -868,12 +895,31 @@ div#Orderpage h2 {
   }
   div#Orderpage h2 {
       margin-top: 60px;
+      font-size: 3em;
   }
   div#shippingDetails .cart-item-info span a{
     font-size: 14px;
     font-weight: normal;
   }
   div#shippingDetails center{
+    font-size: 14px;
+  }
+  .cart-summary p{
+    font-size: 13.4px;
+  }
+  #cart-cost table th ,#cart-cost table th td{
+    font-size: 13px;
+  }
+  div#cart-items-all span{
+    font-size: 14px;
+  }
+  .delivery p{
+    font-size: 13px;
+  }
+  .cart-items .panel-heading h4{
+    font-size: 14px;
+  }
+  #cart-items-all h4{
     font-size: 14px;
   }
 }
@@ -888,6 +934,42 @@ div#Orderpage h2 {
   }
   div#Orderpage h2 {
       margin-top: 60px;
+      font-size: 3em;
+  }
+  .about h2{
+    font-size: 3em;
+  }
+  .cart-summary p{
+    font-size: 12.4px;
+  }
+  #cart-cost table th, #cart-cost table tr td{
+    font-size: 12.5px;
+  }
+  #chkBtns a{
+    font-size: 0.95em;
+  }
+  .delivery p{
+    font-size: 13px;
+  }
+  div#cart-items-all span {
+    font-size: 14px;
+  }
+  .prt_name{
+    padding: 0px;
+  }
+  .product-info-cust h4, span.item_price{
+    width: 100%;
+    margin-left: 0px;
+    padding-top: 10px;
+  }
+  #cart-items-all h4{
+    font-size: 14px;
+  }
+  .cart-items img{
+    padding:1em;
+  }
+  .cart-items .panel-heading h4{
+    font-size: 14px;
   }
 }
 

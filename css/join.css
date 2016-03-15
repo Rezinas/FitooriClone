@@ -1,3 +1,6 @@
+.contact h2 {
+    font-size: 3.5em;
+  }
 .contact ul li {
   margin-left: 34px;
   color: #999;
@@ -40,6 +43,7 @@
     }
 
 }
+
 @media (min-width:1281px) and (max-width:1366px){
   .contact-form textarea, .contact-form input[type="text"]{
         font-size: 12.5px;
@@ -51,19 +55,18 @@
         font-size: 3em;
     }
 }
-@media (min-width:1801px) and (max-width:1280px){
 
-.contact{
-  padding:4em 0 0 0 ;
-
-}
-.contact-form input[type="text"], .contact-form textarea{
+@media (min-width:1081px) and (max-width:1280px){
+  .contact {
+    padding:4em 0 0 0 ;
+  }
+  .contact-form input[type="text"], .contact-form textarea {
     font-size: 12.5px;
   }
-.contact hr {
-        margin-bottom: 10px;
-    }
-    .contact h2{
-        font-size: 3em;
-    }
+  .contact hr {
+    margin-bottom: -50px;
+  }
+  .contact h2 {
+    font-size: 3em;
+  }
 }
