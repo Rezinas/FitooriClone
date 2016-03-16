@@ -12,6 +12,23 @@
                     <div class="alert alert-info">
                         <i class="fa fa-folder-open"></i><b>&nbsp;Hello ! </b>Welcome Back <b>Admin Admin </b>
                     </div>
+                    <div>
+                        <form  role="form" name="sitevariableForm"  id="sitevariableForm" enctype="multipart/form-data" action="dashboard.php?sitevariable" method="POST">
+
+                            <p> Is Site Under Maintainence</p>
+                            <div class="radio" id="siteRadio">
+                                <label>
+                                    <input type="radio" name="sitevariable"  value="1" <?php echo   ($sitevariable  == "1") ?   "checked" : "";?>>Yes
+                                </label>
+                                <label>
+                                    <input type="radio" name="sitevariable"  value="0" <?php echo   ($sitevariable  == "0") ?   "checked" : "";?>>No
+                                </label>
+                                <button type="submit" class="btn btn-success" name="siteUpdate">Update </button>
+                            </div>
+                        </form>
+                    </div>
+
+
                 </div>
                 <!--end  Welcome -->
             </div>

@@ -83,6 +83,23 @@ if(isset($_GET["pieces"]) && isset($_GET["deleteid"]) ) {
         header("Location: ".SITE_URL. "admin/dashboard.php?pieces");
 
 }
+$sitevariable  = "";
+if(isset($_POST["siteUpdate"])) {
+
+  $sitevariable  = $_POST['sitevariable'];
+ 
+  //run the update query for the $pid.
+
+  $updQuery1 =  "UPDATE sitevariable SET `is_undermaintenance` = ?";
+  $stmt = $dbcon->prepare($updQuery1);
+  $stmt->bind_param('i', $sitevariable);
+  if(!$stmt->execute()){
+    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+  }    
+  $stmt->close(); 
+}
+    
+
 
 $currenttab = "";
 if(isset($_GET["search"])) {
