@@ -308,7 +308,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                   total = total + parseFloat(sitem.price, 10);
             });
 
-            $scope.designPrice  = total * marginFactor *overheadFactor *taxFactor;
+            total  = total * marginFactor *overheadFactor *taxFactor;
+            $scope.designPrice = Math.round(total);
             return $scope.designPrice;
         };
 
@@ -370,6 +371,16 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
                 $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
         };
+
+        $scope.confirmDesign = function() {
+            var yes= false;
+            if( $scope.mySelectedItems.length > 0 && !$scope.productAdded ) yes = true;
+            if( yes && $scope.designLevel == 0 && $scope.mySelectedItems[$scope.designLevel]) {
+                 if($scope.mySelectedItems[$scope.designLevel].admintags.indexOf('hooks') < 0 ) yes = true;
+                 else yes= false;
+            }
+            return yes;
+        }
 
         $scope.gobackLevel = function() {
             if($scope.prdIndex[$scope.designLevel]){

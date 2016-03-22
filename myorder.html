@@ -44,7 +44,7 @@
                  <?php } ?>
                    <tr>
                       <td colspan="2">Total( including Tax)</td>
-                      <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+                      <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', round($cartTotal, 0)); ?></span></td>
                    </tr>
                    <tr>
                       <td colspan="2">Shipping</td>
@@ -52,12 +52,12 @@
                    </tr>
                    <tr>
                       <td colspan="2" style="color:#F07818;font-weight:bold;">Grand - Total</td>
-                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',round($cartTotal + SHIPPINGCHARGES_SMALL, 0)); ?></span></td>
                    </tr>
                 </table>
              </div>
               <div class="container estimate" style="text-align: right;">
-                <p>Estimated time of delivery : 6 - 10 days </p>
+                <p>Estimated time of delivery : 8 - 14 days </p>
              </div>
 
              <div class="container">
