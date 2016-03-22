@@ -257,8 +257,8 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                            <div class="col-sm-6">
                               <h4>Take a Tour</h4>
                               <ul class="multi-column-dropdown">
-                                 <li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-film" style="    font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Videos</a></li>
-                                 <li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-info-sign" style="font-size: 15px;position: relative;top: 3px; margin-right: 3px;"></i> How to Tutorials</a></li>
+                                 <li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-film"></i> How to Videos</a></li>
+                                 <li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-info-sign"></i> How to Tutorials</a></li>
                               </ul>
                            </div>
                         </div>
@@ -412,7 +412,8 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
               // else {
                 // include(SITE_ROOT. "/customize.html");
                 include(SITE_ROOT. "/php/design.php");
-                include(SITE_ROOT. "/design.html");
+                /*include(SITE_ROOT. "/design.html");*/
+                include(SITE_ROOT. "/customizationLandingPage.html");
               // }
             }
          else if($currenttab == "offers") {
