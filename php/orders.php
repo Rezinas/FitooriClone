@@ -56,7 +56,7 @@ if(isset($_REQUEST["confirmOrder"])) {
     }
     $message .= '<tr>';
     $message .= '<td>Total( including Tax)</td>';
-    $message .= '<td>: &#8377; <span id="subTotal">'. money_format("%!i", $ctotal) .'</span></td>';
+    $message .= '<td>: &#8377; <span id="subTotal">'. money_format("%!i", round($ctotal, 0)) .'</span></td>';
     $message .= '</tr>';
     $message .= '<tr>';
     $message .= '<td>Shipping</td>';
@@ -64,7 +64,7 @@ if(isset($_REQUEST["confirmOrder"])) {
     $message .= '</tr>';
     $message .= '<tr>';
     $message .= '<td style="color:#F07818;font-weight:bold;">Grand - Total</td>';
-    $message .= '<td>: &#8377; <span id="grandTotal">'. money_format("%!i",$ctotal + SHIPPINGCHARGES_SMALL) .'</span></td>';
+    $message .= '<td>: &#8377; <span id="grandTotal">'. money_format("%!i",round($ctotal + SHIPPINGCHARGES_SMALL, 0)) .'</span></td>';
     $message .= '</tr>';
     $message .= '</table>';
     $message .= '</div>';
