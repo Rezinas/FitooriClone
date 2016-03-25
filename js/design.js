@@ -1,8 +1,8 @@
 'use strict';
 var des = angular.module('cdesign', []);
 
-des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout',
-    function($scope, $rootScope, $http, $window, $document, $timeout) {
+des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout', '$location',
+    function($scope, $rootScope, $http, $window, $document, $timeout, $location) {
 
         $scope.siteUrl = $window.model.siteUrl;
         $scope.designObj = {};
@@ -19,12 +19,30 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.isAgent = $window.model.isAgent;
         $scope.shipping=$window.model.shipping;
         $scope.productAdded = false;
+        $scope.startType = "";
         var marginPercent =$window.model.margin;
         var taxPercent =$window.model.vat;
         var overheads =$window.model.overheads;
 
         var elements = $window.model.elements;
         var bodyparts = $window.model.items;
+
+        var queryParam = $location.search();
+        if(queryParam.jhumka){
+              $scope.startType = "Jhumka";
+        }
+        else if(queryParam.chandelier){
+              $scope.startType = "Chandelier";
+        }
+        else if(queryParam.hoops){
+              $scope.startType = "Hoops";
+        }
+        else if(queryParam.studs){
+              $scope.startType = "Studs";
+        }
+        else if(queryParam.danglers){
+              $scope.startType = "Danglers";
+        }
 
 
         var isOdd = function(num){
@@ -64,6 +82,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
             $.each(eitems, function(ind, row) {
                 if ($scope.designLevel == 0) {
+                   // if (row.toppoints == 0 && row.admintags.indexOf($scope.startType)) {
                     if (row.toppoints == 0) {
                         resArr.push(row);
                     }

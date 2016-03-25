@@ -115,6 +115,15 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.numberOfPages=function(){
             return Math.ceil($scope.resultSet.length/$scope.pageSize);
         };
+        $scope.prevPage = function() {
+          $scope.currentPage=$scope.currentPage-1;
+          window.scrollTo(0,0);
+        };
+        $scope.nextPage = function() {
+          $scope.currentPage=$scope.currentPage+1;
+          window.scrollTo(0,0);
+        };
+
 
 }]);
 

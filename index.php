@@ -5,9 +5,13 @@
    if(isset($_GET["products"])) {
        $currenttab = 'products';
    }
-   else if(isset($_GET["customize"])) {
-       $currenttab = 'customize';
+   else if(isset($_GET["customearrings"])) {
+       $currenttab = "customearrings";
    }
+  else if(isset($_GET["designearrings"])) {
+       $currenttab = "designearrings";
+   }
+
    else if(isset($_GET["offers"])) {
        $currenttab = 'offers';
    }
@@ -174,7 +178,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
         <script src="js/myaccount.js" type="text/javascript"></script>
       <?php }?>
 
-      <?php if($currenttab == "customize") { ?>
+      <?php if($currenttab == "designearrings") { ?>
         <link rel="stylesheet" href="css/design.css">
         <script src="js/angular.min.js"></script>
         <script src="js/design.js"></script>
@@ -242,14 +246,14 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      </ul>
                   </li>
                   <li class="dropdown grid">
-                     <a href="#" class="dropdown-toggle list1 <?php if($currenttab == "customize") echo 'active'; ?>" data-toggle="dropdown">Customize<b class="caret"></b></a>
+                     <a href="#" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Customize<b class="caret"></b></a>
                      <ul class="dropdown-menu multi-column columns-3">
                         <div class="row">
                            <div class="col-sm-6">
                               <h4>Items</h4>
                               <ul class="multi-column-dropdown">
                                  <li class="list">Bracelets - <span>Coming Soon<span></li>
-                                 <li><a class="list" href="index.php?customize">Earrings</a></li>
+                                 <li><a class="list" href="index.php?customearrings">Earrings</a></li>
                                  <li class="list">Necklace - <span>Coming Soon<span></li>
                                  <li class="list">Pendant Sets - <span>Coming Soon<span></li>
                               </ul>
@@ -404,17 +408,12 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
               include(SITE_ROOT. "/php/productsearch.php");
              include(SITE_ROOT. "/products.html");
          }
-         else if($currenttab == "customize") {
-              // if(empty($username)) {
-              //   echo '<link rel="stylesheet" href="css/customize.css">';
-              //   include(SITE_ROOT. "/customize.html");
-              // }
-              // else {
-                // include(SITE_ROOT. "/customize.html");
-                include(SITE_ROOT. "/php/design.php");
-                /*include(SITE_ROOT. "/design.html");*/
+         else if($currenttab == "customearrings") {
                 include(SITE_ROOT. "/customizationLandingPage.html");
-              // }
+            }
+         else if($currenttab == "designearrings") {
+                 include(SITE_ROOT. "/php/design.php");
+                 include(SITE_ROOT. "/design.html");
             }
          else if($currenttab == "offers") {
              include(SITE_ROOT. "/offers.html");

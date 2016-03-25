@@ -37,11 +37,11 @@ while ($stmt->fetch()) {
    if(strpos($a, ",") !== false) {
 		$a_parts = explode(",", $a);
 		foreach($a_parts as $ap){
-			$tags[]=ucwords($ap);
+			$tags[]=trim(ucwords($ap));
 		}
 	}
 	else {
-    	$tags[] = ucwords($a);
+    	$tags[] = trim(ucwords($a));
 	}
 }
 $stmt->close();
