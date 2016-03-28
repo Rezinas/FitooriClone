@@ -21,7 +21,7 @@
 	   text-align: center;
 	   color: #000;
 	   font-weight: bold;
-	   text-shadow: 1px 1px 0px #333;
+	   /*text-shadow: 1px 1px 0px #333;*/
    }
    .about h2{
 	  /* margin: 10px auto;
@@ -30,7 +30,7 @@
 	   line-height: 3.8;
 	   color: #F07818;
 	   font-weight: bold;*/
-	   text-shadow: 1px 1px 0px #333;
+	   /*text-shadow: 1px 1px 0px #333;*/
    }
    .about hr{
    	margin-bottom: 30px;
@@ -77,15 +77,34 @@
    }
    .imgClass{
    	border: 0px solid;
-	width: 40%;
+	width: 100%;
 	margin: 0 auto;
    }
    .imgClass img{
    		width:100%;
    		cursor:pointer;
    }
+   .gallery-info p{
+      font-size: 0.95em;
+      margin-top: 0em;
+   }
+   .gallery-info,.gallery-grid:nth-child(3) .gallery-info{
+      width: 36%;
+      bottom: 0%;
+      left: 32%;
+      padding: 0.5em;
+   }
+   .gallery-grid img {
+      border: 1px solid #eee;
+      width: 40%;
+  }
+
+  .gallery-grid p{
+    text-align: center;
+     font-size: 13px;
+  }
 </style>
-<div class="about" style="background-color:#f3f3f3;">
+<div class="about">
    <!-- <h2> Let's get you started..</h2> -->
    <h2> Pick a type and start designing your earring in a moment !!!</h2>
    <hr/>
@@ -93,24 +112,40 @@
       <!-- <h4> Pick a type and start designing your earring in a moment !!!</h4> -->
       <div class="content">
          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="col-lg-3 col-md-3 col-sm-1 col-xs-12">
             </div>
 
-<div class="col-md-4 gallery-grid glry-one">
-          <a href="index.php?designearrings&amp;chandelier">
-                    <img src="/images/chandelier_3.png" class="img-responsive"/>
-            <div class="gallery-info">
-              <p>Start Creating</p>
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 gallery-grid">
+              <h3>Chandelier</h3>
+              <hr/>
+              <p>
+                - Prepping for a party?<br/>
+                * Best suits an oval/ heart face.<br/>
+              </p>
+              <a href="index.php?designearrings&amp;chandelier">
+                <img src="/images/chandelier_3.png" class="img-responsive imgClass"/>
+                <div class="gallery-info">
+                  <p>Start Creating</p>
+                </div>
+              </a>       
             </div>
-          </a>
-          <div class="galy-info">
-            <p>The Earthen Collection</p>
-          </div>
-        </div>
 
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12 gallery-grid">
+              <h3>Jhumka</h3>
+              <hr/>
+              <p>
+                - The Evergreen Domes!!<br/>
+                * Best suits round face.<br/>
+              </p>
+              <a href="index.php?designearrings&amp;jhumka">
+                <img src="/images/jhumka.png" class="img-responsive imgClass" />
+                <div class="gallery-info">
+                  <p>Start Creating</p>
+                </div>
+              </a>       
+            </div>
 
-
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="chandDiv">
+<!--             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="chandDiv">
             	<div id="chandBorder">
 	               <h3>Chandelier</h3>
 	               <hr/>
@@ -125,8 +160,8 @@
 	                  <a href="index.php?designearrings&amp;chandelier"><input type="button" name="stud" value="Start Creating"/></a>
 	               </div>
 	            </div>
-	        </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="jhumDiv">
+	        </div> -->
+<!--             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" id="jhumDiv">
 	            <div id="jhumBorder">
 	            	<h3>Jhumka</h3>
 	               <hr/>
@@ -143,43 +178,86 @@
 	            </div>
 
 
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            </div> -->
+            <div class="col-lg-3 col-md-3 col-sm-1 col-xs-12">
             </div>
          </div>
          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="hoopDiv">
-	            <div id="hoopBorder">
-	               <h3>Hoops</h3>
-	               <hr/>
-	               <p>
-	                  - Play around!<br/>
-	                  * Best suits round face.<br/>
-	               </p>
-	               <div class="imgClass">
-	               		<img src="/images/hoop.png" id="hoop" class="img-responsive"/>
-	               	</div>
-	               <div id="hoopText" class="hide">
-	                  <a href="index.php?designearrings"><input type="button" name="stud" value="Start Creating"/></a>
-	               </div>
-	           </div>
-	        </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gallery-grid">
+              <h3>Hoops</h3>
+              <hr/>
+             <p>
+                - Play around!<br/>
+                * Best suits round face.<br/>
+             </p>
+              <a href="index.php?designearrings&amp;hoops">
+                <img src="/images/hoop.png" class="img-responsive imgClass" />
+                <div class="gallery-info" style="width: 37.5%;left:31.3%;">
+                  <p>Start Creating</p>
+                </div>
+              </a>       
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gallery-grid">
+              <h3>Studs</h3>
+              <hr/>
+              <p>
+                - Want to keep it sober?<br/>
+                * Best suits square or diamond face.<br/>
+              </p>
+              <a href="index.php?designearrings&amp;studs">
+                <img src="/images/Stud.png" class="img-responsive imgClass"/>
+                <div class="gallery-info" style="width: 37.5%;left:31.3%;">
+                  <p>Start Creating</p>
+                </div>
+              </a>       
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gallery-grid">
+              <h3>Danglers</h3>
+              <hr/>
+              <p>
+                  - Pick a classic and you may never go wrong..<br/>
+                  * Best suits round face.<br/>
+               </p>
+              <a href="index.php?designearrings&amp;dangler">
+                <img src="/images/Dangler.png" class="img-responsive imgClass"/>
+                <div class="gallery-info" style="width: 37.5%;left:31.5%;">
+                  <p>Start Creating</p>
+                </div>
+              </a>       
+            </div>
+
+           <!--  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="hoopDiv">
+  	            <div id="hoopBorder">
+  	               <h3>Hoops</h3>
+  	               <hr/>
+  	               <p>
+  	                  - Play around!<br/>
+  	                  * Best suits round face.<br/>
+  	               </p>
+  	               <div class="imgClass">
+  	               		<img src="/images/hoop.png" id="hoop" class="img-responsive"/>
+  	               	</div>
+  	               <div id="hoopText" class="hide">
+  	                  <a href="index.php?designearrings"><input type="button" name="stud" value="Start Creating"/></a>
+  	               </div>
+  	           </div>
+  	        </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="studDiv">
-               <div id="studBorder">
-	               <h3>Studs</h3>
-	               <hr/>
-	               <p>
-	                  - Want to keep it sober?<br/>
-	                  * Best suits square or diamond face.<br/>
-	               </p>
-	               <div class="imgClass">
-	               		<img src="/images/Stud.png" id="stud" class="img-responsive"/>
-	               </div>
-	               <div id="studText" class="hide">
-	                  <a href="index.php?designearrings"><input type="button" name="stud" value="Start Creating"/></a>
-	               </div>
-	            </div>
-        	</div>
+                 <div id="studBorder">
+  	               <h3>Studs</h3>
+  	               <hr/>
+  	               <p>
+  	                  - Want to keep it sober?<br/>
+  	                  * Best suits square or diamond face.<br/>
+  	               </p>
+  	               <div class="imgClass">
+  	               		<img src="/images/Stud.png" id="stud" class="img-responsive"/>
+  	               </div>
+  	               <div id="studText" class="hide">
+  	                  <a href="index.php?designearrings"><input type="button" name="stud" value="Start Creating"/></a>
+  	               </div>
+  	        </div>
+        	  </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="dangDiv">
             	<div id="dangBorder">
 	            	<h3>Danglers</h3>
@@ -195,7 +273,7 @@
 	                  <a href="index.php?designearrings"><input type="button" name="stud" value="Start Creating"/></a>
 	               </div>
 	            </div>
-	        </div>
+	         </div> -->
          </div>
 <!--          <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
