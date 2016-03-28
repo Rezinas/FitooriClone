@@ -178,6 +178,12 @@ b.caret {
 .multi-column-dropdown li a:hover {
     color: #F07818;
 }
+.multi-column-dropdown li a i{
+    font-size: 15px;
+    position: relative;
+    top: 3px; 
+    margin-right: 3px;
+}
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -2416,7 +2422,7 @@ h2#mainContainer {
     padding: 6em 0px 0px 0px;
 }
 .about {
-    /* background: #f3f3f3; */
+    background: #f3f3f3;
     padding: 4em 0px 0px 0px;
 }
 .about ul li {
@@ -2614,8 +2620,34 @@ h4.panel-title {
 .feturedImg{
     padding:30px;
 }
+.hoverImg{
+    left: 97px;
+}
+.hoverImg1{
+    left: 76px;
+    width: 50%;
+    top: 22px;
+}
+.hoverImg2{
+    right: 70px;
+    width:50%;
+    top:25px;
+}
+.hoverImg3{
+    right: 70px;
+    width:50%;
+    top:28px;
+}
+.subscribe form p{
+    color: #fff;
+    font-size: 24px; 
+    position: relative;
+    font-family: 'Roboto-Regular'; 
+    top: 20px;
+}
 /*--//contact--*/
 /*---- responsive-design -----*/
+
 @media (min-width:1367px) and (max-width:1440px){
     .gallery{
         margin-top: -70px;
@@ -2699,7 +2731,7 @@ h4.panel-title {
         padding-top: 10px;
     }
    .related-products h3{
-    font-size: 3em;
+        font-size: 3em;
    }
     .about hr {
         margin-bottom: 0px;
@@ -2874,7 +2906,7 @@ h4.panel-title {
         font-size: 1em;
     }
 }
-@media(max-width:1080px){
+@media (min-width:1025px) and (max-width:1080px){
     .navbar-default .navbar-nav > li > a {
         padding: 23px 18px;
         font-size: 1em;
@@ -3011,7 +3043,7 @@ h4.panel-title {
         font-size: 1.8em;
     }
 }
-@media(max-width:1024px){
+@media (min-width:992px) and (max-width:1024px){
     .banner h2.hdng {
         font-size: 4.5em;
     }
@@ -3839,6 +3871,27 @@ h4.panel-title {
         left:-75px;
         top:-5px;
     }
+    #imageBox, #imageBox1, #imageBox2, #imageBox3{
+        margin:20px auto;
+    }
+    .hoverImg{
+        left: 100px;
+    }
+    .hoverImg1{
+        left: 76px;
+        width: 50%;
+        top: 22px;
+    }
+    .hoverImg2{
+        right: 70px;
+        width:50%;
+        top:25px;
+    }
+    .hoverImg3{
+        right: 70px;
+        width:50%;
+        top:28px;
+    }
     .footer-grid {
         width: 33.33%;
         padding-right: 0;
@@ -4000,31 +4053,60 @@ h4.panel-title {
     }
 }
 @media(max-width:320px){
+    
+    #logo{
+        top:-13px;
+    }
+
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: .85em 8em 0 0;
+        margin: 0.3em 15em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
         font-size: 2.3em;
     }
+    .multi-column-dropdown li a, li.list{
+        font-size:12px;
+    }
+    .multi-column-dropdown li a i{
+        font-size: 10px;
+        top:1px;
+    }
+    li.list span{
+        font-size: 10px;
+    }
+    .header-info {
+        width: 60%;
+    }
     .header-right span.glyphicon {
         font-size: 1.3em;
-        padding: 0.9em 0;
+        padding: 0.6em 0px;
+    }
+    .header-right span img{
+        height: 40px;
     }
     .search {
         padding: 0.5em;
-    	width: 137%;
-    	right: 53%;
+        width: 80%;
+        right: 70%;
     }
     .search button.btn.btn-default {
         padding: 0.3em;
+    }
+     #loginForm::after{
+        right:24%;
+    }
+    .submitForm::after{
+        right: 28%;
     }
     #loginBox {
         right: 20%;
     }
     #loginForm {
-        width: 220px;
+        width: 80%;
+        right: -29px;
+        position: relative;
     }
     #body label {
         font-size: 0.8em;
@@ -4041,17 +4123,43 @@ h4.panel-title {
     }
     #loginForm p {
         margin-bottom: 1em;
+        text-align: left;
+        padding: 0px 16px;
+    }
+    span.username a, .logout a, .dropdown-menu > li > a{
+        font-size: 12px;
     }
     #loginForm fieldset {
         margin: 0;
     }
+    .userprofile ul#userList, .submitForm{
+        width:253px;
+        top:-2px;
+    }
     .cart-box {
-        width: 152%;
+        width: 67%;
         padding: 0.5em;
     }
-    .cart-box:before {
-        right: 5%;
+   .cart-box::before {
+        right: 55%;
         top: -7px;
+    }
+    .track form.navbar-form::before{
+        right:11px;
+        top:-7%;
+    }
+    .track input[type="text"] {
+        margin: 1px 0px 7px 0px;
+        width:100%;
+    }
+    .track button.btn.btn-default{
+        width:100%;
+    }
+    div#bs-example-navbar-collapse-1{
+        background-color:#5d4b33;
+        position: relative;
+        top: -11px;
+        left: -5px;
     }
     .banner h2.hdng {
         font-size: 1.8em;
@@ -4071,13 +4179,13 @@ h4.panel-title {
     }
     .banner {
         min-height: 210px;
-        padding: 3em 0 0;
+        padding: 2.8em 0 0;
     }
     .gallery-grids {
         margin-top: 1.5em;
     }
     .gallery-grid.glry-one .gallery-info {
-        bottom: 29%;
+        bottom: 8%;
     }
     .gallery-grid.glry-two {
         width: 100%;
@@ -4093,7 +4201,7 @@ h4.panel-title {
     }
     .gallery-grid:nth-child(3) .gallery-info {
         width: 100%;
-        bottom: 18.8%;
+        bottom: 7.8%;
         left: 0%;
     }
     .gallery-grid {
@@ -4102,11 +4210,17 @@ h4.panel-title {
         padding: 0;
     }
     .gallery-info {
-        bottom: 18.3%;
+        bottom: 15.3%;
         width: 100%;
+    }
+    .gallery h2{
+        font-size: 2.5em;
     }
     .subscribe form {
         width: 100%;
+    }
+    .subscribe h3 {
+    font-size: 3em;
     }
     .subscribe form input[type="text"] {
         width: 68%;
@@ -4116,6 +4230,10 @@ h4.panel-title {
     }
     .subscribe .service input[type="submit"] {
         width: 32%;
+    }
+    h2#mainContainer {
+        margin-top: 35px;
+        margin-bottom: 5px;
     }
     .footer {
         padding: 2em 0 0.5em;
@@ -4133,6 +4251,9 @@ h4.panel-title {
         width: 100%;
     }
     .footer-grid ul li a {
+        font-size: 1em;
+    }
+    .footer-grid ul li {
         font-size: 0.85em;
     }
     .footer-bottom p {
@@ -4341,6 +4462,9 @@ h4.panel-title {
     .service div {
         clear: both;
     }
+    .service .service-icon {
+        margin-bottom: 18px;
+    }
 }
 
 @media screen and (min-width:768px) {
@@ -4369,14 +4493,6 @@ h4.panel-title {
         -ms-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
     }*/
-}
-
-
-
-@media screen and (max-width:767px) {
-    .service .service-icon {
-        margin-bottom: 18px;
-    }
 }
 
 @media (min-width:480px) and (max-width:767px) {

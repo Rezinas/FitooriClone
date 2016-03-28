@@ -18,7 +18,7 @@ body {
 
 .about h2{
       margin-bottom: 20px;
-      font-size: 4em;
+      font-size: 3.5em;
 }
 #Orderpage{
   background-color:#fff; margin-top:15px
@@ -317,6 +317,8 @@ input#proceed{
 .product-img.b-link-stripe.b-animate-go.thickbox{
   border: 1px solid #eee;
   box-shadow: inset 10px 10px 50px #f3f3f3;
+  -moz-box-shadow: inset 10px 10px 50px #f3f3f3;
+  -webkit-box-shadow: inset 10px 10px 50px #f3f3f3;
 }
 .cart-item-info {
     width: auto;
@@ -345,99 +347,6 @@ input#proceed{
     font-weight: bold;
     float: left;
 }
-
-/* article.accordion {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  background-color: #666;
-  overflow: auto;
-  border-radius: 5px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
-}
-article.accordion section {
-  position: relative;
-  display: block;
-  float: left;
-  width: 2em;
-  width: 5.3em;
-  height: 12em;
-  height: 54.8em;
-  margin: 0.5em 0 0.5em 0.5em;
-  color: #333;
-  background-color: #333;
-  overflow: hidden;
-  border-radius: 3px;
-}
-article.accordion section h2 {
-  position: absolute;
-  font-size: 1em;
-  font-weight: bold;
-  width: 12em;
-  height: 2em;
-  top: 12em;
-  left: 0;
-  text-indent: 1em;
-  padding: 0;
-  margin: 0;
-  color: #ddd;
-  -webkit-transform-origin: 0 0;
-  -moz-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  -o-transform-origin: 0 0;
-  transform-origin: 0 0;
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-article.accordion section h2 a {
-  display: block;
-  width: 100%;
-  line-height: 2em;
-  text-decoration: none;
-  color: inherit;
-  outline: 0 none;
-}
-article.accordion section:target {
-  width: 30em;
-  width: 70%;
-  padding: 0 1em;
-  color: #333;
-  background-color: #fff;
-  height: 765px;
-}
-article.accordion section:target h2 {
-  position: relative;
-  font-size: 2.3em;
-  text-indent: 0;
-  color: #333;
-  top: -40px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-p.accnav {
-  font-size: 1.1em;
-  text-transform: uppercase;
-  text-align: right;
-}
-p.accnavB {
-  font-size: 1.1em;
-  text-transform: uppercase;
-  text-align: left;
-  position: relative;
-  top: 21px;
-}
-p.accnav a,
-p.accnavB a {
-  text-decoration: none;
-  color: #999;
-} */
-
 #cart-cost table {
   border: 0px solid;
   font-size: 16px;
@@ -468,74 +377,6 @@ border-bottom: 1px solid #eee;
   border:1px solid #ccc;
 
 }
-
-/* .breadcrumb-body {
-  list-style: outside none none;
-  margin: 30px auto;
-  width: 600px;
-}
-.breadcrumb-body li {
-  width: 135px;
-  display: inline-block;
-}
-.breadcrumb-body .current .breadcrumb-stage-name {
-  color: #000;
-}
-.breadcrumb-body li .breadcrumb-stage-name {
-  margin: 0 auto;
-  padding: 2px 5px;
-  text-align: center;
-  font-size: 13px;
-  font-size: 16px;
-}
-.breadcrumb-body li .breadcrumb-stage-container {
-  position: relative;
-}
-.breadcrumb-body li .breadcrumb-stage-container .breadcrumb-dots {
-  color: #ccc;
-  font-size: 23px;
-  font-weight: bolder;
-  position: absolute;
-  top: 0;
-  left: 70px;
-  letter-spacing: 3px;
-  cursor: default;
-  line-height: 12px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.breadcrumb-body .future.disable {
-  pointer-events: none;
-  cursor: default;
-}
-.breadcrumb-body .disable {
-  pointer-events: none;
-  cursor: default;
-}
-.breadcrumb-body .current .breadcrumb-stage {
-  background-color: #5D4B33;
-  color: #fff;
-}
-.breadcrumb-body li .breadcrumb-stage-container .breadcrumb-stage {
-  height: 30px;
-  width: 100px;
-  border-radius: 16px;
-  text-align: center;
-  line-height: 27px;
-  font-size: 14px;
-  font-weight: normal;
-  margin: 2px auto;
-}
-.breadcrumb-body .future .breadcrumb-stage-name {
-  color: #666;
-}
-.breadcrumb-dots i.glyphicon.glyphicon-chevron-right {
-  position: relative;
-  left: 55px;
-} */
 .delivery p a:hover {
     text-decoration: underline;
 }
@@ -631,6 +472,7 @@ div#cart-items-all span {
 }
 .product-model-sec {
     margin: 1em 0 0 0;
+    width:100%;
 }
 
 .product-grid.single-product {
@@ -858,10 +700,6 @@ form.form-guest-checkout div {
 div#Orderpage h2 {
       margin-top: 60px;
 }
-.about h2{
-    font-size: 3em;
-}
-
 
 @media only screen and (min-width:1367px) and (max-width:1440px){
 

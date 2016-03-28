@@ -8,3 +8,30 @@
     display: block;
     cursor:pointer:;
 }
+
+@media(max-width:320px){
+	#imageBox1:hover .hoverImg1 {
+		left: 81px;
+		width: 46%;
+		top:21px;
+	}
+
+	#imageBox:hover .hoverImg{
+		left: 100px;
+	}   
+	#imageBox2 .hoverImg2{
+		right: 76px;
+		width:46%;
+		top:21px;
+	}
+	#imageBox3 .hoverImg3{
+		right: 76px;
+		width:46%;
+		top:31px;
+	}
+	.subscribe form p{
+	    font-size: 1.5em; 
+	    top: -13px;
+	    padding: 0px 2.5px;
+	}
+}
