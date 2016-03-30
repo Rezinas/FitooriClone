@@ -484,6 +484,7 @@ button.addtoCart:hover{
 		    font-size: 12px;
 		}
 	}
+
 	@media (min-width:1081px) and (max-width:1280px){
 		.page-header{
 			font-size: 3em;
@@ -563,5 +564,31 @@ button.addtoCart:hover{
 		    font-size: 25px;
 		    position: relative;
 		    top: -11px;
+		}
+	}
+
+	@media (max-width:320px){
+		.page-header{
+			font-size: 2.3em;
+			margin-top: 8px;
+		}
+		.prd_elements img{
+			position: relative;
+			top: -45px;
+			left:-45px;
+		}
+		.bgProduct{
+			width: auto;
+		}
+		.felements img, .aelements img{
+			margin:-85px 15px 15px 15px;
+		}
+		div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+    		margin-top: -9px;
+    		font-size: 12px;
+    		text-transform: uppercase;
+		}
+		button.addtoCart{
+			margin-bottom: 10px;
 		}
 	}

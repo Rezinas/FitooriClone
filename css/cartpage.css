@@ -700,6 +700,11 @@ form.form-guest-checkout div {
 div#Orderpage h2 {
       margin-top: 60px;
 }
+#cart-items-all h4.heading{
+  color:#333;
+  padding-left: 14px;
+  text-decoration: underline;
+}
 
 @media only screen and (min-width:1367px) and (max-width:1440px){
 
@@ -853,3 +858,51 @@ div#Orderpage h2 {
   .delivery p{
     font-size: 12.5px;
   }
+}
+
+@media (max-width:320px) {
+  .about h2{
+    font-size: 2.3em;
+    margin:-20px 0px 10px 0px;
+  }
+  .about hr{
+    margin-top: 0px;
+  }
+  div#cart-items-all span{
+    font-size: 14px;
+  }
+  .cart-items img{
+    padding: 0em;
+  }
+  .product-grid.single-product{
+    width: 100%;
+    margin-left: 0px;
+  }
+  #cart-items-all{
+    padding: 10px 0px;
+  }
+  .delivery p {
+    font-size: 0.9em;
+  }
+  .delivery p span,#cart-items-all h4{
+    font-size: 0.95em;
+  }
+  div#shippingDetails div#cart-items-all span{
+    font-size: 12px;
+  }
+  .form-control{
+    font-size: 12px;
+  }
+  .contact-form{
+    margin-left: -15px;
+  }
+  #cart-items-all h4.heading{
+    padding-left: 0px;
+  }
+  div#shippingDetails center{
+    margin-bottom: 25px;
+  }
+  input#shippay, a.shippay, a.placeorder, div#shippingDetails a.back, a.confirm{
+    font-size: 1.2em;
+  }
+}

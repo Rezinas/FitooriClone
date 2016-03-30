@@ -188,3 +188,35 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
     font-size: 12.5px;
   }
 }
+@media (max-width:320px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 70%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: -55px;
+    font-size: 10px;
+  }
+}

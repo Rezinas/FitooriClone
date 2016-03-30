@@ -99,17 +99,56 @@ input#support:hover {
 }
 @media (min-width:1801px) and (max-width:1280px){
 
-.contact{
-  padding:4em 0 0 0 ;
+  .contact{
+    padding:4em 0 0 0 ;
 
-}
-.contact-form input[type="text"], .contact-form textarea{
-    font-size: 12.5px;
   }
-.contact hr {
-        margin-bottom: 10px;
+  .contact-form input[type="text"], .contact-form textarea{
+      font-size: 12.5px;
     }
-    .contact h2{
-        font-size: 3em;
-    }
+  .contact hr {
+          margin-bottom: 10px;
+      }
+      .contact h2{
+          font-size: 3em;
+      }
+}
+@media (max-width:320px) {
+  .contact{
+    padding: 4em 0 1em 0;
+  }
+  .contact h2{
+    font-size: 2.3em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+    margin-top: 12px;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 0.95em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm,.contact-form #selectGrp
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"],.contact-form select {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 50%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size: 0.95em;
+  }
 }
