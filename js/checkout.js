@@ -16,6 +16,7 @@ $(document).ready(function (c) {
       if(updatedTotalQty == 0) {
           $(".cartRows").remove();
           $("#emptyCartMsg").removeClass("hide");
+          $("#cart-cost").hide();
       }
       else {
           var updatedPrice=window.cart.getCartTotalPrice();

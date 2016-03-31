@@ -71,9 +71,10 @@
                       </tr>
                   <?php }
                      } ?>
-                      <tr id="emptyCartMsg" <?php if(count($cartItems) > 0) echo 'class="hide"'; else echo 'class="show"'; ?>>
-                         <td colspan="4">
-                            <p class="text-uppercase">your shopping bag is empty</p>
+                      <tr>
+                         <td colspan="3" id="emptyCartMsg" <?php if(count($cartItems) > 0) echo 'class="hide"'; else echo 'class="show"'; ?>>
+                            <p class="alert text-uppercase">your shopping bag is empty.  <a href="index.php?products" class="btn btn-primary pull-right">Continue Shopping</a></p>
+
                          </td>
                       </tr>
                </table>
