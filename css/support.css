@@ -152,3 +152,202 @@ input#support:hover {
     font-size: 0.95em;
   }
 }
+
+@media (min-width:321px) and (max-width: 360px) {
+  .contact{
+    padding: 4em 0 1em 0;
+  }
+  .contact h2{
+    font-size: 2.3em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+    margin-top: 12px;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 0.95em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm,.contact-form #selectGrp
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"],.contact-form select {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 50%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size: 0.95em;
+  }
+}
+
+@media (min-width:361px) and (max-width: 375px) {
+  .contact{
+    padding: 4em 0 1em 0;
+  }
+  .contact h2{
+    font-size: 2.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+    margin-top: 12px;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 0.95em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm,.contact-form #selectGrp
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"],.contact-form select {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 50%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size: 0.95em;
+  }
+}
+
+@media (min-width:376px) and (max-width: 414px) {
+  .contact{
+    padding: 4em 0 1em 0;
+  }
+  .contact h2{
+    font-size: 2.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+    margin-top: 12px;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 0.95em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm,.contact-form #selectGrp
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"],.contact-form select {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 50%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size: 0.95em;
+  }
+}
+@media (min-width:415px) and (max-width: 435px) {
+  .contact{
+    padding: 4em 0 1em 0;
+  }
+  .contact h2{
+    font-size: 2.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+    margin-top: 12px;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 1em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm,.contact-form #selectGrp
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"],.contact-form select {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 50%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size: 1em;
+  }
+}
+
+@media (min-width:436px) and (max-width: 480px) {
+  .contact{
+    padding: 4em 0 1em 0;
+  }
+  .contact h2{
+    font-size: 2.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+    margin-top: 12px;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 1em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm,.contact-form #selectGrp
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"],.contact-form select {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 50%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size: 1em;
+  }
+}

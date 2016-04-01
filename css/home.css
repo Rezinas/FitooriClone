@@ -35,3 +35,112 @@
 	    padding: 0px 2.5px;
 	}
 }
+@media(min-width:321px) and (max-width:360px){
+	#imageBox1:hover .hoverImg1 {
+		left: 93px;
+		width: 46%;
+		top:21px;
+	}
+
+	#imageBox:hover .hoverImg{
+		left: 120px;
+	}   
+	#imageBox2 .hoverImg2{
+		right: 90px;
+		width:46%;
+		top:21px;
+	}
+	#imageBox3 .hoverImg3{
+		right: 90px;
+		width:46%;
+		top:31px;
+	}
+	.subscribe form p{
+	    font-size: 1.5em; 
+	    top: -13px;
+	    padding: 0px 2.5px;
+	}
+}
+
+@media(min-width:376px) and (max-width:414px){
+	#imageBox1:hover .hoverImg1 {
+		left: 110px;
+		width: 46%;
+		top:21px;
+	}
+
+	#imageBox:hover .hoverImg{
+		left: 147px;
+	}   
+	#imageBox2 .hoverImg2{
+		right: 100px;
+		width:46%;
+		top:21px;
+	}
+	#imageBox3 .hoverImg3{
+		right: 100px;
+		width:46%;
+		top:31px;
+	}
+	.subscribe form p{
+	    font-size: 1.5em; 
+	    top: -13px;
+	    padding: 0px 2.5px;
+	}
+}
+
+
+@media(min-width:415px) and (max-width:435px){
+	#imageBox1:hover .hoverImg1 {
+		left: 110px;
+		width: 46%;
+		top:21px;
+	}
+
+	#imageBox:hover .hoverImg{
+		left: 158px;
+	}   
+	#imageBox2 .hoverImg2{
+		right: 100px;
+		width:46%;
+		top:21px;
+	}
+	#imageBox3 .hoverImg3{
+		right: 100px;
+		width:46%;
+		top:31px;
+	}
+	.subscribe form p{
+	    font-size: 1.5em; 
+	    top: -13px;
+	    padding: 0px 2.5px;
+	}
+}
+
+@media(min-width:436px) and (max-width:480px){
+	
+	#imageBox1:hover .hoverImg1 {
+		left: 156px;
+		width: 30%;
+		top:21px;
+	}
+
+	#imageBox:hover .hoverImg{
+		left: 180px;
+	}   
+	#imageBox2 .hoverImg2{
+		right: 156px;
+		width: 30%;
+		top: 21px;
+	}
+	#imageBox3 .hoverImg3{
+		right: 156px;
+		width:30%;
+		top:31px;
+	}
+	.subscribe form p{
+	    font-size: 1.5em; 
+	    top: -13px;
+	    padding: 0px 2.5px;
+	}
+}

@@ -220,3 +220,183 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
     font-size: 10px;
   }
 }
+
+@media (min-width:321px) and (max-width: 360px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 78%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: -55px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width:361px) and (max-width: 375px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 78%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: -55px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width:376px) and (max-width: 414px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 78%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: -55px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width:415px) and (max-width: 435px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 78%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: -57px;
+    font-size: 11px;
+  }
+}
+
+@media (min-width:436px) and (max-width: 480px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 78%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: -48px;
+    font-size: 11px;
+  }
+  .userList span{
+    font-size: 13px;
+  }
+  .subUL ul li, .subUL ul li:nth-child(3){
+    font-size: 13px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.85em;
+  }
+  .form-control, .form-group{
+    font-size: 13px;
+  }
+  input#updateprofile, input#editAddr, input#chngpwd{
+    font-size: 0.95em;
+  }
+}

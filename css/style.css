@@ -1303,7 +1303,7 @@ div#pagination {
     padding-top: 10px;
 }
 .customised h4{
-    font-size: 018px;
+    font-size: 18px;
     text-transform: uppercase;
     margin: 10px 0px 3px;
 }
@@ -3794,7 +3794,31 @@ h4.panel-title {
         width: 31.2%;
     }
 }
-@media(max-width:480px){
+@media (min-width:436px) and (max-width:480px){
+    #logo{
+        top:-13px;
+    }
+    .navbar-default .navbar-nav > li > a{
+        font-size: 1em;
+    }
+    button.navbar-toggle {
+        padding: 7px 10px;
+        margin: 0.3em 26em 0px 0px;
+    }
+    h1.navbar-brand {
+        padding: 0.5em 0.5em 0 0;
+        font-size: 2.3em;
+    }
+    .multi-column-dropdown li a, li.list{
+        font-size:14px;
+    }
+    .multi-column-dropdown li a i{
+        font-size: 10px;
+        top:1px;
+    }
+    li.list span{
+        font-size: 14px;
+    }
     .header-info {
         /*width: 35%;*/
         width: 45%;
@@ -3816,8 +3840,49 @@ h4.panel-title {
         border: 3px solid #5D4B33;
         padding: 0.5em 1.5em;
     }
+    .banner {
+        min-height: 210px;
+        padding: 2.8em 0 0;
+    }
+    div#bs-example-navbar-collapse-1{
+        background-color:#5d4b33;
+        position: relative;
+        top: -11px;
+        left: -5px;
+    }
+    .header-right span.glyphicon {
+        font-size: 1.4em;
+        padding: 0.5em 0;
+    }
+    .header-right span img {
+        padding: 0.20em 0;
+        height: 40px;
+    }
+    .search form.navbar-form::before{
+        right:36px;
+    }
+    .submitForm::after, #loginForm::after{
+        right: 19%;
+    }
+    .cart-box::before{
+        right: 56%;
+    }
+    .track form.navbar-form::before{
+       right: 13px;
+       top: -8%; 
+    }
+    .track input[type="text"] {
+        margin: 1px 0px 7px 0px;
+        width:100%;
+    }
+    .track button.btn.btn-default{
+        width:100%;
+    }
+    .gallery-grid img{
+        width: 120%;
+    }
     .gallery-grid.glry-one .gallery-info {
-        bottom: 21%;
+        bottom: 5%;
     }
     .gallery-grid.glry-one {
         margin-bottom: 1em;
@@ -3831,10 +3896,10 @@ h4.panel-title {
        width:100%;
         padding: 0 0 0 1em;
     }
-    .gallery-grid:nth-child(3) .gallery-info{
-        width: 94%;
-        bottom: 22%;
-        left: 6%;
+    .gallery-grid:nth-child(3) .gallery-info {
+        width: 97%;
+        bottom: 5.9%;
+        left: 3%;
     }
     .gallery-grid.glry-two .gallery-info {
         width: 96%;
@@ -3845,7 +3910,8 @@ h4.panel-title {
     	margin-bottom: 2em;
     }
     .gallery-info {
-        bottom: 23.5%;
+        bottom: 21.5%;
+        width: 93%;
     }
     .subscribe {
         padding: 2em 0;
@@ -3874,7 +3940,12 @@ h4.panel-title {
     #imageBox, #imageBox1, #imageBox2, #imageBox3{
         margin:20px auto;
     }
-    
+    .footer-grid ul li a {
+        font-size: 1em;
+    }
+    .footer-grid ul li{
+        font-size: 0.9em;
+    }
     .footer-grid {
         width: 33.33%;
         padding-right: 0;
@@ -3889,7 +3960,10 @@ h4.panel-title {
         text-align: left;
     }
     h2 {
-        font-size: 2.5em;
+        font-size: 3em;
+    }
+    .about h2 {
+        font-size: 3em;
     }
     .product-grid {
         width: 47%;
@@ -3948,6 +4022,9 @@ h4.panel-title {
     .widgetBox{
         margin: 1em 0 0 0;
     }
+    .widgets h3 {
+        margin: -30px auto 8px auto;
+    }
     .product-grid.single-product {
         width: 47%;
         margin: 3% 2% 2% 0;
@@ -3999,9 +4076,6 @@ h4.panel-title {
         font-size: 0.9em;
         width: 22%;
     }
-    h2 {
-        font-size: 2.3em;
-    }
     .map {
         margin-top: 1em;
     }
@@ -4034,7 +4108,1557 @@ h4.panel-title {
     .contact-form .btn1 {
         width: 27%;
     }
+    .tcDiv h3{
+        margin-bottom: -17px;
+    }
+    .tcDiv h4{
+        margin: 12px 0px;
+        font-size: 16px;
+    }
+    .about-infom p, center{
+        font-size: 0.9em;
+    }
+    .about-infom p {
+        font-size: 0.85em;
+    }
+    .customised h4{
+        font-size: 16px;
+    }
+    h2#mainContainer {
+        margin-top: 22px;
+        margin-bottom: 10px;
+        font-size: 3em;
+    }
+    .track input[type="text"]{
+        font-size: 0.85em;
+    }
 }
+
+@media(min-width:415px) and (max-width:435px){
+    #logo{
+        top:-13px;
+    }
+    .navbar-default .navbar-nav > li > a{
+        font-size: 1em;
+    }
+    button.navbar-toggle {
+        padding: 7px 10px;
+        margin: 0.3em 23em 0px 0px;
+    }
+    h1.navbar-brand {
+        padding: 0.5em 0.5em 0 0;
+        font-size: 2.3em;
+    }
+    .multi-column-dropdown li a, li.list{
+        font-size:14px;
+    }
+    .multi-column-dropdown li a i{
+        font-size: 10px;
+        top:1px;
+    }
+    li.list span{
+        font-size: 14px;
+    }
+    .header-info {
+        width: 60%;
+    }
+    .header-right span.glyphicon {
+        font-size: 1.3em;
+        padding: 0.6em 0px;
+    }
+    .header-right span img{
+        height: 40px;
+    }
+    .search {
+        padding: 0.5em;
+        width: 80%;
+        right: 75%;
+    }
+    .search button.btn.btn-default {
+        padding: 0.3em;
+    }
+     #loginForm::after{
+        right:34%;
+    }
+    .submitForm::after{
+        right: 40%;
+    }
+    #loginBox {
+        right: 20%;
+    }
+    #loginForm {
+        width: 80%;
+        right: -18px;
+        position: relative;
+    }
+    #body label {
+        font-size: 0.8em;
+    }
+    #loginForm input {
+        font-size: 0.8em;
+    }
+    #loginForm #login {
+        font-size: 0.8em;
+    }
+    #loginForm span {
+        display: block;
+        margin-top: 6px;
+    }
+    #loginForm p {
+        margin-bottom: 1em;
+        text-align: left;
+        padding: 0px 16px;
+    }
+    span.username a, .logout a, .dropdown-menu > li > a{
+        font-size: 14px;
+    }
+    #loginForm fieldset {
+        margin: 0;
+    }
+    .userprofile ul#userList, .submitForm{
+        width:253px;
+        top:-2px;
+    }
+    .cart-box {
+        width: 67%;
+        padding: 0.5em;
+    }
+   .cart-box::before {
+        right: 55%;
+        top: -7px;
+    }
+    .track form.navbar-form::before{
+        right:15px;
+        top:-7%;
+    }
+    .track input[type="text"] {
+        margin: 1px 0px 7px 0px;
+        width:100%;
+    }
+    .track button.btn.btn-default{
+        width:100%;
+    }
+    div#bs-example-navbar-collapse-1{
+        background-color:#5d4b33;
+        position: relative;
+        top: -11px;
+        left: -5px;
+    }
+    .banner h2.hdng {
+        font-size: 1.8em;
+    }
+    .banner p {
+        letter-spacing: 1px;
+        font-size: 0.7em;
+    }
+    .banner a {
+        font-size: 0.8em;
+        padding: 0.4em 1.5em;
+    }
+    .banner-text {
+        top: 45%;
+        right: 9%;
+        width: 38%;
+    }
+    .banner {
+        min-height: 210px;
+        padding: 2.8em 0 0;
+    }
+    .gallery-grids {
+        margin-top: 1.5em;
+    }
+    .gallery-grid.glry-one .gallery-info {
+        bottom: 6%;
+    }
+    .gallery-grid.glry-two {
+        width: 100%;
+        margin: 0;
+    }
+    .gallery-grid:nth-child(3) {
+        width: 50%;
+        padding-left: 0;
+    }
+    .gallery-grid:nth-child(3) {
+        width: 100%;
+        padding: 0;
+    }
+    .gallery-grid:nth-child(3) .gallery-info {
+        width: 100%;
+        bottom: 7.8%;
+        left: 0%;
+    }
+    .gallery-grid {
+        width: 100%;
+        margin-bottom: 1em;
+        padding: 0;
+    }
+    .galy-info p {
+        font-size: 1em;
+    }
+    .gallery-info {
+        bottom: 12.3%;
+        width: 100%;
+    }
+    .gallery h2{
+        font-size: 2.5em;
+    }
+    .gallery-grid img{
+        width: 120%;
+    }
+    .feturedImg {
+        padding: 50px;
+    }
+    .subscribe form {
+        width: 100%;
+    }
+    .subscribe h3 {
+        font-size: 3em;
+    }
+    .subscribe form input[type="text"] {
+        width: 68%;
+    }
+    .subscribe form input[type="submit"] {
+        width: 32%;
+    }
+    .subscribe .service input[type="submit"] {
+        width: 32%;
+    }
+    h2#mainContainer {
+        margin-top: 22px;
+        margin-bottom: 10px;
+        font-size: 3em;
+    }
+    .product-model-sec{
+        padding:0px 15px;
+    }
+    .product-img img{
+        padding:8em;
+    }
+    .rsidebar {
+        margin: 0;           
+        padding:0px 15px;   
+    }
+    .product-info-cust h4{
+        font-size: 1em;
+    }
+    .footer {
+        padding: 2em 0 0.5em;
+    }
+    .footer-grid {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 1em;
+    }
+    .footer-grid:nth-child(3) {
+        margin-bottom: 1em;
+    }
+    .footer-grid.icons:nth-child(5) {
+        margin-left: 0;
+        width: 100%;
+    }
+    .footer-grid h4{
+        font-size:1.5em;
+    }
+    .footer-grid ul li a {
+        font-size: 1em;
+    }
+    .footer-grid ul li {
+        font-size: 1em;
+    }
+    .footer-bottom p {
+        font-size: 0.85em;
+    }
+    .products {
+        padding: 1em 0;
+    }
+    .product-grid {
+        width: 100%;
+        margin:0 0 4% 0;
+    }
+    input.item_add.items {
+        float: right;
+    }
+
+    .sky-form h4 {
+        font-size: 0.9em;
+    }
+    .single-grids {
+        padding: 1em 0;
+    }
+    .single-grid h3 {
+        font-size: 1.2em;
+    }
+    .single-grid p {
+        font-size: 0.85em;
+    }
+    ul.size {
+        margin-top: 0.5em;
+    }
+    ul.size h3 {
+        font-size: 1.1em;
+    }
+    ul.size li a {
+        font-size: 0.8em;
+    }
+    .single-grid h5 {
+        font-size: 1.2em;
+    }
+    .single-grid.simpleCart_shelfItem {
+        margin-bottom: 1em;
+    }
+    .single-grid1 {
+        padding: 0;
+    }
+    .single-grid1 ul li a {
+        font-size: 0.85em;
+    }
+    .collpse.tabs {
+        margin-top: 0.5em;
+    }
+    .panel-title {
+        font-size: 13px;
+    }
+    .related-products h3 {
+        font-size: 3em;
+        margin: -30px 0px 0px 0px;
+    }
+    .b-animate button {
+        font-size: 1.1em;
+        padding: 19px;
+        margin: 40% auto 0 auto;
+    }
+    span.item_price,.item_add {
+        font-size: 1em;
+    }
+
+    .customised span{
+        font-size: 0.9em;
+    }
+    .total-item, .cart-items {
+        padding: 1em 0 0;
+    }
+    .cart-items h2 {
+        font-size: 1.7em;
+        margin-bottom: 1em;
+    }
+    .cart-item-info h3 {
+        font-size: 1.2em;
+    }
+    .cart-item {
+        width: 31%;
+        margin-right: 0;
+    }
+    .delivery p {
+        font-size: 0.85em;
+    }
+    .delivery span {
+        font-size: 0.85em;
+        float: none;
+    }
+    .delivery {
+        margin-top: 0.5em;
+    }
+    .cart-sec {
+        margin-bottom: 1.5em;
+    }
+    .register {
+        padding: 1em 0;
+    }
+    .register-top-grid h3, .register-bottom-grid h3 {
+        font-size: 2em;
+        padding-bottom: 0.3em;
+    }
+    .register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+        width: 100%;
+    }
+    .register-but form input[type="submit"] {
+        width: 100%;
+    }
+    .register-but {
+        margin-top: 0.5em;
+    }
+    .checkbox input + i:after {
+        background-size: 100%;
+    }
+    .contact {
+        padding: 1em 0;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .map iframe {
+        height: 150px;
+    }
+    .contact h4 {
+        font-size: 1.4em;
+    }
+    .contact-infom p {
+        font-size: 0.85em;
+    }
+    .tcDiv h3{
+        margin-bottom: -17px;
+    }
+    .tcDiv h4{
+        margin: 12px 0px;
+        font-size: 16px;
+    }
+    .about h2{
+        font-size: 3em;
+    }
+    .about-infom center{
+        font-size: 1em;
+    }
+    .about-infom p {
+        font-size: 1em;
+        margin-bottom: 13px;
+    }
+    .address {
+        padding: 1em 0 0;
+    }
+    .address p {
+        font-size: 0.85em;
+    }
+    .footer {
+        padding: 1em 0 0.5em;
+    }
+    .gallery-grid.glry-two .gallery-info {
+        width: 97%;
+        bottom: 17%;
+    }
+}
+
+@media(min-width:376px) and (max-width:414px){
+    #logo{
+        top:-13px;
+    }
+
+    button.navbar-toggle {
+        padding: 7px 10px;
+        margin: 0.3em 20em 0px 0px;
+    }
+    h1.navbar-brand {
+        padding: 0.5em 0.5em 0 0;
+        font-size: 2.3em;
+    }
+    .multi-column-dropdown li a, li.list{
+        font-size:13px;
+    }
+    .multi-column-dropdown li a i{
+        font-size: 10px;
+        top:1px;
+    }
+    li.list span{
+        font-size: 13px;
+    }
+    .header-info {
+        width: 60%;
+    }
+    .header-right span.glyphicon {
+        font-size: 1.3em;
+        padding: 0.6em 0px;
+    }
+    .header-right span img{
+        height: 40px;
+    }
+    .search {
+        padding: 0.5em;
+        width: 80%;
+        right: 75%;
+    }
+    .search button.btn.btn-default {
+        padding: 0.3em;
+    }
+     #loginForm::after{
+        right:30%;
+    }
+    .submitForm::after{
+        right: 37%;
+    }
+    #loginBox {
+        right: 20%;
+    }
+    #loginForm {
+        width: 80%;
+        right: -18px;
+        position: relative;
+    }
+    #body label {
+        font-size: 0.8em;
+    }
+    #loginForm input {
+        font-size: 0.8em;
+    }
+    #loginForm #login {
+        font-size: 0.8em;
+    }
+    #loginForm span {
+        display: block;
+        margin-top: 6px;
+    }
+    #loginForm p {
+        margin-bottom: 1em;
+        text-align: left;
+        padding: 0px 16px;
+    }
+    span.username a, .logout a, .dropdown-menu > li > a{
+        font-size: 13px;
+    }
+    #loginForm fieldset {
+        margin: 0;
+    }
+    .userprofile ul#userList, .submitForm{
+        width:253px;
+        top:-2px;
+    }
+    .cart-box {
+        width: 67%;
+        padding: 0.5em;
+    }
+   .cart-box::before {
+        right: 55%;
+        top: -7px;
+    }
+    .track form.navbar-form::before{
+        right:11px;
+        top:-7%;
+    }
+    .track input[type="text"] {
+        margin: 1px 0px 7px 0px;
+        width:100%;
+    }
+    .track button.btn.btn-default{
+        width:100%;
+    }
+    div#bs-example-navbar-collapse-1{
+        background-color:#5d4b33;
+        position: relative;
+        top: -11px;
+        left: -5px;
+    }
+    .banner h2.hdng {
+        font-size: 1.8em;
+    }
+    .banner p {
+        letter-spacing: 1px;
+        font-size: 0.7em;
+    }
+    .banner a {
+        font-size: 0.8em;
+        padding: 0.4em 1.5em;
+    }
+    .banner-text {
+        top: 45%;
+        right: 9%;
+        width: 38%;
+    }
+    .banner {
+        min-height: 210px;
+        padding: 2.8em 0 0;
+    }
+    .gallery-grids {
+        margin-top: 1.5em;
+    }
+    .gallery-grid.glry-one .gallery-info {
+        bottom: 6%;
+    }
+    .gallery-grid.glry-two {
+        width: 100%;
+        margin: 0;
+    }
+    .gallery-grid:nth-child(3) {
+        width: 50%;
+        padding-left: 0;
+    }
+    .gallery-grid:nth-child(3) {
+        width: 100%;
+        padding: 0;
+    }
+    .gallery-grid:nth-child(3) .gallery-info {
+        width: 100%;
+        bottom: 7.8%;
+        left: 0%;
+    }
+    .gallery-grid {
+        width: 100%;
+        margin-bottom: 1em;
+        padding: 0;
+    }
+    .gallery-info {
+        bottom: 13.3%;
+        width: 100%;
+    }
+    .gallery h2{
+        font-size: 2.5em;
+    }
+    .gallery-grid img{
+        width: 120%;
+    }
+    .feturedImg {
+        padding: 50px;
+    }
+    .subscribe form {
+        width: 100%;
+    }
+    .subscribe h3 {
+        font-size: 3em;
+    }
+    .subscribe form input[type="text"] {
+        width: 68%;
+    }
+    .subscribe form input[type="submit"] {
+        width: 32%;
+    }
+    .subscribe .service input[type="submit"] {
+        width: 32%;
+    }
+    h2#mainContainer {
+        margin-top: 22px;
+        margin-bottom: 10px;
+        font-size: 3em;
+    }
+    .product-model-sec{
+        padding:0px 15px;
+    }
+    .rsidebar {
+        margin: 0;
+        padding: 0px 15px;
+    }
+    .product-img img{
+        padding:6em;
+    }
+    .footer {
+        padding: 2em 0 0.5em;
+    }
+    .footer-grid {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 1em;
+    }
+    .footer-grid:nth-child(3) {
+        margin-bottom: 1em;
+    }
+    .footer-grid.icons:nth-child(5) {
+        margin-left: 0;
+        width: 100%;
+    }
+    .footer-grid h4{
+        font-size:1.5em;
+    }
+    .footer-grid ul li a {
+        font-size: 1em;
+    }
+    .footer-grid ul li {
+        font-size: 1em;
+    }
+    .footer-bottom p {
+        font-size: 0.85em;
+    }
+    .products {
+        padding: 1em 0;
+    }
+    .product-grid {
+        width: 100%;
+        margin:0 0 4% 0;
+    }
+    input.item_add.items {
+        float: right;
+    }
+    .sky-form h4 {
+        font-size: 0.9em;
+    }
+    .single-grids {
+        padding: 1em 0;
+    }
+    .single-grid h3 {
+        font-size: 1.2em;
+    }
+    .single-grid p {
+        font-size: 0.85em;
+    }
+    ul.size {
+        margin-top: 0.5em;
+    }
+    ul.size h3 {
+        font-size: 1.1em;
+    }
+    ul.size li a {
+        font-size: 0.8em;
+    }
+    .single-grid h5 {
+        font-size: 1.2em;
+    }
+    .single-grid.simpleCart_shelfItem {
+        margin-bottom: 1em;
+    }
+    .single-grid1 {
+        padding: 0;
+    }
+    .single-grid1 ul li a {
+        font-size: 0.85em;
+    }
+    .collpse.tabs {
+        margin-top: 0.5em;
+    }
+    .panel-title {
+        font-size: 13px;
+    }
+    .related-products h3 {
+        font-size: 3em;
+        margin: -30px 0px 0px 0px;
+    }
+    .b-animate button {
+        font-size: 1.1em;
+        padding: 11px;
+        margin: 44% auto 0 auto;
+    }
+    span.item_price {
+        font-size: 0.9em;
+    }
+    .customised span{
+        font-size: 0.9em;
+    }
+    .total-item, .cart-items {
+        padding: 1em 0 0;
+    }
+    .cart-items h2 {
+        font-size: 1.7em;
+        margin-bottom: 1em;
+    }
+    .cart-item-info h3 {
+        font-size: 1.2em;
+    }
+    .cart-item {
+        width: 31%;
+        margin-right: 0;
+    }
+    .delivery p {
+        font-size: 0.85em;
+    }
+    .delivery span {
+        font-size: 0.85em;
+        float: none;
+    }
+    .delivery {
+        margin-top: 0.5em;
+    }
+    .cart-sec {
+        margin-bottom: 1.5em;
+    }
+    .register {
+        padding: 1em 0;
+    }
+    .register-top-grid h3, .register-bottom-grid h3 {
+        font-size: 2em;
+        padding-bottom: 0.3em;
+    }
+    .register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+        width: 100%;
+    }
+    .register-but form input[type="submit"] {
+        width: 100%;
+    }
+    .register-but {
+        margin-top: 0.5em;
+    }
+    .checkbox input + i:after {
+        background-size: 100%;
+    }
+    .contact {
+        padding: 1em 0;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .map iframe {
+        height: 150px;
+    }
+    .contact h4 {
+        font-size: 1.4em;
+    }
+    .contact-infom p {
+        font-size: 0.85em;
+    }
+    .tcDiv h3{
+        margin-bottom: -17px;
+    }
+    .tcDiv h4{
+        margin: 12px 0px;
+        font-size: 16px;
+    }
+    .about h2{
+        font-size: 3em;
+    }
+    .about-infom center{
+        font-size: 0.85em;
+    }
+    .about-infom p {
+        font-size: 0.95em;
+        margin-bottom: 13px;
+    }
+    .address {
+        padding: 1em 0 0;
+    }
+    .address p {
+        font-size: 0.85em;
+    }
+    .footer {
+        padding: 1em 0 0.5em;
+    }
+    .gallery-grid.glry-two .gallery-info {
+        width: 97%;
+        bottom: 17%;
+    }
+}
+
+@media(min-width:361px) and (max-width:375px){
+    #logo{
+        top:-13px;
+    }
+
+    button.navbar-toggle {
+        padding: 7px 10px;
+        margin: 0.3em 17em 0px 0px;
+    }
+    h1.navbar-brand {
+        padding: 0.5em 0.5em 0 0;
+        font-size: 2.3em;
+    }
+    .multi-column-dropdown li a, li.list{
+        font-size:13px;
+    }
+    .multi-column-dropdown li a i{
+        font-size: 10px;
+        top:1px;
+    }
+    li.list span{
+        font-size: 13px;
+    }
+    .header-info {
+        width: 60%;
+    }
+    .header-right span.glyphicon {
+        font-size: 1.3em;
+        padding: 0.6em 0px;
+    }
+    .header-right span img{
+        height: 40px;
+    }
+    .search {
+        padding: 0.5em;
+        width: 80%;
+        right: 70%;
+    }
+    .search button.btn.btn-default {
+        padding: 0.3em;
+    }
+     #loginForm::after{
+        right:25%;
+    }
+    .submitForm::after{
+        right: 33%;
+    }
+    #loginBox {
+        right: 20%;
+    }
+    #loginForm {
+        width: 80%;
+        right: -18px;
+        position: relative;
+    }
+    #body label {
+        font-size: 0.8em;
+    }
+    #loginForm input {
+        font-size: 0.8em;
+    }
+    #loginForm #login {
+        font-size: 0.8em;
+    }
+    #loginForm span {
+        display: block;
+        margin-top: 6px;
+    }
+    #loginForm p {
+        margin-bottom: 1em;
+        text-align: left;
+        padding: 0px 16px;
+    }
+    span.username a, .logout a, .dropdown-menu > li > a{
+        font-size: 12px;
+    }
+    #loginForm fieldset {
+        margin: 0;
+    }
+    .userprofile ul#userList, .submitForm{
+        width:253px;
+        top:-2px;
+    }
+    .cart-box {
+        width: 67%;
+        padding: 0.5em;
+    }
+   .cart-box::before {
+        right: 55%;
+        top: -7px;
+    }
+    .track form.navbar-form::before{
+        right:11px;
+        top:-7%;
+    }
+    .track input[type="text"] {
+        margin: 1px 0px 7px 0px;
+        width:100%;
+    }
+    .track button.btn.btn-default{
+        width:100%;
+    }
+    div#bs-example-navbar-collapse-1{
+        background-color:#5d4b33;
+        position: relative;
+        top: -11px;
+        left: -5px;
+    }
+    .banner h2.hdng {
+        font-size: 1.8em;
+    }
+    .banner p {
+        letter-spacing: 1px;
+        font-size: 0.7em;
+    }
+    .banner a {
+        font-size: 0.8em;
+        padding: 0.4em 1.5em;
+    }
+    .banner-text {
+        top: 45%;
+        right: 9%;
+        width: 38%;
+    }
+    .banner {
+        min-height: 210px;
+        padding: 2.8em 0 0;
+    }
+    .gallery-grids {
+        margin-top: 1.5em;
+    }
+    .gallery-grid.glry-one .gallery-info {
+        bottom: 6%;
+    }
+    .gallery-grid.glry-two {
+        width: 100%;
+        margin: 0;
+    }
+    .gallery-grid:nth-child(3) {
+        width: 50%;
+        padding-left: 0;
+    }
+    .gallery-grid:nth-child(3) {
+        width: 100%;
+        padding: 0;
+    }
+    .gallery-grid:nth-child(3) .gallery-info {
+        width: 100%;
+        bottom: 7.8%;
+        left: 0%;
+    }
+    .gallery-grid {
+        width: 100%;
+        margin-bottom: 1em;
+        padding: 0;
+    }
+    .gallery-info {
+        bottom: 13.3%;
+        width: 100%;
+    }
+    .gallery h2{
+        font-size: 2.5em;
+    }
+    .subscribe form {
+        width: 100%;
+    }
+    .subscribe h3 {
+        font-size: 3em;
+    }
+    .subscribe form input[type="text"] {
+        width: 68%;
+    }
+    .subscribe form input[type="submit"] {
+        width: 32%;
+    }
+    .subscribe .service input[type="submit"] {
+        width: 32%;
+    }
+    h2#mainContainer {
+        margin-top: 22px;
+        margin-bottom: 10px;
+        font-size: 2.5em;
+    }
+    .product-model-sec{
+        padding:0px 15px;
+    }
+    .rsidebar {
+        margin: 0;
+        padding: 0px 15px;
+    }
+    .footer {
+        padding: 2em 0 0.5em;
+    }
+    .footer-grid {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 1em;
+    }
+    .footer-grid:nth-child(3) {
+        margin-bottom: 1em;
+    }
+    .footer-grid.icons:nth-child(5) {
+        margin-left: 0;
+        width: 100%;
+    }
+    .footer-grid h4{
+        font-size:1.5em;
+    }
+    .footer-grid ul li a {
+        font-size: 1em;
+    }
+    .footer-grid ul li {
+        font-size: 1em;
+    }
+    .footer-bottom p {
+        font-size: 0.85em;
+    }
+    .products {
+        padding: 1em 0;
+    }
+    .product-grid {
+        width: 100%;
+        margin:0 0 4% 0;
+    }
+    input.item_add.items {
+        float: right;
+    }
+    .sky-form h4 {
+        font-size: 0.9em;
+    }
+    .single-grids {
+        padding: 1em 0;
+    }
+    .single-grid h3 {
+        font-size: 1.2em;
+    }
+    .single-grid p {
+        font-size: 0.85em;
+    }
+    ul.size {
+        margin-top: 0.5em;
+    }
+    ul.size h3 {
+        font-size: 1.1em;
+    }
+    ul.size li a {
+        font-size: 0.8em;
+    }
+    .single-grid h5 {
+        font-size: 1.2em;
+    }
+    .single-grid.simpleCart_shelfItem {
+        margin-bottom: 1em;
+    }
+    .single-grid1 {
+        padding: 0;
+    }
+    .single-grid1 ul li a {
+        font-size: 0.85em;
+    }
+    .collpse.tabs {
+        margin-top: 0.5em;
+    }
+    .panel-title {
+        font-size: 13px;
+    }
+    .related-products h3 {
+        font-size: 2.2em;
+        margin: -30px 0px 0px 0px;
+    }
+    .b-animate button {
+        font-size: 1.1em;
+        padding: 11px;
+        margin: 44% auto 0 auto;
+    }
+    span.item_price {
+        font-size: 0.9em;
+    }
+    .customised span{
+        font-size: 0.9em;
+    }
+    .total-item, .cart-items {
+        padding: 1em 0 0;
+    }
+    .cart-items h2 {
+        font-size: 1.7em;
+        margin-bottom: 1em;
+    }
+    .cart-item-info h3 {
+        font-size: 1.2em;
+    }
+    .cart-item {
+        width: 31%;
+        margin-right: 0;
+    }
+    .delivery p {
+        font-size: 0.85em;
+    }
+    .delivery span {
+        font-size: 0.85em;
+        float: none;
+    }
+    .delivery {
+        margin-top: 0.5em;
+    }
+    .cart-sec {
+        margin-bottom: 1.5em;
+    }
+    .register {
+        padding: 1em 0;
+    }
+    .register-top-grid h3, .register-bottom-grid h3 {
+        font-size: 2em;
+        padding-bottom: 0.3em;
+    }
+    .register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+        width: 100%;
+    }
+    .register-but form input[type="submit"] {
+        width: 100%;
+    }
+    .register-but {
+        margin-top: 0.5em;
+    }
+    .checkbox input + i:after {
+        background-size: 100%;
+    }
+    .contact {
+        padding: 1em 0;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .map iframe {
+        height: 150px;
+    }
+    .contact h4 {
+        font-size: 1.4em;
+    }
+    .contact-infom p {
+        font-size: 0.85em;
+    }
+    .tcDiv h3{
+        margin-bottom: -17px;
+    }
+    .tcDiv h4{
+        margin: 12px 0px;
+        font-size: 16px;
+    }
+    .about h2{
+        font-size: 2.5em;
+    }
+    .about-infom center{
+        font-size: 0.85em;
+    }
+    .about-infom p {
+        font-size: 0.95em;
+        margin-bottom: 13px;
+    }
+    .address {
+        padding: 1em 0 0;
+    }
+    .address p {
+        font-size: 0.85em;
+    }
+    .footer {
+        padding: 1em 0 0.5em;
+    }
+    .gallery-grid.glry-two .gallery-info {
+        width: 97%;
+        bottom: 17%;
+    }
+}
+
+@media(min-width:321px) and (max-width:360px){
+    #logo{
+        top:-13px;
+    }
+
+    button.navbar-toggle {
+        padding: 7px 10px;
+        margin: 0.3em 17em 0px 0px;
+    }
+    h1.navbar-brand {
+        padding: 0.5em 0.5em 0 0;
+        font-size: 2.3em;
+    }
+    .multi-column-dropdown li a, li.list{
+        font-size:13px;
+    }
+    .multi-column-dropdown li a i{
+        font-size: 10px;
+        top:1px;
+    }
+    li.list span{
+        font-size: 13px;
+    }
+    .header-info {
+        width: 60%;
+    }
+    .header-right span.glyphicon {
+        font-size: 1.3em;
+        padding: 0.6em 0px;
+    }
+    .header-right span img{
+        height: 40px;
+    }
+    .search {
+        padding: 0.5em;
+        width: 80%;
+        right: 70%;
+    }
+    .search button.btn.btn-default {
+        padding: 0.3em;
+    }
+     #loginForm::after{
+        right:24%;
+    }
+    .submitForm::after{
+        right: 32%;
+    }
+    #loginBox {
+        right: 20%;
+    }
+    #loginForm {
+        width: 80%;
+        right: -18px;
+        position: relative;
+    }
+    #body label {
+        font-size: 0.8em;
+    }
+    #loginForm input {
+        font-size: 0.8em;
+    }
+    #loginForm #login {
+        font-size: 0.8em;
+    }
+    #loginForm span {
+        display: block;
+        margin-top: 6px;
+    }
+    #loginForm p {
+        margin-bottom: 1em;
+        text-align: left;
+        padding: 0px 16px;
+    }
+    span.username a, .logout a, .dropdown-menu > li > a{
+        font-size: 12px;
+    }
+    #loginForm fieldset {
+        margin: 0;
+    }
+    .userprofile ul#userList, .submitForm{
+        width:253px;
+        top:-2px;
+    }
+    .cart-box {
+        width: 67%;
+        padding: 0.5em;
+    }
+   .cart-box::before {
+        right: 55%;
+        top: -7px;
+    }
+    .track form.navbar-form::before{
+        right:11px;
+        top:-7%;
+    }
+    .track input[type="text"] {
+        margin: 1px 0px 7px 0px;
+        width:100%;
+    }
+    .track button.btn.btn-default{
+        width:100%;
+    }
+    div#bs-example-navbar-collapse-1{
+        background-color:#5d4b33;
+        position: relative;
+        top: -11px;
+        left: -5px;
+    }
+    .banner h2.hdng {
+        font-size: 1.8em;
+    }
+    .banner p {
+        letter-spacing: 1px;
+        font-size: 0.7em;
+    }
+    .banner a {
+        font-size: 0.8em;
+        padding: 0.4em 1.5em;
+    }
+    .banner-text {
+        top: 45%;
+        right: 9%;
+        width: 38%;
+    }
+    .banner {
+        min-height: 210px;
+        padding: 2.8em 0 0;
+    }
+    .gallery-grids {
+        margin-top: 1.5em;
+    }
+    .gallery-grid.glry-one .gallery-info {
+        bottom: 7%;
+    }
+    .gallery-grid.glry-two {
+        width: 100%;
+        margin: 0;
+    }
+    .gallery-grid:nth-child(3) {
+        width: 50%;
+        padding-left: 0;
+    }
+    .gallery-grid:nth-child(3) {
+        width: 100%;
+        padding: 0;
+    }
+    .gallery-grid:nth-child(3) .gallery-info {
+        width: 100%;
+        bottom: 6.8%;
+        left: 0%;
+    }
+    .gallery-grid {
+        width: 100%;
+        margin-bottom: 1em;
+        padding: 0;
+    }
+    .gallery-info {
+        bottom: 14.3%;
+        width: 100%;
+    }
+    .gallery h2{
+        font-size: 2.5em;
+    }
+    .subscribe form {
+        width: 100%;
+    }
+    .subscribe h3 {
+        font-size: 3em;
+    }
+    .subscribe form input[type="text"] {
+        width: 68%;
+    }
+    .subscribe form input[type="submit"] {
+        width: 32%;
+    }
+    .subscribe .service input[type="submit"] {
+        width: 32%;
+    }
+    h2#mainContainer {
+        margin-top: 22px;
+        margin-bottom: 10px;
+        font-size: 2.3em;
+    }    
+    .product-model-sec{
+        padding:0px 15px;
+    }
+    .rsidebar {
+        margin: 0;
+        padding: 0px 15px;
+    }
+    .footer {
+        padding: 2em 0 0.5em;
+    }
+    .footer-grid {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 1em;
+    }
+    .footer-grid:nth-child(3) {
+        margin-bottom: 1em;
+    }
+    .footer-grid.icons:nth-child(5) {
+        margin-left: 0;
+        width: 100%;
+    }
+    .footer-grid h4{
+        font-size:1.5em;
+    }
+    .footer-grid ul li a {
+        font-size: 1em;
+    }
+    .footer-grid ul li {
+        font-size: 1em;
+    }
+    .footer-bottom p {
+        font-size: 0.85em;
+    }
+    .products {
+        padding: 1em 0;
+    }
+    .product-grid {
+        width: 100%;
+        margin:0 0 4% 0;
+    }
+    input.item_add.items {
+        float: right;
+    }
+    
+    .sky-form h4 {
+        font-size: 0.9em;
+    }
+    .single-grids {
+        padding: 1em 0;
+    }
+    .single-grid h3 {
+        font-size: 1.2em;
+    }
+    .single-grid p {
+        font-size: 0.85em;
+    }
+    ul.size {
+        margin-top: 0.5em;
+    }
+    ul.size h3 {
+        font-size: 1.1em;
+    }
+    ul.size li a {
+        font-size: 0.8em;
+    }
+    .single-grid h5 {
+        font-size: 1.2em;
+    }
+    .single-grid.simpleCart_shelfItem {
+        margin-bottom: 1em;
+    }
+    .single-grid1 {
+        padding: 0;
+    }
+    .single-grid1 ul li a {
+        font-size: 0.85em;
+    }
+    .collpse.tabs {
+        margin-top: 0.5em;
+    }
+    .panel-title {
+        font-size: 13px;
+    }
+    .related-products h3 {
+        font-size: 2.2em;
+        margin: -30px 0px 0px 0px;
+    }
+    .b-animate button {
+        font-size: 1em;
+        padding: 11px;
+        margin: 44% auto 0 auto;
+    }
+    span.item_price {
+        font-size: 0.9em;
+    }
+    .customised span{
+        font-size: 0.9em;
+    }
+    .total-item, .cart-items {
+        padding: 1em 0 0;
+    }
+    .cart-items h2 {
+        font-size: 1.7em;
+        margin-bottom: 1em;
+    }
+    .cart-item-info h3 {
+        font-size: 1.2em;
+    }
+    .cart-item {
+        width: 31%;
+        margin-right: 0;
+    }
+    .delivery p {
+        font-size: 0.85em;
+    }
+    .delivery span {
+        font-size: 0.85em;
+        float: none;
+    }
+    .delivery {
+        margin-top: 0.5em;
+    }
+    .cart-sec {
+        margin-bottom: 1.5em;
+    }
+    .register {
+        padding: 1em 0;
+    }
+    .register-top-grid h3, .register-bottom-grid h3 {
+        font-size: 2em;
+        padding-bottom: 0.3em;
+    }
+    .register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+        width: 100%;
+    }
+    .register-but form input[type="submit"] {
+        width: 100%;
+    }
+    .register-but {
+        margin-top: 0.5em;
+    }
+    .checkbox input + i:after {
+        background-size: 100%;
+    }
+    .contact {
+        padding: 1em 0;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .map iframe {
+        height: 150px;
+    }
+    .contact h4 {
+        font-size: 1.4em;
+    }
+    .contact-infom p {
+        font-size: 0.85em;
+    }
+    .tcDiv h3{
+        margin-bottom: -17px;
+    }
+    .tcDiv h4{
+        margin: 12px 0px;
+        font-size: 16px;
+    }
+    .about h2{
+        font-size: 2.3em;
+    }
+    .about-infom center{
+        font-size: 0.85em;
+    }
+    .about-infom p {
+        font-size: 0.95em;
+        margin-bottom: 13px;
+    }
+    .address {
+        padding: 1em 0 0;
+    }
+    .address p {
+        font-size: 0.85em;
+    }
+    .footer {
+        padding: 1em 0 0.5em;
+    }
+    .gallery-grid.glry-two .gallery-info {
+        width: 97%;
+        bottom: 17%;
+    }
+}
+
 @media(max-width:320px){
     
     #logo{
@@ -4050,14 +5674,14 @@ h4.panel-title {
         font-size: 2.3em;
     }
     .multi-column-dropdown li a, li.list{
-        font-size:12px;
+        font-size:13px;
     }
     .multi-column-dropdown li a i{
         font-size: 10px;
         top:1px;
     }
     li.list span{
-        font-size: 10px;
+        font-size: 13px;
     }
     .header-info {
         width: 60%;
@@ -4203,7 +5827,7 @@ h4.panel-title {
         width: 100%;
     }
     .subscribe h3 {
-    font-size: 3em;
+        font-size: 3em;
     }
     .subscribe form input[type="text"] {
         width: 68%;
@@ -4218,6 +5842,13 @@ h4.panel-title {
         margin-top: 22px;
         margin-bottom: 10px;
         font-size: 2.3em;
+    }
+    .product-model-sec{
+        padding:0px 15px;
+    }
+    .rsidebar {
+        margin: 0;
+        padding: 0px 15px;
     }
     .footer {
         padding: 2em 0 0.5em;
@@ -4255,10 +5886,6 @@ h4.panel-title {
     }
     input.item_add.items {
         float: right;
-    }
-    .rsidebar {
-        margin: 0;
-        padding: 0;
     }
     .sky-form h4 {
         font-size: 0.9em;
@@ -4304,8 +5931,9 @@ h4.panel-title {
         margin: -30px 0px 0px 0px;
     }
     .b-animate button {
-        font-size: 0.85em;
-        padding: 6px;
+        font-size: 1em;
+        padding: 11px;
+        margin: 40% auto 0 auto;
     }
     span.item_price {
         font-size: 0.9em;
