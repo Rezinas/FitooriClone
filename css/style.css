@@ -2620,7 +2620,7 @@ h4.panel-title {
 .feturedImg{
     padding:30px;
 }
-/*.hoverImg{
+.hoverImg{
     left: 97px;
 }
 .hoverImg1{
@@ -2637,7 +2637,7 @@ h4.panel-title {
     right: 70px;
     width:50%;
     top:28px;
-}*/
+}
 .subscribe form p{
     color: #fff;
     font-size: 24px; 
@@ -4308,6 +4308,12 @@ h4.panel-title {
     .feturedImg {
         padding: 50px;
     }
+    .product-grid.single-product {
+        width: 46%;
+    }
+    .subscribe{
+        height: auto;
+    }
     .subscribe form {
         width: 100%;
     }
@@ -4696,6 +4702,12 @@ h4.panel-title {
     .feturedImg {
         padding: 50px;
     }
+    .product-grid.single-product {
+        width: 46%;
+    }
+    .subscribe{
+        height: auto;
+    }
     .subscribe form {
         width: 100%;
     }
@@ -5073,6 +5085,12 @@ h4.panel-title {
     .gallery h2{
         font-size: 2.5em;
     }
+    .product-grid.single-product {
+        width: 46%;
+    }
+    .subscribe{
+        height: auto;
+    }
     .subscribe form {
         width: 100%;
     }
@@ -5446,6 +5464,15 @@ h4.panel-title {
     }
     .gallery h2{
         font-size: 2.5em;
+    }
+    .product-grid.single-product {
+        width: 46%;
+    }
+    .add-cart .item_add{
+        width: 100%;
+    }
+    .subscribe{
+        height: auto;
     }
     .subscribe form {
         width: 100%;
@@ -5822,6 +5849,12 @@ h4.panel-title {
     }
     .gallery h2{
         font-size: 2.5em;
+    }
+    .product-grid.single-product {
+        width: 46%;
+    }
+    .subscribe{
+        height: auto;
     }
     .subscribe form {
         width: 100%;

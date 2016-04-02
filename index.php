@@ -504,8 +504,8 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid icons">
                   <h4>Connect with Us</h4>
                   <ul>
-                  <li><img src="images/i1.png" alt=""/>&nbsp;Facebook</li>
-                  <li><img src="images/i2.png" alt=""/>&nbsp;Twitter</li>
+                  <li><img src="images/i1a.png" alt=""/>&nbsp;Facebook</li>
+                  <li><img src="images/i2a.png" alt=""/>&nbsp;Twitter</li>
                </div>
             </div>
             <div class="clearfix"></div>
