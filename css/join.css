@@ -70,7 +70,7 @@
     font-size: 3em;
   }
 }
-
+/** MOBILE SCREEN MEDIA QUERIES **/
 @media (max-width:320px) {
   .contact{
     padding: 4em 0 2em 0;
@@ -226,6 +226,91 @@
   }
   .contact-form .btn1 {
     width: 50%;
+    font-size: 1em;
+  }
+}
+/** TABLET SCREEN MEDIA QUERIES **/
+@media (min-width:481px) and (max-width:568px){
+  .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 1em;
+  }
+  .contact ul li{
+    font-size: 1em;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 30%;
+    font-size: 1em;
+  }
+}
+@media (min-width:569px) and (max-width:600px){
+  .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 1em;
+  }
+  .contact ul li{
+    font-size: 1em;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 30%;
+    font-size: 1em;
+  }
+}
+@media (min-width:601px) and (max-width:640px){
+  .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 1em;
+  }
+  .contact ul li{
+    font-size: 1em;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 30%;
     font-size: 1em;
   }
 }

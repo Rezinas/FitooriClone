@@ -188,6 +188,8 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
     font-size: 12.5px;
   }
 }
+
+/** MOBILE SCREEN MEDIA QUERIES **/
 @media (max-width:320px){
   div#left-pane {
     border-right: 0px solid #C5C4C4;    
@@ -398,5 +400,148 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
   }
   input#updateprofile, input#editAddr, input#chngpwd{
     font-size: 0.95em;
+  }
+}
+
+/** TABLET SCREEN MEDIA QUERIES **/
+@media (min-width:481px) and (max-width:568px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 50%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: -20px;
+    font-size: 13px;
+  }
+  .userList span{
+    font-size: 15px;
+  }
+  .subUL ul li, .subUL ul li:nth-child(3){
+    font-size: 15px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 1em;
+  }
+  .form-control, .form-group{
+    font-size: 15px;
+  }
+  input#updateprofile, input#editAddr, input#chngpwd{
+    font-size: 1.1em;
+  }
+}
+@media (min-width:569px) and (max-width:600px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 50%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: 0px;
+    font-size: 13px;
+  }
+  .userList span{
+    font-size: 15px;
+  }
+  .subUL ul li, .subUL ul li:nth-child(3){
+    font-size: 15px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 1em;
+  }
+  .form-control, .form-group{
+    font-size: 15px;
+  }
+  input#updateprofile, input#editAddr, input#chngpwd{
+    font-size: 1.1em;
+  }
+}
+@media (min-width:601px) and (max-width:640px){
+  div#left-pane {
+    border-right: 0px solid #C5C4C4;    
+    width: 100%;
+    padding: 0px;
+    min-height: 100px;
+  }
+  div#right-pane {
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+  .about hr{
+    margin-bottom: 20px;
+  }
+  #editProfile,#editAddress,#viewOrders{
+    top:13px;
+  }
+  #chngPwd{
+    top:10px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 0.95em;
+  }
+  input[type="submit"] {
+    width: 50%;
+  }
+  .orders table {
+    width: 100%;
+    margin-left: 0px;
+    font-size: 13px;
+  }
+  .userList span{
+    font-size: 15px;
+  }
+  .subUL ul li, .subUL ul li:nth-child(3){
+    font-size: 15px;
+  }
+  .register-top-grid span, .register-bottom-grid span {
+    font-size: 1em;
+  }
+  .form-control, .form-group{
+    font-size: 15px;
+  }
+  input#updateprofile, input#editAddr, input#chngpwd{
+    font-size: 1.1em;
   }
 }

@@ -566,6 +566,7 @@ button.addtoCart:hover{
 		    top: -11px;
 		}
 	}
+	/** MOBILE SCREEN MEDIA QUERIES **/
 
 	@media (max-width:320px){
 		.page-header{
@@ -748,3 +749,112 @@ button.addtoCart:hover{
 			font-size: 0.95em;
 		}
 	}
+
+/** TABLET SCREEN MEDIA QUERIES **/
+@media (min-width:481px) and (max-width:568px){
+	.page-header{
+			font-size: 3em;
+			margin-top: 8px;
+		}
+		.prd_elements img{
+			position: relative;
+			top: 0px;
+			left:5px;
+		}
+		.bgProduct{
+			width: auto;
+		}
+		.felements img, .aelements img{
+			margin:6px 15px 15px 15px;
+		}
+		div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+    		margin-top: -9px;
+    		font-size: 12px;
+    		text-transform: uppercase;
+		}
+		button.addtoCart{
+			margin-bottom: 10px;
+		}
+		div#subElementDiv {
+   			 margin-top: 10px;
+		}
+		div#designerPick img{
+			padding:11em;
+		}
+		button.addtoCart{
+			font-size: 1em;
+		}
+		#designDet h4{
+			position: relative;
+			top:-14px;
+		}
+}
+@media (min-width:569px) and (max-width:600px){
+	.page-header{
+			font-size: 3em;
+			margin-top: 8px;
+		}
+		.prd_elements img{
+			position: relative;
+			top: 0px;
+			left:5px;
+		}
+		.bgProduct{
+			width: auto;
+		}
+		.felements img, .aelements img{
+			margin:6px 15px 15px 15px;
+		}
+		div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+    		margin-top: -9px;
+    		font-size: 12px;
+    		text-transform: uppercase;
+		}
+		button.addtoCart{
+			margin-bottom: 10px;
+		}
+		div#subElementDiv {
+   			 margin-top: 10px;
+		}
+		div#designerPick img{
+			padding:11em;
+		}
+		button.addtoCart{
+			font-size: 1em;
+		}
+}
+
+@media (min-width:601px) and (max-width:640px){
+	.page-header{
+			font-size: 3em;
+			margin-top: 8px;
+		}
+		.prd_elements img{
+			position: relative;
+			top: 0px;
+			left:5px;
+		}
+		.bgProduct{
+			width: auto;
+		}
+		.felements img, .aelements img{
+			margin:6px 15px 15px 15px;
+		}
+		div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+    		margin-top: -9px;
+    		font-size: 12px;
+    		text-transform: uppercase;
+		}
+		button.addtoCart{
+			margin-bottom: 10px;
+		}
+		div#subElementDiv {
+   			 margin-top: 10px;
+		}
+		div#designerPick img{
+			padding:11em;
+		}
+		button.addtoCart{
+			font-size: 1em;
+		}
+}
