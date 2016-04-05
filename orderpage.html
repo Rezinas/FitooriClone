@@ -19,7 +19,7 @@
                                       <div id="cart<?php echo $prod['productid']; ?>" class="cart-header">
                                        <!-- <div class="close1"></div> -->
                                         <!--  <div class="cart-sec simpleCart_shelfItem"> -->
-                                          <div class="cart-item cyc" style="width: 50%;">
+                                          <div class="cart-item cyc">
                                              <?php if($prod['customized'] == 0 || $prod['design'][0]['isProduct'] == 1) { ?>
                                                 <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
                                              <?php }  else  { ?>
@@ -33,7 +33,7 @@
                                              <?php } ?>
                                           </div>
                                          <div class="cart-item-info">
-                                           <span style="float:left:margin-bottom:5px;">
+                                           <span style="float:left;margin-bottom:5px;">
                                               <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
                                            </span>
                                            <div class="delivery">
@@ -136,7 +136,7 @@
 
                             </div>
                         <h4 class="heading">Shipping Information</h4>
-                                <div class="col-sm-6 shippingAddress">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 shippingAddress">
                                     <span>Shipping Address</span>
                                     <div class="form-group">
                                        <span>Address Line 1</span>
@@ -159,7 +159,7 @@
                                        <input class="form-control" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="<?php echo $order_add['ship_postal']; ?>">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 billingAddress">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 billingAddress">
                                     <span>Billing Address</span><label><input type="checkbox" id="sameBilling" name="sameBilling" value="1" <?php if(!empty($order_add['ship_add1']) && $order_add['ship_add1'] == $order_add['bill_add1']) echo 'checked'; ?> >Same as Shipping Address</label>
                                     <div class="form-group">
                                        <span>Address Line 1</span>
@@ -187,7 +187,7 @@
                                      <div class="contact-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                           <input type="radio" name="paytype" value="COD" checked class="rdbtn">Cash on Delivery<br>
                                           <input type="radio" name="paytype" value="NB" disabled="true">Net Banking (not available at this time)<br>
-                                          <input type="radio" name="paytype" value="CC" disabled="true"> Credit Card  (not available at this time)
+                                          <input type="radio" name="paytype" value="CC" disabled="true">Credit Card  (not available at this time)
                                        </div>
                                 </div>
                                 <div class="col-xs-12">

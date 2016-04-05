@@ -20,15 +20,17 @@ input#cnct:hover{
 	border-color: #5D4B33;
 	color: #5D4B33;
 }
-  .contact-form textarea, .contact-form input[type="text"]{
-        font-size: 13.5px;
-    }
-    .contact hr {
-        margin-bottom: 10px;
-    }    
-    .contact{
-    	padding: 4em
-    }
+.contact-form textarea, .contact-form input[type="text"]{
+      font-size: 13.5px;
+  }
+  .contact hr {
+      margin-bottom: 10px;
+  }    
+  .contact{
+  	padding: 4em
+  }
+
+/** LAPTOP & DESKTOPS SCREEN MEDIA QUERIES **/
 @media (min-width:1367px) and (max-width:1440px){
   .contact-form textarea, .contact-form input[type="text"]{
         font-size: 13.5px;
@@ -72,6 +74,87 @@ input#cnct:hover{
       .contact h2 {
           font-size: 3em;
       }
+}
+@media (min-width:1025px) and (max-width:1080px){
+  .contact ul li, .contact-infom p, .address p{
+    font-size: 1.1em;
+  }
+  .contact-form textarea, .contact-form input[type="text"] {
+    font-size: 14.5px;
+  }
+  .contact-form .btn1{
+    font-size: 1.1em;
+    width: 15%;
+  }
+}
+@media (min-width:992px) and (max-width:1024px){
+  .contact ul li, .contact-infom p,.address p{
+    font-size: 1.1em;
+  }
+  .contact-form textarea, .contact-form input[type="text"] {
+    font-size: 14.5px;
+  }
+  .contact-form .btn1{
+    font-size: 1.1em;
+    width: 15%;
+  }  
+}
+@media (min-width:901px) and (max-width:991px){
+  .contact ul li, .contact-infom p,.address p{
+    font-size: 1.1em;
+  }
+  .contact-form textarea, .contact-form input[type="text"] {
+    font-size: 14.5px;
+  }
+  .contact-form .btn1{
+    font-size: 1.1em;
+    width: 15%;
+  }  
+}
+@media (min-width:801px) and (max-width:900px){
+ .address-grids {
+    float: left;
+    width: 33.3%;
+  }
+ .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 16px;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 20%;
+    font-size: 14px;
+  }
+  .address p{
+    font-size:16px;
+  }
+  .contact-form textarea,.contact-form input[type="text"]{
+      font-size: 14.5px;
+  }
 }
 
 /** MOBILE SCREEN MEDIA QUERIES **/
@@ -422,5 +505,210 @@ input#cnct:hover{
   }
   .address p{
     font-size:1em;
+  }
+}
+@media (min-width:641px) and (max-width:667px){
+  .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 1em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 30%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size:1em;
+  }
+  .contact-form textarea,.contact-form input[type="text"]{
+      font-size: 13.5px;
+  }
+}
+@media (min-width:668px) and (max-width:731px){
+  .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 1em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 30%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size:1em;
+  }
+  .contact-form textarea,.contact-form input[type="text"]{
+      font-size: 13.5px;
+  }
+}
+@media (min-width:732px) and (max-width:736px){
+  .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 1em;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 30%;
+    font-size: 1em;
+  }
+  .address p{
+    font-size:1em;
+  }
+  .contact-form textarea,.contact-form input[type="text"]{
+      font-size: 13.5px;
+  }
+}
+@media (min-width:737px) and (max-width:773px){
+  .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 16px;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 30%;
+    font-size: 14px;
+  }
+  .address p{
+    font-size:16px;
+  }
+  .contact-form textarea,.contact-form input[type="text"]{
+      font-size: 14.5px;
+  }
+}
+@media (min-width:774px) and (max-width:800px){
+  .contact{
+    padding: 4em 0 2em 0;
+  }
+  .contact h2{
+    font-size: 3.5em;
+  }
+  .contact h4{
+    font-size: 1.7em;
+  }
+  .contact hr{
+    margin-bottom: 0px;
+  }
+  .contact-infom p{
+    font-size: 16px;
+  }
+  .contact-form .form-group{
+    width: 100%;
+  }
+  .contact-form .form-group#textareaForm
+  {
+    width: 100%;
+  }
+  .contact-form input[type="text"] {
+    width: 100%;
+  }
+  .contact-form textarea{
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .contact-form .btn1 {
+    width: 30%;
+    font-size: 14px;
+  }
+  .address p{
+    font-size:16px;
+  }
+  .contact-form textarea,.contact-form input[type="text"]{
+      font-size: 14.5px;
   }
 }

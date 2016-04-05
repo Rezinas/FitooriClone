@@ -14,7 +14,7 @@
 			</div>
 		</div> -->
 		<!-- <div class="row"> -->
-			<div class="col-lg-10 col-md-10 col-sm-6 col-xs-12 product-model-sec">
+			<div class="col-lg-10 col-md-10 col-sm-8 col-xs-12 product-model-sec">
 				<h2 id="mainContainer">Our Products</h2>
 					<div ng-repeat="product in resultSet =(allProducts | orderBy:sortItem:reverseorder | filter:criterias)|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid">
 						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">
@@ -46,7 +46,7 @@
 						</div>
 					</div>
 			</div>
-			<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 rsidebar span_1_of_left">
+			<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 rsidebar span_1_of_left">
 				<form>
 				<section class="sky-form" id="sorter">
 					<select  ng-change="orderByOptions()"  ng-model="selectedSort" >
