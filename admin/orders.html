@@ -1,9 +1,9 @@
-<?php
-
-$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype from orders  order by dateCreated DESC";
+  <?php
+date_default_timezone_set("Asia/Bangkok");
+$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype, UNIX_TIMESTAMP(`dateCreated`) as dateCreated from orders  order by dateCreated DESC";
 
     if(!$stmt = $dbcon->prepare($ordqry)){
-        die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+        die('Prepare Error :111 : ('. $dbcon->errno .') '. $dbcon->error);
     }
 
     if(!$stmt->execute()){
@@ -11,7 +11,7 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
     }
 
     $stmt->store_result();
-    $stmt->bind_result($a,$b,$c,$d, $e, $f, $g, $h, $i);
+    $stmt->bind_result($a,$b,$c,$d, $e, $f, $g, $h, $i, $j);
     $curr_orders=[];
     while ($stmt->fetch()) {
             $ordprdqry = "SELECT order_products.productid, order_products.quantity, order_products.order_price, products.name, products.mainimg, products.customized FROM order_products inner join products  on order_products.productid=products.productid WHERE order_products.orderid=$a";
@@ -23,9 +23,9 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
             $stmt1->store_result();
             $stmt1->bind_result($aa,$bb,$cc, $dd, $ee, $ff);
             $orderProducts =[];
-            $desArr=[];
              $ordTotal = 0;
             while ($stmt1->fetch()) {
+                $desArr=[];
                 $ordTotal = $ordTotal + $cc;
                 if($ff == 1 ){
                     $design_qry = "SELECT elementid, leftPos,topPos,selectedImage,isProduct from customdesign where productid=$aa";
@@ -46,9 +46,10 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
             }
             $stmt1->close();
 
-        $curr_orders[] = ['orderid' => $a, 'useremail' => $b, 'status' => $c, 'shippingaddress1' => $d, 'shippingaddress2' => $e, 'shippingcity' => $f, 'shippingstate' => $g, 'shippingpostal' => $h, 'paymenttype' => $i, 'ordProducts' => $orderProducts];
+        $curr_orders[] = ['orderid' => $a, 'useremail' => $b, 'status' => $c, 'shippingaddress1' => $d, 'shippingaddress2' => $e, 'shippingcity' => $f, 'shippingstate' => $g, 'shippingpostal' => $h, 'paymenttype' => $i, 'dateCreated' => $j, 'ordProducts' => $orderProducts];
     }
     $stmt->close();
+
 ?>
 
             <div class="row">
@@ -59,11 +60,13 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                 <!--End Page Header -->
             </div>
 
+
                 <!-- Welcome -->
                 <div class="container">
                         <table width="100%">
                             <tr>
                                 <th>Order ID</th>
+                                <th>Order Date</th>
                                 <th>Order Email</th>
                                 <th>Shipping Address</th>
                                 <th>Payment Type</th>
@@ -72,13 +75,14 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                             <?php foreach($curr_orders as $ord) { ?>
                             <tr>
                                 <td><a href="javascript:$('#order<?php echo $ord['orderid']; ?>').toggleClass('hide');">ORD000<?php echo $ord['orderid']; ?></a></td>
+                                <td><?php echo  date('d M Y h:i:s A', $ord['dateCreated']); ?></td>
                                 <td><?php echo $ord['useremail']; ?></td>
                                 <td><?php echo $ord['shippingaddress1'] . ", <br>". $ord['shippingaddress2']. ", <br>". $ord['shippingcity'] . ", " .$ord['shippingstate'].", India-".$ord['shippingpostal']; ?></td>
                                 <td><?php echo $ord['paymenttype']; ?></td>
                                 <td><?php echo $ord['status']; ?></td>
                             </tr>
                             <tr>
-                                <td colspan="5" id='order<?php echo $ord['orderid']; ?>' class='hide'>
+                                <td colspan="6" id='order<?php echo $ord['orderid']; ?>' class='hide'>
                                     <div class="cart-items">
                                         <table width="100%">
                                             <tr>
@@ -95,7 +99,8 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                                                     <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
                                                  <?php }  else  { ?>
                                                  <div class="cdesign">
-                                                    <?php foreach ($prod['design'] as  $des){ ?>
+
+                                                    <?php foreach ($prod['design'] as  $des){  ?>
                                                     <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
                                                        <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
                                                     </div>
