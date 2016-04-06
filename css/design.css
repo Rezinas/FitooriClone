@@ -92,7 +92,7 @@ button.addtoCart {
   -moz-transition: all 0.5s;
   transition: all 0.5s;
   position: relative;
-  float: right;
+  /* float: right; */
 }
 #chkBtn button:hover {
     color: #5D4B33;

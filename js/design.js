@@ -461,6 +461,31 @@ des.filter('category', function() {
   };
 })
 
+
+des.directive('resizable', function($window) {
+  return function($scope) {
+    $scope.initializeWindowSize = function() {
+      $scope.windowHeight = $window.innerHeight;
+      // do width check here, especially since you have $window object here already
+      if($window.innerWidth < 641)
+          $scope.numDisp = 3; //
+      else if($window.innerWidth > 640 && $window.innerWidth < 1025)
+          $scope.numDisp = 5;
+      else if($window.innerWidth > 1024)
+          $scope.numDisp = 8;
+
+      console.log($window.innerWidth, $scope.numDisp); // check console for right output
+
+      return $scope.windowWidth = $window.innerWidth;
+    };
+    $scope.initializeWindowSize();
+    return angular.element($window).bind('resize', function() {
+      $scope.initializeWindowSize();
+      return $scope.$apply();
+    });
+  };
+});
+
 des.factory('elementFactory', function() {
     var factory = {};
     return factory;

@@ -1,4 +1,4 @@
-<div ng-app="cdesign" id="mainContainer">
+<div ng-app="cdesign" id="mainContainer" resizable>
    <div ng-controller="MainController">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
          <h3 class="page-header">Being Picky Was Never So Fun!!!</h3>
@@ -58,15 +58,15 @@
                      <div id="subElementsDiv">
                         <div>
                            <!-- <h4>Teracotta Options<j/h4> -->
-                           <div class="product-grid elem" ng-repeat="imgElem in terracota = (filteredSet | category:1) | limitTo:8">
+                           <div class="product-grid elem" ng-repeat="imgElem in terracota = (filteredSet | category:1) | limitTo:numDisp">
                               <div class="product-img">
                                  <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                               </div>
                            </div>
-                           <a  ng-if="terracota.length > 6"  href = "javascript:void(0)" onclick = "openOverlay(0);">
+                           <a  ng-if="terracota.length > 8"  href = "javascript:void(0)" onclick = "openOverlay(0);">
                               <div  class="moreoptions">
                                  <p >
-                                    Terracotta<br/> <span>See More</span><br/><!-- <img src="http://placehold.it/80?text=MORE" class="placeholdit"> --><i class="fa fa-plus placeholdit"></i>
+                                    Terracotta<br/> <span>See More</span><br/><i class="fa fa-plus placeholdit"></i>
                                  </p>
                               </div>
                            </a>
@@ -81,19 +81,19 @@
                         <div id="fade" class="black_overlay">	</div>
                         <div>
                            <!-- <h4>Metals Options</h4> -->
-                           <div class="product-grid elem" ng-repeat="imgElem in metal= (filteredSet | category:3) | limitTo:8">
+                           <div class="product-grid elem" ng-repeat="imgElem in metal= (filteredSet | category:3) | limitTo:numDisp">
                               <div class="product-img">
                                  <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                               </div>
                            </div>
-                           <a ng-if="metal.length > 6" href = "javascript:void(0)" onclick = "openOverlay(2);">
+                           <a ng-if="metal.length > 8" href = "javascript:void(0)" onclick = "openOverlay(2);">
                               <div  class="moreoptions">
                                  <p>
-                                    Metal<br/> <span >See More</span><br/><!-- <img src="http://placehold.it/80?text=MORE" class="placeholdit"> --><i class="fa fa-plus placeholdit"></i>
+                                    Metal<br/> <span >See More</span><br/><i class="fa fa-plus placeholdit"></i>
                                  </p>
                               </div>
                            </a>
-                           <div class="clearfix"></div>
+   <div class="clearfix"></div>
                         </div>
                         <div id="light2" class="white_content">
                            <!-- <a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/> -->
@@ -104,15 +104,15 @@
                         <div id="fade2" class="black_overlay"></div>
                         <div ng-if="(filteredSet | category:2).length > 0">
                            <!-- <h4>Beaded Options</h4> -->
-                           <div class="product-grid elem" ng-repeat="imgElem in beaded = (filteredSet | category:2) | limitTo:8">
+                           <div class="product-grid elem" ng-repeat="imgElem in beaded = (filteredSet | category:2) | limitTo:numDisp">
                               <div class="product-img">
                                  <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                               </div>
                            </div>
-                           <a ng-if="beaded.length > 6" href = "javascript:void(0)" onclick = "openOverlay(1);">
+                           <a ng-if="beaded.length > 8" href = "javascript:void(0)" onclick = "openOverlay(1);">
                               <div  class="moreoptions">
                                  <p >
-                                    Beaded<br/> <span >See More</span><br/><!-- <img src="http://placehold.it/80?text=MORE" class="placeholdit"> --><i class="fa fa-plus placeholdit"></i>
+                                    Beaded<br/> <span >See More</span><br/><i class="fa fa-plus placeholdit"></i>
                                  </p>
                               </div>
                            </a>
@@ -128,9 +128,9 @@
                      </div>
                      <div id="chkBtn" style="text-align:left;">
 
-                        <button type="button" ng-disabled="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()">Next</button> &nbsp; &nbsp;
-                        <button type="button" ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Back</button>
-                        <button type="button" ng-if="mySelectedItems.length > 0"  class="btn btn-primary" ng-click="resetDesign()" style="margin-left: 15px;">Reset</button>
+                        <button type="button" ng-disabled="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()">Add</button> &nbsp; &nbsp;
+                        <button type="button" ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Remove</button>
+                        <button type="button" ng-if="mySelectedItems.length > 0"  class="btn btn-primary" ng-click="resetDesign()" style="margin-left: 15px;">Start Over</button>
                      </div>
                   </div>
                </div>
@@ -139,11 +139,16 @@
          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
             <div id="designDet" class="cart-items">
                <h4>You Design we Deliver</h4>
-               <table width="95%">
+               <div style="text-align: center;">
+                  <p style="text-align: center;font-size: 25px;"> {{designPrice | currency:"&#8377":2}}</p>
+                   <button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && !productAdded" class="cnfBtn">Confirm Design</button> &nbsp; &nbsp;
+                  <button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && mySelectedItems[designLevel].admintags.indexOf('hooks') < 0" ng-show="productAdded" class="addtoCart">ADD TO CART</button>
+               </div>
+             <!--   <table width="95%">
                   <tbody>
                      <tr>
                         <th>Price&nbsp;(with Tax)</th>
-                        <td>:  {{designPrice | currency:"&#8377":2}}
+                        <td>:
                         </td>
                      </tr>
                      <tr>
@@ -158,12 +163,11 @@
                      </tr>
                      <tr style="border:none">
                         <td colspan="2" style="text-align: center">
-                           <button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && !productAdded" class="cnfBtn">Confirm Design</button> &nbsp; &nbsp;
-                           <button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && mySelectedItems[designLevel].admintags.indexOf('hooks') < 0" ng-show="productAdded" class="addtoCart">I'm Done. Add My Design To Cart</button>
+
                         </td>
                      </tr>
                   </tbody>
-               </table>
+               </table> -->
             </div>
             <div id="designerPick" ng-if="designerPicks.length > 0">
                <h4 style="background-color:#5D4B33">Designer's pick for you</h4>

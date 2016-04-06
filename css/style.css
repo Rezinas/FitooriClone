@@ -586,7 +586,7 @@ form label.error {
     font-size: 100%;
     font-weight: bold;
     font-variant: small-caps;
-    width: 308px;
+    width: 50%;
     display: none;
     clear: both;
 }
