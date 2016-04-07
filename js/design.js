@@ -1,6 +1,13 @@
 'use strict';
 var des = angular.module('cdesign', []);
 
+ des.config(function($locationProvider) {
+        $locationProvider.html5Mode({
+          enabled: true,
+          requireBase: false
+        });
+    });
+
 des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout', '$location',
     function($scope, $rootScope, $http, $window, $document, $timeout, $location) {
 
@@ -82,8 +89,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
             $.each(eitems, function(ind, row) {
                 if ($scope.designLevel == 0) {
-                   // if (row.toppoints == 0 && row.admintags.indexOf($scope.startType)) {
-                    if (row.toppoints == 0) {
+                    // if (row.toppoints == 0 && row.admintags.indexOf($scope.startType)) {
+                   if (row.toppoints == 0) {
                         resArr.push(row);
                     }
                 } else {
@@ -118,7 +125,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         var updateDesignerPick = function() {
-            console.log($scope.mySelectedItems);
+            // console.log($scope.mySelectedItems);
             var elementIdArr = [];
             $.each($scope.mySelectedItems, function(ind, itm){
                 elementIdArr.push(itm.id);
@@ -148,7 +155,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         });
 
         $.each(elements, function(ind, element) {
-            if (element.bodypart == 3) {
+            if (element.bodypart == 3 && element.admintags.toLowerCase().indexOf($scope.startType.toLowerCase()) > -1) {
                 $scope.designObj["Earrings"].push(element);
             }
             if (element.bodypart == 1) {
@@ -193,7 +200,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                         for(var i=0; i < botXs.length && fits; i++){
                             var  a = botXs[i+1] - botXs[i];
                             var b = botYs[i+1] - botYs[i];
-                            console.log(Math.sqrt(a*a + b*b));
+                           // console.log(Math.sqrt(a*a + b*b));
                             if(Math.sqrt(a*a + b*b) <= curWidth) {
                                 fits=false;
                             }
@@ -474,7 +481,7 @@ des.directive('resizable', function($window) {
       else if($window.innerWidth > 1024)
           $scope.numDisp = 8;
 
-      console.log($window.innerWidth, $scope.numDisp); // check console for right output
+     // console.log($window.innerWidth, $scope.numDisp); // check console for right output
 
       return $scope.windowWidth = $window.innerWidth;
     };

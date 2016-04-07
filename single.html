@@ -56,7 +56,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 					<p style="padding:0px 15px; 10px">Roll over image to zoom in</p>
 					<ul class="slides">
 						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>">
-							<div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>" data-imagezoom="true" class="img-responsive">								
+							<div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>" data-imagezoom="true" class="img-responsive">
 							 </div>
 						</li>
 						<?php if(!empty($parr['alt1img'])) { ?>
@@ -91,7 +91,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 						<h5 class="item_price">Price : Rs.<?php echo $parr['price']; ?>/-</h5>
 					</div>
 				<div class="btn_form">
-					<a href="javascript:window.cart.updateCart(<?php echo $pid;?>, <?php echo $parr['price'];?>); $('div.cart-box').slideDown('slow').delay(1000).slideUp('slow');" class="add-cart item_add" style="width: auto;">ADD TO CART</a>
+					<a href="javascript:void(0);" onclick="window.cart.updateCart(<?php echo $pid;?>, <?php echo $parr['price'];?>);addToCartSingle();" class="add-cart item_add" style="width: auto;">ADD TO CART</a>
 				</div>
 				<div class="tag">
 					<?php
@@ -191,3 +191,8 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 	</div>
 </div>
 <!--related-products-->
+<script type="text/javascript">
+	function addToCartSingle() {
+		 $('div.cart-box').slideDown('slow').delay(1000).slideUp('slow');return false;
+	}
+</script>
