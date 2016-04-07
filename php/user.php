@@ -110,7 +110,9 @@ else {
 
 
 	$em = $curr_user['email'];
-	$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype from orders  where dateCreated  >= date_sub(now(), interval 6 month) and useremail='$em' order by dateCreated DESC";
+	$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype from orders  where dateCreated  >= date_sub(now(), interval 6 month) and useremail='$em' and (status like 'confirmed' OR status like 'cancelled' OR status like 'shipped' OR status like 'delivered' ) order by dateCreated DESC";
+
+	// echo $ordqry;
 
  	if(!$stmt = $dbcon->prepare($ordqry)){
 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);

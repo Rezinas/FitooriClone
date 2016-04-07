@@ -56,6 +56,20 @@ $(function() {
       }.bind({}))[0];
     }
   });
+
+    var queryParams = $.getQueryParameters();
+
+  if (queryParams.myaccount == "profile") {
+    $('#editProfile').fadeIn('fast');
+  } else if (queryParams.myaccount == "orders") {
+    $('#viewOrders').fadeIn('fast');
+     $('#allorders').paging({limit:5});
+  } else if (queryParams.myaccount == "credits") {
+    $('#credits').fadeIn('fast');
+  } else if (queryParams.myaccount == "wishlist") {
+    $('#wishlist').fadeIn('fast');
+  }
+
   $("#chngPwdForm").validate({
     rules: {
       pass: {
@@ -221,16 +235,6 @@ $(function() {
     $('#wishlist').fadeIn('fast');
   });
 
-  var queryParams = $.getQueryParameters();
 
-  if (queryParams.myaccount == "profile") {
-    $('#editProfile').fadeIn('fast');
-  } else if (queryParams.myaccount == "orders") {
-    $('#viewOrders').fadeIn('fast');
-  } else if (queryParams.myaccount == "credits") {
-    $('#credits').fadeIn('fast');
-  } else if (queryParams.myaccount == "wishlist") {
-    $('#wishlist').fadeIn('fast');
-  }
 
 });

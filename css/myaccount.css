@@ -7,7 +7,7 @@
   float: left;
   width: 100%;
   margin-bottom: 20px;
-  padding-bottom: 10px;  
+  padding-bottom: 10px;
  }
  div#left-pane{
    border-right: 1px solid #C5C4C4;
@@ -160,7 +160,49 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
    padding-right: 10px;
  }
 
-/** LAPTOPS & DESKTOP SCREEN MEDIA QUERIES **/ 
+.paging-nav {
+  text-align: right;
+  padding-top: 2px;
+}
+
+.paging-nav a {
+  margin: auto 1px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1px 7px;
+  background: #91b9e6;
+  color: white;
+  border-radius: 3px;
+}
+
+.paging-nav .selected-page {
+  background: #187ed5;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+/** table or cart page **/
+ table#allorders tbody td .tbcontent{
+    width: 50%;
+    float: right;
+    display: inline !important;
+  }
+
+  table#allorders thead { display: none; }
+  table#allorders tbody td { display: block; padding: .6rem; min-width:320px;}
+  table#allorders tbody tr td:first-child {background-color: #333; color: #fff;/* border-bottom: 1px solid; */}
+  table#allorders tbody tr td:first-child a {
+    color: #fff; text-decoration: underline;
+  }
+  table#allorders tbody td:before {
+    content: attr(data-th); font-weight: bold;
+    display: inline-block; width: 8rem;
+  }
+
+
+}
+
+/** LAPTOPS & DESKTOP SCREEN MEDIA QUERIES **/
 @media (min-width:1280px) and (max-width:1801px){
   .userList span{
     font-size: 13px;
@@ -322,7 +364,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 /** MOBILE SCREEN MEDIA QUERIES **/
 @media (max-width:320px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -354,7 +396,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:321px) and (max-width: 360px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -386,7 +428,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:361px) and (max-width: 375px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -418,7 +460,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:376px) and (max-width: 414px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -450,7 +492,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:415px) and (max-width: 435px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -482,7 +524,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:436px) and (max-width: 480px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -531,7 +573,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 /** TABLET SCREEN MEDIA QUERIES **/
 @media (min-width:481px) and (max-width:568px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -578,7 +620,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:569px) and (max-width:600px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -625,7 +667,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:601px) and (max-width:640px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -672,7 +714,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:641px) and (max-width:667px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -719,7 +761,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:668px) and (max-width:731px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -766,7 +808,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:732px) and (max-width:736px){
   div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;
@@ -813,7 +855,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 @media (min-width:737px) and (max-width:773px){
  /* div#left-pane {
-    border-right: 0px solid #C5C4C4;    
+    border-right: 0px solid #C5C4C4;
     width: 100%;
     padding: 0px;
     min-height: 100px;

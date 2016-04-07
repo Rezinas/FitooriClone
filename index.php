@@ -175,6 +175,8 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
 
       <?php if($currenttab == "myaccount") { ?>
         <link href="css/myaccount.css" type="text/css" rel="stylesheet" media="all">
+        <script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script type="text/javascript"  src="js/paging.js"></script>
         <script src="js/myaccount.js" type="text/javascript"></script>
       <?php }?>
 
