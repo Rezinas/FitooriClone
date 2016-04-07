@@ -43,7 +43,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
              prd.dateAdded = new Date(prd.dateAdded* 1000);
          });
 
-        console.log($scope.allProducts);
+        // console.log($scope.allProducts);
 
         $scope.orderByOptions = function() {
             if($scope.selectedSort == "new") {

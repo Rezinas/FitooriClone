@@ -9,7 +9,7 @@
          <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <h4>Order Summary</h4>
             <h4>Order Number: ORD000<?php echo $sess_orderID; ?></h4>
-            <h4>Order Total: Rs.<?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></h4>
+            <h4>Order Total:  &#8377;.<?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></h4>
                        <table style="width:100%;">
 
                                 <?php if(count($cartItems) > 0) {
@@ -48,7 +48,7 @@
                                               <?php } ?>
                                               <p>Quantity: &nbsp;<span> <?php echo $cart[$prod['productid']]; ?></span></p>
                                                <br>
-                                              <p>Total: &nbsp;<span>  Rs. <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span></p>
+                                              <p>Total: &nbsp;<span>  &#8377;. <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span></p>
                                             </div>
                                         </div>
                                        <!-- </div> -->

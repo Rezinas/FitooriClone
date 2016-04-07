@@ -7,16 +7,19 @@
         <?php if(empty($mainErrorMsg)) { ?>
           <div class="cart-items container">
                <h4 style="color:#F07818;">Order Number: ORD000<?php echo $orderid; ?>  &nbsp; &nbsp; &nbsp; Order Date: <?php echo $currOrder['dateCreated']; ?>  &nbsp; &nbsp; &nbsp; Order Status: <?php echo $currOrder['status']; ?></h4>
-                <table style="width: 100%">
-                <tr>
-                  <th>Item</th>
-                  <th>Details</th>
-                  <th>Price</th>
-                </tr>
+                <table id="orderTable" style="width: 100%">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Details</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
                  <?php foreach($orderProducts as $prod) { ?>
-                    <tr class="cartRows">
-                      <td>
-                      <div class="cart-header">
+                    <tr  class="cartRows">
+                      <td data-th="">
+                       <div class="cart-header">
                        <div class="cart-item cyc">
                          <?php if($prod['customized'] == 0) { ?>
                             <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
@@ -32,28 +35,29 @@
                       </div>
                     </div>
                    </td>
-                        <td>
+                        <td data-th="Details:">
                           <p><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?></p>
                            <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
                             <p>Quantity: &nbsp;<span> <?php echo $prod['quantity' ]; ?></span></p>
                         </td>
-                        <td>
-                          <span>  &#8377; <?php echo floatval($prod['order_price']) * intval($prod['quantity']); ?></span>
+                        <td data-th="Price: ">
+                          <span class="pr">  &#8377; <?php echo floatval($prod['order_price']) * intval($prod['quantity']); ?></span>
                         </td>
                       </tr>
                  <?php } ?>
                    <tr>
-                      <td colspan="2">Total( including Tax)</td>
-                      <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', round($cartTotal, 0)); ?></span></td>
+                      <td class="leftvals" colspan="2">Total( including Tax)</td>
+                      <td class="rightvals">: &#8377; <span id="subTotal"><?php echo money_format('%!i', round($cartTotal, 0)); ?></span></td>
                    </tr>
                    <tr>
-                      <td colspan="2">Shipping</td>
-                      <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                      <td class="leftvals" colspan="2">Shipping</td>
+                      <td class="rightvals">: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
                    </tr>
                    <tr>
-                      <td colspan="2" style="color:#F07818;font-weight:bold;">Grand - Total</td>
-                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',round($cartTotal + SHIPPINGCHARGES_SMALL, 0)); ?></span></td>
+                      <td class="leftvals" colspan="2" style="color:#F07818;font-weight:bold;">Grand - Total</td>
+                      <td class="rightvals">: &#8377; <span id="grandTotal"><?php echo money_format('%!i',round($cartTotal + SHIPPINGCHARGES_SMALL, 0)); ?></span></td>
                    </tr>
+                   </tbody>
                 </table>
              </div>
               <div class="container estimate" style="text-align: right;">

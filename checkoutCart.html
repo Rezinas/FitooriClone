@@ -12,16 +12,19 @@
                <span>Currently in your shopping bag</span>
             </div>
             <div class="panel-body table-responsive cart-details">
-               <table>
+               <table id="cartTable">
+                <thead>
                   <tr>
                      <th>Your Item</th>
                      <th>Quantity / Price</th>
                      <th>Total Amount</th>
                   </tr>
+                  </thead>
+                  <tbody>
                   <?php if(count($cartItems) > 0) {
                      foreach($cartProducts as $prod) { ?>
                       <tr class="cartRows" id="cart<?php echo $prod['productid']; ?>">
-                         <td>
+                         <td data-th="">
                             <div class="cart-header">
                                <div class="cart-item cyc">
                                   <?php if($prod['customized'] == 0 || $prod['design'][0]['isProduct'] == 1) { ?>
@@ -56,17 +59,17 @@
                                <!-- </div> -->
                             </div>
                          </td>
-                         <td class="links">
-                            <div>
+                         <td data-th="Price/Quantity" class="links">
+                            <div class="tbcontent">
                                <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete <?php if($cart[$prod['productid']] == 1)  echo 'hide'; ?>"><i class="fa  fa-minus-circle"></i></a>
                                <span class="cartQty"><?php echo $cart[$prod['productid']]; ?> </span>
                                <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
-                               / Rs. <span class="cartPrice"> <?php echo $prod['price'];?> </span>
+                               /  &#8377; <span class="cartPrice"> <?php echo $prod['price'];?> </span>
                             </div>
                             <!-- <div><a href="#">Move to Wishlist</a></div>-->
                          </td>
-                         <td>
-                            Rs. <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span>
+                         <td data-th="Total">
+                             <div class="tbcontent">&#8377; <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span></div>
                          </td>
                       </tr>
                   <?php }
@@ -77,6 +80,7 @@
 
                          </td>
                       </tr>
+                      </tbody>
                </table>
             </div>
          </div>
@@ -133,7 +137,7 @@
                     <div class="product-info simpleCart_shelfItem">
                        <div class="product-info-cust prt_name">
                           <h4><?php echo $rprod['name']; ?></h4>
-                          <span class="item_price">Rs.<?php echo $rprod['price']; ?></span>
+                          <span class="item_price"> &#8377; <?php echo $rprod['price']; ?></span>
                           <div class="clearfix"> </div>
                        </div>
                     </div>
