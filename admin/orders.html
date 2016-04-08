@@ -71,6 +71,7 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                                 <th>Shipping Address</th>
                                 <th>Payment Type</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                             <?php foreach($curr_orders as $ord) { ?>
                             <tr>
@@ -80,6 +81,16 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                                 <td><?php echo $ord['shippingaddress1'] . ", <br>". $ord['shippingaddress2']. ", <br>". $ord['shippingcity'] . ", " .$ord['shippingstate'].", India-".$ord['shippingpostal']; ?></td>
                                 <td><?php echo $ord['paymenttype']; ?></td>
                                 <td><?php echo $ord['status']; ?></td>
+                                <td>
+                                <!-- cancelled, shipped, delivered, completed -->
+                                    <select name="orderaction">
+                                        <option value="0">Choose Action</option>
+                                        <option value="cancelled">cancelled</option>
+                                        <option value="shipped">shipped</option>
+                                        <option value="delivered">delivered</option>
+                                        <option value="completed">completed</option>
+                                    </select>
+                                </td>
                             </tr>
                             <tr>
                                 <td colspan="6" id='order<?php echo $ord['orderid']; ?>' class='hide'>
