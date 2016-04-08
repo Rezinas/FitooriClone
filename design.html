@@ -7,9 +7,9 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       </div>
       <div class="row">
-         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+         <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
             <div class="row">
-               <div class="avlOptions col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               <div class="avlOptions col-lg-4 col-md-4 col-sm-3 col-xs-12">
                   <div class="bgProduct">
                      <div class="designDiv">
                         <div class="prd_elements elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem">
@@ -28,7 +28,7 @@
                      <div class="clearfix"></div>
                   </div>
                </div>
-               <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" id="subElementDiv">
+               <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12" id="subElementDiv">
                   <!-- all the messages come here -->
                         <div ng-if="designLevel == 0 && !productAdded" class="alert" role="alert" id="alertDiv1">
                            <p>
@@ -93,7 +93,7 @@
                                  </p>
                               </div>
                            </a>
-   <div class="clearfix"></div>
+                        <div class="clearfix"></div>
                         </div>
                         <div id="light2" class="white_content">
                            <!-- <a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/> -->
@@ -136,8 +136,8 @@
                </div>
             </div>
          </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-            <div id="designDet" class="cart-items">
+         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+            <div id="designDet" class="cart-items col-lg-12 col-md-12 col-sm-6 col-xs-12">
                <h4>You Design we Deliver</h4>
                <div style="text-align: center;">
                   <p style="text-align: center;font-size: 25px;"> {{designPrice | currency:"&#8377":2}}</p>
@@ -169,7 +169,7 @@
                   </tbody>
                </table> -->
             </div>
-            <div id="designerPick" ng-if="designerPicks.length > 0">
+            <div id="designerPick" ng-if="designerPicks.length > 0" class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
                <h4 style="background-color:#5D4B33">Designer's pick for you</h4>
                <div class="product-grid despick" ng-repeat="despick in designerPicks">
                   <a target="_blank" ng-href="{{siteUrl}}index.php?single&amp;id={{despick['productid']}}">
