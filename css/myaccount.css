@@ -34,7 +34,7 @@
    color: #333;
  }
  .userList ul li:nth-child(3), .userList ul li:nth-child(4){
-   border-bottom: 3px solid #5D4B33;
+  /* border-bottom: 3px solid #5D4B33;*/
    padding: 10px;
  }
  .userList a {
@@ -79,6 +79,105 @@
  .subUL ul li a{
   color:#555;
  }
+
+ /******MENU TOGGLE CSS *****/
+  #brand {
+    float: left;
+    line-height: 50px;
+    color: #E5DAC0;
+    font-size: 25px;
+    font-weight: bolder;
+    margin: 0 0 0 6px;
+  }
+.menu {
+  width: 276px;
+  min-height: auto;
+  position: absolute;
+  background: #5D4B33;
+  left: -336px;
+  transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  z-index: 1;
+  
+}
+.menu-icon {
+    padding: 10px 20px;
+    background: #5D4B33;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    margin: -8px 6px 12px 0;
+    border-radius: 0px;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+}
+#menuToggle { display: none; }
+
+#menuToggle:checked ~ .menu { position: absolute; left: -50px; }
+
+ .menu ul li {
+   list-style: none;
+   padding: 10px;
+   color: #fff;
+   .font-weight: normal;
+ }
+ .menu ul li:nth-child(3), .menu ul li:nth-child(4){
+ /*  border-bottom: 3px solid #fff;*/
+   padding: 10px;
+ }
+  .menu a {
+  color: #f3f3f3;
+ }
+ .menu i {
+  font-size: 20px;
+ }
+  .menu span {
+   font-family: 'Roboto-Regular';
+   font-size: 16px;
+   text-transform: uppercase;
+ }
+ .menu .subUL {
+   border-top: 3px solid #f3f3f3;
+   margin-top: 10px;
+   width: 100%;
+ }
+ .menu{
+   font-size: 16px;
+   font-weight: bold;
+   vertical-align: bottom;
+   margin-left: 10px;
+ }
+ .menu .subUL ul li {
+   border-bottom: 1px solid #F07818;
+   height: 32px;
+   font-size: 15px;
+   text-transform: capitalize;
+   position: relative;
+   padding: 5px;
+   margin-left: 10px
+ }
+ .menu .subUL ul li:nth-child(3){
+   border-bottom: 1px solid #F07818;
+   height: 32px;
+   font-size: 15px;
+   text-transform: capitalize;
+   position: relative;
+   padding: 5px;
+ }
+ .menu .subUL ul li a{
+  color:#f3f3f3;
+  font-weight: normal;
+ }
+
+
+
+
+
+ /******END OF MENU TOGGLE***/
  .register-top-grid span, .register-bottom-grid span {
   color: #F07818;
  }
@@ -401,6 +500,9 @@ table#allorders td a {
   input[type="submit"] {
     width: 70%;
   }
+  #emailInput{
+    width:100%;
+  }
   table#allorders tbody td{
     min-width: 250px;
   }
@@ -414,6 +516,14 @@ table#allorders td a {
   }
   .paging-nav {
     text-align: center;
+  }
+  .menu {
+    width: 220px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
   }
 }
 @media (min-width:321px) and (max-width: 360px){
@@ -442,6 +552,9 @@ table#allorders td a {
   input[type="submit"] {
     width: 78%;
   }
+  #emailInput{
+    width:100%;
+  }
   .orders table {
     width: 100%;
     margin: 0px 0px 10px -32px;
@@ -462,6 +575,14 @@ table#allorders td a {
   }
   form#chngPwdForm {
     margin-top: -48px;
+  }
+  .menu {
+    width: 260px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
   }
 }
 @media (min-width:361px) and (max-width: 375px){
@@ -490,6 +611,9 @@ table#allorders td a {
   input[type="submit"] {
     width: 78%;
   }
+  #emailInput{
+    width:100%;
+  }
   .orders table {
     width: 100%;
     margin: 0px 0px 10px -32px;
@@ -508,7 +632,14 @@ table#allorders td a {
   .paging-nav {
     text-align: center;
   }
-
+  .menu {
+    width: 275px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
+  }
 }
 @media (min-width:376px) and (max-width: 414px){
   div#left-pane {
@@ -536,6 +667,9 @@ table#allorders td a {
   input[type="submit"] {
     width: 78%;
   }
+  #emailInput{
+    width:100%;
+  } 
   .orders table {
     width: 100%;
     margin: 0px 0px 10px -32px;
@@ -553,6 +687,15 @@ table#allorders td a {
   }
   .paging-nav {
     text-align: center;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
+  }
+  .menu{
+    width:314px;
+    left: -374px;
   }
 }
 @media (min-width:415px) and (max-width: 435px){
@@ -581,6 +724,9 @@ table#allorders td a {
   input[type="submit"] {
     width: 78%;
   }
+  #emailInput{
+    width:100%;
+  }
   .orders table {
     width: 100%;
     margin: 0px 0px 10px -32px;
@@ -598,6 +744,15 @@ table#allorders td a {
   }
   .paging-nav {
     text-align: center;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
+  }
+  .menu{
+    width: 335px;
+    left:-395px;
   }
 }
 @media (min-width:436px) and (max-width: 480px){
@@ -625,6 +780,9 @@ table#allorders td a {
   }
   input[type="submit"] {
     width: 78%;
+  }
+  #emailInput{
+    width:100%;
   }
   .orders table {
     width: 100%;
@@ -663,6 +821,15 @@ table#allorders td a {
   }
   .paging-nav {
     text-align: center;
+  }
+  .menu {
+    width: 380px;
+    left: -440px;
+  }
+    #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
   }
 }
 
@@ -731,6 +898,15 @@ table#allorders td a {
   .paging-nav {
     text-align: center;
   }
+  .menu{
+    width:468px;
+    left:-528px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
+  }
 }
 @media (min-width:569px) and (max-width:600px){
   div#left-pane {
@@ -777,6 +953,15 @@ table#allorders td a {
   }
   input#updateprofile, input#editAddr, input#chngpwd{
     font-size: 1.1em;
+  }
+  .menu{
+    width:500px;
+    left:-560px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
   }
 }
 @media (min-width:601px) and (max-width:640px){
@@ -829,6 +1014,15 @@ table#allorders td a {
     border: 0px;
     text-align: center;
   }
+  .menu{
+    width:540px;
+    left:-600px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
+  }
 }
 @media (min-width:641px) and (max-width:667px){
   div#left-pane {
@@ -879,6 +1073,15 @@ table#allorders td a {
   .orders div{
     border: 0px;
     text-align: center;
+  }
+  .menu{
+    width:567px;
+    left:-627px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
   }
 }
 @media (min-width:668px) and (max-width:731px){
@@ -931,6 +1134,15 @@ table#allorders td a {
     border: 0px;
     text-align: center;
   }
+  .menu{
+    width:583px;
+    left:-643px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
+  }
 }
 @media (min-width:732px) and (max-width:736px){
   div#left-pane {
@@ -981,6 +1193,15 @@ table#allorders td a {
   .orders div{
     border: 0px;
     text-align: center;
+  }
+  .menu{
+    width:636px;
+    left:-696px;
+  }
+  #menuToggle:checked ~ .menu {
+    position: absolute;
+    left: -10px;
+    margin-top: -130px;
   }
 }
 @media (min-width:737px) and (max-width:773px){

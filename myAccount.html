@@ -4,11 +4,51 @@
 	 	<hr class="visible-xs" />
 	 	<div class="about-inform">
 	 		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" id="left-pane">
+	 			<input type="checkbox" id="menuToggle" >
+				<label for="menuToggle" class="visible-xs menu-icon">Click to See Menu<!-- &#9776; --></label>
+				<br/>
 	 			<div class="userProfile">
 	 				<span><i class="fa fa-user"></i></span>
 	 				<span class="userDetail"><?php  if(isset($_SESSION["username"])) echo $_SESSION["username"]; ?></span>
+
 	 			</div>
-	 			<div class="userList">
+	 			<nav class="userList menu visible-xs">
+					<ul>
+	 					<li>
+	 						<i class="fa fa-user"><span>&nbsp;My Account</span></i>
+	 						<div class="subUL">
+		 						<ul>
+		 							<li>
+		 								<a id="ep" href="javascript:void(0);">Edit Profile</a>
+		 							</li>
+		 							<li>
+		 								<a id="ea" href="javascript:void(0);">Edit Address</a>
+		 							</li>
+		 							<li>
+		 								<a id="passwd" href="javascript:void(0);">Change Password</a>
+		 							</li>
+		 						</ul>
+	 						</div>
+	 					</li>
+	 					<li>
+	 						<i class="fa fa-shopping-cart"><span>&nbsp;My Orders</span></i>
+	 						<div class="subUL">
+		 						<ul>
+		 							<li><a id="vo" href="#">View All Orders</a></li>
+		 						</ul>
+	 						</div>
+	 					</li>
+	 					<li>
+	 						<a id="credit" href="#"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<li>
+	 						<a id="wish" href="#"><i class="fa fa-heart-o"><span>&nbsp;My Wishlist</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 				</ul>
+				</nav>
+	 			<div class="userList hidden-xs">
 	 				<ul>
 	 					<li>
 	 						<i class="fa fa-user"><span>&nbsp;My Account</span></i>
@@ -36,12 +76,15 @@
 	 					</li>
 	 					<li>
 	 						<a id="credit" href="#"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
+	 						<div class="subUL"></div>
 	 					</li>
 	 					<li>
 	 						<a id="wish" href="#"><i class="fa fa-heart-o"><span>&nbsp;My Wishlist</span></i></a>
+	 						<div class="subUL"></div>
 	 					</li>
 	 				</ul>
-	 			</div>
+	 			</div>		
+	 			
 	 		</div>
 	 		<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" id="right-pane">
 	 			<div  class="pagecontent" id="response"></div>
