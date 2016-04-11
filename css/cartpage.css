@@ -590,7 +590,7 @@ input#login {
     background: #F07818;
     cursor: pointer;
     padding: 4px 0;
-    width: 15%;
+    width: 100%;
     border-radius: 4px;
     display: inline-block;
     margin: 1em 0 0;
@@ -1150,11 +1150,8 @@ div#Orderpage h2 {
       font-size: 14px;
     }
 }
+
 /** MOBILE SCREEN MEDIA QUERIES **/
-
-
-
-
 @media screen and (max-width: 600px) {
 /** table or cart page **/
  table#cartTable tbody td .tbcontent{
@@ -1212,7 +1209,7 @@ div#Orderpage h2 {
     margin-top: 0px;
   }
   div#cart-items-all span{
-    font-size: 14px;
+    font-size: 13px;
   }
   .cart-items img{
     padding: 0em;
@@ -1247,6 +1244,13 @@ div#Orderpage h2 {
   }
   input#shippay, a.shippay, a.placeorder, div#shippingDetails a.back, a.confirm{
     font-size: 1.2em;
+  }
+  .alert{
+    font-size: 12px;
+  }
+  td#emptyCartMsg {
+    margin-top: -55px;
+    margin-bottom: 0px;
   }
 }
 @media (min-width:321px) and (max-width:360px){
@@ -1338,6 +1342,10 @@ div#Orderpage h2 {
     input#shippay, a.shippay, a.placeorder, div#shippingDetails a.back, a.confirm{
       font-size: 1.2em;
     }
+    td#emptyCartMsg {
+      margin-top: -55px;
+      margin-bottom: 0px;
+    } 
 }
 @media (min-width:361px) and (max-width:375px){
 
@@ -1392,6 +1400,10 @@ div#Orderpage h2 {
     width: 35%;
     margin-bottom: 15px;
   }
+  td#emptyCartMsg {
+      margin-top: -55px;
+      margin-bottom: 0px;
+  } 
 }
 @media (min-width:376px) and (max-width:414px){
   div#Orderpage h2 {
@@ -1444,6 +1456,13 @@ div#Orderpage h2 {
   input#login{
     width: 35%;
     margin-bottom: 15px;
+  }
+  td#emptyCartMsg {
+      margin-top: -55px;
+      margin-bottom: 0px;
+  } 
+  .cart-item{
+    width: 50%;
   }
 }
 @media (min-width:415px) and (max-width:435px){
@@ -1500,6 +1519,13 @@ div#Orderpage h2 {
   input#login{
     width: 35%;
     margin-bottom: 15px;
+  }
+  td#emptyCartMsg {
+      margin-top: -55px;
+      margin-bottom: 0px;
+  } 
+  .cart-item{
+    width: 50%;
   }
 }
 @media (min-width:436px) and (max-width:480px){
@@ -1580,6 +1606,10 @@ div#Orderpage h2 {
   #cart-cost table th{
     font-size: 14px;
   }
+  td#emptyCartMsg {
+      margin-top: -55px;
+      margin-bottom: 0px;
+  } 
 }
 
 /** TABLET SCREEN MEDIA QUERIES **/
@@ -1661,6 +1691,10 @@ div#Orderpage h2 {
       #cart-cost table th{
         font-size: 14px;
       }
+      td#emptyCartMsg {
+        margin-top: -55px;
+        margin-bottom: 0px;
+    } 
 }
 @media (min-width:569px) and (max-width:600px){
       div#Orderpage h2 {
@@ -1740,6 +1774,10 @@ div#Orderpage h2 {
       #cart-cost table th{
         font-size: 14px;
       }
+      td#emptyCartMsg {
+        margin-top: -55px;
+        margin-bottom: 0px;
+    } 
 }
 @media (min-width:601px) and (max-width:640px){
       div#Orderpage h2 {
@@ -1799,7 +1837,7 @@ div#Orderpage h2 {
       .cart-header .cart-item {
           padding: 5px;
           margin-right: 2%;
-          width: 100%;
+          width: 50%;
           box-shadow: inset 10px 10px 50px #f3f3f3;
           margin-top: 10px;
           margin-bottom: 10px;
@@ -1819,6 +1857,12 @@ div#Orderpage h2 {
       #cart-cost table th{
         font-size: 14px;
       }
+      td#emptyCartMsg {
+          margin-top: 0;
+        margin-bottom: 0px;
+        width: 100%;
+        font-size: 15px;    
+      } 
 }
 @media (min-width:641px) and (max-width:667px){
       div#Orderpage h2 {
@@ -1898,6 +1942,12 @@ div#Orderpage h2 {
       #cart-cost table th{
         font-size: 14px;
       }
+      td#emptyCartMsg {
+          margin-top: 0;
+        margin-bottom: 0px;
+        width: 100%;
+        font-size: 15px;    
+      } 
 }
 @media (min-width:668px) and (max-width:731px){
       div#Orderpage h2 {
@@ -1958,7 +2008,7 @@ div#Orderpage h2 {
       .cart-header .cart-item {
           padding: 5px;
           margin-right: 2%;
-          width: 100%;
+          width:50%;
           box-shadow: inset 10px 10px 50px #f3f3f3;
           margin-top: 10px;
           margin-bottom: 10px;
@@ -1978,6 +2028,12 @@ div#Orderpage h2 {
       #cart-cost table th{
         font-size: 14px;
       }
+      td#emptyCartMsg {
+        margin-top: 0;
+        margin-bottom: 0px;
+        width: 100%;
+        font-size: 15px;    
+      } 
 }
 @media (min-width:732px) and (max-width:736px){
       div#Orderpage h2 {
@@ -2058,6 +2114,12 @@ div#Orderpage h2 {
       #cart-cost table th{
         font-size: 14px;
       }
+      td#emptyCartMsg {
+          margin-top: 0;
+        margin-bottom: 0px;
+        width: 100%;
+        font-size: 15px;    
+      } 
 }
 @media (min-width:737px) and (max-width:773px){
       div#Orderpage h2 {
@@ -2119,7 +2181,7 @@ div#Orderpage h2 {
       .cart-header .cart-item {
           padding: 5px;
           margin-right: 2%;
-          width: 85%;
+          width: 50%;
           box-shadow: inset 10px 10px 50px #f3f3f3;
           margin-top: 10px;
           margin-bottom: 10px;
@@ -2139,6 +2201,12 @@ div#Orderpage h2 {
       #cart-cost table th{
         font-size: 14px;
       }
+      td#emptyCartMsg {
+          margin-top: 0;
+        margin-bottom: 0px;
+        width: 100%;
+        font-size: 15px;    
+      } 
 }
 @media (min-width:774px) and (max-width:800px){
       div#Orderpage h2 {
@@ -2220,4 +2288,10 @@ div#Orderpage h2 {
       #cart-cost table th{
         font-size: 14px;
       }
+      td#emptyCartMsg {
+          margin-top: 0;
+        margin-bottom: 0px;
+        width: 100%;
+        font-size: 15px;    
+      } 
 }

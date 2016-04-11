@@ -548,6 +548,7 @@ fieldset#body {
     -moz-transition: all .5s;
     -o-transition: all .5s;
     font-family: 'Roboto-Regular';
+    width: 100%;
 }
 #loginForm #login:hover, #submitForm #submitEmail:hover {
 	background: #fff;
@@ -2626,6 +2627,11 @@ h4.panel-title {
     position: relative;
     font-family: 'Roboto-Regular'; 
     top: 20px;
+}
+p.alert.text-uppercase a {
+    color: #fff;
+    background-color: #F07818;
+    border-color: #F07818;
 }
 /*--//contact--*/
 /*---- responsive-design -----*/
@@ -6807,9 +6813,13 @@ h4.panel-title {
     }
     .product-model-sec{
         padding:0px 15px;
+        margin-top:10px; 
     }
     .product-img img{
-        padding:8em;
+        padding:1em;
+    }
+    .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
+        width: 100%;
     }
     .rsidebar {
         margin: 0;           
@@ -6850,8 +6860,8 @@ h4.panel-title {
         padding: 1em 0;
     }
     .product-grid {
-        width: 100%;
-        margin:0 0 4% 0;
+        width: 47%;
+        margin: 0 10px 4% 0;
     }
     input.item_add.items {
         float: right;
@@ -7203,19 +7213,22 @@ h4.panel-title {
         width: 32%;
     }
     h2#mainContainer {
-        margin-top: 22px;
+        margin-top: -14px;
         margin-bottom: 10px;
         font-size: 3em;
     }
     .product-model-sec{
         padding:0px 15px;
     }
+    .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
+        width: 100%;
+    }
     .rsidebar {
         margin: 0;
         padding: 0px 15px;
     }
     .product-img img{
-        padding:6em;
+        padding:1em;
     }
     .footer {
         padding: 2em 0 0.5em;
@@ -7249,8 +7262,8 @@ h4.panel-title {
         padding: 1em 0;
     }
     .product-grid {
-        width: 100%;
-        margin:0 0 4% 0;
+        width: 47%;
+        margin:0 10px 4% 0;
     }
     input.item_add.items {
         float: right;
@@ -7596,12 +7609,15 @@ h4.panel-title {
         width: 32%;
     }
     h2#mainContainer {
-        margin-top: 22px;
+        margin-top: -14px;
         margin-bottom: 10px;
         font-size: 2.5em;
     }
     .product-model-sec{
         padding:0px 15px;
+    }
+    .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
+        width: 100%;
     }
     .rsidebar {
         margin: 0;
@@ -7639,8 +7655,14 @@ h4.panel-title {
         padding: 1em 0;
     }
     .product-grid {
-        width: 100%;
-        margin:0 0 4% 0;
+        width: 47%;
+        margin: 0 10px 4% 0;
+    }
+    .product-img img{
+        padding: 1em;
+    }
+    .product-info-cust h4{
+        font-size: 0.8em;
     }
     input.item_add.items {
         float: right;
@@ -7988,16 +8010,25 @@ h4.panel-title {
         width: 32%;
     }
     h2#mainContainer {
-        margin-top: 22px;
+        margin-top: -14px;
         margin-bottom: 10px;
         font-size: 2.3em;
     }    
     .product-model-sec{
         padding:0px 15px;
     }
+    .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
+        width: 100%;
+    }
     .rsidebar {
         margin: 0;
         padding: 0px 15px;
+    }
+    .product-img img{
+        padding: 1em;
+    }
+    .product-info-cust h4{
+        font-size: 0.75em;
     }
     .footer {
         padding: 2em 0 0.5em;
@@ -8031,8 +8062,8 @@ h4.panel-title {
         padding: 1em 0;
     }
     .product-grid {
-        width: 100%;
-        margin:0 0 4% 0;
+        width: 46%;
+        margin:0 10px 4% 0;
     }
     input.item_add.items {
         float: right;
@@ -8378,12 +8409,15 @@ h4.panel-title {
         width: 32%;
     }
     h2#mainContainer {
-        margin-top: 22px;
+        margin-top: -14px;
         margin-bottom: 10px;
         font-size: 2.3em;
     }
     .product-model-sec{
         padding:0px 15px;
+    }
+    .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
+        width: 100%;
     }
     .rsidebar {
         margin: 0;
@@ -8421,8 +8455,17 @@ h4.panel-title {
         padding: 1em 0;
     }
     .product-grid {
-        width: 100%;
-        margin:0 0 4% 0;
+        width: 48%;
+        margin:0 3px 4% 0;
+    }
+    .product-img img{
+        padding: 1em;
+    }
+    .product-info-cust h4{
+        font-size: 0.65em;
+    }
+    .item_add{
+        font-size: 0.85em;
     }
     input.item_add.items {
         float: right;

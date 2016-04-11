@@ -316,6 +316,7 @@ button.addtoCart:hover{
 		border-radius: 5px;
 		height: auto;
 		margin-bottom: 20px;
+		padding: 0px;
 	}
 	div#designerPick h4{
 		font-size: 15px;
@@ -326,7 +327,7 @@ button.addtoCart:hover{
 		color: #fff;
 	}
 	div#designerPick img {
-	    width: 100%;
+	    width: 70%;
 	    margin-bottom: 15px;
 	    padding: 1.5em;
 	}
