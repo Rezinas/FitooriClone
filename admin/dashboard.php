@@ -87,7 +87,7 @@ $sitevariable  = "";
 if(isset($_POST["siteUpdate"])) {
 
   $sitevariable  = $_POST['sitevariable'];
- 
+
   //run the update query for the $pid.
 
   $updQuery1 =  "UPDATE sitevariable SET `is_undermaintenance` = ?";
@@ -95,10 +95,10 @@ if(isset($_POST["siteUpdate"])) {
   $stmt->bind_param('i', $sitevariable);
   if(!$stmt->execute()){
     die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-  }    
-  $stmt->close(); 
+  }
+  $stmt->close();
 }
-    
+
 
 
 $currenttab = "";
@@ -147,6 +147,7 @@ else {
 <?php  } ?>
 <?php if($currenttab == "orders") { ?>
      <link rel="stylesheet" href="../css/cartpage.css">
+     <link rel="stylesheet" href="../css/myaccount.css">
 <?php  } ?>
    </head>
 <body>
@@ -344,6 +345,33 @@ else if($currenttab == "report") {
   <script src="../js/additional-methods.js" type="text/javascript"></script>
   <script src="../js/pieces.js" type="text/javascript"></script>
    <?php } ?>
+
+   <?php if($currenttab == "orders") { ?>
+           <script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script type="text/javascript"  src="../js/paging.js"></script>
+    <script type='text/javascript'>//<![CDATA[
+      $(document).ready( function() {
+        // $('#orderstb').paging({limit:5});
+        $(".orderaction").change(function(){
+           var oid = this.id.split("_");
+           var ostat = this.value;
+           if(ostat == 0) return;
+            var payload = { "status" : ostat, "oid" : oid[1]};
+
+              $.ajax({
+                type: "POST",
+                data: payload,
+                url: "../php/ajax.php?orderUpdate",
+                success: function(data) {
+                    location.reload();
+                  }
+              });
+        });
+
+      });
+          //]]>
+    </script>
+  <?php  } ?>
 
 
    <?php if($currenttab == "product") { ?>

@@ -1,6 +1,37 @@
   <?php
 date_default_timezone_set("Asia/Bangkok");
-$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype, UNIX_TIMESTAMP(`dateCreated`) as dateCreated from orders  order by dateCreated DESC";
+
+$whereqry = " WHERE ";
+$oid ="";
+$oemail ="";
+$ostatus ="";
+
+if(isset($_POST) && isset($_POST['searchorders'])) {
+      $oid  = prepare_input($_POST['orderid' ]);
+      $oemail = prepare_input($_POST['orderemail' ]);
+      $ostatus = prepare_input($_POST['orderstatus' ]);
+
+    if(!empty($oid)){
+     $whereqry .= "orderid=$oid AND ";
+    }
+    if(!empty($oemail)){
+        $whereqry .= "useremail like '$oemail' AND ";
+    }
+    if(!empty($ostatus)){
+        if($ostatus == "others") {
+            $whereqry .= "(status like 'new' OR  status like 'shippinginfo' OR status like 'review') AND ";
+        } else {
+            $whereqry .= "status like '$ostatus' AND ";
+
+        }
+    }
+
+
+}
+$whereqry .= "1";
+
+$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype, UNIX_TIMESTAMP(`dateCreated`) as dateCreated from orders $whereqry order by dateCreated DESC";
+
 
     if(!$stmt = $dbcon->prepare($ordqry)){
         die('Prepare Error :111 : ('. $dbcon->errno .') '. $dbcon->error);
@@ -60,10 +91,40 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                 <!--End Page Header -->
             </div>
 
+            <div class="container panel panel-default">
+                <div class="panel-heading">Filters</div>
+                <div class="panel-body row" style="text-align: center">
+                    <form action="dashboard.php?orders" method="post">
+                       <div class="col-sm-3 col-xs-12">
+                           <label>Order ID : </label><input type="text" name="orderid" <?php if( $oid  != "") echo "value='$oid'"; ?> /></>
+                       </div>
+                       <div class="col-sm-3 col-xs-12">
+                           <label>Order Email: </label><input type="text" name="orderemail" <?php if( $oemail  != "") echo "value='$oemail'"; ?> />
+                       </div>
+                        <div class="col-sm-3 col-xs-12">
+                            <label>Order Status: </label>
+                              <select name="orderstatus">
+                                <option value="0">Choose Status</option>
+                                <option value="others" <?php if( $ostatus  == "others") echo "selected"; ?> >not confirmed</option>
+                                <option value="confirmed" <?php if( $ostatus  == "confirmed") echo "selected"; ?>>confirmed</option>
+                                <option value="cancelled" <?php if( $ostatus  == "cancelled") echo "selected"; ?>>cancelled</option>
+                                <option value="shipped" <?php if( $ostatus  == "shipped") echo "selected"; ?>>shipped</option>
+                                <option value="delivered" <?php if( $ostatus  == "delivered") echo "selected"; ?>>delivered</option>
+                                <option value="completed" <?php if( $ostatus  == "completed") echo "selected"; ?>>completed</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 col-xs-12">
+                         <input class="btn btn-primary" type="submit" name="searchorders" value="SEARCH"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
 
                 <!-- Welcome -->
                 <div class="container">
-                        <table width="100%">
+                        <table width="100%" id="orderstb" class="orderstb">
+                        <thead>
                             <tr>
                                 <th>Order ID</th>
                                 <th>Order Date</th>
@@ -73,27 +134,45 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
+                            </thead>
+                            <tbody>
                             <?php foreach($curr_orders as $ord) { ?>
                             <tr>
-                                <td><a href="javascript:$('#order<?php echo $ord['orderid']; ?>').toggleClass('hide');">ORD000<?php echo $ord['orderid']; ?></a></td>
-                                <td><?php echo  date('d M Y h:i:s A', $ord['dateCreated']); ?></td>
-                                <td><?php echo $ord['useremail']; ?></td>
-                                <td><?php echo $ord['shippingaddress1'] . ", <br>". $ord['shippingaddress2']. ", <br>". $ord['shippingcity'] . ", " .$ord['shippingstate'].", India-".$ord['shippingpostal']; ?></td>
-                                <td><?php echo $ord['paymenttype']; ?></td>
-                                <td><?php echo $ord['status']; ?></td>
-                                <td>
-                                <!-- cancelled, shipped, delivered, completed -->
-                                    <select name="orderaction">
-                                        <option value="0">Choose Action</option>
-                                        <option value="cancelled">cancelled</option>
-                                        <option value="shipped">shipped</option>
-                                        <option value="delivered">delivered</option>
-                                        <option value="completed">completed</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="6" id='order<?php echo $ord['orderid']; ?>' class='hide'>
+                                <td colspan="7">
+                                 <div>
+                                    <table width="100%">
+                                        <tr>
+                                             <td><a href="javascript:$('#order<?php echo $ord['orderid']; ?>').toggleClass('hide');">ORD000<?php echo $ord['orderid']; ?></a></td>
+                                            <td><?php echo  date('d M Y h:i:s A', $ord['dateCreated']); ?></td>
+                                            <td><?php echo $ord['useremail']; ?></td>
+                                            <td><?php echo $ord['shippingaddress1'] . ", <br>". $ord['shippingaddress2']. ", <br>". $ord['shippingcity'] . ", " .$ord['shippingstate'].", India-".$ord['shippingpostal']; ?></td>
+                                            <td><?php echo $ord['paymenttype']; ?></td>
+                                            <td><span id="orderstat_<?php echo $ord['orderid']; ?>"><?php echo $ord['status']; ?></span></td>
+                                            <td style="width: 180px;">
+                                            <!-- cancelled, shipped, delivered, completed -->
+                                             <?php if( $ord['status'] == 'confirmed' || $ord['status'] == 'shipped' || $ord['status'] == 'delivered') { ?>
+                                                <select id="orderaction_<?php echo $ord['orderid']; ?>" name="orderaction" class="orderaction">
+                                                    <option value="0">Choose Action</option>
+                                                    <?php if( $ord['status'] == 'confirmed') { ?>
+                                                    <option value="cancelled">cancelled</option>
+                                                    <option value="shipped">shipped</option>
+                                                    <?php } ?>
+                                                    <?php if( $ord['status'] == 'shipped') { ?>
+                                                    <option value="delivered">delivered</option>
+                                                    <?php } ?>
+                                                    <?php if( $ord['status'] == 'delivered') { ?>
+                                                    <option value="completed">completed</option>
+                                                    <?php } ?>
+                                                </select>
+                                            <?php }  else  { ?>
+                                                    No Actions.
+                                            <?php } ?>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div  id='order<?php echo $ord['orderid']; ?>' class='hide'>
                                     <div class="cart-items">
                                         <table width="100%">
                                             <tr>
@@ -103,7 +182,7 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                                             </tr>
                                         <?php foreach($ord['ordProducts'] as $prod) { ?>
                                             <tr class="cartRows">
-                                              <td>
+                                             <td>
                                               <div class="cart-header">
                                                <div class="cart-item cyc">
                                                  <?php if($prod['customized'] == 0) { ?>
@@ -133,9 +212,11 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                                          <?php } ?>
                                         </table>
                                     </div>
+                                </div>
                                 </td>
                             </tr>
                             <?php } ?>
+                            </tbody>
                         </table>
                 </div>
                 <!--end  Welcome -->

@@ -1,6 +1,25 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
 
+
+if(isset($_REQUEST["orderUpdate"])) {
+   $ostat = $_POST['status'];
+   $oid = $_POST['oid'];
+   $statement = $dbcon->prepare("UPDATE orders SET status=? WHERE orderid=?");
+
+//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
+$statement->bind_param('si', $ostat, $oid);
+$results =  $statement->execute();
+if($results){
+    print $ostat;
+}else{
+    print 'Error : ('. $dbcon->errno .') '. $dbcon->error;
+}
+
+    exit();
+}
+
+
 if(isset($_REQUEST["cartUpdate"])) {
     $_SESSION['cartids'] = $_POST['productids'];
 

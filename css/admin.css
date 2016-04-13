@@ -91,3 +91,9 @@ div#page-wrapper h2.page-header{
 .prd_elements {
     position: absolute;
 }
+
+.orderstb, .orderstb th {
+    border: 1px solid;
+    text-align: center;
+    padding: 1em;
+}

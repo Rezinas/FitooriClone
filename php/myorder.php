@@ -3,9 +3,25 @@ if(!empty($_REQUEST)){
 
     $currUserEmail = getCurrentUserEmail();
     $orderid = $_REQUEST['orderid'];
+    $orderAction = isset($_REQUEST['cancel']) ? "cancel" : "";
     $mainErrorMsg ="";
+
+    echo $currUserEmail;
+
     if (strpos($orderid, 'ORD000') !== false) {
         $orderid =  intval(str_replace("ORD000", "", $orderid));
+
+        if(!empty($orderAction)){
+             $statement = $dbcon->prepare("UPDATE orders SET status='cancelled' WHERE orderid=?");
+
+            //bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
+            $statement->bind_param('i',  $orderid);
+            $results =  $statement->execute();
+            if(!$results){
+                die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+            }
+        }
+
         $ordqry = "SELECT UNIX_TIMESTAMP(dateCreated) as dateCreated, useremail, status, paymenttype,shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal,billingaddress1,billingaddress2,billingcity,billingstate,billingpostal from orders where orderid=$orderid";
 
         $stmt = $dbcon->prepare($ordqry);

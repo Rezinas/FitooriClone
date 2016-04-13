@@ -6,7 +6,11 @@
      <div class="panel-body">
         <?php if(empty($mainErrorMsg)) { ?>
           <div class="cart-items container">
-               <h4 style="color:#F07818;">Order Number: ORD000<?php echo $orderid; ?>  &nbsp; &nbsp; &nbsp; Order Date: <?php echo $currOrder['dateCreated']; ?>  &nbsp; &nbsp; &nbsp; Order Status: <?php echo $currOrder['status']; ?></h4>
+               <h4 style="color:#F07818;">Order Number: ORD000<?php echo $orderid; ?>  &nbsp; &nbsp; &nbsp; Order Date: <?php echo $currOrder['dateCreated']; ?>  &nbsp; &nbsp; &nbsp; Order Status: <?php echo $currOrder['status']; ?></h4><br>
+               <?php if($currOrder['status'] != 'cancelled' || $currOrder['status'] != 'shipped' || $currOrder['status'] != 'delivered' || $currOrder['status'] != 'completed') { ?>
+                    <a href="index.php?myorder&orderid=ORD000<?php echo $orderid; ?>&cancel"><button class="btn btn-primary">Cancel Order</button></a>
+               <?php } ?>
+
                 <table id="orderTable" style="width: 100%">
                 <thead>
                   <tr>
