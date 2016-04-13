@@ -155,7 +155,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         });
 
         $.each(elements, function(ind, element) {
-            if (element.bodypart == 3 && element.admintags.toLowerCase().indexOf($scope.startType.toLowerCase()) > -1) {
+            //if (element.bodypart == 3 && element.admintags.toLowerCase().indexOf($scope.startType.toLowerCase()) > -1) {
+            if (element.bodypart == 3 ) {
                 $scope.designObj["Earrings"].push(element);
             }
             if (element.bodypart == 1) {
@@ -474,11 +475,15 @@ des.directive('resizable', function($window) {
     $scope.initializeWindowSize = function() {
       $scope.windowHeight = $window.innerHeight;
       // do width check here, especially since you have $window object here already
-      if($window.innerWidth < 641)
+      if($window.innerWidth <= 480)
           $scope.numDisp = 3; //
-      else if($window.innerWidth > 640 && $window.innerWidth < 1025)
+      else if($window.innerWidth >= 481 && $window.innerWidth <= 736)
           $scope.numDisp = 5;
-      else if($window.innerWidth > 1024)
+      else if($window.innerWidth > 736 && $window.innerWidth <= 1024)
+          $scope.numDisp = 4;
+      else if($window.innerWidth > 1024 && $window.innerWidth <= 1080)
+          $scope.numDisp = 5;
+      else if($window.innerWidth > 1080)
           $scope.numDisp = 8;
 
      // console.log($window.innerWidth, $scope.numDisp); // check console for right output
