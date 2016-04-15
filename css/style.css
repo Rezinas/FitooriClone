@@ -2633,6 +2633,9 @@ p.alert.text-uppercase a {
     background-color: #F07818;
     border-color: #F07818;
 }
+.fa-fw{
+    color: #5D4B33;
+}
 /*--//contact--*/
 /*---- responsive-design -----*/
 

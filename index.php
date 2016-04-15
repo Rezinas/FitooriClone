@@ -180,7 +180,11 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
         <script src="js/myaccount.js" type="text/javascript"></script>
       <?php }?>
 
-      <?php if($currenttab == "designearrings") { ?>
+      <?php if($currenttab == "customearrings") { ?>   
+        <link rel="stylesheet" href="css/landingPage.css">
+      <?php } ?>
+
+      <?php if($currenttab == "designearrings") { ?>        
         <link rel="stylesheet" href="css/design.css">
         <script src="js/angular.min.js"></script>
         <script src="js/design.js"></script>
@@ -334,7 +338,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                         <li><a href="index.php?myaccount=orders"><i class="fa fa-shopping-cart fa-fw"></i>My Orders</a>
                         </li>
                         <li><a href="index.php?myaccount=credits"><i class="fa fa-gift fa-fw"></i>My Credits</a>
-                        <li><a href="index.php?myaccount=wishlist"><i class="fa fa-heart-o fa-fw"></i>My Wishlist</a>
+                        <li><a href="index.php?myaccount=wishlist"><i class="fa fa-heart fa-fw"></i>My Wishlist</a>
                         </li>
                      </ul>
                   </div>

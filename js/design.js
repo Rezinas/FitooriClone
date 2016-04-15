@@ -475,7 +475,9 @@ des.directive('resizable', function($window) {
     $scope.initializeWindowSize = function() {
       $scope.windowHeight = $window.innerHeight;
       // do width check here, especially since you have $window object here already
-      if($window.innerWidth <= 480)
+      if($window.innerWidth <= 375)
+          $scope.numDisp = 2;
+      else if($window.innerWidth >= 376 && $window.innerWidth <= 480)
           $scope.numDisp = 3; //
       else if($window.innerWidth >= 481 && $window.innerWidth <= 736)
           $scope.numDisp = 5;
