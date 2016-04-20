@@ -32,7 +32,7 @@
 							<div class="product-info-cust prt_name">
 								<h4>{{product['name']}}</h4>
 								<!-- <h4>{{product['dateAdded']}}</h4> -->
-								<span class="item_price">{{product['price'] | currency:"&#8377":2}}</span>
+								<span class="item_price">{{product['price'] | mathround | currency:"&#8377":2}}</span>
 								<!-- <div class="ofr">
 									<p class="pric1"><del>$2300.00</del></p>
 									<p class="disc">[15% Off]</p>
