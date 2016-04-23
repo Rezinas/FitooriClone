@@ -210,29 +210,35 @@ $(function() {
 
 
 
-  $('#passwd').on('click', function(c) {
+  $('.passwd').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#chngPwd').fadeIn('fast');
+    $("#menuToggle").prop("checked", false);
   });
-  $('#ep').on('click', function(c) {
+  $('.ep').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#editProfile').fadeIn('fast');
+    $("#menuToggle").prop("checked", false);
   });
-  $('#ea').on('click', function(c) {
+  $('.ea').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#editAddress').fadeIn('fast');
+    $("#menuToggle").prop("checked", false);
   });
-  $('#vo').on('click', function(c) {
+  $('.vo').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#viewOrders').fadeIn('fast');
+    $("#menuToggle").prop("checked", false);
   });
-  $('#credit').on('click', function(c) {
+  $('.credit').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#credits').fadeIn('fast');
+    $("#menuToggle").prop("checked", false);
   });
-  $('#wish').on('click', function(c) {
+  $('.wish').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#wishlist').fadeIn('fast');
+    $("#menuToggle").prop("checked", false);
   });
 
 

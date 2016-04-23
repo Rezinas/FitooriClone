@@ -93,16 +93,18 @@
 .menu {
   width: 276px;
   min-height: auto;
+  margin-top: -130px;
   position: absolute;
+  height: 0;
   background: #5D4B33;
-  left: -336px;
+  left: -10px;
   transition: all .3s ease-in-out;
+  overflow: hidden;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   z-index: 1;
-  
 }
 .menu-icon {
     padding: 10px 20px;
@@ -288,7 +290,8 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 table#allorders td a {
     cursor: pointer;
-    color: #333;
+    color: blue;
+    text-decoration: underline;
 }
 @media screen and (max-width: 600px) {
 /** table or cart page **/
@@ -306,7 +309,7 @@ table#allorders td a {
   }
   table#allorders tbody td:before {
     content: attr(data-th); font-weight: bold;
-    display: inline-block; 
+    display: inline-block;
   }
 
 
@@ -587,6 +590,7 @@ table#allorders td a {
     position: absolute;
     left: -10px;
     margin-top: -130px;
+    height: auto;
   }
   .userList i{
     color: #fff;
@@ -679,7 +683,7 @@ table#allorders td a {
   }
   #emailInput{
     width:100%;
-  } 
+  }
   .orders table {
     width: 100%;
     margin: 0px 0px 10px -32px;

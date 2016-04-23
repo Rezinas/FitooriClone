@@ -88,10 +88,10 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 						<li><a href="<?php echo $url; ?>"> <?php echo $categoriesArr[$parr['material']-1]; ?> </a></li>
 				</ul>
 				<div class="prices">
-						<h5 class="item_price">Price : Rs.<?php echo $parr['price']; ?>/-</h5>
+						<h5 class="item_price">Price : Rs.<?php echo round($parr['price']); ?>/-</h5>
 					</div>
 				<div class="btn_form">
-					<a href="javascript:void(0);" onclick="window.cart.updateCart(<?php echo $pid;?>, <?php echo $parr['price'];?>);addToCartSingle();" class="add-cart item_add" style="width: auto;">ADD TO CART</a>
+					<a href="javascript:void(0);" onclick="window.cart.updateCart(<?php echo $pid;?>, <?php echo round($parr['price']);?>);addToCartSingle();" class="add-cart item_add" style="width: auto;">ADD TO CART</a>
 				</div>
 				<div class="tag">
 					<?php
@@ -180,7 +180,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 				<div class="product-info simpleCart_shelfItem">
 					<div class="product-info-cust prt_name">
 						<h4><?php echo $rprod['name']; ?></h4>
-						<span class="item_price">Rs.<?php echo $rprod['price']; ?></span>
+						<span class="item_price">Rs.<?php echo round($rprod['price']); ?></span>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
