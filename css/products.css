@@ -1,0 +1,42 @@
+.menu-icon {
+    padding: 10px 20px;
+    background: #5D4B33;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    margin: -8px 6px 12px 0;
+    border-radius: 0px;
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+}
+#filterToggle {display: none;}
+
+@media screen and (max-width: 480px) {
+    #filterToggle:checked ~ .rsidebar {
+    width: 100%;
+     overflow: hidden;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+}
+}
+
+
+@media (max-width: 360px) and (min-width: 321px) {
+        #filterToggle:checked ~ .rsidebar {
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+}
+
+#filterToggle:checked ~ .menu {
+position: absolute;
+left: -10px;
+margin-top: -130px;
+}

@@ -30,13 +30,14 @@ section.sky-form {
 }
 section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
 	border:0px;
-	padding: 10px 0px;
+	width: 25%;
 }
 section#sorter select{
-	width:100%;
+	width: 70%;
 	border: 1px solid;
-    border-radius: 3px;
-    margin-top: 10px;
+	border-radius: 3px;
+	margin-top: 10px;
+	padding: 10px 0px;
 }
 .sky-form .input,
 .sky-form .select,
