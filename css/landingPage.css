@@ -1,0 +1,811 @@
+   .about {
+       /*background: transparent url("/images/customBG4.png") no-repeat scroll 50% 50% / contain;*/
+       
+       background: transparent url("/images/customBG4.png") no-repeat;
+       background-size: 100% 115%;
+   }
+   .about-inform .content {
+       display: table;
+       border: 0px solid red;
+       width: 100%;
+       height: 100%;
+       margin: -25px 0px 0px 0px;
+   }
+   #chandDiv,
+   #hoopDiv,
+   #studDiv,
+   #dangDiv,
+   #jhumDiv {
+       display: table-row;
+       max-height: 320px;
+       text-align: center;
+   }
+   .about-inform .content div h3 {
+       font-weight: bold;
+       font-size: 20px;
+       margin: 30px auto 10px auto;
+       text-align: center;
+       color: #000;
+       font-weight: bold;
+   }
+   .about hr {
+       margin-bottom: 10px;
+   }
+   .about-inform .content div hr {
+       margin-top: -2px;
+       border-top: 1px solid #333;
+       width: 60%;
+   }
+   #chandDiv p,
+   #hoopDiv p,
+   #studDiv p,
+   #dangDiv p,
+   #jhumDiv p {
+       text-align: center;
+       margin: 10px auto 0px auto;
+       font-weight: bold;
+       font-size: 13px;
+       color: #000;
+       font-weight: bold;
+       text-shadow: 1px 1px 9px #333;
+   }
+   .about-inform .content div #chandText,
+   .about-inform .content div #hoopText,
+   .about-inform .content div #studText,
+   .about-inform .content div #jhumText,
+   .about-inform .content div #dangText {
+       font-size: 19px;
+       border: 0px solid;
+       width: 100%;
+       top: 50%;
+       position: absolute;
+       font-weight: bold;
+       height: 60px;
+       margin-left: -15px;
+   }
+   .about-inform .content div #chandText input,
+   .about-inform .content div #hoopText input,
+   .about-inform .content div #studText input,
+   .about-inform .content div #jhumText input,
+   .about-inform .content div #dangText input {
+       box-shadow: 2px -2px 115px #0E0D0D inset;
+       background-color: #E0D3D3;
+       border: 0px solid #5D4B33;
+       color: #fff;
+       font-size: 14px;
+       font-weight: bold;
+       opacity: 0.8;
+       height: 60px;
+       font-family: 'Roboto-Regular';
+       width: 50%;
+       margin: 0px auto;
+   }
+   .borderClass {
+       border: 1px solid #333;
+   }
+   .imgClass {
+       border: 0px solid;
+       width: 100%;
+       margin: 0 auto;
+   }
+   .imgClass img {
+       width: 100%;
+       cursor: pointer;
+   }
+   .gallery-info p {
+       font-size: 0.95em;
+       margin-top: 0em;
+       margin-left: 60px;
+   }
+   .gallery-info,
+   .gallery-grid:nth-child(3) .gallery-info {
+       width: 37.7%;
+       left: 31.2%;
+       padding: 0.5em;
+       bottom: 0%;
+   }
+   .gallery-grid img {
+       border: 1px solid #eee;
+       width: 40%;
+   }
+   .gallery-grid p {
+       text-align: center;
+       font-size: 18px;
+   }
+   /***** MEDIA QUERIES *****/
+   
+   @media(max-width:320px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 100%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 100%;
+           left: 0%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 58px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:321px) and (max-width:360px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 100%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 100%;
+           left: 0%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 78px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:361px) and (max-width:375px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 100%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 100%;
+           left: 0%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 85px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:376px) and (max-width:414px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 100%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 100%;
+           left: 0%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 102px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:415px) and (max-width:435px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 100%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 100%;
+           left: 0%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 115px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:436px) and (max-width:480px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 100%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 91.7%;
+           left: 4%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 125px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:481px) and (max-width:568px) {
+       .gallery-grid {
+           width: 100%;
+       }
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 56%;
+           left: 22%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 91px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:469px) and (max-width:600px) {
+       .gallery-grid {
+           width: 100%;
+       }
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 56%;
+           left: 22%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 91px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:601px) and (max-width:640px) {
+       .gallery-grid {
+           width: 100%;
+       }
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 57%;
+           left: 21.6%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 110px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:641px) and (max-width:667px) {
+       .gallery-grid {
+           width: 100%;
+       }
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 57%;
+           left: 21.6%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 122px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:668px) and (max-width:731px) {
+       .gallery-grid {
+           width: 100%;
+       }
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 57%;
+           left: 21.6%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 122px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:732px) and (max-width:736px) {
+       .gallery-grid {
+           width: 100%;
+       }
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 57%;
+           left: 21.6%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 142px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:737px) and (max-width:773px) {
+       .gallery-grid {
+           width: 100%;
+       }
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 45%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 43%;
+           left: 28.6%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 105px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media(min-width:774px) and (max-width:800px) {
+       .gallery-grid {
+           width: 100%;
+       }
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 45%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 43%;
+           left: 28.6%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 105px;
+           top: 5px;
+           position: relative;
+       }
+   }
+   @media (min-width: 801px) and (max-width: 900px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 52.7%;
+           left: 23.6%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 33px;
+           top: 5px;
+           position: relative;
+           font-size: 14px;
+       }
+   }
+   @media (min-width: 901px) and (max-width: 991px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 56.7%;
+           left: 19%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 47px;
+           top: 6px;
+           position: relative;
+           font-size: 14px;
+       }
+   }
+   @media (min-width: 992px) and (max-width: 1024px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 53.7%;
+           left: 23%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 47px;
+           top: 6px;
+           position: relative;
+           font-size: 14px;
+       }
+   }
+   @media (min-width: 1025px) and (max-width: 1080px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 14.5px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 53.7%;
+           left: 23%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 47px;
+           top: 6px;
+           position: relative;
+           font-size: 14px;
+       }
+   }
+   @media (min-width: 1081px) and (max-width: 1280px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 55.2%;
+           left: 22.5%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 66px;
+           top: 6px;
+           position: relative;
+           font-size: 14px;
+       }
+   }
+   @media (min-width: 1281px) and (max-width: 1366px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 55.9%;
+           left: 22%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 80px;
+           top: 6px;
+           position: relative;
+           font-size: 14px;
+       }
+   }
+   @media (min-width: 1367px) and (max-width: 1440px) {
+       .about {
+           background: transparent url("/images/customBG4.png");
+           background-size: contain;
+       }
+       .about-inform .content {
+           margin-top: -11px;
+       }
+       .gallery-grid p {
+           font-size: 16px;
+           margin-bottom: 10px;
+       }
+       .gallery-grid img {
+           width: 60%;
+       }
+       .about hr {
+           margin-bottom: 10px;
+       }
+       .gallery-info,
+       .gallery-grid:nth-child(3) .gallery-info {
+           width: 56%;
+           left: 22%;
+           padding: 0.5em;
+           bottom: 0%;
+       }
+       .gallery-info p {
+           margin-top: 0em;
+           margin-left: 90px;
+           top: 6px;
+           position: relative;
+           font-size: 14px;
+       }
+   }
+   @media (min-width: 1441px) and (max-width: 1600px) {
+       .gallery-info p {
+           font-size: 14px;
+           margin-left: 58px;
+       }
+       .gallery-grid p {
+           font-size: 17px;
+           margin-bottom: 10px;
+       }
+   }
