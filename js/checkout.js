@@ -40,6 +40,10 @@ $(document).ready(function (c) {
       }
       window.cart.removeItem(thisId[1], currPrice);
 
+      var updatedPrice=window.cart.getCartTotalPrice();
+      $("#subTotal").html(window.cart.formatCurrency(updatedPrice));
+      $("#grandTotal").html( window.cart.formatCurrency(updatedPrice+ window.cart.shipping[0]));
+
   });
 
    $(".cartUpdate").on('click', function(e){
@@ -51,6 +55,10 @@ $(document).ready(function (c) {
       var currQty = $.trim(qtyObj.html());
       var currPrice = parseFloat($.trim(priceObj.html()), 10);
       currQty = parseInt(currQty, 10);
+      if(currQty >= 10 ) {
+        alert("For bulk orders of more than 10, please contact us through the contact us page.");
+        return;
+      }
       qtyObj.html(++currQty);
 
       var rowTotalPrice = currPrice * currQty;

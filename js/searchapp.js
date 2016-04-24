@@ -182,3 +182,9 @@ searchapp.filter('startFrom', function() {
         return input.slice(start);
     }
 });
+
+searchapp.filter('mathround', function() {
+    return function(input) {
+        return Math.round(input);
+    }
+});

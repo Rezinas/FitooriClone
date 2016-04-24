@@ -110,9 +110,10 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <!-- //Custom Theme files -->
       <link rel="icon" type="image/ico" href="images/favicon.ico">
       <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-      <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
       <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
       <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+
 
        <!-- js -->
       <script type="text/javascript"  src="js/jquery.min.js"></script>
@@ -180,11 +181,11 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
         <script src="js/myaccount.js" type="text/javascript"></script>
       <?php }?>
 
-      <?php if($currenttab == "customearrings") { ?>   
+      <?php if($currenttab == "customearrings") { ?>
         <link rel="stylesheet" href="css/landingPage.css">
       <?php } ?>
 
-      <?php if($currenttab == "designearrings") { ?>        
+      <?php if($currenttab == "designearrings") { ?>
         <link rel="stylesheet" href="css/design.css">
         <script src="js/angular.min.js"></script>
         <script src="js/design.js"></script>
@@ -192,6 +193,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
 
       <?php if($currenttab == "products") { ?>
         <link href="css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
+        <link href="css/products.css" type="text/css" rel="stylesheet" media="all">
         <script src="js/angular.min.js"></script>
         <script src="js/rzslider.min.js"></script>
         <script src="js/searchapp.js"></script>

@@ -25,7 +25,7 @@ if(isset($_REQUEST["cartUpdate"])) {
 
     $totalPrice = $_POST['totalPrice'];
     if($totalPrice == "0") $totalPrice =0;
-    $_SESSION['cartPrice'] = $totalPrice;
+    $_SESSION['cartPrice'] = round(floatval($totalPrice));
   exit();
 }
 if(isset($_REQUEST["getCart"])) {
