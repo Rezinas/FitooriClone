@@ -2072,7 +2072,8 @@ p span.overline{
 	margin-right:5%;
 }
 .cart-item img{
-	width:100%;
+	/* width:100%; */
+	padding: 2em;
 }
 .cart-item-info{
 	width:75%;

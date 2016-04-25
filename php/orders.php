@@ -88,13 +88,12 @@ $subject = 'Fitoori Order Confirmation';
 $headers  = "From: Admin@fitoori.com";
 $headers .= "Content-type: text/html";
 
-// mail($toemail, $subject, $message, $headers);
+mail($toemail, $subject, $message, $headers);
 
 $adminMessage = "New Order Placed: ".$sess_orderID;
 
 $adminheaders = "From: Admin@fitoori.com";
-
-// mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminheaders);
+mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminheaders);
 
 unset($_SESSION['cartitemlist']);
 unset($_SESSION['shippingaddress']);
