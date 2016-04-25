@@ -686,8 +686,8 @@ form.form-guest-checkout div {
 .cdesign {
     position: relative;
     min-height: 200px;
-    margin-top: 15px;
-    margin-left: 25px;
+    /* margin-top: 15px; */
+    /* margin-left: 25px; */
 }
 
 .prd_elements {
@@ -695,7 +695,7 @@ form.form-guest-checkout div {
 }
 
 .prd_elements  img {
-    width: 100%;
+    /* width: 100%; */
 }
 div#Orderpage h2 {
       margin-top: 60px;
