@@ -30,28 +30,48 @@
                </div>
                <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12" id="subElementDiv">
                   <!-- all the messages come here -->
-                        <div ng-if="designLevel == 0 && !productAdded" class="alert" role="alert" id="alertDiv1">
-                           <p>
-                              <!-- <i class="fa fa-exclamation-circle"></i> -->&nbsp;Begin with a stud or simply a hook. Click ‘Next’ to continue designing.
+                        <div ng-if="designLevel == 0 && !productAdded"  role="alert" id="alertDiv1">
+                           <p class="triangle-right left" ng-if="startType == 'Studs'">
+                              &nbsp;Explore our range of studs , dont forget to click + and see all options.
+                           </p>
+                           <p class="triangle-right left" ng-if="startType == 'Jhumka'">
+                              &nbsp;Choose a top or hook for your jhumka.
+                           </p>
+                           <p class="triangle-right left" ng-if="startType == 'Hoops'">
+                              &nbsp;Start by choosing a hoop.
+                           </p>
+                           <p class="triangle-right left" ng-if="startType == 'Chandelier'">
+                              &nbsp;Start by choosing a hook or top for you chandelier.
+                           </p>
+                           <p class="triangle-right left" ng-if="startType == 'Danglers'">
+                              &nbsp;Start by choosing a hook or top for you dangler.
                            </p>
                         </div>
-                        <div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv2">
-                           <p>Good start!&nbsp;Go on and explore your options. Click ‘Next’ to continue designing. OR You could ‘Add to Cart’.</p>
-                           <!-- <p ng-if='mySelectedItems[designLevel].bottompoints == 0'></p> -->
-                        </div>
-                        <div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv3">
-                           <p>That looks good!!&nbsp;Keep exploring , click ‘Next’ to continue designing!&nbsp;OR!&nbsp;
-                              You could ‘Add to Cart’.
+                        <div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" id="alertDiv2">
+                           <p class="triangle-right left" ng-if="startType == 'Jhumka'">
+                              &nbsp;Wonderful! Now choose a design to add below your jhumka.
+                           </p>
+                           <p class="triangle-right left" ng-if="startType == 'Hoops'">
+                              &nbsp;Wonderful! Now choose a design to match below your hoop.
+                           </p>
+                           <p class="triangle-right left" ng-if="startType == 'Chandelier'">
+                              &nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options.
+                           </p>
+                           <p class="triangle-right left" ng-if="startType == 'Danglers'">
+                              &nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options. Add to cart if you like your design.
                            </p>
                         </div>
-                        <div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" class="alert" role="alert" id="alertDiv4">
-                           <p>That looks amazing!!&nbsp;That just cant get any better, Choose a final option and go ahead and ‘Add to Cart’. </p>
+                        <div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" id="alertDiv3">
+                           <p class="triangle-right left" >Would you like to decorate it more? Go on choose another design. Add to cart if you like your design.  </p>
                         </div>
-                        <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" class="alert" role="alert" id="alertDiv4">
-                           <p>Wonderful!!&nbsp;That just cant get any better... Go on and add to cart.</p>
+                        <div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" id="alertDiv4">
+                           <p class="triangle-right left" >Good going! Pick what you like from below one final time if you want to add more. </p>
                         </div>
-                        <div ng-if="productAdded" class="alert" role="alert" id="alertDiv4">
-                           <p> <i class="fa fa-thumbs-up"></i> Your Design Added successfully to the Cart</p>
+                        <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" role="alert" id="alertDiv4">
+                           <p class="triangle-right left" >Looks great! no further attachments can be made. Add your personalized {{startType }} to cart! . </p>
+                        </div>
+                        <div ng-if="productAdded" role="alert" id="alertDiv4">
+                           <p class="triangle-right left"> <i class="fa fa-thumbs-up"></i> Your Design Added successfully to the Cart</p>
                         </div>
                   <div class="elements" id="sampleImgs">
                      <a href="javascript:void(0)" onclick="$('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide(); " class="lightboxClose"><i class="fa fa-times-circle"></i></a>
@@ -63,13 +83,13 @@
                                  <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                               </div>
                            </div>
-                           <a  ng-if="terracota.length > 3"  href = "javascript:void(0)" onclick = "openOverlay(0);">
+
                               <div  class="moreoptions">
-                                 <p >
-                                    Terracotta<br/> <span>See More</span><br/><i class="fa fa-plus placeholdit"></i>
+                                 <p>
+                                    <span style="color: #f07818; ">Terracotta</span><br/> <a  ng-if="terracota.length > 3"  href = "javascript:void(0)" onclick = "openOverlay(0);"> <span>See More</span><br/><i class="fa fa-plus placeholdit"></i> </a>
                                  </p>
                               </div>
-                           </a>
+
                            <div class="clearfix"></div>
                         </div>
                         <div id="light" class="white_content">
@@ -86,13 +106,13 @@
                                  <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                               </div>
                            </div>
-                           <a ng-if="metal.length > 3" href = "javascript:void(0)" onclick = "openOverlay(2);">
+
                               <div  class="moreoptions">
                                  <p>
-                                    Metal<br/> <span >See More</span><br/><i class="fa fa-plus placeholdit"></i>
+                                    <span style="color: #f07818; ">Metal</span><br/> <a ng-if="metal.length > 3" href = "javascript:void(0)" onclick = "openOverlay(2);"> <span >See More</span><br/><i class="fa fa-plus placeholdit"></i></a>
                                  </p>
                               </div>
-                           </a>
+
                         <div class="clearfix"></div>
                         </div>
                         <div id="light2" class="white_content">
@@ -109,13 +129,14 @@
                                  <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                               </div>
                            </div>
-                           <a ng-if="beaded.length > 3" href = "javascript:void(0)" onclick = "openOverlay(1);">
-                              <div  class="moreoptions">
+                           <div  class="moreoptions">
                                  <p >
-                                    Beaded<br/> <span >See More</span><br/><i class="fa fa-plus placeholdit"></i>
+                                    <span style="color: #f07818; ">Beaded</span><br/>
+                                    <a ng-if="beaded.length > 3" href = "javascript:void(0)" onclick = "openOverlay(1);">
+                                     <span >See More</span><br/><i class="fa fa-plus placeholdit"></i></a>
                                  </p>
                               </div>
-                           </a>
+
                            <div class="clearfix"></div>
                         </div>
                         <div id="light1" class="white_content">
@@ -126,10 +147,10 @@
                         </div>
                         <div id="fade1" class="black_overlay"></div>
                      </div>
-                     <div id="chkBtn" style="text-align:left;">
+                     <div ng-hide="startType == 'Studs'" id="chkBtn" style="text-align:left;">
 
-                        <button type="button" ng-disabled="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()">Add</button> &nbsp; &nbsp;
-                        <button type="button" ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Remove</button>
+                        <button type="button" ng-hide="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()">This one <i class="fa fa-thumbs-up"></i></button> &nbsp; &nbsp;
+                        <button type="button" ng-hide="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>
                         <button type="button" ng-if="mySelectedItems.length > 0"  class="btn btn-primary" ng-click="resetDesign()" style="margin-left: 15px;">Start Over</button>
                      </div>
                   </div>
@@ -142,7 +163,7 @@
                <div style="text-align: center;">
                   <p style="text-align: center;font-size: 25px;"> {{designPrice | currency:"&#8377":2}}</p>
                    <button style="margin-top: 10px;" ng-if="isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && !productAdded" class="cnfBtn">Confirm Design</button> &nbsp; &nbsp;
-                  <button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && mySelectedItems[designLevel].admintags.indexOf('hooks') < 0" ng-show="productAdded" class="addtoCart">ADD TO CART</button>
+                  <button  style="margin-top: 10px;" ng-if="!isAgent" ng-click="processForm()" ng-show="mySelectedItems.length > 0 && mySelectedItems[designLevel].admintags.indexOf('hook') < 0" ng-show="productAdded" class="addtoCart">ADD TO CART</button>
                </div>
              <!--   <table width="95%">
                   <tbody>

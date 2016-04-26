@@ -155,8 +155,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         });
 
         $.each(elements, function(ind, element) {
-            //if (element.bodypart == 3 && element.admintags.toLowerCase().indexOf($scope.startType.toLowerCase()) > -1) {
-            if (element.bodypart == 3 ) {
+            if (element.bodypart == 3 && element.admintags.toLowerCase().indexOf($scope.startType.toLowerCase()) > -1) {
+           // if (element.bodypart == 3 ) {
                 $scope.designObj["Earrings"].push(element);
             }
             if (element.bodypart == 1) {
