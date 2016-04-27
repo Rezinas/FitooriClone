@@ -30,8 +30,13 @@ h4.panel-title a{
   text-align: justify;
 }
 .single-grid.simpleCart_shelfItem{
-    border-right: 1px solid #eee; 
+    border-right: 1px solid #eee;
   }
+
+  .product-model-sec {
+    margin: 4em 0 0 0;
+    /* float: right; */
+}
 
 /** LAPTOP & DESKTOPS SCREEN MEDIA QUERIES **/
 @media (min-width:1281px) and (max-width:1366px){
@@ -46,7 +51,7 @@ h4.panel-title a{
   }
   .related-products .product-img img{
     padding:4em;
-  }   
+  }
 }
 @media (min-width:1081px) and (max-width:1280px){
   .single {
@@ -71,7 +76,7 @@ h4.panel-title a{
   }
   .single hr{
     margin-bottom: 0px;
-  } 
+  }
   .single-grid p{
     font-size: 1.1em;
   }
@@ -122,7 +127,7 @@ h4.panel-title a{
   }
   .single hr{
     margin-bottom: 0px;
-  } 
+  }
   .single-grid p{
     font-size: 1.1em;
   }
@@ -173,7 +178,7 @@ h4.panel-title a{
   }
   .single .single-grid{
     width: 30%
-  } 
+  }
   .single-grid p{
     font-size: 1.1em;
     padding-right: 6px;
@@ -225,7 +230,7 @@ h4.panel-title a{
   }
   .single .single-grid{
     width: 50%
-  } 
+  }
   .single-grid p{
     font-size: 1.1em;
     padding-right: 6px;
@@ -280,7 +285,7 @@ h4.panel-title a{
     margin-bottom: 0px;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -320,7 +325,7 @@ h4.panel-title a{
     margin-bottom: 0px;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -360,7 +365,7 @@ h4.panel-title a{
     margin-bottom: 0px;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -400,7 +405,7 @@ h4.panel-title a{
     margin-bottom: 0px;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -440,7 +445,7 @@ h4.panel-title a{
     margin-bottom: 0px;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid {
@@ -483,7 +488,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -534,7 +539,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -583,7 +588,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -632,7 +637,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -681,7 +686,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -730,7 +735,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -779,7 +784,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }
   .single-grid p,.panel-body {
@@ -828,7 +833,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }*/
   .single-grid p{
@@ -880,7 +885,7 @@ h4.panel-title a{
     width: 100%;
   }
   .single-grid.simpleCart_shelfItem{
-    border-right: 0px solid #eee; 
+    border-right: 0px solid #eee;
     width: 100%;
   }*/
   .single-grid p{

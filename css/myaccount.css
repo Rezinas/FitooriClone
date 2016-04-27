@@ -290,7 +290,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
 }
 table#allorders td a {
     cursor: pointer;
-    color: blue;
+    color: #000;
     text-decoration: underline;
 }
 @media screen and (max-width: 600px) {

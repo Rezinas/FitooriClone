@@ -37,6 +37,7 @@ if(count($cartItems)  > 0) {
 		$desArr=[];
 		if($f == 1 ){
 			$design_qry = "SELECT elementid, leftPos,topPos,selectedImage,isProduct from customdesign where productid=$a";
+
 			$stmt1 = $dbcon->prepare($design_qry);
 			if(!$stmt1->execute()){
 			    die('Error : ('. $dbcon->errno .') '. $dbcon->error);

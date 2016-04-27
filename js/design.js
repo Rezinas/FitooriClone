@@ -27,6 +27,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.shipping=$window.model.shipping;
         $scope.productAdded = false;
         $scope.startType = "";
+        $scope.showCartbtn = false;
         var marginPercent =$window.model.margin;
         var taxPercent =$window.model.vat;
         var overheads =$window.model.overheads;
@@ -177,6 +178,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             var lastLevelEl = [];
             var fits = true;
 
+             if($scope.designLevel ==0 && elem.admintags.indexOf('hook') > -1)
+                $scope.showCartbtn = false;
+             else
+              $scope.showCartbtn = true;
 
             // This is when different images in carousel is selected after
             //the level is filled but next level is not  reached.
@@ -304,11 +309,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 updateDesignerPick();
                 designTotal();
             } else {
-                var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
+               // var pos = ($scope.designLevel > 0) ? numberOfElemInPrevLevel : 0;
                 bpoints = ($scope.designLevel == 0 ) ? 1 : bpoints;
                 for (var i = 0; i < bpoints; i++) {
-                    $scope.mySelectedItems[pos].selectedImage = elem;
-                     pos++;
+                    $scope.mySelectedItems[$scope.prdIndex[$scope.designLevel][i]].selectedImage = elem;
                 }
             }
         };
@@ -420,6 +424,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
             $scope.designLevel--;
             $scope.levelFilled = true;
+             if($scope.designLevel ==0 && $scope.mySelectedItems[$scope.designLevel].admintags.indexOf('hook') > -1)
+                $scope.showCartbtn = false;
             $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
         }
 
