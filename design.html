@@ -22,7 +22,7 @@
                      <div ng-if="levelFilled" class="aelements">
                         <img ng-src="{{siteUrl}}productImages/{{mySelectedItems[designLevel].carouselImg}}"  ng-click="selectImage(mySelectedItems[designLevel].carouselImg, false);" />
                      </div>
-                     <div class="aelements" ng-repeat="altItem in mySelectedItems[designLevel].images">
+                     <div class="aelements" ng-repeat="altItem in mySelectedItems[prdIndex[designLevel][0]].images">
                         <img ng-src="{{siteUrl}}productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, false);" />
                      </div>
                      <div class="clearfix"></div>
