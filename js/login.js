@@ -75,6 +75,7 @@ $(function() {
 
     $("#loginForm #fgtpwd").click(function() {
      $("#loginForm").css('display', 'none');
+     $("div.submitForm").show();
      $("#submitForm").css('display', 'block');
      $("#submitForm #forgotpwdMessage").removeClass("hide");
     });
@@ -99,8 +100,10 @@ $(function() {
        timeout: 3000,
        success: function(data) {
         if (data && data == "SUCCESS") {
-         $(".alert-danger").removeClass("alert-danger").addClass("alert-success").html("Email has been sent successfully");
+         //$(".alert-danger").removeClass("alert-danger").addClass("alert-success").html("Email has been sent successfully");
+         $(".alert-danger").addClass("hide");
          $("#fgtPwdMsg").removeClass("hide");
+         $("div.submitForm").hide();
          $("#loginForm").css("display", "block");
 
         }

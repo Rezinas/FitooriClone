@@ -805,8 +805,8 @@ span.glyphicon.glyphicon-eye-open:hover {
 .galy-info p {
     font-size: 1.1em;
     color: #000;
-    margin: 1em 0 0;
-    font-weight: 600;
+    margin: 0 0 0 1em;
+    font-weight: 400;
 }
 .galy-info h5 {
     font-size: 1.5em;
@@ -881,10 +881,10 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
 }
 .prices {
     /* float: right; */
-    margin-top: 1em;
+    /* margin-top: 1em; */
 }
 .galry {
-    margin-top: 1em;
+    /* margin-top: 1em; */
 }
 /*--//gallery--*/
 /*--subscribe--*/
@@ -4055,7 +4055,7 @@ p.alert.text-uppercase a {
     }
     .gallery-grid.glry-one {
         padding: 0;
-        width: 100%;
+        /* width: 100%; */
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -4069,7 +4069,7 @@ p.alert.text-uppercase a {
         padding-right: 0.5em;
     }
     .gallery-grid {
-        width: 33%;
+        /* width: 33%; */
         text-align: center;
     }
     .gallery-grid img{
@@ -6754,11 +6754,11 @@ p.alert.text-uppercase a {
         margin: 0;
     }
     .gallery-grid:nth-child(3) {
-        width: 50%;
+        /* width: 50%; */
         padding-left: 0;
     }
     .gallery-grid:nth-child(3) {
-        width: 100%;
+        /* width: 100%; */
         padding: 0;
     }
     .gallery-grid:nth-child(3) .gallery-info {
@@ -6767,7 +6767,7 @@ p.alert.text-uppercase a {
         left: 0%;
     }
     .gallery-grid {
-        width: 100%;
+        /* width: 100%; */
         margin-bottom: 1em;
         padding: 0;
     }
@@ -6783,7 +6783,7 @@ p.alert.text-uppercase a {
         font-size: 2.5em;
     }
     .gallery-grid img{
-        width: 120%;
+        /* width: 120%; */
     }
     .feturedImg {
         padding: 50px;
@@ -7963,11 +7963,11 @@ p.alert.text-uppercase a {
         margin: 0;
     }
     .gallery-grid:nth-child(3) {
-        width: 50%;
+        /* width: 50%; */
         padding-left: 0;
     }
     .gallery-grid:nth-child(3) {
-        width: 100%;
+        /* width: 100%; */
         padding: 0;
     }
     .gallery-grid:nth-child(3) .gallery-info {
@@ -7976,7 +7976,7 @@ p.alert.text-uppercase a {
         left: 0%;
     }
     .gallery-grid {
-        width: 100%;
+        /* width: 100%; */
         margin-bottom: 1em;
         padding: 0;
     }
