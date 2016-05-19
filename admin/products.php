@@ -88,6 +88,8 @@ if (!empty($_POST)) {
 	  $pstatus  = prepare_input($_POST['pstatus' ]);
 	  $featured  = prepare_input($_POST['featured' ]);
 
+	  if($pstatus == "") $pstatus =1;
+
 	  if($mode != "new"){
 		  $mi = prepare_input($_POST['mi' ]);
 		  $ai1 = prepare_input($_POST['ai1' ]);
@@ -182,19 +184,19 @@ if (!empty($_POST)) {
 	}
 }
 
-if($pcustomized == "1") {
-	$design_qry = "SELECT elementid, leftPos,topPos,selectedImage, addedBy, addedByType, isProduct from customdesign where productid=$pid";
+// if($pcustomized == "1") {
+// 	$design_qry = "SELECT elementid, leftPos,topPos,selectedImage, addedBy, addedByType, isProduct from customdesign where productid=$pid";
 
-			$stmt = $dbcon->prepare($design_qry);
-			if(!$stmt->execute()){
-			    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-			}
-			$stmt->store_result();
-			$stmt->bind_result($a,$b, $c, $d, $e, $f, $g);
-			while ($stmt->fetch()) {
-				$desArr[] = ['elementid' => $a, 'leftPos' => $b, 'topPos' =>$c, 'selectedImage' => $d, 'addedBy' => $e,'addedByType' => $f, 'isProduct'=>$g];
-			}
-			$stmt->close();
-			// var_dump($desArr);
-}
+// 			$stmt = $dbcon->prepare($design_qry);
+// 			if(!$stmt->execute()){
+// 			    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+// 			}
+// 			$stmt->store_result();
+// 			$stmt->bind_result($a,$b, $c, $d, $e, $f, $g);
+// 			while ($stmt->fetch()) {
+// 				$desArr[] = ['elementid' => $a, 'leftPos' => $b, 'topPos' =>$c, 'selectedImage' => $d, 'addedBy' => $e,'addedByType' => $f, 'isProduct'=>$g];
+// 			}
+// 			$stmt->close();
+// 			// var_dump($desArr);
+// }
 ?>

@@ -1,3 +1,4 @@
+
 <!-- Checkout -->
 <div class="about">
    <!-- START STEPS -->
@@ -27,17 +28,9 @@
                          <td data-th="">
                             <div class="cart-header">
                                <div class="cart-item cyc">
-                                  <?php if($prod['customized'] == 0 || $prod['design'][0]['isProduct'] == 1) { ?>
+
                                   <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
-                                  <?php }  else  { ?>
-                                  <div class="cdesign">
-                                     <?php foreach ($prod['design'] as  $des){ ?>
-                                     <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
-                                        <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
-                                     </div>
-                                     <?php } ?>
-                                  </div>
-                                  <?php } ?>
+
                                </div>
                                <div class="cart-item-info">
                                   <span>

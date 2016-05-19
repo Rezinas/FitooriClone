@@ -10,6 +10,9 @@ var des = angular.module('cdesign', []);
 
 des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout', '$location',
     function($scope, $rootScope, $http, $window, $document, $timeout, $location) {
+        $scope.loaded = false;
+       $timeout(function() { $scope.loaded = true; },1000);
+
 
         $scope.siteUrl = $window.model.siteUrl;
         $scope.designObj = {};
@@ -28,6 +31,18 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.productAdded = false;
         $scope.startType = "";
         $scope.showCartbtn = false;
+
+        $scope.customizedEarrings = [];
+
+        $scope.getCustom =  function() {
+            $http.get('php/ajax.php?getCustom').
+            success(function(data) {
+                $scope.customizedEarrings = data.customizedEarrings;
+            });
+        };
+
+        $scope.getCustom();
+
         var marginPercent =$window.model.margin;
         var taxPercent =$window.model.vat;
         var overheads =$window.model.overheads;
@@ -178,7 +193,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             var lastLevelEl = [];
             var fits = true;
 
-             if($scope.designLevel ==0 && elem.admintags.indexOf('hook') > -1)
+             if(mainlist && $scope.designLevel ==0 && elem.admintags.indexOf('hook') > -1)
                 $scope.showCartbtn = false;
              else
               $scope.showCartbtn = true;
@@ -315,6 +330,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     $scope.mySelectedItems[$scope.prdIndex[$scope.designLevel][i]].selectedImage = elem;
                 }
             }
+          //   $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
         };
 
         $scope.updateLevel = function() {
@@ -374,15 +390,17 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
           data    : payload  // pass in data as strings
          })
           .success(function(data) {
-            if(data == "SUCCESS"){
+            if(data.result == "SUCCESS"){
                   $scope.productAdded = true;
-                if(!$scope.isAgent){
-                    $window.cart.getCart();
-                     $('div.cart-box').slideDown('slow').delay(2000).slideUp('slow');
-                }
-                // else {
-                //      $window.location = $scope.siteUrl+"admin/dashboard.php?custom";
-                // }
+                  $scope.resetDesign();
+                  $scope.customizedEarrings = data.customizedEarrings;
+                  $("#myModal span#earringType").html($scope.startType);
+                  $("#myModal .fb-share-button").attr('data-href', 'http://fitoori.com/productImages/'+data.pimg);
+                  $("#myModal input[name='pid']").val(data.pid);
+                  $("#myModal input[name='pprice']").val(data.pprice);
+                  $("#myModal img#cimg").attr('src', '../productImages/'+data.pimg);
+                  $("#myModal #pr_price").html(data.pprice);
+                  $("#myModal").modal();
             }
             else
                 alert("insert into database failed");
@@ -399,6 +417,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.designerPicks=[];
                 $scope.designPrice=0;
                 $scope.productAdded = false;
+                $scope.showCartbtn = false;
 
                 $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
         };
@@ -427,6 +446,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
              if($scope.designLevel ==0 && $scope.mySelectedItems[$scope.designLevel].admintags.indexOf('hook') > -1)
                 $scope.showCartbtn = false;
             $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
+                designTotal();
+
+        }
+
+        $scope.getNumber = function(num) {
+            return new Array(num);
         }
 
 
@@ -441,7 +466,8 @@ des.directive('prdPosition', function($timeout) {
     return {
         restrict: "AE",
         scope: {
-            selectedItem: '='
+            selectedItem: '=',
+            level: '='
         },
         link: function(scope, element, $attrs) {
             var curElem = element;
@@ -449,6 +475,17 @@ des.directive('prdPosition', function($timeout) {
             scope.$watch('selectedItem.selectedImage', function(newVal, oldVal){
              $(curElem).css("left", thisScope.selectedItem.leftPos+"px");
              $(curElem).css("top", thisScope.selectedItem.topPos+"px");
+             $('figure.star').not('.level'+thisScope.level).remove();
+                var bx = thisScope.selectedItem.botX.split(",");
+                var by = thisScope.selectedItem.botY.split(",");
+             for(var ix=0; ix < thisScope.selectedItem.bottompoints; ix++){
+                var starEl = $("<figure class='star level"+thisScope.level+"'><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>");
+                var lp = bx[ix] -5;
+                var tp = by[ix] -2;
+                $(starEl).css("left", lp+"px");
+                $(starEl).css("top", by[ix]+"px");
+                $(starEl).appendTo(curElem);
+             }
             }, true);
 
         }
@@ -512,6 +549,7 @@ des.factory('elementFactory', function() {
 });
 
 
+
 function openOverlay(num) {
     var lightDiv, fadeDiv;
     if(num == 0){
@@ -530,4 +568,41 @@ function openOverlay(num) {
     $(lightDiv).show();
     $(fadeDiv).show();
     $('.lightboxClose').show();
+}
+
+function addToCart() {
+    var pid = $("#myModal input[name='pid']").val();
+    var pprice = $("#myModal input[name='pprice']").val();
+     window.cart.updateCart(pid, pprice);
+     $('div.cart-box').slideDown('slow').delay(1000).slideUp('slow');
+     return false;
+}
+
+function openfb() {
+ var imgurl = $("#myModal img#cimg").attr("src");
+ imgurl = imgurl.replace("..", "http://fitoori.com");
+    FB.ui({
+      method: 'share',
+      href: "http://fitoori.com",
+      name: "My Fitoori Design",
+      picture: imgurl,
+      description: "Designed on Fitoori.com!"
+    });
+
+  // $('.js-share-facebook').on('click', function() {
+  //   FB.ui({
+  //       method: 'share_open_graph',
+  //       action_type: 'og.shares',
+  //       action_properties: JSON.stringify({
+  //           object : {
+  //              'og:url': BASE_URL,
+  //              'og:title': galleryItem.title,
+  //              'og:description': galleryItem.description,
+  //              'og:og:image:width': '2560',
+  //              'og:image:height': '960',
+  //              'og:image': BASE_URL + '/images/works/galleries' + galleryItem.image
+  //           }
+  //       })
+  //   });
+  // });
 }

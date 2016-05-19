@@ -11,13 +11,9 @@
 		else $filterClasses .= "userDes ";
 		?>
 			<div class="product-grid custom <?php echo $filterClasses; ?>">
-				<div class="cdesign">
-					<?php foreach ($des['images'] as $sindx => $selImage){ ?>
-						<div class="prd_elements" style="left: <?php echo $des['leftpositions'][$sindx]; ?>px; top:  <?php echo $des['toppositions'][$sindx]; ?>px;">
-							<img src="../productImages/<?php echo $selImage; ?>">
-						</div>
-					<?php } ?>
-					<!-- <?php echo showCustomDesign($des); ?> -->
+
+				<div class="custom-img">
+						<img src="../productImages/<?php echo $des['mainimg'];?>" />
 				</div>
 				<div class="design_actions">
 					<?php if($des['isProduct'] == 0){ ?>

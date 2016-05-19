@@ -92,15 +92,17 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
 }
 
 
+
+
    ?>
 <!DOCTYPE html>
 <html>
    <head>
       <title>Fitoori</title>
-      <!-- Custom Theme files -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="keywords" content="" />
+      <!-- Custom Theme files -->
       <script type="application/x-javascript">
          addEventListener("load", function() {
           setTimeout(hideURLbar, 0); }, false);
@@ -187,6 +189,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
 
       <?php if($currenttab == "designearrings") { ?>
         <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/animate.css">
         <script src="js/angular.min.js"></script>
         <script src="js/design.js"></script>
       <?php } ?>
@@ -206,6 +209,28 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       }?>
    </head>
    <body>
+<!-- facebook integration -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1076977995697955',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1076977995697955";
+      fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Twitter -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
       <!--header-->
       <div class="header">
          <!-- <div class="container"> -->
@@ -228,7 +253,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      </a>
                   </li>
                   <li class="dropdown">
-                     <a href="#" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Products<b class="caret"></b></a>
+                     <a href="javascript:void(0);" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Products<b class="caret"></b></a>
                      <ul class="dropdown-menu multi-column columns-3">
                         <div class="row">
                            <div class="col-sm-6">
@@ -254,7 +279,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      </ul>
                   </li>
                   <li class="dropdown grid">
-                     <a href="#" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Customize<b class="caret"></b></a>
+                     <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Customize<b class="caret"></b></a>
                      <ul class="dropdown-menu multi-column columns-3">
                         <div class="row">
                            <div class="col-sm-6">
@@ -277,7 +302,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      </ul>
                   </li>
                   <li class="dropdown grid">
-                     <a href="#" class="dropdown-toggle list1 <?php if($currenttab == "offers") echo 'active'; ?>" data-toggle="dropdown" >
+                     <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "offers") echo 'active'; ?>" data-toggle="dropdown" >
                         Offers<!--<b class="caret"></b>-->
                      </a>
                   </li>
@@ -289,7 +314,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
          </nav>
          <div class="header-info">
             <div class="header-right search-box">
-               <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+               <a href="javascript:void(0);"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                <div class="header-popup search">
                   <form class="navbar-form">
                      <input type="text" class="form-control">
@@ -300,7 +325,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                </div>
             </div>
             <div class="header-right login">
-               <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+               <a href="javascript:void(0);"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
                <div class="header-popup" id="loginBox">
                   <form  id="loginForm" name="loginForm" role="form" <?php  if(isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
                      <div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Login Failed! Please try again</div>
@@ -322,14 +347,14 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                         <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
                      </fieldset>
                      <p>New User ? <a class="sign" href="index.php?register">Sign Up</a>
-                     <span><a href="#" id="fgtpwd">Forgot your password?</a></span></p>
+                     <span><a href="javascript:void(0);" id="fgtpwd">Forgot your password?</a></span></p>
                   </form>
                   <div class="userprofile"  <?php  if(!isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
                      <ul class="dropdown-menu dropdown-user" id="userList" style=
                         "display:block">
                         <li>
                            <span class="username">
-                           <a id="loginemail" href="#"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a>
+                           <a id="loginemail" href="javascript:void(0);"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a>
                            </span>
                            <span class="logout">
                            <a href="index.php?logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
@@ -361,9 +386,9 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                </div>
             </div>
             <div class="header-right cart">
-               <a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a>
+               <a href="javascript:void(0);"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a>
                <div class="header-popup cart-box">
-                  <h4><a href="#">
+                  <h4><a href="javascript:void(0);">
                      <span class="simpleCart_total"> &#8377; 0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
                      </a>
                   </h4>
@@ -373,7 +398,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                </div>
             </div>
             <div class="header-right track-box">
-               <a href="#"><span aria-hidden="true"><img src="images/track.png"/></span></a>
+               <a href="javascript:void(0);"><span aria-hidden="true"><img src="images/track.png"/></span></a>
                <div class="header-popup track">
                   <form id="trackorderForm" action="index.php?myorder" method="POST" class="navbar-form">
                      <p>Order ID &nbsp;<input type="text"  name="orderid" class="form-control">

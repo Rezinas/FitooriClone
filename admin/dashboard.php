@@ -120,8 +120,11 @@ else if(isset($_GET["pieces"])) {
 else if(isset($_GET["product"])) {
     $currenttab = 'product';
 }
-else if(isset($_GET["design"])) {
-    $currenttab = 'design';
+else if(isset($_GET["customearrings"])) {
+       $currenttab = "customearrings";
+}
+else if(isset($_GET["designearrings"])) {
+    $currenttab = 'designearrings';
 }
 else if (isset($_GET["report"])) {
     $currenttab = 'report';
@@ -142,8 +145,13 @@ else {
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="all">
     <link href="../css/admin.css" type="text/css" rel="stylesheet" media="all">
 
-<?php if($currenttab == "design" || $currenttab == "custom") { ?>
+<?php if($currenttab == "customearrings") { ?>
+        <link rel="stylesheet" href="../css/landingPage.css">
+      <?php } ?>
+
+<?php if($currenttab == "designearrings" || $currenttab == "custom") { ?>
      <link rel="stylesheet" href="../css/design.css">
+     <link rel="stylesheet" href="../css/animate.css">
 <?php  } ?>
 <?php if($currenttab == "orders") { ?>
      <link rel="stylesheet" href="../css/cartpage.css">
@@ -170,7 +178,7 @@ else {
                                 <a href="dashboard.php" <?php if($currenttab == "dash") echo 'class="active"'; ?>><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                             </li>
                              <li>
-                                <a href="dashboard.php?design" <?php if($currenttab == "design") echo 'class="active"'; ?>><i class="fa fa-dashboard fa-fw"></i>Design Product</a>
+                                <a href="dashboard.php?customearrings" <?php if($currenttab == "customearrings") echo 'class="active"'; ?>><i class="fa fa-dashboard fa-fw"></i>Design Product</a>
                             </li>
                             <li >
                                 <a href="dashboard.php?custom" <?php if($currenttab == "custom") echo 'class="active"'; ?>><i class="fa fa-search fa-fw"></i>Custom Designs</a>
@@ -228,7 +236,10 @@ else {
 if($currenttab == "dash") {
     include(SITE_ROOT. "/admin/dashboard.html");
 }
-else if($currenttab == "design") {
+else if($currenttab == "customearrings") {
+    include(SITE_ROOT. "/customizationLandingPage.html");
+}
+else if($currenttab == "designearrings") {
     include(SITE_ROOT. "/php/design.php");
     include(SITE_ROOT. "/design.html");
 }
@@ -321,8 +332,9 @@ else if($currenttab == "report") {
     </script>
    <?php } ?>
 
-   <?php if($currenttab == "design") { ?>
+   <?php if($currenttab == "designearrings") { ?>
   <script src="../js/angular.min.js"></script>
+  <script src="../js/angular-animate.min.js"></script>
   <script src="../js/design.js"></script>
 
    <?php } ?>

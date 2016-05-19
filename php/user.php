@@ -6,23 +6,31 @@ if(isset($_GET["emailPass"])) {
 		$user_email = prepare_input($_POST['email']);
 		$qry =  "SELECT password from user WHERE email='$user_email'";
 		if(!$stmt = $dbcon->prepare($qry)){
-		    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+		    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error . ': qry = '.$qry );
 		}
 		if(!$stmt->execute()){
 		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 		}
 		$stmt->store_result();
-		$stmt->bind_result($a);
-		while ($stmt->fetch()) {
-			$from = "admin@plumms.com";
-		    $to = $user_email;
-		    $subject = "Fitoori Login information";
-		    $message = "Your password is ".$a;
-		    $headers = "From:" . $from;
-		    mail($to,$subject,$message, $headers);
+
+		if($stmt->num_rows > 0) {
+			$stmt->bind_result($a);
+			while ($stmt->fetch()) {
+			    $to = $user_email;
+			    $subject = "Fitoori Login information";
+			    $message = "Your password is ".$a;
+			    $headers = "From: Admin@fitoori.com";
+			    mail($to,$subject,$message, $headers);
+			}
+			echo "SUCCESS";
+		}
+		else  {
+			echo "NOEMAIL";
 		}
 		$stmt->close();
-		echo "SUCCESS";
+	}
+	else {
+		echo "ERROR";
 	}
 	exit();
 }

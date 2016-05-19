@@ -30,7 +30,26 @@ if(isset($_POST['login']))
         exit();
       }
 
-      echo   SUCCESS;
+       if(isset($_SESSION['customEarrings'])) {
+        $custEarrings = $_SESSION['customEarrings'];
+        $prdids = [];
+        foreach($custEarrings as $cEarr) {
+          $prdid[] = $cEarr["pid"];
+        }
+      }
+
+    $updQry = "UPDATE products SET addedUserType = 1, addedByUserEmail = '". $_SESSION["useremail"] ."' WHERE productid IN ( ". implode(",", $prdid) .")";
+
+    $result=mysqli_query($dbcon,$updQry);
+
+    $updQry1 = "UPDATE customdesign SET addedByType = 1 WHERE productid IN ( ". implode(",", $prdid) .")";
+
+    $result1=mysqli_query($dbcon,$updQry1);
+
+    if(!$result || !$result1){
+        die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+    }
+    echo   "SUCCESS";
     }
     else
     {

@@ -107,6 +107,12 @@ $(function() {
          $("#loginForm").css("display", "block");
 
         }
+        else if(data && data == "NOEMAIL") {
+            $(".alert-danger").html("Email not found. Please register.");
+        }
+        else if(data && data == "ERROR") {
+            $(".alert-danger").html("Technical Error. We apologize.");
+        }
        },
        error: function() {
         $(".alert-danger").addClass("hide");

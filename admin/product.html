@@ -19,13 +19,17 @@ $itemsArr= explode("|", PRD_ITEM) ;
                                 </label>
                         </div>
                     </div>
-                    <div class="cdesign">
+                    <div class="custom-img">
+                        <img src="../productImages/<?php echo $mi;?>" />
+                    </div>
+                    <!-- <div class="cdesign">
                     <?php foreach ($desArr as  $des){ ?>
                         <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
                             <img src="../productImages/<?php echo $des['selectedImage']; ?>">
                         </div>
                     <?php } ?>
-                </div>
+                </div> -->
+
             </div>
         </div>
 <?php } ?>

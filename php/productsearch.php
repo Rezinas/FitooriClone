@@ -5,7 +5,7 @@ $itemsArr= explode("|", PRD_ITEM) ;
 
 $allproducts=[];
 
-$qry = "SELECT  `productid`,`name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`,  `addedUsertype`, `addedbyUserEmail`, `quantity`, `size`,`tags`, UNIX_TIMESTAMP(`dateAdded`) as dateAdded, customized, designerPick from products";
+$qry = "SELECT  `productid`,`name`, `price`, `bodypart`, `material`, `mainimg`, `alt1img`, `alt2img`, `status`, `shortdesc`, `detaildesc`, `addinfo`, `featured`,  `addedUsertype`, `addedbyUserEmail`, `quantity`, `size`,`tags`, UNIX_TIMESTAMP(`dateAdded`) as dateAdded, customized, designerPick from products where status = 1";
 
 if(!$stmt = $dbcon->prepare($qry)){
 die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
