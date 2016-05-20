@@ -36,7 +36,6 @@ if(isset($_POST['login']))
         foreach($custEarrings as $cEarr) {
           $prdid[] = $cEarr["pid"];
         }
-      }
 
     $updQry = "UPDATE products SET addedUserType = 1, addedByUserEmail = '". $_SESSION["useremail"] ."' WHERE productid IN ( ". implode(",", $prdid) .")";
 
@@ -49,6 +48,8 @@ if(isset($_POST['login']))
     if(!$result || !$result1){
         die('Error : ('. $dbcon->errno .') '. $dbcon->error);
     }
+      }
+
     echo   "SUCCESS";
     }
     else

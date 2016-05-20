@@ -185,23 +185,12 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                                              <td>
                                               <div class="cart-header">
                                                <div class="cart-item cyc">
-                                                 <?php if($prod['customized'] == 0) { ?>
                                                     <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
-                                                 <?php }  else  { ?>
-                                                 <div class="cdesign">
-
-                                                    <?php foreach ($prod['design'] as  $des){  ?>
-                                                    <div class="prd_elements" style="left: <?php echo $des['leftPos']; ?>px; top:  <?php echo $des['topPos']; ?>px;">
-                                                       <img src="<?php echo SITE_URL; ?>productImages/<?php echo $des['selectedImage']; ?>">
-                                                    </div>
-                                                    <?php } ?>
-                                                 </div>
-                                                 <?php } ?>
                                               </div>
                                             </div>
                                            </td>
                                                 <td>
-                                                  <p><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?></p>
+                                                  <p><?php echo $prod['name'] ? $prod['name'] : "Custom Design" ; ?></p>
                                                    <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
                                                     <p>Quantity: &nbsp;<span> <?php echo $prod['quantity' ]; ?></span></p>
                                                 </td>

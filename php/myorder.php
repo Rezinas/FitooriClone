@@ -32,7 +32,7 @@ if(!empty($_REQUEST)){
         $stmt->bind_result($a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n);
         $currOrder =[];
         while ($stmt->fetch()) {
-            $currOrder = ['dateCreated' => date('F/j/Y',$a), 'useremail' => $b, 'status' => $c, 'paymenttype' => $d, 'ship_add1' => $e, 'ship_add2' => $f, 'ship_city' => $g, 'ship_state' => $h, 'ship_postal' => $i, 'bill_add1' => $j, 'bill_add2' => $k, 'bill_city' => $l, 'bill_state' => $m, 'bill_postal' => $n];
+            $currOrder = ['dateCreated' => $a, 'useremail' => $b, 'status' => $c, 'paymenttype' => $d, 'ship_add1' => $e, 'ship_add2' => $f, 'ship_city' => $g, 'ship_state' => $h, 'ship_postal' => $i, 'bill_add1' => $j, 'bill_add2' => $k, 'bill_city' => $l, 'bill_state' => $m, 'bill_postal' => $n];
         }
         $stmt->close();
 
@@ -78,4 +78,5 @@ if(!empty($_REQUEST)){
         $mainErrorMsg = "This order id not found. Please contact admin@fitoori.com";
     }
 }
+
 ?>

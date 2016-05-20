@@ -125,9 +125,9 @@
                                 </div>
 
                             </div>
-                        <h4 class="heading">Shipping Information</h4>
+                        <h4 class="heading">Shipping Information</h4><br>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 shippingAddress">
-                                    <span>Shipping Address</span>
+                                    <h3>Shipping Address</h3><br>
                                     <div class="form-group">
                                        <span>Address Line 1</span>
                                        <input class="form-control" data-validation="alphabets"  name="ship_address1" type="text" autofocus value="<?php echo $order_add['ship_add1']; ?>">
@@ -150,7 +150,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 billingAddress">
-                                    <span>Billing Address</span><label><input type="checkbox" id="sameBilling" name="sameBilling" value="1" <?php if(!empty($order_add['ship_add1']) && $order_add['ship_add1'] == $order_add['bill_add1']) echo 'checked'; ?> >Same as Shipping Address</label>
+                                    <h3>Billing Address</h3><label><input type="checkbox" id="sameBilling" name="sameBilling" value="1" <?php if(!empty($order_add['ship_add1']) && $order_add['ship_add1'] == $order_add['bill_add1']) echo 'checked'; ?> >Same as Shipping Address</label>
                                     <div class="form-group">
                                        <span>Address Line 1</span>
                                        <input class="form-control" data-validation="alphabets"  name="bill_address1" type="text" autofocus value="<?php echo $order_add['bill_add1']; ?>">
@@ -236,7 +236,7 @@
                             </table>
                          </div>
                           <div class="estimate" style="text-align: right;">
-                            <p>Estimated time of delivery : 8 - 14 business days </p>
+                            <p>Estimated time of delivery :  <?php echo date('F dS, Y', strtotime("+8 days")); ?> - <?php echo date('F dS, Y', strtotime("+14 days")); ?> </p>
                          </div>
 
                          <div> <strong>Shipping Address:</strong> <br/>

@@ -149,7 +149,7 @@ else {
         <link rel="stylesheet" href="../css/landingPage.css">
       <?php } ?>
 
-<?php if($currenttab == "designearrings" || $currenttab == "custom") { ?>
+<?php if($currenttab == "designearrings") { ?>
      <link rel="stylesheet" href="../css/design.css">
      <link rel="stylesheet" href="../css/animate.css">
 <?php  } ?>

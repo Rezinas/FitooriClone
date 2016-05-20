@@ -1,35 +1,6 @@
 <h2>Custom Products</h2>
 <div class="row">
-	<div class="col-md-9 product-model-sec">
-	<?php
-		foreach($designs as $des) {
-		$filterClasses = "";
-		if($des["isProduct"] == "1") $filterClasses .= "prdDes ";
-		else $filterClasses .= "customDes ";
-		if($des["addedByType"] == "0") $filterClasses .= "adminDes ";
-		else if($des["addedByType"] == "2") $filterClasses .= "guestDes ";
-		else $filterClasses .= "userDes ";
-		?>
-			<div class="product-grid custom <?php echo $filterClasses; ?>">
-
-				<div class="custom-img">
-						<img src="../productImages/<?php echo $des['mainimg'];?>" />
-				</div>
-				<div class="design_actions">
-					<?php if($des['isProduct'] == 0){ ?>
-						<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;cdesign&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Add to DB</a>
-					<?php } else  {?>
-						<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;cdesign&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Edit Product</a>
-					<?php } ?>
-					<a href="<?php echo SITE_URL; ?>admin/dashboard.php?custom&amp;deleteid=<?php echo $des['productid']; ?>" class="btn btn-primary">Delete</a>
-				</div>
-			</div>
-
-		<?php }
-	?>
-
-	</div>
-	<div class="col-md-3 rsidebar span_1_of_left">
+<div class="col-md-3 rsidebar span_1_of_left">
 		<form>
 			<section  class="sky-form">
 			<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Created By</h4>
@@ -58,5 +29,36 @@
 			</section> -->
 		</form>
 	</div>
+
+	<div class="col-md-9 product-model-sec">
+		<?php
+			foreach($designs as $des) {
+			$filterClasses = "";
+			if($des["isProduct"] == "1") $filterClasses .= "prdDes ";
+			else $filterClasses .= "customDes ";
+			if($des["addedByType"] == "0") $filterClasses .= "adminDes ";
+			else if($des["addedByType"] == "2") $filterClasses .= "guestDes ";
+			else $filterClasses .= "userDes ";
+			?>
+				<div class="product-grid custom <?php echo $filterClasses; ?>">
+
+					<div class="custom-img">
+							<img src="../productImages/<?php echo $des['mainimg'];?>" />
+					</div>
+					<div class="design_actions">
+						<?php if($des['isProduct'] == 0){ ?>
+							<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;cdesign&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Add to DB</a>
+						<?php } else  {?>
+							<a href="<?php echo SITE_URL; ?>admin/dashboard.php?product&amp;cdesign&amp;id=<?php echo $des['productid']; ?>" class="btn btn-success">Edit Product</a>
+						<?php } ?>
+						<a href="<?php echo SITE_URL; ?>admin/dashboard.php?custom&amp;deleteid=<?php echo $des['productid']; ?>" class="btn btn-primary">Delete</a>
+					</div>
+				</div>
+
+			<?php }
+		?>
+
+	</div>
+
 	<div class="clearfix"> </div>
 </div>

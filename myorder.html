@@ -6,11 +6,14 @@
      <div class="panel-body">
         <?php if(empty($mainErrorMsg)) { ?>
           <div class="cart-items container">
-               <h4 style="color:#F07818;">Order Number: ORD000<?php echo $orderid; ?>  &nbsp; &nbsp; &nbsp; Order Date: <?php echo $currOrder['dateCreated']; ?>  &nbsp; &nbsp; &nbsp; Order Status: <?php echo $currOrder['status']; ?></h4><br>
-               <?php if($currOrder['status'] == 'confirmed') { ?>
-                    <a href="index.php?myorder&orderid=ORD000<?php echo $orderid; ?>&cancel"><button class="btn btn-primary">Cancel Order</button></a>
+              <div class="row">
+                <div class="col-xs-8"><h4 style="color:#F07818;">Order Number: ORD000<?php echo $orderid; ?>  &nbsp; &nbsp; &nbsp; Order Date: <?php echo date('F dS, Y', $currOrder['dateCreated']); ?>  &nbsp; &nbsp; &nbsp; Order Status: <?php echo $currOrder['status']; ?></h4></div>
+                <div class="col-xs-4">
+                   <?php if($currOrder['status'] == 'confirmed') { ?>
+                    <a href="index.php?myorder&orderid=ORD000<?php echo $orderid; ?>&cancel"><button class="btn btn-primary pull-right">Cancel Order</button></a>
                <?php } ?>
-
+                </div>
+              </div>
                 <table id="orderTable" style="width: 100%">
                 <thead>
                   <tr>
@@ -55,7 +58,7 @@
                 </table>
              </div>
               <div class="container estimate" style="text-align: right;">
-                <p>Estimated time of delivery : 8 - 14 days </p>
+                <p>Estimated time of delivery : <?php echo date('F dS, Y',strtotime(date('Y-m-d', $currOrder['dateCreated']).'+8 days')); ?> - <?php echo  date('F dS, Y',strtotime(date('Y-m-d', $currOrder['dateCreated']).'+14 days')); ?>  </p>
              </div>
 
              <div class="container">
@@ -70,7 +73,7 @@
 
                  ?>
 
-                <p style="color:#F07818; font-size: 16px;"><strong>Payment Method:</strong> <span style="color:#fff">Cash on Delivery</span> </p>
+                <p style="color:#F07818; font-size: 16px;"><strong>Payment Method:</strong> <span style="color:#333">Cash on Delivery</span> </p>
              </div>
        <?php } else { ?>
           <div class="alert alert-warning">

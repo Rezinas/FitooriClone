@@ -9,7 +9,6 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.pageSize = 50;
         $scope.materials = $window.model.materials;
         $scope.items = $window.model.items;
-         $scope.tags = $.unique($window.model.tags);
         $scope.selectedMaterial =[];
         $scope.selectedTags =[];
         $scope.selectedItem=[3];
@@ -19,8 +18,14 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
          $scope.toppoints=0;
          $scope.bottompoints=0;
 
+        var uniqueTags = function unique(array) {
+            return $.grep(array, function(el, index) {
+                return index == $.inArray(el, array);
+            });
+        };
 
-        console.log($scope.allPieces);
+         $scope.tags = uniqueTags($window.model.tags);
+
 
         $scope.orderByOptions = function() {
             // if($scope.selectedSort == "new") {

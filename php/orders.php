@@ -1,13 +1,12 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
-    require_once(SITE_ROOT."/utils/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
+require_once(SITE_ROOT."/utils/functions.php");
 
 
 //Session variables to track the same order
-// $_SESSION['orderID']
-// $_SESSION['orderStatus']
 $sess_orderID = (isset($_SESSION['orderID'])) ? $_SESSION['orderID'] : -1;
 $sess_orderStatus = (isset($_SESSION['orderStatus'])) ? $_SESSION['orderStatus'] : '';
+// $todayDate = $date = date('m/d/Y h:i:s a', time());
 
 //we will enable this when we do payment gateway
 // if(!empty($_POST) && isset($_POST['payInfo']) ){
@@ -15,6 +14,7 @@ $sess_orderStatus = (isset($_SESSION['orderStatus'])) ? $_SESSION['orderStatus']
 
 // }
 
+//When confirm order is clicked.
 if(isset($_REQUEST["confirmOrder"])) {
 
     $cartItemlist = $_SESSION['cartitemlist'];
@@ -83,28 +83,29 @@ if(isset($_REQUEST["confirmOrder"])) {
 
 
 
-$subject = 'Fitoori Order Confirmation';
+    $subject = 'Fitoori Order Confirmation';
 
-$headers  = "From: Admin@fitoori.com";
-$headers .= "Content-type: text/html";
+    $headers  = "From: Admin@fitoori.com";
+    $headers .= "Content-type: text/html";
 
-mail($toemail, $subject, $message, $headers);
+    mail($toemail, $subject, $message, $headers);
 
-$adminMessage = "New Order Placed: ".$sess_orderID;
+    $adminMessage = "New Order Placed: ".$sess_orderID;
 
-$adminheaders = "From: Admin@fitoori.com";
-mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminheaders);
+    $adminheaders = "From: Admin@fitoori.com";
+    mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminheaders);
 
-unset($_SESSION['cartitemlist']);
-unset($_SESSION['shippingaddress']);
-unset($_SESSION['orderemail']);
-unset($_SESSION['userflname']);
+    unset($_SESSION['cartitemlist']);
+    unset($_SESSION['shippingaddress']);
+    unset($_SESSION['orderemail']);
+    unset($_SESSION['userflname']);
 
 
-echo "SUCCESS";
-    exit();
+    echo "SUCCESS";
+        exit();
 }
 
+//When payment information is updated
 if(!empty($_POST) && isset($_POST['shippay']) ){
     $email_info = prepare_input($_POST['email_info']);
     $ship_address1 = prepare_input($_POST['ship_address1']);
@@ -163,20 +164,22 @@ if(!empty($_POST) && isset($_POST['shippay']) ){
 }
 
 
+//when new order is being created set the order status as new.
+//new order to be created if there was no orderid in the session
 if($sess_orderID == -1) {
-    //new order to be created if there was no orderid in the session
     //order status could be new, shippingInfo, review, confirmed, cancelled, shipped, delivered, completed
     $_SESSION['orderStatus'] = $sess_orderStatus = "new";
 
 }
 
+//in all above scenarios, the rest of the page needs to be executed
 $currUserEmail = isGuest() ? "" :  getCurrentUserEmail();
 $currUsertype="2";
 $curr_user = ['userid' => '', 'firstname' => '', 'lastname' => '', 'email' => '', 'phone' => '', 'gender' => '', 'address1' => '', 'address2' => '', 'city' => '', 'state' => '', 'postalcode' => ''];
 $order_add = ['email' => '', 'ship_add1' => '', 'ship_add2' => '', 'ship_city' => '', 'ship_state' => '', 'ship_postal' => '', 'bill_add1' => '', 'bill_add2' => '', 'bill_city' => '', 'bill_state' => '', 'bill_postal' => '', 'paymenttype' => 'COD'];
 
 
-
+//if the user is not a guest, get the current user details to prefill the order form
 if(isset($_SESSION['userid'])) {
     $user_id=$_SESSION['userid'];
     $curr_user=[];
@@ -224,7 +227,6 @@ if(isset($_SESSION['userid'])) {
 }
 
 if($sess_orderID == -1) {
-
     //new order to be created now
     //order status could be new, shippingInfo, review, confirmed, cancelled, shipped, delivered, completed
     if(count($cartItems) > 0) {
