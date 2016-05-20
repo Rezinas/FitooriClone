@@ -11,7 +11,7 @@ var des = angular.module('cdesign', []);
 des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout', '$location',
     function($scope, $rootScope, $http, $window, $document, $timeout, $location) {
         $scope.loaded = false;
-       $timeout(function() { $scope.loaded = true; },1000);
+      $timeout(function() { $scope.loaded = true; },1000);
 
 
         $scope.siteUrl = $window.model.siteUrl;

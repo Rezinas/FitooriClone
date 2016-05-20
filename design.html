@@ -1,6 +1,19 @@
 <div ng-app="cdesign" id="mainContainer" resizable>
    <div ng-controller="MainController">
-   <div id="loading-bar-spinner" ng-hide="loaded"><div class="spinner-icon"></div></div>
+   <!-- <div id="loading-bar-spinner" ng-hide="loaded"><div class="spinner-icon"></div></div> -->
+
+   <div class="sk-cube-grid" ng-hide="loaded">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div>
+
 
       <div ng-cloak="" ng-show="loaded">
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -67,13 +80,13 @@
                               <div class="col-sm-11 col-xs-8">
                                  <p class="ribbon" ><span>Would you like to decorate it more? Go on choose another design. Add to cart if you like your design. </span></p>
                               </div>
-                              <div class="col-sm-1 col-xs-1"><button type="button" ng-hide="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()">This one <i class="fa fa-check-circle"></i></button> &nbsp; &nbsp;</div>
+                              <div class="col-sm-1 col-xs-1"><button type="button" ng-hide="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()"><i class="fa fa-check-circle"></i></button> &nbsp; &nbsp;</div>
                            </div>
                            <div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="animated zoomIn" id="alertDiv4">
                               <div class="col-sm-11 col-xs-8">
                                  <p class="ribbon" ><span>Good going! Pick what you like from below one final time if you want to add more.</span></p>
                               </div>
-                              <div class="col-sm-1 col-xs-1">  <button type="button" ng-hide="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()">This one <i class="fa fa-check-circle"></i></button>
+                              <div class="col-sm-1 col-xs-1">  <button type="button" ng-hide="nextDisable() || productAdded" class="btn btn-primary" ng-click="updateLevel()"><i class="fa fa-check-circle"></i></button>
                               </div>
                            </div>
                            <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" role="alert" class="animated zoomIn" id="alertDiv4">
@@ -195,7 +208,7 @@
          </div>
 
       <!-- show custom designs here -->
-      <div class="row">
+      <div ng-if="customizedEarrings.length > 0" class="row">
          <div  class="col-lg-12 col-sm-12 col-xs-12">
          <h4>My Recent Designs</h4>
             <div ng-repeat="cdes in customizedEarrings" class="product-grid" style="width: auto">
