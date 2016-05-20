@@ -1,6 +1,6 @@
 <div class="about">
 	 <div style="margin:0px 50px;">
-	 	<h2>My Page </h2>
+	 	<h2 id="pheader">My Page </h2>
 	 	<hr class="visible-xs" />
 	 	<div class="about-inform">
 	 		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" id="left-pane">
@@ -15,7 +15,7 @@
 	 			<nav class="userList menu visible-xs">
 					<ul>
 	 					<li>
-	 						<i class="fa fa-user"><span>&nbsp;My Account</span></i>
+	 						<i class="fa fa-user"></i><span>&nbsp;My Account</span>
 	 						<div class="subUL">
 		 						<ul>
 		 							<li>
@@ -31,29 +31,30 @@
 	 						</div>
 	 					</li>
 	 					<li>
-	 						<i class="fa fa-shopping-cart"><span>&nbsp;My Orders</span></i>
-	 						<div class="subUL">
-		 						<ul>
-		 							<li><a class="vo" href="#">View All Orders</a></li>
-		 						</ul>
-	 						</div>
+	 						<a
+	 						class="vd" href="javascript:void(0);"><i class="fa fa-picture-o"></i><span>&nbsp;My Custom Designs</span></a>
+	 						<div class="subUL"></div>
 	 					</li>
 	 					<li>
+	 						<a class="vo" href="javascript:void(0);"><i class="fa fa-shopping-cart"></i><span>&nbsp;My Orders</span></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<!-- <li>
 	 						<a
-	 						class="credit" href="#"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
+	 						class="credit" href="javascript:void(0);"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
 	 						<div class="subUL"></div>
 	 					</li>
 	 					<li>
 	 						<a
-	 						class="wish" href="#"><i class="fa fa-heart"><span>&nbsp;My Wishlist</span></i></a>
+	 						class="wish" href="javascript:void(0);"><i class="fa fa-heart"><span>&nbsp;My Wishlist</span></i></a>
 	 						<div class="subUL"></div>
-	 					</li>
+	 					</li> -->
 	 				</ul>
 				</nav>
 	 			<div class="userList hidden-xs">
 	 				<ul>
 	 					<li>
-	 						<i class="fa fa-user"><span>&nbsp;My Account</span></i>
+	 						<i class="fa fa-user"></i><span>&nbsp;My Account</span>
 	 						<div class="subUL">
 		 						<ul>
 		 							<li>
@@ -69,21 +70,22 @@
 	 						</div>
 	 					</li>
 	 					<li>
-	 						<i class="fa fa-shopping-cart"><span>&nbsp;My Orders</span></i>
-	 						<div class="subUL">
-		 						<ul>
-		 							<li><a class="vo" href="javascript:void(0);">View All Orders</a></li>
-		 						</ul>
-	 						</div>
-	 					</li>
-	 					<li>
-	 						<a class="credit" href="#"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
+	 						<a
+	 						class="vd" href="javascript:void(0);"><i class="fa fa-picture-o"><span>&nbsp;My Custom Designs</span></i></a>
 	 						<div class="subUL"></div>
 	 					</li>
 	 					<li>
-	 						<a class="wish" href="#"><i class="fa fa-heart"><span>&nbsp;My Wishlist</span></i></a>
+	 						<a class="vo" href="javascript:void(0);"><i class="fa fa-shopping-cart"></i><span>&nbsp;My Orders</span></a>
 	 						<div class="subUL"></div>
 	 					</li>
+	 					<!-- <li>
+	 						<a class="credit" href="javascript:void(0);"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<li>
+	 						<a class="wish" href="javascript:void(0);"><i class="fa fa-heart"><span>&nbsp;My Wishlist</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li> -->
 	 				</ul>
 	 			</div>
 
@@ -93,7 +95,6 @@
 	 			<div id="chngPwd" class="pagecontent">
 	 				<form id="chngPwdForm" name="chngPwdForm" role="form"  method="POST">
 					    <div class="register-bottom-grid">
-							<h4>Change Password</h4><br>
 							 <div class="form-group">
 								<span>Password</span>
 								<input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pass">
@@ -110,7 +111,6 @@
 					<div class="profile">
 						<form id="profileForm" name="profileForm" role="form" action="user.php?profile" method="POST">
 							<div class="register-top-grid">
-								<h4>Personal information</h4><br/>
 								 <div class="form-group">
 									<span>First Name</span>
 									<input class="form-control" data-validation="alphabets" placeholder="First Name" name="fname" type="text" autofocus value="<?php echo $curr_user['firstname']; ?>">
@@ -120,8 +120,8 @@
 									<input class="form-control" placeholder="Last Name" name="lname" type="text" autofocus value="<?php echo $curr_user['lastname']; ?>">
 								</div>
 								 <div class="form-group">
-									<span>Email Address</span>
-									<input class="form-control" placeholder="Email" name="email" type="email" autofocus id="emailInput" value="<?php echo $curr_user['email']; ?>">
+									<span>Email Address ( Not Editable)</span>
+									<input class="form-control" disabled placeholder="Email" name="email" type="email" autofocus id="emailInput" value="<?php echo $curr_user['email']; ?>">
 								</div>
 								<div class="form-group">
 									<span>Phone</span>
@@ -139,7 +139,6 @@
 				</div>
 				<div id="editAddress" class="pagecontent">
 					<div class="register-top-grid">
-						<h4>Shipping Details</h4><br/>
 						<form id="AddressForm" name="AddressForm" role="form" action="user.php?address" method="POST">
 							<div class="form-group">
 								<span>Address Line 1</span>
@@ -167,7 +166,6 @@
 				</div>
 				<div id="viewOrders" class="pagecontent">
 					<div class="orders">
-						<h4>View Orders</h4><br/>
 						<table id="allorders" class="table-responsive">
 							<thead>
 							<tr>
@@ -195,6 +193,24 @@
 						</div> -->
 					</div>
 				</div>
+				<div id="designs" class="pagecontent">
+					<div class="custdes">
+						<?php
+							foreach($curr_des as $des) { ?>
+
+							<div class="product-grid">
+								<div class="product-img">
+									<img src="../productImages/<?php echo $des['mainimg']; ?>" alt=""/>
+								</div>
+								<div class="product-info">
+				                  <span class="item_price">Price: &#8377; <?php echo $des['price']; ?></span>
+				                  <button type="button" class="add-cart item_add" onclick="addToCart(<?php echo $des['productid']; ?>, <?php echo $des['price']; ?>);">Add To Cart</button>
+				               </div>
+							</div>
+
+						<?php } ?>
+					</div>
+	 			</div>
 	 			<div id="credits" class="pagecontent">
 	 				<p>Credits</p>
 	 			</div>

@@ -210,12 +210,15 @@ label.material {
     padding-left: 160px;
     margin-left: -10px;
 }
+
+#designDet h4 {
+	margin-top: -14px;
+	margin-bottom: 7%;
+}
+
 .row h4{
 	text-align: center;
-	/* color: #fff; */
-	/* background-color: silver; */
 	padding: 0px;
-	margin-top: -14px;
 	width: 100%;
 }
 div#designDet {
@@ -319,7 +322,7 @@ button.addtoCart:hover{
  position: relative;
  background: #5D4B33;
  color: #fff;
- text-align: center;
+ text-align: left;
  box-shadow: 0 0 30px rgba(236, 221, 210, 0.81) inset,            0 6px 10px rgba(0,0,0,.15);
  padding: 1em 2em; /* Adjust to suit */
  margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
@@ -496,8 +499,13 @@ button.addtoCart:hover{
 
 	div#alertDiv1 button, div#alertDiv2 button, div#alertDiv3 button, div#alertDiv4 button {
 		background-color: #F07818;
-		padding: 6px 10px;
+		padding: 2px 10px;
 	}
+
+	div#alertDiv1 .fa-check-circle, div#alertDiv2 .fa-check-circle, div#alertDiv3 .fa-check-circle, div#alertDiv4 .fa-check-circle {
+		font-size: 5em;
+	}
+
 
 	div#sampleImgs{
 	    border: 0px solid;

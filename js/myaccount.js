@@ -1,3 +1,9 @@
+function addToCart(pid, pprice) {
+     window.cart.updateCart(pid, pprice);
+     $('div.cart-box').slideDown('slow').delay(1000).slideUp('slow');
+     return false;
+}
+
 function submitAjaxForms(form, posturl) {
   var $form = $(form);
   // let's select and cache all the fields
@@ -61,14 +67,23 @@ $(function() {
 
   if (queryParams.myaccount == "profile") {
     $('#editProfile').fadeIn('fast');
+    $("#pheader").html("Personal information");
   } else if (queryParams.myaccount == "orders") {
     $('#viewOrders').fadeIn('fast');
-     $('#allorders').paging({limit:5});
-  } else if (queryParams.myaccount == "credits") {
+    $("#pheader").html("View Orders");
+  }
+  else if (queryParams.myaccount == "custom") {
+    $('#designs').fadeIn('fast');
+    $("#pheader").html("My Designs");
+  }
+  else if (queryParams.myaccount == "credits") {
     $('#credits').fadeIn('fast');
+    $("#pheader").html("My Credits");
   } else if (queryParams.myaccount == "wishlist") {
     $('#wishlist').fadeIn('fast');
+    $("#pheader").html("My Wishlist");
   }
+  $('#allorders').paging({limit:5});
 
   $("#chngPwdForm").validate({
     rules: {
@@ -214,31 +229,43 @@ $(function() {
     $(".pagecontent").fadeOut('fast');
     $('#chngPwd').fadeIn('fast');
     $("#menuToggle").prop("checked", false);
+    $("#pheader").html("Change Password");
   });
   $('.ep').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#editProfile').fadeIn('fast');
     $("#menuToggle").prop("checked", false);
+    $("#pheader").html("Personal information");
   });
   $('.ea').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#editAddress').fadeIn('fast');
     $("#menuToggle").prop("checked", false);
+    $("#pheader").html("Shipping Details");
   });
   $('.vo').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#viewOrders').fadeIn('fast');
     $("#menuToggle").prop("checked", false);
+    $("#pheader").html("View Orders");
+  });
+   $('.vd').on('click', function(c) {
+    $(".pagecontent").fadeOut('fast');
+    $('#designs').fadeIn('fast');
+    $("#menuToggle").prop("checked", false);
+    $("#pheader").html("My Designs");
   });
   $('.credit').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#credits').fadeIn('fast');
     $("#menuToggle").prop("checked", false);
+    $("#pheader").html("My Credits");
   });
   $('.wish').on('click', function(c) {
     $(".pagecontent").fadeOut('fast');
     $('#wishlist').fadeIn('fast');
     $("#menuToggle").prop("checked", false);
+    $("#pheader").html("My Wishlist");
   });
 
 

@@ -329,6 +329,7 @@ input#proceed{
 .cart-item-info span a{
   color:#F07818;
   font-weight: normal;
+  cursor: default;
 }
 .links a{
   color:#555;
@@ -420,7 +421,7 @@ border-bottom: 1px solid #eee;
   margin:0px;
 }
 div#cart-items-all span {
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 .cart-summary{
   background-color: aliceblue;
@@ -1312,7 +1313,7 @@ div#Orderpage h2 {
       margin-top: 0px;
     }
     div#cart-items-all span{
-      font-size: 14px;
+      /* font-size: 14px; */
     }
     .cart-items img{
       padding: 0em;

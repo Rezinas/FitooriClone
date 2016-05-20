@@ -6,7 +6,7 @@ if(!empty($_REQUEST)){
     $orderAction = isset($_REQUEST['cancel']) ? "cancel" : "";
     $mainErrorMsg ="";
 
-    echo $currUserEmail;
+    //echo $currUserEmail;
 
     if (strpos($orderid, 'ORD000') !== false) {
         $orderid =  intval(str_replace("ORD000", "", $orderid));

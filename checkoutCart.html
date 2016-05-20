@@ -13,7 +13,7 @@
                <span>Currently in your shopping bag</span>
             </div>
             <div class="panel-body table-responsive cart-details">
-               <table id="cartTable">
+               <table id="cartTable" width="100%">
                 <thead>
                   <tr>
                      <th>Your Item</th>
@@ -30,11 +30,13 @@
                                <div class="cart-item cyc">
 
                                   <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
+                                   <a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove</a>
 
                                </div>
                                <div class="cart-item-info">
                                   <span>
-                                  <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
+                                  <a href="javascript: void(0);"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
+                                  <!-- <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a> -->
                                   </span>
                                   <div class="delivery">
                                      <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
@@ -46,7 +48,7 @@
                                       <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
                                       <br>
                                       <?php } ?>
-                                     <p><a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);" style="color:#555">Remove From Cart</a></p>
+
                                   </div>
                                </div>
                                <!-- </div> -->

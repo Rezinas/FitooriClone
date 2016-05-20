@@ -362,11 +362,13 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                         </li>
                         <li><a href="index.php?myaccount=profile"><i class="fa fa-user fa-fw"></i>My Account</a>
                         </li>
-                        <li><a href="index.php?myaccount=orders"><i class="fa fa-shopping-cart fa-fw"></i>My Orders</a>
+                        <li><a href="index.php?myaccount=custom"><i class="fa fa-picture-o"></i> My Designs</a>
+
+                        <li><a href="index.php?myaccount=orders"><i class="fa fa-shopping-cart fa-fw"></i> My Orders</a>
                         </li>
-                        <li><a href="index.php?myaccount=credits"><i class="fa fa-gift fa-fw"></i>My Credits</a>
+                       <!--  <li><a href="index.php?myaccount=credits"><i class="fa fa-gift fa-fw"></i>My Credits</a>
                         <li><a href="index.php?myaccount=wishlist"><i class="fa fa-heart fa-fw"></i>My Wishlist</a>
-                        </li>
+                        </li> -->
                      </ul>
                   </div>
                   <div class="submitForm">

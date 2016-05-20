@@ -184,6 +184,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.selectImage = function(elem, mainlist) {
             $scope.levelFilled = true;
+            $('figure.star.level'+$scope.designLevel).remove();
+
             var bpoints = ($scope.mySelectedItems.length ==0) ? 1 : 0;
             var tpoints = elem.toppoints;
             var indexToRemove = 0;

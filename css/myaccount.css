@@ -192,7 +192,7 @@
    position: relative;
    top: 83px;
  }
- #viewOrders{
+ #viewOrders, .custdes{
    position: relative;
    top:83px;
  }
@@ -230,6 +230,18 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
  }
  #emailInput{
   border:1px solid #555;
+ }
+
+.product-img img {
+  width: 100%;
+  height: auto;
+}
+ .product-img {
+    border: 1px solid #eee;
+    height: 200px;
+  box-shadow: inset 10px 10px 50px #f3f3f3;
+  -moz-box-shadow: inset 10px 10px 50px #f3f3f3;
+  -webkit-box-shadow: inset 10px 10px 50px #f3f3f3;
  }
  .orders table{
   width:100%;
