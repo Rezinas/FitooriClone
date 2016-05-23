@@ -65,7 +65,7 @@
 						<p><?php echo $fprd['name']; ?></p>
 						<div class="galry">
 							<div class="prices">
-								<p class="item_price">Rs.<?php echo $fprd['price']; ?></p>
+								<p class="item_price">Rs.<?php echo round(floatval($fprd['price'])); ?></p>
 							</div>
 							<!-- <div class="rating">
 								<span>☆</span>
@@ -88,7 +88,7 @@
 	<!--subscribe-->
 	<div class="subscribe">
 		 <div class="container">
-		 	<h3>Let's Create .......</h3>
+		 	<h3>Pick a Jewel and have fun designing your own masterpiece...</h3>
 			<div  class="row" style="margin-top:35px;">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="imageBox">
 					<a href="index.php?customearrings"><img src="images/beaded.png" alt id="img1"/>
@@ -110,9 +110,6 @@
 			</div>
 
             </div>
-            <form>
-            	<p style="color: #fff;font-size: 24px; position: relative;font-family: 'Roboto-Regular'; top: 20px;" >Pick a Jewel and have fun designing your own masterpiece... </p>
-        	</form>
 		 </div>
 	</div>
 	<!--//subscribe-->

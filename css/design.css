@@ -5,7 +5,6 @@ body { padding-top: 0px !important; }
     display: none !important;
 }
 
-
 .sk-cube-grid {
   width: 250px;
   height: 250px;
@@ -74,71 +73,6 @@ body { padding-top: 0px !important; }
   }
 }
 
-/**
- * (C)Leanest CSS spinner ever
- */
-#loading-bar-spinner {
-  pointer-events: none;
-  -webkit-pointer-events: none;
-  -webkit-transition: 350ms linear all;
-  -moz-transition: 350ms linear all;
-  -o-transition: 350ms linear all;
-  transition: 350ms linear all;
-}
-
-#loading-bar-spinner {margin: 15% 45%;height: 500px;}
-
-#loading-bar-spinner .spinner-icon {
-  width: 120px;
-  height: 120px;
-  border:  solid 5px transparent;
-  border-bottom-color: #3b5641;
-  border-top-color: #67b3a9;
-  border-left-color: #df7950;
-  border-right-color: #decb3f;
-  border-radius: 50%;
-  -webkit-animation: loading-bar-spinner 400ms linear infinite;
-  -moz-animation:    loading-bar-spinner 400ms linear infinite;
-  -ms-animation:     loading-bar-spinner 400ms linear infinite;
-  -o-animation:      loading-bar-spinner 400ms linear infinite;
-  animation:         loading-bar-spinner 400ms linear infinite;
-}
-
-@-webkit-keyframes loading-bar-spinner {
-  0%   { -webkit-transform: rotate(0deg);   transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
-}
-@-moz-keyframes loading-bar-spinner {
-  0%   { -moz-transform: rotate(0deg);   transform: rotate(0deg); }
-  100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
-}
-@-o-keyframes loading-bar-spinner {
-  0%   { -o-transform: rotate(0deg);   transform: rotate(0deg); }
-  100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
-}
-@-ms-keyframes loading-bar-spinner {
-  0%   { -ms-transform: rotate(0deg);   transform: rotate(0deg); }
-  100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
-}
-@keyframes loading-bar-spinner {
-  0%   { transform: rotate(0deg);   transform: rotate(0deg); }
-  100% { transform: rotate(360deg); transform: rotate(360deg); }
-}
-
-/*div#alertDiv1.ng-enter, div#alertDiv2.ng-enter, div#alertDiv3.ng-enter, div#alertDiv4.ng-enter {
-  -webkit-animation: zoomIn 1s;
-  -moz-animation: zoomIn 1s;
-  -ms-animation: zoomIn 1s;
-  animation: zoomIn 1s;
-}*/
-/*div#alertDiv1.ng-leave, div#alertDiv2.ng-leave, div#alertDiv3.ng-leave, div#alertDiv4.ng-leave {
-  -webkit-animation: bounceOut 1s;
-  -moz-animation: bounceOut 1s;
-  -ms-animation: bounceOut 1s;
-  animation: bounceOut 1s;
-}
-*/
-
 .star {
  display: block;
  position: absolute;
@@ -146,7 +80,7 @@ body { padding-top: 0px !important; }
  left: 50%;
  width: 12px;
  height: 12px;
- background: #F6F6F6;
+ background: #FFD700;
  overflow: hidden;
  z-index: 2;
  animation: glitter 10.5s linear 0s infinite normal;
@@ -166,7 +100,7 @@ body { padding-top: 0px !important; }
  content: "";
  width: 12px;
  height: 12px;
- background: #F07818;
+ background: #5D4B33;
  border-radius: 50%;
  position: absolute;
 }
@@ -205,6 +139,80 @@ body { padding-top: 0px !important; }
 
 
 
+.bubble {
+  position: absolute;
+  padding: 10px;
+  width: 410px;
+  margin:0;
+  text-align: center;
+  /* color:#fff; */
+  background: #f07818; /* default background for browsers without gradient support */
+  /* css3 */
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#F07818), to(#fff));
+  background:-moz-linear-gradient(#F07818, #fff);
+  background:-o-linear-gradient(#F07818, #fff);
+  background: linear-gradient(#f07818, #fff);
+  /* -webkit-border-radius:10px; */
+  -moz-border-radius:10px;
+  /* border-radius:10px; */
+  top: -15px;
+  left: -15px;
+}
+
+/* display of quote author (alternatively use a class on the element following the blockquote) */
+.bubble span {color: #000;font-size: 1em;font-weight: bold;}
+
+/* creates the triangle
+.bubble:after {
+  content:"";
+  position:absolute;
+  bottom: -40px;
+  left: 38px;
+  border-width: 0 14px 41px 0px;
+  border-style:solid;
+  border-color: transparent #FFF;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+ */
+
+
+
+/* .bubble {
+  position:relative;
+  width:200px;
+  height:200px;
+  margin:50px 0 200px;
+  text-align:center;
+  /* font:140px/200px Arial, sans-serif; */
+  color:#fff;
+  background: #F07818;
+}
+
+/* creates the larger triangle */
+/* .bubble:before {
+  content:"";
+  position:absolute;
+  bottom: -134px;
+  right:0;
+  border-width: 0 0 140px 140px;
+  border-style:solid;
+  border-color: transparent #F07818;
+}
+ */
+/* creates the larger triangle */
+/* .bubble:after {
+  content:"";
+  position:absolute;
+  bottom:-140px;
+  right:85px;
+  border-width:0 0 140px 55px;
+  border-style:solid;
+  border-color:transparent #fff;
+}
+
+ */
 .modal {
   text-align: center;
   padding: 0!important;
@@ -281,12 +289,12 @@ label.material {
 }
 .bgProduct {
 	background: url("../images/silhoutteversion3.png") no-repeat;
-    background-size: contain;
-    height: 409px;
-    width: 380px;
-    padding-top: 172px;
-    padding-left: 160px;
-    margin-left: -10px;
+	/* background-size: contain; */
+	height: 409px;
+	width: 380px;
+	padding-top: 172px;
+	padding-left: 160px;
+	margin-left: -10px;
 }
 
 #designDet h4 {
@@ -367,8 +375,8 @@ button.addtoCart:hover{
 .felements, .aelements{
 	float: left;
 }
-.felements img, .aelements  img {
-	height: 70px;
+.felements img,  .aelements  img{
+/* 	height: 70px; */
 	width:  auto;
 	margin: 15px;
 
@@ -394,7 +402,7 @@ button.addtoCart:hover{
 	    border-radius: 10px;
 }
 .ribbon {
- font-size: 15px !important;
+	 font-size: 15px !important;
  /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
  /* width: 50%; */
  position: relative;
@@ -455,12 +463,19 @@ button.addtoCart:hover{
 	    top: -13px;
 	    left: -5px;
 	}
+
+	.product-img:hover {
+    box-shadow: inset 10px 10px 50px #f3f3f3;
+    border: 1px solid #f07818;
+}
+
 	.product-img{
 		width: 80px;
 		margin: 0px auto;
-		border: 0px solid;
+		border: 1px solid transparent;
 		text-align: center;
-		box-shadow: inset 10px 10px 50px #f3f3f3;
+		margin: 2px;
+		/* box-shadow: inset 10px 10px 50px #f3f3f3; */
 	}
 	.product-grid.elem {
 	    border: 0px solid #EFE9E9;
@@ -470,13 +485,22 @@ button.addtoCart:hover{
 	}
 	.product-grid.elem .product-img img {
     width: auto;
-    padding: 1.2em;
+    padding: 1em;
     height: 80px;
+    cursor: pointer;
+ }
+
+
+ .pr-ribbon {
+ 	 box-shadow: 0 0 30px rgba(236, 221, 210, 0.81) inset,            0 6px 10px rgba(0,0,0,.15);
+ 	  /* Adjust to suit */
+ 	 height: 85px;
  }
 	.avlOptions #imgOptions{
 		position: relative;
 		width:100%;
 		text-align: center;
+		margin-top: 10px;
 	}
 
 	.fheight {
@@ -575,13 +599,27 @@ button.addtoCart:hover{
 	    text-transform: uppercase;
 	}
 
-	div#alertDiv1 button, div#alertDiv2 button, div#alertDiv3 button, div#alertDiv4 button {
-		background-color: #F07818;
-		padding: 2px 10px;
+	.bgProduct .fa {
+		color: #f07818;
+		cursor: pointer;
+		border: none;
+		padding: 0;
+		background: none;
+		position: absolute;
+
+
 	}
 
-	div#alertDiv1 .fa-check-circle, div#alertDiv2 .fa-check-circle, div#alertDiv3 .fa-check-circle, div#alertDiv4 .fa-check-circle {
-		font-size: 5em;
+	.bgProduct .fa-question-circle {
+		font-size: 1.5em;
+		top: 1%;
+		left: 2%;
+	}
+
+	.bgProduct .fa-check-circle {
+		font-size: 4em;
+		top: 350px;
+		right: 10%;
 	}
 
 
@@ -598,7 +636,7 @@ button.addtoCart:hover{
 	div#sampleImgs h4 {
 	    margin-bottom: 0;
 	    font-size: 1em;
-	    margin-top: 1%;
+	    /* margin-top: 1%; */
 	    border: none;
 	}
 	div#sampleImgs span{
@@ -714,7 +752,7 @@ button.addtoCart:hover{
 	#chkBtn {
 	    width: 100%;
 	    position: relative;
-	    top: -37px;
+	    /* top: -37px; */
 	}
 	.moreoptions{
 		border: 0px solid #eee;
@@ -727,14 +765,14 @@ button.addtoCart:hover{
 	.moreoptions p,.moreoptions span {
 		position: relative;
 		text-align: center;
-		padding: 10px 0px;
+		padding: 30% 0;
 		color: #333;
 	}
 	.white_content{
-		height: 76%;
+		height: 95%;
 	}
 	.black_overlay{
-		height: 77%;
+		height: 94%;
 	}
 /** LAPTOP & DESKTOPS SCREEN MEDIA QUERIES **/
 @media only screen and (min-width:1367px) and (max-width:1440px){
@@ -1292,8 +1330,8 @@ button.addtoCart:hover{
 	}
 	.prd_elements img{
 		position: relative;
-		top: -30px;
-		left:-30px;
+		/* top: -30px; */
+		/* left:-30px; */
 	}
 	.avlOptions #imgOptions {
 	    position: relative;
@@ -1301,10 +1339,11 @@ button.addtoCart:hover{
 	    border: 0px solid;
 	    text-align: center;
 	    float: left;
-	    margin: -83px 0px 5px 0px;
+	    /* margin: -83px 0px 5px 0px; */
 	}
 	.bgProduct{
-		width: auto;
+		/* width: auto; */
+		width: 320px;
 	}
 	div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
 		margin-top: -9px;

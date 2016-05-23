@@ -253,21 +253,11 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      </a>
                   </li>
                   <li class="dropdown">
-                     <a href="javascript:void(0);" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Products<b class="caret"></b></a>
-                     <ul class="dropdown-menu multi-column columns-3">
+                     <a href="javascript:void(0);" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Our Collection<b class="caret"></b></a>
+                     <ul class="dropdown-menu">
                         <div class="row">
                            <div class="col-sm-6">
-                              <h4>Type</h4>
-                              <ul class="multi-column-dropdown">
-                                 <li><a class="list" href="index.php?products">All</a></li>
-                                 <li class="list">Bracelets - <span>Coming Soon</span></li>
-                                 <li><a class="list" href="index.php?products">Earrings</a></li>
-                                 <li class="list">Necklace - <span>Coming Soon</span></li>
-                                 <li class="list">Pendant Sets - <span>Coming Soon</span></li>
-                              </ul>
-                           </div>
-                           <div class="col-sm-6">
-                              <h4>Category</h4>
+                              <h4>Earrings</h4>
                               <ul class="multi-column-dropdown">
                                  <li><a class="list" href="index.php?products">All</a></li>
                                  <li><a class="list" href="index.php?products&m=2">Beaded</a></li>
@@ -279,16 +269,16 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      </ul>
                   </li>
                   <li class="dropdown grid">
-                     <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Customize<b class="caret"></b></a>
+                     <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Design<b class="caret"></b></a>
                      <ul class="dropdown-menu multi-column columns-3">
                         <div class="row">
                            <div class="col-sm-6">
-                              <h4>Items</h4>
+                              <h4>Jewel</h4>
                               <ul class="multi-column-dropdown">
-                                 <li class="list">Bracelets - <span>Coming Soon</span></li>
+                                 <!-- <li class="list">Bracelets - <span>Coming Soon</span></li> -->
                                  <li><a class="list" href="index.php?customearrings">Earrings</a></li>
-                                 <li class="list">Necklace - <span>Coming Soon</span></li>
-                                 <li class="list">Pendant Sets - <span>Coming Soon</span></li>
+                                 <!-- <li class="list">Necklace - <span>Coming Soon</span></li> -->
+                                 <!-- <li class="list">Pendant Sets - <span>Coming Soon</span></li> -->
                               </ul>
                            </div>
                            <div class="col-sm-6">

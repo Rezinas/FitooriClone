@@ -422,6 +422,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.showCartbtn = false;
 
                 $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
+             $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
+
         };
 
         $scope.confirmDesign = function() {
@@ -482,8 +484,8 @@ des.directive('prdPosition', function($timeout) {
                 var by = thisScope.selectedItem.botY.split(",");
              for(var ix=0; ix < thisScope.selectedItem.bottompoints; ix++){
                 var starEl = $("<figure class='star level"+thisScope.level+"'><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>");
-                var lp = bx[ix] -5;
-                var tp = by[ix] -2;
+                var lp = bx[ix];
+                var tp = by[ix];
                 $(starEl).css("left", lp+"px");
                 $(starEl).css("top", by[ix]+"px");
                 $(starEl).appendTo(curElem);

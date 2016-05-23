@@ -141,7 +141,8 @@ else{
 	//for custom designs of this user
 	$currUserEmail = getCurrentUserEmail();
     $curr_des = [];
-    $qry = "SELECT  productid, name, price, mainimg, customized  from products WHERE addedbyUserEmail='$currUserEmail' AND customized=1";
+
+    $qry = "SELECT  productid, name, price, mainimg, customized  from products WHERE productid IN ( SELECT DISTINCT productid from customdesign WHERE addedBy='$currUserEmail')";
  	if(!$stmt = $dbcon->prepare($qry)){
 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}

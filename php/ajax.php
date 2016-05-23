@@ -331,7 +331,7 @@ if(isset($_GET["despicks"])) {
       $elementStr = implode($_POST['elementids'], ",");
       $pids =[];
       $desprod=[];
-      $qry = "SELECT productid from customdesign WHERE elementid IN ( $elementStr )";
+      $qry = "SELECT productid from customdesign WHERE elementid IN ( $elementStr ) AND isProduct=1";
        if(!$stmt = $dbcon->prepare($qry)){
          die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
      }
@@ -348,7 +348,7 @@ if(isset($_GET["despicks"])) {
      $stmt->close();
      if(count($pids) > 0) {
         $pidStr = implode($pids, ",");
-        $qry = "SELECT productid, name, price, mainimg from products WHERE productid IN ( $pidStr )  AND mainimg<>'' LIMIT 2 ";
+        $qry = "SELECT productid, name, price, mainimg from products WHERE productid IN ( $pidStr )  AND designerPick=1 LIMIT 2 ";
          if(!$stmt = $dbcon->prepare($qry)){
            die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
        }

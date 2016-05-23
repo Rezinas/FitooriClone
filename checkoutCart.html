@@ -87,11 +87,11 @@
              <div class="panel-heading">
                 <h4>Cart Summary</h4>
              </div>
-             <p>Estimated time of delivery : <?php echo date('F dS, Y', strtotime("+8 days")); ?> - <?php echo date('F dS, Y', strtotime("+14 days")); ?>  </p>
+             <p>Estimated time of delivery : 8 - 14 business days </p>
              <div class="tableClass">
                 <table>
                    <tr>
-                      <th>Total ( including Tax)</th>
+                      <th>Total (including Tax)</th>
                       <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
                    </tr>
                    <tr>
@@ -104,9 +104,9 @@
                    </tr>
                 </table>
              </div>
-             <div id="chkBtns">
-                <a href="index.php?orders" class="btn btn-primary">Checkout</a>
+             <div id="chkBtns" style="text-align: right;">
                 <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
+                <a href="index.php?orders" class="btn btn-primary">Place Order</a>
              </div>
           </div>
            <div class="cart-items">

@@ -58,7 +58,6 @@ body a:hover{
 .header {
     background-color: #5D4B33;
     padding: 0;
-    /*position: relative;*/
     position: fixed;
     z-index: 10004;
     width: 100%;
@@ -144,7 +143,7 @@ b.caret {
     top: 99%;
 }
 .dropdown-menu {
-	min-width: 200px;
+	min-width: 166px;
 }
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -181,7 +180,7 @@ b.caret {
 .multi-column-dropdown li a i{
     font-size: 15px;
     position: relative;
-    top: 3px; 
+    top: 3px;
     margin-right: 3px;
 }
 .btn-file {
@@ -739,10 +738,10 @@ span.glyphicon.glyphicon-eye-open:hover {
 .gallery-grid.glry-one .gallery-info {
    /* left: 2%;
     width: 96%;*/
-    left:4%;
-    width: 91.8%;
-	/*bottom: 14.6%;*/
-    bottom:7.6%;
+   left:4%;
+   width: 91.8%;
+   /* bottom: 14.6%; */
+   bottom: 4.6%;
 }
 .gallery-grid.glry-two .gallery-info {
     left: 4%;
@@ -752,7 +751,7 @@ span.glyphicon.glyphicon-eye-open:hover {
 .gallery-info {
     position: absolute;
     width: 90%;
-    bottom: 20%;
+    bottom: 13%;
     left: 5%;
     display: none;
     background-color: rgba(6, 6, 6, 0.79);
@@ -1302,7 +1301,7 @@ div#pagination {
     font-size: 0.95em;
     font-family: 'Roboto-Regular';
     text-transform: uppercase;
-    font-weight: bold;*/   
+    font-weight: bold;*/
     color: #555;
     font-size: 0.95em;
     font-family: 'Roboto-Regular';
@@ -2634,9 +2633,9 @@ h4.panel-title {
 }
 .subscribe form p{
     color: #fff;
-    font-size: 24px; 
+    font-size: 24px;
     position: relative;
-    font-family: 'Roboto-Regular'; 
+    font-family: 'Roboto-Regular';
     top: 20px;
 }
 p.alert.text-uppercase a {
@@ -2668,7 +2667,7 @@ p.alert.text-uppercase a {
 @media (min-width:1367px) and (max-width:1440px){
     .gallery{
         margin-top: -70px;
-    }       
+    }
     .about hr {
         margin-bottom: 0px;
         border-top: 1px solid #ccc;
@@ -2685,7 +2684,7 @@ p.alert.text-uppercase a {
         text-align: center;
         padding-top: 10px;
     }
-    span.item_price {       
+    span.item_price {
         font-size: 0.95em;
         margin: 0px 0 0px;
         width: 100%;
@@ -2739,7 +2738,7 @@ p.alert.text-uppercase a {
         text-align: center;
         padding-top: 10px;
     }
-    span.item_price {       
+    span.item_price {
         font-size: 0.95em;
         margin: 0px 0 0px;
         width: 100%;
@@ -2858,7 +2857,7 @@ p.alert.text-uppercase a {
         text-align: center;
         padding-top: 10px;
     }
-    span.item_price {       
+    span.item_price {
         font-size: 0.95em;
         margin: 0px 0 0px;
         width: 100%;
@@ -3223,10 +3222,10 @@ p.alert.text-uppercase a {
         top:-10%;
     }
 
-    #loginBox {      
+    #loginBox {
        right:81px;
     }
-    .cart-box {        
+    .cart-box {
         right:32px;
     }
     .cart-box:before{
@@ -3332,7 +3331,7 @@ p.alert.text-uppercase a {
     h2 {
         font-size: 3.3em;
     }
-    .product-model-sec {        
+    .product-model-sec {
         margin: 8.5em 0 0 0;
     }
     .widgetBox {
@@ -3441,7 +3440,7 @@ p.alert.text-uppercase a {
     }
     .banner{
         padding: 40px 0px 0px 0px;
-    }    
+    }
     .search {
         right: 12%;
     }
@@ -3468,11 +3467,11 @@ p.alert.text-uppercase a {
     }
     .gallery-grid.glry-one .gallery-info {
         left: 5.9%;
-        width: 87.8%;    
+        width: 87.8%;
         bottom: 12.6%;
     }
     .gallery-info {
-        width: 91%;    
+        width: 91%;
         left: 4.5%;
         bottom: 16%;
     }
@@ -3523,7 +3522,7 @@ p.alert.text-uppercase a {
         float: none;
         padding-left: 10px;
     }
-    .header-right {        
+    .header-right {
         width: 25%;
     }
     .header-info {
@@ -3616,7 +3615,7 @@ p.alert.text-uppercase a {
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
-    }    
+    }
     .banner h2.hdng {
         font-size: 3em;
     }
@@ -3666,7 +3665,7 @@ p.alert.text-uppercase a {
         top: -10%;
     }
     .search input[type="text"] {
-        width: 100%; 
+        width: 100%;
     }
     .search button.btn.btn-default {
         padding: 0.51em;
@@ -3933,7 +3932,7 @@ p.alert.text-uppercase a {
         padding: 0px 25px;
     }
     .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left {
-        width: 33.3%;       
+        width: 33.3%;
         margin: 0px auto;
     }
     .product-info-cust h4{
@@ -3954,7 +3953,7 @@ p.alert.text-uppercase a {
     }
     .footer-bottom {
         padding: 1.5em 0;
-    }    
+    }
 }
 @media (min-width:737px) and (max-width:773px){
     #logo{
@@ -3969,7 +3968,7 @@ p.alert.text-uppercase a {
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
-    }    
+    }
     .banner h2.hdng {
         font-size: 3em;
     }
@@ -4019,7 +4018,7 @@ p.alert.text-uppercase a {
         top: -10%;
     }
     .search input[type="text"] {
-        width: 100%; 
+        width: 100%;
     }
     .search button.btn.btn-default {
         padding: 0.51em;
@@ -4286,7 +4285,7 @@ p.alert.text-uppercase a {
         padding: 0px 25px;
     }
     .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left {
-        width: 33.3%;       
+        width: 33.3%;
         margin: 0px auto;
     }
     .product-info-cust h4{
@@ -4307,7 +4306,7 @@ p.alert.text-uppercase a {
     }
     .footer-bottom {
         padding: 1.5em 0;
-    }    
+    }
 }
 @media (min-width:732px) and (max-width:736px){
     #logo{
@@ -4322,7 +4321,7 @@ p.alert.text-uppercase a {
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
-    }    
+    }
     .banner h2.hdng {
         font-size: 3em;
     }
@@ -4355,7 +4354,7 @@ p.alert.text-uppercase a {
         top: -10%;
     }
     .search input[type="text"] {
-        width: 70%; 
+        width: 70%;
     }
     .search button.btn.btn-default {
         padding: 0.51em;
@@ -4634,7 +4633,7 @@ p.alert.text-uppercase a {
     }
     .footer-bottom {
         padding: 1.5em 0;
-    }    
+    }
 }
 @media (min-width:668px) and (max-width:731px){
     #logo{
@@ -4649,7 +4648,7 @@ p.alert.text-uppercase a {
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
-    }    
+    }
     .banner h2.hdng {
         font-size: 3em;
     }
@@ -4682,7 +4681,7 @@ p.alert.text-uppercase a {
         top: -10%;
     }
     .search input[type="text"] {
-        width: 70%; 
+        width: 70%;
     }
     .search button.btn.btn-default {
         padding: 0.51em;
@@ -4966,7 +4965,7 @@ p.alert.text-uppercase a {
     }
     .footer-bottom {
         padding: 1.5em 0;
-    }    
+    }
 }
 @media (min-width:641px) and (max-width:667px){
     #logo{
@@ -4981,7 +4980,7 @@ p.alert.text-uppercase a {
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
-    }    
+    }
     .banner h2.hdng {
         font-size: 3em;
     }
@@ -5014,7 +5013,7 @@ p.alert.text-uppercase a {
         top: -10%;
     }
     .search input[type="text"] {
-        width: 70%; 
+        width: 70%;
     }
     .search button.btn.btn-default {
         padding: 0.51em;
@@ -5308,7 +5307,7 @@ p.alert.text-uppercase a {
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
-    }    
+    }
     .banner h2.hdng {
         font-size: 3em;
     }
@@ -5339,7 +5338,7 @@ p.alert.text-uppercase a {
         top: -7%;
     }
     .search input[type="text"] {
-        width: 100%; 
+        width: 100%;
     }
     .search button.btn.btn-default {
         width: 100%;
@@ -5616,7 +5615,7 @@ p.alert.text-uppercase a {
     }
     .footer-bottom {
         padding: 1.5em 0;
-    }    
+    }
 }
 @media (min-width:569px) and (max-width:600px){
     .contact-form input[type="text"] {
@@ -5634,7 +5633,7 @@ p.alert.text-uppercase a {
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
-    }    
+    }
     .banner h2.hdng {
         font-size: 3em;
     }
@@ -5665,11 +5664,11 @@ p.alert.text-uppercase a {
         top: -8%;
     }
     .search input[type="text"] {
-        width: 100%; 
+        width: 100%;
     }
     .search button.btn.btn-default {
         width: 100%;
-        
+
     }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
@@ -5963,7 +5962,7 @@ p.alert.text-uppercase a {
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
-    }    
+    }
     .banner h2.hdng {
         font-size: 3em;
     }
@@ -5994,9 +5993,9 @@ p.alert.text-uppercase a {
         top: -8%;
     }
     .search input[type="text"] {
-        width: 100%; 
+        width: 100%;
     }
-    .search button.btn.btn-default {        
+    .search button.btn.btn-default {
         width: 100%;
     }
     .submitForm:after, #loginForm:after{
@@ -6299,7 +6298,7 @@ p.alert.text-uppercase a {
     li.list span{
         font-size: 14px;
     }
-    .header-info {       
+    .header-info {
         width: 45%;
     }
     .banner h2.hdng {
@@ -6350,7 +6349,7 @@ p.alert.text-uppercase a {
     }
     .track form.navbar-form::before{
        right: 13px;
-       top: -8%; 
+       top: -8%;
     }
     .track input[type="text"] {
         margin: 1px 0px 7px 0px;
@@ -6388,7 +6387,7 @@ p.alert.text-uppercase a {
         width: 96%;
         bottom: 23%;
     }
-    .gallery-grid {        
+    .gallery-grid {
         margin-bottom: 2em;
     }
     .gallery-info {
@@ -6827,7 +6826,7 @@ p.alert.text-uppercase a {
     }
     .product-model-sec{
         padding:0px 15px;
-        margin-top:10px; 
+        margin-top:10px;
     }
     .product-img img{
         padding:1em;
@@ -6836,8 +6835,8 @@ p.alert.text-uppercase a {
         width: 100%;
     }
     .rsidebar {
-        margin: 0;           
-        padding:0px 15px;   
+        margin: 0;
+        padding:0px 15px;
     }
     .product-info-cust h4{
         font-size: 1em;
@@ -8027,13 +8026,13 @@ p.alert.text-uppercase a {
         margin-top: 50px;
         margin-bottom: 10px;
         font-size: 2.3em;
-    }    
+    }
     .product-model-sec{
         padding:0px 15px;
     }
     section#sorter {
     	width: 100%;
-    }	
+    }
     .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
         width: 100%;
         overflow: hidden;
@@ -8087,7 +8086,7 @@ p.alert.text-uppercase a {
     input.item_add.items {
         float: right;
     }
-    
+
     .sky-form h4 {
         font-size: 0.9em;
     }
