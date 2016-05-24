@@ -116,15 +116,6 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
       <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
 
-
-       <!-- js -->
-      <script type="text/javascript"  src="js/jquery.min.js"></script>
-      <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-      <script src="js/jquery.validate.min.js" type="text/javascript"></script>
-      <script src="js/additional-methods.js" type="text/javascript"></script>
-      <script src="js/login.js" type="text/javascript"></script>
-      <script src="js/cart.js" type="text/javascript"></script>
-
       <?php if($currenttab == "home") { ?>
         <link href="css/home.css" rel="stylesheet" type="text/css" media="all" />
       <?php  } ?>
@@ -145,18 +136,52 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
        <link href="css/tc.css" rel="stylesheet" type="text/css" media="all" />
       <?php }?>
 
-        <?php if($currenttab == "myorder") { ?>
+      <?php if($currenttab == "myorder" || $currenttab == "checkout" || $currenttab == "orders") { ?>
         <link href="css/cartpage.css" type="text/css" rel="stylesheet" media="all">
-        <?php }?>
+      <?php }?>
+
+      <?php if($currenttab == "myaccount") { ?>
+        <link href="css/myaccount.css" type="text/css" rel="stylesheet" media="all">
+      <?php } ?>
+
+      <?php if($currenttab == "register") {?>
+        <link href="css/register.css" type="text/css" rel="stylesheet" media="all">
+      <?php } ?>
+
+      <?php if($currenttab == "single") { ?>
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+        <link href="css/single.css" type="text/css" rel="stylesheet" media="all">
+      <?php } ?>
+
+      <?php if($currenttab == "customearrings") { ?>
+        <link rel="stylesheet" href="css/landingPage.css">
+      <?php } ?>
+
+      <?php if($currenttab == "designearrings") { ?>
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/animate.css">
+      <?php } ?>
+
+
+      <?php if($currenttab == "products") { ?>
+        <link href="css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
+        <link href="css/products.css" type="text/css" rel="stylesheet" media="all">
+      <?php } ?>
+
+
+       <!-- js -->
+      <script type="text/javascript"  src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+      <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+      <script src="js/additional-methods.js" type="text/javascript"></script>
+      <script src="js/login.js" type="text/javascript"></script>
+      <script src="js/cart.js" type="text/javascript"></script>
 
       <?php if($currenttab == "checkout" || $currenttab == "orders") { ?>
-        <link href="css/cartpage.css" type="text/css" rel="stylesheet" media="all">
         <script src="js/checkout.js"></script>
       <?php  } ?>
 
       <?php if($currenttab == "single") {?>
-        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-        <link href="css/single.css" type="text/css" rel="stylesheet" media="all">
         <script defer src="js/jquery.flexslider.js"></script>
         <script src="js/imagezoom.js"></script>
         <script>
@@ -172,38 +197,26 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
         </script>
       <?php  } ?>
 
-      <?php if($currenttab == "register") {?>
-        <link href="css/register.css" type="text/css" rel="stylesheet" media="all">
-      <?php } ?>
-
       <?php if($currenttab == "myaccount") { ?>
-        <link href="css/myaccount.css" type="text/css" rel="stylesheet" media="all">
         <script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
         <script type="text/javascript"  src="js/paging.js"></script>
         <script src="js/myaccount.js" type="text/javascript"></script>
       <?php }?>
 
-      <?php if($currenttab == "customearrings") { ?>
-        <link rel="stylesheet" href="css/landingPage.css">
-      <?php } ?>
 
       <?php if($currenttab == "designearrings") { ?>
-        <link rel="stylesheet" href="css/design.css">
-        <link rel="stylesheet" href="css/animate.css">
         <script src="js/angular.min.js"></script>
         <script src="js/design.js"></script>
       <?php } ?>
 
       <?php if($currenttab == "products") { ?>
-        <link href="css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
-        <link href="css/products.css" type="text/css" rel="stylesheet" media="all">
         <script src="js/angular.min.js"></script>
         <script src="js/rzslider.min.js"></script>
         <script src="js/searchapp.js"></script>
       <?php } ?>
 
       <?php if($currenttab == "logout") {
-         session_start();//session is a way to store information (in variables) to be used across multiple pages.
+         session_start();
          session_destroy();
          header("Location: index.php");//use for the redirection to some page
       }?>
@@ -229,7 +242,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
   }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Twitter -->
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
 
       <!--header-->
       <div class="header">

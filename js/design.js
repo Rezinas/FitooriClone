@@ -590,7 +590,8 @@ function openfb() {
       href: "http://fitoori.com",
       name: "My Fitoori Design",
       picture: imgurl,
-      description: "Designed on Fitoori.com!"
+      description: "Designed on Fitoori.com!",
+      app_id: 1076977995697955
     });
 
   // $('.js-share-facebook').on('click', function() {
