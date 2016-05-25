@@ -95,6 +95,7 @@ $(document).ready(function (c) {
     $("#addressForm").validate({
          rules: {
           email_info: {required:true, email:true},
+          phone: {required:true,  minlength:9, maxlength:10},
           ship_address1: { required: true  },
           ship_city: { required: true },
           ship_state: { required: true },
@@ -106,6 +107,7 @@ $(document).ready(function (c) {
          },
          messages: {
           email_info: {required:"Please enter your email address", email:"Please enter valid email address"},
+          phone: {required:"Please enter your phone number"},
           ship_address1: { required: "Please Provide Address"  },
           ship_city: { required: "Please Provide City" },
           ship_state: { required: "Please Provide State" },

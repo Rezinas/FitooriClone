@@ -5,6 +5,10 @@
 			<div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Registration Failed! Please try again</div>
             <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
 			<form id="regForm" name="regForm" role="form" action="php/register.php" method="POST">
+                <?php if( isset($_REQUEST['register']) && $_REQUEST['register'] == "checkout"){
+                        echo '<input type="hidden" name="backto" value="orders" />';
+                }
+                ?>
 				<section id="errorMessages">
 					<div></div>
 				</section>

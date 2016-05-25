@@ -9,7 +9,7 @@
          <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <h4 style="background: #5D4B33; padding-left: 6px; color: #fff;">Order Summary</h4>
             <h4>Order Number: ORD000<?php echo $sess_orderID; ?></h4>
-            <h4>Order Total:  &#8377;.<?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></h4>
+            <h4>Order Total:  &#8377; <?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></h4>
                        <table style="width:100%;">
 
                                 <?php if(count($cartItems) > 0) {
@@ -100,7 +100,7 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" class="guest">
                               <p id="title-p">Guest Checkout</p><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="color:#555" onclick="$('.loginCheck').removeClass('hide');">Continue as Guest</a><br/><br/>
                               <div>OR</div><br/>
-                              <a href="index.php?register" style="color:#555"> Register</a>
+                              <a href="index.php?register=checkout" style="color:#555"> Register</a>
                         </div>
                      </div>
                   </div>
@@ -124,9 +124,12 @@
                                        <span>Email Address</span>
                                        <input class="form-control" data-validation="alphabets"  name="email_info" type="text" autofocus value="<?php echo $order_add['email']; ?>">
                                 </div>
-
+                                <div class="form-group">
+                                       <span>Phone Number</span>
+                                       <input class="form-control" data-validation="numbers"  name="phone" type="text" autofocus value="<?php echo $order_add['phone']; ?>">
+                                </div>
                             </div>
-                        <h4 class="heading">Shipping Information</h4><br>
+                              <h4 class="heading">Shipping Information</h4><br>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 shippingAddress">
                                     <h3>Shipping Address</h3><br>
                                     <div class="form-group">

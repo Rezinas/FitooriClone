@@ -108,6 +108,7 @@ if(isset($_REQUEST["confirmOrder"])) {
 //When payment information is updated
 if(!empty($_POST) && isset($_POST['shippay']) ){
     $email_info = prepare_input($_POST['email_info']);
+    $phone = prepare_input($_POST['phone']);
     $ship_address1 = prepare_input($_POST['ship_address1']);
     $ship_address2 = prepare_input($_POST['ship_address2']);
     $ship_city = prepare_input($_POST['ship_city']);
@@ -126,10 +127,10 @@ if(!empty($_POST) && isset($_POST['shippay']) ){
 
     //update orders table with these values.
             //run the update query for the $pieceid.
-    $updQuery1 =  "UPDATE `orders` SET `status` = ?, `paymenttype` = ?, `shippingaddress1` = ?, `shippingaddress2` = ?, `shippingstate` = ?, `shippingcity` = ?, `shippingpostal` = ?, `billingaddress1` = ?, `billingaddress2` = ?, `billingcity` = ?, `billingstate` = ?, `billingpostal` = ?, `useremail`= ? WHERE `orders`.`orderid` = $sess_orderID ";
+    $updQuery1 =  "UPDATE `orders` SET `status` = ?, `paymenttype` = ?, `shippingaddress1` = ?, `shippingaddress2` = ?, `shippingstate` = ?, `shippingcity` = ?, `shippingpostal` = ?, `billingaddress1` = ?, `billingaddress2` = ?, `billingcity` = ?, `billingstate` = ?, `billingpostal` = ?, `useremail`= ?, `phone`= ?  WHERE `orders`.`orderid` = $sess_orderID ";
 
     $stmt = $dbcon->prepare($updQuery1);
-    $stmt->bind_param('sssssssssssss', $sess_orderStatus, $paytype, $ship_address1, $ship_address2, $ship_state, $ship_city, $ship_postalcode, $bill_address1, $bill_address2, $bill_state, $bill_city, $bill_postalcode, $email_info);
+    $stmt->bind_param('ssssssssssssss', $sess_orderStatus, $paytype, $ship_address1, $ship_address2, $ship_state, $ship_city, $ship_postalcode, $bill_address1, $bill_address2, $bill_state, $bill_city, $bill_postalcode, $email_info, $phone);
 
     if(!$stmt->execute()){
         die('Error : ('. $dbcon->errno .') '. $dbcon->error);
@@ -140,16 +141,17 @@ if(!empty($_POST) && isset($_POST['shippay']) ){
     if(!empty($ship_address2)) { $shipAddressStr .= $ship_address2 .", <br>"; }
     $shipAddressStr .= $ship_city. ", ".$ship_state.", India <br>";
     $shipAddressStr .= $ship_postalcode;
+    $shipAddressStr .= "<br> Phone Number: ".$phone;
 
     $_SESSION["shippingaddress"] = $shipAddressStr;
     $_SESSION["orderemail"] = $email_info;
 
     if(isset($_SESSION["useraddress"])){
         $uid = $_SESSION['userid'];
-        $updQuery1 =  "UPDATE `user` SET `address1` = ?, `address2` = ?, `city` = ?, `state` = ?, `postalcode` = ? WHERE `user`.`userid` = $uid";
+        $updQuery1 =  "UPDATE `user` SET `address1` = ?, `address2` = ?, `city` = ?, `state` = ?, `postalcode` = ?, `phone` = ? WHERE `user`.`userid` = $uid";
 
         $stmt = $dbcon->prepare($updQuery1);
-        $stmt->bind_param('sssss', $ship_address1, $ship_address2, $ship_city, $ship_state, $ship_postalcode);
+        $stmt->bind_param('ssssss', $ship_address1, $ship_address2, $ship_city, $ship_state, $ship_postalcode, $phone);
 
         if(!$stmt->execute()){
             die('Error : ('. $dbcon->errno .') '. $dbcon->error);
@@ -176,7 +178,7 @@ if($sess_orderID == -1) {
 $currUserEmail = isGuest() ? "" :  getCurrentUserEmail();
 $currUsertype="2";
 $curr_user = ['userid' => '', 'firstname' => '', 'lastname' => '', 'email' => '', 'phone' => '', 'gender' => '', 'address1' => '', 'address2' => '', 'city' => '', 'state' => '', 'postalcode' => ''];
-$order_add = ['email' => '', 'ship_add1' => '', 'ship_add2' => '', 'ship_city' => '', 'ship_state' => '', 'ship_postal' => '', 'bill_add1' => '', 'bill_add2' => '', 'bill_city' => '', 'bill_state' => '', 'bill_postal' => '', 'paymenttype' => 'COD'];
+$order_add = ['email' => '','email' => '', 'ship_add1' => '', 'ship_add2' => '', 'ship_city' => '', 'ship_state' => '', 'ship_postal' => '', 'bill_add1' => '', 'bill_add2' => '', 'bill_city' => '', 'bill_state' => '', 'bill_postal' => '', 'paymenttype' => 'COD'];
 
 
 //if the user is not a guest, get the current user details to prefill the order form
@@ -207,9 +209,9 @@ if(isset($_SESSION['userid'])) {
 
     if($sess_orderStatus == "new") {
         $_SESSION['orderStatus'] = $sess_orderStatus = "shippingInfo";
-        $updQuery1 =  "UPDATE `orders` SET `status` = ?,  `useremail` =?, `usertype` =?, `shippingaddress1` = ?,`shippingaddress2`=?,`shippingcity`=?,`shippingstate` =?, `shippingpostal`=? WHERE `orders`.`orderid` = $sess_orderID";
+        $updQuery1 =  "UPDATE `orders` SET `status` = ?,  `useremail` =?, `phone` =?, `usertype` =?, `shippingaddress1` = ?,`shippingaddress2`=?,`shippingcity`=?,`shippingstate` =?, `shippingpostal`=? WHERE `orders`.`orderid` = $sess_orderID";
         $stmt = $dbcon->prepare($updQuery1);
-        $stmt->bind_param('ssisssss', $sess_orderStatus, $curr_user['email'], $curr_user['usertype'], $curr_user['address1'], $curr_user['address2'], $curr_user['city'], $curr_user['state'], $curr_user['postalcode']);
+        $stmt->bind_param('sssisssss', $sess_orderStatus, $curr_user['email'], $curr_user['phone'], $curr_user['usertype'], $curr_user['address1'], $curr_user['address2'], $curr_user['city'], $curr_user['state'], $curr_user['postalcode']);
 
         if(!$stmt->execute()){
             die('Error : ('. $dbcon->errno .') '. $dbcon->error);
@@ -219,6 +221,7 @@ if(isset($_SESSION['userid'])) {
 
     $currUsertype= $curr_user['usertype'];
     $order_add['email'] = $curr_user['email'];
+    $order_add['phone'] = $curr_user['phone'];
     $order_add['ship_add1'] = $curr_user['address1'];
     $order_add['ship_add2'] = $curr_user['address2'];
     $order_add['ship_city'] = $curr_user['city'];
@@ -230,12 +233,12 @@ if($sess_orderID == -1) {
     //new order to be created now
     //order status could be new, shippingInfo, review, confirmed, cancelled, shipped, delivered, completed
     if(count($cartItems) > 0) {
-        $ord_qry  = "insert into orders (`useremail`, `usertype`, `status`, `shippingaddress1`,`shippingaddress2`,`shippingcity`,`shippingstate`,`shippingpostal`,`billingaddress1`,`billingaddress2`,`billingcity`,`billingstate`,`billingpostal`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $ord_qry  = "insert into orders (`useremail`,`phone`, `usertype`, `status`, `shippingaddress1`,`shippingaddress2`,`shippingcity`,`shippingstate`,`shippingpostal`,`billingaddress1`,`billingaddress2`,`billingcity`,`billingstate`,`billingpostal`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $ins_stmt = $dbcon->prepare($ord_qry);
         if(!$ins_stmt) {
          die('Prepare Error 3: ('. $dbcon->errno .') '. $dbcon->error);
         }
-        $ins_stmt->bind_param('sisssssssssss', $currUserEmail, $currUsertype, $sess_orderStatus, $curr_user["address1"], $curr_user["address2"], $curr_user["city"], $curr_user["state"], $curr_user["postalcode"], $curr_user["address1"], $curr_user["address2"], $curr_user["city"], $curr_user["state"], $curr_user["postalcode"]);
+        $ins_stmt->bind_param('ssisssssssssss', $currUserEmail, $curr_user["phone"], $currUsertype, $sess_orderStatus, $curr_user["address1"], $curr_user["address2"], $curr_user["city"], $curr_user["state"], $curr_user["postalcode"], $curr_user["address1"], $curr_user["address2"], $curr_user["city"], $curr_user["state"], $curr_user["postalcode"]);
         if($ins_stmt->execute()){
               $sess_orderID =$ins_stmt->insert_id;
               $_SESSION['orderID'] = $sess_orderID;
@@ -289,7 +292,7 @@ else {
         $ins_stmt1->close();
 
     $order_add =[];
-    $qry = "SELECT  useremail,shippingaddress1, shippingaddress2, shippingcity, shippingstate, shippingpostal,billingaddress1, billingaddress2, billingcity, billingstate, billingpostal, paymenttype  from orders WHERE orderid=$sess_orderID";
+    $qry = "SELECT  useremail, phone, shippingaddress1, shippingaddress2, shippingcity, shippingstate, shippingpostal,billingaddress1, billingaddress2, billingcity, billingstate, billingpostal, paymenttype  from orders WHERE orderid=$sess_orderID";
 
     if(!$stmt = $dbcon->prepare($qry)){
         die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
@@ -300,9 +303,9 @@ else {
     }
 
     $stmt->store_result();
-    $stmt->bind_result( $aa, $a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k);
+    $stmt->bind_result( $aa, $ph, $a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k);
     while ($stmt->fetch()) {
-       $order_add = ['email' => $aa, 'ship_add1' => $a, 'ship_add2' => $b, 'ship_city' => $c, 'ship_state' => $d, 'ship_postal' => $e, 'bill_add1' => $f, 'bill_add2' => $g, 'bill_city' => $h, 'bill_state' => $i, 'bill_postal' => $j, 'paymenttype'=> $k];
+       $order_add = ['email' => $aa, 'phone'=>$ph, 'ship_add1' => $a, 'ship_add2' => $b, 'ship_city' => $c, 'ship_state' => $d, 'ship_postal' => $e, 'bill_add1' => $f, 'bill_add2' => $g, 'bill_city' => $h, 'bill_state' => $i, 'bill_postal' => $j, 'paymenttype'=> $k];
     }
     $stmt->close();
 

@@ -2,6 +2,7 @@
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 require_once($_SERVER['DOCUMENT_ROOT']."/utils/db_connection.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
+session_start();
 
 if(isset($_POST['register']))
 {
@@ -30,7 +31,16 @@ if(isset($_POST['register']))
       $_SESSION["username"] = $user_fn . ' '. $user_ln;
       $_SESSION["userid"] = $userid;
       $_SESSION["useremail"] =  $user_email;
-      header("Location: ".SITE_URL. "index.php");
+
+      if(isset($_POST["backto"])) {
+        $gotoPage = "/index.php?".$_POST["backto"];
+        header("Location: ".SITE_URL. $gotoPage);
+      }
+      else  {
+       header("Location: ".SITE_URL. "index.php");
+
+      }
+
     }
   }
   ?>

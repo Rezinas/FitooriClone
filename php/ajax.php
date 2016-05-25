@@ -6,6 +6,8 @@ require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
 // $bg  = The background color to trim from the image
 // $pad = Amount of padding to add to the trimmed image
 //        (acts simlar to the "padding" CSS property: "top [right [bottom [left]]]")
+
+
 function imagetrim(&$im, $bg, $pad=null){
     // Calculate padding for each side.
     if (isset($pad)){
@@ -65,16 +67,22 @@ function imagetrim(&$im, $bg, $pad=null){
     $im = $im2;
 }
 
+ function shadow_text($im, $size, $x, $y, $font, $text)
+  {
+    $fcolor = imagecolorallocate($im, 128, 128, 128);
+    imagettftext($im, $size, 0, $x + 1, $y + 1, $fcolor, $font, $text);
+  }
 
 function createCustomPrdImage($elemArr)
  {
        //get total height of the design
-    $totalheight =30;
-    $totalwidth =15;
+    $totalheight =200; //initial offset
+    $totalwidth =250; //initial offset
     foreach($elemArr as $elm) {
         $totalheight += $elm['imgheight'];
         $totalwidth += $elm['imgwidth'];
     };
+
 
     $img = imagecreatetruecolor($totalwidth, $totalheight);
     imagesavealpha($img, true);
@@ -82,12 +90,13 @@ function createCustomPrdImage($elemArr)
     imagefill($img, 0, 0, $color);
 
      //start constructing the image
-    $offsetx = 30;
-    $offsety = 10;
+    $offsetx = 15;
+    $offsety = 15;
      foreach($elemArr as $key => $elm) {
       $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
         $orig_w = $elm["imgwidth"];
         $orig_h = $elm["imgheight"];
+
         $dst_x = $elm['leftPos'];
         $dst_y = $elm['topPos'];
         if($dst_x < 0 && $key == 0) {
@@ -95,12 +104,13 @@ function createCustomPrdImage($elemArr)
         }
         $dst_x += $offsetx;
         $dst_y += $offsety;
+
       imagealphablending($imgpart, false);
       imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w, $orig_h);
       imagesavealpha( $img, true );
     }
 
-    // if(!imagepng($original_design, "../customDesigns/test0.png", 1)){
+    // if(!imagepng($img, "../productImages/test0.png", 1)){
     //   return "ERROR";
     // }
 
@@ -108,9 +118,6 @@ function createCustomPrdImage($elemArr)
     $ow  = imagesx($img);
     $oh = imagesy($img);
 
- // if(!imagepng($img, "../customDesigns/test1.png", 1)){
- //      return "ERROR";
- //    }
 
     $out_w = $ow*2;
     $out = imagecreatetruecolor($out_w, $oh+20);
@@ -128,6 +135,15 @@ function createCustomPrdImage($elemArr)
     $curr_y = 15;
 
     }
+
+         $font = '../fonts/arial.ttf';
+         $size = 6;
+
+        $bbox = imagettfbbox($size, 0, $font, 'ky');
+        $x =  $ow-10; $y = $bbox[5]+12;
+
+        $text = 'FITOORI DESIGNS';
+        shadow_text($out, $size, $x, $y, $font, $text);
 
 
    $fn = md5(microtime()."new")."_custom.png";

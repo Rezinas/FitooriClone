@@ -211,34 +211,7 @@ body { padding-top: 0px !important; }
 }
 
  */
-.modal {
-  text-align: center;
-  padding: 0!important;
-}
 
-.modal:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -4px;
-}
-
-.modal-dialog {
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
-}
-
-.modal-header {
-    background-color: #5D4B33;
-    color: #fff;
-}
-
-.modal-header .close {
-    color: #F07818;
-    opacity: 1;
-}
 
 #mainContainer{
 	margin-top: 40px;
