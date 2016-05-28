@@ -210,7 +210,7 @@
     width: 70%;
   }
   #emailInput{
-    width:100%;
+    width:96%;
   }
   table#allorders tbody td{
     min-width: 250px;
@@ -507,7 +507,7 @@
     width: 78%;
   }
   #emailInput{
-    width:100%;
+    width:96%;
   }
   .orders table {
     width: 100%;

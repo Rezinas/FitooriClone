@@ -156,7 +156,7 @@
     padding: 4em 0 1em 0;
   }
   .contact h2{
-    font-size: 2.3em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;
@@ -167,6 +167,9 @@
   }
   .contact-infom p{
     font-size: 0.95em;
+  }
+  .contact-form select{
+    margin-bottom: 0px;
   }
   .contact-form .form-group{
     width: 100%;
@@ -195,7 +198,7 @@
     padding: 4em 0 1em 0;
   }
   .contact h2{
-    font-size: 2.3em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;
@@ -228,14 +231,16 @@
   .address p{
     font-size: 0.95em;
   }
+  .contact-form select{
+    margin-bottom: 0px;
+  }
 }
-
 @media (min-width:361px) and (max-width: 375px) {
   .contact{
     padding: 4em 0 1em 0;
   }
   .contact h2{
-    font-size: 2.5em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;
@@ -256,6 +261,7 @@
   }
   .contact-form input[type="text"],.contact-form select {
     width: 100%;
+    margin-bottom: 0px;
   }
   .contact-form textarea{
     width: 100%;
@@ -269,13 +275,12 @@
     font-size: 0.95em;
   }
 }
-
 @media (min-width:376px) and (max-width: 414px) {
   .contact{
     padding: 4em 0 1em 0;
   }
   .contact h2{
-    font-size: 2.5em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;
@@ -296,6 +301,7 @@
   }
   .contact-form input[type="text"],.contact-form select {
     width: 100%;
+    margin-bottom: 0px;
   }
   .contact-form textarea{
     width: 100%;
@@ -314,7 +320,7 @@
     padding: 4em 0 1em 0;
   }
   .contact h2{
-    font-size: 2.5em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;
@@ -335,6 +341,7 @@
   }
   .contact-form input[type="text"],.contact-form select {
     width: 100%;
+    margin-bottom: 0px;
   }
   .contact-form textarea{
     width: 100%;
@@ -348,13 +355,12 @@
     font-size: 1em;
   }
 }
-
 @media (min-width:436px) and (max-width: 480px) {
   .contact{
     padding: 4em 0 1em 0;
   }
   .contact h2{
-    font-size: 2.5em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;
@@ -375,6 +381,7 @@
   }
   .contact-form input[type="text"],.contact-form select {
     width: 100%;
+    margin-bottom: 0px;
   }
   .contact-form textarea{
     width: 100%;
@@ -416,6 +423,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+      margin-bottom: 0px;
     }
     .contact-form textarea{
       width: 100%;
@@ -455,6 +463,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+      margin-bottom: 0px;
     }
     .contact-form textarea{
       width: 100%;
@@ -494,6 +503,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+      margin-bottom: 0px;
     }
     .contact-form textarea{
       width: 100%;
@@ -533,6 +543,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+      margin-bottom: 0px;
     }
     .contact-form textarea{
       width: 100%;
@@ -575,6 +586,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+      margin-bottom: 0px;
     }
     .contact-form textarea{
       width: 100%;
@@ -617,6 +629,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+      margin-bottom: 0px;
     }
     .contact-form textarea{
       width: 100%;
@@ -659,6 +672,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+      margin-bottom: 0px;
     }
     .contact-form textarea{
       width: 100%;
@@ -701,6 +715,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+      margin-bottom: 0px;
     }
     .contact-form textarea{
       width: 100%;

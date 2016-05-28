@@ -860,7 +860,8 @@
         background-color: #F07818;
     }
     button.navbar-toggle{
-        margin-right: 24em;
+        margin-right: 14em;
+        margin-top: 3px;
     }
     .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
         background-color: #F07818;
@@ -880,14 +881,14 @@
         position: absolute;
         top: 0%;
         right: 0%;
-        width: 30%;
+        width: 60%;
     }
     .header-right span.glyphicon {
         font-size: 1.4em;
-        padding: 0.75em 0;
+        padding: 0.5em 0;
     }
     .header-right span img {
-        padding: 0.30em 0;
+        padding: 0em 0;
     }
     .search {
         right: 66%;
@@ -1062,8 +1063,7 @@
         margin-top: 2em;
     }
     .gallery-grid.glry-one {
-        padding: 0;
-        width: 100%;
+        padding: 0;        
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -1107,21 +1107,26 @@
     }
     .gallery-info {
         width: 86.5%;
-        bottom: 22%;
+        bottom: 16.9%;
         padding: 0.6em;
         left: 16px;
     }
     .galy-info p {
-        font-size: 1em;
+        font-size: 1.1em;
+        text-align: center;
+        margin: 2px 0 0 0;
     }
     .galy-info h5 {
         font-size: 0.95em;
     }
     .feturedImg {
-        padding: 5px;
+        padding: 30px;
     }
     .subscribe{
         height: auto;
+    }
+    .subscribe h3{
+        font-size: 2.5em;
     }
     .subscribe form input[type="text"] {
         width: 70%;
@@ -1154,7 +1159,14 @@
         padding: 0;
     }
     .widgets h3 {
-        margin: 8px auto 15px auto;
+        margin: 0px auto 15px auto;
+    }
+    .customised img{
+        width: 95%;
+    }
+    .customised h4{
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     input.item_add.items {
         font-size: 0.8em;
@@ -1220,7 +1232,7 @@
         margin: 0;
     }
     .about-infom {
-        padding-top: 2em;
+        padding-top: 1em;
     }
     center{
         font-size: 1em;
@@ -1269,7 +1281,7 @@
         margin: 10px auto;
     }
     h2#mainContainer {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 10px;
         font-size: 3.5em;
     }
@@ -1287,7 +1299,7 @@
         margin: 0px auto;
     }
     .product-info-cust h4{
-        font-size: 10px;
+        font-size: 16px;
     }
     .footer {
         padding: 2em 0;
@@ -1343,7 +1355,7 @@
         margin-top: -39px;
     }
     .navbar-default .navbar-nav > li > a{
-        padding: 10px 19px;
+        padding: 10px 16px;
     }
     .header-right{
         position: relative;
@@ -1459,22 +1471,27 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 86.5%;
-        bottom: 22%;
+        width: 91.5%;
+        bottom: 11%;
         padding: 0.6em;
         left: 16px;
     }
     .galy-info p {
-        font-size: 1em;
+        font-size: 1.1em;
+        text-align: center;
+        margin: 2px 0 0 0;
     }
     .galy-info h5 {
         font-size: 0.95em;
     }
     .feturedImg {
-        padding: 5px;
+        padding: 50px;
     }
     .subscribe{
         height: auto;
+    }
+    .subscribe h3{
+        font-size: 2.5em;
     }
     .subscribe form input[type="text"] {
         width: 70%;
@@ -1507,7 +1524,14 @@
         padding: 0;
     }
     .widgets h3 {
-        margin: 8px auto 15px auto;
+        margin: 0px auto 15px auto;
+    }
+    .customised img{
+        width: 95%;
+    }
+    .customised h4{
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     input.item_add.items {
         font-size: 0.8em;
@@ -1573,7 +1597,7 @@
         margin: 0;
     }
     .about-infom {
-        padding-top: 2em;
+        padding-top: 1em;
     }
     center{
         font-size: 1em;
@@ -1622,7 +1646,7 @@
         margin: 10px auto;
     }
     h2#mainContainer {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 10px;
         font-size: 3.5em;
     }
@@ -1640,7 +1664,7 @@
         margin: 0px auto;
     }
     .product-info-cust h4{
-        font-size: 10px;
+        font-size: 16px;
     }
     .footer {
         padding: 2em 0;
@@ -1696,8 +1720,8 @@
         height: 40px;
     }
     .search {
-        width: 100%;
-        right: 68%;
+        width: 56%;
+        right: 79%;
         padding: 1em;
     }
     .search form.navbar-form:before{
@@ -1714,19 +1738,22 @@
         left: 3px;
         position: relative;
     }
+    #loginBox {
+        right: 46.7%;
+    }
     .submitForm:after, #loginForm:after{
         right: 19.9%;
     }
     .cart-box {
-        width: 100%;
-        right: 3px;
+        width: 44%;
+        right: 93px;
     }
     .cart-box:before{
         right: 36%;
     }
     .track{
-        right: 4px;
-        width: 100%;
+        right: 31px;
+        width: 42%;
     }
     .track input[type="text"]{
         width: 70%;
@@ -1748,7 +1775,6 @@
     }
     .gallery-grid.glry-one {
         padding: 0;
-        width: 100%;
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -1792,12 +1818,14 @@
     }
     .gallery-info {
         width: 86.5%;
-        bottom: 22%;
+        bottom: 16.9%;
         padding: 0.6em;
         left: 16px;
     }
     .galy-info p {
-        font-size: 1em;
+        font-size: 1.1em;
+        text-align: center;
+        margin: 2px 0 0 0;
     }
     .galy-info h5 {
         font-size: 0.95em;
@@ -1807,6 +1835,9 @@
     }
     .subscribe{
         height: auto;
+    }
+    .subscribe h3{
+        font-size: 2.5em;
     }
     .subscribe form input[type="text"] {
         width: 70%;
@@ -1839,7 +1870,14 @@
         padding: 0;
     }
     .widgets h3 {
-        margin: 8px auto 15px auto;
+        margin: 0px auto 15px auto;
+    }
+    .customised img{
+        width: 95%;
+    }
+    .customised h4{
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     input.item_add.items {
         font-size: 0.8em;
@@ -1905,7 +1943,7 @@
         margin: 0;
     }
     .about-infom {
-        padding-top: 2em;
+        padding-top: 1em;
     }
     .about-infom p, center {
         font-size: 1em;
@@ -1951,7 +1989,7 @@
         margin: 10px auto;
     }
     h2#mainContainer {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 10px;
         font-size: 3.5em;
     }
@@ -2023,8 +2061,8 @@
         height: 40px;
     }
     .search {
-        width: 100%;
-        right: 68%;
+        width: 70%;
+        right: 78%;
         padding: 1em;
     }
     .search form.navbar-form:before{
@@ -2041,19 +2079,22 @@
         left: 3px;
         position: relative;
     }
+    #loginBox {
+        right: 47.5%;
+    }
     .submitForm:after, #loginForm:after{
         right: 16.9%;
     }
     .cart-box {
-        width: 100%;
-        right: 3px;
+        width: 53%;
+        right: 75px;
     }
     .cart-box:before{
         right: 36%;
     }
     .track{
-        right: 4px;
-        width: 100%;
+        right: 28px;
+        width: 59%;
     }
     .track input[type="text"]{
         width: 70%;
@@ -2075,7 +2116,6 @@
     }
     .gallery-grid.glry-one {
         padding: 0;
-        width: 100%;
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -2124,12 +2164,14 @@
     }
     .gallery-info {
         width: 85.5%;
-        bottom: 22%;
+        bottom: 18%;
         padding: 0.6em;
         left: 16px;
     }
     .galy-info p {
-        font-size: 1em;
+        font-size: 1.1em;
+        margin: 2px 0 0 0;
+        text-align: center;
     }
     .galy-info h5 {
         font-size: 0.95em;
@@ -2139,6 +2181,9 @@
     }
     .subscribe{
         height: auto;
+    }
+    .subscribe h3{
+        font-size: 2.5em;
     }
     .subscribe form input[type="text"] {
         width: 70%;
@@ -2171,7 +2216,14 @@
         padding: 0;
     }
     .widgets h3 {
-        margin: 8px auto 15px auto;
+        margin: 0px auto 15px auto;
+    }
+    .customised img{
+        width: 95%;
+    }
+    .customised h4{
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     input.item_add.items {
         font-size: 0.8em;
@@ -2237,7 +2289,7 @@
         margin: 0;
     }
     .about-infom {
-        padding-top: 2em;
+        padding-top: 1em;
     }
     .about-infom p, center {
         font-size: 1em;
@@ -2283,7 +2335,7 @@
         margin: 10px auto;
     }
     h2#mainContainer {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 10px;
         font-size: 3.5em;
     }
@@ -2355,8 +2407,8 @@
         height: 40px;
     }
     .search {
-        width: 100%;
-        right: 68%;
+        width: 64%;
+        right: 78%;
         padding: 1em;
     }
     .search form.navbar-form:before{
@@ -2373,19 +2425,22 @@
         left: 3px;
         position: relative;
     }
+    #loginBox {
+        right: 48%;
+    }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
     }
     .cart-box {
-        width: 100%;
-        right: 3px;
+        width: 52%;
+        right: 74px;
     }
     .cart-box:before{
         right: 36%;
     }
     .track{
-        right: 4px;
-        width: 100%;
+        right: 27px;
+        width: 55%;
     }
     .track input[type="text"]{
         width: 70%;
@@ -2407,7 +2462,6 @@
     }
     .gallery-grid.glry-one {
         padding: 0;
-        width: 100%;
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -2450,13 +2504,15 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 84%;
-        bottom: 24%;
+        width: 86%;
+        bottom: 19%;
         padding: 0.6em;
-        left: 16px;
+        left: 15px;
     }
     .galy-info p {
-        font-size: 1em;
+        font-size: 1.1em;
+        text-align: center;
+        margin: 2px 0 0 0;
     }
     .galy-info h5 {
         font-size: 0.95em;
@@ -2466,6 +2522,9 @@
     }
     .subscribe{
         height: auto;
+    }
+    .subscribe h3{
+        font-size: 2.5em;
     }
     .subscribe form input[type="text"] {
         width: 70%;
@@ -2498,7 +2557,14 @@
         padding: 0;
     }
     .widgets h3 {
-        margin: 8px auto 15px auto;
+        margin: 0px auto 15px auto;
+    }
+    .customised img{
+        width: 95%;
+    }
+    .customised h4{
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     input.item_add.items {
         font-size: 0.8em;
@@ -2564,7 +2630,7 @@
         margin: 0;
     }
     .about-infom {
-        padding-top: 2em;
+        padding-top: 1em;
     }
     .about-infom p, center {
         font-size: 1em;
@@ -2610,7 +2676,7 @@
         margin: 10px auto;
     }
     h2#mainContainer {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 10px;
         font-size: 3.5em;
     }
@@ -2682,7 +2748,8 @@
         height: 40px;
     }
     .search {
-        width: 100%;
+        width: 77%;
+        right: 77%;
     }
     .search form.navbar-form:before{
         right: 28px;
@@ -2694,19 +2761,22 @@
     .search button.btn.btn-default {
         width: 100%;
     }
+    #loginBox{
+        right: 47.5%;
+    }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
     }
     .cart-box {
-        width: 100%;
-        right: 2px;
+        width: 55%;
+        right: 66px;
     }
     .cart-box:before{
         right: 36%;
     }
     .track{
-        right: 4px;
-        width: 100%;
+        right: 27px;
+        width: 50%;
     }
     .track input[type="text"]{
         width: 100%;
@@ -2729,8 +2799,7 @@
         margin-top: 2em;
     }
     .gallery-grid.glry-one {
-        padding: 0;
-        width: 100%;
+        padding: 0;        
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -2774,12 +2843,14 @@
     }
     .gallery-info {
         width: 84%;
-        bottom: 24%;
+        bottom: 19%;
         padding: 0.6em;
         left: 16px;
     }
     .galy-info p {
-        font-size: 1em;
+        font-size: 1.1em;
+        text-align: center;
+        margin: 2px 0 0 0px;
     }
     .galy-info h5 {
         font-size: 0.95em;
@@ -2789,6 +2860,9 @@
     }
     .subscribe{
         height: auto;
+    }
+    .subscribe h3{
+        font-size: 2.5em;
     }
     .subscribe form input[type="text"] {
         width: 70%;
@@ -2821,7 +2895,14 @@
         padding: 0;
     }
     .widgets h3 {
-        margin: 2px auto 15px auto;
+        margin: 0px auto 15px auto;
+    }
+    .customised img{
+        width: 95%;
+    }
+    .customised h4{
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     input.item_add.items {
         font-size: 0.8em;
@@ -2887,7 +2968,7 @@
         margin: 0;
     }
     .about-infom {
-        padding-top: 2em;
+        padding-top: 1em;
     }
     .about-infom p, center {
         font-size: 1em;
@@ -2933,7 +3014,7 @@
         margin: 10px auto;
     }
     h2#mainContainer {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 10px;
         font-size: 3.5em;
     }
@@ -3008,7 +3089,8 @@
         height: 40px;
     }
     .search {
-        width: 100%;
+        width: 87%;
+        right: 76%;
     }
     .search form.navbar-form:before{
         right: 28px;
@@ -3021,19 +3103,22 @@
         width: 100%;
 
     }
+    #loginBox{
+        right: 46%;
+    }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
     }
     .cart-box {
-        width: 100%;
-        right: 2px;
+        width: 60%;
+        right: 54px;
     }
     .cart-box:before{
         right: 36%;
     }
     .track{
         right: 3px;
-        width: 100%;
+        width: 60%;
     }
     .track input[type="text"]{
         width: 100%;
@@ -3045,7 +3130,7 @@
         margin-bottom: 5px;
     }
     .track form.navbar-form:before {
-        right: 7px;
+        right: 29px;
         top:-7%;
     }
     .gallery {
@@ -3055,8 +3140,7 @@
         margin-top: 2em;
     }
     .gallery-grid.glry-one {
-        padding: 0;
-        width: 100%;
+        padding: 0;       
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -3100,12 +3184,14 @@
     }
     .gallery-info {
         width: 84%;
-        bottom: 27%;
+        bottom: 20%;
         padding: 0.6em;
         left: 16px;
     }
     .galy-info p {
         font-size: 1em;
+        text-align: center;
+        margin: 2px 0 0 0;
     }
     .galy-info h5 {
         font-size: 0.95em;
@@ -3115,6 +3201,9 @@
     }
     .subscribe{
         height: auto;
+    }
+    .subscribe h3{
+        font-size: 3em;
     }
     .subscribe form input[type="text"] {
         width: 70%;
@@ -3147,7 +3236,14 @@
         padding: 0;
     }
     .widgets h3 {
-        margin: -47px auto 15px auto;
+        margin: 0px auto 15px auto;
+    }
+    .customised img{
+        width: 95%;
+    }
+    .customised h4{
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     input.item_add.items {
         font-size: 0.8em;
@@ -3213,7 +3309,7 @@
         margin: 0;
     }
     .about-infom {
-        padding-top: 2em;
+        padding-top: 1em;
     }
     .about-infom p, center {
         font-size: 1em;
@@ -3337,10 +3433,10 @@
         height: 40px;
     }
     .search {
-        width: 100%;
+        width: 95%;
     }
     .search form.navbar-form:before{
-        right: 28px;
+        right: 62px;
         top: -8%;
     }
     .search input[type="text"] {
@@ -3350,18 +3446,18 @@
         width: 100%;
     }
     .submitForm:after, #loginForm:after{
-        right: 13.9%;
+        right: 30.9%;
     }
     .cart-box {
-        width: 100%;
-        right: 16px;
+        width: 65%;
+        right: 66px;
     }
     .cart-box:before{
         right: 27%;
     }
     .track{
-        right: 4px;
-        width: 100%;
+        right: 22px;
+        width: 73%;
     }
     .track input[type="text"]{
         width: 100%;
@@ -3384,7 +3480,7 @@
     }
     .gallery-grid.glry-one {
         padding: 0;
-        width: 100%;
+        /*width: 100%;*/
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -3428,12 +3524,14 @@
     }
     .gallery-info {
         width: 84%;
-        bottom: 27%;
+        bottom: 19%;
         padding: 0.6em;
         left: 16px;
     }
     .galy-info p {
-        font-size: 1em;
+        font-size: 0.95em;
+        text-align: center;
+        margin: 2px 0 0 0em;
     }
     .galy-info h5 {
         font-size: 0.95em;
@@ -3443,6 +3541,9 @@
     }
     .subscribe{
         height: auto;
+    }
+    .subscribe h3{
+        font-size: 2.5em;
     }
     .subscribe form input[type="text"] {
         width: 70%;
@@ -3533,19 +3634,25 @@
     .map iframe {
         height: 200px;
     }
-    .contact-infom {
-        padding-top: 2em;
-    }
     .contact-infom p {
         font-size: 0.9em;
         margin: 0;
     }
+    
     .about-infom {
-        padding-top: 2em;
+        padding-top: 1em;
     }
     .about-infom p, center {
         font-size: 1em;
         margin: 0;
+    }
+    .customised img{
+        width: 100%;
+    }
+    .customised h4 {
+        font-size: 16px;
+        text-transform: uppercase;
+        margin: 10px 0px 10px;
     }
     .contact h4 {
         font-size: 1.6em;
@@ -3587,7 +3694,7 @@
         margin: 10px auto;
     }
     h2#mainContainer {
-        margin-top: 0px;
+        margin-top: 20px;
         margin-bottom: 10px;
         font-size: 3.5em;
     }
@@ -3710,7 +3817,7 @@
         width:100%;
     }
     .gallery-grid img{
-        width: 120%;
+        /*width: 120%;*/
     }
     .gallery-grid.glry-one .gallery-info {
         bottom: 7%;
@@ -3726,8 +3833,8 @@
     }
     .gallery-grid:nth-child(3) {
        /* width: 53%;*/
-       width:100%;
-        padding: 0 0 0 1em;
+       /*width:100%;*/
+       /* padding: 0 0 0 1em;*/
     }
     .gallery-grid:nth-child(3) .gallery-info {
         width: 96%;
@@ -3742,9 +3849,25 @@
         margin-bottom: 2em;
     }
     .gallery-info {
-        bottom: 13.5%;
-        width: 93.1%;
-        left: 3.29%;
+        bottom: 17.5%;
+        width: 86.1%;
+        left: 7.29%;
+    }
+    .gallery{
+        margin-top: -5px;
+    }
+    .gallery-grids{
+        margin-top: 0px;
+    }
+    .galy-info p {
+        font-size: 1.1em;
+        color: #000;
+        margin: 2px 0 0 0em;
+        font-weight: 400;
+        text-align: center;
+    }
+    .feturedImg {
+        padding: 10px;
     }
     .subscribe {
         padding: 2em 0;
@@ -3780,11 +3903,11 @@
         font-size: 0.9em;
     }
     .footer-grid {
-        width: 31.33%;
+        width: 30.33%;
         padding-right: 0;
     }
     .footer-grid h4 {
-        font-size: 1.35em;
+        font-size: 1.3em;
         margin-bottom: 0.8em;
         text-align: left;
     }
@@ -3857,7 +3980,11 @@
         margin: 1em 0 0 0;
     }
     .widgets h3 {
-        margin: -30px auto 8px auto;
+        margin: 0px auto 8px auto;
+        font-size: 3em;
+    }
+    .customised img{
+        width: 100%;
     }
     .product-grid.single-product {
         width: 47%;
@@ -3953,7 +4080,9 @@
         font-size: 0.9em;
     }
     .about-infom p {
-        font-size: 0.85em;
+        font-size: 0.95em;
+        margin: 0px;
+
     }
     .customised h4{
         font-size: 16px;
@@ -3965,6 +4094,9 @@
     }
     .track input[type="text"]{
         font-size: 0.85em;
+    }
+    .product-img img{
+        padding:1em;
     }
 }
 
@@ -4134,20 +4266,22 @@
     }
     .galy-info p {
         font-size: 1em;
+        text-align: center;
+        margin: 2px 0 0 0em;
     }
     .gallery-info {
-        bottom: 13.3%;
+        bottom: 16.3%;
         width: 100%;
         left: 0%;
     }
     .gallery h2{
-        font-size: 2.5em;
+        font-size: 3em;
     }
     .gallery-grid img{
         /* width: 120%; */
     }
     .feturedImg {
-        padding: 50px;
+        padding: 10px;
     }
     .product-grid.single-product {
         width: 46%;
@@ -4159,7 +4293,7 @@
         width: 100%;
     }
     .subscribe h3 {
-        font-size: 3em;
+        font-size: 2.3em;
     }
     .subscribe form input[type="text"] {
         width: 68%;
@@ -4272,7 +4406,7 @@
     }
     .related-products h3 {
         font-size: 3em;
-        margin: -30px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
     }
     .b-animate button {
         font-size: 1.1em;
@@ -4363,6 +4497,7 @@
     .about-infom p {
         font-size: 1em;
         margin-bottom: 13px;
+        margin-top: 0em;
     }
     .address {
         padding: 1em 0 0;
@@ -4376,6 +4511,9 @@
     .gallery-grid.glry-two .gallery-info {
         width: 97%;
         bottom: 17%;
+    }
+    .customised img{
+        width: 100%;
     }
 }
 
@@ -4522,13 +4660,9 @@
     .gallery-grid.glry-two {
         width: 100%;
         margin: 0;
-    }
+    }    
     .gallery-grid:nth-child(3) {
-        width: 50%;
-        padding-left: 0;
-    }
-    .gallery-grid:nth-child(3) {
-        width: 100%;
+        /*width: 100%;*/
         padding: 0;
     }
     .gallery-grid:nth-child(3) .gallery-info {
@@ -4537,23 +4671,30 @@
         left: 0%;
     }
     .gallery-grid {
-        width: 100%;
+        /*width: 100%;*/
         margin-bottom: 1em;
         padding: 0;
     }
+    .galy-info p {
+        font-size: 1em;
+        color: #000;
+        margin: 2px 0 0 0;
+        font-weight: 400;
+        text-align: center;
+    }
     .gallery-info {
-        bottom: 14.3%;
+        bottom: 17.3%;
         width: 100%;
         left: 0px;
     }
     .gallery h2{
-        font-size: 2.5em;
+        font-size: 3em;
     }
     .gallery-grid img{
         width: 120%;
     }
     .feturedImg {
-        padding: 50px;
+        padding: 10px;
     }
     .product-grid.single-product {
         width: 46%;
@@ -4565,7 +4706,7 @@
         width: 100%;
     }
     .subscribe h3 {
-        font-size: 3em;
+        font-size: 2em;
     }
     .subscribe form input[type="text"] {
         width: 68%;
@@ -4583,7 +4724,7 @@
     }
     .product-model-sec{
         padding:0px 15px;
-    }
+    }    
     .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
         width: 100%;
     }
@@ -4674,7 +4815,13 @@
     }
     .related-products h3 {
         font-size: 3em;
-        margin: -30px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+    }
+    .customised img {
+        width: 100%;
+    }
+    .customised h4 {
+        font-size: 16px;
     }
     .b-animate button {
         font-size: 1.1em;
@@ -4777,6 +4924,15 @@
     .gallery-grid.glry-two .gallery-info {
         width: 97%;
         bottom: 17%;
+    }
+    .about-infom{
+        padding-top: 0em;
+    }
+    .contact-infom{
+        padding-top: 0em;
+    }
+    .contact-form.row .form-group {
+        padding: 0px;
     }
 }
 
@@ -4924,13 +5080,9 @@
     .gallery-grid.glry-two {
         width: 100%;
         margin: 0;
-    }
+    }    
     .gallery-grid:nth-child(3) {
-        width: 50%;
-        padding-left: 0;
-    }
-    .gallery-grid:nth-child(3) {
-        width: 100%;
+        /*width: 100%;*/
         padding: 0;
     }
     .gallery-grid:nth-child(3) .gallery-info {
@@ -4939,14 +5091,21 @@
         left: 0%;
     }
     .gallery-grid {
-        width: 100%;
+        /*width: 100%;*/
         margin-bottom: 1em;
         padding: 0;
     }
+    .gallery-info a.shop{
+        padding: 0.3em 0.5em;
+    }
     .gallery-info {
-        bottom: 16%;
+        bottom: 19%;
         width: 99.9%;
         left: 0%;
+    }
+    .galy-info p{
+        margin: 2px 0px 0px 0px;
+        text-align: center;
     }
     .gallery h2{
         font-size: 2.5em;
@@ -4961,7 +5120,7 @@
         width: 100%;
     }
     .subscribe h3 {
-        font-size: 3em;
+        font-size: 2em;
     }
     .subscribe form input[type="text"] {
         width: 68%;
@@ -5026,7 +5185,7 @@
         padding: 1em;
     }
     .product-info-cust h4{
-        font-size: 0.8em;
+        font-size: 0.95em;
     }
     input.item_add.items {
         float: right;
@@ -5071,13 +5230,16 @@
         font-size: 13px;
     }
     .related-products h3 {
-        font-size: 2.2em;
-        margin: -30px 0px 0px 0px;
+        font-size: 3em;
+        margin: 0px 0px 0px 0px;
     }
     .b-animate button {
         font-size: 1.1em;
         padding: 11px;
         margin: 44% auto 0 auto;
+    }
+    .customised img {
+        width: 100%;
     }
     span.item_price {
         font-size: 0.9em;
@@ -5154,7 +5316,10 @@
         font-size: 16px;
     }
     .about h2{
-        font-size: 2.5em;
+        font-size: 3em;
+    }
+    .about-infom {
+        padding-top: 0em;
     }
     .about-infom center{
         font-size: 0.85em;
@@ -5176,13 +5341,16 @@
         width: 97%;
         bottom: 17%;
     }
+    .feturedImg {
+        padding: 4px;
+    }
 }
 
 @media(max-width: 360px) and (min-width: 321px){
+    
     #logo{
         top:-13px;
-    }
-
+    }    
     button.navbar-toggle {
         padding: 7px 10px;
         margin: 0.3em 17em 0px 0px;
@@ -5342,12 +5510,24 @@
         padding: 0;
     }
     .gallery-info {
-        bottom: 16.3%;
+        bottom: 20.3%;
         width: 99.9%;
         left: 0%;
     }
+    .galy-info p{
+        text-align: center;
+        font-size: 1em;
+        margin: 5px 0 0 0em;
+
+    }
     .gallery h2{
         font-size: 2.5em;
+    }
+    .feturedImg {
+        padding: 4px;
+    }
+    .gallery-info a.shop{
+        padding: 0.3em 0.5em; 
     }
     .product-grid.single-product {
         width: 46%;
@@ -5362,7 +5542,7 @@
         width: 100%;
     }
     .subscribe h3 {
-        font-size: 3em;
+        font-size: 2.8em;
     }
     .subscribe form input[type="text"] {
         width: 68%;
@@ -5376,7 +5556,7 @@
     h2#mainContainer {
         margin-top: 50px;
         margin-bottom: 10px;
-        font-size: 2.3em;
+        font-size: 3em;
     }
     .product-model-sec{
         padding:0px 15px;
@@ -5397,7 +5577,7 @@
         padding: 1em;
     }
     .product-info-cust h4{
-        font-size: 0.75em;
+        font-size: 0.95em;
     }
     .footer {
         padding: 2em 0 0.5em;
@@ -5478,8 +5658,8 @@
         font-size: 13px;
     }
     .related-products h3 {
-        font-size: 2.2em;
-        margin: -30px 0px 0px 0px;
+        font-size: 3em;
+        margin: 0px 0px 0px 0px;
     }
     .b-animate button {
         font-size: 1em;
@@ -5557,6 +5737,169 @@
         margin-bottom: -17px;
     }
     .tcDiv h4{
-        margin: 12px;
+        margin: 0px;
+    }
+    .about h2 {
+        font-size: 3em;
+    }
+    .about-infom p{
+        margin: 0em 0 1em;
+    }
+    .customised img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px){
+    #logo{
+        top: 11px;
+    }
+    .navbar-nav{    
+        background: #5D4B33;
+    }
+    .navbar-nav {
+        margin:0px;
+    }
+    nav.navbar.navbar-default {
+        width: 100%;
+        float: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: -17px;
+    }
+    h1.navbar-brand{
+        padding: 9px 0em 0 0; 
+    }
+    button.navbar-toggle {
+        margin-right: 14em;
+    }
+    button.navbar-toggle {
+        margin-right: 15em;
+        margin-top: 19px;
+    }
+    div#bs-example-navbar-collapse-1{
+        position: relative;
+        top: -4px;
+    }
+    .search{
+        right: 64%;
+    }
+    .search form.navbar-form:before{
+        right: 34px;
+        top:-8%;
+    }
+    #loginBox {
+        right: 5%;
+        top: 110%;
+    }
+    .submitForm:after,#loginForm:after{
+        right: 33%;
+    }
+    .cart-box {
+        width: 100%;
+        top: 110%;
+        right: 32px;
+    }
+    .track{
+        top: 110%;
+        right: 6px;
+        width:120%;
+    }
+    .track form.navbar-form:before{
+        right: 5px;
+        top: -8%;
+    }
+    .track button.btn.btn-default{
+        margin-bottom: 5px;
+        margin-top: 7px;
+    }
+    .track input[type="text"],.track button.btn.btn-default{
+        width: 100%;
+    }
+    .track button.btn.btn-default{
+        border-radius: 4px;
+    }
+    .gallery-grids {
+        margin-top: 0em;
+    }
+    .gallery h2 {
+         font-size: 2.5em;
+    }
+    .galy-info p {
+        font-size: 0.75em;
+        color: #000;
+        margin: 6px 0 0 0em;
+        font-weight: 400;
+        text-align: center;
+    }
+    .feturedImg {
+        padding: 2px;
+    }
+    .gallery-info {        
+        width: 79%;
+        bottom: 24%;
+        left: 15px;
+    }
+    .gallery-info a.shop {
+        font-size: 0.8em;
+        color: #fff;
+        padding: 0em 0.5em;
+        border: 2px solid #fff;
+        float: right;
+        width: 100%;
+        margin-top: 0px;
+        text-align: center;
+    }
+    .gallery-info p{
+        margin-top: 0em;
+        float: left;
+        margin-bottom: 3px;
+    }
+    .subscribe h3{
+        font-size: 2em;s
+    }
+    .col-sm-3{
+        text-align: left;
+    }
+    .product-grid {
+        width: 49%;
+        margin: 0px 1% 5% 0;
+    }
+    .product-info-cust h4{
+        font-size: 0.8em;
+    }
+    .product-img img{
+        padding: 0px;
+    }
+    .item_add{
+        font-size: 0.85em;
+    }
+    form.ng-pristine.ng-valid {
+        position: relative;
+        top: 10px;
+    }
+    h2#mainContainer{
+        font-size: 3em;
+    }
+    .product-grid.single-product {
+        width: 48%;
+    }
+    .footer{
+        padding: 2em 0em;
+    }
+    .about-infom{
+        padding-top: 0em;
+    }
+    .about h2 {
+        font-size: 3em;
+    }
+    .related-products h3{
+        font-size: 3em;
+    }
+    .customised img{
+        width: 100%;
+    }
+    .product-info-cust h4 {
+        font-size: 0.95em;
     }
 }

@@ -8,26 +8,26 @@
         margin: 0px auto;
     }
     #imageBox1:hover .hoverImg1 {
-        left: 81px;
-        width: 46%;
-        top:21px;
+        left: 15px;
+        width: 80%;
+        top: 25px;
     }
     .subscribe form{
         margin: 20px auto;
     }
 
     #imageBox:hover .hoverImg{
-        left: 100px;
+        left: 28px;
     }
     #imageBox2 .hoverImg2{
-        right: 76px;
-        width:46%;
-        top:21px;
+        right: 15px;
+        width: 80%;
+        top: 22px;
     }
     #imageBox3 .hoverImg3{
-        right: 76px;
-        width:46%;
-        top:31px;
+        right: 15px;
+        width: 80%;
+        top: 31px;
     }
     .subscribe form p{
         font-size: 1.5em;
@@ -43,22 +43,22 @@
         margin: 20px auto;
     }
     #imageBox1:hover .hoverImg1 {
-        left: 93px;
-        width: 46%;
-        top:21px;
+        left: 26px;
+        width: 70%;
+        top: 23px;
     }
 
     #imageBox:hover .hoverImg{
-        left: 120px;
+        left: 38px;
     }
     #imageBox2 .hoverImg2{
-        right: 90px;
-        width:46%;
-        top:21px;
+        right: 25px;
+        width: 70%;
+        top:31px;
     }
     #imageBox3 .hoverImg3{
-        right: 90px;
-        width:46%;
+        right: 25px;
+        width: 70%;
         top:31px;
     }
     .subscribe form p{
@@ -75,22 +75,22 @@
         margin: 0px auto;
     }
     #imageBox1:hover .hoverImg1 {
-        left: 93px;
-        width: 46%;
+        left: 25px;
+        width: 70%;
         top:21px;
     }
 
     #imageBox:hover .hoverImg{
-        left: 128px;
+        left: 41px;
     }
     #imageBox2 .hoverImg2{
-        right: 90px;
-        width:46%;
-        top:21px;
+        left: 25px;
+        width: 70%;
+        top:30px;
     }
     #imageBox3 .hoverImg3{
-        right: 90px;
-        width:46%;
+        left: 25px;
+        width: 70%;
         top:31px;
     }
     .subscribe form p{
@@ -108,22 +108,22 @@
     }
 
     #imageBox1:hover .hoverImg1 {
-        left: 110px;
-        width: 46%;
+        left: 26px;
+        width: 70%;
         top:21px;
     }
 
     #imageBox:hover .hoverImg{
-        left: 146px;
+        left: 50px;
     }
     #imageBox2 .hoverImg2{
-        right: 100px;
-        width:46%;
-        top:21px;
+        right: 33px;
+        width:70%;
+        top:31px;
     }
     #imageBox3 .hoverImg3{
-        right: 100px;
-        width:46%;
+        right: 33px;
+        width:70%;
         top:31px;
     }
     .subscribe form p{
@@ -141,22 +141,22 @@
     }
 
     #imageBox1:hover .hoverImg1 {
-        left: 110px;
-        width: 46%;
+        left: 30px;
+        width: 70%;
         top:21px;
     }
 
     #imageBox:hover .hoverImg{
-        left: 158px;
+        left: 56px;
     }
     #imageBox2 .hoverImg2{
-        right: 100px;
-        width:46%;
-        top:21px;
+        right: 30px;
+        width: 70%;
+        top:31px;
     }
     #imageBox3 .hoverImg3{
-        right: 100px;
-        width:46%;
+        right: 30px;
+        width: 70%;
         top:31px;
     }
     .subscribe form p{
@@ -169,22 +169,22 @@
 @media(min-width:436px) and (max-width:480px){
 
     #imageBox1:hover .hoverImg1 {
-        left: 156px;
-        width: 30%;
+        left: 43px;
+        width: 60%;
         top:21px;
     }
 
     #imageBox:hover .hoverImg{
-        left: 180px;
+        left: 68px;
     }
     #imageBox2 .hoverImg2{
-        right: 156px;
-        width: 30%;
-        top: 21px;
+        right: 43px;
+        width: 60%;
+        top: 31px;
     }
     #imageBox3 .hoverImg3{
-        right: 156px;
-        width:30%;
+        right: 43px;
+        width:60%;
         top:31px;
     }
     .subscribe form p{
@@ -203,22 +203,22 @@
     }
 
     #imageBox1:hover .hoverImg1 {
-        left: 189px;
-        width: 30%;
+        left: 69px;
+        width: 50%;
         top:21px;
     }
 
     #imageBox:hover .hoverImg{
-        left: 224px;
+        left: 90px;
     }
     #imageBox2 .hoverImg2{
-        right: 189px;
-        width: 30%;
-        top: 21px;
+        right: 69px;
+        width: 50%;
+        top: 31px;
     }
     #imageBox3 .hoverImg3{
-        right: 189px;
-        width:30%;
+        right: 69px;
+        width:50%;
         top:31px;
     }
     .subscribe form p{
@@ -235,8 +235,8 @@
         margin: 0px auto;
     }
     #imageBox1:hover .hoverImg1 {
-        left: 215px;
-        width: 25%;
+        left: 81px;
+        width: 45%;
         top: 21px;
     }
     .subscribe form{
@@ -244,16 +244,16 @@
     }
 
     #imageBox:hover .hoverImg{
-        left: 240px;
+        left: 98px;
     }
     #imageBox2 .hoverImg2{
-        right: 215px;
-        width:25%;
-        top:21px;
+        right: 81px;
+        width:45%;
+        top:31px;
     }
     #imageBox3 .hoverImg3{
-        right: 215px;
-        width:25%;
+        right: 81px;
+        width:45%;
         top:31px;
     }
     .subscribe form p{
@@ -271,8 +271,8 @@
         margin: 0px auto;
     }
     #imageBox1:hover .hoverImg1 {
-        left: 225px;
-        width: 25%;
+        left: 93px;
+        width: 40%;
         top: 21px;
     }
     .subscribe form{
@@ -280,16 +280,16 @@
     }
 
     #imageBox:hover .hoverImg{
-        left: 260px;
+        left: 108px;
     }
     #imageBox2 .hoverImg2{
-        right: 225px;
-        width:25%;
-        top:21px;
+        right: 93px;
+        width:40%;
+        top:31px;
     }
     #imageBox3 .hoverImg3{
-        right: 225px;
-        width:25%;
+        right: 93px;
+        width:40%;
         top:31px;
     }
     .subscribe form p{
@@ -307,8 +307,8 @@
         margin: 0px auto;
     }
     #imageBox1:hover .hoverImg1 {
-        left: 240px;
-        width: 25%;
+        left: 97px;
+        width: 40%;
         top: 21px;
     }
     .subscribe form{
@@ -316,16 +316,16 @@
     }
 
     #imageBox:hover .hoverImg{
-        left: 274px;
+        left: 114px;
     }
     #imageBox2 .hoverImg2{
-        right: 240px;
-        width:25%;
-        top:21px;
+        right: 97px;
+        width:40%;
+        top:31px;
     }
     #imageBox3 .hoverImg3{
-        right: 240px;
-        width:25%;
+        right: 97px;
+        width:40%;
         top:31px;
     }
     .subscribe form p{
@@ -343,8 +343,8 @@
         margin: 0px auto;
     }
     #imageBox1:hover .hoverImg1 {
-        left: 247px;
-        width: 25%;
+        left: 104px;
+        width: 40%;
         top: 21px;
     }
     .subscribe form{
@@ -352,16 +352,16 @@
     }
 
     #imageBox:hover .hoverImg{
-        left: 282px;
+        left: 118px;
     }
     #imageBox2 .hoverImg2{
-        right: 247px;
-        width:25%;
-        top:21px;
+        right: 104px;
+        width:40%;
+        top:31px;
     }
     #imageBox3 .hoverImg3{
-        right: 247px;
-        width:25%;
+        right: 104px;
+        width:40%;
         top:31px;
     }
     .subscribe form p{
@@ -379,8 +379,8 @@
         margin: 0px auto;
     }
     #imageBox1:hover .hoverImg1 {
-        left: 268px;
-        width: 25%;
+        left: 102px;
+        width: 40%;
         top: 21px;
     }
     .subscribe form{
@@ -388,16 +388,16 @@
     }
 
     #imageBox:hover .hoverImg{
-        left: 308px;
+        left: 132px;
     }
     #imageBox2 .hoverImg2{
-        right: 268px;
-        width:25%;
-        top:21px;
+        right: 102px;
+        width:40%;
+        top:31px;
     }
     #imageBox3 .hoverImg3{
-        right: 268px;
-        width:25%;
+        right: 102px;
+        width:40%;
         top:31px;
     }
     .subscribe form p{

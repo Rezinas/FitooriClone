@@ -130,23 +130,28 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 						</div>
 						<div class="panel-body" style="border-top: 1px solid #5D4B33;">
 								<?php echo $parr['addinfo']; ?><br><br>
-
-								<h3>Care Instructions:</h3>
-								<p>
-								<?php if($parr['material'] == '1') { ?>
-								Color may slightly vary from photos due to different monitor settings. Handle with care , its clay after all! <br>
-								<?php } ?>
-
-								<?php if($parr['material'] == '2') { ?>
-								Color may slightly vary from photos due to different monitor settings. For best durability keep wrapped in tissue of soft cotton. Keep away from products containing alcohol. <br>
-								<?php } ?>
-
-								<?php if($parr['material'] == '3') { ?>
-								Color may slightly vary from photos due to different monitor settings. Keep away from water or products containing alcohol.
-								<?php } ?>
-
-								</p>
 						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title" style="color:#F07818">CARE INSTRUCTIONS</h4>
+						</div>
+						<div class="panel-body" style="border-top: 1px solid #5D4B33;">
+
+							<?php if($parr['material'] == '1') { ?>
+							Color may slightly vary from photos due to different monitor settings. Handle with care , its clay after all! <br>
+							<?php } ?>
+
+							<?php if($parr['material'] == '2') { ?>
+							Color may slightly vary from photos due to different monitor settings. For best durability keep wrapped in tissue of soft cotton. Keep away from products containing alcohol. <br>
+							<?php } ?>
+
+							<?php if($parr['material'] == '3') { ?>
+							Color may slightly vary from photos due to different monitor settings. Keep away from water or products containing alcohol.
+							<?php } ?>
+
+						</div>
+					</div>
 						<!-- <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 							<div class="panel-body" style="border-top-color: #5D4B33;">
 								<?php echo $parr['addinfo']; ?>

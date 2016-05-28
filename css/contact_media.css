@@ -132,7 +132,7 @@
     padding: 4em 0 2em 0;
   }
   .contact h2{
-    font-size: 2.3em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;
@@ -160,6 +160,9 @@
   .contact-form .btn1 {
     width: 50%;
     font-size: 1em;
+  }
+  .address {
+    padding: 1em 0;
   }
   .address p{
     font-size: 0.95em;
@@ -171,7 +174,7 @@
     padding: 4em 0 2em 0;
   }
   .contact h2{
-    font-size: 2.3em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;
@@ -200,6 +203,9 @@
     width: 50%;
     font-size: 1em;
   }
+  .address {
+    padding: 1em 0;
+  }
   .address p{
     font-size: 0.95em;
   }
@@ -210,7 +216,7 @@
     padding: 4em 0 2em 0;
   }
   .contact h2{
-    font-size: 2.5em;
+    font-size: 3em;
   }
   .contact h4{
     font-size: 1.7em;

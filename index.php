@@ -388,7 +388,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <div class="footer">
          <div class="container">
             <div class="footer-grids">
-               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
                   <h4>company</h4>
                   <ul>
                      <li><a href="index.php?about">About Us</a></li>
@@ -398,7 +398,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
 
                   </ul>
                </div>
-               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
                   <h4>service</h4>
                   <ul>
                      <li>FAQ</li>
@@ -406,7 +406,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      <li><a href="index.php?support">Support</a></li>
                   </ul>
                </div>
-               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid">
+               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 footer-grid">
                   <h4>order & returns</h4>
                   <ul>
                      <li><a href="index.php?tc#OrderStatus">Order Status</a></li>
@@ -414,7 +414,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      <li><a href="index.php?tc#ReturnPolicy">Return Policy</a></li>
                   </ul>
                </div>
-               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 footer-grid">
+               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
                   <h4>legal</h4>
                   <ul>
                      <li><a href="index.php?privacy">Privacy</a></li>
@@ -422,7 +422,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      <!-- <li>Social Responsibility</li> -->
                   </ul>
                </div>
-               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 footer-grid icons">
+               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 footer-grid icons">
                   <h4>Connect with Us</h4>
                   <ul>
                     <li><img src="images/i1a.png" alt=""/>&nbsp;Facebook</li>

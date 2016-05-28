@@ -212,6 +212,7 @@
     display: inline-block;
     outline: none;
     background-color: #F07818;
+    border-radius: 4px;
 }
 input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
   background: #FFF;
