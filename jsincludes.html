@@ -1,0 +1,66 @@
+  <!-- Custom Theme files -->
+      <script type="application/x-javascript">
+         addEventListener("load", function() {
+          setTimeout(hideURLbar, 0); }, false);
+          function hideURLbar(){ window.scrollTo(0,1);
+         }
+      </script>
+
+
+       <!-- js -->
+      <script type="text/javascript"  src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+      <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+      <script src="js/additional-methods.js" type="text/javascript"></script>
+      <script src="js/login.js" type="text/javascript"></script>
+      <script src="js/cart.js" type="text/javascript"></script>
+
+      <?php if($currenttab == "checkout" || $currenttab == "orders") { ?>
+        <script src="js/checkout.js"></script>
+      <?php  } ?>
+
+      <?php if($currenttab == "single") {?>
+        <script defer src="js/jquery.flexslider.js"></script>
+        <script src="js/imagezoom.js"></script>
+        <script>
+           $(window).load(function() {
+             $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails",
+            minItems : 2,
+            itemWidth: "100px",
+            direction:"vertical"
+             });
+           });
+        </script>
+      <?php  } ?>
+
+      <?php if($currenttab == "myaccount") { ?>
+        <script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+        <script type="text/javascript"  src="js/paging.js"></script>
+        <script src="js/myaccount.js" type="text/javascript"></script>
+      <?php }?>
+
+
+      <?php if($currenttab == "designearrings") { ?>
+        <script src="js/angular.min.js"></script>
+        <script src="js/design.js"></script>
+      <?php } ?>
+
+      <?php if($currenttab == "products") { ?>
+        <script src="js/angular.min.js"></script>
+        <script src="js/rzslider.min.js"></script>
+        <script src="js/searchapp.js"></script>
+      <?php } ?>
+
+      <?php if($currenttab == "logout") {
+         session_start();
+         session_destroy();
+         header("Location: index.php");//use for the redirection to some page
+      }?>
+
+       <?php if($currenttab == "join" || $currenttab == "support" ||  $currenttab == "contact") { ?>
+        <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../js/additional-methods.js" type="text/javascript"></script>
+
+   <?php } ?>

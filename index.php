@@ -11,7 +11,6 @@
   else if(isset($_GET["designearrings"])) {
        $currenttab = "designearrings";
    }
-
    else if(isset($_GET["offers"])) {
        $currenttab = 'offers';
    }
@@ -102,132 +101,8 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="keywords" content="" />
-      <!-- Custom Theme files -->
-      <script type="application/x-javascript">
-         addEventListener("load", function() {
-          setTimeout(hideURLbar, 0); }, false);
-          function hideURLbar(){ window.scrollTo(0,1);
-         }
-      </script>
-      <!-- //Custom Theme files -->
-      <link rel="icon" type="image/ico" href="images/favicon.ico">
-      <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-      <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet" />
-      <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
-      <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
-
-      <?php if($currenttab == "home") { ?>
-        <link href="css/home.css" rel="stylesheet" type="text/css" media="all" />
-      <?php  } ?>
-
-       <?php if($currenttab == "join") { ?>
-        <link href="css/join.css" rel="stylesheet" type="text/css" media="all" />
-      <?php  } ?>
-
-      <?php if($currenttab == "contact") { ?>
-        <link href="css/contact.css" rel="stylesheet" type="text/css" media="all" />
-      <?php  } ?>
-
-      <?php if($currenttab == "support") { ?>
-       <link href="css/support.css" rel="stylesheet" type="text/css" media="all" />
-      <?php  } ?>
-
-      <?php if($currenttab == "sr" || $currenttab == "privacy" || $currenttab == "tc"){?>
-       <link href="css/tc.css" rel="stylesheet" type="text/css" media="all" />
-      <?php }?>
-
-      <?php if($currenttab == "myorder" || $currenttab == "checkout" || $currenttab == "orders") { ?>
-        <link href="css/cartpage.css" type="text/css" rel="stylesheet" media="all">
-      <?php }?>
-
-      <?php if($currenttab == "myaccount") { ?>
-        <link href="css/myaccount.css" type="text/css" rel="stylesheet" media="all">
-      <?php } ?>
-
-      <?php if($currenttab == "register") {?>
-        <link href="css/register.css" type="text/css" rel="stylesheet" media="all">
-      <?php } ?>
-
-      <?php if($currenttab == "single") { ?>
-        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-        <link href="css/single.css" type="text/css" rel="stylesheet" media="all">
-      <?php } ?>
-
-      <?php if($currenttab == "customearrings") { ?>
-        <link rel="stylesheet" href="css/landingPage.css">
-      <?php } ?>
-
-      <?php if($currenttab == "designearrings") { ?>
-        <link rel="stylesheet" href="css/design.css">
-        <link rel="stylesheet" href="css/animate.css">
-      <?php } ?>
-
-
-      <?php if($currenttab == "products") { ?>
-        <link href="css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
-        <link href="css/products.css" type="text/css" rel="stylesheet" media="all">
-      <?php } ?>
-
-
-       <!-- js -->
-      <script type="text/javascript"  src="js/jquery.min.js"></script>
-      <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-      <script src="js/jquery.validate.min.js" type="text/javascript"></script>
-      <script src="js/additional-methods.js" type="text/javascript"></script>
-      <script src="js/login.js" type="text/javascript"></script>
-      <script src="js/cart.js" type="text/javascript"></script>
-
-      <?php if($currenttab == "checkout" || $currenttab == "orders") { ?>
-        <script src="js/checkout.js"></script>
-      <?php  } ?>
-
-      <?php if($currenttab == "single") {?>
-        <script defer src="js/jquery.flexslider.js"></script>
-        <script src="js/imagezoom.js"></script>
-        <script>
-           $(window).load(function() {
-             $('.flexslider').flexslider({
-            animation: "slide",
-            controlNav: "thumbnails",
-            minItems : 2,
-            itemWidth: "100px",
-            direction:"vertical"
-             });
-           });
-        </script>
-      <?php  } ?>
-
-      <?php if($currenttab == "myaccount") { ?>
-        <script type="text/javascript"  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-        <script type="text/javascript"  src="js/paging.js"></script>
-        <script src="js/myaccount.js" type="text/javascript"></script>
-      <?php }?>
-
-
-      <?php if($currenttab == "designearrings") { ?>
-        <script src="js/angular.min.js"></script>
-        <script src="js/design.js"></script>
-      <?php } ?>
-
-      <?php if($currenttab == "products") { ?>
-        <script src="js/angular.min.js"></script>
-        <script src="js/rzslider.min.js"></script>
-        <script src="js/searchapp.js"></script>
-      <?php } ?>
-
-      <?php if($currenttab == "logout") {
-         session_start();
-         session_destroy();
-         header("Location: index.php");//use for the redirection to some page
-      }?>
-
-       <?php if($currenttab == "join" || $currenttab == "support" ||  $currenttab == "contact") { ?>
-  <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
-  <script src="../js/additional-methods.js" type="text/javascript"></script>
-
-   <?php } ?>
-
-
+      <?php include("cssincludes.html"); ?>
+      <?php include("jsincludes.html"); ?>
    </head>
    <body>
 <!-- facebook integration -->
