@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="form-group">
                                        <span>Phone Number</span>
-                                       <input class="form-control" data-validation="numbers"  name="phone" type="text" autofocus value="<?php echo $order_add['phone']; ?>">
+                                       <input class="form-control" data-validation="numbers"  name="phone" type="text" autofocus value="<?php if($order_add['phone'] != '') echo $order_add['phone']; ?>">
                                 </div>
                             </div>
                               <h4 class="heading">Shipping Information</h4><br>

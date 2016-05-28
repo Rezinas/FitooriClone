@@ -303,11 +303,17 @@ if(isset($_GET["addcustom"])) {
           if(!$ins_stmt1->execute()){
               die('Custom Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
           }
-
           $upd_stmt->bind_param('i', $elem['id']);
           if(!$upd_stmt->execute()){
               die('Update pieces Error : ('. $dbcon->errno .') '. $dbcon->error);
           }
+
+          // if $elem.quantity -2 < 2 then send email from here
+          if(($elem['quantity'] -2 ) < 2) {
+             $messageDetail = "The element low on quantity is ID: ".$elem['id']." Image:  <img src='https://fitoori.com/productImages/".$elem['selectedImage']."' />";
+            $result =  sendemail('rezinas@gmail.com', "Pieces low on Quantity",  $messageDetail);
+          }
+
         }
 
         $ins_stmt1->close();

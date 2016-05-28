@@ -6,8 +6,8 @@ body { padding-top: 0px !important; }
 }
 
 .sk-cube-grid {
-  width: 250px;
-  height: 250px;
+  width: 140px;
+  height: 140px;
   margin: 15% auto;
 }
 
@@ -148,7 +148,7 @@ body { padding-top: 0px !important; }
   animation-delay: 2s;
   text-align: center;
   /* color:#fff; */
-  background: #eec19d; /* default background for browsers without gradient support */
+  background: #fff; /* default background for browsers without gradient support */
   /* css3 */
   /* background: -webkit-gradient(linear, 0 0, 0 100%, from(#F07818), to(#fff)); */
   background:-moz-linear-gradient(#F07818, #fff);
@@ -160,9 +160,9 @@ body { padding-top: 0px !important; }
   /* border-radius: 25px; */
   top: -60px;
   left: -20px;
-    transition:width 0.5s ease-in-out;
-    -webkit-transition:width .5s ease-in-out;
-    -moz-transition: width 0.5s ease-in-out;
+  transition:width 0.5s ease-in-out;
+  -webkit-transition:width .5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out;
 }
 
 /* display of quote author (alternatively use a class on the element following the blockquote) */

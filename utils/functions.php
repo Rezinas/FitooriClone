@@ -125,7 +125,7 @@ $mail->SMTPAuth = true;
 $mail->Username = "admin@fitoori.com";
 $mail->Password = "admin123";
 
-    $mail->setFrom('admin@fitoori.com', 'Fitoori Designs');
+    $mail->setFrom('admin@fitoori.com', 'Fitoori Team');
     $mail->addReplyTo('admin@fitoori.com', 'Fitoori Team');
 
     $mail->addAddress($toemail);               // Name is optional
