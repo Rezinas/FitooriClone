@@ -362,9 +362,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.showHelp = function(classname) {
             if(!classname) classname= ".bubble";
-            $(classname).removeClass("zoomOutLeft");
+            $(classname).removeClass("fadeOutLeft");
             setTimeout(function(){
-              $(classname).addClass("zoomOutLeft");
+              $(classname).addClass("fadeOutLeft");
             }, 2000);
         }
 

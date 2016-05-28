@@ -40,12 +40,12 @@
 
 
                             <!-- all the messages come here -->
-                          <div ng-if="feedbackMsg != ''"  role="alert" class="bubble feedback animated zoomOutLeft">
+                          <div ng-if="feedbackMsg != ''"  role="alert" class="bubble feedback animated fadeOutLeft ">
                                     <span>{{feedbackMsg}}</span>
                            </div>
 
 
-                           <div ng-if="designLevel == 0 && !productAdded"  role="alert" class="bubble animated zoomOutLeft">
+                           <div ng-if="designLevel == 0 && !productAdded"  role="alert" class="bubble animated fadeOutLeft ">
                                     <span ng-if="startType == 'stud'">  &nbsp;Explore our range of studs , dont forget to click + and see all options.</span>
                                     <span ng-if="startType == 'jhumka'">
                                        &nbsp;Choose a top or hook for your jhumka.
@@ -54,22 +54,22 @@
                                     <span ng-if="startType == 'chandelier'">  &nbsp;Start by choosing a hook or top for you chandelier.</span>
                                     <span ng-if="startType == 'dangler'"> &nbsp;Start by choosing a hook or top for you dangler.</span>
                            </div>
-                           <div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated zoomOutLeft ">
+                           <div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeOutLeft  ">
                                     <span ng-if="startType == 'jhumka'">&nbsp;Wonderful! Now choose a design to add below your jhumka.</span>
                                     <span ng-if="startType == 'hoop'">&nbsp;Wonderful! Now choose a design to match below your hoop.</span>
                                    <span ng-if="startType == 'chandelier'"> &nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options.</span>
                                     <span  ng-if="startType == 'dangler'" >&nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options. Add to cart if you like your design.</span>
                            </div>
-                           <div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated zoomOutLeft " id="alertDiv3">
+                           <div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeOutLeft  " id="alertDiv3">
                                  <span>Would you like to decorate it more? Go on choose another design. Add to cart if you like your design. </span>
                            </div>
-                           <div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated zoomOutLeft ">
+                           <div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeOutLeft  ">
                                  <span>Good going! Pick what you like from below one final time if you want to add more.</span>
                            </div>
-                           <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" role="alert" class="bubble animated zoomOutLeft ">
+                           <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" role="alert" class="bubble animated fadeOutLeft  ">
                               <span>Looks great! no further attachments can be made. Finalize personalized {{startType }} to cart! </span>
                            </div>
-                           <div ng-if="productAdded" role="alert" class="bubble animated zoomOutLeft ">
+                           <div ng-if="productAdded" role="alert" class="bubble animated fadeOutLeft  ">
                                <span><i class="fa fa-check-circle"></i> Your Design Added successfully to the Cart.</span>
                            </div>
                         <!-- messages ends here -->
