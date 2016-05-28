@@ -22,8 +22,7 @@ if(isset($_GET["emailPass"])) {
 			    $to = $user_email;
 			    $subject = "Fitoori Login information";
 			    $message = "Your password is ".$a;
-			    $headers = "From: Admin@fitoori.com";
-			    mail($to,$subject,$message, $headers);
+			    sendemail($to,$subject,$message);
 			}
 			echo "SUCCESS";
 		}

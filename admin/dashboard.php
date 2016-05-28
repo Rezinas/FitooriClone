@@ -1,5 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
+
 require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
 if(empty($username)){
     //Redirect not logged in user
@@ -129,6 +131,9 @@ else if(isset($_GET["designearrings"])) {
 else if (isset($_GET["report"])) {
     $currenttab = 'report';
 }
+else if (isset($_GET["email"])) {
+    $currenttab = 'email';
+}
 else {
     $currenttab = 'dash';
 }
@@ -196,7 +201,7 @@ else {
                                 <a href="dashboard.php?search" <?php if($currenttab == "search") echo 'class="active"'; ?>><i class="fa fa-search fa-fw"></i>Product Search</a>
                             </li>
                             <li>
-                                <a href="dashboard.php?orders"  <?php if($currenttab == "orders") echo 'class="active"'; ?>><i class="fa fa-table fa-fw"></i>Orders</a>
+                                <a href="dashboard.php?orders"  <?php if($currenttab == "orders" || $currenttab == "email" ) echo 'class="active"'; ?>><i class="fa fa-table fa-fw"></i>Orders</a>
                             </li>
                             <li>
                                 <a href="dashboard.php?reports" <?php if($currenttab == "reports") echo 'class="active"'; ?>   ><i class="fa fa-bar-chart-o fa-fw"></i>Reports</a>
@@ -265,6 +270,9 @@ else if($currenttab == "pieces") {
 }
 else if($currenttab == "orders") {
     include(SITE_ROOT. "/admin/orders.html");
+}
+else if($currenttab == "email") {
+    include(SITE_ROOT. "/admin/email.html");
 }
 else if($currenttab == "report") {
     include(SITE_ROOT. "/admin/report.html");
@@ -352,6 +360,52 @@ else if($currenttab == "report") {
   <script src="../js/elementapp.js"></script>
    <?php } ?>
 
+   <?php if($currenttab == "email") { ?>
+  <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+  <script src="../js/additional-methods.js" type="text/javascript"></script>
+              <script type="text/javascript">
+  $(function() {
+
+        $("#emailForm").validate({
+            rules: {
+                subject:{
+                    required: true
+                },
+                messageArea: {
+                    required: true
+                }
+            },
+            messages: {
+                subject:{
+                    required: "Please enter subject"
+                },
+                messageArea: {
+                    required: "The message cannot be empty"
+                }
+            },
+            submitHandler: function(form) {
+                      $.ajax({
+                       type: "POST",
+                       url: "../php/ajax.php?sendemail",
+                       data: $(form).serialize(),
+                       timeout: 3000,
+                       success: function(data) {
+                            if(data == "EMAIL SENT") {
+                                $(".alert").removeClass("hide");
+                            }
+                       },
+                       error: function (request, status, error) {
+                            alert(request.responseText);
+                        }
+                      });
+                    return false;
+                }
+            });
+        });
+ </script>
+   <?php } ?>
+
+
 <?php if($currenttab == "pieces") { ?>
   <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
   <script src="../js/additional-methods.js" type="text/javascript"></script>
@@ -388,6 +442,8 @@ else if($currenttab == "report") {
 
    <?php if($currenttab == "product") { ?>
   <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+  <script src="../js/additional-methods.js" type="text/javascript"></script>
+
     <script type='text/javascript'>//<![CDATA[
     function readURL(input, outputImg) {
         var files = input.files ? input.files : input.currentTarget.files;

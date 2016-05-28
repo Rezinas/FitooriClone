@@ -1,4 +1,7 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+set_error_handler("var_dump");
 require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
 
 // Trims an image then optionally adds padding around it.
@@ -106,6 +109,7 @@ function createCustomPrdImage($elemArr)
         $dst_y += $offsety;
 
       imagealphablending($imgpart, false);
+ //     bool imagecopyresampled ( resource $dst_image , resource $src_image , int $dst_x , int $dst_y , int $src_x , int $src_y , int $dst_w , int $dst_h , int $src_w , int $src_h )
       imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w, $orig_h);
       imagesavealpha( $img, true );
     }
@@ -161,6 +165,16 @@ function createCustomPrdImage($elemArr)
  }
 
 
+
+if(isset($_REQUEST["sendemail"])) {
+  $toemail = $_POST["toemail"];
+  $subject = $_POST["subject"];
+  $messagebody = $_POST["messageArea"];
+   echo sendemail($toemail, $subject, $messagebody);
+  exit();
+}
+
+
 if(isset($_REQUEST["orderUpdate"])) {
    $ostat = $_POST['status'];
    $oid = $_POST['oid'];
@@ -179,6 +193,9 @@ if($results){
 }
 
 
+
+
+
 if(isset($_REQUEST["cartUpdate"])) {
     $_SESSION['cartids'] = $_POST['productids'];
 
@@ -187,6 +204,7 @@ if(isset($_REQUEST["cartUpdate"])) {
     $_SESSION['cartPrice'] = round(floatval($totalPrice));
   exit();
 }
+
 if(isset($_REQUEST["getCart"])) {
   $cpids = isset($_SESSION['cartids']) ? $_SESSION['cartids'] : [];
   $cprice = isset($_SESSION['cartPrice']) ? $_SESSION['cartPrice'] : 0;
@@ -261,46 +279,21 @@ if(isset($_GET["addcustom"])) {
         }
         $ins_stmt->close();
 
-
-        /* Dont add to cart now */
-        // if(!isAgent()){
-        //     $cartSessionIds = isset($_SESSION['cartids'])?$_SESSION['cartids'] : [];
-        //     $cartSessionPrice= isset($_SESSION['cartPrice'])?$_SESSION['cartPrice'] : 0;
-
-        //     $prd_id = $prodid."";
-
-        //     array_push($cartSessionIds, $prd_id);
-        //     $cartSessionPrice = $cartSessionPrice + $prod_price;
-
-        //     $_SESSION['cartids'] = $cartSessionIds;
-        //     $_SESSION['cartPrice'] = $cartSessionPrice;
-
-        // }
-
         $currUserEmail = isGuest() ? "guest" :  getCurrentUserEmail();
-        $currUsertype="";
+        $currUsertype= isGuest() ? "2" : "1";
 
-        if(!isGuest()) {
-            $qry = "SELECT usertype  from user WHERE email=$currUserEmail";
-            $result=mysqli_query($dbcon,$qry);
-           if ($result && mysqli_num_rows($result) > 0)
-            {
-                while ($row=mysqli_fetch_row($result))
-                {
-                  $currUsertype = $row[0];
-                }
-                  mysqli_free_result($result);
-            }
-        }
-        else {
-           $currUsertype= "2";
-        }
 
         $elem_qry = "INSERT into customdesign (`productid`, `elementid`,`leftPos`, `topPos`, `selectedImage`, `addedBy`, `addedByType` ) VALUES (?,?,?,?,?,?,?)";
         $ins_stmt1 = $dbcon->prepare($elem_qry);
-
         if(!$ins_stmt1) {
          die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+        }
+
+        //update pieces table for quantity
+        $pqry = "UPDATE pieces set quantity = quantity-2 where id=?";
+        $upd_stmt = $dbcon->prepare($pqry);
+        if(!$upd_stmt) {
+          die('Update Error : ('. $dbcon->errno .') '. $dbcon->error);
         }
 
         foreach($elements as $elem){
@@ -308,10 +301,18 @@ if(isset($_GET["addcustom"])) {
           $ins_stmt1->bind_param('iiiisss', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage'],$currUserEmail, $currUsertype);
 
           if(!$ins_stmt1->execute()){
-              die('Image Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
+              die('Custom Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
+          }
+
+          $upd_stmt->bind_param('i', $elem['id']);
+          if(!$upd_stmt->execute()){
+              die('Update pieces Error : ('. $dbcon->errno .') '. $dbcon->error);
           }
         }
+
         $ins_stmt1->close();
+        $upd_stmt->close();
+
         $result = "SUCCESS";
         $earObj = array(
                     "pid" => $prodid,
@@ -321,6 +322,45 @@ if(isset($_GET["addcustom"])) {
         $custEarrings = isset($_SESSION['customEarrings']) ? $_SESSION['customEarrings'] : [];
         $custEarrings[] = $earObj;
         $_SESSION['customEarrings'] = $custEarrings;
+
+        //get new pieces
+
+//get only earring parts and filter by the startStyle.
+        $startStyle = $_SESSION['startStyle'];
+$newpieces =[];
+
+$qry = "SELECT id, carouselImg,  imgheight, imgwidth, bodypart, centerx, centery,  toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name, quantity, priority from pieces where bodypart=3 and  quantity >= 2 and find_in_set('$startStyle', style) <> 0 order by priority";
+
+
+  $stmt = $dbcon->prepare($qry);
+if(!$stmt->execute()){
+    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+}
+$stmt->store_result();
+$stmt->bind_result($a,$b,$bh, $bw, $c,  $cx, $cy, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p, $q, $s);
+while ($stmt->fetch()) {
+  $row=[];
+  $row = ['id' => $a, 'carouselImg' => $b, 'imgheight'=>  $bh, 'imgwidth'=>  $bw, 'bodypart' => $c,  'centerx' => $cx, 'centery' => $cy, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n, 'price' => $o, 'name' => $p, 'quantity' =>$q, 'priority' => $s];
+
+  $qry2 = "SELECT color, design, imagefile, imageid, pieceid from pieceimages where pieceid = ".$a;
+  $stmt1 = $dbcon->prepare($qry2);
+  if(!$stmt1->execute()){
+    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+  }
+
+  $stmt1->store_result();
+  $stmt1->bind_result($a,$b, $c, $d, $e);
+  $images=[];
+  while ($stmt1->fetch()) {
+      $images[] = ['color' => $a, 'design' => $b, 'imagefile' => $c, 'imageid' => $d, 'pieceid' => $e];
+  }
+
+  $stmt1->close();
+    $row["images"] = $images;
+  $newpieces[] = $row;
+}
+$stmt->close();
+
       }
       else $result = "ERROR";
 
@@ -329,7 +369,8 @@ if(isset($_GET["addcustom"])) {
           "pprice" => $prod_price,
           "pid" => $prodid,
           "pimg" => $customImgName,
-          "customizedEarrings" => $custEarrings
+          "customizedEarrings" => $custEarrings,
+          "newpieces" => $newpieces,
     );
      echo json_encode($jsondata);
 

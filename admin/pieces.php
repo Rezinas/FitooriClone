@@ -2,7 +2,6 @@
 $itemsArr= explode("|", PRD_ITEM) ;
 $colorsArr= explode("|", COLORS) ;
 $texturesArr= explode("|", TEXTURES) ;
-$styleArr= explode("|", STYLES) ;
 $categoriesArr= explode("|", CATEGORY) ;
 
 
@@ -80,11 +79,14 @@ $pcbot = "";
 $pcbody = "";
 $pccolors=[];
 $pcdesign = [];
+$style_list = [];
 $pieceid= "";
 $pimgheight ="";
 $pimgwidth ="";
 $pprice ="";
 $pname ="";
+$pquantity ="";
+$priority ="";
 $cartesianArr= [];
 $topx=[];
 $topy=[];
@@ -92,14 +94,13 @@ $bottomx=[];
 $bottomy=[];
 $carouselImg="";
 $material = "";
-$pstyle="1";
 $admintags="";
 
 if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
     $pieceid=trim($_GET["id"]);
     $pcmode = "edit";
 
- 	$qry = "SELECT  id, carouselImg, imgheight, imgwidth, bodypart, centerx, centery, toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name  from pieces WHERE id=$pieceid";
+ 	$qry = "SELECT  id, carouselImg, quantity, priority, imgheight, imgwidth, bodypart, centerx, centery, toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name  from pieces WHERE id=$pieceid";
  	if(!$stmt = $dbcon->prepare($qry)){
 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}
@@ -109,9 +110,9 @@ if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
 	}
 
 	$stmt->store_result();
-	$stmt->bind_result($a,$b, $bh, $bw, $c, $cx, $cy,  $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p);
+	$stmt->bind_result($a,$b, $q, $pr, $bh, $bw, $c, $cx, $cy,  $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p);
 	while ($stmt->fetch()) {
-		$parr = ['id' => $a, 'carouselImg' => $b, 'imgheight'=>  $bh, 'imgwidth'=>  $bw,  'bodypart' => $c, 'centerx' => $cx, 'centery' => $cy, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n, 'price' => $o, 'name' => $p];
+		$parr = ['id' => $a, 'carouselImg' => $b, 'quantity' => $q, 'priority' => $pr,'imgheight'=>  $bh, 'imgwidth'=>  $bw,  'bodypart' => $c, 'centerx' => $cx, 'centery' => $cy, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n, 'price' => $o, 'name' => $p];
 	}
 	$stmt->close();
 	$pieceid=$parr['id']."";
@@ -124,9 +125,11 @@ if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
 	$pimgwidth=$parr['imgwidth']."";
 	$carouselImg=$parr['carouselImg']."";
 	$material=$parr['material'];
-	$pstyle=$parr['style'];
+	$style_list=explode(',', $parr['style']);
 	$pprice=$parr['price'];
 	$pname=$parr['name'];
+	$pquantity=$parr['quantity'];
+	$priority=$parr['priority'];
 	$admintags=$parr['admintags'];
 	$topx = explode(",", $parr['topX']);
 	$topy = explode(",", $parr['topY']);
@@ -161,8 +164,13 @@ if (!empty($_POST)) {
 	  $pcbot  = prepare_input($_POST['pcbot' ]);
 	  $pprice  = prepare_input($_POST['pprice' ]);
 	  $pname  = prepare_input($_POST['pname' ]);
+	  $pquantity  = prepare_input($_POST['pquantity' ]);
+	  $priority  = prepare_input($_POST['priority' ]);
 	  $pimgheight  = prepare_input($_POST['pimgheight' ]);
 	  $pimgwidth  = prepare_input($_POST['pimgwidth' ]);
+	  if(isset($_POST['style_list'])) {
+	  	$style_list = $_POST['style_list'];
+	  }
 	 if (isset($_POST['pccolors' ]))
 	 	$pccolors  = $_POST['pccolors' ];
 	  if (isset($_POST['pcdesign' ]))
@@ -209,13 +217,13 @@ if (!empty($_POST)) {
     	//insert into database all product values
 
 
-	$query = "INSERT INTO `pieces` (`carouselImg`,`imgheight`, `imgwidth`,`bodypart`, `centerx`, `centery`, `toppoints`,  `topX`, `topY`,`bottompoints`,  `botX`, `botY`,`color`, `texture`,`material`,`style`, `admintags`, `price`, `name`) VALUES (?, ?, ?, ?, ?, ?,?,?, ?,?, ?, ?,?,?,?,?,?, ?,?)";
+	$query = "INSERT INTO `pieces` (`carouselImg`,`imgheight`, `imgwidth`,`bodypart`, `centerx`, `centery`, `toppoints`,  `topX`, `topY`,`bottompoints`,  `botX`, `botY`,`color`, `texture`,`material`,`style`, `admintags`, `price`, `name`, `quantity`, `priority`) VALUES (?, ?, ?, ?, ?, ?,?,?, ?,?, ?, ?,?,?,?,?,?, ?,?,?,?)";
 	$ins_stmt = $dbcon->prepare($query);
 	if(!$ins_stmt) {
 	 die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error. ' query= '.$query);
 	}
 	// bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
-	$ins_stmt->bind_param('siiiiiississssissds', $carouselImg, intval($pimgheight), intval($pimgwidth), intval($pcbody),  intval($pcenterx),  intval($pcentery), intval($pctop), implode(",", $topx), implode(",", $topy),  intval($pcbot), implode(",", $bottomx), implode(",", $bottomy), implode(",", $pccolors),  implode(",", $pcdesign), $material, intval($pstyle), $admintags, $pprice, $pname);
+	$ins_stmt->bind_param('siiiiiississssissdsii', $carouselImg, intval($pimgheight), intval($pimgwidth), intval($pcbody),  intval($pcenterx),  intval($pcentery), intval($pctop), implode(",", $topx), implode(",", $topy),  intval($pcbot), implode(",", $bottomx), implode(",", $bottomy), implode(",", $pccolors),  implode(",", $pcdesign), $material, implode(",", $style_list), $admintags, $pprice, $pname, $pquantity, $priority);
 
 	if($ins_stmt->execute()){
 		$pcmode = "edit";
@@ -242,10 +250,10 @@ if (!empty($_POST)) {
     	}
     	else if($pcmode == "edit") {
     	 	//run the update query for the $pieceid.
-    	 	$updQuery1 =  "UPDATE pieces  SET `carouselImg`=?, `imgheight` =?, `imgwidth` =?, `bodypart` = ?, `centerx` = ?, `centery` = ?, `toppoints` = ?,  `topX`= ?, `topY`=?,`bottompoints` = ?, `botX`=?, `botY`=?, `color` = ?, `texture` = ? , `material` = ? , `style` = ?, `admintags` = ?, `price` = ?, `name` = ? WHERE id=$pieceid ";
+    	 	$updQuery1 =  "UPDATE pieces  SET `carouselImg`=?, `imgheight` =?, `imgwidth` =?, `bodypart` = ?, `centerx` = ?, `centery` = ?, `toppoints` = ?,  `topX`= ?, `topY`=?,`bottompoints` = ?, `botX`=?, `botY`=?, `color` = ?, `texture` = ? , `material` = ? , `style` = ?, `admintags` = ?, `price` = ?, `name` = ?, `quantity` = ?, `priority` = ? WHERE id=$pieceid ";
     	 	$stmt = $dbcon->prepare($updQuery1);
 
-		$stmt->bind_param('siiiiiississssissds', $carouselImg, intval($pimgheight), intval($pimgwidth), intval($pcbody), intval($pcenterx), intval($pcentery), intval($pctop), implode(",", $topx), implode(",", $topy),  intval($pcbot), implode(",", $bottomx), implode(",", $bottomy), implode(",", $pccolors),  implode(",", $pcdesign), $material, intval($pstyle), $admintags, $pprice, $pname);
+		$stmt->bind_param('siiiiiississssissdsii', $carouselImg, intval($pimgheight), intval($pimgwidth), intval($pcbody), intval($pcenterx), intval($pcentery), intval($pctop), implode(",", $topx), implode(",", $topy),  intval($pcbot), implode(",", $bottomx), implode(",", $bottomy), implode(",", $pccolors),  implode(",", $pcdesign), $material, implode(",", $style_list), $admintags, $pprice, $pname,$pquantity, $priority);
 
 		if(!$stmt->execute()){
 		    die('Error : ('. $dbcon->errno .') '. $dbcon->error);

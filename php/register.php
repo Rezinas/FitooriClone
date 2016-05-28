@@ -2,6 +2,7 @@
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 require_once($_SERVER['DOCUMENT_ROOT']."/utils/db_connection.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
 session_start();
 
 if(isset($_POST['register']))
@@ -31,6 +32,13 @@ if(isset($_POST['register']))
       $_SESSION["username"] = $user_fn . ' '. $user_ln;
       $_SESSION["userid"] = $userid;
       $_SESSION["useremail"] =  $user_email;
+
+          $subject = "Fitoori Registration";
+          $message = "Thank you for registering with Fitoori. Have fun designing your own custom Jewelry. Visit <a href='http://fitoori.com'>Fitoori.com</a>";
+          sendemail($user_email,$subject,$message);
+
+          $adminMessage = "New User registered: ". $user_fn . ' '. $user_ln;
+        sendemail("rezinas@gmail.com", "New User Registration ", $adminMessage);
 
       if(isset($_POST["backto"])) {
         $gotoPage = "/index.php?".$_POST["backto"];

@@ -1,6 +1,65 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
+// $elements =  array(
+  // "custom_product"  => [ array (
+  //     "id" => 112,
+  //     "carouselImg" => "DSC03166_1464173399.png",
+  //     "imgheight" => 76,
+  //     "imgwidth" => 19,
+  //     "bodypart" => 3,
+  //     "centerx" => 17,
+  //     "centery" => 10,
+  //     "toppoints" => 0,
+  //     "topX" => "",
+  //     "topY" => "",
+  //     "bottompoints" => 1,
+  //     "botX" => "6",
+  //     "botY" => "73",
+  //     "color" => "",
+  //     "texture" => "",
+  //     "style" => "hook,dangler,chandelier,jhumka",
+  //     "admintags" => "",
+  //     "material" => 3,
+  //     "price" => "0",
+  //     "name" => "Oxidized Metal - Silver",
+  //     "quantity" => 10,
+  //     "priority" => 0,
+  //     "selectedImage" => "DSC03166_1464173399.png",
+  //     "topPos" => 10,
+  //     "leftPos" => 17
+  //     ),
+  //     array (
+  //        "id" => 81,
+  //     "carouselImg" => "DSC03605_1455792736.png",
+  //     "imgheight" => 65,
+  //     "imgwidth" => 60,
+  //     "bodypart" => 3,
+  //     "centerx" => 0,
+  //     "centery" => 0,
+  //     "toppoints" => 1,
+  //     "topX" => "25",
+  //     "topY" => "-3",
+  //     "bottompoints" => 0,
+  //     "botX" => "",
+  //     "botY" => "",
+  //     "color" => "Red",
+  //     "texture" => "Plain",
+  //     "style" => "jhumka",
+  //     "admintags" => "",
+  //     "material" => 2,
+  //     "price" => "80",
+  //     "name" => "Metal/Acrylic",
+  //     "quantity" => 10,
+  //     "priority" => 0,
+  //     "selectedImage" => "DSC03607_1455792736.png",
+  //     "topPos" => 83,
+  //     "leftPos" => -2
+  //     )
+  //     ]);
+
+
+
 $elements =  array(
   "custom_product"  => [ array (
             "id" => 5,
@@ -276,13 +335,14 @@ function createCustomPrdImage($elemArr)
     $color = imagecolorallocatealpha($img, 0, 0, 0, 127);
     imagefill($img, 0, 0, $color);
 
+
      //start constructing the image
     $offsetx = 15;
     $offsety = 15;
      foreach($elemArr as $key => $elm) {
       $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
-        $orig_w = $elm["imgwidth"];
-        $orig_h = $elm["imgheight"];
+        $orig_w = $elm["imgwidth"]-2;
+        $orig_h = $elm["imgheight"]-2;
 
         $dst_x = $elm['leftPos'];
         $dst_y = $elm['topPos'];
@@ -293,8 +353,11 @@ function createCustomPrdImage($elemArr)
         $dst_y += $offsety;
 
 
-        // echo "dstx =".$dst_x;
-        // echo "dsty =".$dst_y;
+        echo "orig_w =".$orig_w;
+        echo "orig_h =".$orig_h;
+
+        echo "dstx =".$dst_x;
+        echo "dsty =".$dst_y;
       imagealphablending($imgpart, false);
       imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w, $orig_h);
       imagesavealpha( $img, true );
@@ -320,7 +383,7 @@ function createCustomPrdImage($elemArr)
     $curr_x = 0;
     $curr_y = 0;
     while($curr_x < $out_w){
-    imagealphablending($out, false);
+    imagealphablending($out, true);
     imagecopy($out, $img, $curr_x, $curr_y, 0, 0, $ow, $oh);
     imagesavealpha( $out, true );
 

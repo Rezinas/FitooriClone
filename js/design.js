@@ -8,34 +8,36 @@ var des = angular.module('cdesign', []);
         });
     });
 
-des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout', '$location',
-    function($scope, $rootScope, $http, $window, $document, $timeout, $location) {
+des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout', '$location', '$sce',
+    function($scope, $rootScope, $http, $window, $document, $timeout, $location, $sce) {
         $scope.loaded = false;
       $timeout(function() { $scope.loaded = true; },1000);
 
 
         $scope.siteUrl = $window.model.siteUrl;
-        $scope.designObj = {};
+        $scope.earringPieces = [];
         $scope.filteredSet = [];
         $scope.mySelectedItems = [];
         $scope.designLevel = 0;
         $scope.pageSize = 12;
         $scope.currentPage = 0;
         $scope.levelFilled = false;
+        $scope.feedbackMsg = '';
         $scope.prdIndex = [];
         $scope.allConnArr =[];
         $scope.designerPicks=[];
         $scope.designPrice=0;
         $scope.isAgent = $window.model.isAgent;
         $scope.shipping=$window.model.shipping;
+        $scope.styles=$window.model.styles;
         $scope.productAdded = false;
-        $scope.startType = "";
+        $scope.startType = $window.model.startStyle;
         $scope.showCartbtn = false;
 
         $scope.customizedEarrings = [];
 
         $scope.getCustom =  function() {
-            $http.get('php/ajax.php?getCustom').
+            $http.get($scope.siteUrl+'php/ajax.php?getCustom').
             success(function(data) {
                 $scope.customizedEarrings = data.customizedEarrings;
             });
@@ -47,30 +49,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         var taxPercent =$window.model.vat;
         var overheads =$window.model.overheads;
 
-        var elements = $window.model.elements;
-        var bodyparts = $window.model.items;
-
-        var queryParam = $location.search();
-        if(queryParam.jhumka){
-              $scope.startType = "Jhumka";
-        }
-        else if(queryParam.chandelier){
-              $scope.startType = "Chandelier";
-        }
-        else if(queryParam.hoops){
-              $scope.startType = "Hoops";
-        }
-        else if(queryParam.studs){
-              $scope.startType = "Studs";
-        }
-        else if(queryParam.danglers){
-              $scope.startType = "Danglers";
-        }
-
+        $scope.earringPieces = $window.model.elements;
 
         var isOdd = function(num){
             return num % 2;
         };
+
 
         var findEligibleElement = function(eitems, celem){
             var resArr = [];
@@ -104,6 +88,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             }
 
             $.each(eitems, function(ind, row) {
+                if(row.quantity < 2) { //we donot show elements that are less than 2 in quantity.
+                    return true;
+                }
                 if ($scope.designLevel == 0) {
                     // if (row.toppoints == 0 && row.admintags.indexOf($scope.startType)) {
                    if (row.toppoints == 0) {
@@ -111,11 +98,11 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     }
                 } else {
                     if(row.toppoints == 1){
-                        if($scope.designLevel == 3){
-                            if(row.bottompoints == 0)
-                                resArr.push(row);
-                        }
-                        else
+                        // if($scope.designLevel == 3){
+                        //     if(row.bottompoints == 0)
+                        //         resArr.push(row);
+                        // }
+                        // else
                           resArr.push(row);
                     }
                     if (row.toppoints == topPoints && row.toppoints != 1) {
@@ -166,24 +153,19 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
               });
         };
 
-        $.each(bodyparts, function(index, item) {
-            $scope.designObj[item] = [];
-        });
+        $scope.filteredSet =  findConnectionElements($scope.earringPieces);
 
-        $.each(elements, function(ind, element) {
-            if (element.bodypart == 3 && element.admintags.toLowerCase().indexOf($scope.startType.toLowerCase()) > -1) {
-           // if (element.bodypart == 3 ) {
-                $scope.designObj["Earrings"].push(element);
-            }
-            if (element.bodypart == 1) {
-                $scope.designObj["Anklets"].push(element);
-            }
-        });
-
-        $scope.filteredSet =  findConnectionElements($scope.designObj.Earrings);
+        $scope.addImage = function(imItem) {
+            var url = $scope.siteUrl+"productImages/"+imItem.selectedImage;
+             return $sce.trustAsResourceUrl(url);
+        };
 
         $scope.selectImage = function(elem, mainlist) {
             $scope.levelFilled = true;
+            $scope.feedbackMsg ='';
+            $scope.showHelp(".feedback");
+            //feedback message is updated here
+            $scope.feedbackMsg = "Try more designs or click next";
             $('figure.star.level'+$scope.designLevel).remove();
 
             var bpoints = ($scope.mySelectedItems.length ==0) ? 1 : 0;
@@ -195,7 +177,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             var lastLevelEl = [];
             var fits = true;
 
-             if(mainlist && $scope.designLevel ==0 && elem.admintags.indexOf('hook') > -1)
+             if(mainlist && $scope.designLevel ==0 && elem.style.indexOf('hook') > -1)
                 $scope.showCartbtn = false;
              else
               $scope.showCartbtn = true;
@@ -331,6 +313,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 for (var i = 0; i < bpoints; i++) {
                     $scope.mySelectedItems[$scope.prdIndex[$scope.designLevel][i]].selectedImage = elem;
                 }
+
             }
           //   $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
         };
@@ -339,7 +322,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             if($scope.levelFilled) {
                 $scope.designLevel++;
                 $scope.levelFilled = false;
-                $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
+                $scope.filteredSet = findConnectionElements($scope.earringPieces);
                 $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
             } else {
                 alert("you havent selected elements for this level yet.");
@@ -377,6 +360,14 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             else return false;
         };
 
+        $scope.showHelp = function(classname) {
+            if(!classname) classname= ".bubble";
+            $(classname).removeClass("zoomOutLeft");
+            setTimeout(function(){
+              $(classname).addClass("zoomOutLeft");
+            }, 2000);
+        }
+
         $scope.processForm = function() {
           if($scope.productAdded) {
              return;
@@ -394,8 +385,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
           .success(function(data) {
             if(data.result == "SUCCESS"){
                   $scope.productAdded = true;
-                  $scope.resetDesign();
                   $scope.customizedEarrings = data.customizedEarrings;
+                  $scope.earringPieces = data.newpieces;
+                  $scope.resetDesign();
+
                   $("#myModal span#earringType").html($scope.startType);
                   $("#myModal .fb-share-button").attr('data-href', 'http://fitoori.com/productImages/'+data.pimg);
                   $("#myModal input[name='pid']").val(data.pid);
@@ -421,7 +414,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.productAdded = false;
                 $scope.showCartbtn = false;
 
-                $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
+                $scope.filteredSet = findConnectionElements($scope.earringPieces);
              $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
 
         };
@@ -430,7 +423,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             var yes= false;
             if( $scope.mySelectedItems.length > 0 && !$scope.productAdded ) yes = true;
             if( yes && $scope.designLevel == 0 && $scope.mySelectedItems[$scope.designLevel]) {
-                 if($scope.mySelectedItems[$scope.designLevel].admintags.indexOf('hooks') < 0 ) yes = true;
+                 if($scope.mySelectedItems[$scope.designLevel].style.indexOf('hooks') < 0 ) yes = true;
                  else yes= false;
             }
             return yes;
@@ -447,9 +440,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
             $scope.designLevel--;
             $scope.levelFilled = true;
-             if($scope.designLevel ==0 && $scope.mySelectedItems[$scope.designLevel].admintags.indexOf('hook') > -1)
+             if($scope.designLevel ==0 && $scope.mySelectedItems[$scope.designLevel].style.indexOf('hook') > -1)
                 $scope.showCartbtn = false;
-            $scope.filteredSet = findConnectionElements($scope.designObj.Earrings);
+            $scope.filteredSet = findConnectionElements($scope.earringPieces);
                 designTotal();
 
         }
@@ -480,16 +473,20 @@ des.directive('prdPosition', function($timeout) {
              $(curElem).css("left", thisScope.selectedItem.leftPos+"px");
              $(curElem).css("top", thisScope.selectedItem.topPos+"px");
              $('figure.star').not('.level'+thisScope.level).remove();
-                var bx = thisScope.selectedItem.botX.split(",");
-                var by = thisScope.selectedItem.botY.split(",");
-             for(var ix=0; ix < thisScope.selectedItem.bottompoints; ix++){
-                var starEl = $("<figure class='star level"+thisScope.level+"'><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>");
-                var lp = bx[ix];
-                var tp = by[ix];
-                $(starEl).css("left", lp+"px");
-                $(starEl).css("top", by[ix]+"px");
-                $(starEl).appendTo(curElem);
+
+             if(thisScope.level != 3) {
+                 var bx = thisScope.selectedItem.botX.split(",");
+                 var by = thisScope.selectedItem.botY.split(",");
+                 for(var ix=0; ix < thisScope.selectedItem.bottompoints; ix++){
+                    var starEl = $("<figure class='star level"+thisScope.level+"'><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>");
+                    var lp = bx[ix];
+                    var tp = by[ix];
+                    $(starEl).css("left", lp+"px");
+                    $(starEl).css("top", by[ix]+"px");
+                    $(starEl).appendTo(curElem);
+                 }
              }
+
             }, true);
 
         }
@@ -547,6 +544,115 @@ des.directive('resizable', function($window) {
   };
 });
 
+
+
+des.directive('zoom', function(){
+    function link(scope, element, attrs){
+      var $ = angular.element;
+      var original = $(element[0].querySelector('.original'));
+      var originalImg = original.find('img');
+      var zoomed = $(element[0].querySelector('.zoomed'));
+      var zoomedImg = zoomed.find('img');
+
+      var mark = $('<div></div>')
+        .addClass('mark')
+        .css('position', 'absolute')
+        .css('height', scope.markHeight +'px')
+        .css('width', scope.markWidth +'px')
+
+      $(element).append(mark);
+
+      element
+        .on('mouseenter', function(evt){
+          mark.removeClass('hide');
+
+          var offset = calculateOffset(evt);
+          moveMark(offset.X, offset.Y);
+        })
+        .on('mouseleave', function(evt){
+          mark.addClass('hide');
+        })
+        .on('mousemove', function(evt){
+          var offset = calculateOffset(evt);
+          moveMark(offset.X, offset.Y);
+        });
+
+      scope.$on('mark:moved', function(event, data){
+        updateZoomed.apply(this, data);
+      });
+
+      function moveMark(offsetX, offsetY){
+        var dx = scope.markWidth,
+            dy = scope.markHeight,
+            x = offsetX - dx/2,
+            y = offsetY - dy/2;
+
+        mark
+          .css('left', x + 'px')
+          .css('top',  y + 'px');
+
+        scope.$broadcast('mark:moved', [
+          x, y, dx, dy, originalImg[0].height, originalImg[0].width
+        ]);
+      }
+
+      function updateZoomed(originalX, originalY, originalDx, originalDy, originalHeight, originalWidth){
+        var zoomLvl = scope.zoomLvl;
+        scope.$apply(function(){
+          zoomed
+            .css('height', zoomLvl*originalDy+'px')
+            .css('width', zoomLvl*originalDx+'px');
+          zoomedImg
+            .attr('src', scope.src)
+            .css('height', zoomLvl*originalHeight+'px')
+            .css('width', zoomLvl*originalWidth+'px')
+            .css('left',-zoomLvl*originalX +'px')
+            .css('top',-zoomLvl*originalY +'px');
+        });
+      }
+
+      var rect;
+      function calculateOffset(mouseEvent){
+        rect = rect || mouseEvent.target.getBoundingClientRect();
+        var offsetX = mouseEvent.clientX - rect.left;
+        var offsetY = mouseEvent.clientY - rect.top;
+
+        return {
+          X: offsetX,
+          Y: offsetY
+        }
+      }
+
+      attrs.$observe('ngSrc', function(data) {
+        scope.src = attrs.ngSrc;
+      }, true);
+
+
+      attrs.$observe('zoomLvl', function(data) {
+        scope.zoomLvl =  data;;
+      }, true);
+    }
+
+    return {
+      restrict: 'EA',
+      scope: {
+        markHeight: '@markHeight',
+        markWidth: '@markWidth',
+        src: '@src',
+        zoomLvl: "@zoomLvl"
+      },
+      template: [
+        '<div class="original">',
+          '<img ng-src="{{src}}"/>',
+        '</div>',
+        '<div class="zoomed">',
+          '<img/>',
+        '</div>'
+      ].join(''),
+      link: link
+    };
+  });
+
 des.factory('elementFactory', function() {
     var factory = {};
     return factory;
@@ -592,7 +698,15 @@ function openfb() {
       picture: imgurl,
       description: "Designed on Fitoori.com!",
       app_id: 1076977995697955
-    });
+    }, function(response){
+    if (response && !response.error_code) {
+        console.log("OK: "+JSON.stringify(response));
+    } else if (response && response.error_code === 4201) { //Cancelled
+        console.log("User cancelled: "+decodeURIComponent(response.error_message));
+    } else {
+        console.log("Not OK: "+JSON.stringify(response));
+    }
+});
 
   // $('.js-share-facebook').on('click', function() {
   //   FB.ui({

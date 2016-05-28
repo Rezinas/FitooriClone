@@ -43,7 +43,8 @@ $stmt->close();
 $jsondata = array(
 	"items" => $itemsArr,
 	"isAgent" => isAgent(),
-	"materials" => $categoriesArr,
+    "materials" => $categoriesArr,
+	"styles" => array("hook", "hoop", "jhumka", "chandelier", "dangler", "stud"),
 	"pieces" =>$allpieces,
 	"tags" => $tags
 );

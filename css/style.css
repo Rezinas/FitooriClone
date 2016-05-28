@@ -2553,7 +2553,7 @@ span.glyphicon.glyphicon-map-marker {
 	padding: 10px 15px 10px 15px;
 	font-size: 12.5px;
 	color: #999;
-	margin-bottom: 1.5em;
+	/* margin-bottom: 1.5em; */
 }
 /*.contact-form input[type="text"]:nth-child(2) {
     margin: 0 1em;
@@ -2569,7 +2569,7 @@ span.glyphicon.glyphicon-map-marker {
 	color: #999;
 	resize: none;
 	padding: 10px 15px 10px 15px;
-	margin-bottom: 1em;
+	/* margin-bottom: 1em; */
 }
 .contact-form select {
     display: inline-block;

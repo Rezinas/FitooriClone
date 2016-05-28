@@ -220,6 +220,14 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
          session_destroy();
          header("Location: index.php");//use for the redirection to some page
       }?>
+
+       <?php if($currenttab == "join" || $currenttab == "support" ||  $currenttab == "contact") { ?>
+  <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
+  <script src="../js/additional-methods.js" type="text/javascript"></script>
+
+   <?php } ?>
+
+
    </head>
    <body>
 <!-- facebook integration -->

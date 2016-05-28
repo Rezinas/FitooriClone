@@ -141,9 +141,10 @@ body { padding-top: 0px !important; }
 
 .bubble {
   position: absolute;
-  padding: 10px;
-  width: 410px;
+  padding: 12px;
+  width: 400px;
   margin:0;
+  animation-delay: 2s;
   text-align: center;
   /* color:#fff; */
   background: #f07818; /* default background for browsers without gradient support */
@@ -151,30 +152,30 @@ body { padding-top: 0px !important; }
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#F07818), to(#fff));
   background:-moz-linear-gradient(#F07818, #fff);
   background:-o-linear-gradient(#F07818, #fff);
-  background: linear-gradient(#f07818, #fff);
+  background: linear-gradient(#f07818, #F1B98B);
   /* -webkit-border-radius:10px; */
   -moz-border-radius:10px;
-  /* border-radius:10px; */
-  top: -15px;
+  border-radius: 25px;
+  top: -63px;
   left: -15px;
 }
 
 /* display of quote author (alternatively use a class on the element following the blockquote) */
 .bubble span {color: #000;font-size: 1em;font-weight: bold;}
 
-/* creates the triangle
+/* creates the triangle */
 .bubble:after {
   content:"";
   position:absolute;
-  bottom: -40px;
-  left: 38px;
-  border-width: 0 14px 41px 0px;
+  bottom: -32px;
+  left: 33px;
+  border-width: 0 0 35px 25px;
   border-style:solid;
-  border-color: transparent #FFF;
+  border-color: transparent #F1B98B;
   display:block;
   width:0;
 }
- */
+ 
 
 
 
@@ -463,9 +464,11 @@ button.addtoCart:hover{
 
 
  .pr-ribbon {
- 	 box-shadow: 0 0 30px rgba(236, 221, 210, 0.81) inset,            0 6px 10px rgba(0,0,0,.15);
+ 	 /* box-shadow: 0 0 30px rgba(236, 221, 210, 0.81) inset,            0 6px 10px rgba(0,0,0,.15); */
  	  /* Adjust to suit */
  	 height: 85px;
+ 	 border: 1px solid #ddd;
+ 	 /* border-top-color: #f07818; */
  }
 	.avlOptions #imgOptions{
 		position: relative;
@@ -708,15 +711,21 @@ button.addtoCart:hover{
 	   /*margin: -9px 0px 0px -6px;*/
 	   vertical-align: middle;
 	}
+
+	.popupImageDiv:hover {
+		border:1px solid #f07818;
+	}
+
 	.popupImageDiv{
-		margin: 10px 3px 6px 3px;
+		margin: 6px 2px 6px 3px;
 		display: table;
-		border: 0px solid;
+		border: 1px solid transparent;
 		/*height: 80px;
 	    width: 80px;*/
-		width: 15%;
+		cursor: pointer;
+		width: 13%;
 		height: 100px;
-		padding: 10px;
+		padding: 8px;
 		box-shadow: inset 10px 10px 50px #f3f3f3;
 		float: left;
 	}

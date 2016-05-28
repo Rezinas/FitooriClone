@@ -9,7 +9,9 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.pageSize = 50;
         $scope.materials = $window.model.materials;
         $scope.items = $window.model.items;
+        $scope.styles = $window.model.styles;
         $scope.selectedMaterial =[];
+        $scope.selectedStyles =[];
         $scope.selectedTags =[];
         $scope.selectedItem=[3];
          $scope.selectedSort ="phigh";
@@ -25,6 +27,18 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         };
 
          $scope.tags = uniqueTags($window.model.tags);
+
+         var findInString = function(str, arr) {
+            var found= false;
+            $.each(arr, function(ind, val){
+                if(str.indexOf(val) > -1) {
+                    found =true;
+                    return false;
+                }
+                found = false;
+            });
+            return found;
+         }
 
 
         $scope.orderByOptions = function() {
@@ -55,7 +69,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
                   }
             };
 
-        // toggle selection for a given fruit by name
+        // toggle selection for a given material by name
         $scope.toggleSelection = function toggleSelection(matIndex) {
             var idx = $scope.selectedMaterial.indexOf(matIndex);
             // is currently selected
@@ -67,6 +81,20 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
               $scope.selectedMaterial.push(matIndex);
             }
         };
+
+        // toggle selection for a given style by name
+        $scope.toggleStyleSelection = function toggleStyleSelection(styleItem) {
+            var idx = $scope.selectedStyles.indexOf(styleItem);
+            // is currently selected
+            if (idx > -1) {
+              $scope.selectedStyles.splice(idx, 1);
+            }
+            // is newly selected
+            else {
+              $scope.selectedStyles.push(styleItem);
+            }
+        };
+
         $scope.toggleTagSelection = function toggleTagSelection(tagIndx) {
             var idx = $scope.selectedTags.indexOf(tagIndx);
             // is currently selected
@@ -99,14 +127,18 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             var foundpoints = false;
             var foundItem = false;
             var foundTags = false;
+            var foundStyles = false;
             if( ($scope.bottompoints == 0 && $scope.toppoints == 0) || ($scope.bottompoints == item.bottompoints && $scope.toppoints == item.toppoints)){
                 foundpoints = true;
             }
             if(($scope.selectedMaterial.length == 0) || ($scope.selectedMaterial.indexOf(item.material) > -1)){
                 foundMat = true;
             }
-             if(($scope.selectedTags.length == 0) || ($scope.selectedTags.indexOf(item.admintags) > -1)){
+             if(($scope.selectedTags.length == 0) || (findInString(item.admintags, $scope.selectedTags) )){
                 foundTags    = true;
+            }
+            if(($scope.selectedStyles.length == 0) || (findInString(item.style, $scope.selectedStyles))){
+                foundStyles    = true;
             }
             if(item.price >= $scope.priceSlider.min && item.price <= $scope.priceSlider.max ){
                 foundPrice = true;
@@ -114,7 +146,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             if(($scope.selectedItem.length == 0) || ($scope.selectedItem.indexOf(item.bodypart) > -1)){
                 foundItem = true;
             }
-            return (foundMat && foundpoints && foundPrice && foundItem && foundTags);
+            return (foundMat && foundpoints && foundPrice && foundItem && foundTags && foundStyles);
         };
 
         $scope.numberOfPages=function(){

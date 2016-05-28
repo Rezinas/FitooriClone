@@ -95,3 +95,6 @@ div#page-wrapper h2.page-header{
     text-align: center;
     padding: 1em;
 }
+.orderdetails table td {
+    width: 14%;
+}

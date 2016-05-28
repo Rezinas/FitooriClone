@@ -10,7 +10,7 @@
 
 .animated {
   -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  animation-duration: 2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -2973,7 +2973,7 @@
 }
 
 @-webkit-keyframes zoomOutLeft {
-  40% {
+  20% {
     opacity: 1;
     -webkit-transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);
     transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);
@@ -2981,15 +2981,15 @@
 
   to {
     opacity: 0;
-    -webkit-transform: scale(.1) translate3d(-3000px, -2600px, 0);
-    transform: scale(.1) translate3d(-3000px, -2600px, 0);
+    -webkit-transform: scale(.1) translate3d(-500px, 500px, 0);
+    transform: scale(.1) translate3d(-500px, 500px, 0);
     -webkit-transform-origin: 20% center;
     transform-origin: 20% center;
   }
 }
 
 @keyframes zoomOutLeft {
-  40% {
+  20% {
     opacity: 1;
     -webkit-transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);
     transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);
@@ -2997,8 +2997,8 @@
 
   to {
     opacity: 0;
-    -webkit-transform: scale(.1) translate3d(-3000px, -2600px, 0);
-    transform: scale(.1) translate3d(-3000px, -2600px, 0);
+    -webkit-transform: scale(.1) translate3d(-500px, 500px, 0);
+    transform: scale(.1) translate3d(-500px, 500px, 0);
     -webkit-transform-origin: 20% center;
     transform-origin: 20% center;
   }

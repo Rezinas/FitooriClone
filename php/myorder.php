@@ -4,6 +4,7 @@ if(!empty($_REQUEST)){
     $currUserEmail = getCurrentUserEmail();
     $orderid = $_REQUEST['orderid'];
     $orderAction = isset($_REQUEST['cancel']) ? "cancel" : "";
+    $userflname=isset($_SESSION['userflname']) ? $_SESSION['userflname'] : "Guest";
     $mainErrorMsg ="";
 
     //echo $currUserEmail;
@@ -20,6 +21,19 @@ if(!empty($_REQUEST)){
             if(!$results){
                 die('Error : ('. $dbcon->errno .') '. $dbcon->error);
             }
+
+
+            //Notify user and admin about order cancellation.
+    $subject = 'Fitoori Order Cancelled';
+    $message= "<strong>Hi $userflname, </strong><br>";
+    $message .= "<p>Thank you for choosing Fitoori. Your order $_REQUEST['orderid'] has been successfully cancelled. Please contact admin@fitoori.com  for any questions.</p> <p> Fitoori Team.</p>";
+
+    sendemail($currUserEmail, $subject, $message);
+
+    $adminMessage = "The following order has been cancelled: ".$_REQUEST['orderid'];
+
+    sendemail("rezinas@gmail.com", "Fitoori Order Cancellation", $adminMessage);
+
         }
 
         $ordqry = "SELECT UNIX_TIMESTAMP(dateCreated) as dateCreated, useremail, status, paymenttype,shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal,billingaddress1,billingaddress2,billingcity,billingstate,billingpostal from orders where orderid=$orderid";
@@ -39,6 +53,8 @@ if(!empty($_REQUEST)){
         if($currOrder['useremail'] != $currUserEmail) {
             $mainErrorMsg = "This order id not found. Please contact admin@fitoori.com, ".$currOrder['useremail']." and $currUserEmail";
         }
+
+
 
         $cartTotal = 0;
         if(empty($mainErrorMsg)) {

@@ -1,5 +1,5 @@
 <div ng-app="cdesign" id="mainContainer" resizable>
-   <div ng-controller="MainController">
+   <div ng-controller="MainController as main">
    <!-- <div id="loading-bar-spinner" ng-hide="loaded"><div class="spinner-icon"></div></div> -->
 
    <div class="sk-cube-grid" ng-hide="loaded">
@@ -27,11 +27,12 @@
                <div class="row">
                   <div class="avlOptions col-lg-4 col-md-4 col-sm-3 col-xs-12">
                      <div class="bgProduct">
-                        <!-- <i class="fa fa-question-circle"></i> -->
+                        <i class="fa fa-question-circle" ng-click="showHelp();"></i>
 
                         <div class="designDiv">
                            <figure class='star' style="left:33px; top: 7px;"><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>
                            <div class="prd_elements elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem" level="designLevel">
+                           <!-- <zoom mark-height="20" mark-width="20" src="main.addImage(imgItem)" zoom-lvl="3"></zoom> -->
                               <img  ng-src="{{siteUrl}}productImages/{{imgItem.selectedImage}}" />
                            </div>
                            <div class="clearfix"></div>
@@ -39,38 +40,45 @@
 
 
                             <!-- all the messages come here -->
-                           <div ng-if="designLevel == 0 && !productAdded"  role="alert" class="bubble animated fadeInDown">
-                                    <span ng-if="startType == 'Studs'">  &nbsp;Explore our range of studs , dont forget to click + and see all options.</span>
-                                    <span ng-if="startType == 'Jhumka'">
+                          <div ng-if="feedbackMsg != ''"  role="alert" class="bubble feedback animated zoomOutLeft">
+                                    <span>{{feedbackMsg}}</span>
+                           </div>
+
+
+                           <div ng-if="designLevel == 0 && !productAdded"  role="alert" class="bubble animated zoomOutLeft">
+                                    <span ng-if="startType == 'stud'">  &nbsp;Explore our range of studs , dont forget to click + and see all options.</span>
+                                    <span ng-if="startType == 'jhumka'">
                                        &nbsp;Choose a top or hook for your jhumka.
                                     </span>
-                                    <span ng-if="startType == 'Hoops'">&nbsp;Start by choosing a hoop.</span>
-                                    <span ng-if="startType == 'Chandelier'">  &nbsp;Start by choosing a hook or top for you chandelier.</span>
-                                    <span ng-if="startType == 'Danglers'"> &nbsp;Start by choosing a hook or top for you dangler.</span>
+                                    <span ng-if="startType == 'hoop'">&nbsp;Start by choosing a hoop.</span>
+                                    <span ng-if="startType == 'chandelier'">  &nbsp;Start by choosing a hook or top for you chandelier.</span>
+                                    <span ng-if="startType == 'dangler'"> &nbsp;Start by choosing a hook or top for you dangler.</span>
                            </div>
-                           <div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeInDown ">
-                                    <span ng-if="startType == 'Jhumka'">&nbsp;Wonderful! Now choose a design to add below your jhumka.</span>
-                                    <span ng-if="startType == 'Hoops'">&nbsp;Wonderful! Now choose a design to match below your hoop.</span>
-                                   <span ng-if="startType == 'Chandelier'"> &nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options.</span>
-                                    <span  ng-if="startType == 'Danglers'" >&nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options. Add to cart if you like your design.</span>
+                           <div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated zoomOutLeft ">
+                                    <span ng-if="startType == 'jhumka'">&nbsp;Wonderful! Now choose a design to add below your jhumka.</span>
+                                    <span ng-if="startType == 'hoop'">&nbsp;Wonderful! Now choose a design to match below your hoop.</span>
+                                   <span ng-if="startType == 'chandelier'"> &nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options.</span>
+                                    <span  ng-if="startType == 'dangler'" >&nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options. Add to cart if you like your design.</span>
                            </div>
-                           <div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeInDown " id="alertDiv3">
+                           <div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated zoomOutLeft " id="alertDiv3">
                                  <span>Would you like to decorate it more? Go on choose another design. Add to cart if you like your design. </span>
                            </div>
-                           <div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeInDown ">
+                           <div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated zoomOutLeft ">
                                  <span>Good going! Pick what you like from below one final time if you want to add more.</span>
                            </div>
-                           <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" role="alert" class="bubble animated fadeInDown ">
+                           <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" role="alert" class="bubble animated zoomOutLeft ">
                               <span>Looks great! no further attachments can be made. Finalize personalized {{startType }} to cart! </span>
                            </div>
-                           <div ng-if="productAdded" role="alert" class="bubble animated fadeInDown ">
+                           <div ng-if="productAdded" role="alert" class="bubble animated zoomOutLeft ">
                                <span><i class="fa fa-check-circle"></i> Your Design Added successfully to the Cart.</span>
                            </div>
                         <!-- messages ends here -->
 
 
 
-                        <i class="fa fa-check-circle" ng-if="startType != 'Studs'" ng-hide="nextDisable() || productAdded" ng-click="updateLevel()"></i> &nbsp; &nbsp;
+                        <i class="fa fa-check-circle" ng-if="startType != 'stud'" ng-hide="nextDisable() || productAdded" ng-click="updateLevel()"></i> &nbsp; &nbsp;
+
+                        <!-- <span><span>&#8675;</span> color options are here!</span> -->
                      </div>
                      <div id="imgOptions" class="designOptions">
                      <h4>{{mySelectedItems[designLevel].name}}</h4>
@@ -164,7 +172,7 @@
 
                         </div>
 
-                        <div ng-hide="startType == 'Studs'" id="chkBtn" style="text-align:left;">
+                        <div ng-hide="startType == 'stud'" id="chkBtn" style="text-align:left;">
                           <button type="button" ng-if="mySelectedItems.length > 0"  class="btn btn-primary pull-right" ng-click="resetDesign()" style="margin-left: 15px;">Start Over</button>
                            <button type="button" ng-hide="designLevel == 0 || productAdded"  class="btn btn-primary pull-right" ng-click="gobackLevel()">Go Back</button>
 

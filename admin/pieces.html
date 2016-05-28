@@ -69,6 +69,14 @@
                      <label>Price</label>
                      <input class="form-control" name="pprice" placeholder="Enter Price"  <?php if( $pprice  != "") echo "value='$pprice'"; ?> >
                   </div>
+                   <div class="form-group">
+                     <label>Priority</label>
+                      <select name="priority" id="$priority" class="form-control">
+                                <option value=''>Select Priority</option>
+                                    <option value="1" <?php echo   ($priority  == "1") ?   "selected" : "";?>>High</option>
+                                    <option value="0" <?php echo   ($priority  == "0") ?   "selected" : "";?>>Low</option>
+                                </select>
+                  </div>
                   <div class="form-group">
                      <label>Type of Jewelry</label>
                      <select  name="pcbody" id="pcbody" class="form-control">
@@ -107,6 +115,10 @@
                   <div class="form-group">
                      <label>Name</label>
                      <input class="form-control" name="pname" placeholder="Enter Name"  <?php if( $pname  != "") echo "value='$pname'"; ?> >
+                  </div>
+                   <div class="form-group">
+                     <label>Quantity</label>
+                     <input class="form-control" name="pquantity" placeholder="Enter Quantity"  <?php if( $pquantity  != "") echo "value='$pquantity'"; ?> >
                   </div>
                   <div class="form-group ">
                      <label>Material</label>
@@ -171,6 +183,16 @@
                     </div>
                 </div>
                 <div class="col-md-4">
+                     <label>Style</label>
+
+                 <div class="form-group">
+                        <label><input type="checkbox" name="style_list[]" value="hook" <?php if(in_array( "hook", $style_list)) echo "checked"; ?>>Hook</label>
+                      <label><input type="checkbox" name="style_list[]" value="dangler" <?php if(in_array( "dangler", $style_list)) echo "checked"; ?>>Dangler</label>
+                      <label><input type="checkbox" name="style_list[]" value="jhumka" <?php if(in_array( "jhumka", $style_list)) echo "checked"; ?>>Jhumka</label>
+                      <label><input type="checkbox" name="style_list[]" value="chandelier" <?php if(in_array( "chandelier", $style_list)) echo "checked"; ?>>Chandelier</label>
+                      <label><input type="checkbox" name="style_list[]" value="hoop" <?php if(in_array( "hoop", $style_list)) echo "checked"; ?>>Hoop</label>
+                      <label><input type="checkbox" name="style_list[]" value="stud" <?php if(in_array( "stud", $style_list)) echo "checked"; ?>>Stud</label>
+                  </div>
                   <div class="form-group">
                      <label>Admin Tags</label>
                      <textarea class="form-control" name="admintags" placeholder="Comma separated values.." ><?php echo html_entity_decode($admintags); ?></textarea>

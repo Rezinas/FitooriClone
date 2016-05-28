@@ -33,7 +33,7 @@ if(isset($_REQUEST["confirmOrder"])) {
         die('Error : ('. $dbcon->errno .') '. $dbcon->error);
     }
     $stmt->close();
-    $message= "<strong>Dear $userflname, </strong><br>";
+    $message= "<strong>Hi $userflname, </strong><br>";
     $message .= "<p>Thank you for choosing Fitoori. Here is your order information.</p>";
     $message .= '<div class="tableClass">';
     $message .= '<h4>Order Number: ORD000'. $sess_orderID .'</h4>';
@@ -50,7 +50,7 @@ if(isset($_REQUEST["confirmOrder"])) {
         $message .= '<p>Quantity: &nbsp;<span> '.$citem["quantity"].'</span></p>';
         $message .= '</td>';
         $message .= '<td style="border-bottom: 1px solid #eee; border-top: 1px solid #eee">';
-        $message .= '<span>  &#8377;'. floatval($citem["price"]) * intval($citem["quantity"]) .'</span>';
+        $message .= '<span>  &#8377;'.round(floatval($citem["price"]) * intval($citem["quantity"])).'</span>';
         $message .= '</td>';
         $message .= '</tr>';
     }
@@ -84,16 +84,9 @@ if(isset($_REQUEST["confirmOrder"])) {
 
 
     $subject = 'Fitoori Order Confirmation';
-
-    $headers  = "From: Admin@fitoori.com";
-    $headers .= "Content-type: text/html";
-
-    mail($toemail, $subject, $message, $headers);
-
+    sendemail($toemail, $subject, $message);
     $adminMessage = "New Order Placed: ".$sess_orderID;
-
-    $adminheaders = "From: Admin@fitoori.com";
-    mail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage, $adminheaders);
+    sendemail("rezinas@gmail.com", "Fitoori Order Notification", $adminMessage);
 
     unset($_SESSION['cartitemlist']);
     unset($_SESSION['shippingaddress']);

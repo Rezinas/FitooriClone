@@ -142,7 +142,7 @@ function xyInputs(domE, points, ptype){
                      $(parentD).append($(bringbackDom));
                   }
                   else {
-                     $(parentD).append('<div class="'+ coordDiv +'  '+ coordDiv + i +'"><label>x'+ i +'</label><input type="text"  placeholder="x'+i+'" name="'+ptype+'x'+i +'" /> &nbsp;<label>y'+i+'</label><input type="text"  placeholder="y'+ i+'" name="'+ptype+'y'+ i+'" /></div>');
+                     $(parentD).append('<div class="'+ coordDiv +'  '+ coordDiv + i +'"><label>x'+ i +'</label><input type="text"  placeholder="x'+i+'" name="'+ptype+'x'+i +'"  value="0" /> &nbsp;<label>y'+i+'</label><input type="text"  placeholder="y'+ i+'" name="'+ptype+'y'+ i+'" value="0" /></div>');
                   }
                     $("#carouselImg").append("<div class='points "+handleD+i+"'></div>");
                     $("input[name="+ptype+"x"+i+"]").trigger("change");
