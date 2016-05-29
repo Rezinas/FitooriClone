@@ -133,6 +133,7 @@
     }
     .contact-form input[type="text"],.contact-form select {
       width: 100%;
+
     }
     .contact-form textarea{
       width: 100%;
@@ -147,6 +148,7 @@
     }
     .contact-form textarea,.contact-form input[type="text"],.contact-form select{
       font-size: 14.5px;
+      margin-bottom: 0px;
     }
 }
 

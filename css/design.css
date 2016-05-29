@@ -156,13 +156,14 @@ body { padding-top: 0px !important; }
   /* background: linear-gradient(#f07818, #F1B98B); */
   /* -webkit-border-radius:10px; */
   -moz-border-radius:10px;
-  border: 2px dashed #f07818;
-  /* border-radius: 25px; */
-  top: -60px;
+  border: 2px solid #f07818;
+  border-radius: 20px;
+  top: -85px;
   left: -20px;
   transition:width 0.5s ease-in-out;
   -webkit-transition:width .5s ease-in-out;
   -moz-transition: width 0.5s ease-in-out;
+   box-shadow: inset 10px 10px 50px #f3f3f3
 }
 
 /* display of quote author (alternatively use a class on the element following the blockquote) */
@@ -218,7 +219,9 @@ body { padding-top: 0px !important; }
 
  */
 
-
+i.fa.fa-plus.placeholdit {
+    font-size: 1.3em;
+}
 #mainContainer{
 	margin-top: 40px;
 	margin-bottom: 25px;
@@ -447,12 +450,10 @@ button.addtoCart:hover{
 }
 
 	.product-img{
-		width: 80px;
-		margin: 0px auto;
-		border: 1px solid transparent;
-		text-align: center;
-		margin: 2px;
-		/* box-shadow: inset 10px 10px 50px #f3f3f3; */
+	    width: 80px;
+	    text-align: center;
+	    margin: 0px 0px 0px -4px;
+	    height: 83px;
 	}
 	.product-grid.elem {
 	    border: 0px solid #EFE9E9;
@@ -502,7 +503,7 @@ button.addtoCart:hover{
 	width: 12%;
 	border-radius: 4px;
 	display: inline-block;
-	font-size: 1.2em;
+	font-size: 1em;
 	outline: none;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
@@ -597,9 +598,9 @@ button.addtoCart:hover{
 	}
 
 	.bgProduct .fa-check-circle {
-		font-size: 4em;
-		top: 350px;
-		right: 10%;
+	    font-size: 2.5em;
+	    top: 371px;
+	    right: 27%;
 	}
 
 
@@ -614,8 +615,8 @@ button.addtoCart:hover{
 		/* margin: 7px; */
 	}
 	div#sampleImgs h4 {
-	    margin-bottom: 0;
-	    font-size: 1em;
+	    margin-bottom: 6px;
+	    font-size: 1.1em;
 	    /* margin-top: 1%; */
 	    border: none;
 	}
@@ -708,14 +709,12 @@ button.addtoCart:hover{
 	    width: 80px;
 	    padding: 10px;
 	    box-shadow: inset 10px 10px 50px #BBB8B8;*/
-	   width: auto;
-	   min-height: 20px;
-	   max-height: 80px;
-	   margin: 0px auto;
-	   padding: 10px;
-	   display:table-cell;
-	   /*margin: -9px 0px 0px -6px;*/
-	   vertical-align: middle;
+		width: auto;
+		height: 80px;
+		margin: 0px auto;
+		padding: 13px;
+		display: table-cell;
+		vertical-align: middle;
 	}
 
 	.popupImageDiv:hover {
@@ -743,10 +742,10 @@ button.addtoCart:hover{
 	.moreoptions{
 		border: 0px solid #eee;
 		width: 80px;
-		height: 80px;
+		height: 83px;
 		float: right;
 		box-shadow: inset 10px 10px 50px #f3f3f3;
-		margin: 2px;
+		margin: 0px;
 	}
 	.moreoptions p,.moreoptions span {
 		position: relative;

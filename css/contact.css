@@ -29,3 +29,9 @@ input#cnct:hover{
   .contact{
   	padding: 4em
   }
+.contact-form h4 {
+    margin-top: 1em;
+}
+.address {
+  padding: 1em 0;
+}

@@ -31,4 +31,10 @@
   .contact{
     padding: 4em
   }
+  .contact-form.row .form-group {
+    padding: 0px 5px 0px 0px;
+  }
+  .contact-infom{
+    padding-top: 2.5em;;
+  }
 

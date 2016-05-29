@@ -14,6 +14,12 @@
 .single-grid p{
   text-align: justify;
 }
+.single-grid h5{
+  padding:15px 0;
+}
+.single {
+    margin-bottom: 0px;
+}
 .related-products h3{
   margin: -35px 0px;
 }

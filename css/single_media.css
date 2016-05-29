@@ -1,8 +1,16 @@
 
 /** LAPTOP & DESKTOPS SCREEN MEDIA QUERIES **/
+@media (min-width:1367px) and (max-width:1440px){
+  .single-grid h5 {
+    padding:15px 0px;
+  }
+  .single {
+      margin-bottom: 0px;
+  }
+}
 @media (min-width:1281px) and (max-width:1366px){
   .single {
-      margin-bottom: -105px;
+      margin-bottom: 0px;
   }
   .single h2{
     font-size: 3em;
@@ -13,10 +21,13 @@
   .related-products .product-img img{
     padding:4em;
   }
+  .single-grid h5 {
+    padding:15px 0px;
+  }
 }
 @media (min-width:1081px) and (max-width:1280px){
   .single {
-      margin-bottom: -105px;
+      margin-bottom: 0px;
   }
   .single h2{
     font-size: 3em;
@@ -29,6 +40,9 @@
   }
   .panel-body{
     font-size: 0.95em;
+  }
+  .single-grid h5 {
+    padding:15px 0px;
   }
 }
 @media (min-width:1025px) and (max-width:1080px){
@@ -62,18 +76,21 @@
   }
   .related-products h3 {
     margin: 0px 0px;
+    position: relative;
+    top: -75px;
   }
   .related-products h4 {
     font-size: 0.95em;
   }
   .related-products .product-model-sec{
-        margin: 2em 0 0 0;
+        margin: -4em 0 0 0;
   }
   .related-products .product-img img{
     padding: 1em;
   }
   .single-grid h5 {
     font-size: 1em;
+    padding:15px 0px;
   }
   /*.product-info-cust h4{
     font-size: 0.75em;
@@ -90,7 +107,7 @@
     margin-bottom: 0px;
   }
   .single-grid p{
-    font-size: 1.1em;
+    font-size: 1em;
   }
   .panel-body {
     font-size: 14.5px;
@@ -113,6 +130,8 @@
   }
   .related-products h3 {
     margin: 0px 0px;
+    position: relative;
+    top: -75px;
   }
   .related-products h4 {
     font-size: 0.95em;
@@ -125,6 +144,10 @@
   }
   .single-grid h5 {
     font-size: 1em;
+    padding: 15px 0px;
+  }
+  .single-grids {
+    padding: 1em 0;
   }
   span.item_price{
     font-size: 0.95em;
@@ -165,18 +188,21 @@
   }
   .related-products h3 {
     margin: 0px 0px;
+    position: relative;
+    top: -75px;
   }
   .related-products h4 {
     font-size: 0.95em;
   }
   .related-products .product-model-sec{
-        margin: 1em 0 0 0;
+        margin: -4em 0 0 0;
   }
   .related-products .product-img img{
     padding: 1em;
   }
   .single-grid h5 {
     font-size: 1em;
+    padding: 15px 0px;
   }
   span.item_price{
     font-size: 0.95em;
@@ -220,18 +246,21 @@
   }
   .related-products h3 {
     margin: 0px 0px;
+    position: relative;
+    top: -75px;
   }
   .related-products h4 {
-    font-size: 0.95em;
+    font-size: 0.75em;
   }
   .related-products .product-model-sec{
-        margin: 1em 0 0 0;
+        margin: -4em 0 0 0;
   }
   .related-products .product-img img{
     padding: 1em;
   }
   .single-grid h5 {
     font-size: 1em;
+    padding: 15px 0px;
   }
   span.item_price{
     font-size: 0.95em;

@@ -81,7 +81,7 @@
                         <!-- <span><span>&#8675;</span> color options are here!</span> -->
                      </div>
                      <div id="imgOptions" class="designOptions">
-                     <h4>{{mySelectedItems[designLevel].name}}</h4>
+                     <h4 style="text-transform: capitalize;text-align:left">{{mySelectedItems[designLevel].name}}</h4>
                         <div ng-if="levelFilled" class="aelements">
                            <img ng-src="{{siteUrl}}productImages/{{mySelectedItems[designLevel].carouselImg}}"  ng-click="selectImage(mySelectedItems[designLevel].carouselImg, false);" />
                         </div>
@@ -186,7 +186,7 @@
                <div id="designDet" class="cart-items col-lg-12 col-md-12 col-sm-6 col-xs-12">
                   <h4>You Design we Deliver</h4>
                   <div style="text-align: center;">
-                     <p style="text-align: center;font-size: 25px;"> {{designPrice | currency:"&#8377":2}}</p>
+                     <p style="text-align: center;font-size:20px"> {{designPrice | currency:"&#8377":2}}</p>
                      <button  style="margin-top: 10px;"  ng-click="processForm()" ng-show="showCartbtn && !productAdded" class="addtoCart">Finalize Earring</button>
 
                   </div>
@@ -248,24 +248,14 @@
       <div class="modal-body">
          <input type='hidden' name='pid'  value="" />
          <input type='hidden' name='pprice'  value="" />
-         <div class="row">
-           <div class="col-xs-6">
-             <img id="cimg" src='' />
-              <p style="font-size: 25px;"> Price: &#8377; <span id="pr_price"></span></p>
-        <button ng-if="!isAgent" type="button" class="btn btn-default" onclick="addToCart();">Add To Cart</button>
-
-           </div>
-           <div class="col-xs-6">
-             <h4>Materials:</h4>
-              <p id="matlist"></p><br>
-              <p><button onclick="openfb()"><img style="width:200px" src="images/fb_share.png" alt="" /></button></p>
-           </div>
-         </div>
-
+        <p>Here is your Earring. Add to cart to buy this design. you can also find this and all your custom designs on your My Design page.</p>
+       <img id="cimg" src='' />
+        <p style="font-size: 25px;"> Price: &#8377; <span id="pr_price"></span></p>
       </div>
-      <div class="modal-footer" style="text-align: left;">
-      Care Instructions : Keep away from water or products containing alcohol. <br>
-      Disclaimers : Color may slightly vary from photos due to different monitor settings
+      <div class="modal-footer">
+         <button onclick="openfb()"><img src="images/i1a.png" alt="">Share</button>
+        <button ng-if="!isAgent" type="button" class="btn btn-default" onclick="addToCart();">Add To Cart</button>
+        <button ng-if= "isAgent" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 

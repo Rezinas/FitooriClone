@@ -148,6 +148,9 @@ b.caret {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+.dropdown-menu.columns-1 {
+    padding: 2em 1em 3em;
+}
 .dropdown-menu.columns-3 {
 	min-width: 510px;
 	padding: 2em 1em 3em;
@@ -827,7 +830,8 @@ span.glyphicon.glyphicon-eye-open:hover {
 .galy-info p {
     font-size: 1.1em;
     color: #000;
-    margin: 0 0 0 1em;
+    text-align: center;
+    margin: 2px 0 0 0;
     font-weight: 400;
 }
 .galy-info h5 {
@@ -923,7 +927,7 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
     color: #fff;
     padding-bottom: 0.5em;
     margin: 0;
-    font-size: 3em;
+    font-size: 2.5em;
     font-family: 'Marvel-Regular';
 }
 .subscribe form{
@@ -2465,18 +2469,19 @@ h2#mainContainer {
 }
 .about ul {
     list-style: inside;
-}
+}    
 .contact h4 {
     font-size: 2.1em;
     color: #F07818;
     margin: 0 0 0.8em 0;
     font-family: 'Marvel-Regular';
 }
+
 .contact-infom {
   padding-top: 4em;
 }
 .about-infom {
-  padding-top: 1em;
+  padding-top: 0em;
 }
 .map {
     margin-top: 5em;

@@ -13,6 +13,9 @@
     .contact{
         padding: 4em
     }
+    .address {
+      padding: 1em 0;
+    }
 }
 @media (min-width:1281px) and (max-width:1366px) {
     .contact-form input[type="text"], .contact-form textarea{
@@ -26,6 +29,9 @@
     }
     .contact{
         padding:4em 0 0 0 ;
+    }
+    .address {
+      padding: 1em 0;
     }
 }
 @media (min-width:1081px) and (max-width:1280px){
@@ -43,6 +49,9 @@
       .contact h2 {
           font-size: 3em;
       }
+    .address {
+      padding: 2em 0;
+    }
 }
 @media (min-width:1025px) and (max-width:1080px){
   .contact ul li, .contact-infom p, .address p{
@@ -54,6 +63,9 @@
   .contact-form .btn1{
     font-size: 1.1em;
     width: 15%;
+  }
+  .address {
+    padding: 0em 0;
   }
 }
 @media (min-width:992px) and (max-width:1024px){
@@ -67,6 +79,9 @@
     font-size: 1.1em;
     width: 15%;
   }
+  .address {
+    padding: 0em 0;
+  }
 }
 @media (min-width:901px) and (max-width:991px){
   .contact ul li, .contact-infom p,.address p{
@@ -78,6 +93,9 @@
   .contact-form .btn1{
     font-size: 1.1em;
     width: 15%;
+  }
+  .address {
+    padding: 1em 0;
   }
 }
 @media (min-width:801px) and (max-width:900px){
@@ -123,6 +141,9 @@
   }
   .contact-form textarea,.contact-form input[type="text"]{
       font-size: 14.5px;
+  }
+  .address {
+    padding: 1em 0;
   }
 }
 

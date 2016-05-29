@@ -169,10 +169,11 @@
        }
        .gallery-info p {
            margin-top: 0em;
-           margin-left: 125px;
+           margin-left: 120px;
            top: 5px;
            position: relative;
        }
+
    }
    @media(min-width:481px) and (max-width:568px) {
        .gallery-grid {
@@ -209,7 +210,7 @@
            position: relative;
        }
    }
-   @media(min-width:469px) and (max-width:600px) {
+   @media(min-width:569px) and (max-width:600px) {
        .gallery-grid {
            width: 100%;
        }
@@ -632,21 +633,21 @@
            margin-bottom: 10px;
        }
        .gallery-grid img {
-           width: 60%;
+           width: 40%;
        }
        .about hr {
            margin-bottom: 10px;
        }
        .gallery-info,
        .gallery-grid:nth-child(3) .gallery-info {
-           width: 55.9%;
-           left: 22%;
+           width: 36.9%;
+           left: 31.8%;
            padding: 0.5em;
            bottom: 0%;
        }
        .gallery-info p {
            margin-top: 0em;
-           margin-left: 80px;
+           margin-left: 40px;
            top: 6px;
            position: relative;
            font-size: 14px;
@@ -665,21 +666,21 @@
            margin-bottom: 10px;
        }
        .gallery-grid img {
-           width: 60%;
+           width: 55%;
        }
        .about hr {
            margin-bottom: 10px;
        }
        .gallery-info,
        .gallery-grid:nth-child(3) .gallery-info {
-           width: 56%;
-           left: 22%;
-           padding: 0.5em;
-           bottom: 0%;
+          width: 51.9%;
+          left: 24%;
+          padding: 0.5em;
+          bottom: 0%;
        }
        .gallery-info p {
            margin-top: 0em;
-           margin-left: 90px;
+           margin-left: 78px;
            top: 6px;
            position: relative;
            font-size: 14px;
@@ -688,10 +689,10 @@
    @media (min-width: 1441px) and (max-width: 1600px) {
        .gallery-info p {
            font-size: 14px;
-           margin-left: 58px;
+           margin-left: 51px;
        }
        .gallery-grid p {
-           font-size: 17px;
-           margin-bottom: 10px;
+          font-size: 16px;
+          margin-bottom: 2px;
        }
    }

@@ -1,14 +1,20 @@
 /** LAPTOP & DESKTOPS SCREEN MEDIA QUERIES **/
+@media only screen and (min-width:1441px) and (max-width:1600px){
+    .bgProduct .fa-check-circle{
+        right:14%;
+    }
+}
 @media only screen and (min-width:1367px) and (max-width:1440px){
     button.addtoCart{
         font-size: 14px;
         padding: 7px 10px;
     }
     .moreoptions{
-        left: 6px;
+        left: 1px;
         position: relative;
-        width: 70px;
+        width: 80px;
         font-size: 15px;
+
     }
     div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
         margin-top: -2px;
@@ -23,15 +29,27 @@
     .black_overlay{
         height: 77%;
     }
+    .bgProduct .fa-check-circle{
+        right: 3%;
+    }
+    .product-grid.elem{
+        margin: 0 5px 8px 3px; 
+    }
 }
 @media only screen and (min-width:1281px) and (max-width:1366px){
+    .bgProduct .fa-check-circle{
+        right:2%;
+    }
+    .bubble{
+        top: -80px;
+    }
     .page-header{
         font-size: 3em;
     }
     .moreoptions{
-        left: 6px;
+        left: 0px;
         position: relative;
-        width:79px;
+        width:80px;
     }
     #designDet h4{
         font-size:13px;
@@ -47,7 +65,7 @@
     }
     .product-grid.elem {
         border: 0px solid #EFE9E9;
-        margin: 0 5px 8px 4px;
+        margin: 0 5px 8px 3px;
         width: 9.8%;
         min-height: 80px;
     }
@@ -56,7 +74,7 @@
         margin: 0px auto;
         border: 0px solid;
         text-align: center;
-        box-shadow: inset 10px 10px 50px #f3f3f3;
+        /*box-shadow: inset 10px 10px 50px #f3f3f3;*/
     }
 
     .placeholdit {
@@ -106,27 +124,34 @@
     .moreoptions{
         color:#f07818;
         text-align:center;
-        width: 60px;
-        height: 70px;
-        left: 10px;
+        width: 80px;
+        height: 83px;
+        left: 0px;
         position: relative;
     }
     .moreoptions p {
     }
     .product-grid.elem {
         border: 0px solid #EFE9E9;
-        margin: 0 5px 8px 4px;
+        margin: 0 4px 8px 2px;
         width: 9.8%;
         min-height: 80px;
     }
     .product-img{
-        width: 70px;
+        width: 75px;
         margin: 0px auto;
         border: 0px solid;
         text-align: center;
-        box-shadow: inset 10px 10px 50px #f3f3f3;
+        position: relative;
+        left: -5px;
+        /*box-shadow: inset 10px 10px 50px #f3f3f3;*/
     }
-
+    .bgProduct .fa-check-circle{
+        right: -2%;
+    }
+    div#imgOptions h4 {
+        font-size: 1.3em;
+    }
     .placeholdit {
         margin-left: 10px;
         width: 50px;
@@ -171,10 +196,10 @@
         top: -11px;
     }
     .white_content{
-        height: 76%;
+        height: 92%;
     }
     .black_overlay{
-        height: 77%;
+        height: 92%;
     }
 }
 @media (min-width:1025px) and (max-width:1080px){
@@ -184,7 +209,7 @@
     }
     .product-grid.elem{
         border: 0px solid #EFE9E9;
-        margin: 0 3px 8px 2px;
+        margin: 0 0px 8px 0px;
         width: 16.1%;
         min-height: 60px;
     }
@@ -198,10 +223,22 @@
         width: 100%;
     }
     .moreoptions{
-        height: 60px;
-        width: 60px;
+        height: 83px;
+        width: 80px;
         font-size: 13px;
         padding-left: 6px;
+    }
+    .bubble{
+        width: 270px;
+    }
+    #chkBtn button{
+        width: 23%;
+    }
+    .bgProduct .fa-check-circle{
+        right: -29%;
+    }
+    div#imgOptions h4 {
+        font-size: 1.3em;
     }
     .felements img, .aelements img{
         margin:5px;
@@ -258,7 +295,7 @@
     }
     .product-grid.elem{
         border: 0px solid #EFE9E9;
-        margin: 0 3px 8px 2px;
+        margin: 0 3px 8px 0px;
         width: 19.1%;
         min-height: 60px;
     }
@@ -273,9 +310,18 @@
         width: 100%;
     }
     .moreoptions{
-        height: 60px;
-        width: 60px;
+        height: 83px;
+        width: 80px;
         font-size: 14px;
+    }
+    .bubble{
+        width: 250px;
+    }
+    .bgProduct .fa-check-circle{
+        right: -35%;
+    }
+    #chkBtn button{
+        width: 24%;
     }
     .felements img, .aelements img{
         margin:5px;
@@ -353,10 +399,16 @@
         width: 100%;
     }
     .moreoptions{
-        height: 80px;
+        height: 83px;
         width: 80px;
         font-size: 14px;
         margin-left: 6px;
+    }
+    .bgProduct .fa-check-circle{
+        right: -56%;
+    }
+    .bubble{
+        width: 230px;
     }
     .felements img, .aelements img{
         margin:5px;
@@ -397,10 +449,13 @@
         font-size: 12px;
     }
     .white_content{
-        height: 76%;
+        height: 92%;
     }
     .black_overlay{
-        height: 77%;
+        height: 93%;
+    }
+    #chkBtn button{
+        width: 24%;
     }
 }
 @media (min-width:801px) and (max-width:900px){
@@ -439,8 +494,8 @@
         width: 100%;
     }
     .moreoptions{
-        height: 80px;
-        width: 80px;
+        height: 83px;
+        width: 85px;
         font-size: 14px;
         margin-left: 6px;
         padding-left: 15px;
@@ -481,16 +536,44 @@
         font-size: 12px;
     }
     .white_content{
-        height: 76%;
+        height: 95%;
     }
     .black_overlay{
-        height: 77%;
+        height: 95%;
+    }
+    #chkBtn button{
+        width: 24%;
+    }
+    .bubble{
+        width: 180px;
+    }
+    .bgProduct .fa-check-circle{
+        right: -73%;
+    }
+    div#designDet div {
+        position: relative;
+        top: -15px;
     }
 }
 
 /** MOBILE SCREEN MEDIA QUERIES **/
 
 @media (max-width:320px){
+    .bubble{
+        width: 300px;
+        font-size: 0.85em;
+    }
+    .moreoptions{
+        margin: 0px;
+        height: 83px;
+    }
+    #subElementsDiv{
+        margin-top: 0px;
+    }
+    .bgProduct .fa-check-circle {
+        font-size: 2.5em;
+        top: 370px;
+    }
     .page-header{
         font-size: 2.3em;
         margin-top: 8px;
@@ -501,8 +584,8 @@
     }
     .prd_elements img{
         position: relative;
-        top: -45px;
-        left:-45px;
+        top: 0px;
+        left:0px;
     }
     .avlOptions #imgOptions {
         position: relative;
@@ -510,7 +593,7 @@
         border: 0px solid;
         text-align: center;
         float: left;
-        margin: -117px 0px 5px 0px;
+        margin: 10px 0px 5px 0px;
     }
     .bgProduct{
         width: auto;

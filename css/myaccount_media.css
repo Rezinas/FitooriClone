@@ -16,8 +16,6 @@
     content: attr(data-th); font-weight: bold;
     display: inline-block;
   }
-
-
 }
 
 /** LAPTOPS & DESKTOP SCREEN MEDIA QUERIES **/
@@ -81,6 +79,10 @@
   .orders div span{
     font-size: 12.5px;
   }
+  .item_add {
+    width: 83%;
+    margin: 0.5em auto 7px 12px;
+  }
 }
 @media (min-width:992px) and (max-width:1024px){
   .userList span{
@@ -113,6 +115,10 @@
   .orders div span{
     font-size: 12.5px;
   }
+  .item_add {
+      width: 88%;
+      margin: 0.5em auto 7px 7px;
+  }
 }
 @media (min-width:901px) and (max-width:991px){
   .userList span{
@@ -130,7 +136,6 @@
   input#updateprofile, input#editAddr, input#chngpwd{
     font-size: 1em
   }
-
   input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
     background-color: #fff;
     border-color: #5D4B33;
@@ -144,6 +149,10 @@
   }
   .orders div span{
     font-size: 12.5px;
+  }
+  .item_add{
+    width: 70%;
+    margin: 0.5em auto 7px 25px;
   }
 }
 @media (min-width:801px) and (max-width:900px){
@@ -162,7 +171,6 @@
   input#updateprofile, input#editAddr, input#chngpwd{
     font-size: 1em
   }
-
   input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
     background-color: #fff;
     border-color: #5D4B33;
@@ -179,6 +187,10 @@
   }
   #viewOrders{
     margin-bottom: 80px;
+  }
+  .item_add{
+    width: 70%;
+    margin: 0.5em auto 7px 25px;
   }
 }
 
@@ -236,6 +248,17 @@
   }
   .userList i{
     color: #fff;
+  }
+  .custdes{
+    top: 10px;
+  }
+  .product-grid{
+    width: 100%;
+  }
+  .product-img img{
+    padding: 23%;
+    position: relative;
+    top: -15px;
   }
 }
 @media (min-width:321px) and (max-width: 360px){
@@ -300,6 +323,17 @@
   .userList i{
     color: #fff;
   }
+  .custdes{
+    top: 10px;
+  }
+  .product-grid{
+    width: 100%;
+  }
+  .product-img img{
+    padding: 23%;
+    position: relative;
+    top: -37px;
+  }
 }
 @media (min-width:361px) and (max-width: 375px){
   div#left-pane {
@@ -358,6 +392,17 @@
   }
   .userList i{
     color: #fff;
+  }
+  .custdes{
+    top: 10px;
+  }
+  .product-grid{
+    width: 100%;
+  }
+  .product-img img{
+    padding: 27%;
+    position: relative;
+    top: -37px;
   }
 }
 @media (min-width:376px) and (max-width: 414px){
@@ -419,6 +464,17 @@
   .userList i{
     color: #fff;
   }
+  .custdes{
+    top: 10px;
+  }
+  .product-grid{
+    width: 100%;
+  }
+  .product-img img{
+    padding: 32%;
+    position: relative;
+    top: -60px;
+  }
 }
 @media (min-width:415px) and (max-width: 435px){
   div#left-pane {
@@ -478,6 +534,17 @@
   }
   .userList i{
     color: #fff;
+  }
+  .custdes{
+    top: 10px;
+  }
+  .product-grid{
+    width: 100%;
+  }
+  .product-img img{
+    padding: 32%;
+    position: relative;
+    top: -60px;
   }
 }
 @media (min-width:436px) and (max-width: 480px){
@@ -559,6 +626,9 @@
   .userList i{
     color: #fff;
   }
+  .custdes{
+    top: 10px;
+  }
 }
 
 /** TABLET SCREEN MEDIA QUERIES **/
@@ -638,6 +708,13 @@
   .userList i{
     color: #fff;
   }
+  .custdes{
+    top: 10px;
+  }
+  .item_add {
+    width: 79%;
+    margin: 0.5em auto 7px 16px;
+  }
 }
 @media (min-width:569px) and (max-width:600px){
   div#left-pane {
@@ -696,6 +773,13 @@
   }
   .userList i{
     color: #fff;
+  }
+  .custdes{
+    top: 10px;
+  }
+  .item_add {
+    width: 74%;
+    margin: 0.5em auto 7px 21px;
   }
 }
 @media (min-width:601px) and (max-width:640px){
@@ -760,6 +844,13 @@
   .userList i{
     color: #fff;
   }
+  .custdes{
+    top: 10px;
+  }
+  .item_add {
+    width: 74%;
+    margin: 0.5em auto 7px 21px;
+  }
 }
 @media (min-width:641px) and (max-width:667px){
   div#left-pane {
@@ -822,6 +913,13 @@
   }
   .userList i{
     color: #fff;
+  }
+  .custdes{
+    top: 10px;
+  }
+  .item_add {
+    width: 74%;
+    margin: 0.5em auto 7px 21px;
   }
 }
 @media (min-width:668px) and (max-width:731px){
@@ -886,6 +984,16 @@
   .userList i{
     color: #fff;
   }
+  .custdes{
+    top: 10px;
+  }
+  .item_add {
+    width: 74%;
+    margin: 0.5em auto 7px 21px;
+  }
+  .product-img img {
+    padding: 3em;
+  }
 }
 @media (min-width:732px) and (max-width:736px){
   div#left-pane {
@@ -949,6 +1057,16 @@
   .userList i{
     color: #fff;
   }
+  .custdes{
+    top: 10px;
+  }
+  .item_add {
+    width: 74%;
+    margin: 0.5em auto 7px 21px;
+  }
+  .product-img img {
+    padding: 3em;
+  }
 }
 @media (min-width:737px) and (max-width:773px){
   .about hr{
@@ -990,6 +1108,13 @@
     border: 0px;
     text-align: center;
   }
+  .custdes{
+    top: 10px;
+  }
+  .item_add {
+    width: 83%;
+    margin: 0.5em auto 7px 13px;
+  }
 }
 @media (min-width:774px) and (max-width:800px){
   .about hr{
@@ -1030,5 +1155,12 @@
   .orders div{
     border: 0px;
     text-align: center;
+  }
+  .custdes{
+    top: 10px;
+  }
+  .item_add {
+    width: 83%;
+    margin: 0.5em auto 7px 13px;
   }
 }

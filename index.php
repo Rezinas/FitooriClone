@@ -17,9 +17,6 @@
    else if(isset($_GET["join"])) {
        $currenttab = 'join';
    }
-   else if(isset($_GET["corp"])) {
-       $currenttab = 'corp';
-   }
    else if(isset($_GET["about"])) {
        $currenttab = 'about';
    }
@@ -153,7 +150,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                   </li>
                   <li class="dropdown">
                      <a href="javascript:void(0);" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Our Collection<b class="caret"></b></a>
-                     <ul class="dropdown-menu">
+                     <ul class="dropdown-menu multi-column columns-1">
                         <div class="row">
                            <div class="col-sm-6">
                               <h4>Earrings</h4>
@@ -190,8 +187,12 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                         </div>
                      </ul>
                   </li>
+                  <li class="dropdown grid">
+                     <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "offers") echo 'active'; ?>" data-toggle="dropdown" >
+                        Offers<!--<b class="caret"></b>-->
+                     </a>
+                  </li>
                   <li><a href="index.php?join" <?php if($currenttab == "join") echo 'class="active"'; ?>>Join Us</a></li>
-                  <li><a href="index.php?corp" <?php if($currenttab == "corp") echo 'class="active"'; ?>>Corporate Orders</a></li>
                </ul>
                <!--/.navbar-collapse-->
             </div>
@@ -340,9 +341,6 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
          }
          else if($currenttab == "join") {
              include(SITE_ROOT. "/joinus.html");
-         }
-          else if($currenttab == "corp") {
-             include(SITE_ROOT. "/corporate.html");
          }
          else if($currenttab == "about") {
              include(SITE_ROOT. "/about.html");

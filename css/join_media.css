@@ -9,6 +9,12 @@
     .contact h2{
         font-size: 3em;
     }
+    .contact-form.row .form-group {
+      padding: 0px 5px 0px 0px;
+    }
+    .contact-infom{
+      padding-top: 2.5em;;
+    }
 }
 @media (min-width:1281px) and (max-width:1366px){
   .contact-form textarea, .contact-form input[type="text"]{
@@ -19,6 +25,12 @@
     }
     .contact h2{
         font-size: 3em;
+    }
+    .contact-form.row .form-group {
+      padding: 0px 5px 0px 0px;
+    }
+    .contact-infom{
+      padding-top: 2.5em;;
     }
 }
 @media (min-width:1081px) and (max-width:1280px){
@@ -34,6 +46,12 @@
   .contact h2 {
     font-size: 3em;
   }
+  .contact-form.row .form-group {
+    padding: 0px 5px 0px 0px;
+  }
+  .contact-infom{
+    padding-top: 2.5em;;
+  }
 }
 @media (min-width:1025px) and (max-width:1080px){
   .contact ul li, .contact-infom p{
@@ -45,6 +63,12 @@
   .contact-form .btn1{
     font-size: 1.1em;
     width: 15%;
+  }
+  .contact-form.row .form-group {
+    padding: 0px 5px 0px 0px;
+  }
+  .contact-infom{
+    padding-top: 2.5em;;
   }
 }
 @media (min-width:992px) and (max-width:1024px){
@@ -58,6 +82,12 @@
     font-size: 1.1em;
     width: 15%;
   }
+  .contact-form.row .form-group {
+    padding: 0px 5px 0px 0px;
+  }
+  .contact-infom{
+    padding-top: 2.5em;;
+  }
 }
 @media (min-width:901px) and (max-width:991px){
   .contact ul li, .contact-infom p{
@@ -70,6 +100,9 @@
     font-size: 1.1em;
     width: 15%;
   }
+  .contact-form.row .form-group {
+    padding: 0px 5px 0px 0px;
+  }
 }
 @media (min-width:801px) and (max-width:900px){
   .contact{
@@ -80,6 +113,9 @@
   }
   .contact hr{
     margin-bottom: 0px;
+  }
+  .contact-infom{
+    padding-top: 0em;
   }
   .contact-infom p{
     font-size: 16px;
@@ -100,6 +136,9 @@
   }
   .contact-form textarea,.contact-form input[type="text"]{
       font-size: 14.5px;
+  }
+  .contact-form.row .form-group {
+    padding: 0px 5px 0px 0px;
   }
 }
 

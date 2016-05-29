@@ -1,3 +1,7 @@
+.item_add{
+  width: 70%;
+  margin: 0.5em auto 7px 25px;
+}
 .pagecontent {
   display: none;
 }
