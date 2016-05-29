@@ -46,6 +46,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         // console.log($scope.allProducts);
 
         $scope.orderByOptions = function() {
+          $scope.currentPage = 0;
             if($scope.selectedSort == "new") {
                 $scope.reverseorder = true;
                 $scope.sortItem = "'dateAdded'";
@@ -69,12 +70,17 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
                     ceil: 1000,
                     translate: function(value) {
                       return 'Rs.' + value;
+                    },
+                    onChange : function(sliderId, modelValue, highValue) {
+                      $scope.currentPage = 0;
                     }
                   }
             };
 
         // toggle selection for a given fruit by name
         $scope.toggleSelection = function toggleSelection(matIndex) {
+             $scope.currentPage =0;
+
             var idx = $scope.selectedMaterial.indexOf(matIndex);
             // is currently selected
             if (idx > -1) {
@@ -86,6 +92,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
             }
         };
         $scope.toggleTagSelection = function toggleTagSelection(tagIndx) {
+             $scope.currentPage =0;
             var idx = $scope.selectedTags.indexOf(tagIndx);
             // is currently selected
             if (idx > -1) {
@@ -98,6 +105,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         };
 
         $scope.toggleItemSelection = function toggleItemSelection(itmIndex) {
+             $scope.currentPage =0;
             var idx = $scope.selectedItem.indexOf(itmIndex);
             // is currently selected
             if (idx > -1) {
@@ -153,6 +161,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
             if(($scope.selectedItem.length == 0) || ($scope.selectedItem.indexOf(item.bodypart) > -1)){
                 foundItem = true;
             }
+
             return (foundMat && foundPrice && foundItem && foundStatus && foundCustom && foundDpick && foundTags);
         };
 

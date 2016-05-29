@@ -61,7 +61,7 @@ if(count($cartItems)  > 0) {
 
 	$cartItemList = [];
 	foreach ($cartProducts as $cp) {
-		$cartItemList [] =['pid' => $cp['productid'], 'name' => $cp['name'], 'price' => $cp['price'], 'quantity' => $cart[$cp['productid']]];
+		$cartItemList [] =['pid' => $cp['productid'], 'name' => $cp['name'], 'mainimg' => $cp['mainimg'], 'price' => $cp['price'], 'quantity' => $cart[$cp['productid']]];
 	}
 	$_SESSION['cartitemlist'] = $cartItemList;
 	$_SESSION['cartTotal'] = $cartTotal;
@@ -88,7 +88,6 @@ if(count($cartItems)  > 0) {
 		$relatedPrd[] = ['productid' => $a, 'name' => $b, 'price' => $c, 'bodypart' => $d, 'mainimg' => $e];
 	}
 	$stmt->close();
-
 
 }
 

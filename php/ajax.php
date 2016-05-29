@@ -309,8 +309,8 @@ if(isset($_GET["addcustom"])) {
           }
 
           // if $elem.quantity -2 < 2 then send email from here
-          if(($elem['quantity'] -2 ) < 2) {
-             $messageDetail = "The element low on quantity is ID: ".$elem['id']." Image:  <img src='https://fitoori.com/productImages/".$elem['selectedImage']."' />";
+          if(($elem['quantity'] -2 ) <= 2) {
+             $messageDetail = "The element low on quantity is ID: ".$elem['id']." Image:  <img src='http://fitoori.com/productImages/".$elem['selectedImage']."' />";
             $result =  sendemail('rezinas@gmail.com', "Pieces low on Quantity",  $messageDetail);
           }
 

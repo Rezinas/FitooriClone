@@ -146,7 +146,7 @@
 				</section>
 				<div class="clearfix"></div>
 
-					<div ng-repeat="product in resultSet =(allProducts | orderBy:sortItem:reverseorder | filter:criterias)|startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid">
+					<div ng-repeat="product in resultSet =(allProducts | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid">
 						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">
 							<div class="more-product"><span> </span></div>
 							<div class="product-img b-link-stripe b-animate-go  thickbox">

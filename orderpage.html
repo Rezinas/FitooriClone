@@ -229,13 +229,30 @@
                                   <td>Total( including Tax)</td>
                                   <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
                                </tr>
-                               <tr>
-                                  <td>Shipping</td>
-                                  <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
-                               </tr>
-                               <tr>
-                                  <td style="color:#F07818;font-weight:bold;">Grand - Total</td>
-                                  <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+                                <tr>
+                      <th>Shipping</th>
+                      <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                   </tr>
+                             <?php if($offer)  {?>
+  <!--                           <tr>
+                                   <td colspan="2">Free Shipping on First Order or Order for more than 1 product.</td>
+                                 </tr> -->
+                                 <tr>
+                                    <th>Offers(Free Shipping)*</th>
+                                    <td>: &#8377; -<?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                                 </tr>
+                                 <?php } ?>
+                                 <tr>
+                                    <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
+                                    <td>: &#8377; <span id="grandTotal"><?php
+                                      if($offer) {
+                                        echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL - SHIPPINGCHARGES_SMALL);
+                                      }
+                                      else {
+                                       echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL);
+                                      }
+
+                                     ?></span></td>
                                </tr>
                             </table>
                          </div>
@@ -248,6 +265,7 @@
 
                          </div> <br>
                          <div> <strong>Payment Method:</strong> Cash on Delivery </div>
+                         <p>Free shipping on first order or for orders with more than 1 items.</p>
                         <a href="javascript:void(0);" class="placeorder">Confirm Order</a>
                           <a  class="back" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Back</a>
                      </div>

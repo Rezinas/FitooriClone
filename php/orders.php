@@ -33,43 +33,48 @@ if(isset($_REQUEST["confirmOrder"])) {
         die('Error : ('. $dbcon->errno .') '. $dbcon->error);
     }
     $stmt->close();
+
+     $deliverydate=  date('F dS, Y', strtotime("+8 days"))." - " . date('F dS, Y', strtotime("+14 days"));
+
+
     $message= "<strong>Hi $userflname, </strong><br>";
     $message .= "<p>Thank you for choosing Fitoori. Here is your order information.</p>";
-    $message .= '<div class="tableClass">';
+    $message .= '<div>';
     $message .= '<h4>Order Number: ORD000'. $sess_orderID .'</h4>';
-    $message .= '<table style="width: 100%;border: 1px solid #eee">';
+    $message .= '<table style="width: 50%;border: 1px solid #f07818">';
     $message .= '<tr>';
     $message .= '<th>Item</th>';
     $message .= '<th>Price</th>';
     $message .= '</tr>';
     foreach($cartItemlist as $citem) {
         $message .= '<tr>';
-        $message .= '<td style="border-right: 1px solid #eee; border-top: 1px solid #eee;border-bottom: 1px solid #eee">';
-        $message .= '<p>'.$citem["name"] ? $citem["name"] : "My Design".'</p>';
-        $message .= '<p>Item ID: &nbsp;<span>PNR00'.$citem["pid"].'</span></p>';
-        $message .= '<p>Quantity: &nbsp;<span> '.$citem["quantity"].'</span></p>';
+        $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">';
+        $message .= '<strong>'.$citem["name"] ? $citem["name"] : "My Design".'</strong>';
+        $message .= '<p><img src="http://fitoori.com/productImages/'.$citem["mainimg"] .'"/><br>';
+        $message .= 'Item ID: &nbsp;<span>PNR00'.$citem["pid"].'</span><br>';
+        $message .= 'Quantity: &nbsp;<span> '.$citem["quantity"].'</span><br>';
         $message .= '</td>';
-        $message .= '<td style="border-bottom: 1px solid #eee; border-top: 1px solid #eee">';
+        $message .= '<td style="border-top: 1px solid #f07818">';
         $message .= '<span>  &#8377;'.round(floatval($citem["price"]) * intval($citem["quantity"])).'</span>';
         $message .= '</td>';
         $message .= '</tr>';
     }
     $message .= '<tr>';
-    $message .= '<td>Total( including Tax)</td>';
-    $message .= '<td>: &#8377; <span id="subTotal">'. money_format("%!i", round($ctotal, 0)) .'</span></td>';
+    $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">Total( including Tax)</td>';
+    $message .= '<td style="border-top: 1px solid #f07818" >: &#8377; <span id="subTotal">'. money_format("%!i", round($ctotal, 0)) .'</span></td>';
     $message .= '</tr>';
     $message .= '<tr>';
-    $message .= '<td>Shipping</td>';
-    $message .= '<td>: &#8377;'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
+    $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">Shipping</td>';
+    $message .= '<td style="border-top: 1px solid #f07818">: &#8377;'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
     $message .= '</tr>';
     $message .= '<tr>';
-    $message .= '<td style="color:#F07818;font-weight:bold;">Grand - Total</td>';
-    $message .= '<td>: &#8377; <span id="grandTotal">'. money_format("%!i",round($ctotal + SHIPPINGCHARGES_SMALL, 0)) .'</span></td>';
+    $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;color:#333;font-weight:bold;">Grand - Total</td>';
+    $message .= '<td style="border-top: 1px solid #f07818">: &#8377; <span id="grandTotal">'. money_format("%!i",round($ctotal + SHIPPINGCHARGES_SMALL, 0)) .'</span></td>';
     $message .= '</tr>';
     $message .= '</table>';
     $message .= '</div>';
-    $message .= '<div class="estimate" style="text-align: right;">';
-    $message .= '<p>Estimated time of delivery : 6 - 10 days </p>';
+    $message .= '<div class="estimate" style="width: 50%;text-align: right;">';
+    $message .= '<p>Estimated time of delivery : '.$deliverydate.' </p>';
     $message .= '</div>';
     $message .= '<div> <strong>Shipping Address:</strong> <br/>';
     $message .= $shippingaddr;
@@ -303,5 +308,20 @@ else {
     $stmt->close();
 
 }
+
+    $offer = false;
+    if(count($cartProducts) > 1)  $offer = true;
+
+    if(isset($_SESSION['orderemail'])) {
+        $uemail =  $_SESSION['orderemail'];
+        $check_user="select orderid from orders WHERE useremail='$uemail'";
+         $result=mysqli_query($dbcon,$check_user);
+         if ($result && mysqli_num_rows($result) > 0)
+         {
+            $offer = true;
+            mysqli_free_result($result);
+          }
+
+    }
 
 ?>

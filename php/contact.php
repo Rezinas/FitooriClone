@@ -52,4 +52,25 @@ if(isset($_POST['joinSubmit']))
   echo sendemail($toemail, $subject, $messagebody);
   }
 
+  if(isset($_POST['corpOrder']))
+  {
+      /* Sending Email along with the link to open the file for the user to view the post*/
+
+      $user_email = $_POST['cemail'];
+      $user_name = $_POST['cname'];
+      $user_phone = $_POST['cphone'];
+      $user_address = $_POST['address'];
+      $user_desc = $_POST['desc'];
+      $to      = 'rezinas@gmail.com';
+      $subject = 'Corporate Order Email. Sent by'. $user_email ;
+
+      $messageDetail = "User Name :  $user_name <br/>";
+      $messageDetail += "User Email :  $user_email <br/>";
+      $messageDetail += "User Phone :  $user_phone <br/>";
+      $messageDetail += "User Address :  $user_address <br/>";
+      $messageDetail += "User Description :  $user_desc <br/>";
+
+  echo sendemail($toemail, $subject, $messagebody);
+  }
+
 ?>
