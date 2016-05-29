@@ -1,0 +1,66 @@
+@media (max-width:320px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}	
+}
+@media (max-width:375px) and (min-width:361px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+
+	}
+}
+@media (max-width:414px) and (min-width:376px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:435px) and (min-width:415px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:480px) and (min-width:436px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:568px) and (min-width:481px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:600px) and (min-width:569px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:640px) and (min-width:601px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:667px) and (min-width:641px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:731px) and (min-width:668px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:736px) and (min-width:732px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:773px) and (min-width:737px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
+@media (max-width:800px) and (min-width:774px){
+	section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
+		width: 100%;
+	}
+}
