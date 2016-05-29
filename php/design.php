@@ -1,5 +1,4 @@
 <?php
-session_start();
 $itemsArr= explode("|", PRD_ITEM) ;
 $categoriesArr= explode("|", CATEGORY) ;
 $colorsArr= explode("|", COLORS) ;
