@@ -26,7 +26,7 @@ if(!empty($_REQUEST)){
             //Notify user and admin about order cancellation.
     $subject = 'Fitoori Order Cancelled';
     $message= "<strong>Hi $userflname, </strong><br>";
-    $message .= "<p>Thank you for choosing Fitoori. Your order $_REQUEST['orderid'] has been successfully cancelled. Please contact admin@fitoori.com  for any questions.</p> <p> Fitoori Team.</p>";
+    $message .= "<p>Thank you for choosing Fitoori. Your order ".$_REQUEST['orderid']." has been successfully cancelled. Please contact admin@fitoori.com  for any questions.</p> <p> Fitoori Team.</p>";
 
     sendemail($currUserEmail, $subject, $message);
 
@@ -36,19 +36,21 @@ if(!empty($_REQUEST)){
 
         }
 
-        $ordqry = "SELECT UNIX_TIMESTAMP(dateCreated) as dateCreated, useremail, status, paymenttype,shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal,billingaddress1,billingaddress2,billingcity,billingstate,billingpostal from orders where orderid=$orderid";
+        $ordqry = "SELECT UNIX_TIMESTAMP(dateCreated) as dateCreated, useremail, status, paymenttype,shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal,billingaddress1,billingaddress2,billingcity,billingstate,billingpostal, offercode from orders where orderid=$orderid";
 
         $stmt = $dbcon->prepare($ordqry);
         if(!$stmt->execute()){
             die('Error : ('. $dbcon->errno .') '. $dbcon->error);
         }
         $stmt->store_result();
-        $stmt->bind_result($a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n);
+        $stmt->bind_result($a,$b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o);
         $currOrder =[];
         while ($stmt->fetch()) {
-            $currOrder = ['dateCreated' => $a, 'useremail' => $b, 'status' => $c, 'paymenttype' => $d, 'ship_add1' => $e, 'ship_add2' => $f, 'ship_city' => $g, 'ship_state' => $h, 'ship_postal' => $i, 'bill_add1' => $j, 'bill_add2' => $k, 'bill_city' => $l, 'bill_state' => $m, 'bill_postal' => $n];
+            $currOrder = ['dateCreated' => $a, 'useremail' => $b, 'status' => $c, 'paymenttype' => $d, 'ship_add1' => $e, 'ship_add2' => $f, 'ship_city' => $g, 'ship_state' => $h, 'ship_postal' => $i, 'bill_add1' => $j, 'bill_add2' => $k, 'bill_city' => $l, 'bill_state' => $m, 'bill_postal' => $n, 'offercode' => $o];
         }
         $stmt->close();
+
+        // var_dump($currOrder);
 
         if($currOrder['useremail'] != $currUserEmail) {
             $mainErrorMsg = "This order id not found. Please contact admin@fitoori.com, ".$currOrder['useremail']." and $currUserEmail";
@@ -70,21 +72,7 @@ if(!empty($_REQUEST)){
             $desArr=[];
             while ($stmt->fetch()) {
                 $cartTotal = $cartTotal + $c;
-                if($f == 1 ){
-                    $design_qry = "SELECT elementid, leftPos,topPos,selectedImage,isProduct from customdesign where productid=$a";
-                    $stmt1a  = $dbcon->prepare($design_qry);
-                    if(!$stmt1a ->execute()){
-                        die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-                    }
-                    $stmt1a ->store_result();
-                    $stmt1a ->bind_result($a1,$b1, $c1, $d1, $e1);
-                    while ($stmt1a ->fetch()) {
-                        $desArr[] = ['elementid' => $a1, 'leftPos' => $b1, 'topPos' =>$c1, 'selectedImage' => $d1, 'isProduct' => $e1];
-                    }
-                    $stmt1a ->close();
-              }
-
-                $orderProducts[] = ['productid' => $a, 'quantity' => $b, 'order_price' => $c, 'name' => $d, 'mainimg' => $e, 'customized' => $f, 'design' => $desArr];
+                $orderProducts[] = ['productid' => $a, 'quantity' => $b, 'order_price' => $c, 'name' => $d, 'mainimg' => $e, 'customized' => $f];
             }
             $stmt->close();
         }

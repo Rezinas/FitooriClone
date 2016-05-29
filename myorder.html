@@ -46,13 +46,29 @@
                       <td class="leftvals" colspan="2">Total( including Tax)</td>
                       <td class="rightvals">: &#8377; <span id="subTotal"><?php echo money_format('%!i', round($cartTotal, 0)); ?></span></td>
                    </tr>
-                   <tr>
+                    <tr>
                       <td class="leftvals" colspan="2">Shipping</td>
                       <td class="rightvals">: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
                    </tr>
+                   <?php if(isset($currOrder["offercode"]) && $currOrder["offercode"] === "FREESHIPPING") { ?>
+                   <tr>
+                        <td class="leftvals" colspan="2">Offers(Free Shipping)*</td>
+                        <td class="rightvals">: &#8377; -<?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                     </tr>
+                   <?php } ?>
+
                    <tr>
                       <td class="leftvals" colspan="2" style="color:#F07818;font-weight:bold;">Grand - Total</td>
-                      <td class="rightvals">: &#8377; <span id="grandTotal"><?php echo money_format('%!i',round($cartTotal + SHIPPINGCHARGES_SMALL, 0)); ?></span></td>
+                      <td class="rightvals">: &#8377; <span id="grandTotal">
+                      <?php
+                          if(isset($currOrder["offercode"]) && $currOrder["offercode"] === "FREESHIPPING") {
+                            echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL - SHIPPINGCHARGES_SMALL);
+                          }
+                          else {
+                           echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL);
+                          }
+                        ?>
+                          </span></td>
                    </tr>
                    </tbody>
                 </table>
@@ -74,6 +90,7 @@
                  ?>
 
                 <p style="color:#F07818; font-size: 16px;"><strong>Payment Method:</strong> <span style="color:#333">Cash on Delivery</span> </p>
+                 <p>* Free shipping on first order or for orders with more than 1 items.</p>
              </div>
        <?php } else { ?>
           <div class="alert alert-warning">
