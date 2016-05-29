@@ -296,8 +296,15 @@ if(isset($_GET["addcustom"])) {
           die('Update Error : ('. $dbcon->errno .') '. $dbcon->error);
         }
 
+        $matlist = "";
+        $previd = -1;
         foreach($elements as $elem){
         //  var_dump($elem);
+          if($previd != $elem["id"]) {
+            $matlist .=  $elem['name']."<br>";
+          }
+          $previd = $elem["id"];
+
           $ins_stmt1->bind_param('iiiisss', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage'],$currUserEmail, $currUsertype);
 
           if(!$ins_stmt1->execute()){
@@ -311,7 +318,7 @@ if(isset($_GET["addcustom"])) {
           // if $elem.quantity -2 < 2 then send email from here
           if(($elem['quantity'] -2 ) <= 2) {
              $messageDetail = "The element low on quantity is ID: ".$elem['id']." Image:  <img src='http://fitoori.com/productImages/".$elem['selectedImage']."' />";
-            $result =  sendemail('rezinas@gmail.com', "Pieces low on Quantity",  $messageDetail);
+           // $result =  sendemail('rezinas@gmail.com', "Pieces low on Quantity",  $messageDetail);
           }
 
         }
@@ -377,6 +384,7 @@ $stmt->close();
           "pimg" => $customImgName,
           "customizedEarrings" => $custEarrings,
           "newpieces" => $newpieces,
+          "matlist" => $matlist
     );
      echo json_encode($jsondata);
 

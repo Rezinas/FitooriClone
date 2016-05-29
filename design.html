@@ -248,14 +248,24 @@
       <div class="modal-body">
          <input type='hidden' name='pid'  value="" />
          <input type='hidden' name='pprice'  value="" />
-        <p>Here is your Earring. Add to cart to buy this design. you can also find this and all your custom designs on your My Design page.</p>
-       <img id="cimg" src='' />
-        <p style="font-size: 25px;"> Price: &#8377; <span id="pr_price"></span></p>
-      </div>
-      <div class="modal-footer">
-         <button onclick="openfb()"><img src="images/i1a.png" alt="">Share</button>
+         <div class="row">
+           <div class="col-xs-6">
+             <img id="cimg" src='' />
+              <p style="font-size: 25px;"> Price: &#8377; <span id="pr_price"></span></p>
         <button ng-if="!isAgent" type="button" class="btn btn-default" onclick="addToCart();">Add To Cart</button>
-        <button ng-if= "isAgent" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+           </div>
+           <div class="col-xs-6">
+             <h4>Materials:</h4>
+              <p id="matlist"></p><br>
+              <p><button onclick="openfb()"><img style="width:200px" src="images/fb_share.png" alt="" /></button></p>
+           </div>
+         </div>
+
+      </div>
+      <div class="modal-footer" style="text-align: left;">
+      Care Instructions : Keep away from water or products containing alcohol. <br>
+      Disclaimers : Color may slightly vary from photos due to different monitor settings
       </div>
     </div>
 

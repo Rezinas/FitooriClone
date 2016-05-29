@@ -395,6 +395,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                   $("#myModal input[name='pprice']").val(data.pprice);
                   $("#myModal img#cimg").attr('src', '../productImages/'+data.pimg);
                   $("#myModal #pr_price").html(data.pprice);
+                  $("#myModal #matlist").html(data.matlist);
                   $("#myModal").modal();
             }
             else
