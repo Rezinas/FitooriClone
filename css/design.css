@@ -462,7 +462,7 @@ button.addtoCart:hover{
 	    min-height: 80px;
 	}
 	.product-grid.elem .product-img img {
-    width: auto;
+    max-width: 90px;
     padding: 1em;
     height: 80px;
     cursor: pointer;
