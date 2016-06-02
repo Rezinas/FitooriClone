@@ -35,6 +35,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.customizedEarrings = [];
         var nextMsg = true;
         var attMsg = true;
+        var level1Msg = true;
+        var level2Msg = true;
+        var level3Msg = true;
 
         $scope.feedbackMsg = '';
 
@@ -365,9 +368,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.feedbackMsg = '';
                 $(".curvedarrowDown").hide();
                 $(".curvedarrow").hide();
-                if($scope.designLevel == 1) {
+                if($scope.designLevel == 1 && level1Msg) {
                             $scope.feedbackMsg = "Wonderful! Now choose a design from our collection for your "+$scope.startType+", click + to see all options. Add to cart if you like your design.";
                             $(".curvedarrowLeft").show();
+                            level1Msg = false;
 
 
                     //  switch($scope.startType) {
@@ -385,14 +389,15 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     //         break;
                     // };
                 }
-                else if($scope.designLevel == 2) {
+                else if($scope.designLevel == 2 && level2Msg) {
                             $(".curvedarrowLeft").show();
-
                     $scope.feedbackMsg = "Would you like to decorate it more? Go on choose another design. Add to cart if you like your design.";
+                    level2Msg = false;
                 }
-                else if($scope.designLevel == 3) {
+                else if($scope.designLevel == 3 && level3Msg) {
                             $(".curvedarrowLeft").show();
                     $scope.feedbackMsg = "Good going! Pick what you like from our collection one final time if you want to add more.";
+                    level3Msg = false;
                 }
                 $scope.showHelp();
 
