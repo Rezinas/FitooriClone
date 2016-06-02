@@ -177,7 +177,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
                     foundCustom= true;
                 }
              }
-             if(($scope.selectedStyles.length == 0) || (findInString(item.style, $scope.selectedStyles))){
+             if(($scope.selectedStyles.length == 0) || (item.style && findInString(item.style, $scope.selectedStyles))){
                 foundStyles    = true;
             }
 

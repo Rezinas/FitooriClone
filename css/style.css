@@ -1203,10 +1203,10 @@ div#pagination {
 }
 .product-grid:hover {
 	/*z-index: 1;*/
-    z-index: 0;
+	z-index: 0;
 	/*border-color: #F07818;*/
-    font-weight: bold;
-    color:#333;
+	font-weight: bold;
+	color:#333;
 }
 .more-product-info span {
 	color:#fff;
@@ -1241,10 +1241,14 @@ div#pagination {
 	width: 90%;
 }
 .product-img.b-link-stripe.b-animate-go.thickbox{
-    width:100%;
+    width: 230px;
+    text-align: center;
+    margin: 0px 0px 0px -4px;
+    height: 210px;
 }
 .product-img img {
-    width: 100%;
+    width: auto;
+    max-height: 250px;
     padding: 3em;
     /* box-shadow: inset 10px 10px 50px #f3f3f3; */
 }
