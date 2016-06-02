@@ -21,9 +21,11 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         $scope.materials = $window.model.materials;
         $scope.tags = $.unique($window.model.tags);
         $scope.items = $window.model.items;
+        $scope.styles = $window.model.styles;
         $scope.selectedMaterial =[];
         $scope.selectedTags =[];
         $scope.selectedItem=[3];
+        $scope.selectedStyles =[];
         $scope.selectedSort ="new";
         $scope.reverseorder = true;
         $scope.sortItem="'dateAdded'";
@@ -42,6 +44,18 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         $.each($scope.allProducts, function(ix, prd){
              prd.dateAdded = new Date(prd.dateAdded* 1000);
          });
+
+        var findInString = function(str, arr) {
+            var found= false;
+            $.each(arr, function(ind, val){
+                if(str.indexOf(val) > -1) {
+                    found =true;
+                    return false;
+                }
+                found = false;
+            });
+            return found;
+         }
 
         // console.log($scope.allProducts);
 
@@ -91,6 +105,20 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
               $scope.selectedMaterial.push(matIndex);
             }
         };
+
+                // toggle selection for a given style by name
+        $scope.toggleStyleSelection = function toggleStyleSelection(styleItem) {
+            var idx = $scope.selectedStyles.indexOf(styleItem);
+            // is currently selected
+            if (idx > -1) {
+              $scope.selectedStyles.splice(idx, 1);
+            }
+            // is newly selected
+            else {
+              $scope.selectedStyles.push(styleItem);
+            }
+        };
+
         $scope.toggleTagSelection = function toggleTagSelection(tagIndx) {
              $scope.currentPage =0;
             var idx = $scope.selectedTags.indexOf(tagIndx);
@@ -126,6 +154,8 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
              var foundCustom=false;
              var foundDpick=false;
              var foundTags= false;
+            var foundStyles = false;
+
              if(!$scope.isAgent || $scope.prdStatus.active == "") foundStatus = true;
              else {
                 if(parseInt($scope.prdStatus.active, 10) == item.status){
@@ -147,6 +177,10 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
                     foundCustom= true;
                 }
              }
+             if(($scope.selectedStyles.length == 0) || (findInString(item.style, $scope.selectedStyles))){
+                foundStyles    = true;
+            }
+
             if($scope.selectedMaterial.length > 0) {
                 if($scope.selectedMaterial.indexOf(item.material) > -1){
                     foundMat = true;
@@ -162,7 +196,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
                 foundItem = true;
             }
 
-            return (foundMat && foundPrice && foundItem && foundStatus && foundCustom && foundDpick && foundTags);
+            return (foundMat && foundPrice && foundItem && foundStatus && foundCustom && foundDpick && foundTags && foundStyles);
         };
 
         $scope.addCartItem = function(pid, pprice){

@@ -22,7 +22,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.pageSize = 12;
         $scope.currentPage = 0;
         $scope.levelFilled = false;
-        $scope.feedbackMsg = '';
         $scope.prdIndex = [];
         $scope.allConnArr =[];
         $scope.designerPicks=[];
@@ -33,8 +32,31 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.productAdded = false;
         $scope.startType = $window.model.startStyle;
         $scope.showCartbtn = false;
-
         $scope.customizedEarrings = [];
+        var nextMsg = true;
+        var attMsg = true;
+
+        $scope.feedbackMsg = '';
+
+        switch($scope.startType) {
+            case 'stud':
+                $scope.feedbackMsg = 'Explore our range of studs , dont forget to click + and see all options.';
+                break;
+            case 'jhumka' :
+                $scope.feedbackMsg = 'Choose a top or hook for your jhumka to add here.';
+                break;
+            case 'hoop' :
+                $scope.feedbackMsg = 'Start by choosing a hoop to add here.';
+                break;
+            case 'chandelier' :
+                $scope.feedbackMsg = 'Start by choosing a hook or top for you chandelier to add here.';
+                break;
+            case 'dangler' :
+                $scope.feedbackMsg = 'Start by choosing a hook or top for you dangler to add here.';
+                break;
+        };
+
+        $scope.showMsg = true;
 
         $scope.getCustom =  function() {
             $http.get($scope.siteUrl+'php/ajax.php?getCustom').
@@ -162,10 +184,25 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.selectImage = function(elem, mainlist) {
             $scope.levelFilled = true;
-            $scope.feedbackMsg ='';
-            $scope.showHelp(".feedback");
-            //feedback message is updated here
-            $scope.feedbackMsg = "Try more designs or click next";
+
+            if(nextMsg) {
+                $scope.feedbackMsg = "Click 'Next' to add a " +$scope.startType+" design.";
+                $(".curvedarrow").hide();
+                $(".curvedarrowDown").show();
+                $scope.showHelp();
+                nextMsg = false;
+            }
+            else if(elem.bottompoints == 0 && attMsg){
+                $scope.feedbackMsg = "Looks great! The \"Next\" button won't appear when no further attachments can be made. Save your  personalized "+$scope.startType+ "! ";
+                $scope.showHelp();
+                $(".curvedarrowLeft").hide();
+                $(".curvedarrowLeft").hide();
+                $(".curvedarrow").show();
+                attMsg = false;
+
+            }
+
+
             $('figure.star.level'+$scope.designLevel).remove();
 
             var bpoints = ($scope.mySelectedItems.length ==0) ? 1 : 0;
@@ -324,6 +361,41 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.levelFilled = false;
                 $scope.filteredSet = findConnectionElements($scope.earringPieces);
                 $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
+
+                $scope.feedbackMsg = '';
+                $(".curvedarrowDown").hide();
+                $(".curvedarrow").hide();
+                if($scope.designLevel == 1) {
+                            $scope.feedbackMsg = "Wonderful! Now choose a design from our collection for your "+$scope.startType+", click + to see all options. Add to cart if you like your design.";
+                            $(".curvedarrowLeft").show();
+
+
+                    //  switch($scope.startType) {
+                    //     case 'jhumka' :
+                    //         $scope.feedbackMsg = 'Wonderful! Now choose a design from our collection to add below your jhumka.';
+                    //         break;
+                    //     case 'hoop' :
+                    //         $scope.feedbackMsg = 'Wonderful! Now choose a design from our collection to match below your hoop.';
+                    //         break;
+                    //     case 'chandelier' :
+                    //         $scope.feedbackMsg = "Wonderful! Now choose a design from our collection, don't forget to click + and see all options.";
+                    //         break;
+                    //     case 'dangler' :
+                    //         $scope.feedbackMsg = "Wonderful! Now choose a design from our collection, don't forget to click + and see all options. Add to cart if you like your design.";
+                    //         break;
+                    // };
+                }
+                else if($scope.designLevel == 2) {
+                            $(".curvedarrowLeft").show();
+
+                    $scope.feedbackMsg = "Would you like to decorate it more? Go on choose another design. Add to cart if you like your design.";
+                }
+                else if($scope.designLevel == 3) {
+                            $(".curvedarrowLeft").show();
+                    $scope.feedbackMsg = "Good going! Pick what you like from our collection one final time if you want to add more.";
+                }
+                $scope.showHelp();
+
             } else {
                 alert("you havent selected elements for this level yet.");
             }
@@ -361,17 +433,20 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         $scope.showHelp = function(classname) {
-            if(!classname) classname= ".bubble";
-            $(classname).removeClass("fadeOutLeft");
-            setTimeout(function(){
-              $(classname).addClass("fadeOutLeft");
-            }, 2000);
+            // if(!classname) classname= ".bubble";
+            // $(classname).removeClass("fadeOutLeft");
+            // setTimeout(function(){
+            //   $(classname).addClass("fadeOutLeft");
+            // }, 2000);
+            if($scope.feedbackMsg != '')
+                $(".message").show();
         }
 
         $scope.processForm = function() {
           if($scope.productAdded) {
              return;
           }
+          $scope.showMsg = false;
           var payload = {
                         custom_product : $scope.mySelectedItems,
                         product_price : $scope.designPrice
@@ -450,7 +525,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.getNumber = function(num) {
             return new Array(num);
-        }
+        };
+
+        $scope.closeMsg = function(){
+            $(".message").hide();
+            return;
+        };
 
 
     }

@@ -141,7 +141,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                </button>
-               <h1 class="navbar-brand"><img src="images/logo2.png"  class="img-responsive" id="logo"/><a  href="index.php" class="hidden-xs">Fitoori</a></h1>
+               <h1 class="navbar-brand"><img src="images/logo2.png"  class="img-responsive" id="logo"/><a  href="index.php" class="hidden-xs">fitoori</a></h1>
             </div>
             <!--navbar-header-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

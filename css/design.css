@@ -1,9 +1,143 @@
 
-body { padding-top: 0px !important; }
+body {padding-top: 0px !important;}
 /** for pages that don't load angular but have angular templates in them. **/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
+
+.curvedarrow {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-left: 9px solid #f07818;
+  margin-top: 40px;
+  margin-left: 30px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+}
+.curvedarrow:after {
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    border-left: 3px dashed #f07818;
+    border-top: 1px dashed #f07818;
+    border-radius: 30px 0 0 0;
+    top: -36px;
+    left: 7px;
+    width: 35px;
+    height: 50px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.curvedarrow.long {
+    border-left: none;
+    border-top: 9px solid transparent;
+    border-right: 9px solid #f07818;
+}
+.curvedarrow.long:after {
+    width: 67px;
+    border-left: none;
+    border-right: 3px solid #f07818;
+    height: 152px;
+    transform: rotate(20deg);
+}
+
+
+.curvedarrowDown {
+    display:none;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-right: 15px solid #f07818;
+  margin-top: 206px;
+  margin-left: 95px;
+  transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+}
+.curvedarrowDown:after {
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    border-left: 3px dashed #f07818;
+    border-top: 2px dashed #f07818;
+    border-radius: 30px 0 0 0;
+    top: -110px;
+    left: -55px;
+    width: 75px;
+    height: 90px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-60deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.curvedarrowLeft {
+    display:none;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #f07818;
+    margin-top: -29px;
+    margin-left: 230px;
+    transform: rotate(-10deg);
+    -webkit-transform: rotate(-15deg);
+    moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+}
+.curvedarrowLeft:after {
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    border-top: 3px dashed #f07818;
+    border-left: 2px dashed #f07818;
+    border-radius: 34px 0 0 0;
+    top: -33px;
+    left: -83px;
+    width: 75px;
+    height: 90px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.message {
+    position: absolute;
+    top: 135px;
+    left: 185px;
+    width: 0;
+    height: 0;
+    outline: 9999px solid rgba(0,0,0,0.5);
+    z-index: 30000;
+}
+
+.message div.info {
+        position: absolute;
+        width: 270px;
+        left: 80px;
+        padding: 15px 20px 10px 10px;
+        top: 50px;
+        text-align: left;
+        height: auto;
+        background: #fff;
+        border: 2px dashed #5D4B33;
+        border-radius: 10px;
+}
+
 
 .sk-cube-grid {
   width: 140px;
@@ -462,9 +596,9 @@ button.addtoCart:hover{
 	    min-height: 80px;
 	}
 	.product-grid.elem .product-img img {
-    max-width: 90px;
+    /* max-width: 90px; */
     padding: 1em;
-    height: 80px;
+    max-height: 80px;
     cursor: pointer;
  }
 
@@ -586,9 +720,13 @@ button.addtoCart:hover{
 		padding: 0;
 		background: none;
 		position: absolute;
-
-
 	}
+
+    .bgProduct .fa-times {
+    top: 5px;
+    right: 10px;
+}
+
 
 	.bgProduct .fa-question-circle {
 		font-size: 1.5em;
@@ -597,10 +735,37 @@ button.addtoCart:hover{
         cursor: pointer;
 	}
 
+	.bgProduct button {
+		position: absolute;
+		top: 360px;
+		text-align: left;
+		right: 35px;
+		padding: 0;
+		padding-left: 13px;
+		border-radius: 40px;
+		font-weight: bold;
+		width: 20%;
+		color: #fff;
+		height: 36px;
+		background-color: #f07818;
+	}
+
+	.bgProduct button:hover {
+    color: #5D4B33;
+    background-color: #fff;
+    border-color: #5D4B33;
+    border: 2px solid;
+}
+
+.bgProduct button:hover .fa-check-circle {
+	color: #5D4b33;
+}
+
 	.bgProduct .fa-check-circle {
-	    font-size: 2.5em;
-	    top: 371px;
-	    right: 27%;
+	    font-size: 2.8em;
+	    top: -2px;
+	    right: -2px;
+	    color: #fff;
 	}
 
 
@@ -709,12 +874,12 @@ button.addtoCart:hover{
 	    width: 80px;
 	    padding: 10px;
 	    box-shadow: inset 10px 10px 50px #BBB8B8;*/
-		width: auto;
-		height: 80px;
-		margin: 0px auto;
-		padding: 13px;
-		display: table-cell;
-		vertical-align: middle;
+	   width: auto;
+	   max-height: 80px;
+	   margin: 0px auto;
+	   padding: 13px;
+	   display: table-cell;
+	   vertical-align: middle;
 	}
 
 	.popupImageDiv:hover {

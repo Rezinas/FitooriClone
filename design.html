@@ -27,7 +27,7 @@
                <div class="row">
                   <div class="avlOptions col-lg-4 col-md-4 col-sm-3 col-xs-12">
                      <div class="bgProduct">
-                        <i class="fa fa-question-circle" ng-click="showHelp();"></i>
+                        <i ng-if="feedbackMsg  != ''" class="fa fa-question-circle" ng-click="showHelp();"></i>
 
                         <div class="designDiv">
                            <figure class='star' style="left:33px; top: 7px;"><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>
@@ -38,9 +38,19 @@
                            <div class="clearfix"></div>
                         </div>
 
+                          <div class="message" ng-if='showMsg'>
+                            <div class="curvedarrow"></div>
+                            <div class="curvedarrowDown"></div>
+                            <div class="curvedarrowLeft"></div>
+                            <div class="info">
+                                {{feedbackMsg}}
+                               <i class="fa fa-times" ng-click="closeMsg()"></i>
+                            </div>
+                          </div>
+
 
                             <!-- all the messages come here -->
-                          <div ng-if="feedbackMsg != ''"  role="alert" class="bubble feedback animated fadeOutLeft ">
+                        <!--   <div ng-if="feedbackMsg != ''"  role="alert" class="bubble feedback animated fadeOutLeft ">
                                     <span>{{feedbackMsg}}</span>
                            </div>
 
@@ -67,17 +77,16 @@
                                  <span>Good going! Pick what you like from below one final time if you want to add more.</span>
                            </div>
                            <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" role="alert" class="bubble animated fadeOutLeft  ">
-                              <span>Looks great! no further attachments can be made. Finalize personalized {{startType }} to cart! </span>
+                              <span>Looks great! no further attachments can be made. Save your  personalized {{startType }}! </span>
                            </div>
                            <div ng-if="productAdded" role="alert" class="bubble animated fadeOutLeft  ">
                                <span><i class="fa fa-check-circle"></i> Your Design Added successfully to the Cart.</span>
-                           </div>
+                           </div> -->
                         <!-- messages ends here -->
 
 
 
-                        <i class="fa fa-check-circle" ng-if="startType != 'stud'" ng-hide="nextDisable() || productAdded" ng-click="updateLevel()"></i> &nbsp; &nbsp;
-
+                        <button class="btn" ng-if="startType != 'stud'" ng-hide="nextDisable() || productAdded" ng-click="updateLevel()"> Next <i class="fa fa-check-circle"></i> </button>
                         <!-- <span><span>&#8675;</span> color options are here!</span> -->
                      </div>
                      <div id="imgOptions" class="designOptions">
@@ -187,7 +196,7 @@
                   <h4>You Design we Deliver</h4>
                   <div style="text-align: center;">
                      <p style="text-align: center;font-size:20px"> {{designPrice | currency:"&#8377":2}}</p>
-                     <button  style="margin-top: 10px;"  ng-click="processForm()" ng-show="showCartbtn && !productAdded" class="addtoCart">Finalize Earring</button>
+                     <button  style="margin-top: 10px;"  ng-click="processForm()" ng-show="showCartbtn && !productAdded" class="addtoCart">Save Design</button>
 
                   </div>
                </div>
@@ -221,6 +230,7 @@
                <div class="product-info">
                   <span class="item_price">Price: &#8377; {{ cdes.price }}</span>
                   <button ng-if="!isAgent" type="button" class="add-cart item_add" onclick="addToCart();">Add To Cart</button>
+
                </div>
             </div>
          </div>
@@ -252,13 +262,13 @@
            <div class="col-xs-6">
              <img id="cimg" src='' />
               <p style="font-size: 25px;"> Price: &#8377; <span id="pr_price"></span></p>
-        <button ng-if="!isAgent" type="button" class="btn addToCart" onclick="addToCart();">Add To Cart</button>
+        <button ng-if="!isAgent" type="button" class="btn addtoCart" onclick="addToCart();">Add To Cart</button>
 
            </div>
            <div class="col-xs-6">
              <h4>Materials:</h4>
               <p id="matlist"></p><br>
-              <p><button onclick="openfb()"><img style="width:200px" src="images/fb_share.png" alt="" /></button></p>
+              <!-- <p><button onclick="openfb()"><img style="width:200px" src="images/fb_share.png" alt="" /></button></p> -->
            </div>
          </div>
 

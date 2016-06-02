@@ -1,7 +1,7 @@
 /** LAPTOP & DESKTOPS SCREEN MEDIA QUERIES **/
 @media only screen and (min-width:1441px) and (max-width:1600px){
     .bgProduct .fa-check-circle{
-        right:14%;
+        right: -2px;
     }
 }
 @media only screen and (min-width:1367px) and (max-width:1440px){

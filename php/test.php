@@ -1,7 +1,217 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
-// $elements =  array(
+$elements =  array(
+  "custom_product"  => [ array (
+     "id"=> 119,
+      "carouselImg"=> "sample_1464173208.png",
+      "imgheight"=> 71,
+      "imgwidth"=> 20,
+      "bodypart"=> 3,
+      "centerx"=> 17,
+      "centery"=> 12,
+      "toppoints"=> 0,
+      "topX"=> "",
+      "topY"=> "",
+      "bottompoints"=> 1,
+      "botX"=> "8",
+      "botY"=> "68",
+      "color"=> "",
+      "texture"=> "",
+      "style"=> "hook,dangler,chandelier,jhumka",
+      "admintags"=> ",",
+      "material"=> 3,
+      "price"=> "0",
+      "name"=> "Oxidized Metal - Gold",
+      "quantity"=> 5,
+      "priority"=> 0,
+      "selectedImage"=> "sample_1464173208.png",
+      "topPos"=> 12,
+      "leftPos"=> 17
+    ),
+    array(
+      "id"=> 87,
+      "carouselImg"=> "DSC03618_1455793450.png",
+      "imgheight"=> 90,
+      "imgwidth"=> 77,
+      "bodypart"=> 3,
+      "centerx"=> 0,
+      "centery"=> 0,
+      "toppoints"=> 1,
+      "topX"=> "32",
+      "topY"=> "0",
+      "bottompoints"=> 5,
+      "botX"=> "1,17,33,48,64",
+      "botY"=> "85,85,85,85,85",
+      "color"=> "",
+      "texture"=> "",
+      "style"=> "jhumka",
+      "admintags"=> "",
+      "material"=> 3,
+      "price"=> "50",
+      "name"=> "Oxidized Metal",
+      "quantity"=> 10,
+      "priority"=> 0,
+      "selectedImage"=> "DSC03618_1455793450.png",
+      "topPos"=> 80,
+      "leftPos"=> -7
+    ),
+    array(
+      "id"=> 159,
+      "carouselImg"=> "DSC03878_1463336482.png",
+      "imgheight"=> 26,
+      "imgwidth"=> 10,
+      "bodypart"=> 3,
+      "centerx"=> 0,
+      "centery"=> 0,
+      "toppoints"=> 1,
+      "topX"=> "0",
+      "topY"=> "-4",
+      "bottompoints"=> 0,
+      "botX"=> "",
+      "botY"=> "",
+      "color"=> "",
+      "texture"=> "",
+      "style"=> "chandelier,hoop,jhumka,dangler",
+      "admintags"=> "",
+      "material"=> 2,
+      "price"=> "2",
+      "name"=> "Acrylic",
+      "quantity"=> 10,
+      "priority"=> 0,
+      "selectedImage"=> "DSC03878_1463336482.png",
+      "topPos"=> 165,
+      "leftPos"=> -6
+    ),
+    array(
+      "id"=> 159,
+      "carouselImg"=> "DSC03878_1463336482.png",
+      "imgheight"=> 26,
+      "imgwidth"=> 10,
+      "bodypart"=> 3,
+      "centerx"=> 0,
+      "centery"=> 0,
+      "toppoints"=> 1,
+      "topX"=> "0",
+      "topY"=> "-4",
+      "bottompoints"=> 0,
+      "botX"=> "",
+      "botY"=> "",
+      "color"=> "",
+      "texture"=> "",
+      "style"=> "chandelier,hoop,jhumka,dangler",
+      "admintags"=> "",
+      "material"=> 2,
+      "price"=> "2",
+      "name"=> "Acrylic",
+      "quantity"=> 10,
+      "priority"=> 0,
+      "selectedImage"=> "DSC03878_1463336482.png",
+      "topPos"=> 165,
+      "leftPos"=> 10
+    ),
+    array(
+      "id"=> 159,
+      "carouselImg"=> "DSC03878_1463336482.png",
+      "imgheight"=> 26,
+      "imgwidth"=> 10,
+      "bodypart"=> 3,
+      "centerx"=> 0,
+      "centery"=> 0,
+      "toppoints"=> 1,
+      "topX"=> "0",
+      "topY"=> "-4",
+      "bottompoints"=> 0,
+      "botX"=> "",
+      "botY"=> "",
+      "color"=> "",
+      "texture"=> "",
+      "style"=> "chandelier,hoop,jhumka,dangler",
+      "admintags"=> "",
+      "material"=> 2,
+      "price"=> "2",
+      "name"=> "Acrylic",
+      "quantity"=> 10,
+      "priority"=> 0,
+      "selectedImage"=> "DSC03878_1463336482.png",
+      "topPos"=> 165,
+      "leftPos"=> 26
+    ),
+    array(
+      "id"=> 159,
+      "carouselImg"=> "DSC03878_1463336482.png",
+      "imgheight"=> 26,
+      "imgwidth"=> 10,
+      "bodypart"=> 3,
+      "centerx"=> 0,
+      "centery"=> 0,
+      "toppoints"=> 1,
+      "topX"=> "0",
+      "topY"=> "-4",
+      "bottompoints"=> 0,
+      "botX"=> "",
+      "botY"=> "",
+      "color"=> "",
+      "texture"=> "",
+      "style"=> "chandelier,hoop,jhumka,dangler",
+      "admintags"=> "",
+      "material"=> 2,
+      "price"=> "2",
+      "name"=> "Acrylic",
+      "quantity"=> 10,
+      "priority"=> 0,
+      "selectedImage"=> "DSC03878_1463336482.png",
+      "topPos"=> 165,
+      "leftPos"=> 41
+    ),
+    array(
+      "id"=> 159,
+      "carouselImg"=> "DSC03878_1463336482.png",
+      "imgheight"=> 26,
+      "imgwidth"=> 10,
+      "bodypart"=> 3,
+      "centerx"=> 0,
+      "centery"=> 0,
+      "toppoints"=> 1,
+      "topX"=> "0",
+      "topY"=> "-4",
+      "bottompoints"=> 0,
+      "botX"=> "",
+      "botY"=> "",
+      "color"=> "",
+      "texture"=> "",
+      "style"=> "chandelier,hoop,jhumka,dangler",
+      "admintags"=> "",
+      "material"=> 2,
+      "price"=> "2",
+      "name"=> "Acrylic",
+      "quantity"=> 10,
+      "priority"=> 0,
+      "selectedImage"=> "DSC03878_1463336482.png",
+      "topPos"=> 165,
+      "leftPos"=> 57
+    )
+
+   ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //   $elements =  array(
   // "custom_product"  => [ array (
   //     "id" => 112,
   //     "carouselImg" => "DSC03166_1464173399.png",
@@ -60,113 +270,113 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
 
 
-$elements =  array(
-  "custom_product"  => [ array (
-            "id" => 5,
-            "carouselImg" => "Trial_3_1455042538.png",
-            "imgheight" => 80,
-            "imgwidth" => 76,
-            "bodypart" => 3,
-            "centerx" => -6,
-            "centery" => 0,
-            "toppoints" => 0,
-            "topX" => "",
-            "topY" => "",
-            "bottompoints" => 3,
-            "botX" => "4,36,63",
-            "botY" => "50,80,49",
-            "color" => "",
-            "texture" => "",
-            "style" => 1,
-            "admintags" => "contemporary,danglers,studs",
-            "material" => 1,
-            "price" => "40",
-            "selectedImage" => "Trial_3_1455042538.png",
-            "topPos" => 0,
-            "leftPos" => -6
-      ),
-      array (
-          "id" => 10,
-      "carouselImg" => "4DSC03491_1455043797.png",
-      "imgheight" => 29,
-      "imgwidth" => 24,
-      "bodypart" => 3,
-      "centerx" => 0,
-      "centery" => 0,
-      "toppoints" => 1,
-      "topX" => "7",
-      "topY" => "-4",
-      "bottompoints" => 0,
-      "botX" => "",
-      "botY" => "",
-      "color" => "",
-      "texture" => "",
-      "style" => 1,
-      "admintags" => "danglers,chandelier",
-      "material" => 1,
-      "price" => "10",
-      "images" => [
+// $elements =  array(
+//   "custom_product"  => [ array (
+//             "id" => 5,
+//             "carouselImg" => "Trial_3_1455042538.png",
+//             "imgheight" => 80,
+//             "imgwidth" => 76,
+//             "bodypart" => 3,
+//             "centerx" => -6,
+//             "centery" => 0,
+//             "toppoints" => 0,
+//             "topX" => "",
+//             "topY" => "",
+//             "bottompoints" => 3,
+//             "botX" => "4,36,63",
+//             "botY" => "50,80,49",
+//             "color" => "",
+//             "texture" => "",
+//             "style" => 1,
+//             "admintags" => "contemporary,danglers,studs",
+//             "material" => 1,
+//             "price" => "40",
+//             "selectedImage" => "Trial_3_1455042538.png",
+//             "topPos" => 0,
+//             "leftPos" => -6
+//       ),
+//       array (
+//           "id" => 10,
+//       "carouselImg" => "4DSC03491_1455043797.png",
+//       "imgheight" => 29,
+//       "imgwidth" => 24,
+//       "bodypart" => 3,
+//       "centerx" => 0,
+//       "centery" => 0,
+//       "toppoints" => 1,
+//       "topX" => "7",
+//       "topY" => "-4",
+//       "bottompoints" => 0,
+//       "botX" => "",
+//       "botY" => "",
+//       "color" => "",
+//       "texture" => "",
+//       "style" => 1,
+//       "admintags" => "danglers,chandelier",
+//       "material" => 1,
+//       "price" => "10",
+//       "images" => [
 
-      ],
-      "selectedImage" => "4DSC03491_1455043797.png",
-      "topPos" => 50,
-      "leftPos" => -9
-      ),
-      array (
-             "id" => 10,
-      "carouselImg" => "4DSC03491_1455043797.png",
-      "imgheight" => 29,
-      "imgwidth" => 24,
-      "bodypart" => 3,
-      "centerx" => 0,
-      "centery" => 0,
-      "toppoints" => 1,
-      "topX" => "7",
-      "topY" => "-4",
-      "bottompoints" => 0,
-      "botX" => "",
-      "botY" => "",
-      "color" => "",
-      "texture" => "",
-      "style" => 1,
-      "admintags" => "danglers,chandelier",
-      "material" => 1,
-      "price" => "10",
-      "images" => [
+//       ],
+//       "selectedImage" => "4DSC03491_1455043797.png",
+//       "topPos" => 50,
+//       "leftPos" => -9
+//       ),
+//       array (
+//              "id" => 10,
+//       "carouselImg" => "4DSC03491_1455043797.png",
+//       "imgheight" => 29,
+//       "imgwidth" => 24,
+//       "bodypart" => 3,
+//       "centerx" => 0,
+//       "centery" => 0,
+//       "toppoints" => 1,
+//       "topX" => "7",
+//       "topY" => "-4",
+//       "bottompoints" => 0,
+//       "botX" => "",
+//       "botY" => "",
+//       "color" => "",
+//       "texture" => "",
+//       "style" => 1,
+//       "admintags" => "danglers,chandelier",
+//       "material" => 1,
+//       "price" => "10",
+//       "images" => [
 
-      ],
-      "selectedImage" => "4DSC03491_1455043797.png",
-      "topPos" => 80,
-      "leftPos" => 23
-      ),
-      array (
-              "id" => 10,
-      "carouselImg" => "4DSC03491_1455043797.png",
-      "imgheight" => 29,
-      "imgwidth" => 24,
-      "bodypart" => 3,
-      "centerx" => 0,
-      "centery" => 0,
-      "toppoints" => 1,
-      "topX" => "7",
-      "topY" => "-4",
-      "bottompoints" => 0,
-      "botX" => "",
-      "botY" => "",
-      "color" => "",
-      "texture" => "",
-      "style" => 1,
-      "admintags" => "danglers,chandelier",
-      "material" => 1,
-      "price" => "10",
-      "images" => [
+//       ],
+//       "selectedImage" => "4DSC03491_1455043797.png",
+//       "topPos" => 80,
+//       "leftPos" => 23
+//       ),
+//       array (
+//               "id" => 10,
+//       "carouselImg" => "4DSC03491_1455043797.png",
+//       "imgheight" => 29,
+//       "imgwidth" => 24,
+//       "bodypart" => 3,
+//       "centerx" => 0,
+//       "centery" => 0,
+//       "toppoints" => 1,
+//       "topX" => "7",
+//       "topY" => "-4",
+//       "bottompoints" => 0,
+//       "botX" => "",
+//       "botY" => "",
+//       "color" => "",
+//       "texture" => "",
+//       "style" => 1,
+//       "admintags" => "danglers,chandelier",
+//       "material" => 1,
+//       "price" => "10",
+//       "images" => [
 
-      ],
-      "selectedImage" => "4DSC03491_1455043797.png",
-      "topPos" => 49,
-      "leftPos" => 50
-      )
-      ]);
+//       ],
+//       "selectedImage" => "4DSC03491_1455043797.png",
+//       "topPos" => 49,
+//       "leftPos" => 50
+//       )
+//       ]);
 
 
 // $elements =  array(
@@ -327,8 +537,6 @@ function createCustomPrdImage($elemArr)
         $totalwidth += $elm['imgwidth'];
     };
 
-        //  echo "totalheight =".$totalheight;
-        // echo "totalwidth =".$totalwidth;
 
     $img = imagecreatetruecolor($totalwidth, $totalheight);
     imagesavealpha($img, true);
@@ -352,12 +560,6 @@ function createCustomPrdImage($elemArr)
         $dst_x += $offsetx;
         $dst_y += $offsety;
 
-
-        echo "orig_w =".$orig_w;
-        echo "orig_h =".$orig_h;
-
-        echo "dstx =".$dst_x;
-        echo "dsty =".$dst_y;
       imagealphablending($imgpart, false);
       imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w, $orig_h);
       imagesavealpha( $img, true );
@@ -401,17 +603,30 @@ function createCustomPrdImage($elemArr)
         $text = 'FITOORI DESIGNS';
         shadow_text($out, $size, $x, $y, $font, $text);
 
+    $ow_final  = imagesx($out);
+    $oh_final = imagesy($out);
+
+    $finalImg = imagecreatetruecolor(220, 250);
+    imagesavealpha($finalImg, true);
+    imagefill($finalImg, 0, 0, $color);
+
+    imagealphablending($finalImg, false);
+    imagecopyresampled($finalImg, $out, 0, 0, 0, 0, 220, 250, $ow_final, $oh_final);
+    imagesavealpha( $finalImg, true );
+
 
    // $fn = md5(microtime()."new")."_custom.png";
    $fn = "custom.png";
 
     $result;
-    if(imagepng($out, "../productImages/".$fn, 9)){
+    // if(imagepng($out, "../productImages/".$fn, 9)){
+    if(imagepng($finalImg, "../productImages/".$fn, 9)){
       $result = $fn;
     }
     else {
       $result = "ERROR";
     }
+    imagedestroy($finalImg);
     imagedestroy($img);
     imagedestroy($out);
     return $result;
@@ -425,7 +640,7 @@ createCustomPrdImage($elements["custom_product"]);
 
 <img style="border: 1px solid;" src="../productImages/test0.png" />
 <img style="border: 1px solid;" src="../productImages/custom.png" />
-
+<img style="border: 1px solid;" src="../productImages/DSC03507_1455707404.png" />
 
 
 

@@ -92,13 +92,14 @@ function createCustomPrdImage($elemArr)
     $color = imagecolorallocatealpha($img, 0, 0, 0, 127);
     imagefill($img, 0, 0, $color);
 
+
      //start constructing the image
     $offsetx = 15;
     $offsety = 15;
      foreach($elemArr as $key => $elm) {
       $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
-        $orig_w = $elm["imgwidth"];
-        $orig_h = $elm["imgheight"];
+        $orig_w = $elm["imgwidth"]-2;
+        $orig_h = $elm["imgheight"]-2;
 
         $dst_x = $elm['leftPos'];
         $dst_y = $elm['topPos'];
@@ -109,7 +110,6 @@ function createCustomPrdImage($elemArr)
         $dst_y += $offsety;
 
       imagealphablending($imgpart, false);
- //     bool imagecopyresampled ( resource $dst_image , resource $src_image , int $dst_x , int $dst_y , int $src_x , int $src_y , int $dst_w , int $dst_h , int $src_w , int $src_h )
       imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w, $orig_h);
       imagesavealpha( $img, true );
     }
@@ -122,6 +122,9 @@ function createCustomPrdImage($elemArr)
     $ow  = imagesx($img);
     $oh = imagesy($img);
 
+ // if(!imagepng($img, "../customDesigns/test1.png", 1)){
+ //      return "ERROR";
+ //    }
 
     $out_w = $ow*2;
     $out = imagecreatetruecolor($out_w, $oh+20);
@@ -131,7 +134,7 @@ function createCustomPrdImage($elemArr)
     $curr_x = 0;
     $curr_y = 0;
     while($curr_x < $out_w){
-    imagealphablending($out, false);
+    imagealphablending($out, true);
     imagecopy($out, $img, $curr_x, $curr_y, 0, 0, $ow, $oh);
     imagesavealpha( $out, true );
 
@@ -149,20 +152,37 @@ function createCustomPrdImage($elemArr)
         $text = 'FITOORI DESIGNS';
         shadow_text($out, $size, $x, $y, $font, $text);
 
+    $ow_final  = imagesx($out);
+    $oh_final = imagesy($out);
+
+    $final_width = 280;
+    $final_height = 250;
+    $finalImg = imagecreatetruecolor($final_width, $final_height);
+    imagesavealpha($finalImg, true);
+    imagefill($finalImg, 0, 0, $color);
+
+    imagealphablending($finalImg, false);
+    imagecopyresampled($finalImg, $out, 0, 0, 0, 0, $final_width, $final_height, $ow_final, $oh_final);
+    imagesavealpha( $finalImg, true );
+
 
    $fn = md5(microtime()."new")."_custom.png";
+   // $fn = "custom.png";
 
     $result;
-    if(imagepng($out, "../productImages/".$fn, 9)){
+    // if(imagepng($out, "../productImages/".$fn, 9)){
+    if(imagepng($finalImg, "../productImages/".$fn, 9)){
       $result = $fn;
     }
     else {
       $result = "ERROR";
     }
+    imagedestroy($finalImg);
     imagedestroy($img);
     imagedestroy($out);
     return $result;
  }
+
 
 
 
