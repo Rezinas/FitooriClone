@@ -14,11 +14,12 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.selectedStyles =[];
         $scope.selectedTags =[];
         $scope.selectedItem=[3];
-         $scope.selectedSort ="phigh";
-         $scope.reverseorder = true;
-         $scope.sortItem="'price'";
-         $scope.toppoints=0;
-         $scope.bottompoints=0;
+        $scope.selectedSort ="phigh";
+        $scope.selectedQuantity= '';
+        $scope.reverseorder = true;
+        $scope.sortItem="'price'";
+        $scope.toppoints=0;
+        $scope.bottompoints=0;
 
         var uniqueTags = function unique(array) {
             return $.grep(array, function(el, index) {
@@ -128,6 +129,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             var foundItem = false;
             var foundTags = false;
             var foundStyles = false;
+            var foundQuantity = false;
             if( ($scope.bottompoints == 0 && $scope.toppoints == 0) || ($scope.bottompoints == item.bottompoints && $scope.toppoints == item.toppoints)){
                 foundpoints = true;
             }
@@ -140,13 +142,16 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             if(($scope.selectedStyles.length == 0) || (findInString(item.style, $scope.selectedStyles))){
                 foundStyles    = true;
             }
+            if($scope.selectedQuantity == '' || parseInt($scope.selectedQuantity, 10) >= item.quantity ) {
+                foundQuantity = true;
+            }
             if(item.price >= $scope.priceSlider.min && item.price <= $scope.priceSlider.max ){
                 foundPrice = true;
             }
             if(($scope.selectedItem.length == 0) || ($scope.selectedItem.indexOf(item.bodypart) > -1)){
                 foundItem = true;
             }
-            return (foundMat && foundpoints && foundPrice && foundItem && foundTags && foundStyles);
+            return (foundQuantity && foundMat && foundpoints && foundPrice && foundItem && foundTags && foundStyles);
         };
 
         $scope.numberOfPages=function(){

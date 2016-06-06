@@ -9,12 +9,24 @@
 						<option value="plow">Price:Low to High</option>
 					</select>
 				</div>
+			<div class="clearfix"> </div>
+
 			</div>
 		</div>
 		<div class="row">
 
 					<div class="col-md-3 rsidebar span_1_of_left">
 				<form>
+
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Quantity</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<input type="text" ng-model="selectedQuantity">
+							</div>
+						</div>
+					</section>
+
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Material</h4>
 						<div class="row  scroll-pane">
@@ -66,12 +78,17 @@
 						</div>
 					</section>
 				</form>
+
 			</div>
 			<div class="col-md-9 product-model-sec">
 					<div ng-repeat="piece in resultSet = (allPieces | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid elements">
 					<a target="_self" ng-href="dashboard.php?pieces&id={{piece['id']}}">
 						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img ng-src="../productImages/{{ piece['carouselImg']}}" class="img-responsive" alt="">
+							<img ng-src="../productImages/{{ piece['carouselImg']}}" class="img-responsive" alt=""> <br>
+							<p>Name: {{piece['name']}}</p>
+							<p>Price: {{piece['price']}}</p>
+							<p>Quantity: {{piece['quantity']}}</p>
+							<p>Style:{{piece['style']}}</p>
 						</div>
 					</a>
 				</div>

@@ -16,6 +16,37 @@ body {
   font-family: 'Merriweather Sans', arial, verdana;
 } */
 
+button a {
+  color: inherit;
+}
+
+button {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 5px 8px;
+    /* width: 100%; */
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 0 0;
+    font-size: 14px;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    top: 0;
+    position: relative;
+    margin-right: 0px;
+    font-weight: normal;
+}
+button:hover {
+    background-color: #fff;
+    color: #5D4B33;
+    border-color: #5D4B33;
+}
+
+
 .about h2{
       margin-bottom: 20px;
       font-size: 3.5em;
@@ -596,7 +627,7 @@ input#login {
     background: #F07818;
     cursor: pointer;
     padding: 4px 0;
-    width: 100%;
+    width: 25%;
     border-radius: 4px;
     display: inline-block;
     margin: 1em 0 0;
@@ -707,7 +738,7 @@ div#Orderpage h2 {
       margin-top: 60px;
 }
 #cart-items-all h4.heading{
-  color:#333;
+  color: #F07818;
   font-weight: bold;
   padding-left: 14px;
   text-decoration: underline;

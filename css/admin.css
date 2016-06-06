@@ -65,6 +65,7 @@ div#page-wrapper h2.page-header{
     padding: 10px;
 }
 
+
 .elements {
     width: 15%;
     min-height: 90px;
@@ -90,6 +91,9 @@ div#page-wrapper h2.page-header{
     position: absolute;
 }
 
+.sky-form h4 {
+	padding: 0px 10px;
+}
 .orderstb, .orderstb th {
     border: 1px solid;
     text-align: center;
@@ -97,4 +101,24 @@ div#page-wrapper h2.page-header{
 }
 .orderdetails table td {
     width: 14%;
+}
+
+.product-model-sec {
+    margin: 1em 0 0 0;
+    /* float: right; */
+}
+.product-img.b-link-stripe.b-animate-go.thickbox p {
+	overflow: hidden;
+	width: 150px;
+	text-overflow: ellipsis;
+	z;
+}
+.product-img.b-link-stripe.b-animate-go.thickbox{
+    width: 100%;
+    text-align: left;
+    margin: 0px 0px 0px -4px;
+    font-size: 14px;
+    height: 200px;
+    padding: 1px 14px;
+    /* border: none; */
 }

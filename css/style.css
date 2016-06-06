@@ -1231,15 +1231,24 @@ div#pagination {
 
 .custom-img {
 	box-shadow: inset 10px 10px 50px #f3f3f3;
-	height: 233px;
-	width: 250px;
-	padding: 3em 1em;
+	height: 230px;
+	width: auto;
+	/* padding: 3em 1em; */
 	text-align: center;
 }
+
 .custom-img img {
 	/* height: 100%; */
-	width: 90%;
+	/* width: 90%; */
+	max-width: 90%;
 }
+
+.sky-form h4 {
+}
+.sky-form  input[type=text] {
+	margin: 10px 10px;
+}
+
 .product-img.b-link-stripe.b-animate-go.thickbox{
     width: 230px;
     text-align: center;

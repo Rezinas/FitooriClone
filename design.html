@@ -182,8 +182,10 @@
                         </div>
 
                         <div ng-hide="startType == 'stud'" id="chkBtn" style="text-align:left;">
-                          <button type="button" ng-if="mySelectedItems.length > 0"  class="btn btn-primary pull-right" ng-click="resetDesign()" style="margin-left: 15px;">Start Over</button>
-                           <button type="button" ng-hide="designLevel == 0 || productAdded"  class="btn btn-primary pull-right" ng-click="gobackLevel()">Go Back</button>
+
+                           <button type="button" ng-hide="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>
+                         &nbsp;&nbsp;
+                          <button type="button" ng-if="mySelectedItems.length > 0"  class="btn btn-primary" ng-click="resetDesign()" style="margin-left: 15px;">Start Over</button>
 
                         </div>
 
@@ -261,13 +263,13 @@
          <div class="row">
            <div class="col-xs-6">
              <img id="cimg" src='' />
-              <p style="font-size: 25px;"> Price: &#8377; <span id="pr_price"></span></p>
-        <button ng-if="!isAgent" type="button" class="btn addtoCart" onclick="addToCart();">Add To Cart</button>
-
            </div>
            <div class="col-xs-6">
              <h4>Materials:</h4>
               <p id="matlist"></p><br>
+              <h4>Price: </h4>
+              <p style="font-size: 25px;text-align: center;"> &#8377; <span id="pr_price"></span></p>
+        <button ng-if="!isAgent" type="button" class="btn addtoCart pull-right" onclick="addToCart();">Add To Cart</button>
               <!-- <p><button onclick="openfb()"><img style="width:200px" src="images/fb_share.png" alt="" /></button></p> -->
            </div>
          </div>

@@ -1,201 +1,257 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
+// $elements =  array(
+//   "custom_product"  => [ array (
+//      "id"=> 119,
+//       "carouselImg"=> "sample_1464173208.png",
+//       "imgheight"=> 71,
+//       "imgwidth"=> 20,
+//       "bodypart"=> 3,
+//       "centerx"=> 17,
+//       "centery"=> 12,
+//       "toppoints"=> 0,
+//       "topX"=> "",
+//       "topY"=> "",
+//       "bottompoints"=> 1,
+//       "botX"=> "8",
+//       "botY"=> "68",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "hook,dangler,chandelier,jhumka",
+//       "admintags"=> ",",
+//       "material"=> 3,
+//       "price"=> "0",
+//       "name"=> "Oxidized Metal - Gold",
+//       "quantity"=> 5,
+//       "priority"=> 0,
+//       "selectedImage"=> "sample_1464173208.png",
+//       "topPos"=> 12,
+//       "leftPos"=> 17
+//     ),
+//     array(
+//       "id"=> 87,
+//       "carouselImg"=> "DSC03618_1455793450.png",
+//       "imgheight"=> 90,
+//       "imgwidth"=> 77,
+//       "bodypart"=> 3,
+//       "centerx"=> 0,
+//       "centery"=> 0,
+//       "toppoints"=> 1,
+//       "topX"=> "32",
+//       "topY"=> "0",
+//       "bottompoints"=> 5,
+//       "botX"=> "1,17,33,48,64",
+//       "botY"=> "85,85,85,85,85",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "jhumka",
+//       "admintags"=> "",
+//       "material"=> 3,
+//       "price"=> "50",
+//       "name"=> "Oxidized Metal",
+//       "quantity"=> 10,
+//       "priority"=> 0,
+//       "selectedImage"=> "DSC03618_1455793450.png",
+//       "topPos"=> 80,
+//       "leftPos"=> -7
+//     ),
+//     array(
+//       "id"=> 159,
+//       "carouselImg"=> "DSC03878_1463336482.png",
+//       "imgheight"=> 26,
+//       "imgwidth"=> 10,
+//       "bodypart"=> 3,
+//       "centerx"=> 0,
+//       "centery"=> 0,
+//       "toppoints"=> 1,
+//       "topX"=> "0",
+//       "topY"=> "-4",
+//       "bottompoints"=> 0,
+//       "botX"=> "",
+//       "botY"=> "",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "chandelier,hoop,jhumka,dangler",
+//       "admintags"=> "",
+//       "material"=> 2,
+//       "price"=> "2",
+//       "name"=> "Acrylic",
+//       "quantity"=> 10,
+//       "priority"=> 0,
+//       "selectedImage"=> "DSC03878_1463336482.png",
+//       "topPos"=> 165,
+//       "leftPos"=> -6
+//     ),
+//     array(
+//       "id"=> 159,
+//       "carouselImg"=> "DSC03878_1463336482.png",
+//       "imgheight"=> 26,
+//       "imgwidth"=> 10,
+//       "bodypart"=> 3,
+//       "centerx"=> 0,
+//       "centery"=> 0,
+//       "toppoints"=> 1,
+//       "topX"=> "0",
+//       "topY"=> "-4",
+//       "bottompoints"=> 0,
+//       "botX"=> "",
+//       "botY"=> "",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "chandelier,hoop,jhumka,dangler",
+//       "admintags"=> "",
+//       "material"=> 2,
+//       "price"=> "2",
+//       "name"=> "Acrylic",
+//       "quantity"=> 10,
+//       "priority"=> 0,
+//       "selectedImage"=> "DSC03878_1463336482.png",
+//       "topPos"=> 165,
+//       "leftPos"=> 10
+//     ),
+//     array(
+//       "id"=> 159,
+//       "carouselImg"=> "DSC03878_1463336482.png",
+//       "imgheight"=> 26,
+//       "imgwidth"=> 10,
+//       "bodypart"=> 3,
+//       "centerx"=> 0,
+//       "centery"=> 0,
+//       "toppoints"=> 1,
+//       "topX"=> "0",
+//       "topY"=> "-4",
+//       "bottompoints"=> 0,
+//       "botX"=> "",
+//       "botY"=> "",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "chandelier,hoop,jhumka,dangler",
+//       "admintags"=> "",
+//       "material"=> 2,
+//       "price"=> "2",
+//       "name"=> "Acrylic",
+//       "quantity"=> 10,
+//       "priority"=> 0,
+//       "selectedImage"=> "DSC03878_1463336482.png",
+//       "topPos"=> 165,
+//       "leftPos"=> 26
+//     ),
+//     array(
+//       "id"=> 159,
+//       "carouselImg"=> "DSC03878_1463336482.png",
+//       "imgheight"=> 26,
+//       "imgwidth"=> 10,
+//       "bodypart"=> 3,
+//       "centerx"=> 0,
+//       "centery"=> 0,
+//       "toppoints"=> 1,
+//       "topX"=> "0",
+//       "topY"=> "-4",
+//       "bottompoints"=> 0,
+//       "botX"=> "",
+//       "botY"=> "",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "chandelier,hoop,jhumka,dangler",
+//       "admintags"=> "",
+//       "material"=> 2,
+//       "price"=> "2",
+//       "name"=> "Acrylic",
+//       "quantity"=> 10,
+//       "priority"=> 0,
+//       "selectedImage"=> "DSC03878_1463336482.png",
+//       "topPos"=> 165,
+//       "leftPos"=> 41
+//     ),
+//     array(
+//       "id"=> 159,
+//       "carouselImg"=> "DSC03878_1463336482.png",
+//       "imgheight"=> 26,
+//       "imgwidth"=> 10,
+//       "bodypart"=> 3,
+//       "centerx"=> 0,
+//       "centery"=> 0,
+//       "toppoints"=> 1,
+//       "topX"=> "0",
+//       "topY"=> "-4",
+//       "bottompoints"=> 0,
+//       "botX"=> "",
+//       "botY"=> "",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "chandelier,hoop,jhumka,dangler",
+//       "admintags"=> "",
+//       "material"=> 2,
+//       "price"=> "2",
+//       "name"=> "Acrylic",
+//       "quantity"=> 10,
+//       "priority"=> 0,
+//       "selectedImage"=> "DSC03878_1463336482.png",
+//       "topPos"=> 165,
+//       "leftPos"=> 57
+//     )
+
+//    ]);
+
+
+
 $elements =  array(
   "custom_product"  => [ array (
-     "id"=> 119,
-      "carouselImg"=> "sample_1464173208.png",
-      "imgheight"=> 71,
-      "imgwidth"=> 20,
+      "id"=> 114,
+      "carouselImg"=> "DSC03449_1456829862.png",
+      "imgheight"=> 62,
+      "imgwidth"=> 28,
       "bodypart"=> 3,
-      "centerx"=> 17,
-      "centery"=> 12,
+      "centerx"=> 15,
+      "centery"=> 11,
       "toppoints"=> 0,
       "topX"=> "",
       "topY"=> "",
       "bottompoints"=> 1,
-      "botX"=> "8",
-      "botY"=> "68",
+      "botX"=> "10",
+      "botY"=> "60",
       "color"=> "",
       "texture"=> "",
       "style"=> "hook,dangler,chandelier,jhumka",
-      "admintags"=> ",",
+      "admintags"=> "",
       "material"=> 3,
       "price"=> "0",
-      "name"=> "Oxidized Metal - Gold",
-      "quantity"=> 5,
+      "name"=> "",
+      "quantity"=> 98,
       "priority"=> 0,
-      "selectedImage"=> "sample_1464173208.png",
-      "topPos"=> 12,
-      "leftPos"=> 17
+      "selectedImage"=> "DSC03449_1456829862.png",
+      "topPos"=> 11,
+      "leftPos"=> 15
     ),
     array(
-      "id"=> 87,
-      "carouselImg"=> "DSC03618_1455793450.png",
-      "imgheight"=> 90,
-      "imgwidth"=> 77,
+      "id"=> 22,
+      "carouselImg"=> "DSC03572_1455201629.png",
+      "imgheight"=> 104,
+      "imgwidth"=> 58,
       "bodypart"=> 3,
       "centerx"=> 0,
       "centery"=> 0,
       "toppoints"=> 1,
-      "topX"=> "32",
-      "topY"=> "0",
-      "bottompoints"=> 5,
-      "botX"=> "1,17,33,48,64",
-      "botY"=> "85,85,85,85,85",
+      "topX"=> "26",
+      "topY"=> "-1",
+      "bottompoints"=> 0,
+      "botX"=> "",
+      "botY"=> "",
       "color"=> "",
       "texture"=> "",
-      "style"=> "jhumka",
-      "admintags"=> "",
-      "material"=> 3,
+      "style"=> "dangler",
+      "admintags"=> "contemporary",
+      "material"=> 2,
       "price"=> "50",
-      "name"=> "Oxidized Metal",
-      "quantity"=> 10,
-      "priority"=> 0,
-      "selectedImage"=> "DSC03618_1455793450.png",
-      "topPos"=> 80,
-      "leftPos"=> -7
-    ),
-    array(
-      "id"=> 159,
-      "carouselImg"=> "DSC03878_1463336482.png",
-      "imgheight"=> 26,
-      "imgwidth"=> 10,
-      "bodypart"=> 3,
-      "centerx"=> 0,
-      "centery"=> 0,
-      "toppoints"=> 1,
-      "topX"=> "0",
-      "topY"=> "-4",
-      "bottompoints"=> 0,
-      "botX"=> "",
-      "botY"=> "",
-      "color"=> "",
-      "texture"=> "",
-      "style"=> "chandelier,hoop,jhumka,dangler",
-      "admintags"=> "",
-      "material"=> 2,
-      "price"=> "2",
       "name"=> "Acrylic",
-      "quantity"=> 10,
+      "quantity"=> 100,
       "priority"=> 0,
-      "selectedImage"=> "DSC03878_1463336482.png",
-      "topPos"=> 165,
-      "leftPos"=> -6
-    ),
-    array(
-      "id"=> 159,
-      "carouselImg"=> "DSC03878_1463336482.png",
-      "imgheight"=> 26,
-      "imgwidth"=> 10,
-      "bodypart"=> 3,
-      "centerx"=> 0,
-      "centery"=> 0,
-      "toppoints"=> 1,
-      "topX"=> "0",
-      "topY"=> "-4",
-      "bottompoints"=> 0,
-      "botX"=> "",
-      "botY"=> "",
-      "color"=> "",
-      "texture"=> "",
-      "style"=> "chandelier,hoop,jhumka,dangler",
-      "admintags"=> "",
-      "material"=> 2,
-      "price"=> "2",
-      "name"=> "Acrylic",
-      "quantity"=> 10,
-      "priority"=> 0,
-      "selectedImage"=> "DSC03878_1463336482.png",
-      "topPos"=> 165,
-      "leftPos"=> 10
-    ),
-    array(
-      "id"=> 159,
-      "carouselImg"=> "DSC03878_1463336482.png",
-      "imgheight"=> 26,
-      "imgwidth"=> 10,
-      "bodypart"=> 3,
-      "centerx"=> 0,
-      "centery"=> 0,
-      "toppoints"=> 1,
-      "topX"=> "0",
-      "topY"=> "-4",
-      "bottompoints"=> 0,
-      "botX"=> "",
-      "botY"=> "",
-      "color"=> "",
-      "texture"=> "",
-      "style"=> "chandelier,hoop,jhumka,dangler",
-      "admintags"=> "",
-      "material"=> 2,
-      "price"=> "2",
-      "name"=> "Acrylic",
-      "quantity"=> 10,
-      "priority"=> 0,
-      "selectedImage"=> "DSC03878_1463336482.png",
-      "topPos"=> 165,
-      "leftPos"=> 26
-    ),
-    array(
-      "id"=> 159,
-      "carouselImg"=> "DSC03878_1463336482.png",
-      "imgheight"=> 26,
-      "imgwidth"=> 10,
-      "bodypart"=> 3,
-      "centerx"=> 0,
-      "centery"=> 0,
-      "toppoints"=> 1,
-      "topX"=> "0",
-      "topY"=> "-4",
-      "bottompoints"=> 0,
-      "botX"=> "",
-      "botY"=> "",
-      "color"=> "",
-      "texture"=> "",
-      "style"=> "chandelier,hoop,jhumka,dangler",
-      "admintags"=> "",
-      "material"=> 2,
-      "price"=> "2",
-      "name"=> "Acrylic",
-      "quantity"=> 10,
-      "priority"=> 0,
-      "selectedImage"=> "DSC03878_1463336482.png",
-      "topPos"=> 165,
-      "leftPos"=> 41
-    ),
-    array(
-      "id"=> 159,
-      "carouselImg"=> "DSC03878_1463336482.png",
-      "imgheight"=> 26,
-      "imgwidth"=> 10,
-      "bodypart"=> 3,
-      "centerx"=> 0,
-      "centery"=> 0,
-      "toppoints"=> 1,
-      "topX"=> "0",
-      "topY"=> "-4",
-      "bottompoints"=> 0,
-      "botX"=> "",
-      "botY"=> "",
-      "color"=> "",
-      "texture"=> "",
-      "style"=> "chandelier,hoop,jhumka,dangler",
-      "admintags"=> "",
-      "material"=> 2,
-      "price"=> "2",
-      "name"=> "Acrylic",
-      "quantity"=> 10,
-      "priority"=> 0,
-      "selectedImage"=> "DSC03878_1463336482.png",
-      "topPos"=> 165,
-      "leftPos"=> 57
-    )
-
+      "selectedImage"=> "DSC03572_1455201629.png",
+      "topPos"=> 71,
+      "leftPos"=> -1
+        )
    ]);
-
-
-
 
 
 
@@ -530,7 +586,7 @@ function imagetrim(&$im, $bg, $pad=null){
 function createCustomPrdImage($elemArr)
  {
        //get total height of the design
-    $totalheight =200; //initial offset
+    $totalheight =220; //initial offset
     $totalwidth =250; //initial offset
     foreach($elemArr as $elm) {
         $totalheight += $elm['imgheight'];
@@ -549,8 +605,8 @@ function createCustomPrdImage($elemArr)
     $offsety = 15;
      foreach($elemArr as $key => $elm) {
       $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
-        $orig_w = $elm["imgwidth"]-2;
-        $orig_h = $elm["imgheight"]-2;
+        $orig_w = $elm["imgwidth"];
+        $orig_h = $elm["imgheight"];
 
         $dst_x = $elm['leftPos'];
         $dst_y = $elm['topPos'];
@@ -569,13 +625,13 @@ function createCustomPrdImage($elemArr)
       return "ERROR";
     }
 
-    imagetrim($img,$color, '10 10 10 10');
+    imagetrim($img,$color, '33 25 33 25');
     $ow  = imagesx($img);
     $oh = imagesy($img);
 
- // if(!imagepng($img, "../customDesigns/test1.png", 1)){
- //      return "ERROR";
- //    }
+ if(!imagepng($img, "../productImages/test1.png", 1)){
+      return "ERROR";
+    }
 
     $out_w = $ow*2;
     $out = imagecreatetruecolor($out_w, $oh+20);
@@ -595,38 +651,44 @@ function createCustomPrdImage($elemArr)
     }
 
          $font = '../fonts/arial.ttf';
-         $size = 6;
+         $size = 8;
 
         $bbox = imagettfbbox($size, 0, $font, 'ky');
-        $x =  $ow-10; $y = $bbox[5]+12;
+        $x =  $ow-10; $y = $bbox[5]+30;
 
         $text = 'FITOORI DESIGNS';
         shadow_text($out, $size, $x, $y, $font, $text);
 
-    $ow_final  = imagesx($out);
-    $oh_final = imagesy($out);
 
-    $finalImg = imagecreatetruecolor(220, 250);
-    imagesavealpha($finalImg, true);
-    imagefill($finalImg, 0, 0, $color);
+ if(!imagepng($out, "../productImages/test2.png", 1)){
+      return "ERROR";
+    }
 
-    imagealphablending($finalImg, false);
-    imagecopyresampled($finalImg, $out, 0, 0, 0, 0, 220, 250, $ow_final, $oh_final);
-    imagesavealpha( $finalImg, true );
+
+    // $ow_final  = imagesx($out);
+    // $oh_final = imagesy($out);
+
+    // $finalImg = imagecreatetruecolor(220, 250);
+    // imagesavealpha($finalImg, true);
+    // imagefill($finalImg, 0, 0, $color);
+
+    // imagealphablending($finalImg, false);
+    // imagecopyresampled($finalImg, $out, 0, 0, 0, 0, 220, 250, $ow_final, $oh_final);
+    // imagesavealpha( $finalImg, true );
 
 
    // $fn = md5(microtime()."new")."_custom.png";
    $fn = "custom.png";
 
     $result;
-    // if(imagepng($out, "../productImages/".$fn, 9)){
-    if(imagepng($finalImg, "../productImages/".$fn, 9)){
+    if(imagepng($out, "../productImages/".$fn, 9)){
+    // if(imagepng($finalImg, "../productImages/".$fn, 9)){
       $result = $fn;
     }
     else {
       $result = "ERROR";
     }
-    imagedestroy($finalImg);
+    // imagedestroy($finalImg);
     imagedestroy($img);
     imagedestroy($out);
     return $result;
@@ -639,8 +701,10 @@ createCustomPrdImage($elements["custom_product"]);
 
 
 <img style="border: 1px solid;" src="../productImages/test0.png" />
+<img style="border: 1px solid;" src="../productImages/test1.png" />
+<img style="border: 1px solid;" src="../productImages/test2.png" />
 <img style="border: 1px solid;" src="../productImages/custom.png" />
-<img style="border: 1px solid;" src="../productImages/DSC03507_1455707404.png" />
+<!-- <img style="border: 1px solid;" src="../productImages/DSC03507_1455707404.png" /> -->
 
 
 

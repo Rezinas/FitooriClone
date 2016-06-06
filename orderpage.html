@@ -98,9 +98,10 @@
                            </form>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" class="guest">
-                              <p id="title-p">Guest Checkout</p><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="color:#555" onclick="$('.loginCheck').removeClass('hide');">Continue as Guest</a><br/><br/>
+                              <p id="title-p">Guest Checkout</p>
+                              <button><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="$('.loginCheck').removeClass('hide');">Continue as Guest</a></button><br/><br/>
                               <div>OR</div><br/>
-                              <a href="index.php?register=checkout" style="color:#555"> Register</a>
+                              <button><a href="index.php?register=checkout"> Register</a></button>
                         </div>
                      </div>
                   </div>
@@ -149,8 +150,10 @@
                                        <input class="form-control" data-validation="alphabets"  name="ship_state" type="text" autofocus value="<?php echo $order_add['ship_state']; ?>">
                                     </div>
                                     <div class="form-group">
-                                       <span>Postal Code</span>
-                                       <input class="form-control" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="<?php echo $order_add['ship_postal']; ?>">
+                                       <span>Postal Code <sub>(Currently serving only this pin code)</sub></span>
+                                      <!--  <input class="form-control" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="<?php echo $order_add['ship_postal']; ?>"> -->
+                                       <input class="form-control" disabled data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="560102">
+
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 billingAddress">
@@ -172,8 +175,9 @@
                                        <input class="form-control" data-validation="alphabets"  name="bill_state" type="text" autofocus value="<?php echo $order_add['bill_state']; ?>">
                                     </div>
                                     <div class="form-group">
-                                       <span>Postal Code</span>
-                                       <input class="form-control" data-validation="alphabets"  name="bill_postalcode" type="text" autofocus value="<?php echo $order_add['bill_postal']; ?>">
+                                       <span>Postal Code <sub>(Currently serving only this pin code)</sub></span>
+                                       <!-- <input class="form-control" data-validation="alphabets"  name="bill_postalcode" type="text" autofocus value="<?php echo $order_add['bill_postal']; ?>"> -->
+                                       <input class="form-control" disabled data-validation="alphabets"  name="bill_postalcode" type="text" autofocus value="560102">
                                     </div>
                                 </div>
                                 <div class="col-xs-12">

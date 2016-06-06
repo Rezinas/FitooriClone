@@ -17,6 +17,8 @@ body {padding-top: 0px !important;}
   -moz-transform: rotate(10deg);
   -ms-transform: rotate(10deg);
   -o-transform: rotate(10deg);
+      z-index: 30000;
+
 }
 .curvedarrow:after {
     content: "";
@@ -33,12 +35,16 @@ body {padding-top: 0px !important;}
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
+        z-index: 30000;
+
 }
 
 .curvedarrow.long {
     border-left: none;
     border-top: 9px solid transparent;
     border-right: 9px solid #f07818;
+        z-index: 30000;
+
 }
 .curvedarrow.long:after {
     width: 67px;
@@ -46,6 +52,7 @@ body {padding-top: 0px !important;}
     border-right: 3px solid #f07818;
     height: 152px;
     transform: rotate(20deg);
+        z-index: 30000;
 }
 
 
@@ -63,6 +70,8 @@ body {padding-top: 0px !important;}
   -moz-transform: rotate(10deg);
   -ms-transform: rotate(10deg);
   -o-transform: rotate(10deg);
+      z-index: 30000;
+
 }
 .curvedarrowDown:after {
     content: "";
@@ -75,6 +84,7 @@ body {padding-top: 0px !important;}
     left: -55px;
     width: 75px;
     height: 90px;
+    z-index: 30000;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-60deg);
     -moz-transform: rotate(45deg);
@@ -90,6 +100,7 @@ body {padding-top: 0px !important;}
     border-top: 15px solid transparent;
     border-right: 15px solid #f07818;
     margin-top: -29px;
+    z-index: 3000;
     margin-left: 230px;
     transform: rotate(-10deg);
     -webkit-transform: rotate(-15deg);
@@ -121,9 +132,21 @@ body {padding-top: 0px !important;}
     left: 185px;
     width: 0;
     height: 0;
-    outline: 9999px solid rgba(0,0,0,0.5);
-    z-index: 30000;
 }
+
+.message:after {
+	content: "";
+  display: block;
+  position: fixed; /* could also be absolute */ 
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
+
+
 
 .message div.info {
         position: absolute;
@@ -135,7 +158,9 @@ body {padding-top: 0px !important;}
         height: auto;
         background: #fff;
         border: 2px dashed #5D4B33;
-        border-radius: 10px;
+        border-radius: 10px;   
+        z-index: 30000;
+
 }
 
 
@@ -783,6 +808,7 @@ button.addtoCart:hover{
 	    margin-bottom: 6px;
 	    font-size: 1.1em;
 	    /* margin-top: 1%; */
+	    text-align: left;
 	    border: none;
 	}
 	div#sampleImgs span{

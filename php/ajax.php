@@ -79,7 +79,7 @@ function imagetrim(&$im, $bg, $pad=null){
 function createCustomPrdImage($elemArr)
  {
        //get total height of the design
-    $totalheight =200; //initial offset
+    $totalheight =220; //initial offset
     $totalwidth =250; //initial offset
     foreach($elemArr as $elm) {
         $totalheight += $elm['imgheight'];
@@ -98,8 +98,8 @@ function createCustomPrdImage($elemArr)
     $offsety = 15;
      foreach($elemArr as $key => $elm) {
       $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
-        $orig_w = $elm["imgwidth"]-2;
-        $orig_h = $elm["imgheight"]-2;
+        $orig_w = $elm["imgwidth"];
+        $orig_h = $elm["imgheight"];
 
         $dst_x = $elm['leftPos'];
         $dst_y = $elm['topPos'];
@@ -114,17 +114,12 @@ function createCustomPrdImage($elemArr)
       imagesavealpha( $img, true );
     }
 
-    // if(!imagepng($img, "../productImages/test0.png", 1)){
-    //   return "ERROR";
-    // }
 
-    imagetrim($img,$color, '10 10 10 10');
+
+    imagetrim($img,$color, '33 25 33 25');
     $ow  = imagesx($img);
     $oh = imagesy($img);
 
- // if(!imagepng($img, "../customDesigns/test1.png", 1)){
- //      return "ERROR";
- //    }
 
     $out_w = $ow*2;
     $out = imagecreatetruecolor($out_w, $oh+20);
@@ -143,46 +138,29 @@ function createCustomPrdImage($elemArr)
 
     }
 
-         $font = '../fonts/arial.ttf';
-         $size = 6;
 
-        $bbox = imagettfbbox($size, 0, $font, 'ky');
-        $x =  $ow-10; $y = $bbox[5]+12;
+    $font = '../fonts/arial.ttf';
+    $size = 8;
 
-        $text = 'FITOORI DESIGNS';
-        shadow_text($out, $size, $x, $y, $font, $text);
+    $bbox = imagettfbbox($size, 0, $font, 'ky');
+    $x =  $ow-10; $y = $bbox[5]+30;
 
-    $ow_final  = imagesx($out);
-    $oh_final = imagesy($out);
-
-    $final_width = 280;
-    $final_height = 250;
-    $finalImg = imagecreatetruecolor($final_width, $final_height);
-    imagesavealpha($finalImg, true);
-    imagefill($finalImg, 0, 0, $color);
-
-    imagealphablending($finalImg, false);
-    imagecopyresampled($finalImg, $out, 0, 0, 0, 0, $final_width, $final_height, $ow_final, $oh_final);
-    imagesavealpha( $finalImg, true );
-
+    $text = 'FITOORI DESIGNS';
+    shadow_text($out, $size, $x, $y, $font, $text);
 
    $fn = md5(microtime()."new")."_custom.png";
-   // $fn = "custom.png";
 
     $result;
-    // if(imagepng($out, "../productImages/".$fn, 9)){
-    if(imagepng($finalImg, "../productImages/".$fn, 9)){
+    if(imagepng($out, "../productImages/".$fn, 9)){
       $result = $fn;
     }
     else {
       $result = "ERROR";
     }
-    imagedestroy($finalImg);
     imagedestroy($img);
     imagedestroy($out);
     return $result;
  }
-
 
 
 

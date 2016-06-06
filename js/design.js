@@ -245,8 +245,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                         for(var i=0; i < botXs.length && fits; i++){
                             var  a = botXs[i+1] - botXs[i];
                             var b = botYs[i+1] - botYs[i];
-                           // console.log(Math.sqrt(a*a + b*b));
-                            if(Math.sqrt(a*a + b*b) <= curWidth) {
+                           console.log(curWidth);
+                           console.log(Math.sqrt(a*a + b*b));
+
+                            if(Math.sqrt(a*a + b*b) <= (curWidth+10)) {
                                 fits=false;
                             }
                         }
