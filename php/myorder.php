@@ -28,11 +28,11 @@ if(!empty($_REQUEST)){
     $message= "<strong>Hi $userflname, </strong><br>";
     $message .= "<p>Thank you for choosing Fitoori. Your order ".$_REQUEST['orderid']." has been successfully cancelled. Please contact admin@fitoori.com  for any questions.</p> <p> Fitoori Team.</p>";
 
-  //  sendemail($currUserEmail, $subject, $message);
+   sendemail($currUserEmail, $subject, $message);
 
     $adminMessage = "The following order has been cancelled: ".$_REQUEST['orderid'];
 
-   // sendemail("rezinas@gmail.com", "Fitoori Order Cancellation", $adminMessage);
+   sendemail("rezinas@gmail.com", "Fitoori Order Cancellation", $adminMessage);
 
         }
 
