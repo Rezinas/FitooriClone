@@ -6,11 +6,18 @@
      <div class="panel-body">
         <?php if(empty($mainErrorMsg)) { ?>
           <div class="cart-items container">
+
+<?php  if($orderAction == "cancel") { ?>
+        <div class="alert alert-info">
+          Your order has been cancelled.
+        </div>
+
+<?php  } ?>
               <div class="row">
-                <div class="col-xs-8"><h4 style="color:#F07818;">Order Number: ORD000<?php echo $orderid; ?>  &nbsp; &nbsp; &nbsp; Order Date: <?php echo date('F dS, Y', $currOrder['dateCreated']); ?>  &nbsp; &nbsp; &nbsp; Order Status: <?php echo $currOrder['status']; ?></h4></div>
+                <div class="col-xs-8"><h4 style="color:#333;">Order Number: ORD000<?php echo $orderid; ?>  &nbsp; &nbsp; &nbsp; Order Date: <?php echo date('F dS, Y', $currOrder['dateCreated']); ?>  &nbsp; &nbsp; &nbsp; Order Status: <?php echo $currOrder['status']; ?></h4></div>
                 <div class="col-xs-4">
                    <?php if($currOrder['status'] == 'confirmed') { ?>
-                    <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">Cancel Order</button>
+                    <button style="margin: 0;" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">Cancel Order</button>
                <?php } ?>
                 </div>
               </div>

@@ -71,7 +71,7 @@ if(count($cartItems)  > 0) {
 	$cartLowPrice = abs($cartLowPrice - 100);
 	$cartHighPrice = abs($cartHighPrice + 100);
 
-	$rqry = "SELECT productid, name, price, bodypart, mainimg FROM products WHERE productid  not IN ( ".implode($cartids, ",")." ) AND  mainimg <>'' AND  price <= $cartHighPrice AND price >= $cartLowPrice  ORDER BY featured, price ASC LIMIT 2";
+	$rqry = "SELECT productid, name, price, bodypart, mainimg FROM products WHERE productid  not IN ( ".implode($cartids, ",")." ) AND  status=1 AND price <= $cartHighPrice AND price >= $cartLowPrice  ORDER BY featured, price ASC LIMIT 2";
 
 	 if(!$stmt = $dbcon->prepare($rqry)){
 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);

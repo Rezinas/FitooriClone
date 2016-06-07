@@ -123,6 +123,7 @@ if(!empty($_POST) && isset($_POST['shippay']) ){
     $sess_orderID = prepare_input($_POST["currOrderId"]);
     $_SESSION['orderStatus'] = $sess_orderStatus = "review";
 
+
     //update orders table with these values.
             //run the update query for the $pieceid.
     $updQuery1 =  "UPDATE `orders` SET `status` = ?, `paymenttype` = ?, `shippingaddress1` = ?, `shippingaddress2` = ?, `shippingstate` = ?, `shippingcity` = ?, `shippingpostal` = ?, `billingaddress1` = ?, `billingaddress2` = ?, `billingcity` = ?, `billingstate` = ?, `billingpostal` = ?, `useremail`= ?, `phone`= ?  WHERE `orders`.`orderid` = $sess_orderID ";

@@ -24,7 +24,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 	$lowerPriceLimit = $parr['price'] - 100;
 	$mat = $parr['material'];
 
-	$rqry = "SELECT productid, name, price, bodypart, mainimg FROM products WHERE productid != $pid AND material=$mat AND price <= $upperPriceLimit AND price >= $lowerPriceLimit  ORDER BY price ASC LIMIT 4";
+	$rqry = "SELECT productid, name, price, bodypart, mainimg FROM products WHERE productid != $pid AND material=$mat AND price <= $upperPriceLimit AND price >= $lowerPriceLimit and status=1 ORDER BY price ASC LIMIT 4";
 
 	//echo $rqry;
 

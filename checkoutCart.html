@@ -30,7 +30,7 @@
                                <div class="cart-item cyc">
 
                                   <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
-                                   <a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove</a>
+
 
                                </div>
                                <div class="cart-item-info">
@@ -61,6 +61,7 @@
                                <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
                                /  &#8377; <span class="cartPrice"> <?php echo $prod['price'];?> </span>
                             </div>
+                            <a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove</a>
                             <!-- <div><a href="#">Move to Wishlist</a></div>-->
                          </td>
                          <td data-th="Total">
@@ -104,7 +105,7 @@
                    </tr>
                 </table>
              </div>
-             <div id="chkBtns" style="text-align: right;">
+             <div id="chkBtns" style="text-align: center;">
                 <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
                 <a href="index.php?orders" class="btn btn-primary">Place Order</a>
              </div>

@@ -152,7 +152,7 @@
                                     <div class="form-group">
                                        <span>Postal Code <sub>(Currently serving only this pin code)</sub></span>
                                       <!--  <input class="form-control" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="<?php echo $order_add['ship_postal']; ?>"> -->
-                                       <input class="form-control" disabled data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="560102">
+                                       <input class="form-control" readonly="readonly" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="560102">
 
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@
                                     <div class="form-group">
                                        <span>Postal Code <sub>(Currently serving only this pin code)</sub></span>
                                        <!-- <input class="form-control" data-validation="alphabets"  name="bill_postalcode" type="text" autofocus value="<?php echo $order_add['bill_postal']; ?>"> -->
-                                       <input class="form-control" disabled data-validation="alphabets"  name="bill_postalcode" type="text" autofocus value="560102">
+                                       <input class="form-control" readonly="readonly" data-validation="alphabets"  name="bill_postalcode" type="text" autofocus value="560102">
                                     </div>
                                 </div>
                                 <div class="col-xs-12">
@@ -213,11 +213,7 @@
                          <div class="tableClass">
                            <h4>Order Number: ORD000<?php echo $sess_orderID; ?></h4>
                             <table style="width: 100%">
-                            <tr>
-                              <th>Item</th>
-                              <th>Price</th>
-                            </tr>
-                             <?php foreach($cartProducts as $prod) { ?>
+                            <!--  <?php foreach($cartProducts as $prod) { ?>
                                   <tr>
                                     <td>
                                       <p><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?></p>
@@ -228,7 +224,7 @@
                                       <span>: &#8377; <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span>
                                     </td>
                                   </tr>
-                             <?php } ?>
+                             <?php } ?> -->
                                <tr>
                                   <td>Total( including Tax)</td>
                                   <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>

@@ -188,7 +188,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.selectImage = function(elem, mainlist) {
             $scope.levelFilled = true;
 
-            if(nextMsg) {
+            if(nextMsg && $scope.startType != 'stud') {
                 $scope.feedbackMsg = "Click 'Next' to add a " +$scope.startType+" design.";
                 $(".curvedarrow").hide();
                 $(".curvedarrowDown").show();
