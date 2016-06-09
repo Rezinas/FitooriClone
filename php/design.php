@@ -5,6 +5,11 @@ $colorsArr= explode("|", COLORS) ;
 $styleArr= explode("|", STYLES) ;
 $texturesArr= explode("|", TEXTURES) ;
 $elements =[];
+$showHelp = 1;
+if(!isset($_SESSION['showhelp'])){
+	 $_SESSION['showhelp'] = 1;
+	 $showHelp = 0;
+}
 
 $startStyle = 'jhumka';
 if(isset($_REQUEST["designearrings"]) && $_REQUEST["designearrings"] != '') {
@@ -57,6 +62,7 @@ $jsondata = array(
 	"overheads" => OVERHEADS,
 	"vat" => TAXPERCENT,
 	"margin" => PROFITPERCENT,
+	"showHelp" => $showHelp,
 	"shipping" => [SHIPPINGCHARGES_SMALL, SHIPPINGCHARGES_MEDIUM, SHIPPINGCHARGES_LARGE]
 );
 

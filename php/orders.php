@@ -197,7 +197,7 @@ if(isset($_SESSION['userid'])) {
     $stmt->store_result();
     $stmt->bind_result($a,$b,$c,$d, $e, $f, $g, $h, $i, $j, $k, $l);
     while ($stmt->fetch()) {
-        if(!isset($e)) $e= " ";
+        if(!isset($e)) $e= "";
         $curr_user = ['userid' => $a, 'firstname' => $b, 'lastname' => $c, 'email' => $d, 'phone' => $e, 'gender' => $f, 'address1' => $g, 'address2' => $h, 'city' => $i, 'state' => $j, 'postalcode' => $k, 'usertype' => $l];
     }
     $stmt->close();

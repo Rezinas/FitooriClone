@@ -351,6 +351,7 @@ input#proceed{
   -moz-box-shadow: inset 10px 10px 50px #f3f3f3;
   -webkit-box-shadow: inset 10px 10px 50px #f3f3f3;
   width: auto;
+  height: 250px;
 }
 .cart-item-info {
     width: auto;

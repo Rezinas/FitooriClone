@@ -1411,7 +1411,7 @@
         padding: 1.5em 0;
     }
 }
-@media (min-width:737px) and (max-width:773px){
+@media (max-width: 773px) and (min-width: 737px){
     #logo{
         top:-6px;
     }
@@ -1448,7 +1448,7 @@
         margin-top: -39px;
     }
     .navbar-default .navbar-nav > li > a{
-        padding: 10px 16px;
+        padding: 10px 8px;
     }
     .header-right{
         position: relative;
@@ -1743,10 +1743,15 @@
         font-size: 3.5em;
     }
     .product-grid {
-        width: 32.33%;
+        width: 31.5%;
+    }
+    .product-img.b-link-stripe.b-animate-go.thickbox {
+        width: 145px;
+        height: 142px;
     }
     .product-img img{
         padding: 1em;
+        max-height: 145px;
     }
     .product-model-sec{
         padding: 0px 25px;
@@ -1756,7 +1761,15 @@
         margin: 0px auto;
     }
     .product-info-cust h4{
-        font-size: 16px;
+        font-size: 12px;
+    }
+    .item_add {
+        padding: 0 1em;
+        width: 86%;
+        margin: 5px 8%;
+    }
+    span.item_price {
+        font-size: 12px;
     }
     .footer {
         padding: 2em 0;
@@ -4193,14 +4206,15 @@
 
 @media(min-width:415px) and (max-width:435px){
     #logo{
-        top:-13px;
+        top: -42px;
+        width: 30%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 23em 0px 0px;
+        margin: 0.3em 25em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -4610,12 +4624,13 @@
 
 @media(min-width:376px) and (max-width:414px){
     #logo{
-        top:-13px;
+        top: -45px;
+        width: 30%;
     }
 
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 20em 0px 0px;
+        margin: 0.3em 23em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -5029,12 +5044,13 @@
 
 @media(min-width:361px) and (max-width:375px){
     #logo{
-        top:-13px;
+        top: -45px;
+        width: 30%;
     }
 
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 17em 0px 0px;
+        margin: 0.3em 21em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -5442,11 +5458,12 @@
 @media(max-width: 360px) and (min-width: 321px){
     
     #logo{
-        top:-13px;
+        top: -45px;
+        width: 30%;
     }    
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 17em 0px 0px;
+        margin: 0.3em 20em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;

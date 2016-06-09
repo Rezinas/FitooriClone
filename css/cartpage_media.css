@@ -1471,10 +1471,14 @@
         width: 100%;
         margin-bottom: 15px;
       }
+
+      #orderTable .cart-header .cart-item {
+                  width: 50%;
+      }
       .cart-header .cart-item {
           padding: 5px;
           margin-right: 2%;
-          width: 50%;
+          width: 90%;
           box-shadow: inset 10px 10px 50px #f3f3f3;
           margin-top: 10px;
           margin-bottom: 10px;

@@ -3,8 +3,20 @@
     .bgProduct .fa-check-circle{
         right: -2px;
     }
+      .bgProduct button {
+    right: 32px;
+    width: 22%;
+    }
 }
 @media only screen and (min-width:1367px) and (max-width:1440px){
+    #subElementsDiv {
+        margin: -17px 0px 15px 20px;
+    }
+    .bgProduct button {
+        width: 24%;
+        right: -7px;
+    }
+
     button.addtoCart{
         font-size: 14px;
         padding: 7px 10px;
@@ -16,10 +28,6 @@
         font-size: 15px;
 
     }
-    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
-        margin-top: -2px;
-        font-size: 12px;
-    }
     div#designerPick{
         padding: 0px;
     }
@@ -30,13 +38,19 @@
         height: 77%;
     }
     .bgProduct .fa-check-circle{
-        right: 3%;
     }
     .product-grid.elem{
-        margin: 0 5px 8px 3px; 
+        margin: 0 5px 8px 3px;
     }
 }
 @media only screen and (min-width:1281px) and (max-width:1366px){
+    #subElementsDiv {
+        margin: -17px 0px 15px 20px;
+    }
+      .bgProduct button {
+        width: 25%;
+        right: -20px;
+    }
     .bgProduct .fa-check-circle{
         right:2%;
     }
@@ -65,7 +79,7 @@
     }
     .product-grid.elem {
         border: 0px solid #EFE9E9;
-        margin: 0 5px 8px 3px;
+        margin: 0 3px 8px 3px;
         width: 9.8%;
         min-height: 80px;
     }
@@ -104,12 +118,15 @@
     .page-header{
         font-size: 3em;
     }
+      .bgProduct button {
+        width: 28%;
+        right: -70px;
+    }
     #subElementDiv{
         padding: 0px;
         border: 0px solid;
-        width: 60%;
-        margin-left: 66px;
-
+        width: 61.2%;
+        margin: -17px 0px 15px 41px;
     }
     #subElementsDiv p{
         font-size: 14px;
@@ -133,8 +150,8 @@
     }
     .product-grid.elem {
         border: 0px solid #EFE9E9;
-        margin: 0 4px 8px 2px;
-        width: 9.8%;
+        margin: 0 3px 8px 2px;
+        width: 9%;
         min-height: 80px;
     }
     .product-img{
@@ -143,11 +160,14 @@
         border: 0px solid;
         text-align: center;
         position: relative;
-        left: -5px;
+        /* left: -5px; */
         /*box-shadow: inset 10px 10px 50px #f3f3f3;*/
     }
     .bgProduct .fa-check-circle{
         right: -2%;
+    }
+    #chkBtn {
+        margin-left: 50px;
     }
     div#imgOptions h4 {
         font-size: 1.3em;
@@ -162,7 +182,7 @@
         margin-left:-25px;
     }
     .product-grid.elem .product-img img{
-        height: 70px;
+        /* height: 70px; */
     }
     .popupImageDiv{
         height: 60px;
@@ -556,6 +576,11 @@
     }
 }
 
+@media (max-width:1441px){
+      .moreoptions {
+        width: 70px;
+    }
+}
 /** MOBILE SCREEN MEDIA QUERIES **/
 
 @media (max-width:320px){
@@ -1281,6 +1306,16 @@
             margin-top: 8px;
         }
 
+#subElementsDiv {
+    margin: -17px 0px 10px 10px;
+}
+    .bgProduct .fa-check-circle{
+        right: -2px;
+    }
+      .bgProduct button {
+    right: -195px;
+    width: 45%;
+    }
         .product-grid.elem{
             width:18.1%;
         }
@@ -1289,7 +1324,6 @@
             top: 0px;
             left:5px;
         }
-
         .product-img {
             width: 65px;
         }
@@ -1297,6 +1331,11 @@
             width: auto;
             padding: 8px;
             height: 65px;
+        }
+
+        .despick .product-img.b-link-stripe.b-animate-go.thickbox {
+            width: 350px;
+            height: auto;
         }
         .avlOptions #imgOptions {
             position: relative;
@@ -1312,7 +1351,7 @@
         }
         .moreoptions {
             width: 50px;
-            height: 50px;
+            height: 100%;
             padding-left: 8px;
         }
         div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
@@ -1338,7 +1377,8 @@
         }
         div#designerPick img{
             padding:1em;
-            width: 50%;
+            max-height: 210px;
+            width: auto;
         }
         button.addtoCart{
             font-size: 1em;
@@ -1355,10 +1395,10 @@
             margin-right: -7px;
         }
         .white_content{
-            height: 76%;
+            /* height: 76%; */
         }
         .black_overlay{
-            height: 77%;
+            height: 95%;
         }
 }
 @media (min-width:774px) and (max-width:800px){

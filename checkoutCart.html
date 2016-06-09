@@ -60,8 +60,10 @@
                                <span class="cartQty"><?php echo $cart[$prod['productid']]; ?> </span>
                                <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
                                /  &#8377; <span class="cartPrice"> <?php echo $prod['price'];?> </span>
+                               <br>
+                               <a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove</a>
                             </div>
-                            <a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove</a>
+
                             <!-- <div><a href="#">Move to Wishlist</a></div>-->
                          </td>
                          <td data-th="Total">

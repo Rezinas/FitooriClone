@@ -104,7 +104,6 @@ h1.navbar-brand {
 }
 h1.navbar-brand a {
     color: #fff;
-    /*    padding: 0.2em 0;*/
     padding: 0 0 0 5px;
     float: left;
 }
@@ -1257,7 +1256,7 @@ div#pagination {
 }
 .product-img img {
     width: auto;
-    max-height: 250px;
+    max-height: 235px;
     padding: 3em;
     /* box-shadow: inset 10px 10px 50px #f3f3f3; */
 }

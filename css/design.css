@@ -593,8 +593,8 @@ button.addtoCart:hover{
 /********/
 	#subElementsDiv{
 		min-height: 330px;
-	    border: 0px solid;
-	    margin: -17px 0px 15px 0px;
+		border: 0px solid;
+		margin: -17px 0px 15px 0px;
 	}
 	i.fa.fa-times-circle {
 	    font-size: 25px;
@@ -797,7 +797,7 @@ button.addtoCart:hover{
 	div#sampleImgs{
 	    border: 0px solid;
 	    width: 100%;
-	    float: left;
+	    /* float: left; */
 	    position: relative;
 	    top: 10px;
 	}
@@ -837,7 +837,7 @@ button.addtoCart:hover{
 		color: #fff;
 	}
 	div#designerPick img {
-	    width: 70%;
+	    width: auto;
 	    margin-bottom: 15px;
 	    padding: 1.5em;
 	}

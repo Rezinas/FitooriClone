@@ -59,7 +59,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 break;
         };
 
-        $scope.showMsg = true;
+
+        $scope.showMsg = ($window.model.showHelp == 0) ? true : false;
 
         $scope.getCustom =  function() {
             $http.get($scope.siteUrl+'php/ajax.php?getCustom').
@@ -188,14 +189,14 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.selectImage = function(elem, mainlist) {
             $scope.levelFilled = true;
 
-            if(nextMsg && $scope.startType != 'stud') {
+            if($scope.showMsg && nextMsg && $scope.startType != 'stud') {
                 $scope.feedbackMsg = "Click 'Next' to add a " +$scope.startType+" design.";
                 $(".curvedarrow").hide();
                 $(".curvedarrowDown").show();
                 $scope.showHelp();
                 nextMsg = false;
             }
-            else if(elem.bottompoints == 0 && attMsg){
+            else if($scope.showMsg && elem.bottompoints == 0 && attMsg){
                 $scope.feedbackMsg = "Looks great! The \"Next\" button won't appear when no further attachments can be made. Save your  personalized "+$scope.startType+ "! ";
                 $scope.showHelp();
                 $(".curvedarrowLeft").hide();
@@ -245,10 +246,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                         for(var i=0; i < botXs.length && fits; i++){
                             var  a = botXs[i+1] - botXs[i];
                             var b = botYs[i+1] - botYs[i];
-                           console.log(curWidth);
-                           console.log(Math.sqrt(a*a + b*b));
-
-                            if(Math.sqrt(a*a + b*b) <= (curWidth+10)) {
+                           // console.log(curWidth);
+                           // console.log(Math.sqrt(a*a + b*b));
+                            if(Math.sqrt(a*a + b*b) <= (curWidth)) {
                                 fits=false;
                             }
                         }
@@ -397,11 +397,11 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     level2Msg = false;
                 }
                 else if($scope.designLevel == 3 && level3Msg) {
-                            $(".curvedarrowLeft").show();
+                    $(".curvedarrowLeft").show();
                     $scope.feedbackMsg = "Good going! Pick what you like from our collection one final time if you want to add more.";
                     level3Msg = false;
                 }
-                $scope.showHelp();
+                if($scope.showMsg) $scope.showHelp();
 
             } else {
                 alert("you havent selected elements for this level yet.");
