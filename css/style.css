@@ -362,12 +362,12 @@ b.caret {
     font-size: 1em;
     -webkit-appearance: none;
     width: 49%;
-    border-radius: inherit;
+    border-radius: 5px 0 0 5px;
 }
 .track button.btn.btn-default {
     border: none;
     background: #F07818;
-    border-radius: inherit;
+    border-radius: 0px 4px 4px 0px;
     float: right;
     width: 31%;
     color: #fff;

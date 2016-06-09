@@ -81,6 +81,10 @@
     }1394
 }
 @media (min-width:1281px) and (max-width:1366px){
+    .dropdown-menu {
+        min-width: 159px;
+    }
+
     .gallery h2{
         font-size: 3em;
     }

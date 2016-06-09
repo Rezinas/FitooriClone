@@ -69,7 +69,7 @@
                       <td class="rightvals">: &#8377; <span id="grandTotal">
                       <?php
                           if(isset($currOrder["offercode"]) && $currOrder["offercode"] === "FREESHIPPING") {
-                            echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL - SHIPPINGCHARGES_SMALL);
+                            echo money_format('%!i',$cartTotal);
                           }
                           else {
                            echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL);

@@ -189,16 +189,16 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.selectImage = function(elem, mainlist) {
             $scope.levelFilled = true;
 
-            if($scope.showMsg && nextMsg && $scope.startType != 'stud') {
+            if(nextMsg && $scope.startType != 'stud') {
                 $scope.feedbackMsg = "Click 'Next' to add a " +$scope.startType+" design.";
                 $(".curvedarrow").hide();
                 $(".curvedarrowDown").show();
-                $scope.showHelp();
+                if ($scope.showMsg) $scope.showHelp();
                 nextMsg = false;
             }
-            else if($scope.showMsg && elem.bottompoints == 0 && attMsg){
+            else if(elem.bottompoints == 0 && attMsg){
                 $scope.feedbackMsg = "Looks great! The \"Next\" button won't appear when no further attachments can be made. Save your  personalized "+$scope.startType+ "! ";
-                $scope.showHelp();
+                 if($scope.showMsg) $scope.showHelp();
                 $(".curvedarrowLeft").hide();
                 $(".curvedarrowLeft").hide();
                 $(".curvedarrow").show();

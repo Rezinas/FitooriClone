@@ -19,7 +19,7 @@ $_SESSION["startStyle"] = $startStyle;
 
 
 //get only earring parts and filter by the startStyle.
-$qry = "SELECT id, carouselImg,  imgheight, imgwidth, bodypart, centerx, centery,  toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name, quantity, priority from pieces where bodypart=3 and quantity > 1 and find_in_set('$startStyle', style) <> 0 order by priority";
+$qry = "SELECT id, carouselImg,  imgheight, imgwidth, bodypart, centerx, centery,  toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name, quantity, priority from pieces where bodypart=3 and quantity > 1 and find_in_set('$startStyle', style) <> 0 order by priority desc";
 
 
  	$stmt = $dbcon->prepare($qry);

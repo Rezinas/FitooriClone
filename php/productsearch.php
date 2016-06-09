@@ -49,7 +49,7 @@ $stmt->close();
 $jsondata = array(
 	"siteUrl" => SITE_URL,
 	"items" => $itemsArr,
-	"styles" => array('hook', 'jhumka', 'chandelier', 'dangler', 'stud', 'hoop'),
+	"styles" => array('jhumka', 'chandelier', 'dangler', 'stud', 'hoop'),
 	"isAgent" => isAgent(),
 	"materials" => $categoriesArr,
 	"products" =>$allproducts,

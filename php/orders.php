@@ -50,7 +50,7 @@ if(isset($_REQUEST["confirmOrder"])) {
         $message .= '<tr>';
         $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">';
         $message .= '<strong>'.$citem["name"] ? $citem["name"] : "My Design".'</strong>';
-        $message .= '<p><img src="http://fitoori.com/productImages/'.$citem["mainimg"] .'"/><br>';
+        $message .= '<p><img style="max-height: 200px;" src="http://fitoori.com/productImages/'.$citem["mainimg"] .'"/><br>';
         $message .= 'Item ID: &nbsp;<span>PNR00'.$citem["pid"].'</span><br>';
         $message .= 'Quantity: &nbsp;<span> '.$citem["quantity"].'</span><br>';
         $message .= '</td>';
@@ -67,10 +67,25 @@ if(isset($_REQUEST["confirmOrder"])) {
     $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">Shipping</td>';
     $message .= '<td style="border-top: 1px solid #f07818">: &#8377;'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
     $message .= '</tr>';
-    $message .= '<tr>';
-    $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;color:#333;font-weight:bold;">Grand - Total</td>';
-    $message .= '<td style="border-top: 1px solid #f07818">: &#8377; <span id="grandTotal">'. money_format("%!i",round($ctotal + SHIPPINGCHARGES_SMALL, 0)) .'</span></td>';
-    $message .= '</tr>';
+
+    if(isset($_SESSION['offer'])  && $_SESSION['offer'] == 1) {
+        $message .= '<tr>';
+        $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">Offers(Free Shipping)*</td>';
+        $message .= '<td style="border-top: 1px solid #f07818">: &#8377;-'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
+        $message .= '</tr>';
+
+        $message .= '<tr>';
+        $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;color:#333;font-weight:bold;">Grand - Total</td>';
+        $message .= '<td style="border-top: 1px solid #f07818">: &#8377; <span id="grandTotal">'. money_format("%!i",round($ctotal, 0)) .'</span></td>';
+        $message .= '</tr>';
+    }
+    else  {
+        $message .= '<tr>';
+        $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;color:#333;font-weight:bold;">Grand - Total</td>';
+        $message .= '<td style="border-top: 1px solid #f07818">: &#8377; <span id="grandTotal">'. money_format("%!i",round($ctotal + SHIPPINGCHARGES_SMALL, 0)) .'</span></td>';
+        $message .= '</tr>';
+    }
+
     $message .= '</table>';
     $message .= '</div>';
     $message .= '<div class="estimate" style="width: 50%;text-align: right;">';
@@ -97,6 +112,7 @@ if(isset($_REQUEST["confirmOrder"])) {
     unset($_SESSION['shippingaddress']);
     unset($_SESSION['orderemail']);
     unset($_SESSION['userflname']);
+    unset($_SESSION['offer']);
 
 
     echo "SUCCESS";
@@ -327,6 +343,8 @@ else {
     }
 
     if($offer) {
+
+            $_SESSION['offer'] = 1;
           $offQ =  "UPDATE `orders` SET `offercode` = ? WHERE `orders`.`orderid` = $sess_orderID";
         $offercode ="FREESHIPPING";
         $stmt = $dbcon->prepare($offQ);

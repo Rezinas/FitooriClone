@@ -38,7 +38,7 @@
                            <div class="clearfix"></div>
                         </div>
 
-                          <div class="message" ng-if='showMsg'>
+                          <div class="message" ng-style="{'display': showMsg?'block':'none'}">
                             <div class="curvedarrow"></div>
                             <div class="curvedarrowDown"></div>
                             <div class="curvedarrowLeft"></div>
@@ -104,10 +104,10 @@
                      <div class="elements" id="sampleImgs">
                         <a href="javascript:void(0)" onclick="$('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide(); " class="lightboxClose"><i class="fa fa-times-circle"></i></a>
                         <div id="subElementsDiv">
-                              <h4>Teracotta Designs</h4>
-                           <div class="pr-ribbon">
+                              <h4>Teracotta Designs ({{(filteredSet | category:1).length}})</h4>
+                           <div class="pr-ribbon" ng-if="(filteredSet | category:1).length > 0">
                               <!-- <h4>Teracotta Options<j/h4> -->
-                              <div class="product-grid elem" ng-repeat="imgElem in terracota = (filteredSet | category:1) | limitTo:numDisp">
+                              <div class="product-grid elem" ng-repeat="imgElem in terracota = (filteredSet | category:1) | orderBy:'-priority' | limitTo:numDisp">
                                  <div class="product-img">
                                     <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                                  </div>
@@ -123,16 +123,16 @@
                            </div>
                            <div id="light" class="white_content">
                               <!-- <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><i class="fa fa-times-circle"></i></a> -->
-                              <div ng-repeat="imgElem in filteredSet | category:1" class="popupImageDiv">
+                              <div ng-repeat="imgElem in filteredSet | category:1 | orderBy:'-priority'" class="popupImageDiv">
                                  <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                               </div>
                            </div>
                            <div id="fade" class="black_overlay">	</div>
                               <br>
-                              <h4>Metal Designs</h4>
-                           <div class="pr-ribbon">
+                              <h4>Metal Designs ({{(filteredSet | category:3).length}})</h4>
+                           <div class="pr-ribbon"  ng-if="(filteredSet | category:3).length > 0">
                               <!-- <h4>Metals Options</h4> -->
-                              <div class="product-grid elem" ng-repeat="imgElem in metal= (filteredSet | category:3) | limitTo:numDisp">
+                              <div class="product-grid elem" ng-repeat="imgElem in metal= (filteredSet | category:3 | orderBy:'-priority' ) | limitTo:numDisp">
                                  <div class="product-img">
                                     <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                                  </div>
@@ -148,16 +148,16 @@
                            </div>
                            <div id="light2" class="white_content">
                               <!-- <a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a><br/> -->
-                              <div ng-repeat="imgElem in filteredSet | category:3" class="popupImageDiv">
+                              <div ng-repeat="imgElem in filteredSet | category:3 | orderBy:'-priority'" class="popupImageDiv">
                                  <img   ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                               </div>
                            </div>
                            <div id="fade2" class="black_overlay"></div>
                               <br>
-                              <h4>Beaded Designs</h4>
+                              <h4>Beaded Designs({{(filteredSet | category:2).length}})</h4>
                            <div class="pr-ribbon" ng-if="(filteredSet | category:2).length > 0">
                                  <!-- <h4>Beaded Options</h4> -->
-                                 <div class="product-grid elem" ng-repeat="imgElem in beaded = (filteredSet | category:2) | limitTo:numDisp">
+                                 <div class="product-grid elem" ng-repeat="imgElem in beaded = (filteredSet | category:2 | orderBy:'-priority') | limitTo:numDisp">
                                     <div class="product-img">
                                        <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                                     </div>
@@ -173,7 +173,7 @@
                                  <div class="clearfix"></div>
                               <div id="light1" class="white_content">
                                  <!-- <a href = "javascript:void(0)" onclick = "document.getElementById('light1').style.display='none';document.getElementById('fade1').style.display='none'">Close</a><br/> -->
-                                 <div ng-repeat="imgElem in filteredSet | category:2" class="popupImageDiv">
+                                 <div ng-repeat="imgElem in filteredSet | category:2 | orderBy:'-priority'" class="popupImageDiv">
                                     <img  ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                                  </div>
                               </div>

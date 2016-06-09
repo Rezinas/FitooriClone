@@ -26,7 +26,7 @@ if(!empty($_REQUEST)){
             //Notify user and admin about order cancellation.
     $subject = 'Fitoori Order Cancelled';
     $message= "<strong>Hi $userflname, </strong><br>";
-    $message .= "<p>Thank you for choosing Fitoori. Your order ".$_REQUEST['orderid']." has been successfully cancelled. Please contact admin@fitoori.com  for any questions.</p> <p> Fitoori Team.</p>";
+    $message .= "<p>Thank you for choosing Fitoori. Your order ".$_REQUEST['orderid']." has been successfully cancelled. Please contact team@fitoori.com for any questions.</p> <p> Fitoori Team.</p>";
 
    sendemail($currUserEmail, $subject, $message);
 
@@ -53,7 +53,7 @@ if(!empty($_REQUEST)){
         // var_dump($currOrder);
 
         if($currOrder['useremail'] != $currUserEmail) {
-            $mainErrorMsg = "This order id not found. Please contact admin@fitoori.com, ".$currOrder['useremail']." and $currUserEmail";
+            $mainErrorMsg = "This order id not found. Please contact team@fitoori.com, ".$currOrder['useremail']." and $currUserEmail";
         }
 
 
@@ -79,7 +79,7 @@ if(!empty($_REQUEST)){
     }
     else {
         //$mainErrorMsg = "This order id not found. Please contact admin@fitoori.com, ".$currOrder['useremail']." and $currUserEmail";
-        $mainErrorMsg = "This order id not found. Please contact admin@fitoori.com";
+        $mainErrorMsg = "This order id not found. Please contact team@fitoori.com";
     }
 }
 
