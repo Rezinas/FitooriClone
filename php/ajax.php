@@ -94,12 +94,13 @@ function createCustomPrdImage($elemArr)
 
 
      //start constructing the image
-    $offsetx = 15;
-    $offsety = 15;
+    $offsetx = 30;
+    $offsety = 30;
      foreach($elemArr as $key => $elm) {
       $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
-        $orig_w = $elm["imgwidth"];
-        $orig_h = $elm["imgheight"];
+        // $orig_w = $elm["imgwidth"];
+        // $orig_h = $elm["imgheight"];
+        list($orig_w, $orig_h) = getimagesize("../productImages/".$elm['selectedImage']);
 
         $dst_x = $elm['leftPos'];
         $dst_y = $elm['topPos'];
@@ -128,14 +129,17 @@ function createCustomPrdImage($elemArr)
 
     $curr_x = 0;
     $curr_y = 0;
+
+    $imgcount = 0;
     while($curr_x < $out_w){
-    imagealphablending($out, true);
-    imagecopy($out, $img, $curr_x, $curr_y, 0, 0, $ow, $oh);
-    imagesavealpha( $out, true );
+      $imgcount++;
+      if($imgcount > 2) break;
+      imagealphablending($out, true);
+      imagecopy($out, $img, $curr_x, $curr_y, 0, 0, $ow, $oh);
+      imagesavealpha( $out, true );
 
-    $curr_x += $ow;
-    $curr_y = 15;
-
+      $curr_x += $ow-25;
+      $curr_y = 15;
     }
 
 
@@ -287,12 +291,6 @@ if(isset($_GET["addcustom"])) {
          die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
         }
 
-        //update pieces table for quantity
-        $pqry = "UPDATE pieces set quantity = quantity-2 where id=?";
-        $upd_stmt = $dbcon->prepare($pqry);
-        if(!$upd_stmt) {
-          die('Update Error : ('. $dbcon->errno .') '. $dbcon->error);
-        }
 
         $matlist = "";
         $previd = -1;
@@ -308,21 +306,9 @@ if(isset($_GET["addcustom"])) {
           if(!$ins_stmt1->execute()){
               die('Custom Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
           }
-          $upd_stmt->bind_param('i', $elem['id']);
-          if(!$upd_stmt->execute()){
-              die('Update pieces Error : ('. $dbcon->errno .') '. $dbcon->error);
-          }
-
-          // if $elem.quantity -2 < 2 then send email from here
-          if(($elem['quantity'] -2 ) <= 2) {
-             $messageDetail = "The element low on quantity is ID: ".$elem['id']." Image:  <img src='http://fitoori.com/productImages/".$elem['selectedImage']."' />";
-           // $result =  sendemail('rezinas@gmail.com', "Pieces low on Quantity",  $messageDetail);
-          }
-
         }
 
         $ins_stmt1->close();
-        $upd_stmt->close();
 
         $result = "SUCCESS";
         $earObj = array(
@@ -333,45 +319,6 @@ if(isset($_GET["addcustom"])) {
         $custEarrings = isset($_SESSION['customEarrings']) ? $_SESSION['customEarrings'] : [];
         $custEarrings[] = $earObj;
         $_SESSION['customEarrings'] = $custEarrings;
-
-        //get new pieces
-
-//get only earring parts and filter by the startStyle.
-        $startStyle = $_SESSION['startStyle'];
-$newpieces =[];
-
-$qry = "SELECT id, carouselImg,  imgheight, imgwidth, bodypart, centerx, centery,  toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name, quantity, priority from pieces where bodypart=3 and  quantity >= 2 and find_in_set('$startStyle', style) <> 0 order by priority";
-
-
-  $stmt = $dbcon->prepare($qry);
-if(!$stmt->execute()){
-    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-}
-$stmt->store_result();
-$stmt->bind_result($a,$b,$bh, $bw, $c,  $cx, $cy, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p, $q, $s);
-while ($stmt->fetch()) {
-  $row=[];
-  $row = ['id' => $a, 'carouselImg' => $b, 'imgheight'=>  $bh, 'imgwidth'=>  $bw, 'bodypart' => $c,  'centerx' => $cx, 'centery' => $cy, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n, 'price' => $o, 'name' => $p, 'quantity' =>$q, 'priority' => $s];
-
-  $qry2 = "SELECT color, design, imagefile, imageid, pieceid from pieceimages where pieceid = ".$a;
-  $stmt1 = $dbcon->prepare($qry2);
-  if(!$stmt1->execute()){
-    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-  }
-
-  $stmt1->store_result();
-  $stmt1->bind_result($a,$b, $c, $d, $e);
-  $images=[];
-  while ($stmt1->fetch()) {
-      $images[] = ['color' => $a, 'design' => $b, 'imagefile' => $c, 'imageid' => $d, 'pieceid' => $e];
-  }
-
-  $stmt1->close();
-    $row["images"] = $images;
-  $newpieces[] = $row;
-}
-$stmt->close();
-
       }
       else $result = "ERROR";
 
@@ -381,7 +328,6 @@ $stmt->close();
           "pid" => $prodid,
           "pimg" => $customImgName,
           "customizedEarrings" => $custEarrings,
-          "newpieces" => $newpieces,
           "matlist" => $matlist
     );
      echo json_encode($jsondata);

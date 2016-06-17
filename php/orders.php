@@ -47,6 +47,48 @@ if(isset($_REQUEST["confirmOrder"])) {
     $message .= '<th>Price</th>';
     $message .= '</tr>';
     foreach($cartItemlist as $citem) {
+
+        //if the product is a customized one then reduce the quantity of the pieces
+        if($citem["customized"] == 1 ){
+            //get the elements of this products from customdesign
+
+          $qry2 = "SELECT c.elementid, c.selectedImage, p.quantity from customdesign as c, pieces as p where c.elementid =p.id AND c.productid = ".$citem["productid"];
+          $stmt1 = $dbcon->prepare($qry2);
+
+          $pqry = "UPDATE pieces set quantity = quantity-2 where id=?";
+          $upd_stmt = $dbcon->prepare($pqry);
+          if(!$upd_stmt) {
+              die('Update Error : ('. $dbcon->errno .') '. $dbcon->error);
+          }
+
+          if(!$stmt1->execute()){
+            die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+          }
+
+          $stmt1->store_result();
+          $stmt1->bind_result($eid, $im, $q);
+          $eidArr=[];
+          while ($stmt1->fetch()) {
+              // $eidArr[] = ['eid' => $eid];
+             $upd_stmt->bind_param('i', $eid);
+              if(!$upd_stmt->execute()){
+                  die('Update pieces Error : ('. $dbcon->errno .') '. $dbcon->error);
+              }
+
+              // if $elem.quantity -2 < 2 then send email from here
+              if(($q-2 ) <= 2) {
+                 $messageDetail = "The element low on quantity is ID: ".$eid." Image:  <img src='http://fitoori.com/productImages/".$im."' />";
+               // $result =  sendemail('rezinas@gmail.com', "Pieces low on Quantity",  $messageDetail);
+              }
+
+
+          }
+
+          $stmt1->close();
+          $upd_stmt->close();
+        }
+
+
         $message .= '<tr>';
         $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">';
         $message .= '<strong>'.$citem["name"] ? $citem["name"] : "My Design".'</strong>';
@@ -193,7 +235,7 @@ if($sess_orderID == -1) {
 $currUserEmail = isGuest() ? "" :  getCurrentUserEmail();
 $currUsertype="2";
 $curr_user = ['userid' => '', 'firstname' => '', 'lastname' => '', 'email' => '', 'phone' => '', 'gender' => '', 'address1' => '', 'address2' => '', 'city' => '', 'state' => '', 'postalcode' => ''];
-$order_add = ['email' => '','email' => '', 'ship_add1' => '', 'ship_add2' => '', 'ship_city' => '', 'ship_state' => '', 'ship_postal' => '', 'bill_add1' => '', 'bill_add2' => '', 'bill_city' => '', 'bill_state' => '', 'bill_postal' => '', 'paymenttype' => 'COD'];
+$order_add = ['email' => '','email' => '', 'ship_add1' => '', 'ship_add2' => '', 'ship_city' => '', 'ship_state' => '', 'ship_postal' => '', 'bill_add1' => '', 'bill_add2' => '', 'bill_city' => '', 'bill_state' => '', 'bill_postal' => '', 'paymenttype' => 'COD', 'phone' => ''];
 
 
 //if the user is not a guest, get the current user details to prefill the order form

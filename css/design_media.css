@@ -52,7 +52,7 @@
         right: 10px;
     }
     .bgProduct .fa-check-circle{
-        right:2%;
+        /*right:2%;*/
     }
     .bubble{
         top: -80px;
@@ -108,10 +108,10 @@
         padding: 0px;
     }
     .white_content{
-        height: 76%;
+        /*height: 76%;*/
     }
     .black_overlay{
-        height: 77%;
+        /*height: 77%;*/
     }
 }
 @media (min-width:1081px) and (max-width:1280px){
@@ -309,6 +309,14 @@
     }
 }
 @media (min-width:992px) and (max-width:1024px){
+      .bgProduct .fa-check-circle{
+            right: -2px;
+        }
+      .bgProduct button {
+        right: -100px;
+        width: 32%;
+        }
+
     .page-header{
         font-size: 3.5em;
         margin-top: 8px;
@@ -323,8 +331,8 @@
         width: 80px;
     }
     .product-grid.elem .product-img img{
-        height: 80px;
-        margin: 0 auto;
+        /* height: 80px; */
+        /* margin: 0 auto; */
     }
     .prd_elements img{
         width: 100%;
@@ -338,7 +346,7 @@
         width: 250px;
     }
     .bgProduct .fa-check-circle{
-        right: -35%;
+        right: 0;
     }
     #chkBtn button{
         width: 24%;

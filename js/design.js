@@ -88,7 +88,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
              var prevXs = prevItem.botX.split(",");
             var currXs = row.topX.split(",");
             var matchingPoints =true;
-            for(var i=0; i< topPoints && matchingPoints; i++){
+            for(var i=0; i< prevBottomPoints && matchingPoints; i++){
 
                 if(Math.abs((currXs[i+1] - currXs[i]) - (prevXs[i+1] - prevXs[i])) > 5)
                     matchingPoints=false;
@@ -103,13 +103,17 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         var findConnectionElements = function(eitems) {
             var resArr = [];
             var prevItem;
-            var topPoints = 0;
+            var prevBottomPoints = 0;
 
             if ($scope.designLevel != 0) {
                 prevItem = $scope.mySelectedItems[$scope.designLevel - 1];
-                topPoints = prevItem.bottompoints;
+                prevBottomPoints = prevItem.bottompoints;
             }
-            if ($scope.designLevel != 0 && topPoints == 0) {
+
+            //if it is not level 1 and if the previous element was a stud..or didnt have bottompoints then there is no more options.
+            // we can show options if only there are bottom points on previous elements
+            // the next button will not be available anyways.
+            if ($scope.designLevel != 0 && prevBottomPoints == 0) {
                 return resArr;
             }
 
@@ -118,34 +122,52 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     return true;
                 }
                 if ($scope.designLevel == 0) {
-                    // if (row.toppoints == 0 && row.admintags.indexOf($scope.startType)) {
+                    //we are getting only studs.. these elements dont have toppoints
                    if (row.toppoints == 0) {
                         resArr.push(row);
                     }
                 } else {
-                    if(row.toppoints == 1){
-                        // if($scope.designLevel == 3){
-                        //     if(row.bottompoints == 0)
-                        //         resArr.push(row);
-                        // }
-                        // else
-                          resArr.push(row);
-                    }
-                    if (row.toppoints == topPoints && row.toppoints != 1) {
-                        var prevXs = prevItem.botX.split(",");
-                        var currXs = row.topX.split(",");
-                        var matchingPoints =true;
-                        for(var i=0; i< topPoints && matchingPoints; i++){
+                    //for other levels find the options
 
-                            if(Math.abs((currXs[i+1] - currXs[i]) - (prevXs[i+1] - prevXs[i])) > 5)
-                                matchingPoints=false;
+                    //if the prev element bottom point is only one, the options will all have only one top point
+                    if(prevBottomPoints == 1){
+                        // all single top point elements are good options here.
+                         if(row.toppoints == 1) resArr.push(row);
+                    }
+                    else {
+                        // if the prev  element has multiple bottom points, we need to figure out if the element with only one toppoint fits into the multiple bottom points
+                        if(row.toppoints == 0 ) { return true; }
+                        else if(row.toppoints == 1 ) {
+                            var botXs=  prevItem.botX.split(",");
+                            var botYs=  prevItem.botY.split(",");
+                            var curWidth = row.imgwidth;
+                            var fits =true;
+
+                            for(var i=0; i < botXs.length && fits; i++){
+                                var  a = botXs[i+1] - botXs[i];
+                                var b = botYs[i+1] - botYs[i];
+                               // console.log(curWidth);
+                               // console.log(Math.sqrt(a*a + b*b));
+                                if(Math.sqrt(a*a + b*b) <= (curWidth)) {
+                                    fits=false;
+                                }
+                            }
+                            if(fits) resArr.push(row);
                         }
-                        if($scope.designLevel == 3){
-                            if(matchingPoints && row.bottompoints == 0)
-                            resArr.push(row);
+                        else if(row.toppoints == prevBottomPoints){
+                            //if the element with multiple top point matches the multiple prev element bottom points
+                            var prevXs = prevItem.botX.split(",");
+                            var currXs = row.topX.split(",");
+                            var matchingPoints =true;
+                            for(var i=0; i< prevBottomPoints && matchingPoints; i++){
+                                if(Math.abs((currXs[i+1] - currXs[i]) - (prevXs[i+1] - prevXs[i])) > 5)
+                                    matchingPoints=false;
+                            }
+                            if(matchingPoints) resArr.push(row);
                         }
-                        else if(matchingPoints)
-                         resArr.push(row);
+                        else {
+                            return true;
+                        }
                     }
                 }
 
@@ -187,8 +209,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         $scope.selectImage = function(elem, mainlist) {
+
             $scope.levelFilled = true;
 
+            //for feedback messages
             if(nextMsg && $scope.startType != 'stud') {
                 $scope.feedbackMsg = "Click 'Next' to add a " +$scope.startType+" design.";
                 $(".curvedarrow").hide();
@@ -206,7 +230,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
             }
 
-
+            //for sparkling connection point
             $('figure.star.level'+$scope.designLevel).remove();
 
             var bpoints = ($scope.mySelectedItems.length ==0) ? 1 : 0;
@@ -234,44 +258,14 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
               prevElsArr = $scope.prdIndex[$scope.designLevel-1];
               numberOfElemInPrevLevel = prevElsArr.length;
 
-                //for multi point elements we need to figure out if there are going to be
-                //multiple next level elements or only one in the middle
+                // if ther eare multiple elements or multiple bottompoints in the previous level we need to update bpoints accordingly
                 $.each(prevElsArr, function(ix, elPos){
-                    var cElem = $scope.mySelectedItems[elPos];
-                    var curBpoints =  cElem.bottompoints;
-                    if(isOdd(curBpoints) && curBpoints > 1 && elem.toppoints == 1) {
-                        var botXs=  cElem.botX.split(",");
-                        var botYs=  cElem.botY.split(",");
-                        var curWidth = elem.imgwidth;
-                        for(var i=0; i < botXs.length && fits; i++){
-                            var  a = botXs[i+1] - botXs[i];
-                            var b = botYs[i+1] - botYs[i];
-                           // console.log(curWidth);
-                           // console.log(Math.sqrt(a*a + b*b));
-                            if(Math.sqrt(a*a + b*b) <= (curWidth)) {
-                                fits=false;
-                            }
-                        }
-                    }
-                    else {
-                        $scope.filteredSet = findEligibleElement($scope.filteredSet, elem);
-                    }
-                    if(fits) {
-                         bpoints += $scope.mySelectedItems[elPos].bottompoints;
-                    }
-                    else {
-                         bpoints += 1;
-                    }
+                    bpoints += $scope.mySelectedItems[elPos].bottompoints;
                 });
 
                 var prevConnArrLength = $scope.allConnArr[$scope.designLevel-1].length;
                 $.each($scope.allConnArr[$scope.designLevel-1], function(ix, elPos){
-                    if(fits) {
-                        lastLevelEl.push($scope.mySelectedItems[elPos.split(',')[0]]);
-                    }
-                    else if(ix == Math.floor(prevConnArrLength/2))  {
-                        lastLevelEl.push($scope.mySelectedItems[elPos.split(',')[0]]);
-                    }
+                    lastLevelEl.push($scope.mySelectedItems[elPos.split(',')[0]]);
                 });
             }
             if (mainlist) {
@@ -288,21 +282,16 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 var connArr =[];
                 for(var i=0; i< bpoints; i++){
                     var currBottomPoints = (elem.bottompoints == 0) ? 1 : parseInt(elem.bottompoints, 10);
-                    if(!fits) {
-                        connArr.push(pos+","+Math.floor(prevConnArrLength/2));
+                    for(var j=0; j< currBottomPoints; j++) {
+                       connArr.push(pos+","+j);
                     }
-                    else {
-                        for(var j=0; j< currBottomPoints; j++) {
-                           connArr.push(pos+","+j);
-                        }
-                    }
-
                     indexArr.push(pos);
 
                     var element = {};
                     angular.copy(elem, element)
                     element.selectedImage = element.carouselImg;
-                                //Calculating topPos and leftPos
+
+                    //Calculating topPos and leftPos
                     var topPos = 0;
                     var leftPos = 0;
 
@@ -311,33 +300,27 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                         prevElement = lastLevelEl[i];
                         topPos += parseInt(prevElement.topPos, 10);
                         leftPos += parseInt(prevElement.leftPos, 10);
-                        var connPoint;
-                        if(fits) {
-                            connPoint = $scope.allConnArr[$scope.designLevel-1][i];
-                        }
-                        else  {
-                            connPoint = $scope.allConnArr[$scope.designLevel-1][Math.floor(prevConnArrLength/2)];
-                        }
+                        var connPoint = $scope.allConnArr[$scope.designLevel-1][i];
 
                         if(prevElement.bottompoints > 1){
                              var botPoints = prevElement.botY.split(",");
                              topPos += parseInt(botPoints[connPoint.split(",")[1]], 10);
                              var tPoints = prevElement.botX.split(",");
-                             if(element.toppoints == 1) {
                                 leftPos += parseInt(tPoints[connPoint.split(",")[1]], 10) - parseInt(element.topX, 10);
-                             }
                         }
                         else {
                              topPos += parseInt(prevElement.botY, 10);
-                             if(element.toppoints == 1) {
-                                leftPos += parseInt(prevElement.botX, 10) - parseInt(element.topX, 10);
-                             }
+                             leftPos += parseInt(prevElement.botX, 10) - parseInt(element.topX, 10);
                         }
                     }
                     else {
                         leftPos += parseInt(element.centerx, 10);
                         topPos += parseInt(element.centery, 10);
                     }
+
+                    // console.log(topPos);
+                    // console.log(leftPos);
+
                     element.topPos = topPos;
                     element.leftPos = leftPos;
                     $scope.mySelectedItems.push(element);
@@ -360,8 +343,26 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
           //   $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
         };
 
+        var updateQuantity = function (flag, level) {
+
+            var elemInd = $scope.prdIndex[level];
+            var currEl = null;
+            $.each(elemInd, function(indx, val){
+                currEl = $scope.mySelectedItems[val];
+                 angular.forEach($scope.earringPieces, function(epiece) {
+                        if(epiece.id == currEl.id) {
+                            var quant = parseInt(epiece.quantity, 10);
+                            if(flag) epiece.quantity = quant-2;
+                            else  epiece.quantity = quant+2;
+                        }
+                    });
+            });
+              console.log($scope.mySelectedItems);
+        }
+
         $scope.updateLevel = function() {
             if($scope.levelFilled) {
+                updateQuantity(true, $scope.designLevel);
                 $scope.designLevel++;
                 $scope.levelFilled = false;
                 $scope.filteredSet = findConnectionElements($scope.earringPieces);
@@ -374,22 +375,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                             $scope.feedbackMsg = "Wonderful! Now choose a design from our collection for your "+$scope.startType+", click + to see all options. Add to cart if you like your design.";
                             $(".curvedarrowLeft").show();
                             level1Msg = false;
-
-
-                    //  switch($scope.startType) {
-                    //     case 'jhumka' :
-                    //         $scope.feedbackMsg = 'Wonderful! Now choose a design from our collection to add below your jhumka.';
-                    //         break;
-                    //     case 'hoop' :
-                    //         $scope.feedbackMsg = 'Wonderful! Now choose a design from our collection to match below your hoop.';
-                    //         break;
-                    //     case 'chandelier' :
-                    //         $scope.feedbackMsg = "Wonderful! Now choose a design from our collection, don't forget to click + and see all options.";
-                    //         break;
-                    //     case 'dangler' :
-                    //         $scope.feedbackMsg = "Wonderful! Now choose a design from our collection, don't forget to click + and see all options. Add to cart if you like your design.";
-                    //         break;
-                    // };
                 }
                 else if($scope.designLevel == 2 && level2Msg) {
                             $(".curvedarrowLeft").show();
@@ -453,6 +438,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
           if($scope.productAdded) {
              return;
           }
+          updateQuantity(true, $scope.designLevel);
           $scope.showMsg = false;
           var payload = {
                         custom_product : $scope.mySelectedItems,
@@ -468,7 +454,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             if(data.result == "SUCCESS"){
                   $scope.productAdded = true;
                   $scope.customizedEarrings = data.customizedEarrings;
-                  $scope.earringPieces = data.newpieces;
                   $scope.resetDesign();
 
                   $("#myModal span#earringType").html($scope.startType);
@@ -486,6 +471,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         $scope.resetDesign = function(){
+                // the quantity is updated only for the case where currently a design session is in progress and not when save design was clicked.
+                if($scope.mySelectedItems.length > 0  && !$scope.productAdded) {
+                   if($scope.levelFilled) updateQuantity(false, $scope.designLevel);
+                   else updateQuantity(false, $scope.designLevel-1);
+                }
+
                 $scope.mySelectedItems = [];
                 $scope.designLevel = 0;
                 $scope.currentPage = 0;
@@ -497,6 +488,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.productAdded = false;
                 $scope.showCartbtn = false;
 
+                $scope.earringPieces = $window.model.elements;
                 $scope.filteredSet = findConnectionElements($scope.earringPieces);
              $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
 
@@ -512,7 +504,16 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             return yes;
         }
 
+        $scope.addDesToCart = function(pid, pprice) {
+             window.cart.updateCart(pid, pprice);
+             $('div.cart-box').slideDown('slow').delay(1000).slideUp('slow');
+             return false;
+        }
+
         $scope.gobackLevel = function() {
+             if($scope.levelFilled) updateQuantity(false, $scope.designLevel);
+                   else updateQuantity(false, $scope.designLevel-1);
+
             if($scope.prdIndex[$scope.designLevel]){
                 var indexToRemove = $scope.prdIndex[$scope.designLevel][0];
                 var numberToRemove = $scope.prdIndex[$scope.designLevel].length;
@@ -765,6 +766,7 @@ function openOverlay(num) {
 
     $(lightDiv).show();
     $(fadeDiv).show();
+    $(".white_content").scrollTop(0);
     $('.lightboxClose').show();
 }
 

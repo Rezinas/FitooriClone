@@ -231,7 +231,7 @@
                </div>
                <div class="product-info">
                   <span class="item_price">Price: &#8377; {{ cdes.price }}</span>
-                  <button ng-if="!isAgent" type="button" class="add-cart item_add" onclick="addToCart();">Add To Cart</button>
+                  <button ng-if="!isAgent" type="button" class="add-cart item_add" ng-click="addDesToCart(cdes.pid, cdes.price);">Add To Cart</button>
 
                </div>
             </div>
@@ -262,7 +262,7 @@
          <input type='hidden' name='pprice'  value="" />
          <div class="row">
            <div class="col-xs-6">
-             <img id="cimg" src='' />
+             <img style="max-width: 300px; margin-left: -20px;" id="cimg" src='' />
            </div>
            <div class="col-xs-6">
              <h4 style="text-align: left;">Materials:</h4>

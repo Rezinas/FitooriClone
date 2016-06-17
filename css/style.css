@@ -143,13 +143,13 @@ b.caret {
     top: 99%;
 }
 .dropdown-menu {
-	min-width: 166px;
+	min-width: 160px;
 }
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 .dropdown-menu.columns-1 {
-    padding: 2em 1em 3em;
+    padding: 2em 1em 2em;
 }
 .dropdown-menu.columns-3 {
 	min-width: 510px;
@@ -367,11 +367,12 @@ b.caret {
 .track button.btn.btn-default {
     border: none;
     background: #F07818;
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 0px 5px 5px 0px;
     float: right;
     width: 31%;
     color: #fff;
     padding: 0.5em;
+    margin-top: 0;
 }
 
 .track form.navbar-form:before {
@@ -696,7 +697,8 @@ input:focus {
 .banner {
     position: relative;
     background-color: #fff;
-    padding: 40px 0px 0px 0px;    
+    padding: 0px 0px 0px 0px;
+    margin-top: -110px;
 }
 .banner img {
     width: 100%;
@@ -775,14 +777,14 @@ span.glyphicon.glyphicon-eye-open:hover {
 }
 .gallery-info {
     position: absolute;
-    width: 90%;
-    bottom: 13%;
-    left: 5%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
     display: none;
     background-color: rgba(6, 6, 6, 0.79);
     padding: 1em;
 }
-.gallery-grid img:hover {
+.featured:hover {
      border: 1px solid rgba(25, 23, 23, 0.4);
 }
 .gallery-info p {
@@ -826,6 +828,24 @@ span.glyphicon.glyphicon-eye-open:hover {
 }
 .gallery-grids {
     margin-top: 6em;
+}
+
+.featured {
+	width: 23.6%;
+	height: 286px;
+	border: 1px solid #eee;
+	box-shadow: inset 10px 10px 50px #f3f3f3;
+	color: black;
+	padding: 0px;
+	margin-right: 12px;
+	margin-bottom: 5em;
+}
+
+.featured img {
+	border: none;
+	box-shadow: none;
+	width: auto;
+	height: 100%;
 }
 .galy-info p {
     font-size: 1.1em;

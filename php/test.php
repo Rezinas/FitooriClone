@@ -196,72 +196,148 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
 
 
+// $elements =  array(
+//   "custom_product"  => [ array (
+//       "id"=> 114,
+//       "carouselImg"=> "DSC03449_1456829862.png",
+//       "imgheight"=> 62,
+//       "imgwidth"=> 28,
+//       "bodypart"=> 3,
+//       "centerx"=> 15,
+//       "centery"=> 11,
+//       "toppoints"=> 0,
+//       "topX"=> "",
+//       "topY"=> "",
+//       "bottompoints"=> 1,
+//       "botX"=> "10",
+//       "botY"=> "60",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "hook,dangler,chandelier,jhumka",
+//       "admintags"=> "",
+//       "material"=> 3,
+//       "price"=> "0",
+//       "name"=> "",
+//       "quantity"=> 98,
+//       "priority"=> 0,
+//       "selectedImage"=> "DSC03449_1456829862.png",
+//       "topPos"=> 11,
+//       "leftPos"=> 15
+//     ),
+//     array(
+//       "id"=> 22,
+//       "carouselImg"=> "DSC03572_1455201629.png",
+//       "imgheight"=> 104,
+//       "imgwidth"=> 58,
+//       "bodypart"=> 3,
+//       "centerx"=> 0,
+//       "centery"=> 0,
+//       "toppoints"=> 1,
+//       "topX"=> "26",
+//       "topY"=> "-1",
+//       "bottompoints"=> 0,
+//       "botX"=> "",
+//       "botY"=> "",
+//       "color"=> "",
+//       "texture"=> "",
+//       "style"=> "dangler",
+//       "admintags"=> "contemporary",
+//       "material"=> 2,
+//       "price"=> "50",
+//       "name"=> "Acrylic",
+//       "quantity"=> 100,
+//       "priority"=> 0,
+//       "selectedImage"=> "DSC03572_1455201629.png",
+//       "topPos"=> 71,
+//       "leftPos"=> -1
+//         )
+//    ]);
+
+
+//big jhumka
 $elements =  array(
-  "custom_product"  => [ array (
-      "id"=> 114,
-      "carouselImg"=> "DSC03449_1456829862.png",
-      "imgheight"=> 62,
-      "imgwidth"=> 28,
-      "bodypart"=> 3,
-      "centerx"=> 15,
-      "centery"=> 11,
-      "toppoints"=> 0,
-      "topX"=> "",
-      "topY"=> "",
-      "bottompoints"=> 1,
-      "botX"=> "10",
-      "botY"=> "60",
-      "color"=> "",
-      "texture"=> "",
-      "style"=> "hook,dangler,chandelier,jhumka",
-      "admintags"=> "",
-      "material"=> 3,
-      "price"=> "0",
-      "name"=> "",
-      "quantity"=> 98,
-      "priority"=> 0,
-      "selectedImage"=> "DSC03449_1456829862.png",
-      "topPos"=> 11,
-      "leftPos"=> 15
+   "custom_product"  => [ array (
+  "id" => 196,
+  "carouselImg" => "DSC04004_1465300011.png",
+  "imgheight" => 75,
+  "imgwidth" => 49,
+  "bodypart" => 3,
+  "centerx" => 3,
+  "centery" => -19,
+  "toppoints" => 0,
+  "topX" => "",
+  "topY" => "",
+  "bottompoints" => 1,
+  "botX" => "19",
+  "botY" => "69",
+  "color" => "",
+  "texture" => "",
+  "style" => "dangler,jhumka,chandelier",
+  "admintags" => "",
+  "material" => 1,
+  "price" => "80",
+  "name" => "Designer Stud",
+  "quantity" => 2,
+  "priority" => 1,
+  "selectedImage" => "DSC04004_1465300011.png",
+  "topPos" => -19,
+  "leftPos" => 3
+    ),
+     array(
+  "id" => 183,
+  "carouselImg" => "DSC04014_1465282623.png",
+  "imgheight" => 82,
+  "imgwidth" => 102,
+  "bodypart" => 3,
+  "centerx" => 0,
+  "centery" => 0,
+  "toppoints" => 1,
+  "topX" => "47",
+  "topY" => "-5",
+  "bottompoints" => 1,
+  "botX" => "45",
+  "botY" => "77",
+  "color" => "",
+  "texture" => "",
+  "style" => "dangler,jhumka",
+  "admintags" => "",
+  "material" => 1,
+  "price" => "100",
+  "name" => "Embosed dangler",
+  "quantity" => 2,
+  "priority" => 1,
+  "selectedImage" => "DSC04014_1465282623.png",
+  "topPos" => 50,
+  "leftPos" => -25
     ),
     array(
-      "id"=> 22,
-      "carouselImg"=> "DSC03572_1455201629.png",
-      "imgheight"=> 104,
-      "imgwidth"=> 58,
-      "bodypart"=> 3,
-      "centerx"=> 0,
-      "centery"=> 0,
-      "toppoints"=> 1,
-      "topX"=> "26",
-      "topY"=> "-1",
-      "bottompoints"=> 0,
-      "botX"=> "",
-      "botY"=> "",
-      "color"=> "",
-      "texture"=> "",
-      "style"=> "dangler",
-      "admintags"=> "contemporary",
-      "material"=> 2,
-      "price"=> "50",
-      "name"=> "Acrylic",
-      "quantity"=> 100,
-      "priority"=> 0,
-      "selectedImage"=> "DSC03572_1455201629.png",
-      "topPos"=> 71,
-      "leftPos"=> -1
-        )
+  "id" => 195,
+  "carouselImg" => "DSC04005_1465299849.png",
+  "imgheight" => 96,
+  "imgwidth" => 113,
+  "bodypart" => 3,
+  "centerx" => 0,
+  "centery" => 0,
+  "toppoints" => 1,
+  "topX" => "50",
+  "topY" => "-4",
+  "bottompoints" => 0,
+  "botX" => "",
+  "botY" => "",
+  "color" => "",
+  "texture" => "",
+  "style" => "dangler",
+  "admintags" => "",
+  "material" => 2,
+  "price" => "150",
+  "name" => "",
+  "quantity" => 2,
+  "priority" => 1,
+  "selectedImage" => "DSC04005_1465299849.png",
+  "topPos" => 127,
+  "leftPos" => -30
+ )
    ]);
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -601,8 +677,8 @@ function createCustomPrdImage($elemArr)
 
 
      //start constructing the image
-    $offsetx = 15;
-    $offsety = 15;
+    $offsetx = 30;
+    $offsety = 30;
      foreach($elemArr as $key => $elm) {
       $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
         $orig_w = $elm["imgwidth"];
@@ -617,7 +693,7 @@ function createCustomPrdImage($elemArr)
         $dst_y += $offsety;
 
       imagealphablending($imgpart, false);
-      imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w, $orig_h);
+      imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w-2, $orig_h);
       imagesavealpha( $img, true );
     }
 
@@ -640,14 +716,17 @@ function createCustomPrdImage($elemArr)
 
     $curr_x = 0;
     $curr_y = 0;
+
+    $imgcount = 0;
     while($curr_x < $out_w){
+      $imgcount++;
+      if($imgcount > 2) break;
     imagealphablending($out, true);
     imagecopy($out, $img, $curr_x, $curr_y, 0, 0, $ow, $oh);
     imagesavealpha( $out, true );
 
-    $curr_x += $ow;
+    $curr_x += $ow-15;
     $curr_y = 15;
-
     }
 
          $font = '../fonts/arial.ttf';

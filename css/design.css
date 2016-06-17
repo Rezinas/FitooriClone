@@ -239,9 +239,10 @@ body {padding-top: 0px !important;}
  left: 50%;
  width: 12px;
  height: 12px;
- background: #FFD700;
+ background: yellow;
  overflow: hidden;
  z-index: 2;
+ border-radius: 50%;
  animation: glitter 10.5s linear 0s infinite normal;
  -webkit-animation: glitter 10.5s linear 0s infinite normal;
  -moz-animation: glitter 10.5s linear 0s infinite normal;
@@ -259,7 +260,7 @@ body {padding-top: 0px !important;}
  content: "";
  width: 12px;
  height: 12px;
- background: #5D4B33;
+ background: none;
  border-radius: 50%;
  position: absolute;
 }

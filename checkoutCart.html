@@ -93,17 +93,17 @@
              <p>Estimated time of delivery : 8 - 14 business days </p>
              <div class="tableClass">
                 <table>
-                   <tr>
+                  <!--  <tr>
                       <th>Total (including Tax)</th>
                       <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
-                   </tr>
-                   <tr>
+                   </tr> -->
+                   <!-- <tr>
                       <th>Shipping</th>
                       <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
-                   </tr>
+                   </tr> -->
                    <tr>
-                      <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
-                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL); ?></span></td>
+                      <th style="color:#F07818;font-weight:bold;">Cart - Total</th>
+                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal); ?></span></td>
                    </tr>
                 </table>
              </div>

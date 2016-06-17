@@ -66,7 +66,7 @@
    else {
        $currenttab = 'home';
 
-      $rqry = "SELECT productid, name, price, material, mainimg, dateAdded FROM products WHERE featured=1 ORDER BY dateAdded DESC LIMIT 8";
+      $rqry = "SELECT productid, name, price, material, mainimg, dateAdded, customized FROM products WHERE featured=1 ORDER BY dateAdded DESC LIMIT 8";
 
        if(!$stmt = $dbcon->prepare($rqry)){
           die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
@@ -77,10 +77,10 @@
       }
 
       $stmt->store_result();
-      $stmt->bind_result($a,$b, $c, $d, $e, $f);
+      $stmt->bind_result($a,$b, $c, $d, $e, $f, $g);
       $featuredPrd =[];
       while ($stmt->fetch()) {
-        $featuredPrd[] = ['productid' => $a, 'name' => $b, 'price' => $c, 'material' => $d, 'mainimg' => $e, 'dateAdded' =>$f];
+        $featuredPrd[] = ['productid' => $a, 'name' => $b, 'price' => $c, 'material' => $d, 'mainimg' => $e, 'dateAdded' =>$f, 'customized' => $g];
       }
       $stmt->close();
 
@@ -168,7 +168,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      </ul>
                   </li>
                   <li class="dropdown grid">
-                     <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Design<b class="caret"></b></a>
+                     <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Customize<b class="caret"></b></a>
                      <ul class="dropdown-menu multi-column columns-3">
                         <div class="row">
                            <div class="col-sm-6">
@@ -200,14 +200,14 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
          <div class="header-info">
             <div class="header-right search-box">
                <a href="javascript:void(0);"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-               <div class="header-popup search">
+               <!-- <div class="header-popup search">
                   <form class="navbar-form">
                      <input type="text" class="form-control">
                      <button type="submit" class="btn btn-default" aria-label="Left Align">
                      Search
                      </button>
                   </form>
-               </div>
+               </div> -->
             </div>
             <div class="header-right login">
                <a href="javascript:void(0);"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>

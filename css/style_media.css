@@ -483,6 +483,10 @@
     }
 }
 @media (min-width:992px) and (max-width:1024px){
+
+    .navbar-default .navbar-nav > li > a {
+        padding: 10px 15px;
+        }
     .banner h2.hdng {
         font-size: 4.5em;
     }
@@ -535,8 +539,13 @@
     .about-infom p, center{
         font-size: 1.1em;
     }
-    .product-img img {
-        padding: 1em 1.5em 0;
+    .product-img.b-link-stripe.b-animate-go.thickbox {
+        width: 145px;
+        height: 142px;
+    }
+    .product-img img{
+        padding: 1em;
+        max-height: 145px;
     }
     .product-info-cust h4{
         font-size: 0.8em;
@@ -1160,7 +1169,7 @@
         margin-top: 2em;
     }
     .gallery-grid.glry-one {
-        padding: 0;        
+        padding: 0;
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -1581,7 +1590,7 @@
         font-size: 0.95em;
     }
     .feturedImg {
-        padding: 50px;
+        /* padding: 50px; */
     }
     .subscribe{
         height: auto;
@@ -2906,7 +2915,7 @@
         margin-top: 2em;
     }
     .gallery-grid.glry-one {
-        padding: 0;        
+        padding: 0;
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -3247,7 +3256,7 @@
         margin-top: 2em;
     }
     .gallery-grid.glry-one {
-        padding: 0;       
+        padding: 0;
         margin-bottom: 2em;
     }
     .gallery-grid.glry-one .gallery-info {
@@ -3745,7 +3754,7 @@
         font-size: 0.9em;
         margin: 0;
     }
-    
+
     .about-infom {
         padding-top: 1em;
     }
@@ -4770,7 +4779,7 @@
     .gallery-grid.glry-two {
         width: 100%;
         margin: 0;
-    }    
+    }
     .gallery-grid:nth-child(3) {
         /*width: 100%;*/
         padding: 0;
@@ -4834,7 +4843,7 @@
     }
     .product-model-sec{
         padding:0px 15px;
-    }    
+    }
     .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
         width: 100%;
     }
@@ -5191,7 +5200,7 @@
     .gallery-grid.glry-two {
         width: 100%;
         margin: 0;
-    }    
+    }
     .gallery-grid:nth-child(3) {
         /*width: 100%;*/
         padding: 0;
@@ -5460,11 +5469,11 @@
 }
 
 @media(max-width: 360px) and (min-width: 321px){
-    
+
     #logo{
         top: -45px;
         width: 30%;
-    }    
+    }
     button.navbar-toggle {
         padding: 7px 10px;
         margin: 0.3em 20em 0px 0px;
@@ -5873,7 +5882,7 @@
     #logo{
         top: 11px;
     }
-    .navbar-nav{    
+    .navbar-nav{
         background: #5D4B33;
     }
     .navbar-nav {
@@ -5887,7 +5896,7 @@
         margin-top: -17px;
     }
     h1.navbar-brand{
-        padding: 9px 0em 0 0; 
+        padding: 9px 0em 0 0;
     }
     button.navbar-toggle {
         margin-right: 14em;
@@ -5957,7 +5966,7 @@
     .gallery-grid{
         padding:0px;
     }
-    .gallery-info {        
+    .gallery-info {
         width: 99%;
         bottom: 20%;
         left: 1px;
