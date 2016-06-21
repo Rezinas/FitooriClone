@@ -49,50 +49,14 @@
                           </div>
 
 
-                            <!-- all the messages come here -->
-                        <!--   <div ng-if="feedbackMsg != ''"  role="alert" class="bubble feedback animated fadeOutLeft ">
-                                    <span>{{feedbackMsg}}</span>
-                           </div>
-
-
-                           <div ng-if="designLevel == 0 && !productAdded"  role="alert" class="bubble animated fadeOutLeft ">
-                                    <span ng-if="startType == 'stud'">  &nbsp;Explore our range of studs , dont forget to click + and see all options.</span>
-                                    <span ng-if="startType == 'jhumka'">
-                                       &nbsp;Choose a top or hook for your jhumka.
-                                    </span>
-                                    <span ng-if="startType == 'hoop'">&nbsp;Start by choosing a hoop.</span>
-                                    <span ng-if="startType == 'chandelier'">  &nbsp;Start by choosing a hook or top for you chandelier.</span>
-                                    <span ng-if="startType == 'dangler'"> &nbsp;Start by choosing a hook or top for you dangler.</span>
-                           </div>
-                           <div ng-if="designLevel == 1 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeOutLeft  ">
-                                    <span ng-if="startType == 'jhumka'">&nbsp;Wonderful! Now choose a design to add below your jhumka.</span>
-                                    <span ng-if="startType == 'hoop'">&nbsp;Wonderful! Now choose a design to match below your hoop.</span>
-                                   <span ng-if="startType == 'chandelier'"> &nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options.</span>
-                                    <span  ng-if="startType == 'dangler'" >&nbsp;Wonderful! Now choose a design from below, don't forget to click + and see all options. Add to cart if you like your design.</span>
-                           </div>
-                           <div ng-if="designLevel == 2 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeOutLeft  " id="alertDiv3">
-                                 <span>Would you like to decorate it more? Go on choose another design. Add to cart if you like your design. </span>
-                           </div>
-                           <div ng-if="designLevel == 3 && mySelectedItems[designLevel].bottompoints != 0 && !productAdded" role="alert" class="bubble animated fadeOutLeft  ">
-                                 <span>Good going! Pick what you like from below one final time if you want to add more.</span>
-                           </div>
-                           <div ng-if="mySelectedItems[designLevel].bottompoints == 0 &&  !productAdded" role="alert" class="bubble animated fadeOutLeft  ">
-                              <span>Looks great! no further attachments can be made. Save your  personalized {{startType }}! </span>
-                           </div>
-                           <div ng-if="productAdded" role="alert" class="bubble animated fadeOutLeft  ">
-                               <span><i class="fa fa-check-circle"></i> Your Design Added successfully to the Cart.</span>
-                           </div> -->
-                        <!-- messages ends here -->
-
-
 
                         <button class="btn" ng-if="startType != 'stud'" ng-hide="nextDisable() || productAdded" ng-click="updateLevel()"> Next <i class="fa fa-check-circle"></i> </button>
                         <!-- <span><span>&#8675;</span> color options are here!</span> -->
                      </div>
                      <div id="imgOptions" class="designOptions">
-                     <h4 style="text-transform: capitalize;text-align:left">{{mySelectedItems[designLevel].name}}</h4>
+                     <h4 ng-if="levelFilled && mySelectedItems[prdIndex[designLevel][0]].name != '' " style="text-transform: capitalize;text-align:left">{{mySelectedItems[prdIndex[designLevel][0]].name}}</h4>
                         <div ng-if="levelFilled" class="aelements">
-                           <img ng-src="{{siteUrl}}productImages/{{mySelectedItems[designLevel].carouselImg}}"  ng-click="selectImage(mySelectedItems[designLevel].carouselImg, false);" />
+                           <img ng-src="{{siteUrl}}productImages/{{mySelectedItems[prdIndex[designLevel][0]].carouselImg}}"  ng-click="selectImage(mySelectedItems[designLevel].carouselImg, false);" />
                         </div>
                         <div class="aelements" ng-repeat="altItem in mySelectedItems[prdIndex[designLevel][0]].images">
                            <img ng-src="{{siteUrl}}productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, false);" />
@@ -113,9 +77,9 @@
                                  </div>
                               </div>
 
-                                 <div  class="moreoptions">
+                                 <div  ng-if="terracota.length > numDisp" class="moreoptions">
                                     <p>
-                                       <a  ng-if="terracota.length > 3"  href = "javascript:void(0)" onclick = "openOverlay(0);"> <span>See More</span><br/><i class="fa fa-plus placeholdit"></i> </a>
+                                       <a href = "javascript:void(0)" onclick = "openOverlay(0);"> <span>See More</span><br/><i class="fa fa-plus placeholdit"></i> </a>
                                     </p>
                                  </div>
 
@@ -138,9 +102,9 @@
                                  </div>
                               </div>
 
-                                 <div  class="moreoptions">
+                                 <div ng-if="metal.length > numDisp" class="moreoptions">
                                     <p>
-                                       <a ng-if="metal.length > 3" href = "javascript:void(0)" onclick = "openOverlay(2);"> <span >See More</span><br/><i class="fa fa-plus placeholdit"></i></a>
+                                       <a  href = "javascript:void(0)" onclick = "openOverlay(2);"> <span >See More</span><br/><i class="fa fa-plus placeholdit"></i></a>
                                     </p>
                                  </div>
 
@@ -162,9 +126,9 @@
                                        <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
                                     </div>
                                  </div>
-                                 <div  class="moreoptions">
+                                 <div ng-if="beaded.length > numDisp"   class="moreoptions">
                                        <p >
-                                          <a ng-if="beaded.length > 3" href = "javascript:void(0)" onclick = "openOverlay(1);">
+                                          <a href = "javascript:void(0)" onclick = "openOverlay(1);">
                                            <span >See More</span><br/><i class="fa fa-plus placeholdit"></i></a>
                                        </p>
                                     </div>
@@ -276,8 +240,8 @@
 
       </div>
       <div class="modal-footer" style="text-align: left;">
-      Care Instructions : Keep away from water or products containing alcohol. <br>
-      Disclaimers : Color may slightly vary from photos due to different monitor settings
+      Care Instructions : Keep away from water or products containing alcohol. For best durability store in a separate box. Keep away from fragrance and water. <br>
+      Disclaimers : Colors may slightly vary from photos due to different monitor settings.
       </div>
     </div>
 

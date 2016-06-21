@@ -137,7 +137,7 @@ body {padding-top: 0px !important;}
 .message:after {
 	content: "";
   display: block;
-  position: fixed; /* could also be absolute */ 
+  position: fixed; /* could also be absolute */
   top: 0;
   left: 0;
   height: 100%;
@@ -158,7 +158,7 @@ body {padding-top: 0px !important;}
         height: auto;
         background: #fff;
         border: 2px dashed #5D4B33;
-        border-radius: 10px;   
+        border-radius: 10px;
         z-index: 30000;
 
 }
@@ -237,17 +237,17 @@ body {padding-top: 0px !important;}
  position: absolute;
  top: 50%;
  left: 50%;
- width: 12px;
- height: 12px;
+ width: 8px;
+ height: 8px;
  background: yellow;
  overflow: hidden;
  z-index: 2;
  border-radius: 50%;
- animation: glitter 10.5s linear 0s infinite normal;
- -webkit-animation: glitter 10.5s linear 0s infinite normal;
- -moz-animation: glitter 10.5s linear 0s infinite normal;
- -ms-animation: glitter 10.5s linear 0s infinite normal;
- -o-animation: glitter 10.5s linear 0s infinite normal;
+ animation: glitter 5s linear 0s infinite normal;
+ -webkit-animation: glitter 5s linear 0s infinite normal;
+ -moz-animation: glitter 5s linear 0s infinite normal;
+ -ms-animation: glitter 5s linear 0s infinite normal;
+ -o-animation: glitter 5s linear 0s infinite normal;
 }
 .star-top,.star-bottom{
  position: relative;
@@ -258,8 +258,8 @@ body {padding-top: 0px !important;}
 .star-bottom:before ,
 .star-bottom:after{
  content: "";
- width: 12px;
- height: 12px;
+ width: 8px;
+ height: 8px;
  background: none;
  border-radius: 50%;
  position: absolute;
@@ -283,11 +283,11 @@ body {padding-top: 0px !important;}
 }
 /*CSS3 keyframes for glittering effect*/
 @-webkit-keyframes glitter {
- 0%   { -webkit-transform: scale(1.0); opacity: 1; }
- 25%  { -webkit-transform: scale(0.5); opacity: 0; }
- 50%  { -webkit-transform: scale(1.0); opacity: 1; }
- 75%  { -webkit-transform: scale(0.5); opacity: 0; }
- 100% { -webkit-transform: scale(1.0); opacity: 1; }
+ 0%  { -webkit-transform: scale(0.5); opacity: 0; }
+ 25%  { -webkit-transform: scale(1.0); opacity: 1; }
+ 50%  { -webkit-transform: scale(0.5); opacity: 0; }
+ 75%  { -webkit-transform: scale(1.0); opacity: 1; }
+ 100% { -webkit-transform: scale(0.5); opacity: 0; }
 }
 @-moz-keyframes glitter {
  0%   { -moz-transform: scale(1.0); opacity: 1; }
@@ -432,6 +432,7 @@ label.material {
 	/* background-size: contain; */
 	height: 409px;
 	width: 380px;
+	/* border-radius: 50%; */
 	padding-top: 172px;
 	padding-left: 160px;
 	margin-left: -10px;
@@ -840,7 +841,7 @@ button.addtoCart:hover{
 	div#designerPick img {
 	    width: auto;
 	    margin-bottom: 15px;
-	    padding: 1.5em;
+	    padding: 2.5em 5px;
 	}
 
 	.about {
@@ -943,7 +944,7 @@ button.addtoCart:hover{
 		position: relative;
 		text-align: center;
 		padding: 30% 0;
-		color: #333;
+		color: #f07818;
 	}
 	.white_content{
 		height: 95%;

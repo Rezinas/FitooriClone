@@ -60,7 +60,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
 
-        $scope.showMsg = ($window.model.showHelp == 0) ? true : false;
+        $scope.showMsg = false;
+        // $scope.showMsg = ($window.model.showHelp == 0) ? true : false;
 
         $scope.getCustom =  function() {
             $http.get($scope.siteUrl+'php/ajax.php?getCustom').
@@ -80,6 +81,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         var isOdd = function(num){
             return num % 2;
         };
+
+        var round5x = function (x){
+                return Math.ceil(x/5)*5;
+            }
 
 
         var findEligibleElement = function(eitems, celem){
@@ -289,7 +294,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
                     var element = {};
                     angular.copy(elem, element)
-                    element.selectedImage = element.carouselImg;
+                    // if(element.style.indexOf('hook') > -1)
+                    //     element.selectedImage = element.hookImg;
+                    // else
+                        element.selectedImage = element.carouselImg;
 
                     //Calculating topPos and leftPos
                     var topPos = 0;
@@ -362,7 +370,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.updateLevel = function() {
             if($scope.levelFilled) {
-                updateQuantity(true, $scope.designLevel);
+              //  updateQuantity(true, $scope.designLevel);
                 $scope.designLevel++;
                 $scope.levelFilled = false;
                 $scope.filteredSet = findConnectionElements($scope.earringPieces);
@@ -405,7 +413,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             });
 
             total  = total * marginFactor *overheadFactor *taxFactor;
-            $scope.designPrice = Math.round(total);
+            $scope.designPrice = round5x(Math.round(total));
             return $scope.designPrice;
         };
 
@@ -438,7 +446,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
           if($scope.productAdded) {
              return;
           }
-          updateQuantity(true, $scope.designLevel);
+       //   updateQuantity(true, $scope.designLevel);
           $scope.showMsg = false;
           var payload = {
                         custom_product : $scope.mySelectedItems,
@@ -472,10 +480,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.resetDesign = function(){
                 // the quantity is updated only for the case where currently a design session is in progress and not when save design was clicked.
-                if($scope.mySelectedItems.length > 0  && !$scope.productAdded) {
-                   if($scope.levelFilled) updateQuantity(false, $scope.designLevel);
-                   else updateQuantity(false, $scope.designLevel-1);
-                }
+                // if($scope.mySelectedItems.length > 0  && !$scope.productAdded) {
+                //    if($scope.levelFilled) updateQuantity(false, $scope.designLevel);
+                //    else updateQuantity(false, $scope.designLevel-1);
+                // }
 
                 $scope.mySelectedItems = [];
                 $scope.designLevel = 0;
@@ -511,8 +519,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         }
 
         $scope.gobackLevel = function() {
-             if($scope.levelFilled) updateQuantity(false, $scope.designLevel);
-                   else updateQuantity(false, $scope.designLevel-1);
+             // if($scope.levelFilled) updateQuantity(false, $scope.designLevel);
+             //       else updateQuantity(false, $scope.designLevel-1);
 
             if($scope.prdIndex[$scope.designLevel]){
                 var indexToRemove = $scope.prdIndex[$scope.designLevel][0];

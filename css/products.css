@@ -12,3 +12,63 @@
 }
 #filterToggle {display: none;}
 
+section.sky-form {
+    border: none;
+}
+
+
+section.sky-form.agent {
+    height: 70px;
+    padding-top: 2em;
+}
+
+.sky-form h4 {
+ background: none;
+ color: #f07818;
+ text-decoration: underline;
+ border: none;
+}
+
+.offerimg {
+    height: 85px; width: auto;margin-top: -80px;
+}
+.filters {
+    position: relative;
+    margin-top: -25px;
+}
+.filterOptions {
+    display: none;
+}
+ .filterpanel section {
+        width: 15%;
+    }
+
+.filterpanel a{
+       text-decoration: none;
+       font-size: 18px;
+}
+
+
+@media (max-width: 414px) and (min-width: 376px) {
+      .filterpanel section {
+        width: 51%;
+    }
+}
+@media (max-width: 360px) and (min-width: 321px)  {
+     .filterpanel section {
+        width: 60%;
+    }
+}
+
+@media (min-width:361px) and (max-width:375px){
+
+ .filterpanel section {
+        width: 56%;
+    }
+}
+
+@media (max-width: 773px) and (min-width: 737px) {
+     .filterpanel section {
+        width: 30%;
+    }
+}

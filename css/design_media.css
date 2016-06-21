@@ -4,7 +4,7 @@
         right: -2px;
     }
       .bgProduct button {
-    right: 32px;
+    right: 54px;
     width: 22%;
     }
 }
@@ -120,13 +120,13 @@
     }
       .bgProduct button {
         width: 28%;
-        right: -70px;
+        right: -38px;
     }
     #subElementDiv{
         padding: 0px;
         border: 0px solid;
-        width: 61.2%;
-        margin: -17px 0px 15px 41px;
+        width: 58.2%;
+        margin: -17px 0px 15px 75px;
     }
     #subElementsDiv p{
         font-size: 14px;

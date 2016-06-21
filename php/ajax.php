@@ -97,10 +97,12 @@ function createCustomPrdImage($elemArr)
     $offsetx = 30;
     $offsety = 30;
      foreach($elemArr as $key => $elm) {
-      $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
+
+       $imgpath =  (strpos($elm['style'], 'hook') === false ) ?  "../productImages/".$elm['selectedImage'] : "../productImages/".$elm['hookImg'];
+      $imgpart = imagecreatefrompng($imgpath);
         // $orig_w = $elm["imgwidth"];
         // $orig_h = $elm["imgheight"];
-        list($orig_w, $orig_h) = getimagesize("../productImages/".$elm['selectedImage']);
+        list($orig_w, $orig_h) = getimagesize($imgpath);
 
         $dst_x = $elm['leftPos'];
         $dst_y = $elm['topPos'];

@@ -193,6 +193,18 @@
                       <label><input type="checkbox" name="style_list[]" value="hoop" <?php if(in_array( "hoop", $style_list)) echo "checked"; ?>>Hoop</label>
                       <label><input type="checkbox" name="style_list[]" value="stud" <?php if(in_array( "stud", $style_list)) echo "checked"; ?>>Stud</label>
                   </div>
+
+                  <div class="form-group">
+                    <label>Hook Image</label>
+                    <div class="input-group" v>
+                        <input type="text" class="form-control" readonly=""  name="hookImgName" <?php if( $hookImg  != "") echo "value='$hookImg'"; ?>>
+                        <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                        Browse… <input type="file" name="hookImg">
+                        </span>
+                        </span>
+                     </div>
+                  </div>
                   <div class="form-group">
                      <label>Admin Tags</label>
                      <textarea class="form-control" name="admintags" placeholder="Comma separated values.." ><?php echo html_entity_decode($admintags); ?></textarea>

@@ -150,6 +150,10 @@ else {
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="all">
     <link href="../css/admin.css" type="text/css" rel="stylesheet" media="all">
 
+<?php if($currenttab == "search") { ?>
+        <link rel="stylesheet" href="../css/products.css">
+      <?php } ?>
+
 <?php if($currenttab == "customearrings") { ?>
         <link rel="stylesheet" href="../css/landingPage.css">
       <?php } ?>

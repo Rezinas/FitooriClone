@@ -109,7 +109,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
    </head>
    <body>
 <!-- facebook integration -->
-<div id="fb-root"></div>
+<!-- <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -125,7 +125,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
       js = d.createElement(s); js.id = id;
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1076977995697955";
       fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+  }(document, 'script', 'facebook-jssdk'));</script> -->
 
 <!-- Twitter -->
 <!--   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
@@ -155,7 +155,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      <a href="javascript:void(0);" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Our Collection<b class="caret"></b></a>
                      <ul class="dropdown-menu multi-column columns-1">
                         <div class="row">
-                           <div class="col-sm-6">
+                           <div class="col-sm-12">
                               <h4>Earrings</h4>
                               <ul class="multi-column-dropdown">
                                  <li><a class="list" href="index.php?products">All</a></li>
@@ -183,8 +183,8 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                            <div class="col-sm-6">
                               <h4>Take a Tour</h4>
                               <ul class="multi-column-dropdown">
-                                 <li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-film"></i> How to Videos</a></li>
-                                 <li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-info-sign"></i> How to Tutorials</a></li>
+                                 <li><a class="list" href="index.php?customearrings"><i class="glyphicon glyphicon-film"></i> How to Videos</a></li>
+                                 <!-- <li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-info-sign"></i> How to Tutorials</a></li> -->
                               </ul>
                            </div>
                         </div>
@@ -198,18 +198,31 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
             <!--//navbar-header-->
          </nav>
          <div class="header-info">
-            <div class="header-right search-box">
+           <!-- <div class="header-right search-box">
                <a href="javascript:void(0);"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-               <!-- <div class="header-popup search">
+                <div class="header-popup search">
                   <form class="navbar-form">
                      <input type="text" class="form-control">
                      <button type="submit" class="btn btn-default" aria-label="Left Align">
                      Search
                      </button>
                   </form>
-               </div> -->
+               </div>
+            </div> -->
+
+            <div class="header-right cart">
+               <a href="javascript:void(0);"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a>
+               <div class="header-popup cart-box">
+                  <h4><a href="javascript:void(0);">
+                     <span class="simpleCart_total"> &#8377; 0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
+                     </a>
+                  </h4>
+                  <p><a href="index.php?checkout">View cart</a></p>
+                  <!-- <p><a href="javascript:window.cart.emptyCart();" class="simpleCart_empty">Empty cart</a></p> -->
+                  <div class="clearfix"> </div>
+               </div>
             </div>
-            <div class="header-right login">
+                        <div class="header-right login">
                <a href="javascript:void(0);"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
                <div class="header-popup" id="loginBox">
                   <form  id="loginForm" name="loginForm" role="form" <?php  if(isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
@@ -272,19 +285,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                   </div>
                </div>
             </div>
-            <div class="header-right cart">
-               <a href="javascript:void(0);"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a>
-               <div class="header-popup cart-box">
-                  <h4><a href="javascript:void(0);">
-                     <span class="simpleCart_total"> &#8377; 0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
-                     </a>
-                  </h4>
-                  <p><a href="index.php?checkout">View cart</a></p>
-                  <!-- <p><a href="javascript:window.cart.emptyCart();" class="simpleCart_empty">Empty cart</a></p> -->
-                  <div class="clearfix"> </div>
-               </div>
-            </div>
-            <div class="header-right track-box">
+            <!-- <div class="header-right track-box">
                <a href="javascript:void(0);"><span aria-hidden="true"><img src="images/track.png"/></span></a>
                <div class="header-popup track">
                   <form id="trackorderForm" action="index.php?myorder" method="POST" class="navbar-form">
@@ -295,7 +296,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      </p>
                   </form>
                </div>
-            </div>
+            </div> -->
             <div class="clearfix"> </div>
          </div>
          <div class="clearfix"> </div>

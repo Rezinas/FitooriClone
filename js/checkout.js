@@ -99,11 +99,8 @@ $(document).ready(function (c) {
           ship_address1: { required: true  },
           ship_city: { required: true },
           ship_state: { required: true },
-          ship_postalcode: { required: true },
-          bill_address1: { required:"#sameBilling:unchecked"  },
-          bill_city: { required:"#sameBilling:unchecked" },
-          bill_state: { required:"#sameBilling:unchecked" },
-          bill_postalcode: { required:"#sameBilling:unchecked" }
+          ship_postalcode: { required: true }
+
          },
          messages: {
           email_info: {required:"Please enter your email address", email:"Please enter valid email address"},
@@ -112,10 +109,6 @@ $(document).ready(function (c) {
           ship_city: { required: "Please Provide City" },
           ship_state: { required: "Please Provide State" },
           ship_postalcode: { required: "Please Provide Postal Code" },
-          bill_address1: { required:"Please Provide Address"  },
-          bill_city: { required:"Please Provide City" },
-          bill_state: { required:"Please Provide State" },
-          bill_postalcode: { required:"Please Provide Postal Code" },
          submitHandler: function(form) {
           form.submit();
           return false;

@@ -31,8 +31,7 @@
    }
    @media(min-width:321px) and (max-width:360px) {
        .about {
-           background: transparent url("/images/customBG4.png");
-           background-size: contain;
+           background: none;
        }
        .gallery-grid p {
            font-size: 16px;
@@ -682,7 +681,7 @@
    @media (min-width: 1441px) and (max-width: 1600px) {
        .gallery-info p {
            font-size: 14px;
-           margin-left: 51px;
+           /* margin-left: 51px; */
        }
        .gallery-grid p {
           font-size: 16px;

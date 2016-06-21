@@ -1,100 +1,15 @@
 	<!--banner-->
 	<div class="banner">
-		<img src="images/banner6.png" alt=""/>
+		<img src="images/banner7.png" alt=""/>
 	</div>
 	<!--//banner-->
 
-	<!--gallery-->
-	<div class="gallery">
-		<div class="container">
-			<div class="gallery-grids">
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gallery-grid glry-one">
-					<a href="<?php echo SITE_URL; ?>index.php?products&m=1"><!-- <img src="images/g1.jpg" class="img-responsive" alt=""/> -->
-						<img src="images/terra350X419.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="<?php echo SITE_URL; ?>index.php?products&m=1">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>The Earthen Collection</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gallery-grid glry-one">
-					<a href="<?php echo SITE_URL; ?>index.php?products"><!-- <img src="images/g1.jpg" class="img-responsive" alt=""/> -->
-						<img src="images/Center.png" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="<?php echo SITE_URL; ?>index.php?products">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Custom Collection</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gallery-grid glry-one">
-					<a href="<?php echo SITE_URL; ?>index.php?products&m=1"><!-- <img src="images/g1.jpg" class="img-responsive" alt=""/> -->
-						<img src="images/Img4a.jpg" class="img-responsive" alt=""/>
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="<?php echo SITE_URL; ?>index.php?products&m=2">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p>Beaded Collection</p>
-					</div>
-				</div>
-				<hr style="width:100%;"/>
-					<h2>Our Featured Products</h2>
-				<hr style="width:100%;"/>
-				<?php foreach($featuredPrd as $fprd) {
-						$customImg = "";
-						if($fprd['customized'] == 1) {
-							$customImg = "style='padding-left: 0px;'";
-						}
-				?>
-
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gallery-grid featured ">
-					<a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $fprd['productid']; ?>"><!-- <img src="images/g3.png" class="img-responsive" alt=""/> -->
-						<img src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" class="feturedImg" alt="" <?php echo $customImg; ?> />
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="<?php echo SITE_URL; ?>index.php?products&m=<?php echo $fprd['material']; ?>">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p><?php echo $fprd['name']; ?></p>
-						<div class="galry">
-							<div class="prices">
-								<p class="item_price">&#8377; <?php echo round(floatval($fprd['price'])); ?></p>
-							</div>
-							<!-- <div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div> -->
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-
-		<?php } ?>
-			</div>
-		</div>
-	</div>
-	<!--//gallery-->
 
 	<!--subscribe-->
 	<div class="subscribe">
 		 <div class="container">
 		 	<h3>Pick a Jewel and have fun designing your own masterpiece...</h3>
-			<div  class="row" style="margin-top:35px;">
+			<div  class="row" style="margin-top:65px;">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="imageBox">
 					<a href="index.php?customearrings"><img src="images/beaded.png" alt id="img1"/>
 					<img src="images/Earring_icon.png" alt class="hoverImg"/></a>
@@ -118,3 +33,53 @@
 		 </div>
 	</div>
 	<!--//subscribe-->
+
+
+	<!--gallery-->
+	<div class="gallery">
+		<div class="container">
+
+			<div class="gallery-grids">
+					<h2>Featured Products</h2>
+				<hr style="width:100%;"/>
+				<?php foreach($featuredPrd as $fprd) {
+						$customImg = "";
+						if($fprd['customized'] == 1) {
+							$customImg = "style='padding-left: 0px;'";
+						}
+				?>
+
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gallery-grid featured ">
+					<a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $fprd['productid']; ?>"><!-- <img src="images/g3.png" class="img-responsive" alt=""/> -->
+						<img src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" class="feturedImg" alt="" <?php echo $customImg; ?> />
+						<div class="gallery-info">
+							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
+							<a class="shop" href="<?php echo SITE_URL; ?>index.php?products&m=<?php echo $fprd['material']; ?>">SHOP NOW</a>
+							<div class="clearfix"> </div>
+						</div>
+					</a>
+					<div class="galy-info">
+						<p><?php echo $fprd['name']; ?></p>
+						<div class="galry">
+							<div class="prices">
+								<p class="item_price"><strong>&#8377; <?php echo round(floatval($fprd['price'])); ?></strong></p>
+							</div>
+							<!-- <div class="rating">
+								<span>☆</span>
+								<span>☆</span>
+								<span>☆</span>
+								<span>☆</span>
+								<span>☆</span>
+							</div> -->
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+
+		<?php } ?>
+			</div>
+		</div>
+	</div>
+	<!--//gallery-->
+
+
