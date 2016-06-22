@@ -1,4 +1,4 @@
-   /***** MEDIA QUERIES *****/
+.about-inform .content   /***** MEDIA QUERIES *****/
 
    @media(max-width:320px) {
        .about {
@@ -183,7 +183,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -218,7 +218,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -253,7 +253,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -288,7 +288,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -323,7 +323,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -358,7 +358,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -393,7 +393,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -428,7 +428,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -460,7 +460,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /*margin-top: -11px;*/
        }
        .gallery-grid p {
            font-size: 16px;
@@ -493,7 +493,7 @@
            background-size: contain;
        }
        .about-inform .content {
-           margin-top: -11px;
+           /* margin-top: -11px; */
        }
        .gallery-grid p {
            font-size: 16px;
@@ -621,7 +621,7 @@
    }
    @media (min-width: 1281px) and (max-width: 1366px) {
        .about-inform .content {
-           margin-top: -11px;
+           /* margin-top: -11px; */
        }
        .gallery-grid p {
            font-size: 16px;

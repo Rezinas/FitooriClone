@@ -111,7 +111,6 @@ nav.navbar.navbar-default {
     float: left;
     width: 82%;
     padding-left: 30px;
-    /*padding-left: 235px;*/
 }
 /*--navigation--*/
 .navbar-default .navbar-nav > li > a {
@@ -498,9 +497,9 @@ span.username a {
 /* Login Form */
 #loginForm {
    width: 300px;
-	background: #fff;
-    padding:1px;
-    box-shadow: 1px 2px 6px #333;
+   background: #fff;
+   padding:1px;
+   box-shadow: 1px 2px 6px #333;
 }
 #loginForm fieldset {
     margin:0 0 15px 0;
@@ -751,10 +750,8 @@ input:focus {
 /*--//banner--*/
 /*--gallery--*/
 .gallery {
-   /* padding: 5em 0;*/
-    /*padding: 2em 0;*/
-    padding:2em 0 2em 0;
-    margin-top: -11px;
+   padding:2em 0 2em 0;
+   margin-top: -10px;
 }
 .gallery h2 {
         font-size: 3.5em;
@@ -772,7 +769,7 @@ span.glyphicon.glyphicon-eye-open:hover {
 }
 .gallery-grid {
 	position: relative;
-    margin-bottom: 2em;
+	margin-bottom: 2em;
 }
 .gallery-grid.glry-one .gallery-info {
    /* left: 2%;
@@ -955,8 +952,6 @@ ul.rating li a:hover, .price_single a:hover, ul.size li a:hover {
 	text-align:center;
 	padding:4em 0;
 	background-color: #333;
-	height: 340px;
-	/* height: 450px; */
 }
 .subscribe h3 {
     color: #fff;

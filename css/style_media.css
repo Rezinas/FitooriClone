@@ -17,7 +17,6 @@
 }
 @media (min-width:1367px) and (max-width:1440px){
     .gallery{
-        margin-top: -70px;
     }
     .galy-info p{
         text-align: center;
@@ -63,12 +62,10 @@
         right:25px;
     }
     #loginBox {
-        /*right: 15%;*/
-        right:135px;
+        right: 58px;
     }
     .cart-box {
-        /*right: 9%;*/
-        right:60px;
+        right: 12px;
     }
     .about-infom {
         padding-top: 0em;
@@ -92,7 +89,7 @@
         padding: 45px;
     }
     .gallery-info{
-       bottom: 14%;
+       bottom: 0;
     }
     h2#mainContainer{
         font-size: 3em;
@@ -181,8 +178,6 @@
         padding: 3.5em;
     }
     .gallery {
-        padding: 0em 0 2em 0;
-        margin-top: -50px;
     }
     .galy-info p{
         font-size: 1.1em;
@@ -219,7 +214,7 @@
         margin: 2px 0 0 0;
     }
     .gallery-info {
-       bottom: 14%;
+       bottom: 0;
     }
     .feturedImg{
         padding:50px;
@@ -248,7 +243,7 @@
         margin-bottom: -105px;
     }
 
-    
+
     .product-img img{
         padding: 1em;
         max-height: 195px;
@@ -290,10 +285,10 @@
     right:170px;
     }
     #loginBox {
-    right: 35px;
+    right: 47px;
     }
     .cart-box {
-    right: 0px;
+    right: 9px;
     }
     .track {
     right:20px;
@@ -321,7 +316,7 @@
         padding: 2em 0em 2em 1em;
     }
     .header-right span.glyphicon {
-        font-size: 1.6em;
+        font-size: 1.4em;
         padding: 0.4em 0;
     }
     .badge{
@@ -334,25 +329,25 @@
     .row h4 {
         font-size: 1.05em;
     }
+
     .multi-column-dropdown li a {
         font-size: 0.9em;
     }
-    .dropdown-menu.columns-3 {
-        min-width: 475px;
+    .dropdown-menu.columns-1 {
+        min-width: 144px;
     }
     .search {
        /* right: 16%;*/
        right:140px;
     }
     #loginBox {
-        /*right: 10%;*/
-        right:93px;
+        right: 38px;
     }
     .cart-box {
-        right: 4%;
+        right: 6px;
     }
     .cart-box:before{
-        right: 27%;
+        right: 16%;
     }
     .track {
         right: 10px;
@@ -379,8 +374,9 @@
     .banner a {
         font-size: 1.3em;
     }
-    .gallery {
-        padding: 0em 0;
+    .feturedImg {
+
+padding: 40px;
     }
     .gallery-grid.glry-one .gallery-info {
         left: 4.7%;
@@ -396,9 +392,7 @@
         margin-bottom: 1em;
     }
     .gallery-info {
-        width: 87%;
-        bottom: 16%;
-        left: 6.5%;
+        bottom: 0;
         padding: 0.8em;
     }
     .galy-info h5 {
@@ -423,7 +417,6 @@
         font-size: 16px;
     }
     .subscribe {
-        padding: 6em 0;
     }
     .subscribe h3 {
         font-size: 2.5em;
@@ -484,6 +477,9 @@
 }
 @media (min-width:992px) and (max-width:1024px){
 
+.dropdown-menu.columns-1 {
+        min-width: 144px;
+    }
     .navbar-default .navbar-nav > li > a {
         padding: 10px 15px;
         }
@@ -520,7 +516,7 @@
         top:-10%;
     }
     .cart-box:before{
-        right: 26%;
+        right: 9%;
     }
     .track form.navbar-form:before{
         right:14px;
@@ -532,9 +528,9 @@
         bottom: 6.6%;
     }
     .gallery-grid:nth-child(3) div.gallery-info{
-        left: 5.1%;
-        width: 89.8%;
-        bottom: 9.6%;
+        left: 0;
+        width: 100%;
+        bottom: 0;
     }
     .about-infom p, center{
         font-size: 1.1em;
@@ -557,7 +553,6 @@
         margin: -30px 0 0 0;
     }
     .gallery{
-        margin-top: -50px;
     }
     .gallery-info {
         width: 87%;
@@ -592,13 +587,11 @@
         right:130px;
     }
     #loginBox {
-        /*right: 8%;*/
-        right:86px;
+        right: 35px;
     }
     .cart-box {
-        /*right: 1%;*/
-        right:34px;
-        width: 17%;
+        right: 7px;
+        width: 15%;
     }
     .track {
         right:10px;
@@ -609,18 +602,21 @@
 }
 @media (min-width:901px ) and (max-width:991px){
     h1.navbar-brand {
-        font-size: 2.5em;
-        padding: 0.4em 0.5em 0 0;
-        top: -5px;
+        font-size: 1.9em;
+        padding: 0.4em 0 0 0;
+        top: -1px;
         position: relative;
     }
     .navbar-default .navbar-nav > li > a {
-        /*padding: 17px 9px;*/
+        padding: 10px 9px;
         font-size: 1em;
     }
     .header-right span.glyphicon {
-        font-size: 1.35em;
+        font-size: 1.1em;
         padding: 0.5em 0;
+    }
+    .dropdown-menu.columns-1 {
+        min-width: 125px;
     }
     .badge{
         font-size: 10px;
@@ -640,13 +636,13 @@
     }
 
     #loginBox {
-       right:81px;
+       right: 28px;
     }
     .cart-box {
-        right:32px;
+        right: 2px;
     }
     .cart-box:before{
-        right: 32%;
+        right: 14%;
     }
     .track {
         right:4px;
@@ -671,7 +667,7 @@
         padding: 40px 0 0;
     }
     .gallery{
-        margin-top: -50px;
+        /* margin-top: -50px; */
     }
     .gallery-grid.glry-one {
         padding: 0;
@@ -681,10 +677,13 @@
         width: 95%;
         bottom: 7%;
     }
+       .feturedImg {
+        padding: 40px;
+    }
     .gallery-grid {
         float: left;
         padding-left: 0;
-        width: 33.3%;
+        width: 31.6%;
     }
     .gallery-grid.glry-two {
         padding: 0;
@@ -713,8 +712,6 @@
         font-size: 1.1em;
     }
     .subscribe {
-        padding: 5em 0;
-        height: auto;
     }
     .subscribe h3{
         font-size: 2.5em;
@@ -854,20 +851,30 @@
     }
 }
 @media (min-width:801px) and (max-width:900px){
+       h1.navbar-brand {
+        font-size: 1.9em;
+        padding: 0.4em 0 0 0;
+        top: -1px;
+        position: relative;
+    }
+    .featured {
+width: 30%;
+}
     .navbar-nav {
-        margin: -50.5px 129px;
+        margin: -50.5px 72px  0;
     }
     .navbar-default .navbar-nav > li > a{
         padding: 10px;
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .header-right span.glyphicon{
-        font-size: 1em;
+        font-size: 1.2em;
         padding: 13px 0px;
     }
     .badge{
         font-size: 10px;
+        padding: 0;
     }
     .header-right span img {
         padding: 13px 0px 0px 4px;
@@ -882,11 +889,11 @@
         right: 12%;
     }
     #loginBox {
-        right: 8%;
+        right: 3%;
     }
     .cart-box {
-        right: 3.5%;
-        width: 20%;
+        right: 4px;
+        width: 16%;
     }
     .track{
         right: 1%;
@@ -898,7 +905,6 @@
         min-width: 473px;
     }
     .gallery{
-        margin-top: -50px;
     }
     .gallery-grid.glry-one {
         margin-bottom: 2.2em;
@@ -909,23 +915,23 @@
         bottom: 8%;
     }
     .gallery-info {
-        width: 91%;
-        left: 4.5%;
-        bottom: 11%;
+        width: 100%;
+        left: 0;
+        bottom: 0;
     }
     .galy-info p{
         margin: 2px 0 0 0em;
         text-align: center;
     }
     .feturedImg {
-        padding: 70px;
+        padding: 45px;
     }
     .single-grid1 {
         float: left;
         width: 100%;
     }
     .subscribe{
-        height: auto;
+        /* height: auto; */
     }
     .subscribe h3{
         font-size: 2.5em;
@@ -978,13 +984,13 @@
         padding-left: 10px;
     }
     .header-right {
-        width: 25%;
+        width: 15%;
     }
     .header-info {
         position: absolute;
         top: 0%;
         right: 0%;
-        width: 60%;
+        width: 100%;
     }
     .header-right span.glyphicon {
         font-size: 1.4em;
@@ -1009,7 +1015,7 @@
         top: -10%;
     }
     #loginBox {
-        right: 32%;
+        right: -7%;
     }
     #body label {
         font-size: 0.85em;
@@ -1058,6 +1064,12 @@
     }
 }
 @media (min-width:774px) and (max-width:800px){
+        h1.navbar-brand {
+        font-size: 1.9em;
+        padding: 0.4em 0 0 0;
+        top: -1px;
+        position: relative;
+    }
     #logo{
         top:-6px;
     }
@@ -1097,7 +1109,7 @@
         margin-top: -39px;
     }
     .navbar-default .navbar-nav > li > a{
-        padding: 10px 19px;
+        padding: 10px 9px;
     }
     .header-right{
         position: relative;
@@ -1133,18 +1145,18 @@
         position: relative;
     }
     #loginBox{
-        right: -55px;
+        right: -38px;
     }
     .submitForm:after, #loginForm:after{
-        right: 19.9%;
+        right: 14.9%;
     }
     .cart-box {
-        width: 639%;
-        right: -29px;
+        width: 580%;
+        right: -4px;
         top: 49px;
     }
     .cart-box:before{
-        right: 18%;
+        right: 6%;
     }
     .track{
         right: -10px;
@@ -1163,7 +1175,6 @@
         top:-9%;
     }
     .gallery {
-        padding: 0;
     }
     .gallery-grids {
         margin-top: 2em;
@@ -1212,10 +1223,9 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 86.5%;
-        bottom: 16.9%;
-        padding: 0.6em;
-        left: 16px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
     }
     .galy-info p {
         font-size: 1.1em;
@@ -1547,7 +1557,7 @@
         padding-right: 0.5em;
     }
     .gallery-grid {
-        /* width: 33%; */
+        width: 33%;
         text-align: center;
     }
     .gallery-grid img{
@@ -1576,10 +1586,9 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 91.5%;
-        bottom: 11%;
-        padding: 0.6em;
-        left: 16px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
     }
     .galy-info p {
         font-size: 1.1em;
@@ -1804,14 +1813,15 @@
 }
 @media (min-width:732px) and (max-width:736px){
     #logo{
-        top:-6px;
+        top: -38px;
+        width: 30%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 43em 0px 0px;
+        margin: 0.5em 46em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -1831,7 +1841,7 @@
      div#bs-example-navbar-collapse-1{
         background-color:#5d4b33;
         position: relative;
-        top: -11px;
+        top: -46px;
         left: -5px;
     }
     .header-right span img {
@@ -1858,17 +1868,17 @@
         position: relative;
     }
     #loginBox {
-        right: 46.7%;
+        right: 8.7%;
     }
     .submitForm:after, #loginForm:after{
         right: 19.9%;
     }
     .cart-box {
-        width: 44%;
-        right: 93px;
+        width: 32%;
+        right: 12px;
     }
     .cart-box:before{
-        right: 36%;
+        right: 22%;
     }
     .track{
         right: 31px;
@@ -1887,7 +1897,6 @@
         top:-9%;
     }
     .gallery {
-        padding: 0;
     }
     .gallery-grids {
         margin-top: 2em;
@@ -1906,11 +1915,10 @@
         padding-right: 0.5em;
     }
     .gallery-grid {
-        width: 33%;
+        width: 45%;
         text-align: center;
     }
     .gallery-grid img{
-        margin: 0px auto;
     }
     .gallery-grid.glry-two .gallery-info {
         width: 95%;
@@ -1935,10 +1943,9 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 86.5%;
-        bottom: 16.9%;
-        padding: 0.6em;
-        left: 16px;
+        width: 100%;
+        bottom: 0%;
+        left: 0;
     }
     .galy-info p {
         font-size: 1.1em;
@@ -2143,15 +2150,16 @@
     }
 }
 @media (min-width:668px) and (max-width:731px){
-    #logo{
-        top:-40px;
+   #logo{
+        top: -38px;
+        width: 30%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 41em 0px 0px;
+        margin: 0.3em 42em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -2198,17 +2206,17 @@
         position: relative;
     }
     #loginBox {
-        right: 47.5%;
+        right: 10.5%;
     }
     .submitForm:after, #loginForm:after{
         right: 16.9%;
     }
     .cart-box {
-        width: 53%;
-        right: 75px;
+        width: 29%;
+        right: 17px;
     }
     .cart-box:before{
-        right: 36%;
+        right: 22%;
     }
     .track{
         right: 28px;
@@ -2227,7 +2235,6 @@
         top:-9%;
     }
     .gallery {
-        padding: 0;
     }
     .gallery-grids {
         margin-top: 2em;
@@ -2246,7 +2253,7 @@
         padding-right: 0.5em;
     }
     .gallery-grid {
-        width: 33%;
+        width: 45%;
         text-align: center;
     }
     .gallery-grid img{
@@ -2257,9 +2264,6 @@
         bottom: 25%;
     }
     .gallery-grid:nth-child(3) .gallery-info {
-        width: 53.5%;
-        bottom: 7.9%;
-        left: 23.5%;
     }
     .gallery-info.galrr-info-two p {
         font-size: 0.85em;
@@ -2280,10 +2284,9 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 85.5%;
-        bottom: 18%;
-        padding: 0.6em;
-        left: 16px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
     }
     .galy-info p {
         font-size: 1.1em;
@@ -2488,8 +2491,9 @@
     }
 }
 @media (min-width:641px) and (max-width:667px){
-    #logo{
-        top:-6px;
+   #logo{
+        top: -38px;
+        width: 30%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
@@ -2543,17 +2547,17 @@
         position: relative;
     }
     #loginBox {
-        right: 48%;
+        right: 10%;
     }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
     }
     .cart-box {
-        width: 52%;
-        right: 74px;
+        width: 40%;
+        right: 17px;
     }
     .cart-box:before{
-        right: 36%;
+        right: 13%;
     }
     .track{
         right: 27px;
@@ -2592,7 +2596,7 @@
         padding-right: 0.5em;
     }
     .gallery-grid {
-        width: 33%;
+        width: 47%;
         text-align: center;
     }
     .gallery-grid img{
@@ -2621,10 +2625,9 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 86%;
-        bottom: 19%;
-        padding: 0.6em;
-        left: 15px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
     }
     .galy-info p {
         font-size: 1.1em;
@@ -2830,14 +2833,15 @@
 }
 @media (min-width:601px) and (max-width:640px){
     #logo{
-        top:-40px;
+        top: -38px;
+        width: 30%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 38em 0px 0px;
+        margin: 0.3em 37em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -2879,17 +2883,17 @@
         width: 100%;
     }
     #loginBox{
-        right: 47.5%;
+        right: 10.5%;
     }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
     }
     .cart-box {
-        width: 55%;
-        right: 66px;
+        width: 44%;
+        right: 9px;
     }
     .cart-box:before{
-        right: 36%;
+        right: 15%;
     }
     .track{
         right: 27px;
@@ -2930,7 +2934,7 @@
         padding-right: 0.5em;
     }
     .gallery-grid {
-        width: 33%;
+        width: 47%;
         text-align: center;
     }
     .gallery-grid img{
@@ -2959,10 +2963,9 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 84%;
-        bottom: 19%;
-        padding: 0.6em;
-        left: 16px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
     }
     .galy-info p {
         font-size: 1.1em;
@@ -2973,7 +2976,8 @@
         font-size: 0.95em;
     }
     .feturedImg {
-        padding: 5px;
+        padding: 25px;
+        /* padding-left: 20px; */
     }
     .subscribe{
         height: auto;
@@ -3171,7 +3175,8 @@
         width: 31.2%;
     }
      #logo{
-        top:-40px;
+        top: -38px;
+        width: 30%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
@@ -3221,17 +3226,17 @@
 
     }
     #loginBox{
-        right: 46%;
+        right: 8%;
     }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
     }
     .cart-box {
-        width: 60%;
-        right: 54px;
+        width: 43%;
+        right: 8px;
     }
     .cart-box:before{
-        right: 36%;
+        right: 18%;
     }
     .track{
         right: 3px;
@@ -3249,9 +3254,6 @@
     .track form.navbar-form:before {
         right: 29px;
         top:-7%;
-    }
-    .gallery {
-        padding: 0;
     }
     .gallery-grids {
         margin-top: 2em;
@@ -3271,8 +3273,11 @@
         padding-right: 0.5em;
     }
     .gallery-grid {
-        width: 33%;
+        width: 47%;
         text-align: center;
+    }
+    .feturedImg {
+            padding: 30px;
     }
     .gallery-grid img{
         margin: 0px auto;
@@ -3300,10 +3305,9 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 84%;
-        bottom: 20%;
-        padding: 0.6em;
-        left: 16px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
     }
     .galy-info p {
         font-size: 1em;
@@ -3314,7 +3318,7 @@
         font-size: 0.95em;
     }
     .feturedImg {
-        padding: 5px;
+        padding: 25px;
     }
     .subscribe{
         height: auto;
@@ -3514,15 +3518,19 @@
     .contact-form input[type="text"] {
         width: 31.2%;
     }
-     #logo{
-        top:-6px;
+      #logo{
+        top: -38px;
+        width: 30%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
     }
+    #loginBox {
+    right: -9%;
+}
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 31em 0px 0px;
+        margin: 0.3em 29em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -3566,11 +3574,11 @@
         right: 30.9%;
     }
     .cart-box {
-        width: 65%;
-        right: 66px;
+        width: 45%;
+        right: 12px;
     }
     .cart-box:before{
-        right: 27%;
+        right: 15%;
     }
     .track{
         right: 22px;
@@ -3611,9 +3619,10 @@
         padding-right: 0.5em;
     }
     .gallery-grid {
-        width: 33%;
+        width: 47%;
         text-align: center;
     }
+
     .gallery-grid img{
         margin: 0px auto;
     }
@@ -3640,10 +3649,9 @@
         font-size: 0.65em;
     }
     .gallery-info {
-        width: 84%;
-        bottom: 19%;
-        padding: 0.6em;
-        left: 16px;
+        width: 100%;
+        bottom: 0;
+        left: 10;
     }
     .galy-info p {
         font-size: 0.95em;
@@ -3654,7 +3662,7 @@
         font-size: 0.95em;
     }
     .feturedImg {
-        padding: 5px;
+        padding: 50px;
     }
     .subscribe{
         height: auto;
@@ -3850,18 +3858,19 @@
 
 @media (min-width:436px) and (max-width:480px){
     #logo{
-        top:-13px;
+        top: -41px;
+        width: 30%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 26em 0px 0px;
+        margin: 0.3em 25em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
-        font-size: 2.3em;
+        font-size: 1.3em;
     }
     .multi-column-dropdown li a, li.list{
         font-size:14px;
@@ -3874,7 +3883,6 @@
         font-size: 14px;
     }
     .header-info {
-        width: 45%;
     }
     .banner h2.hdng {
         font-size: 2.3em;
@@ -3899,7 +3907,7 @@
         left: -5px;
     }
     .header-right span.glyphicon {
-        font-size: 1.4em;
+        font-size: 1.2em;
         padding: 0.5em 0;
     }
     .header-right span img {
@@ -3934,7 +3942,6 @@
         width:100%;
     }
     .gallery-grid img{
-        /*width: 120%;*/
     }
     .gallery-grid.glry-one .gallery-info {
         bottom: 20%;
@@ -3950,9 +3957,9 @@
         margin-left: 0;
     }
     .gallery-grid:nth-child(3) {
-       /* width: 53%;*/
-       /*width:100%;*/
-       /* padding: 0 0 0 1em;*/
+       /* width: 53%; */
+       /* width:100%; */
+       /* padding: 0 0 0 1em; */
     }
     .gallery-grid:nth-child(3) .gallery-info {
         width: 96%;
@@ -3964,12 +3971,12 @@
         bottom: 23%;
     }
     .gallery-grid {
-        margin-bottom: 2em;
+    width: 47%;
     }
     .gallery-info {
-        bottom: 17.5%;
-        width: 86.1%;
-        left: 7.29%;
+        bottom: 0;
+        width: 100%;
+        left: 0;
     }
     .gallery{
         margin-top: -5px;
@@ -3985,12 +3992,9 @@
         text-align: center;
     }
     .feturedImg {
-        padding: 10px;
+        padding: 68px 0px 57px 28px;
     }
-    .subscribe {
-        padding: 2em 0;
-        height: auto;
-    }
+
     .subscribe h3 {
         font-size: 2em;
     }
@@ -4228,7 +4232,7 @@
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 25em 0px 0px;
+        margin: 0.3em 24em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -4247,6 +4251,12 @@
     .header-info {
         width: 60%;
     }
+    .badge {
+
+font-size: 10px;
+
+padding: 2px 3px;
+    }
     .header-right span.glyphicon {
         font-size: 1.3em;
         padding: 0.6em 0px;
@@ -4263,13 +4273,13 @@
         padding: 0.3em;
     }
      #loginForm::after{
-        right:34%;
+        right:40%;
     }
     .submitForm::after{
         right: 40%;
     }
     #loginBox {
-        right: 0%;
+        right: -43px;
     }
     #loginForm {
         width: 80%;
@@ -4305,12 +4315,12 @@
         top:-2px;
     }
     .cart-box {
-        width: 67%;
+        width: 56%;
         padding: 0.5em;
         right: 2px;
     }
    .cart-box::before {
-        right: 22%;
+        right: 13%;
         top: -10px;
     }
     .track{
@@ -4352,6 +4362,7 @@
     .banner {
         min-height: 210px;
         padding: 2.8em 0 0;
+        margin-top: 0px;
     }
     .gallery-grids {
         margin-top: 1.5em;
@@ -4365,22 +4376,15 @@
         width: 100%;
         margin: 0;
     }
-    .gallery-grid:nth-child(3) {
-        /* width: 50%; */
-        padding-left: 0;
-    }
-    .gallery-grid:nth-child(3) {
-        /* width: 100%; */
-        padding: 0;
-    }
+
     .gallery-grid:nth-child(3) .gallery-info {
         width: 99.8%;
         bottom: 6.8%;
         left: 0%;
     }
     .gallery-grid {
-        /* width: 100%; */
-        margin-bottom: 1em;
+        width: 46%;
+        margin-bottom: 4em;
         padding: 0;
     }
     .galy-info p {
@@ -4400,7 +4404,8 @@
         /* width: 120%; */
     }
     .feturedImg {
-        padding: 10px;
+        padding: 70px;
+        padding-left: 26px;
     }
     .product-grid.single-product {
         width: 46%;
@@ -4644,7 +4649,7 @@
 
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 23em 0px 0px;
+        margin: 0.3em 21em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -4663,6 +4668,12 @@
     .header-info {
         width: 60%;
     }
+    .badge {
+
+font-size: 8px;
+
+padding: 2px 4px;
+    }
     .header-right span.glyphicon {
         font-size: 1.3em;
         padding: 0.6em 0px;
@@ -4679,13 +4690,17 @@
         padding: 0.3em;
     }
      #loginForm::after{
-        right:30%;
+        right:23%;
     }
     .submitForm::after{
-        right: 37%;
+        right: 31%;
     }
     #loginBox {
-        right: 0%;
+        right: -13%;
+    }
+    #loginBox:after {
+
+right: 30%;
     }
     #loginForm {
         width: 80%;
@@ -4721,12 +4736,12 @@
         top:-2px;
     }
     .cart-box {
-        width: 67%;
-        padding: 0.5em;
-        right: 2px;
+        width: 59%;
+        /* padding: 0.5em; */
+        right: 3px;
     }
    .cart-box::before {
-        right: 23%;
+        right: 11%;
         top: -10px;
     }
     .track{
@@ -4782,17 +4797,17 @@
         margin: 0;
     }
     .gallery-grid:nth-child(3) {
-        /*width: 100%;*/
-        padding: 0;
     }
     .gallery-grid:nth-child(3) .gallery-info {
         width: 100%;
-        bottom: 7.8%;
+        bottom: 0;
         left: 0%;
+        padding: 0.6em;
     }
     .gallery-grid {
-        /*width: 100%;*/
-        margin-bottom: 1em;
+        width: 46%;
+        margin-bottom: 6em;
+        height: 210px;
         padding: 0;
     }
     .galy-info p {
@@ -4811,10 +4826,11 @@
         font-size: 3em;
     }
     .gallery-grid img{
-        width: 120%;
+        /* width: 108%; */
     }
     .feturedImg {
-        padding: 10px;
+        padding: 30px;
+        padding-left: 26px;
     }
     .product-grid.single-product {
         width: 46%;
@@ -4874,7 +4890,7 @@
         margin-left: 0;
         width: 100%;
     }
-    .footer-grid h4{
+  .footer-grid h4{
         font-size:1.5em;
         text-align: left;
     }
@@ -5489,7 +5505,7 @@
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 20em 0px 0px;
+        margin: 0.3em 17em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -5508,8 +5524,12 @@
     .header-info {
         width: 60%;
     }
+    .badge {
+        font-size: 9px;
+        padding: 2px 0px;
+    }
     .header-right span.glyphicon {
-        font-size: 1.3em;
+        font-size: 1.2em;
         padding: 0.6em 0px;
     }
     .header-right span img{
@@ -5524,10 +5544,10 @@
         padding: 0.3em;
     }
      #loginForm::after{
-        right:24%;
+        right:6%;
     }
     .submitForm::after{
-        right: 32%;
+        right: 17%;
     }
     #loginBox {
         right: -1%;
@@ -5571,7 +5591,7 @@
         right: 2px;
     }
    .cart-box::before {
-        right: 23%;
+        right: 8%;
         top: -10px;
     }
     .track{
@@ -5613,7 +5633,8 @@
     }
     .banner {
         min-height: 210px;
-        padding: 2.8em 0 0;
+        padding: 3.4em 0 0;
+        margin-top: -10px;
     }
     .gallery-grid{
         padding:0px;
@@ -5636,7 +5657,6 @@
     }
     .gallery-grid:nth-child(3) {
         /* width: 100%; */
-        padding: 0;
     }
     .gallery-grid:nth-child(3) .gallery-info {
         width: 99.9%;
@@ -5644,8 +5664,8 @@
         left: 0%;
     }
     .gallery-grid {
-        /* width: 100%; */
-        margin-bottom: 1em;
+        width: 100%;
+        margin-bottom: 5em;
         padding: 0;
     }
     .gallery-info {
@@ -5663,7 +5683,7 @@
         font-size: 2.5em;
     }
     .feturedImg {
-        padding: 4px;
+        padding: 42px;
     }
     .gallery-info a.shop{
         padding: 0.3em 0.5em;
@@ -5677,13 +5697,14 @@
         width: 100%;
     }
     .subscribe{
-        height: auto;
+        /* height: auto; */
+        padding: 1em;
     }
     .subscribe form {
         width: 100%;
     }
     .subscribe h3 {
-        font-size: 2.8em;
+        font-size: 1.8em;
     }
     .subscribe form input[type="text"] {
         width: 68%;
@@ -5898,7 +5919,8 @@
 
 @media (max-width: 320px){
     #logo{
-        top: 11px;
+        top: -50px;
+        width: 32%;
     }
     .navbar-nav{
         background: #5D4B33;
@@ -5920,7 +5942,7 @@
         margin-right: 14em;
     }
     button.navbar-toggle {
-        margin-right: 15em;
+        margin-right: 16em;
         margin-top: 19px;
     }
     div#bs-example-navbar-collapse-1{
@@ -5942,7 +5964,7 @@
         right: 22%;
     }
     .cart-box {
-        width: 100%;
+        width: 50%;
         top: 110%;
         right: 5px;
     }
@@ -5979,15 +6001,17 @@
         text-align: center;
     }
     .feturedImg {
-        padding: 2px;
+        padding: 37px;
     }
     .gallery-grid{
         padding:0px;
+        width: 100%;
     }
     .gallery-info {
-        width: 99%;
-        bottom: 20%;
-        left: 1px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        padding: 0.6em;
     }
     .gallery-grid.glry-one .gallery-info {
         left: 1%;
@@ -6000,9 +6024,10 @@
         padding: 0em 0em;
         border: 2px solid #fff;
         float: right;
-        width: 100%;
+        /* width: 100%; */
         margin-top: 0px;
         text-align: center;
+        padding: 5px;
     }
     .gallery-info p{
         margin-top: 0em;

@@ -156,7 +156,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      <ul class="dropdown-menu multi-column columns-1">
                         <div class="row">
                            <div class="col-sm-12">
-                              <h4>Earrings</h4>
+                              <a class="list" href="index.php?products"><h4>Earrings</h4></a>
                               <ul class="multi-column-dropdown">
                                  <li><a class="list" href="index.php?products">All</a></li>
                                  <li><a class="list" href="index.php?products&m=2">Beaded</a></li>

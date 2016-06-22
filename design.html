@@ -162,7 +162,7 @@
                   <h4>You Design we Deliver</h4>
                   <div style="text-align: center;">
                      <p style="text-align: center;font-size:20px"> {{designPrice | currency:"&#8377":2}}</p>
-                     <button  style="margin-top: 10px;"  ng-click="processForm()" ng-show="showCartbtn && !productAdded" class="addtoCart">Save Design</button>
+                     <button  style="margin-top: 10px;"  ng-click="processForm()" ng-show="showCartbtn && !productAdded && designPrice > 60" class="addtoCart">Save Design</button>
 
                   </div>
                </div>
