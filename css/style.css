@@ -113,7 +113,7 @@ nav.navbar.navbar-default {
     padding-left: 30px;
 }
 /*--navigation--*/
-.navbar-default .navbar-nav > li > a {
+.navbar-collapse .navbar-nav > li > a {
     color: #fff;
     font-size: 1.1em;
     /*padding: 23px 25px;*/
@@ -121,7 +121,7 @@ nav.navbar.navbar-default {
     border-left: 1px solid #79654A;
     display: block;
 }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+.navbar-collapse .navbar-nav > li > a:hover, .navbar-collapse .navbar-nav > li > a:focus {
     background: #F07818;
     color: #fff;
 }
@@ -131,7 +131,7 @@ nav.navbar.navbar-default {
 .row {
     margin: 0;
 }
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+.navbar-collapse .navbar-nav > .open > a, .navbar-collapse .navbar-nav > .open > a:hover, .navbar-collapse .navbar-nav > .open > a:focus {
     color: #FFF;
     background-color: #F07818;
 }
@@ -226,9 +226,10 @@ b.caret {
         margin: 3em 0 0 5em;
 }
 
-.product-model-sec {}
-
-.product-model-sec {}
+.header-info {
+	float: right;
+	width: 16%;
+}
 .filterpanel {
 	height: 40px;
 	background-color: #f2f6f7;
@@ -253,7 +254,7 @@ b.caret {
 /*--//start menu--*/
 .header-right{
     float: right;
-    width: 4%;
+    width: 32%;
     text-align: center;
     border-left:1px solid #79654A;
 }

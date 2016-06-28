@@ -766,10 +766,11 @@
   .related-products h3 {
     margin: 0px 0px;
     position: relative;
-    top: -75px;
+    top: -50px;
   }
   .related-products .product-img img{
     padding: 1em;
+    max-height: 200px;
   }
   .single-grid h5 {
     font-size: 1em;
@@ -780,8 +781,8 @@
   span.item_price{
     font-size: 0.95em;
   }
-  .product-model-sec {
-    margin: -4em 0 0 0;
+  .related-products .product-model-sec {
+    margin: -2.2em 0 0 0;
   } 
 }
 @media (min-width:668px) and (max-width:731px){

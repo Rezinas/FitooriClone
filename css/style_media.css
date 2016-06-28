@@ -401,14 +401,13 @@ padding: 40px;
     .about-infom p, center{
         font-size: 1.1em;
     }
-    .product-model-sec{
-        margin: 0em 0 0 0;
-    }
+
     .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
         margin: -32px 0px 0px 0px;
     }
     .product-img img{
-        padding: 2em;
+        padding: 1em;
+        max-height: 170px;
     }
     .product-info-cust h4{
         font-size: 0.85em;
@@ -536,7 +535,6 @@ padding: 40px;
         font-size: 1.1em;
     }
     .product-img.b-link-stripe.b-animate-go.thickbox {
-        width: 145px;
         height: 142px;
     }
     .product-img img{
@@ -587,7 +585,7 @@ padding: 40px;
         right:130px;
     }
     #loginBox {
-        right: 35px;
+        right: 48px;
     }
     .cart-box {
         right: 7px;
@@ -612,7 +610,7 @@ padding: 40px;
         font-size: 1em;
     }
     .header-right span.glyphicon {
-        font-size: 1.1em;
+        font-size: 1.5em;
         padding: 0.5em 0;
     }
     .dropdown-menu.columns-1 {
@@ -636,10 +634,10 @@ padding: 40px;
     }
 
     #loginBox {
-       right: 28px;
+       right: 45px;
     }
     .cart-box {
-        right: 2px;
+        right: 9px;
     }
     .cart-box:before{
         right: 14%;
@@ -723,6 +721,7 @@ padding: 40px;
         width: 30%;
         margin: -17px 0 0 0;
     }
+
     .product-img img{
         padding: 2em;
     }
@@ -756,7 +755,7 @@ padding: 40px;
         font-size: 3.3em;
     }
     .product-model-sec {
-        margin: 0em 0 0 0;
+        /* margin: 0em 0 0 0; */
     }
     .widgetBox {
         margin: 3em 0 0 0;
@@ -979,22 +978,19 @@ width: 30%;
         background-color: #F2F6F7;
     }
     nav.navbar.navbar-default {
-        width: 100%;
-        float: none;
+        width: 60%;
+        /* float: none; */
         padding-left: 10px;
     }
     .header-right {
-        width: 15%;
+        /* width: 6%; */
     }
     .header-info {
-        position: absolute;
-        top: 0%;
-        right: 0%;
-        width: 100%;
+    width: 35%;
     }
     .header-right span.glyphicon {
-        font-size: 1.4em;
-        padding: 0.5em 0;
+        font-size: 1.2em;
+        padding: 0.4em 0;
     }
     .header-right span img {
         padding: 0em 0;
@@ -1015,7 +1011,7 @@ width: 30%;
         top: -10%;
     }
     #loginBox {
-        right: -7%;
+        right: 3%;
     }
     #body label {
         font-size: 0.85em;
@@ -1436,14 +1432,15 @@ width: 30%;
 }
 @media (max-width: 773px) and (min-width: 737px){
     #logo{
-        top:-6px;
+        top: -6px;
+        width: 15%;
     }
     .navbar-default .navbar-nav > li > a{
         font-size: 1em;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 43em 0px 0px;
+        margin: 0.3em 26em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -1477,8 +1474,8 @@ width: 30%;
         position: relative;
     }
     .header-right.cart span.glyphicon{
-        padding: 0em;
-        font-size: 1em;
+        /* padding: 0em; */
+        /* font-size: 1em; */
     }
     .header-right span.glyphicon{
         font-size: 1.45em;
@@ -1507,14 +1504,14 @@ width: 30%;
         position: relative;
     }
     #loginBox{
-        right: -30px;
+        right: -13px;
     }
     .submitForm:after, #loginForm:after{
         right: 11.9%;
     }
     .cart-box {
-        width: 490%;
-        right: -2px;
+        width: 309%;
+        right: 13px;
         top: 49px;
     }
     .cart-box:before{
@@ -1821,7 +1818,7 @@ width: 30%;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.5em 46em 0px 0px;
+        margin: 0.5em 25em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -1868,14 +1865,14 @@ width: 30%;
         position: relative;
     }
     #loginBox {
-        right: 8.7%;
+        right: 16.7%;
     }
     .submitForm:after, #loginForm:after{
         right: 19.9%;
     }
     .cart-box {
-        width: 32%;
-        right: 12px;
+        width: 21%;
+        right: 88px;
     }
     .cart-box:before{
         right: 22%;
@@ -2159,7 +2156,7 @@ width: 30%;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 42em 0px 0px;
+        margin: 0.3em 23em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -2206,14 +2203,14 @@ width: 30%;
         position: relative;
     }
     #loginBox {
-        right: 10.5%;
+        right: 17.5%;
     }
     .submitForm:after, #loginForm:after{
         right: 16.9%;
     }
     .cart-box {
-        width: 29%;
-        right: 17px;
+        width: 19%;
+        right: 88px;
     }
     .cart-box:before{
         right: 22%;
@@ -2464,6 +2461,7 @@ width: 30%;
     }
     .product-img img{
         padding: 1em;
+        max-height: 200px;
     }
     .product-model-sec{
         padding: 0px 25px;
@@ -2500,7 +2498,7 @@ width: 30%;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 38em 0px 0px;
+        margin: 0.3em 22em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -2841,7 +2839,7 @@ width: 30%;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 37em 0px 0px;
+        margin: 0.3em 20em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -2883,14 +2881,14 @@ width: 30%;
         width: 100%;
     }
     #loginBox{
-        right: 10.5%;
+        right: 16.5%;
     }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
     }
     .cart-box {
-        width: 44%;
-        right: 9px;
+        width: 23%;
+        right: 76px;
     }
     .cart-box:before{
         right: 15%;
@@ -3183,7 +3181,7 @@ width: 30%;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 35em 0px 0px;
+        margin: 0.3em 20em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -3226,14 +3224,14 @@ width: 30%;
 
     }
     #loginBox{
-        right: 8%;
+        right: 16%;
     }
     .submitForm:after, #loginForm:after{
         right: 15.9%;
     }
     .cart-box {
-        width: 43%;
-        right: 8px;
+        width: 26%;
+        right: 71px;
     }
     .cart-box:before{
         right: 18%;
@@ -3526,11 +3524,14 @@ width: 30%;
         font-size: 1em;
     }
     #loginBox {
-    right: -9%;
+    right: 8%;
 }
+    #loginForm {
+        width: 250px;
+    }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 29em 0px 0px;
+        margin: 0.3em 18em 0px 0px;
     }
     .header-right span.glyphicon {
         padding: 0.55em 0;
@@ -3574,8 +3575,8 @@ width: 30%;
         right: 30.9%;
     }
     .cart-box {
-        width: 45%;
-        right: 12px;
+        width: 23%;
+        right: 68px;
     }
     .cart-box:before{
         right: 15%;
@@ -3820,14 +3821,15 @@ width: 30%;
     }
     h2#mainContainer {
         margin-top: 20px;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
         font-size: 3.5em;
     }
     .product-grid {
         width: 32.33%;
     }
     .product-img img{
-        padding: 1em;
+        padding: 1.5em;
+        max-height: 166px;
     }
     .product-model-sec{
         padding: 0px 25px;
@@ -3866,7 +3868,7 @@ width: 30%;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 25em 0px 0px;
+        margin: 0.3em 14em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -3907,7 +3909,7 @@ width: 30%;
         left: -5px;
     }
     .header-right span.glyphicon {
-        font-size: 1.2em;
+        font-size: 1.4em;
         padding: 0.5em 0;
     }
     .header-right span img {
@@ -3923,9 +3925,10 @@ width: 30%;
     }
     .cart-box{
         right: 2px;
+        width: 30%;
     }
     .cart-box::before{
-        right: 56%;
+        right: 19%;
     }
     .track{
         right: 2px;
@@ -4211,7 +4214,7 @@ width: 30%;
     }
     h2#mainContainer {
         margin-top: 22px;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
         font-size: 3em;
     }
     .track input[type="text"]{
@@ -4219,6 +4222,7 @@ width: 30%;
     }
     .product-img img{
         padding:1em;
+        max-height: 195px;
     }
 }
 
@@ -4232,7 +4236,7 @@ width: 30%;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 24em 0px 0px;
+        margin: 0.3em 13em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -4249,7 +4253,6 @@ width: 30%;
         font-size: 14px;
     }
     .header-info {
-        width: 60%;
     }
     .badge {
 
@@ -4273,13 +4276,13 @@ padding: 2px 3px;
         padding: 0.3em;
     }
      #loginForm::after{
-        right:40%;
+        right: 25%;
     }
     .submitForm::after{
-        right: 40%;
+        right: 33%;
     }
     #loginBox {
-        right: -43px;
+        right: -20px;
     }
     #loginForm {
         width: 80%;
@@ -4315,9 +4318,9 @@ padding: 2px 3px;
         top:-2px;
     }
     .cart-box {
-        width: 56%;
+        width: 33%;
         padding: 0.5em;
-        right: 2px;
+        right: 0;
     }
    .cart-box::before {
         right: 13%;
@@ -4429,13 +4432,14 @@ padding: 2px 3px;
         width: 32%;
     }
     h2#mainContainer {
-        margin-top: 22px;
-        margin-bottom: 10px;
+        margin-top: 38px;
+        margin-bottom: 40px;
         font-size: 3em;
     }
     .product-model-sec{
         padding:0px 15px;
-        margin-top:10px;
+        /* margin-top:10px; */
+        margin-right: 40px;
     }
     .product-img img{
         padding:1em;
@@ -4482,7 +4486,7 @@ padding: 2px 3px;
         padding: 1em 0;
     }
     .product-grid {
-        width: 47%;
+        width: 100%;
         margin: 0 10px 4% 0;
     }
     input.item_add.items {
@@ -4649,7 +4653,7 @@ padding: 2px 3px;
 
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 21em 0px 0px;
+        margin: 0.3em 12em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -4666,7 +4670,7 @@ padding: 2px 3px;
         font-size: 13px;
     }
     .header-info {
-        width: 60%;
+        /* width: 60%; */
     }
     .badge {
 
@@ -4696,7 +4700,7 @@ padding: 2px 4px;
         right: 31%;
     }
     #loginBox {
-        right: -13%;
+        right: -4%;
     }
     #loginBox:after {
 
@@ -4736,7 +4740,7 @@ right: 30%;
         top:-2px;
     }
     .cart-box {
-        width: 59%;
+        width: 38%;
         /* padding: 0.5em; */
         right: 3px;
     }
@@ -4860,6 +4864,7 @@ right: 30%;
     }
     .product-model-sec{
         padding:0px 15px;
+        margin-left: 35px;
     }
     .col-lg-2.col-md-2.col-sm-4.col-xs-12.rsidebar.span_1_of_left{
         width: 100%;
@@ -4869,11 +4874,11 @@ right: 30%;
         padding: 0px 15px;
     }
     .product-img.b-link-stripe.b-animate-go.thickbox {
-        height: 190px;
+        /* height: 190px; */
     }
     .product-img img{
-        padding: 2em;
-        max-height: 195px;
+        padding: 1em;
+        /* max-height: 195px; */
     }
     .footer {
         padding: 2em 0 0.5em;
@@ -4907,7 +4912,7 @@ right: 30%;
         padding: 1em 0;
     }
     .product-grid {
-        width: 47%;
+        width: 100%;
         margin:0 10px 4% 0;
     }
     input.item_add.items {
@@ -5084,7 +5089,7 @@ right: 30%;
 
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 25.6em 0px 0px;
+        margin: 0.3em 10em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -5101,7 +5106,6 @@ right: 30%;
         font-size: 13px;
     }
     .header-info {
-        width: 60%;
     }
     .header-right span.glyphicon {
         font-size: 1.3em;
@@ -5125,7 +5129,7 @@ right: 30%;
         right: 33%;
     }
     #loginBox {
-        right: 20%;
+        right: -3%;
     }
     #loginForm {
         width: 80%;
@@ -5161,12 +5165,12 @@ right: 30%;
         top:-2px;
     }
     .cart-box {
-        width: 67%;
+        width: 26%;
         padding: 0.5em;
         right: 2px;
     }
    .cart-box::before {
-        right: 54%;
+        right: 25%;
         top: -10px;
     }
     .track{
@@ -5232,8 +5236,8 @@ right: 30%;
         left: 0%;
     }
     .gallery-grid {
-        /*width: 100%;*/
-        margin-bottom: 1em;
+        width: 100%;
+        margin-bottom: 4em;
         padding: 0;
     }
     .gallery-info a.shop{
@@ -5494,6 +5498,7 @@ right: 30%;
     }
     .feturedImg {
         padding: 4px;
+        padding-left: 45px;
     }
 }
 
@@ -5505,7 +5510,7 @@ right: 30%;
     }
     button.navbar-toggle {
         padding: 7px 10px;
-        margin: 0.3em 17em 0px 0px;
+        margin: 0.3em 9em 0px 0px;
     }
     h1.navbar-brand {
         padding: 0.5em 0.5em 0 0;
@@ -5522,7 +5527,7 @@ right: 30%;
         font-size: 13px;
     }
     .header-info {
-        width: 60%;
+        /* width: 60%; */
     }
     .badge {
         font-size: 9px;
@@ -5550,7 +5555,7 @@ right: 30%;
         right: 17%;
     }
     #loginBox {
-        right: -1%;
+        right: 4%;
     }
     #loginForm {
         width: 80%;
@@ -5586,7 +5591,7 @@ right: 30%;
         top: 0;
     }
     .cart-box {
-        width: 67%;
+        width: 36%;
         padding: 0.5em;
         right: 2px;
     }
@@ -5922,6 +5927,9 @@ right: 30%;
         top: -50px;
         width: 32%;
     }
+    .banner {
+        margin-top: 0;
+    }
     .navbar-nav{
         background: #5D4B33;
     }
@@ -5929,8 +5937,7 @@ right: 30%;
         margin:0px;
     }
     nav.navbar.navbar-default {
-        width: 100%;
-        float: none;
+        width: 40%;
         padding-left: 10px;
         padding-right: 10px;
         margin-top: -17px;
@@ -5938,11 +5945,14 @@ right: 30%;
     h1.navbar-brand{
         padding: 9px 0em 0 0;
     }
+    .header-info {
+    width: 45%;
+}
     button.navbar-toggle {
         margin-right: 14em;
     }
     button.navbar-toggle {
-        margin-right: 16em;
+        margin-right: 2em;
         margin-top: 19px;
     }
     div#bs-example-navbar-collapse-1{
@@ -5961,12 +5971,12 @@ right: 30%;
         top: 110%;
     }
     .submitForm:after,#loginForm:after{
-        right: 22%;
+        right: 17%;
     }
     .cart-box {
-        width: 50%;
+        width: 47%;
         top: 110%;
-        right: 5px;
+        right: 2px;
     }
     .track{
         top: 110%;
@@ -6040,15 +6050,19 @@ right: 30%;
     .col-sm-3{
         text-align: left;
     }
+    .product-model-sec {
+        margin: 0;
+    }
     .product-grid {
-        width: 49%;
+        width: 100%;
         margin: 0px 1% 5% 0;
     }
     .product-info-cust h4{
         font-size: 0.8em;
     }
     .product-img img{
-        padding: 0px;
+        padding: 1em;
+        max-height: 200px;
     }
     .item_add{
         font-size: 0.85em;

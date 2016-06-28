@@ -1,3 +1,10 @@
+#filterToggle:checked ~ .menu {
+position: absolute;
+left: -10px;
+margin-top: -130px;
+}
+
+
 @media screen and (max-width: 480px) {
     #filterToggle:checked ~ .rsidebar {
     width: 100%;
@@ -22,8 +29,71 @@
   }
 }
 
-#filterToggle:checked ~ .menu {
-position: absolute;
-left: -10px;
-margin-top: -130px;
+
+@media (min-width: 700px)  and  (max-width: 992px) {
+  .offerimg {
+    height: 70px;
+    margin-top: -70px;
+  }
+
+  .filterpanel section {
+      width: 27%;
+  }
+}
+
+@media (min-width: 659px)  and  (max-width: 992px) {
+  .offerimg {
+    height: 64px;
+    margin-top: -70px;
+  }
+
+  .filterpanel section {
+      width: 30%;
+  }
+}
+
+@media (min-width: 542px)  and  (max-width: 660px) {
+
+  .offerimg {
+    height: 54px;
+    margin-top: -60px;
+  }
+
+  .filterpanel section {
+      width: 37%;
+  }
+}
+
+@media (min-width: 480px)  and  (max-width: 541px) {
+  .offerimg {
+    height: 54px;
+    margin-top: -60px;
+  }
+
+  .filterpanel section {
+      width: 43%;
+  }
+}
+
+@media (min-width: 320px)  and  (max-width: 481px) {
+
+  .offerimg {
+    height: 54px;
+    margin-top: -60px;
+  }
+ .filterpanel section {
+      width: 55%;
+  }
+  .filterpanel a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .filterpanel {
+    font-size: 12px;
+  }
+
+
 }

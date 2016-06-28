@@ -67,8 +67,8 @@ div#page-wrapper h2.page-header{
 
 
 .elements {
-    width: 15%;
-    min-height: 90px;
+    width: 20%;
+    min-height: 250px;
     border: 1px solid #EFE9E9;
     margin: 0 1% 1% 0;
 }
@@ -118,7 +118,7 @@ div#page-wrapper h2.page-header{
     text-align: left;
     margin: 0px 0px 0px -4px;
     font-size: 14px;
-    height: 200px;
+    height: 300px;
     padding: 1px 14px;
     /* border: none; */
 }
