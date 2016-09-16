@@ -1,0 +1,65 @@
+/*---- responsive-design -----*/
+
+/* responsive for banner */
+@media (max-width: 1095px){
+    .banner {
+         height: 300px;
+    }
+}
+@media (max-width: 955px){
+    .banner {
+         height: 250px;
+    }
+}
+@media (max-width: 800px){
+    .banner {
+         height: 200px;
+    }
+}
+@media (max-width: 640px){
+    .banner {
+         height: 145px;
+    }
+}
+@media (max-width: 480px){
+    .banner {
+         height: 100px;
+    }
+}
+
+/* nav responsive styles */
+@media (max-width: 767px){
+    .navbar-default .navbar-collapse {
+         background-color:  #eeeaea;
+         border: none;
+    }
+}
+
+@media (max-width: 1024px){
+    .navbar-default .navbar-nav > li > a {
+        font-size: 0.9em;
+    }
+    .navbar-nav > li {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .navbar-right {
+        margin-right: 230px;
+    }
+    .top-nav-collapse .navbar-right {
+        margin-right: 0;
+    }
+}
+
+/* productbox responsive styles */
+@media (max-width: 991px){
+    .productbox .pr-view {
+        padding: 5px 20px;
+    }
+    .navbar-right {
+        margin-right: 190px;
+    }
+    .top-nav-collapse .navbar-right {
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,225 @@
+<div class="products" ng-app="productsearch">
+	<div ng-controller="MainController" >
+
+	<h2 id="mainContainer">Our Earring Collection</h2>
+	<hr style="margin-bottom: 0;">
+
+	<img src="../images/OFFERS.png" alt="" class="offerimg" />
+
+	<div class="filters">
+		<div class="filterOptions" filter-slide="!visibleFilter" slide-duration="2000">
+			<form>
+				<div class="row">
+					<div class="col-lg-4">
+						<section ng-if="isAgent"  class="sky-form agent">
+							<h4>Customized</h4>
+								 <label>
+					                <input type="radio" name="prdCustom" value="1" class="rdbtn" ng-model="prdStatus.custom">
+					                Yes
+					            </label>
+					            <label>
+					                <input type="radio" name="prdCustom" value="0" class="rdbtn" ng-model="prdStatus.custom">
+					                No
+					            </label>
+					            <label>
+					                <input type="radio" name="prdCustom" value="" class="rdbtn" ng-model="prdStatus.custom">
+					                All
+					            </label>
+						</section>
+					</div>
+					<div class="col-lg-4">
+						<section ng-if="isAgent"  class="sky-form agent">
+							<h4>Designer's Pick</h4>
+								 <label>
+					                <input type="radio" name="dpick" value="1" class="rdbtn" ng-model="prdStatus.despick">
+					                Yes
+					            </label>
+					            <label>
+					                <input type="radio" name="dpick" value="0" class="rdbtn" ng-model="prdStatus.despick">
+					                No
+					            </label>
+					            <label>
+					                <input type="radio" name="dpick" value="" class="rdbtn" ng-model="prdStatus.despick">
+					                All
+					            </label>
+						</section>
+					</div>
+					<div class="col-lg-4">
+						<section ng-if="isAgent"  class="sky-form agent">
+							<h4>Status</h4>
+								 <label>
+					                <input type="radio" name="pstatus" value="1" class="rdbtn" ng-model="prdStatus.active">
+					                Active
+					            </label>
+					            <label>
+					                <input type="radio" name="pstatus" value="0" class="rdbtn" ng-model="prdStatus.active">
+					                InActive
+					            </label>
+					            <label>
+					                <input type="radio" name="pstatus" value="" class="rdbtn" ng-model="prdStatus.active">
+					                All
+					            </label>
+						</section>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-2 hidden-xs"></div>
+					<div class="col-lg-2 col-sm-4 col-xs-12">
+						<section  class="sky-form">
+							<h4 class="m_2">Style</h4>
+							<div class="row  scroll-pane">
+								<div class="col col-4">
+									<label ng-repeat="sty in styles" class="checkbox">
+										  <input type="checkbox"  ng-checked="selectedStyles.indexOf(sty) > -1" ng-click="toggleStyleSelection(sty)"> <i></i>{{sty}}
+									</label>
+								</div>
+							</div>
+						</section>
+					</div>
+
+
+					<div class="col-lg-2 col-sm-4 col-xs-12">
+						<section  class="sky-form">
+							<h4 class="m_2">Tags</h4>
+							<div class="row  scroll-pane">
+								<div class="col col-4">
+									<label ng-repeat="tag in tags" class="checkbox">
+										  <input type="checkbox"  ng-checked="selectedTags.indexOf(tag) > -1" ng-click="toggleTagSelection(tag)"> <i></i>{{tag}}
+									</label>
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<div class="col-lg-2 col-sm-4 col-xs-12">
+						<section  class="sky-form">
+							<h4 class="m_2">Material</h4>
+							<div class="row  scroll-pane">
+								<div class="col col-4">
+									<label ng-repeat="mat in materials" class="checkbox">
+										  <input type="checkbox"  ng-checked="selectedMaterial.indexOf($index+1) > -1" ng-click="toggleSelection($index+1)"> <i></i>{{mat}}
+									</label>
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<div class="col-lg-2 col-sm-4 col-xs-12">
+						<section  class="sky-form">
+							<h4>Price</h4>
+									<rzslider rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max" rz-slider-options="priceSlider.options" ></rzslider>
+						</section>
+					</div>
+					<!-- <div class="col-lg-2 col-sm-6 col-xs-12">
+						<section  class="sky-form">
+							<h4 class="m_2">Category</h4>
+							<div class="row row1 scroll-pane">
+								<div class="col col-4">
+									<label ng-repeat="itm in items" class="checkbox">
+										  <input type="checkbox"  ng-checked="selectedItem.indexOf($index+1) > -1" ng-click="toggleItemSelection($index+1)"> <i></i>{{itm}}
+									</label>
+								</div>
+							</div>
+						</section>
+					</div> -->
+
+					<div class="col-lg-2 hidden-xs"></div>
+
+				</div>
+
+				<!--
+				<section  class="sky-form">
+					<h4>DISCOUNTS</h4>
+					<div class="row row1 scroll-pane">
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
+						</div>
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>70% - 60% (5)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>50% - 40% (7)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (2)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (5)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+						</div>
+					</div>
+				</section>
+				<section  class="sky-form">
+					<h4>RATING</h4>
+					<div class="row  scroll-pane">
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
+						</div>
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+						</div>
+					</div>
+				</section> -->
+
+			</form>
+		</div>
+		<div class="filterpanel">
+			<a href="javascript:void(0)" ng-click="toggleFilter()"><i class="fa fa-sliders"></i> &nbsp;{{visibleFilter ? "Show" : "Hide"}} Filter</a>
+			<section class="pull-right">
+					Sort By: <select  ng-change="orderByOptions()"  ng-model="selectedSort" >
+						<option value="new">Latest Designs</option>
+						<option value="phigh">Price:High to Low</option>
+						<option value="plow">Price:Low to High</option>
+						<!-- <option value="pop">Most Popular</option>
+						<option value="disc">Highest Discount</option> -->
+					</select>
+				</section>
+				<div class="clearfix"></div>
+		</div>
+	</div>
+
+
+
+			<div class="product-model-sec">
+
+					<div ng-repeat="product in resultSet =(allProducts | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid">
+						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">
+							<div class="more-product"><span> </span></div>
+							<div class="product-img b-link-stripe b-animate-go  thickbox">
+								<img ng-src="{{siteUrl}}productImages/{{product['mainimg']}}" />
+								<div class="b-wrapper">
+									<h4 class="b-animate b-from-left  b-delay03">
+										<button>View</button>
+									</h4>
+								</div>
+							</div>
+						</a>
+						<div class="product-info simpleCart_shelfItem">
+							<div class="product-info-cust prt_name">
+								<h4>{{product['name']}}</h4>
+								<!-- <h4>{{product['dateAdded']}}</h4> -->
+								<span class="item_price">{{product['price'] | mathround | currency:"&#8377":2}}</span>
+								<!-- <div class="ofr">
+									<p class="pric1"><del>$2300.00</del></p>
+									<p class="disc">[15% Off]</p>
+								</div> -->
+
+								<a ng-if="isAgent" target="_self" ng-href="{{siteUrl}}admin/dashboard.php?product&amp;id={{product['productid']}}" class="item_add items">Edit</a>
+								<button ng-if="!isAgent" ng-click="addCartItem(product['productid'], product['price']);" class="add-cart item_add">ADD TO CART</a>
+
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+			</div>
+
+		<!-- </div> -->
+		<div class="row">
+			<div class="" id="pagination">
+					<div>
+						<button ng-hide="currentPage == 0" ng-click="prevPage()" class="pageBtn">Previous</button>
+										<span ng-hide="currentPage == 0 && currentPage >= resultSet.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
+						<button ng-hide="currentPage >= resultSet.length/pageSize - 1" ng-click="nextPage()" class="pageBtn">Next</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,130 @@
+<!--account-->
+<div class="account">
+	<div class="container">
+		<div class="register">
+			<div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Registration Failed! Please try again</div>
+            <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
+			<form id="regForm" name="regForm" role="form" action="php/register.php" method="POST">
+                <?php if( isset($_REQUEST['register']) && $_REQUEST['register'] == "checkout"){
+                        echo '<input type="hidden" name="backto" value="orders" />';
+                }
+                ?>
+				<section id="errorMessages">
+					<div></div>
+				</section>
+				<div class="register-top-grid">
+					<h3>Personal information</h3>
+					 <div class="form-group">
+						<span>First Name<label>*</label></span>
+						<input class="form-control" data-validation="alphabets" placeholder="First Name" name="fname" type="text" autofocus>
+					</div>
+					 <div class="form-group">
+						<span>Last Name<label>*</label></span>
+						<input class="form-control" placeholder="Last Name" name="lname" type="text" autofocus>
+					</div>
+					 <div class="form-group">
+						<span>Email Address<label>*</label></span>
+						<input class="form-control" placeholder="Email" name="email" type="email" autofocus id="emailInput">
+					</div>
+					<!-- <a class="news-letter" href="#">
+						<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+					</a> -->
+					<div class="clearfix"> </div>
+				</div>
+			    <div class="register-bottom-grid">
+					<h3>Login information</h3>
+					 <div class="form-group">
+						<span>Password<label>*</label></span>
+						<input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pass">
+					</div>
+					 <div class="form-group">
+						<span>Confirm Password<label>*</label></span>
+						<input class="form-control" placeholder="Confirm Password" name="cpass" type="password" value="">
+					 </div>
+				</div>
+				 <input type="submit" value="Register" id="register" name="register">
+			</form>
+			<!-- <div class="clearfix"> </div>
+			<div class="register-but">
+			   <form> -->
+
+				   <div class="clearfix"> </div>
+			  <!--  </form>
+			  			</div> -->
+		</div>
+    </div>
+</div>
+  <script type="text/javascript">
+  $(function() {
+
+        $("#regForm").validate({
+            rules: {
+            	fname:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 80,
+		        	lettersonly:"letters only mate"
+		        },
+            	lname:{
+					required: true,
+					minlength: 2,
+					maxlength: 100,
+					lettersonly:"letters only mate"
+            	},
+                email: {
+                    required: true,
+                    email: true,
+                    remote: {
+				            url: "php/ajax.php?checkEmail",
+				            type: "post"
+				        }
+                },
+                pass: {
+                    required: true,
+                    minlength: 5
+                },
+                cpass: {
+                    required: true,
+                    equalTo: "#pass",
+                    minlength: 5
+                }
+            },
+            messages: {
+            	fname: {
+                    required: "Please provide a first name",
+                    minlength: "Your firstname must be at least 2 characters long",
+                    maxlength: "Your firstname must not exceed 100 characters",
+                    lettersonly:"Letters and spaces only please"
+
+                },
+                lname: {
+                    required: "Please provide a last name",
+                    minlength: "Your lastname must be at least 2 characters long",
+                    maxlength: "Your lastname must not exceed 100 characters",
+                    lettersonly:"Letters and spaces only please"
+
+                },
+                pass: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                cpass: {
+                    required: "Please provide a confirm password",
+                    equalTo:"Password and Confirm password do not match",
+                    minlength: "Your password must be at least 5 characters long"
+
+                },
+                email: {
+                	required: "Please enter a valid email address",
+                	 remote: jQuery.validator.format("{0} is already taken.")
+                }
+            },
+                submitHandler: function(form) {
+                   form.submit();
+                    return false;
+                }
+            });
+        });
+ </script>
+
+<!--//account-->

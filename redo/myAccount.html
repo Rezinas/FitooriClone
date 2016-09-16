@@ -1,0 +1,225 @@
+<div class="about">
+	 <div style="margin:0px 50px;">
+	 	<h2 id="pheader">My Page </h2>
+	 	<hr class="visible-xs" />
+	 	<div class="about-inform">
+	 		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" id="left-pane">
+	 			<input type="checkbox" id="menuToggle" >
+				<label for="menuToggle" class="visible-xs menu-icon">Click to See Menu<!-- &#9776; --></label>
+				<br/>
+	 			<div class="userProfile">
+	 				<span><i class="fa fa-user"></i></span>
+	 				<span class="userDetail"><?php  if(isset($_SESSION["username"])) echo $_SESSION["username"]; ?></span>
+
+	 			</div>
+	 			<nav class="userList menu visible-xs">
+					<ul>
+	 					<li>
+	 						<i class="fa fa-user"></i><span>&nbsp;My Account</span>
+	 						<div class="subUL">
+		 						<ul>
+		 							<li>
+		 								<a class="ep" href="javascript:void(0);">Edit Profile</a>
+		 							</li>
+		 							<li>
+		 								<a class="ea" href="javascript:void(0);">Edit Address</a>
+		 							</li>
+		 							<li>
+		 								<a class="passwd" href="javascript:void(0);">Change Password</a>
+		 							</li>
+		 						</ul>
+	 						</div>
+	 					</li>
+	 					<li>
+	 						<a
+	 						class="vd" href="javascript:void(0);"><i class="fa fa-picture-o"></i><span>&nbsp;My Custom Designs</span></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<li>
+	 						<a class="vo" href="javascript:void(0);"><i class="fa fa-shopping-cart"></i><span>&nbsp;My Orders</span></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<!-- <li>
+	 						<a
+	 						class="credit" href="javascript:void(0);"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<li>
+	 						<a
+	 						class="wish" href="javascript:void(0);"><i class="fa fa-heart"><span>&nbsp;My Wishlist</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li> -->
+	 				</ul>
+				</nav>
+	 			<div class="userList hidden-xs">
+	 				<ul>
+	 					<li>
+	 						<i class="fa fa-user"></i><span>&nbsp;My Account</span>
+	 						<div class="subUL">
+		 						<ul>
+		 							<li>
+		 								<a class="ep" href="javascript:void(0);">Edit Profile</a>
+		 							</li>
+		 							<li>
+		 								<a class="ea" href="javascript:void(0);">Edit Address</a>
+		 							</li>
+		 							<li>
+		 								<a class="passwd" href="javascript:void(0);">Change Password</a>
+		 							</li>
+		 						</ul>
+	 						</div>
+	 					</li>
+	 					<li>
+	 						<a
+	 						class="vd" href="javascript:void(0);"><i class="fa fa-picture-o"><span>&nbsp;My Custom Designs</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<li>
+	 						<a class="vo" href="javascript:void(0);"><i class="fa fa-shopping-cart"></i><span>&nbsp;My Orders</span></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<!-- <li>
+	 						<a class="credit" href="javascript:void(0);"><i class="fa fa-gift"><span>&nbsp;My Credits</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li>
+	 					<li>
+	 						<a class="wish" href="javascript:void(0);"><i class="fa fa-heart"><span>&nbsp;My Wishlist</span></i></a>
+	 						<div class="subUL"></div>
+	 					</li> -->
+	 				</ul>
+	 			</div>
+
+	 		</div>
+	 		<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" id="right-pane">
+	 			<div  class="pagecontent" id="response"></div>
+	 			<div id="chngPwd" class="pagecontent">
+	 				<form id="chngPwdForm" name="chngPwdForm" role="form"  method="POST">
+					    <div class="register-bottom-grid">
+							 <div class="form-group">
+								<span>Password</span>
+								<input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pass">
+							</div>
+							 <div class="form-group">
+								<span>Re-Type Password</span>
+								<input class="form-control" placeholder="Re-Type Password" name="cpass" type="password" value="">
+							 </div>
+						</div>
+						 <input type="submit" value="Change Password" id="chngpwd" name="chngpwd">
+					</form>
+				</div>
+				<div id="editProfile" class="pagecontent">
+					<div class="profile">
+						<form id="profileForm" name="profileForm" role="form" action="user.php?profile" method="POST">
+							<div class="register-top-grid">
+								 <div class="form-group">
+									<span>First Name</span>
+									<input class="form-control" data-validation="alphabets" placeholder="First Name" name="fname" type="text" autofocus value="<?php echo $curr_user['firstname']; ?>">
+								</div>
+								 <div class="form-group">
+									<span>Last Name</span>
+									<input class="form-control" placeholder="Last Name" name="lname" type="text" autofocus value="<?php echo $curr_user['lastname']; ?>">
+								</div>
+								 <div class="form-group">
+									<span>Email Address ( Not Editable)</span>
+									<input class="form-control" disabled placeholder="Email" name="email" type="email" autofocus id="emailInput" value="<?php echo $curr_user['email']; ?>">
+								</div>
+								<div class="form-group">
+									<span>Phone</span>
+									<input class="form-control" placeholder="Phone" name="phone" type="text" autofocus value="<?php echo $curr_user['phone']; ?>">
+								</div>
+								<div class="form-group">
+									<span>Gender</span>
+									 <input type="radio" name="gender" value="M" <?php if($curr_user['gender'] == 'M') echo 'checked'; ?> > Male
+									 <input type="radio" name="gender" value="F" <?php if($curr_user['gender'] == 'F') echo 'checked'; ?> > Female
+								</div>
+							</div>
+							 <input type="submit" value="Edit Profile" id="updateprofile" name="updateprofile">
+						</form>
+					</div>
+				</div>
+				<div id="editAddress" class="pagecontent">
+					<div class="register-top-grid">
+						<form id="AddressForm" name="AddressForm" role="form" action="user.php?address" method="POST">
+							<div class="form-group">
+								<span>Address Line 1</span>
+								<input class="form-control" data-validation="alphabets"  name="address1" type="text" autofocus value="<?php echo $curr_user['address1']; ?>">
+							</div>
+							<div class="form-group">
+								<span>Address Line 2</span>
+								<input class="form-control" data-validation="alphabets"  name="address2" type="text" autofocus value="<?php echo $curr_user['address2']; ?>">
+							</div>
+							<div class="form-group">
+								<span>City</span>
+								<input class="form-control" data-validation="alphabets"  name="city" type="text" autofocus value="<?php echo $curr_user['city']; ?>">
+							</div>
+							<div class="form-group">
+								<span>State</span>
+								<input class="form-control" data-validation="alphabets"  name="state" type="text" autofocus value="<?php echo $curr_user['state']; ?>">
+							</div>
+							<div class="form-group">
+								<span>Postal Code</span>
+								<input class="form-control" data-validation="alphabets"  name="postalcode" type="text" autofocus value="<?php echo $curr_user['postalcode']; ?>">
+							</div>
+							<input type="submit" value="Update" id="editAddr" name="editAddr" class="btn1">
+						</form>
+					</div>
+				</div>
+				<div id="viewOrders" class="pagecontent">
+					<div class="orders">
+						<table id="allorders" class="table-responsive">
+							<thead>
+							<tr>
+								<th>Order ID</th>
+								<th>Order Email</th>
+								<th>Shipping Address</th>
+								<th>Payment Type</th>
+								<th>Status</th>
+							</tr>
+							</thead>
+							<tbody>
+							<?php foreach($curr_orders as $ord) { ?>
+							<tr>
+								<td data-th="Order ID&nbsp;:&nbsp;"><a href="index.php?myorder&orderid=ORD000<?php echo $ord['orderid']; ?>">ORD000<?php echo $ord['orderid']; ?></a></td>
+								<td data-th="Order Email&nbsp;:&nbsp; "><?php echo $ord['useremail']; ?></td>
+								<td data-th="Shipping Address&nbsp;:&nbsp; "><?php echo $ord['shippingaddress1'] . ", <br>". $ord['shippingaddress2']. ", <br>". $ord['shippingcity'] . ", " .$ord['shippingstate'].", India-".$ord['shippingpostal']; ?></td>
+								<td data-th="Payment Type&nbsp;:&nbsp;"><?php echo $ord['paymenttype']; ?></td>
+								<td data-th="Status&nbsp;:&nbsp; "><?php echo $ord['status']; ?></td>
+							</tr>
+							<?php } ?>
+							</tbody>
+						</table>
+						<!-- <div>
+							<span> pagination</span>
+						</div> -->
+					</div>
+				</div>
+				<div id="designs" class="pagecontent">
+					<div class="custdes">
+						<?php
+							foreach($curr_des as $des) { ?>
+
+							<div class="product-grid">
+								<div class="product-img">
+									<img src="../productImages/<?php echo $des['mainimg']; ?>" alt=""/>
+								</div>
+								<div class="product-info">
+				                  <span class="item_price">Price: &#8377; <?php echo $des['price']; ?></span>
+				                  <button type="button" class="add-cart item_add" onclick="addToCart(<?php echo $des['productid']; ?>, <?php echo $des['price']; ?>);">Add To Cart</button>
+				               </div>
+							</div>
+
+						<?php } ?>
+					</div>
+	 			</div>
+	 			<div id="credits" class="pagecontent">
+	 				<p>Credits</p>
+	 			</div>
+	 			<div id="wishlist" class="pagecontent">
+					<p>Wishlist</p>
+	 			</div>
+	 		</div>
+	 	</div>
+ 	</div>
+ </div>
+
+

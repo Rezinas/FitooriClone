@@ -1,0 +1,123 @@
+<!--support-->
+	<div class="contact">
+		<div style="margin:0px 50px;">
+			<h2>Support</h2><hr/>
+			<div class="contact-form">
+				<h4>Enquiry form</h4>
+
+                <div class="alert alert-info hide ">
+                  Message Sent Successfully.
+                </div>
+				<form id="supportForm" name="supportForm" role="form" action="support.php" method="POST">
+					<div class="form-group" id="selectGrp">
+						<select name="queryBox">
+							<option value="">-- Query is about --</option>
+							<option value="products">Products</option>
+							<option value="orders">Order</option>
+							<option value="services">Service</option>
+							<option value="shipping">Shipping</option>
+							<option value="joining">Working with Fitoori</option>
+							<option value="others">Other</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input class="form-control" data-validation="alphabets" placeholder="Full Name" name="fullname" type="text" autofocus>
+					</div>
+					<div class="form-group">
+						<input class="form-control" placeholder="Email" name="email" type="text" autofocus>
+					</div>
+					<div class="form-group">
+						<input class="form-control" placeholder="Phone" name="phone" type="text" autofocus>
+					</div>
+					<div class="form-group" id="textareaForm">
+						<textarea class="form-control" type="text" placeholder="Message...." name="messageArea"></textarea>
+					</div>
+					<div class="chkBtn"><input type="submit" value="Submit" id="support" name="support" class="btn1"></div>
+				</form>
+			</div>
+			<div class="address">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 address-grids">
+						<h4>Speak to us :</h4>
+						<p style="margin-left:0em;"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>080-41128219</p>
+						<!-- <p><span class="glyphicon glyphicon-print" aria-hidden="true"></span>080-41128219 </p> -->
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 address-grids">
+						<h4>Write to us :</h4>
+						<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:team@fitoori.com">team@fitoori.com</a></p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+  <script type="text/javascript">
+  $(function() {
+
+        $("#supportForm").validate({
+            rules: {
+            	fullname:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 80,
+		        	lettersonly:"letters only mate"
+		        },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    numbersonly:"0-9"
+                },
+                messageArea:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 5000
+		        },
+		        queryBox:{
+		        	required:true
+		        }
+            },
+            messages: {
+            	fullname: {
+                    required: "Please provide a first name",
+                    minlength: "Your firstname must be at least 2 characters long",
+                    maxlength: "Your firstname must not exceed 100 characters",
+                    lettersonly:"Letters and spaces only please"
+
+                },
+                messageArea: {
+                    required: "Please provide some details",
+                    minlength: "Your lastname must be at least 2 characters long",
+                    maxlength: "Your lastname must not exceed 5000 characters"
+
+                },
+                phone: {
+                    required: "Please provide a contact details",
+                    minlength: "Your contact number must be at least 10 characters long",
+                    numbersonly:"Enter only digits"
+                },
+                email: "Please enter a valid email address",
+                queryBox: "Please select a value from Query dropdown"
+            },
+                submitHandler: function(form) {
+                     $.ajax({
+                       type: "POST",
+                       url: "php/contact.php",
+                       data: $(form).serialize(),
+                       timeout: 3000,
+                       success: function(data) {
+                            if(data == "EMAIL SENT") {
+                                $(".alert").removeClass("hide");
+                            }
+                       },
+                       error: function (request, status, error) {
+                            console.log(request.responseText);
+                        }
+                      });
+                    return false;
+                }
+            });
+        });
+ </script>
+	<!--//support-->

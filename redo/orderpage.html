@@ -1,0 +1,304 @@
+<!-- Order Page -->
+<div id="Orderpage" class="">
+   <!-- START STEPS -->
+      <h2>Checkout</h2>
+    <hr/>
+<!-- REST OF CHECKOUT -->
+<div style="margin:0px 50px">
+      <div id="shippingDetails" class="row" style="background-color: #fff;margin-bottom: 30px;">
+         <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <h4 style="background: #5D4B33; padding-left: 6px; color: #fff;">Order Summary</h4>
+            <h4>Order Number: ORD000<?php echo $sess_orderID; ?></h4>
+              <h4>Cart Total:  &#8377; <?php echo money_format('%!i',$cartTotal); ?></h4>
+
+                       <table style="width:100%;">
+                                <?php if(count($cartItems) > 0) {
+                                 foreach($cartProducts as $prod) { ?>
+                                  <tr>
+                                    <td>
+                                      <div id="cart<?php echo $prod['productid']; ?>" class="cart-header">
+                                       <!-- <div class="close1"></div> -->
+                                        <!--  <div class="cart-sec simpleCart_shelfItem"> -->
+                                          <div class="cart-item cyc">
+                                                <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
+                                          </div>
+                                         <div class="cart-item-info">
+                                           <span style="float:left;margin-bottom:5px;">
+                                            <a href="javascript: void(0);"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a>
+                                              <!-- <a href="<?php echo SITE_URL;?>index.php?single&id=<?php echo $prod['productid'];?>"><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?> </a> -->
+                                           </span>
+                                           <div class="delivery">
+                                               <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
+                                              <br>
+                                             <?php if($prod['customized'] == 0) { ?>
+
+                                              <p>Type: &nbsp;<span><?php echo $prod['material']; ?></span></p>
+                                              <br/>
+                                              <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
+                                              <br>
+                                              <?php } ?>
+                                              <p>Quantity: &nbsp;<span> <?php echo $cart[$prod['productid']]; ?></span></p>
+                                               <br>
+                                              <p>Total: &nbsp;<span>  &#8377;. <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span></p>
+                                            </div>
+                                        </div>
+                                       <!-- </div> -->
+                                      </div>
+                                  </tr>
+                              <?php }
+                                 }  ?>
+                        </table>
+            <!-- <ul>
+                <li><b>Order ID :</b> 123456789</li>
+               <li><b>Total :</b> Rs. 1580/-</li>
+               <li><b>Mode of payment:</b> Cash on delivery</li>
+               <li><b>Expected Time of Delivery :</b> 8 - 14 Days</li>
+               <li><b>Gift Coupon Code :</b> 2587</li>
+               <li>
+                  <b>Shipping Details :</b>
+                  <p style="line-height:2; padding-bottom: 20px;">
+                     B2-201,Genesis Apt.,<br/>
+                     Sarjapur Outer-Ring Road junction,<br/>
+                     Ibblur, Banglore - 560102
+                  </p>
+               </li>
+               <li><b>Reward points :</b> 25</li> -->
+               <!-- <li><a href="checkout.html.html">wishlist</a></li>
+               <li><a href="checkout.html.html">Order history</a></li>
+               <li><a href="#">Downloads</a></li> -->
+            <!-- </ul> -->
+         </div>
+
+         <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12" id="cart-items-all">
+            <div class="panel-group" id="accordion">
+            <!-- LOGIN PANEL -->
+            <?php if(!isset($_SESSION['userid'])) { ?>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h4 class="panel-title">
+                       <i class="fa fa-user"></i> Login <span class="loginCheck pull-right <?php if($sess_orderStatus != 'new') { echo 'show'; } else {echo 'hide'; } ?>"><i class="fa fa-check"></i> </span>
+                     </h4>
+                  </div>
+                  <div id="collapseZero" class="panel-collapse collapse <?php if($sess_orderStatus == '' || $sess_orderStatus == 'new' ) { echo 'in'; }?>">
+                     <div class="panel-body">
+                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 returnCustomer">
+                           <p id="title-p">Returning Customers</p>
+                           <form method="post" action="php/login.php">
+                           <input type="hidden" name="backto" value="orders" />
+                              <div class="form-group">
+                                 <label for="email">Email Address</label>
+                                 <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
+                              </div>
+                              <div class="form-group">
+                                 <label for="password" id="pwdLabel">Password</label>
+                                 <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
+                              </div>
+                              <input type="submit" id="login" value="Login" name="login">
+                              <input type="submit" id="submitEmail" value="Sumit" name="submit" class="hide">
+                           </form>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" class="guest">
+                              <p id="title-p">Guest Checkout</p>
+                              <button><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="$('.loginCheck').removeClass('hide');">Continue as Guest</a></button><br/><br/>
+                              <div>OR</div>
+                              <button><a href="index.php?register=checkout"> Register</a></button> <br>(We recommend you to register, so you can track and manage your orders.)
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            <!-- LOGIN PANEL END-->
+            <?php }  ?>
+            <!-- SHIPPING ADDRESS PANEL -->
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h4 class="panel-title">
+                        <i class="fa fa-gift"></i> Shipping &amp; Payment Details <?php if($sess_orderStatus == 'review' || $sess_orderStatus == 'confirmed') { ?>  <span class="pull-right"><i class="fa fa-check"></i> </span> <?php }?>
+                     </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse  <?php if($sess_orderStatus == 'shippingInfo') { echo 'in'; }?> ">
+                     <div class="panel-body">
+                        <form id="addressForm" name="addressForm" role="form" action="php/orders.php?address" method="POST">
+                        <input type="hidden" name="currOrderId" value="<?php echo $sess_orderID; ?>">
+                        <h4 class="heading">Contact Information</h4>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                       <span>Email Address</span>
+                                       <input class="form-control" data-validation="alphabets"  name="email_info" type="text" autofocus value="<?php echo $order_add['email']; ?>">
+                                </div>
+                                <div class="form-group">
+                                       <span>Phone Number</span>
+                                       <input class="form-control" data-validation="numbers"  name="phone" type="text" autofocus value="<?php if($order_add['phone'] != '') echo $order_add['phone']; ?>">
+                                </div>
+                            </div>
+                              <h4 class="heading">Shipping Address</h4><br>
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 shippingAddress">
+                                    <div class="form-group">
+                                       <span>Address Line 1</span>
+                                       <input class="form-control" data-validation="alphabets"  name="ship_address1" type="text" autofocus value="<?php echo $order_add['ship_add1']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>City</span>
+                                       <input class="form-control" readonly="readonly" data-validation="alphabets"  name="ship_city" type="text" autofocus value="Bangalore">
+                                    </div>
+
+                                    <div class="form-group">
+                                       <span>Postal Code <sub>(Currently serving only this pin code)</sub></span>
+                                      <!--  <input class="form-control" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="<?php echo $order_add['ship_postal']; ?>"> -->
+                                       <input class="form-control" readonly="readonly" data-validation="alphabets"  name="ship_postalcode" type="text" autofocus value="560102">
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 shippingAddress">
+                                    <div class="form-group">
+                                       <span>Address Line 2</span>
+                                       <input class="form-control" data-validation="alphabets"  name="ship_address2" type="text" autofocus value="<?php echo $order_add['ship_add2']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>State</span>
+                                       <input class="form-control" readonly="readonly" data-validation="alphabets"  name="ship_state" type="text" autofocus value="Karnataka">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 billingAddress">
+                                    <h3>Billing Address</h3><label><input type="checkbox" id="sameBilling" name="sameBilling" value="1" <?php if(!empty($order_add['ship_add1']) && $order_add['ship_add1'] == $order_add['bill_add1']) echo 'checked'; ?> >Same as Shipping Address</label>
+                                    <div class="form-group">
+                                       <span>Address Line 1</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_address1" type="text" autofocus value="<?php echo $order_add['bill_add1']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>Address Line 2</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_address2" type="text" autofocus value="<?php echo $order_add['bill_add2']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>City</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_city" type="text" autofocus value="<?php echo $order_add['bill_city']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>State</span>
+                                       <input class="form-control" data-validation="alphabets"  name="bill_state" type="text" autofocus value="<?php echo $order_add['bill_state']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                       <span>Postal Code <sub>(Currently serving only this pin code)</sub></span>
+
+                                       <input class="form-control" readonly="readonly" data-validation="alphabets"  name="bill_postalcode" type="text" autofocus value="560102">
+                                    </div>
+                                </div> -->
+                                <div class="col-xs-12">
+                                    <h4 class="heading">Payment Options</h4>
+                                     <div class="contact-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                          <input type="radio" name="paytype" value="COD" checked class="rdbtn">Cash on Delivery<br>
+                                          <input type="radio" name="paytype" value="NB" disabled="true">Net Banking (not available at this time)<br>
+                                          <input type="radio" name="paytype" value="CC" disabled="true">Credit Card  (not available at this time)
+                                       </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <input type="submit" value="Review Order" id="shippay" name="shippay" class="btn1">
+                                    <?php if(isGuest()) { ?>
+                                      <a  class="shippay" data-toggle="collapse" data-parent="#accordion" href="#collapseZero">Back</a>
+                                    <?php } ?>
+                                </div>
+                           </form>
+                     </div>
+                  </div>
+               </div>
+            <!-- SHIPPING ADDRESS PANEL END -->
+
+            <!-- PLACE ORDER PANEL -->
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h4 class="panel-title" id="panelThree">
+                        <i class="fa fa-list-alt"></i> Review &amp; Confirm <span class="pull-right <?php if($sess_orderStatus != 'confirmed') {  echo 'hide'; } ?>  "><i class="fa fa-check"></i> </span>
+                     </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse <?php if($sess_orderStatus == 'review') { echo 'in'; }?>">
+                     <div class="panel-body table-responsive"style="color:#333;font-weight:normal;">
+                        <!-- <h4 style="margin-bottom:-45px"><center>Thank you for shopping at Fitoori. You will recieve a mail shortly, with relevant order details. </center></h4><br/> -->
+                         <div class="tableClass">
+                           <h4>Order Number: ORD000<?php echo $sess_orderID; ?></h4>
+                            <table style="width: 100%">
+                            <!--  <?php foreach($cartProducts as $prod) { ?>
+                                  <tr>
+                                    <td>
+                                      <p><?php echo $prod['name'] ? $prod['name'] : "My Design" ; ?></p>
+                                       <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
+                                        <p>Quantity: &nbsp;<span> <?php echo $cart[$prod['productid']]; ?></span></p>
+                                    </td>
+                                    <td>
+                                      <span>: &#8377; <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span>
+                                    </td>
+                                  </tr>
+                             <?php } ?> -->
+                               <tr>
+                                  <td>Total( including Tax)</td>
+                                  <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+                               </tr>
+                                <tr>
+                      <th>Shipping</th>
+                      <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                   </tr>
+                             <?php if($offer)  {?>
+  <!--                           <tr>
+                                   <td colspan="2">Free Shipping on First Order or Order for more than 1 product.</td>
+                                 </tr> -->
+                                 <tr>
+                                    <th>Offers(Free Shipping)*</th>
+                                    <td>: &#8377; -<?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                                 </tr>
+                                 <?php } ?>
+                                 <tr>
+                                    <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
+                                    <td>: &#8377; <span id="grandTotal"><?php
+                                      if($offer) {
+                                        echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL - SHIPPINGCHARGES_SMALL);
+                                      }
+                                      else {
+                                       echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL);
+                                      }
+
+                                     ?></span></td>
+                               </tr>
+                            </table>
+                         </div>
+                          <div class="estimate" style="text-align: right;">
+                            <p>Estimated time of delivery :  <?php echo date('F dS, Y', strtotime("+8 days")); ?> - <?php echo date('F dS, Y', strtotime("+14 days")); ?> </p>
+                         </div>
+
+                         <div> <strong>Shipping Address:</strong> <br/>
+                            <?php echo $_SESSION["shippingaddress"]; ?>
+
+                         </div> <br>
+                         <div> <strong>Payment Method:</strong> Cash on Delivery </div>
+                         <p>* Free shipping on first order.</p>
+                        <a href="javascript:void(0);" class="placeorder">Confirm Order</a>
+                          <a  class="back" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Back</a>
+                     </div>
+                  </div>
+               </div>
+            <!-- PLACE ORDER PANEL END -->
+
+                <!-- PLACE ORDER PANEL -->
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h4 class="panel-title">
+                        <i class="fa fa-thumbs-up"></i> Order Confirmation
+                     </h4>
+                  </div>
+                  <div id="collapseFour" class="panel-collapse collapse <?php if($sess_orderStatus == 'confirmed') { echo 'in'; }?>">
+                     <div class="panel-body"style="color:#333;font-weight:normal;">
+                        <h4> Your ORDER ORD000<?php echo $sess_orderID; ?> has been successfully placed. </h4>
+                        <h4 style="margin-bottom:-45px"><center>Thank you for shopping at Fitoori. You will recieve a mail shortly, with relevant order details. </center></h4><br/>
+
+                        <a href="index.php?products" class="confirm">Continue Shopping</a>
+                     </div>
+                  </div>
+               </div>
+            <!-- PLACE ORDER PANEL END -->
+
+
+            </div>
+         </div>
+
+      </div>
+</div>
+   <!-- END OF REST OF CHECKOUT -->
+
+</div><!-- end of order page

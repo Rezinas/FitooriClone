@@ -1,0 +1,109 @@
+<div ng-app="elementsearch">
+	<div ng-controller="MainController">
+		<h2>Admin Product Search</h2>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="pull-right">
+					<select  ng-change="orderByOptions()"  ng-model="selectedSort" >
+						<option value="phigh">Price:High to Low</option>
+						<option value="plow">Price:Low to High</option>
+					</select>
+				</div>
+			<div class="clearfix"> </div>
+
+			</div>
+		</div>
+		<div class="row">
+
+					<div class="col-md-3 rsidebar span_1_of_left">
+				<form>
+
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Quantity</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<input type="text" ng-model="selectedQuantity">
+							</div>
+						</div>
+					</section>
+
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Material</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<label ng-repeat="mat in materials" class="checkbox">
+									  <input type="checkbox"  ng-checked="selectedMaterial.indexOf($index+1) > -1" ng-click="toggleSelection($index+1)"> <i></i>{{mat}}
+								</label>
+							</div>
+						</div>
+					</section>
+
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Style</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<label ng-repeat="sty in styles" class="checkbox">
+									  <input type="checkbox"  ng-checked="selectedStyles.indexOf(sty) > -1" ng-click="toggleStyleSelection(sty)"> <i></i>{{sty}}
+								</label>
+							</div>
+						</div>
+					</section>
+
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Tags</h4>
+						<div class="row  scroll-pane">
+							<div class="col col-4">
+								<label ng-repeat="tag in tags" class="checkbox">
+									  <input type="checkbox"  ng-checked="selectedTags.indexOf(tag) > -1" ng-click="toggleTagSelection(tag)"> <i></i>{{tag}}
+								</label>
+							</div>
+						</div>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
+								<rzslider rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max" rz-slider-options="priceSlider.options" ></rzslider>
+					</section>
+					<section  class="sky-form">
+						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Points</h4>
+								<label>Top points&nbsp;&nbsp; <input type="text" size="3" name="toppoints" ng-model="toppoints"></label> <label> &nbsp; &nbsp; Bottom Points <input type="text" size="3"  name="bottompoints" ng-model="bottompoints"></label>
+					</section>
+					<section  class="sky-form">
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Jewelry Type</h4>
+						<div class="row row1 scroll-pane">
+							<div class="col col-4">
+								<label ng-repeat="itm in items" class="checkbox">
+									  <input type="checkbox"  ng-checked="selectedItem.indexOf($index+1) > -1" ng-click="toggleItemSelection($index+1)"> <i></i>{{itm}}
+								</label>
+							</div>
+						</div>
+					</section>
+				</form>
+
+			</div>
+			<div class="col-md-9 product-model-sec">
+					<div ng-repeat="piece in resultSet = (allPieces | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid elements">
+					<a target="_self" ng-href="dashboard.php?pieces&id={{piece['id']}}">
+						<div class="product-img b-link-stripe b-animate-go  thickbox">
+							<img ng-src="../productImages/{{ piece['carouselImg']}}" class="img-responsive" alt=""> <br>
+							<p>Name: {{piece['name']}}</p>
+							<p>Price: {{piece['price']}}</p>
+							<p>Quantity: {{piece['quantity']}}</p>
+							<p>Style:{{piece['style']}}</p>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="clearfix"> </div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+					<div class="pull-right">
+						<button ng-hide="currentPage == 0" ng-click="prevPage()">Previous</button>
+										<span ng-hide="currentPage == 0 && currentPage >= resultSet.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
+						<button ng-hide="currentPage >= resultSet.length/pageSize - 1" ng-click="nextPage()">Next</button>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

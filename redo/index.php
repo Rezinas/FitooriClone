@@ -1,0 +1,405 @@
+<?php
+   error_reporting(E_ALL);
+   require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
+   $currenttab = "";
+   if(isset($_GET["products"])) {
+       $currenttab = 'products';
+   }
+   else if(isset($_GET["customearrings"])) {
+       $currenttab = "customearrings";
+   }
+  else if(isset($_GET["designearrings"])) {
+       $currenttab = "designearrings";
+   }
+     else if(isset($_GET["designearrings1"])) {
+       $currenttab = "designearrings1";
+   }
+   else if(isset($_GET["offers"])) {
+       $currenttab = 'offers';
+   }
+   else if(isset($_GET["join"])) {
+       $currenttab = 'join';
+   }
+     else if(isset($_GET["corp"])) {
+       $currenttab = 'corp';
+   }
+   else if(isset($_GET["about"])) {
+       $currenttab = 'about';
+   }
+   else if(isset($_GET["contact"])) {
+       $currenttab = 'contact';
+   }
+   else if(isset($_GET["support"])) {
+       $currenttab = 'support';
+   }
+   else if(isset($_GET["privacy"])) {
+       $currenttab = 'privacy';
+   }
+   else if(isset($_GET["sr"])) {
+       $currenttab = 'sr';
+   }
+   else if(isset($_GET["tc"])) {
+       $currenttab = 'tc';
+   }
+   else if(isset($_GET["orders"])) {
+       $currenttab = 'orders';
+   }
+   else if(isset($_GET["myorder"])) {
+    if(!isset($_SESSION["userid"])) $currenttab = 'register';
+    else if(!isset($_REQUEST["orderid"])) $currenttab = 'home';
+     else
+       $currenttab = 'myorder';
+   }
+   else if(isset($_GET["register"])) {
+       $currenttab = 'register';
+   }
+   else if(isset($_GET["checkout"])) {
+       $currenttab = 'checkout';
+   }
+   else if(isset($_GET["single"])) {
+       $currenttab = 'single';
+   }
+   else if(isset($_GET["myaccount"])){
+    if(!isset($_SESSION["userid"])) $currenttab = 'register';
+    else $currenttab = 'myaccount';
+   }
+   else if(isset($_GET["logout"])){
+     $currenttab = 'logout';
+   }
+   else {
+       $currenttab = 'home';
+
+      $rqry = "SELECT productid, name, price, material, mainimg, dateAdded, customized FROM products WHERE featured=1 ORDER BY dateAdded DESC LIMIT 8";
+
+       if(!$stmt = $dbcon->prepare($rqry)){
+          die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+      }
+
+      if(!$stmt->execute()){
+          die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+      }
+
+      $stmt->store_result();
+      $stmt->bind_result($a,$b, $c, $d, $e, $f, $g);
+      $featuredPrd =[];
+      while ($stmt->fetch()) {
+        $featuredPrd[] = ['productid' => $a, 'name' => $b, 'price' => $c, 'material' => $d, 'mainimg' => $e, 'dateAdded' =>$f, 'customized' => $g];
+      }
+      $stmt->close();
+
+   }
+
+if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" && $currenttab != "orders" ) {
+  unset($_SESSION['orderStatus']);
+  unset($_SESSION['orderID']);
+  unset($_SESSION['cartids']);
+  unset($_SESSION['cartPrice']);
+}
+
+
+
+
+   ?>
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Fitoori</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="keywords" content="" />
+      <?php include("cssincludes.html"); ?>
+      <?php include("jsincludes.html"); ?>
+   </head>
+   <body>
+<!-- facebook integration -->
+<!-- <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1076977995697955',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(d)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1076977995697955";
+      fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script> -->
+
+<!-- Twitter -->
+<!--   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
+
+      <!--header-->
+      <!-- <div class="header"> -->
+         <!-- <div class="container"> -->
+         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+              <div class="navbar-header">
+                <a class="navbar-brand"><img src="images/logo_dark.png"  class="img-responsive"/></a>
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 </button>
+
+              </div>
+              <!--navbar-header-->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 <ul class="nav navbar-nav">
+                    <li>
+                       <a href="index.php" <?php if($currenttab == "home") echo 'class="active"'; ?>>
+                          Fitoori <!-- <img src="images/home.png"/> -->
+                       </a>
+                    </li>
+                    <li class="dropdown grid">
+                       <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Co-Creation</a>
+                       <ul class="dropdown-menu">
+                                   <li><a class="list" href="index.php?designearrings=dangler "><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Danglers</a></li>
+                                   <li><a class="list" href="index.php?designearrings=jhumka"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Jhumka</a></li>
+                                   <li><a class="list" href="index.php?designearrings=hoop"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Hoops</a></li>
+                                   <li><a class="list" href="index.php?designearrings=chandelier"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Chandelier</a></li>
+                       </ul>
+                    </li>
+                    <li class="dropdown grid">
+                       <a href="javascript:void(0);" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Products</a>
+                       <ul class="dropdown-menu">
+                                   <li><a class="list" href="index.php?products">All</a></li>
+                                   <li><a class="list" href="index.php?products&m=2">Beaded</a></li>
+                                   <li><a class="list" href="index.php?products&m=3">Metal</a></li>
+                                   <li><a class="list" href="index.php?products&m=1">Teracotta</a></li>
+                       </ul>
+                    </li>
+                 </ul>
+
+                   <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown grid">
+                       <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a>
+                        <div class="dropdown-menu" id="cartbox" style="padding: 15px; padding-bottom: 0px;">
+                           <h4><a href="javascript:void(0);">
+                               <span class="simpleCart_total"> &#8377; 0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
+                               </a>
+                            </h4>
+                            <p><a href="index.php?checkout">View cart</a></p>
+                        </div>
+                      </li>
+                      <li class="dropdown grid">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                        <div class="dropdown-menu" id="loginbox" style="padding: 15px; padding-bottom: 0px;">
+                         <form  id="loginForm" name="loginForm" role="form" <?php  if(isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
+                       <div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Login Failed! Please try again</div>
+                       <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
+                       <div class="alert alert-danger hide" id="forgotpwdMessage" role="alert"> Please provide yor email address, you will recieve an email with your password.</div>
+                       <div class="alert alert-danger hide" id="fgtPwdMsg" role="alert">We have sent you an Email with password.</div>
+
+                       <fieldset id="body">
+                          <div class="form-group">
+                             <label for="email">Email Address</label>
+                             <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus>
+                          </div>
+                          <div class="form-group">
+                             <label for="password" id="pwdLabel">Password</label>
+                             <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
+                          </div>
+                          <input type="submit" id="login" value="Login" name="login">
+                          <input type="submit" id="submitEmail" value="Sumit" name="submit" class="hide">
+                       </fieldset>
+                       <p>New User ? <a class="sign" href="index.php?register">Sign Up</a>
+                       <span><a href="javascript:void(0);" id="fgtpwd">Forgot your password?</a></span></p>
+                    </form>
+                    <div class="userprofile"  <?php  if(!isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
+                       <ul class="dropdown-menu dropdown-user" id="userList" style=
+                          "display:block">
+                          <li>
+                             <span class="username">
+                             <a id="loginemail" href="javascript:void(0);"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a>
+                             </span>
+                             <span class="logout">
+                             <a href="index.php?logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                             </span>
+                          </li>
+                          <li><a href="index.php?myaccount=profile"><i class="fa fa-user fa-fw"></i>My Account</a>
+                          </li>
+                          <li><a href="index.php?myaccount=custom"><i class="fa fa-picture-o"></i> My Designs</a>
+
+                          <li><a href="index.php?myaccount=orders"><i class="fa fa-shopping-cart fa-fw"></i> My Orders</a>
+                          </li>
+                       </ul>
+                    </div>
+                    <div class="submitForm">
+                      <form  id="submitForm" name="submitForm" role="form" style="display:none;">
+                         <div class="alert alert-danger hide" id="forgotpwdMessage" role="alert"> Please provide yor email address, you will recieve an email with your password.</div>
+                         <div class="alert alert-danger hide" id="fgtPwdMsg" role="alert">We have sent you an Email with password.</div>
+                         <div class="alert alert-danger hide" id="errorMsg" role="alert">Some Error</div>
+                         <fieldset id="body">
+                            <div class="form-group">
+                               <label for="email">Email Address</label><br/>
+                               <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus>
+                            </div>
+                            <input type="submit" id="submitEmail" value="Submit" name="submitEmail">
+                         </fieldset>
+                      </form>
+                    </div>
+
+                        </div>
+                      </li>
+                    </ul>
+                 <!--/.navbar-collapse-->
+              </div>
+              <!--//navbar-header-->
+            </div>
+         </nav>
+
+         <!-- </div> -->
+      <!-- </div> -->
+      <!--//header-->
+      <?php
+         if($currenttab == "home") {
+              $check_user="select is_undermaintenance from sitevariable";
+              $result=mysqli_query($dbcon,$check_user);
+              if ($result && mysqli_num_rows($result) > 0)
+                {
+                  while ($row=mysqli_fetch_row($result))
+                    {
+                      $sitevar = $row[0];
+                      if( $sitevar == 0)
+                      {
+                        include(SITE_ROOT. "/redo/startindex.html");
+                      }
+                      else{
+                        include(SITE_ROOT. "/undermaintenance.html");
+                      }
+                  }
+                    // Free result set
+                    mysqli_free_result($result);
+                }
+
+         }
+         else if($currenttab == "products") {
+              include(SITE_ROOT. "/php/productsearch.php");
+             include(SITE_ROOT. "/products.html");
+         }
+         else if($currenttab == "customearrings") {
+                include(SITE_ROOT. "/customizationLandingPage.html");
+            }
+         else if($currenttab == "designearrings") {
+                 include(SITE_ROOT. "/php/design.php");
+                 include(SITE_ROOT. "/design.html");
+            }
+          else if($currenttab == "designearrings1") {
+                 include(SITE_ROOT. "/php/design.php");
+                 include(SITE_ROOT. "/design.html");
+            }
+         else if($currenttab == "offers") {
+             include(SITE_ROOT. "/offers.html");
+         }
+         else if($currenttab == "join") {
+             include(SITE_ROOT. "/joinus.html");
+         }
+        else if($currenttab == "corp") {
+             include(SITE_ROOT. "/corporate.html");
+         }
+         else if($currenttab == "about") {
+             include(SITE_ROOT. "/about.html");
+         }
+         else if($currenttab == "contact") {
+             include(SITE_ROOT. "/contact.html");
+         }
+         else if($currenttab == "support") {
+             include(SITE_ROOT. "/support.html");
+         }
+         else if($currenttab == "privacy") {
+             include(SITE_ROOT. "/privacy.html");
+         }
+         else if($currenttab == "sr") {
+             include(SITE_ROOT. "/SR.html");
+         }
+         else if($currenttab == "tc") {
+             include(SITE_ROOT. "/T&C.html");
+         }
+         else if($currenttab == "register") {
+             include(SITE_ROOT. "/register.html");
+         }
+         else if($currenttab == "checkout") {
+             include(SITE_ROOT. "/php/checkout.php");
+             include(SITE_ROOT. "/checkoutCart.html");
+         }
+         else if($currenttab == "single") {
+             include(SITE_ROOT. "/single.html");
+         }
+        else if($currenttab == "myaccount") {
+            include(SITE_ROOT. "/php/user.php");
+            include(SITE_ROOT. "/myAccount.html");
+        }
+        else if($currenttab == "orders") {
+            include(SITE_ROOT. "/php/checkout.php");
+            include(SITE_ROOT. "/php/orders.php");
+            include(SITE_ROOT. "/orderpage.html");
+        }
+       else if($currenttab == "myorder") {
+            include(SITE_ROOT. "/php/myorder.php");
+            include(SITE_ROOT. "/myorder.html");
+        }
+         ?>
+      <!--footer-->
+      <div class="footer">
+         <div class="container">
+            <div class="footer-grids">
+               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
+                  <h4>company</h4>
+                  <ul>
+                     <li><a href="index.php?about">About Us</a></li>
+                     <!-- <li>Our Partners</li>
+                     <li>Social Responsibility</li> -->
+                     <li><a href="index.php?join">Work Here</a></li>
+
+                  </ul>
+               </div>
+               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
+                  <h4>service</h4>
+                  <ul>
+                     <!-- <li>FAQ</li> -->
+                     <li><a href="index.php?contact">Contact Us</a></li>
+                     <li><a href="index.php?support">Support</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 footer-grid">
+                  <h4>order & returns</h4>
+                  <ul>
+                     <li><a href="index.php?tc#OrderStatus">Order Status</a></li>
+                     <li><a href="index.php?tc#ShippingPolicy">Shipping Policy</a></li>
+                     <li><a href="index.php?tc#ReturnPolicy">Return Policy</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
+                  <h4>legal</h4>
+                  <ul>
+                     <li><a href="index.php?privacy">Privacy</a></li>
+                     <li><a href="index.php?tc">Terms & Conditions</a></li>
+                     <!-- <li>Social Responsibility</li> -->
+                  </ul>
+               </div>
+               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 footer-grid icons">
+                  <h4>Connect with Us</h4>
+                  <ul>
+                    <li><img src="images/i1a.png" alt=""/>&nbsp;Facebook</li>
+                    <li><img src="images/i2a.png" alt=""/>&nbsp;Twitter</li>
+                  </ul>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+         </div>
+      </div>
+      </div>
+      <!--//footer-->
+      <div class="footer-bottom">
+         <div class="container">
+            <p> © 2016 Fitoori . All rights reserved.</p>
+         </div>
+      </div>
+   </body>
+</html>

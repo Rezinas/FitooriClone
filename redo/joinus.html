@@ -1,0 +1,78 @@
+<!--contact-->
+<div class="contact">
+	<div style="margin:0px 50px;">
+		<h2>Get On Board!</h2>
+		<hr/>
+		<div class="contact-infom" style="padding-bottom: 1em;">
+			<p>
+				Fitoori is a fun start up! If you want to be part of our work , we would be pleased to hear from you. Please fill out the form and submit or mail us directly at <a href="mailto:team@fitoori.com">team@fitoori.com </a><br/>
+				<b>We are currently looking out for - </b>
+			</p>
+			<ul>
+					<li>Designers</li>
+					<li>Accessories Manufacturers</li>
+					<li>Social Media Marketers</li>
+					<li>Willing to  sell with us</li>
+				</ul>
+		</div>
+
+
+        <div class="alert alert-info hide ">
+          Message Sent Successfully.
+        </div>
+
+		<form id="joinForm" name="joinForm" action="contact.php" method="post">
+		<div class="contact-form row">
+				<div class="form-group col-sm-4 col-xs-12"><input type="text" name="cname" placeholder="Name"  required=""></div>
+				<div class="form-group col-sm-4 col-xs-12"><input type="text" name="email" placeholder="Email" required=""></div>
+				<div class="form-group col-sm-4 col-xs-12"><input type="text" name="phone" placeholder="Phone" required=""></div>
+				<div class="form-group col-sm-4 col-xs-12"><textarea type="text" name="expertise" placeholder="Your Field of Expertise..."required=""></textarea></div>
+				<div class="form-group col-sm-4 col-xs-12"><textarea type="text"  name="address" placeholder="Address..." required=""></textarea></div>
+				<div class="form-group col-sm-4 col-xs-12"><textarea type="text" name="desc" placeholder="Short Description about your work..." required=""></textarea></div>
+                 <input type="submit" value="Submit" name="joinSubmit" class="btn1">
+		</div>
+		</form>
+
+	</div>
+</div>
+<!--//contact-->
+ <script type="text/javascript">
+  $(function() {
+
+        $("#joinForm").validate({
+            rules: {
+                cname:{required: true},
+                phone:{required: true,  minlength:9, maxlength:10},
+                email:{required: true, email:true},
+                address:{required: true},
+                expertise:{required: true},
+                desc:{required: true}
+            },
+            messages: {
+                cname:{required: "Please enter your name"},
+                phone:{required: "Please enter your phone number"},
+                email:{required: "Please enter your email", email:"Please enter valid email address"},
+                address:{required: "Please enter your address"},
+                expertise:{required: "Please tell us about your expertise"},
+                desc:{required: "Please provide a short description of your work"}
+            },
+            submitHandler: function(form) {
+                      $.ajax({
+                       type: "POST",
+                       url: "php/contact.php",
+                       data: $(form).serialize(),
+                       timeout: 3000,
+                       success: function(data) {
+                            if(data == "EMAIL SENT") {
+                                $(".alert").removeClass("hide");
+                            }
+                       },
+                       error: function (request, status, error) {
+                            console.log(request.responseText);
+                        }
+                      });
+                    return false;
+                }
+            });
+        });
+ </script>

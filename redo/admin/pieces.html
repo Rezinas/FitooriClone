@@ -1,0 +1,231 @@
+<h2 class="page-header">Manage Elements</h2>
+<div class="">
+   <div class="panel panel-default">
+      <div class="panel-heading"><?php echo ($pcmode == "new") ? "New" : "Update"; ?>  Element Information   </div>
+      <div class="panel-body" id="manageElementsPanelBody">
+         <form  role="form" name="piecesForm"  id="piecesForm" enctype="multipart/form-data"  action="dashboard.php?pieces" method="POST">
+            <input type="hidden" name="pcmode" <?php if( $pcmode  != "") echo "value='$pcmode'"; ?> />
+            <input type="hidden" name="pieceid" <?php if( $pieceid  != "") echo "value='$pieceid'"; ?> />
+            <div class="row">
+               <div class="col-md-4 ">
+                  <div class="form-group">
+                     <label>Enter Main Image</label>
+                     <div class="input-group" v>
+                        <input type="text" class="form-control" readonly=""  name="carouselImgname" <?php if( $carouselImg  != "") echo "value='$carouselImg'"; ?>>
+                        <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                        Browse… <input type="file" name="carouselImg">
+                        </span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+               <?php if($pcmode == "edit") { ?>
+               <div class="col-md-2" style="padding-top: 25px">
+                  <a href="dashboard.php?pieces&deleteid=<?php echo  $pieceid; ?>" class="btn btn-primary">Delete this Element</a>
+               </div>
+               <?php  } ?>
+            </div>
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="silhout">
+                     <div class="designDiv">
+                        <div id="carouselImg"><img src=<?php if( $carouselImg  != "") echo "../productImages/".$carouselImg."?t=" . time(); else  echo  "../images/placeholder.png"; ?> /></div>
+                     </div>
+                  </div>
+                  <div id="carouselDimensions">
+                     Height: <span class="imgheight">225</span> X
+                     Width: <span class="imgwidth">225</span>
+                     <input type="hidden" id="imgheight" name="pimgheight" <?php if( $pimgheight  != "") echo "value='$pimgheight'"; ?> >
+                     <input type="hidden" id="imgwidth" name="pimgwidth" <?php if( $pimgwidth  != "") echo "value='$pimgwidth'"; ?> >
+                  </div>
+               </div>
+               <div class="col-md-1" id="centerxDiv" <?php if( $pctop  != "0") echo "style='display:none'"; ?>>
+                  <div class="form-group pcenterx" >
+                     <label>Center x</label>
+                     <input class="form-control" name="pcenterx" placeholder="Top Element only"  <?php if( $pcenterx  != "") echo "value='$pcenterx'"; ?> >
+                  </div>
+               </div>
+               <div class="col-md-1" id="centeryDiv" <?php if( $pctop != "0") echo "style='display:none'"; ?>>
+                  <div class="form-group pcentery">
+                     <label>Center y</label>
+                     <input class="form-control" name="pcentery" placeholder="Top Element only"  <?php if( $pcentery  != "") echo "value='$pcentery'"; ?> >
+                  </div>
+               </div>
+               <div class="col-md-2" id="topPointDiv" <?php if( $pctop == "0") echo "style='display:none'"; ?>>
+                  <h4>Top Points</h4>
+                  <?php
+                  for($i=0; $i<intval($pctop); $i++){
+                   echo   '<div class="tcoords tcoords'.$i.'"><label>x'.$i.'</label><input type="text"  placeholder="x'.$i.'" name="topx'.$i.'"  value="'.$topx[$i].'"/> &nbsp;<label>y'.$i.'</label><input type="text"  placeholder="y'.$i.'" name="topy'.$i.'"  value="'.$topy[$i].'"/></div>';
+                     }
+                  ?>
+               </div>
+               <div class="col-md-2" id="topPdiv">
+                  <div class="form-group">
+                     <label>Top Edge Points</label>
+                     <input class="form-control" name="pctop" placeholder="Enter Number of Points on Top Edge"  <?php if( $pctop  != "") echo "value='$pctop'"; ?> >
+                  </div>
+                   <div class="form-group">
+                     <label>Price</label>
+                     <input class="form-control" name="pprice" placeholder="Enter Price"  <?php if( $pprice  != "") echo "value='$pprice'"; ?> >
+                  </div>
+                   <div class="form-group">
+                     <label>Priority</label>
+                      <select name="priority" id="$priority" class="form-control">
+                                <option value=''>Select Priority</option>
+                                    <option value="1" <?php echo   ($priority  == "1") ?   "selected" : "";?>>High</option>
+                                    <option value="0" <?php echo   ($priority  == "0") ?   "selected" : "";?>>Low</option>
+                                </select>
+                  </div>
+                  <div class="form-group">
+                     <label>Type of Jewelry</label>
+                     <select  name="pcbody" id="pcbody" class="form-control">
+                        <option value=''>Select Type</option>
+                        <?php
+                           foreach($itemsArr as  $itemkey=>$item) {
+                           $itemkey++;
+                           echo  "<option value='$itemkey'";
+                           echo ($pcbody  == $itemkey) ?   "selected" : "";
+                           echo  ">$item</option>";
+                           }
+                           ?>
+                     </select>
+                  </div>
+                  <div class="form-group ">
+                     <label>Colors</label>
+                     <select name="pccolors[]" id="pccolors" class="form-control" multiple  style="height:200px">
+                        <option value='' disabled>Select All that Apply</option>
+                        <?php
+                           foreach($colorsArr as  $color) {
+                                  echo  "<option value='$color'";
+                                   echo (in_array($color, $pccolors)) ?   "selected" : "";
+                                   echo  ">$color</option>";
+                               }
+                           ?>
+                     </select>
+                     <br>
+                     <button type="button" class="btn btn-default pull-right" id="clearColors">Clear Selection</button>
+                  </div><br/>
+               </div>
+               <div class="col-md-2" id="bottomPdiv">
+                  <div class="form-group ">
+                     <label>Bottom Edge Points</label>
+                     <input class="form-control" name="pcbot" placeholder="Enter Number of Points at the Bottom"  <?php if( $pcbot  != "") echo "value='$pcbot'"; ?> >
+                  </div>
+                  <div class="form-group">
+                     <label>Name</label>
+                     <input class="form-control" name="pname" placeholder="Enter Name"  <?php if( $pname  != "") echo "value='$pname'"; ?> >
+                  </div>
+                   <div class="form-group">
+                     <label>Quantity</label>
+                     <input class="form-control" name="pquantity" placeholder="Enter Quantity"  <?php if( $pquantity  != "") echo "value='$pquantity'"; ?> >
+                  </div>
+                  <div class="form-group ">
+                     <label>Material</label>
+                     <select name="material" id="material" class="form-control">
+                        <option value=''>Select Material</option>
+                        <?php
+                           foreach($categoriesArr as $catkey=>$category) {
+                               $catkey++;
+                               echo  "<option value='$catkey'";
+                                echo ($material  == $catkey) ?   "selected" : "";
+                                echo  ">$category</option>";
+                           }
+                           ?>
+                     </select>
+                  </div>
+                  <div class="form-group ">
+                     <label>Texture Name</label>
+                     <select name="pcdesign[]" id="pcdesign" class="form-control" multiple  style="height:200px">
+                        <option value='' disabled>Select All that Apply</option>
+                        <?php
+                           foreach($texturesArr  as $texture) {
+                                  echo  "<option value='$texture'";
+                                   echo (in_array($texture, $pcdesign)) ?   "selected" : "";
+                                   echo  ">$texture</option>";
+                               }
+                                  ?>
+                     </select>
+                     <br>
+                     <button type="button" class="btn btn-default pull-right" id="clearTexture">Clear Selection</button>
+                  </div>
+               </div>
+               <div class="col-md-2" id="bottomPointsDiv">
+                 <h4>Bottom Points</h4>
+                 <?php
+                       for($i=0; $i<intval($pcbot); $i++){
+                         echo   '<div class="bcoords bcoords'.$i.'"><label>x'.$i.'</label><input type="text"  placeholder="x'.$i.'" name="bottomx'.$i.'"  value="'.$bottomx[$i].'"/> &nbsp;<label>y'.$i.'</label><input type="text"  placeholder="y'.$i.'" name="bottomy'.$i.'"  value="'.$bottomy[$i].'"/></div>';
+                           }
+                       ?>
+               </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 formsubmit">
+                   <div class="col-lg-12 buttons">
+                        <left>
+                           <button type="submit" class="btn btn-success" name="submit">
+                           <?php
+                              if($pcmode == "new")
+                                 echo "Add New Element";
+                              else
+                                 echo "Update Element";
+                              ?>
+                           </button>
+                           <?php
+                              if($pcmode == "new") { ?>
+                           <button type="reset" class="btn btn-default">Reset Form</button>
+                           <?php } ?>
+                           <?php
+                              if($pcmode == "edit") { ?>
+                           <a href="dashboard.php?pieces" class="btn btn-primary">Add New Element</a>
+                           <?php } ?>
+                        </center>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                     <label>Style</label>
+
+                 <div class="form-group">
+                        <label><input type="checkbox" name="style_list[]" value="hook" <?php if(in_array( "hook", $style_list)) echo "checked"; ?>>Hook</label>
+                      <label><input type="checkbox" name="style_list[]" value="dangler" <?php if(in_array( "dangler", $style_list)) echo "checked"; ?>>Dangler</label>
+                      <label><input type="checkbox" name="style_list[]" value="jhumka" <?php if(in_array( "jhumka", $style_list)) echo "checked"; ?>>Jhumka</label>
+                      <label><input type="checkbox" name="style_list[]" value="chandelier" <?php if(in_array( "chandelier", $style_list)) echo "checked"; ?>>Chandelier</label>
+                      <label><input type="checkbox" name="style_list[]" value="hoop" <?php if(in_array( "hoop", $style_list)) echo "checked"; ?>>Hoop</label>
+                      <label><input type="checkbox" name="style_list[]" value="stud" <?php if(in_array( "stud", $style_list)) echo "checked"; ?>>Stud</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Hook Image</label>
+                    <div class="input-group" v>
+                        <input type="text" class="form-control" readonly=""  name="hookImgName" <?php if( $hookImg  != "") echo "value='$hookImg'"; ?>>
+                        <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                        Browse… <input type="file" name="hookImg">
+                        </span>
+                        </span>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label>Admin Tags</label>
+                     <textarea class="form-control" name="admintags" placeholder="Comma separated values.." ><?php echo html_entity_decode($admintags); ?></textarea>
+                  </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+            <br>
+            <div  id="alternateImg">
+               <?php
+                  if($pcmode == "edit" && count($cartesianArr) > 0) {
+                    foreach($cartesianArr as $prod) {
+                       echo getFileRowHTML($prod);
+                    }
+                  }
+                  ?>
+            </div>
+         </form>
+      <!-- panel body ends-->
+   </div>
+   <!-- panel ends -->
+</div>
+<!-- container ends -->

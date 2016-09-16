@@ -1,0 +1,37 @@
+.contact h2 {
+    font-size: 3.5em;
+  }
+ .contact-form .form-group {
+  width: 32.3%;
+  float: left;
+  position: relative;
+}
+.contact-form input[type="text"] {
+  width:97%;
+}
+.contact-form input[type="text"]:nth-child(2) {
+  margin: 0 1em;
+}
+.contact-form .form-group#textareaForm {
+  width:96%;
+}
+input#cnct:hover{
+	background-color: #fff;
+	border-color: #5D4B33;
+	color: #5D4B33;
+}
+.contact-form textarea, .contact-form input[type="text"]{
+      font-size: 13.5px;
+  }
+  .contact hr {
+      margin-bottom: 10px;
+  }
+  .contact{
+  	padding: 4em
+  }
+.contact-form h4 {
+    margin-top: 1em;
+}
+.address {
+  padding: 1em 0;
+}

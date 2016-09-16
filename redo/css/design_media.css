@@ -1,0 +1,1488 @@
+/** LAPTOP & DESKTOPS SCREEN MEDIA QUERIES **/
+@media only screen and (min-width:1441px) and (max-width:1600px){
+    .bgProduct .fa-check-circle{
+        right: -2px;
+    }
+      .bgProduct button {
+    right: 54px;
+    width: 22%;
+    }
+}
+@media only screen and (min-width:1367px) and (max-width:1440px){
+    #subElementsDiv {
+        margin: -17px 0px 15px 20px;
+    }
+    .bgProduct button {
+        width: 24%;
+        right: 10px;
+    }
+
+    button.addtoCart{
+        font-size: 14px;
+        padding: 7px 10px;
+    }
+    .moreoptions{
+        left: 1px;
+        position: relative;
+        width: 80px;
+        font-size: 15px;
+
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    .white_content{
+        /* height: 76%; */
+    }
+    .black_overlay{
+        /* height: 77%; */
+    }
+    .bgProduct .fa-check-circle{
+    }
+    .product-grid.elem{
+        margin: 0 5px 8px 3px;
+    }
+}
+@media only screen and (min-width:1281px) and (max-width:1366px){
+    #subElementsDiv {
+        margin: -17px 0px 15px 20px;
+    }
+      .bgProduct button {
+        width: 25%;
+        right: 10px;
+    }
+    .bgProduct .fa-check-circle{
+        /*right:2%;*/
+    }
+    .bubble{
+        top: -80px;
+    }
+    .page-header{
+        font-size: 3em;
+    }
+    .moreoptions{
+        left: 0px;
+        position: relative;
+        width:80px;
+    }
+    #designDet h4{
+        font-size:13px;
+
+    }
+    div#designerPick h4{
+        font-size:13px;
+        padding-top: 3px;
+    }
+    button.addtoCart{
+        font-size: 14px;
+        padding: 7px 10px;
+    }
+    .product-grid.elem {
+        border: 0px solid #EFE9E9;
+        margin: 0 3px 8px 3px;
+        width: 9.8%;
+        min-height: 80px;
+    }
+    .product-img{
+        width: 80px;
+        margin: 0px auto;
+        border: 0px solid;
+        text-align: center;
+        /*box-shadow: inset 10px 10px 50px #f3f3f3;*/
+    }
+
+    .placeholdit {
+        margin-left: 10px;
+        width: 60px;
+        position: relative;
+        top: 10px;
+    }
+    .bgProduct{
+        margin-left:-25px;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -2px;
+        font-size: 12px;
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    .white_content{
+        /*height: 76%;*/
+    }
+    .black_overlay{
+        /*height: 77%;*/
+    }
+}
+@media (min-width:1081px) and (max-width:1280px){
+    .page-header{
+        font-size: 3em;
+    }
+      .bgProduct button {
+        width: 28%;
+        right: -38px;
+    }
+    #subElementDiv{
+        padding: 0px;
+        border: 0px solid;
+        width: 58.2%;
+        margin: -17px 0px 15px 75px;
+    }
+    #subElementsDiv p{
+        font-size: 14px;
+    }
+    button.addtoCart{
+        font-size: 14px;
+        padding: 7px 10px;
+    }
+    #designDet h4{
+        font-size: 13px;
+    }
+    .moreoptions{
+        color:#f07818;
+        text-align:center;
+        width: 80px;
+        height: 83px;
+        left: 0px;
+        position: relative;
+    }
+    .moreoptions p {
+    }
+    .product-grid.elem {
+        border: 0px solid #EFE9E9;
+        margin: 0 3px 8px 2px;
+        width: 9%;
+        min-height: 80px;
+    }
+    .product-img{
+        width: 75px;
+        margin: 0px auto;
+        border: 0px solid;
+        text-align: center;
+        position: relative;
+        /* left: -5px; */
+        /*box-shadow: inset 10px 10px 50px #f3f3f3;*/
+    }
+    .bgProduct .fa-check-circle{
+        right: -2%;
+    }
+    #chkBtn {
+        margin-left: 50px;
+    }
+    div#imgOptions h4 {
+        font-size: 1.3em;
+    }
+    .placeholdit {
+        margin-left: 10px;
+        width: 50px;
+        position: relative;
+        top: 10px;
+    }
+    .bgProduct{
+        margin-left:-25px;
+    }
+    .product-grid.elem .product-img img{
+        /* height: 70px; */
+    }
+    .popupImageDiv{
+        height: 60px;
+    }
+    div#light img, div#light1 img, div#light2 img{
+        height: 60px;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p{
+        font-size: 12px;
+        margin-top: -2px;
+    }
+    .product-grid{
+        min-height: auto;
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    div#designerPick h4 {
+        font-size: 13px;
+        padding-top: 3px;
+    }
+    .row h4{
+        font-size: 1em;
+    }
+    .cart-items table th{
+        font-size: 12.5px;
+    }
+    i.fa.fa-times-circle {
+        font-size: 25px;
+        position: relative;
+        top: -11px;
+    }
+    .white_content{
+        height: 92%;
+    }
+    .black_overlay{
+        height: 92%;
+    }
+}
+@media (min-width:1025px) and (max-width:1080px){
+    .page-header{
+        font-size: 3.5em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+        border: 0px solid #EFE9E9;
+        margin: 0 0px 8px 0px;
+        width: 16.1%;
+        min-height: 60px;
+    }
+    .product-img {
+        width: 75px;
+    }
+    .product-grid.elem .product-img img{
+        height: 75px;
+    }
+    .prd_elements img{
+        width: 100%;
+    }
+    .moreoptions{
+        height: 83px;
+        width: 80px;
+        font-size: 13px;
+        padding-left: 6px;
+    }
+    .bubble{
+        width: 270px;
+    }
+    #chkBtn button{
+        width: 23%;
+    }
+    .bgProduct .fa-check-circle{
+        right: -29%;
+    }
+    div#imgOptions h4 {
+        font-size: 1.3em;
+    }
+    .felements img, .aelements img{
+        margin:5px;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: -45px;
+    }
+    div#subElementDiv {
+        margin-top: 0px;
+        width: 55%;
+        margin-left: 95px;
+        position: relative;
+        float: left;
+    }
+    .product-grid{
+        min-height: auto;
+    }
+    div#designerPick{
+            padding: 0px;
+        }
+    div#designerPick h4{
+        font-size: 12px;
+        padding-top: 3px;
+    }
+    div#designerPick img{
+        padding:1em;
+    }
+    button.addtoCart{
+        font-size: 1.1em;
+    }
+    #designDet h4{
+        margin-top: -56px;
+        font-size: 12px;
+    }
+    .cart-items table{
+        font-size: 12px;
+    }
+    .white_content{
+        height: 76%;
+    }
+    .black_overlay{
+        height: 77%;
+    }
+}
+@media (min-width:992px) and (max-width:1024px){
+      .bgProduct .fa-check-circle{
+            right: -2px;
+        }
+      .bgProduct button {
+        right: -100px;
+        width: 32%;
+        }
+
+    .page-header{
+        font-size: 3.5em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+        border: 0px solid #EFE9E9;
+        margin: 0 3px 8px 0px;
+        width: 19.1%;
+        min-height: 60px;
+    }
+    .product-img {
+        width: 80px;
+    }
+    .product-grid.elem .product-img img{
+        /* height: 80px; */
+        /* margin: 0 auto; */
+    }
+    .prd_elements img{
+        width: 100%;
+    }
+    .moreoptions{
+        height: 83px;
+        width: 80px;
+        font-size: 14px;
+    }
+    .bubble{
+        width: 250px;
+    }
+    .bgProduct .fa-check-circle{
+        right: 0;
+    }
+    #chkBtn button{
+        width: 24%;
+    }
+    .felements img, .aelements img{
+        margin:5px;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: -10px;
+        font-size: 1em;
+        padding: 7px 10px;
+    }
+    div#subElementDiv {
+        margin-top: 10px;
+        width: 53%;
+        margin-left: 110px;
+        position: relative;
+        float: left;
+    }
+    .product-grid{
+        min-height: auto;
+    }
+    div#designerPick{
+            padding: 0px;
+    }
+    div#designerPick h4
+    {
+        font-size: 10px;
+        margin-top: 0;
+        border-radius: 1px;
+        height: 36px;
+        padding-top: 7px;
+    }
+    div#designerPick img{
+        padding:1em;
+    }
+    #designDet h4{
+        margin-top: -14px;
+        font-size: 11px;
+    }
+    .cart-items table{
+        font-size: 12px;
+    }
+    .white_content{
+        height: 76%;
+    }
+    .black_overlay{
+        height: 77%;
+    }
+}
+@media (min-width:901px) and (max-width:991px){
+    .about h2 {
+        font-size: 3.3em;
+    }
+    .page-header{
+        font-size: 3.5em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+        border: 0px solid #EFE9E9;
+        margin: 0 3px 8px 2px;
+        width: 18.1%;
+        min-height: 60px;
+    }
+    .product-img {
+        width: 80px;
+    }
+    .product-grid.elem .product-img img{
+        height: 80px;
+        margin: 0 auto;
+    }
+    .prd_elements img{
+        width: 100%;
+    }
+    .moreoptions{
+        height: 83px;
+        width: 80px;
+        font-size: 14px;
+        margin-left: 6px;
+    }
+    .bgProduct .fa-check-circle{
+        right: -56%;
+    }
+    .bubble{
+        width: 230px;
+    }
+    .felements img, .aelements img{
+        margin:5px;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: -45px;
+        font-size: 1em;
+        padding: 7px 10px;
+    }
+    div#subElementDiv {
+        margin-top: 2px;
+        position: relative;
+        float: left;
+        width: 50%;
+        margin-left: 165px;
+    }
+    div#designerPick{
+        border: 1px solid #5D4B33;
+        top: 0px;
+        width: 49%;
+        margin-left: 5px;
+        padding: 0px;
+    }
+    div#designerPick img{
+        padding:1em;
+        width: 50%;
+    }
+    #designDet h4{
+        margin-top: -49px;
+        font-size: 12px;
+    }
+    .cart-items table{
+        font-size: 12px;
+    }
+    .white_content{
+        height: 92%;
+    }
+    .black_overlay{
+        height: 93%;
+    }
+    #chkBtn button{
+        width: 24%;
+    }
+}
+@media (min-width:801px) and (max-width:900px){
+    .about h2 {
+        font-size: 3.3em;
+    }
+    .page-header{
+        font-size: 3.5em;
+        margin-top: 8px;
+    }
+    .avlOptions #imgOptions {
+        position: relative;
+        width: 100%;
+        border: 0px solid;
+        text-align: center;
+        float: left;
+        margin: 0px 0px 5px 0px;
+    }
+    .felements img, .aelements img{
+        margin: 5px;
+    }
+    .product-grid.elem{
+        border: 0px solid #EFE9E9;
+        margin: 0 3px 8px 2px;
+        width: 18.1%;
+        min-height: 60px;
+    }
+    .product-img {
+        width: 75px;
+    }
+    .product-grid.elem .product-img img{
+        height: 75px;
+        margin: 0 auto;
+    }
+    .prd_elements img{
+        width: 100%;
+    }
+    .moreoptions{
+        height: 83px;
+        width: 85px;
+        font-size: 14px;
+        margin-left: 6px;
+        padding-left: 15px;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: -9px;
+        font-size: 1em;
+        padding: 7px 10px;
+    }
+    div#subElementDiv {
+        margin-top: 2px;
+        position: relative;
+        float: left;
+        width: 50%;
+        margin-left: 165px;
+    }
+    div#designerPick{
+        border: 1px solid #5D4B33;
+        top: 0px;
+        width: 49%;
+        margin-left: 5px;
+        padding: 0px;
+    }
+    div#designerPick img{
+        padding:1em;
+        width: 50%;
+    }
+    #designDet h4{
+        margin-top: -14px;
+        font-size: 12px;
+    }
+    .cart-items table{
+        font-size: 12px;
+    }
+    .white_content{
+        height: 95%;
+    }
+    .black_overlay{
+        height: 95%;
+    }
+    #chkBtn button{
+        width: 24%;
+    }
+    .bubble{
+        width: 180px;
+    }
+    .bgProduct .fa-check-circle{
+        right: -73%;
+    }
+    div#designDet div {
+        position: relative;
+        top: -15px;
+    }
+}
+
+@media (max-width:1441px){
+      .moreoptions {
+        width: 70px;
+    }
+}
+/** MOBILE SCREEN MEDIA QUERIES **/
+
+@media (max-width:320px){
+    .bubble{
+        width: 300px;
+        font-size: 0.85em;
+    }
+    .moreoptions{
+        margin: 0px;
+        height: 83px;
+    }
+    #subElementsDiv{
+        margin-top: 0px;
+    }
+    .bgProduct .fa-check-circle {
+        font-size: 2.5em;
+        top: 370px;
+    }
+    .page-header{
+        font-size: 2.3em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+
+        width:31.1%;
+    }
+    .prd_elements img{
+        position: relative;
+        top: 0px;
+        left:0px;
+    }
+    .avlOptions #imgOptions {
+        position: relative;
+        width: 100%;
+        border: 0px solid;
+        text-align: center;
+        float: left;
+        margin: 10px 0px 5px 0px;
+    }
+    .bgProduct{
+        width: auto;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: 10px;
+        padding: 7px 10px;
+    }
+    div#subElementDiv {
+             margin-top: -17px;
+    }
+    #chkBtn button{
+        width: 30%;
+        margin-right: -7px;
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    div#designerPick img{
+        width: 50%;
+    }
+    .black_overlay{
+        height: 75%;
+    }
+    .white_content{
+        height: 76%;
+    }
+}
+@media (min-width:321px) and (max-width:360px){
+    .page-header{
+        font-size: 2.3em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+        width:27.1%;
+    }
+    .prd_elements img{
+        position: relative;
+        /* top: -30px; */
+        /* left:-30px; */
+    }
+    .avlOptions #imgOptions {
+        position: relative;
+        width: 100%;
+        border: 0px solid;
+        text-align: center;
+        float: left;
+        /* margin: -83px 0px 5px 0px; */
+    }
+    .bgProduct{
+        /* width: auto; */
+        width: 320px;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: 10px;
+        padding: 7px 10px;
+    }
+    div#subElementDiv {
+             margin-top: 10px;
+    }
+    #chkBtn button{
+        width: 30%;
+        margin-right: -7px;
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    div#designerPick img{
+        width: 50%;
+    }
+    .black_overlay{
+        height: 75%;
+    }
+    .white_content{
+        height: 77%;
+    }
+}
+@media (min-width:361px) and (max-width:375px){
+    .page-header{
+        font-size: 2.5em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+        width: 25.1%;
+    }
+    .prd_elements img{
+        position: relative;
+        top: -20px;
+        left:-20px;
+    }
+    .avlOptions #imgOptions {
+        position: relative;
+        width: 100%;
+        border: 0px solid;
+        text-align: center;
+        float: left;
+        margin: -60px 0px 5px 0px;
+    }
+    .bgProduct{
+        width: auto;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: 10px;
+        padding: 7px 10px;
+    }
+    div#subElementDiv {
+             margin-top: 10px;
+    }
+    #chkBtn button{
+        width: 30%;
+        margin-right: -7px;
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    div#designerPick img{
+        width: 50%;
+    }
+    .white_content{
+        height: 77%;
+    }
+    .black_overlay{
+        height: 79%;
+    }
+}
+@media (min-width:376px) and (max-width:414px){
+
+    .page-header{
+        font-size: 3em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+        width: 23.1%;
+    }
+    .prd_elements img{
+        position: relative;
+        top: 0px;
+        left:5px;
+    }
+    .avlOptions #imgOptions {
+        position: relative;
+        width: 100%;
+        border: 0px solid;
+        text-align: center;
+        float: left;
+        margin: -20px 0px 5px 0px;
+    }
+    .bgProduct{
+        width: auto;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: 10px;
+        padding:7px 10px;
+    }
+    div#subElementDiv {
+             margin-top: 10px;
+    }
+    #chkBtn button{
+        width: 30%;
+        margin-right: -7px;
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    div#designerPick img{
+        width: 50%;
+    }
+    .white_content{
+        height: 77%;
+    }
+    .black_overlay{
+        height: 79%;
+    }
+}
+@media (min-width:415px) and (max-width:435px){
+
+    .page-header{
+        font-size: 3em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+        width:22.1%;
+    }
+    .prd_elements img{
+        position: relative;
+        top: 0px;
+        left:5px;
+    }
+    .avlOptions #imgOptions {
+        position: relative;
+        width: 100%;
+        border: 0px solid;
+        text-align: center;
+        float: left;
+        margin: 0px 0px 5px 0px;
+    }
+    .bgProduct{
+        width: auto;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: 10px;
+        padding:7px 10px;
+    }
+    div#subElementDiv {
+             margin-top: 10px;
+    }
+    #chkBtn button{
+        width: 30%;
+        margin-right: -7px;
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    div#designerPick img{
+        width: 50%;
+    }
+    .white_content{
+            height: 76%;
+    }
+    .black_overlay{
+        height: 77%;
+    }
+}
+@media (min-width:436px) and (max-width:480px){
+
+    .page-header{
+        font-size: 3em;
+        margin-top: 8px;
+    }
+    .product-grid.elem{
+        width:21.1%;
+    }
+    .prd_elements img{
+        position: relative;
+        top: 0px;
+        left:5px;
+    }
+    .avlOptions #imgOptions {
+        position: relative;
+        width: 100%;
+        border: 0px solid;
+        text-align: center;
+        float: left;
+        margin: 0px 0px 5px 0px;
+    }
+    .bgProduct{
+        width: auto;
+    }
+    div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+        margin-top: -9px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    button.addtoCart{
+        margin-bottom: 10px;
+        padding:7px 10px;
+    }
+    div#subElementDiv {
+        margin-top: 10px;
+    }
+    #designDet h4{
+        margin-top: -28px;
+    }
+    div#designerPick{
+        padding: 0px;
+    }
+    div#designerPick img{
+        padding:0em;
+        width: 50%;
+    }
+    button.addtoCart{
+        font-size: 0.95em;
+    }
+    #chkBtn button{
+        width: 30%;
+        margin-right: -7px;
+    }
+    div#designerPick{
+        border:0px;
+    }
+    .white_content{
+        height: 76%;
+    }
+    .black_overlay{
+        height: 77%;
+    }
+}
+
+/** TABLET SCREEN MEDIA QUERIES **/
+@media (min-width:481px) and (max-width:568px){
+    .page-header{
+            font-size: 3.5em;
+            margin-top: 8px;
+        }
+        .product-grid.elem{
+            width:15.1%;
+        }
+        .prd_elements img{
+            position: relative;
+            top: 0px;
+            left:5px;
+        }
+        .avlOptions #imgOptions {
+            position: relative;
+            width: 100%;
+            border: 0px solid;
+            text-align: center;
+            float: left;
+            margin: 0px 0px 5px 0px;
+        }
+        .bgProduct{
+            width: auto;
+        }
+        div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+            margin-top: -9px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        button.addtoCart{
+            margin-bottom: 10px;
+            padding:7px 10px;
+        }
+        div#subElementDiv {
+             margin-top: 10px;
+        }
+        div#designerPick img{
+            padding:0em;
+            width: 30%
+        }
+        div#designerPick{
+            padding: 0px;
+        }
+        button.addtoCart{
+            font-size: 1em;
+        }
+        #designDet h4{
+            position: relative;
+            top:-14px;
+        }
+        #chkBtn button{
+            width: 30%;
+            margin-right: -7px;
+        }
+        .moreoptions
+        {
+            width: 76px;
+        }
+        .white_content{
+            height: 76%;
+        }
+        .black_overlay{
+            height: 77%;
+        }
+}
+@media (min-width:569px) and (max-width:600px){
+    .page-header{
+            font-size: 3.5em;
+            margin-top: 8px;
+        }
+        .product-grid.elem{
+            width:15.1%;
+        }
+        .prd_elements img{
+            position: relative;
+            top: 0px;
+            left:5px;
+        }
+        .avlOptions #imgOptions {
+            position: relative;
+            width: 100%;
+            border: 0px solid;
+            text-align: center;
+            float: left;
+            margin: 0px 0px 5px 0px;
+        }
+        .bgProduct{
+            width: auto;
+        }
+        div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+            margin-top: -9px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        button.addtoCart{
+            margin-bottom: -10px;
+            padding:7px 10px;
+        }
+        div#subElementDiv {
+             margin-top: 10px;
+        }
+        #designDet h4{
+            margin-top: -28px;
+        }
+        div#designerPick img{
+            padding:0em;
+            width: 30%;
+        }
+        div#designerPick{
+            padding: 0px;
+        }
+        button.addtoCart{
+            font-size: 1em;
+        }
+        #chkBtn button{
+            width: 30%;
+            margin-right: -7px;
+        }
+        .white_content{
+            height: 76%;
+        }
+        .black_overlay{
+            height: 77%;
+        }
+}
+@media (min-width:601px) and (max-width:640px){
+    .page-header{
+            font-size: 3.5em;
+            margin-top: 8px;
+        }
+        .product-grid.elem{
+            width:15.1%;
+        }
+        .prd_elements img{
+            position: relative;
+            top: 0px;
+            left:5px;
+        }
+        .avlOptions #imgOptions {
+            position: relative;
+            width: 100%;
+            border: 0px solid;
+            text-align: center;
+            float: left;
+            margin: 0px 0px 5px 0px;
+        }
+        .bgProduct{
+            width: auto;
+        }
+        div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+            margin-top: -9px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        button.addtoCart{
+            margin-bottom: -10px;
+            padding: 7px 10px;
+        }
+        div#subElementDiv {
+             margin-top: 10px;
+        }
+        div#designerPick{
+            padding: 0px;
+        }
+        div#designerPick img{
+            padding:0em;
+            width: 30%;
+        }
+        button.addtoCart{
+            font-size: 1em;
+        }
+        #designDet h4{
+            margin-top: -28px;
+        }
+        #chkBtn button{
+            width: 30%;
+            margin-right: -7px;
+        }
+        .white_content{
+            height: 76%;
+        }
+        .black_overlay{
+            height: 77%;
+        }
+}
+@media (min-width:641px) and (max-width:667px){
+    .page-header{
+            font-size: 3.5em;
+            margin-top: 8px;
+        }
+        .product-grid.elem{
+            width:15.1%;
+        }
+        .prd_elements img{
+            position: relative;
+            top: 0px;
+            left:5px;
+        }
+        .bgProduct{
+            width: auto;
+        }
+        .avlOptions #imgOptions {
+            position: relative;
+            width: 100%;
+            border: 0px solid;
+            text-align: center;
+            float: left;
+            margin: 0px 0px 5px 0px;
+        }
+        div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+            margin-top: -9px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        button.addtoCart{
+            margin-bottom: -10px;
+            padding: 7px 10px;
+        }
+        div#subElementDiv {
+             margin-top: 10px;
+        }
+        div#designerPick{
+            padding: 0px;
+        }
+        div#designerPick img{
+            padding:0em;
+            width: 30%;
+        }
+        button.addtoCart{
+            font-size: 1em;
+        }
+        #designDet h4{
+            margin-top: -28px;
+        }
+        #chkBtn button{
+            width: 30%;
+            margin-right: -7px;
+        }
+        .white_content{
+            height: 76%;
+        }
+        .black_overlay{
+            height: 77%;
+        }
+}
+@media (min-width:668px) and (max-width:731px){
+    .page-header{
+            font-size: 3.5em;
+            margin-top: 8px;
+        }
+        .product-grid.elem{
+            width:15.1%;
+        }
+        .prd_elements img{
+            position: relative;
+            top: 0px;
+            left:5px;
+        }
+        .avlOptions #imgOptions {
+            position: relative;
+            width: 100%;
+            border: 0px solid;
+            text-align: center;
+            float: left;
+            margin: 0px 0px 5px 0px;
+        }
+        .bgProduct{
+            width: auto;
+        }
+        div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+            margin-top: -9px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        button.addtoCart{
+            margin-bottom: -19px;
+            padding: 7px 10px;
+        }
+        div#subElementDiv {
+             margin-top: 10px;
+        }
+        div#designerPick{
+            padding: 0px;
+        }
+        div#designerPick img{
+            padding:0em;
+            width: 30%;
+        }
+        button.addtoCart{
+            font-size: 1em;
+        }
+        #designDet h4{
+            margin-top: -28px;
+        }
+        #chkBtn button{
+            width: 30%;
+            margin-right: -7px;
+        }
+        .white_content{
+            height: 76%;
+        }
+        .black_overlay{
+            height: 77%;
+        }
+}
+@media (min-width:732px) and (max-width:736px){
+    .page-header{
+            font-size: 3.5em;
+            margin-top: 8px;
+        }
+        .product-grid.elem{
+            width:15.1%;
+        }
+        .prd_elements img{
+            position: relative;
+            top: 0px;
+            left:5px;
+        }
+        .avlOptions #imgOptions {
+            position: relative;
+            width: 100%;
+            border: 0px solid;
+            text-align: center;
+            float: left;
+            margin: 0px 0px 5px 0px;
+        }
+        .bgProduct{
+            width: auto;
+        }
+        div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+            margin-top: -9px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        button.addtoCart{
+            margin-bottom: -19px;
+            padding: 7px 10px;
+        }
+        div#subElementDiv {
+             margin-top: 10px;
+        }
+        div#designerPick{
+            padding: 0px;
+        }
+        div#designerPick img{
+            padding:0em;
+            width: 30%;
+        }
+        button.addtoCart{
+            font-size: 1em;
+        }
+        #designDet h4{
+            margin-top: -28px;
+        }
+        #chkBtn button{
+            width: 30%;
+            margin-right: -7px;
+        }
+        .white_content{
+            height: 76%;
+        }
+        .black_overlay{
+            height: 77%;
+        }
+}
+
+/*** NEED SOME MORE FIXES ***/
+@media (min-width:737px) and (max-width:773px){
+    .page-header{
+            font-size: 3.5em;
+            margin-top: 8px;
+        }
+
+#subElementsDiv {
+    margin: -17px 0px 10px 10px;
+}
+    .bgProduct .fa-check-circle{
+        right: -2px;
+    }
+      .bgProduct button {
+    right: -195px;
+    width: 45%;
+    }
+        .product-grid.elem{
+            width:18.1%;
+        }
+        .prd_elements img{
+            position: relative;
+            top: 0px;
+            left:5px;
+        }
+        .product-img {
+            width: 65px;
+        }
+        .product-grid.elem .product-img img {
+            width: auto;
+            padding: 8px;
+            height: 65px;
+        }
+
+        .despick .product-img.b-link-stripe.b-animate-go.thickbox {
+            width: 350px;
+            height: auto;
+        }
+        .avlOptions #imgOptions {
+            position: relative;
+            width: 100%;
+            border: 0px solid;
+            text-align: center;
+            float: left;
+            margin: 0px 0px 5px 0px;
+        }
+
+        .felements img, .aelements img{
+            margin: 5px;
+        }
+        .moreoptions {
+            width: 50px;
+            height: 100%;
+            padding-left: 8px;
+        }
+        div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+            margin-top: -9px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        button.addtoCart{
+            margin-bottom: -19px;
+            padding: 7px 10px;
+        }
+        div#subElementDiv {
+            margin-top: 0px;
+            width: 48%;
+            margin-left: 195px;
+        }
+        div#designerPick{
+            border: 1px solid #5D4B33;
+            top: 0px;
+            width: 49%;
+            margin-left: 5px;
+            padding: 0px;
+        }
+        div#designerPick img{
+            padding:1em;
+            max-height: 210px;
+            width: auto;
+        }
+        button.addtoCart{
+            font-size: 1em;
+        }
+        #designDet h4{
+            margin-top: -28px;
+            font-size: 16px;
+        }
+        .cart-items table{
+            font-size: 13px;
+        }
+        #chkBtn button{
+            width: 30%;
+            margin-right: -7px;
+        }
+        .white_content{
+            /* height: 76%; */
+        }
+        .black_overlay{
+            height: 95%;
+        }
+}
+@media (min-width:774px) and (max-width:800px){
+    .page-header{
+            font-size: 3.5em;
+            margin-top: 8px;
+        }
+        .product-grid.elem{
+            width:18.1%;
+        }
+        .prd_elements img{
+            position: relative;
+            top: 0px;
+            left:5px;
+        }
+
+        .product-grid.elem .product-img img {
+            width: auto;
+            padding: 10px;
+            height: 60px;
+        }
+        .product-img{
+            width: 70px;
+        }
+        .product-grid.elem .product-img img{
+            height: 70px;
+        }
+
+        .felements img, .aelements img {
+            margin: 5px;
+        }
+        div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
+            margin-top: -9px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        button.addtoCart{
+            margin-bottom: -19px;
+        }
+        div#subElementDiv {
+            margin-top: 10px;
+            border: 0px solid;
+            width: 50%;
+            float: left;
+            margin-left: 192px;
+        }
+        div#designerPick img{
+            padding:1em;
+            width: 50%;
+        }
+        button.addtoCart{
+            font-size: 1em;
+        }
+        #designDet h4{
+            margin-top: -28px;
+            font-size: 11px;
+        }
+        .cart-items table{
+            font-size: 13px;
+        }
+        .moreoptions{
+            height: 55px;
+            width: 55px;
+            padding-left: 8px;
+        }
+        div#designerPick{
+            border: 1px solid #5D4B33;
+            top: 0px;
+            width: 49%;
+            margin-left: 5px;
+            padding: 0px;
+        }
+        .white_content{
+            height: 76%;
+        }
+        .black_overlay{
+            height: 77%;
+        }
+}

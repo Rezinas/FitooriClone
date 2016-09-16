@@ -1,0 +1,127 @@
+<!--contact-->
+	<div class="contact">
+		<div style="margin:0px 50px;">
+			<h2>Contact Us</h2>
+			<hr/>
+			<!-- <div class="map">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.741024466122!2d77.66294641486941!3d12.924359419409932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x87fec590583c803d!2sGenesis+Apartments!5e0!3m2!1sen!2sin!4v1452361563704"></iframe>
+			</div> -->
+			<!-- <div class="contact-infom">
+			</div> -->
+			<div class="address">
+				<!-- <div class="col-md-4 address-grids">
+					<h4>Address :</h4>
+					<ul>
+						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+						<p>	B2-201,Genesis Apt.,<br/>
+						Sarjapur Outer-Ring Road junction,<br/>
+						Ibblur, Banglore - 560102
+						</p>
+						<p>
+							Lorem Ipsum, Lorem Ipsum,<br/>
+							Lorem Ipsum Lorem Ipsum Lorem,<br/>
+							Lorem Ipsum - 123456
+						</p>
+					</ul>
+				</div> -->
+				<div class="col-md-4 address-grids">
+					<h4>Contact no :</h4>
+					<p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>080-41128219 (9am - 6pm)</p>
+				</div>
+				<div class="col-md-4 address-grids">
+					<h4>Email :</h4>
+					<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:team@fitoori.com">team@fitoori.com</a></p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+
+            <div class="alert alert-info hide ">
+              Message Sent Successfully.
+            </div>
+			<div class="contact-form">
+				<h4>Contact form</h4>
+				<form id="contactForm" name="contactForm" role="form" action="contact.php" method="POST">
+					<div class="form-group">
+						<input class="form-control" data-validation="alphabets" placeholder="Full Name" name="fullname" type="text" autofocus>
+					</div>
+					<div class="form-group">
+						<input class="form-control" placeholder="Email" name="email" type="text" autofocus>
+					</div>
+					<div class="form-group">
+						<input class="form-control" placeholder="Phone" name="phone" type="text" autofocus>
+					</div>
+					<div class="form-group" id="textareaForm">
+						<textarea class="form-control" type="text" placeholder="Message...." name="messageArea"></textarea>
+					</div>
+					<input type="submit" value="Submit" id="cnct" name="cnct" class="btn1">
+				</form>
+			</div>
+		</div>
+	</div>
+  <script type="text/javascript">
+  $(function() {
+        $("#contactForm").validate({
+            rules: {
+            	fullname:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 80,
+		        	lettersonly:"letters only mate"
+		        },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    minlength: 10,
+                    numbersonly:"0-9"
+                },
+                messageArea:{
+            		required:true,
+		        	minlength: 2,
+		        	maxlength: 5000
+		        }
+            },
+            messages: {
+            	fullname: {
+                    required: "Please provide a first name",
+                    minlength: "Your firstname must be at least 2 characters long",
+                    maxlength: "Your firstname must not exceed 100 characters",
+                    lettersonly:"Letters and spaces only please"
+
+                },
+                messageArea: {
+                    required: "Please provide some details",
+                    minlength: "Your lastname must be at least 2 characters long",
+                    maxlength: "Your lastname must not exceed 5000 characters"
+
+                },
+                phone: {
+                    required: "Please provide a contact details",
+                    minlength: "Your contact number must be at least 10 characters long",
+                    numbersonly:"Enter only digits"
+                },
+                email: "Please enter a valid email address"
+            },
+                submitHandler: function(form) {
+                    $.ajax({
+                       type: "POST",
+                       url: "php/contact.php",
+                       data: $(form).serialize(),
+                       timeout: 3000,
+                       success: function(data) {
+                            if(data == "EMAIL SENT") {
+                                $(".alert").removeClass("hide");
+                            }
+                       },
+                       error: function (request, status, error) {
+                            console.log(request.responseText);
+                        }
+                      });
+                    return false;
+                }
+            });
+        });
+ </script>
+	<!--//contact-->

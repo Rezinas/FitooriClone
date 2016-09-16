@@ -1,0 +1,747 @@
+/* START OF MENU CSS */
+
+
+/*custom font*/
+/* @import url(http://fonts.googleapis.com/css?family=Merriweather+Sans); */
+
+* {margin: 0; padding: 0;}
+
+/* html, body {min-height: 100%;}
+
+body {
+  text-align: center;
+  padding-top: 100px;
+  background: #689976;
+  background: linear-gradient(#689976, #ACDACC);
+  font-family: 'Merriweather Sans', arial, verdana;
+} */
+
+button a {
+  color: inherit;
+}
+
+button {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 5px 8px;
+    /* width: 100%; */
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 0 0;
+    font-size: 14px;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    top: 0;
+    position: relative;
+    margin-right: 0px;
+    font-weight: normal;
+}
+button:hover {
+    background-color: #fff;
+    color: #5D4B33;
+    border-color: #5D4B33;
+}
+
+
+.about h2{
+      margin-bottom: 20px;
+      font-size: 3.5em;
+}
+#Orderpage{
+  background-color:#fff; margin-top:15px
+}
+  #smScreen{
+    display:none;
+  }
+  #lgScreen{
+    display:block;
+  }
+.breadcrumb {
+  /*centering*/
+  display: inline-block;
+  /* box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35); */
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  border-radius: 5px;
+  /*Lets add the numbers for each link using CSS counters. flag is the name of the counter. to be defined using counter-reset in the parent element of the links*/
+  counter-reset: flag;
+  padding:0px;
+  width: 100%;
+  margin: 20px 0px 0px 0px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  outline: none;
+  display: block;
+  float: left;
+  font-size: 14px;
+  line-height: 36px;
+  color: white;
+  /*need more margin on the left of links to accomodate the numbers*/
+  padding: 0 10px 0 60px;
+  background: #666;
+  background: linear-gradient(#666, #333);
+  position: relative;
+  width: 25%;
+}
+/*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
+.breadcrumb a:first-child {
+  padding-left: 46px;
+  border-radius: 5px 0 0 5px; /*to match with the parent's radius*/
+}
+.breadcrumb a:first-child:before {
+  left: 14px;
+}
+.breadcrumb a:last-child {
+  border-radius: 0 5px 5px 0; /*this was to prevent glitches on hover*/
+  padding-right: 20px;
+}
+
+/*hover/active styles*/
+.breadcrumb a.active, .breadcrumb a:hover{
+  background: #333;
+  background: linear-gradient(#333, #000);
+  color: #fff;
+}
+.breadcrumb a.active:after, .breadcrumb a:hover:after {
+  background: #333;
+  background: linear-gradient(135deg, #333, #000);
+  color: #fff;
+}
+
+/*adding the arrows for the breadcrumbs using rotated pseudo elements*/
+.breadcrumb a:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -18px; /*half of square's length*/
+  /*same dimension as the line-height of .breadcrumb a */
+  width: 36px;
+  height: 36px;
+  /*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's:
+  length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
+  if diagonal required = 1; length = 1/1.414 = 0.707*/
+  transform: scale(0.707) rotate(45deg);
+  /*we need to prevent the arrows from getting buried under the next link*/
+  z-index: 1;
+  /*background same as links but the gradient will be rotated to compensate with the transform applied*/
+  background: #666;
+  background: linear-gradient(135deg, #666, #333);
+  /*stylish arrow design using box shadow*/
+  box-shadow:
+    2px -2px 0 2px rgba(0, 0, 0, 0.4),
+    3px -3px 0 2px rgba(255, 255, 255, 0.1);
+  /*
+    5px - for rounded arrows and
+    50px - to prevent hover glitches on the border created using shadows*/
+  border-radius: 0 5px 0 50px;
+}
+/*we dont need an arrow after the last link*/
+.breadcrumb a:last-child:after {
+  content: none;
+}
+/*we will use the :before element to show numbers*/
+.breadcrumb a:before {
+  content: counter(flag);
+  counter-increment: flag;
+  /*some styles now*/
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin: 8px 0;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  background: #444;
+  background: linear-gradient(#444, #222);
+  font-weight: bold;
+}
+
+
+.flat a, .flat a:after {
+  background: white;
+  color: black;
+  transition: all 0.5s;
+  text-align: center;
+}
+.flat a:before {
+/*   background: white;
+box-shadow: 0 0 0 1px #ccc;
+font-size: 12px; */
+  background: white;
+  box-shadow: 0 0 0 1px #F07818;
+  font-size: 12px;
+  color: #5D4B33;
+}
+.flat a:hover, .flat a.active,
+.flat a:hover:after, .flat a.active:after{
+  /* background: #9EEB62; */
+  background: #5D4B33;
+}
+/* END OF MENU CSS */
+.about hr{
+    margin-top: 0px;
+  }
+.address {
+  padding: 10px 0;
+  margin-bottom: -30px;
+}
+.contact-form textarea{
+  width: 90.5%;
+}
+.about .container{
+  /* height: 150px; */
+}
+.about-inform {
+  margin-top:-10px;
+}
+.contact-form input[type="radio"] {
+  font-size: 1em;
+  color: #F07818;
+}
+.rdbtn {
+  color: #F07818;
+}
+#cart-items-all h4{
+  color:#fff;
+}
+.cart-details{
+  color:#333;
+  font-weight:normal;
+  overflow: hidden;
+  padding: 15px 0px;
+}
+#chkBtn input[type="submit"] {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 3px 2px;
+    width: 15%;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 3em 0 0;
+    font-size: 14px;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    top: -31px;
+    position: relative;
+    float: left;
+    margin-right: 2px;
+    font-weight: normal;
+}
+
+#chkBtn1 input[type="submit"]:hover {
+  background-color: #5D4B33;
+  color: #FFFFFF;
+  border-color: #5D4B33;
+}
+#chkBtn1 input[type="submit"] {
+  border: 2px solid #F07818;
+  color: #fff;
+  background: #F07818;
+  cursor: pointer;
+  padding: 3px 0;
+  width: 15%;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 1em 0 0;
+  font-size: 14px;
+  outline: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  top: -28px;
+  position: relative;
+  margin-right: 0px;
+  font-weight: normal;
+}
+#chkBtn input[type="submit"]:hover {
+  background-color: #5D4B33;
+  color: #FFFFFF;
+  border-color: #5D4B33;
+}
+.contact-form input[type="text"] {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #5D4B33;
+    /* width: 32.3%; */
+    width: 30%;
+    outline: none;
+    padding: 5px 5px 5px 5px;
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 0.5em;
+}
+#cart-items-all {
+  /* border:1px solid #ccc; */
+  /* border-radius: 3px; */
+  /* box-shadow: 1px 1px 1px #ccc; */
+  /* margin-bottom: 20px; */
+}
+.cart-item{
+  padding:5px;
+  /* margin-right: 2%; */
+  width: 35%;
+  /* box-shadow: inset 10px 10px 50px #f3f3f3; */
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+}
+.cart-items table{
+  margin-top: 10px;
+}
+.cart-items table th, #collapseThree table th{
+  background-color: aliceblue;
+  padding:10px;
+  height: 30px;
+  color:#333;
+  font-size: 14px;
+}
+.cart-items table th:first-child, #collapseThree table th:first-child{
+  width:50%;
+}
+.cart-items table th:nth-child(2), #collapseThree table th:nth-child(2){
+  width:35%;
+}
+.cart-items table th:nth-child(3), #collapseThree table th::nth-child(2){
+  width:15%;
+}
+input.cartQty {
+    width: 50px;
+    text-align: center;
+}
+input#proceed{
+  border: 2px solid #F07818;
+  color: #fff;
+  background: #F07818;
+  cursor: pointer;
+  padding: 7px 2px;
+  width: auto;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 3em 0 0;
+  font-size: 1em;
+  outline: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  top: -31px;
+  position: relative;
+  float: right;
+  right: 30px;
+
+}
+.cart-items img {
+    width: auto;
+    padding: 1em;
+    /*border: 1px solid #eee;
+  box-shadow: inset 10px 10px 50px #f3f3f3; */
+}
+.product-img.b-link-stripe.b-animate-go.thickbox{
+  border: 1px solid #eee;
+  box-shadow: inset 10px 10px 50px #f3f3f3;
+  -moz-box-shadow: inset 10px 10px 50px #f3f3f3;
+  -webkit-box-shadow: inset 10px 10px 50px #f3f3f3;
+  width: auto;
+  height: 250px;
+}
+.cart-item-info {
+    width: auto;
+    float: left;
+    border: 0px solid;
+    margin-top: 7px;
+}
+.cart-item-info span a{
+  color:#F07818;
+  font-weight: normal;
+  cursor: default;
+}
+.links a{
+  color:#555;
+  font-weight: normal;
+  font-size: 15px;
+}
+.delivery span {
+    color: #555;
+    font-weight: normal;
+    float: right;
+    font-size: 13.5px;
+}
+.delivery p {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    float: left;
+}
+#cart-cost table {
+  border: 0px solid;
+  font-size: 16px;
+  float: right;
+  width:100%;
+}
+#cart-cost table th {
+  /* width: 168px; */
+  /* padding: 5px; */
+  text-align: right;
+  font-weight: normal;
+  font-size: 16px;
+}
+#cart-cost table tr {
+  border-bottom: 0px solid;
+}
+#cart-cost table tr td{
+  padding: 0px;
+  text-align: left;
+}
+#cart-items-all table tr{
+border-bottom: 1px solid #eee;
+}
+#cart-cost table tr:last-child{
+ /* background-color: #F2F6F7; */
+  height: 50px;
+  font-weight: bold;
+  border:1px solid #ccc;
+
+}
+.delivery p a:hover {
+    text-decoration: underline;
+}
+.cart-header,
+.cart-header2,
+.cart-header3 {
+  /* width: 100%; */
+}
+#cart-cost {
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    border-radius: 3px;
+    padding: 0px;
+    margin-left: 0px;
+    margin-top: 17px;
+}
+#cart-cost .tableClass{
+  width: 100%;
+  position:relative;
+  float: right;
+  padding: 0px 10px 10px 10px;
+}
+#cart-cost #chkBtn{
+  float: right;
+  position: relative;
+}
+#cart-cost .estimate{
+  float: right;
+  position: relative;
+  width: 100%;
+  margin-top: -20px;
+  right: 30px;
+}
+#cart-cost .estimate p{
+  text-align: right;
+}
+#panelCart{
+  position: relative;
+  float: left;
+  width: 97%;
+  margin:0px;
+}
+div#cart-items-all span {
+    /* font-size: 16px; */
+}
+.cart-summary{
+  background-color: aliceblue;
+  border: 1px;
+}
+.cart-summary .panel-heading {
+    background-color: #5d4b33;
+    border-radius: 3px;
+}
+.cart-summary h4 {
+    color: #fff;
+    font-size: 16px;
+}
+.cart-summary p{
+  padding: 10px 10px 10px 15px;
+}
+
+#chkBtns a {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 7px;
+    width: auto;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 5px 1em 10px;
+    font-size: 1em;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#chkBtns a:hover{
+    background: transparent;
+    border-color: #5D4B33;
+    color: #5D4B33;
+    text-decoration: none;
+    border:2px solid;
+
+}
+.cart-items .panel-heading h4{
+  font-size: 16px;
+  color:#fff;
+}
+.cart-items .panel-heading {
+    background-color: #5d4b33;
+    border-radius: 3px;
+}
+.product-model-sec {
+    margin: 1em 0 0 0;
+    width:100%;
+}
+
+.product-grid.single-product {
+    width: 46%;
+    float: left;
+    position: relative;
+    margin-right: 2px;
+    border: 0px solid;
+    margin-left: 9px;
+}
+
+/*Shipping page*/
+div#shippingDetails center {
+    margin-top: -30px;
+}
+input#shippay, a.shippay, a.placeorder, div#shippingDetails a.back, a.confirm {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 7px;
+    width: auto;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 5px 1em 3px;
+    font-size: 1em;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    font-weight: normal;
+}
+input#shippay:hover, a.placeorder:hover, div#shippingDetails a.back:hover, a.confirm:hover{
+    background: transparent;
+    border-color: #5D4B33;
+    color: #5D4B33;
+    text-decoration: none;
+    border:2px solid;
+
+}
+
+div#shippingDetails #cart-cost table tr:last-child{
+ /* background-color: #F2F6F7; */
+  height: 50px;
+  font-weight: bold;
+  border:0px solid #ccc;
+
+}
+div#shippingDetails div#cart-items-all span {
+    font-size: 14px;
+}
+
+#addressForm .form-group span {
+  font-size: 12px;
+  color: grey;
+}
+
+/*div#shippingDetails .shippingAddress, div#shippingDetails .billingAddress {
+    margin-top: -25px;
+}*/
+div#shippingDetails .cart-item img{
+  /* box-shadow:inset 10px 10px 50px #f3f3f3 */
+}
+div#shippingDetails .cart-item-info span a{
+  float: left;
+}
+div#shippingDetails #cart-cost {
+    margin-top: 0px;
+    padding: 5px;
+}
+div#shippingDetails form#addressForm {
+    border: 0px solid;
+    float: left;
+    margin-top: -5px;
+}
+div#shippingDetails .tableClass{
+  margin-top:-25px;
+}
+
+div#shippingDetails .guest a{
+  color:#555;
+
+}
+#cart-cost.single-grid1 {
+    line-height: 3.4;
+    width: 24%;
+    margin-top: 70px;
+    background-color: white;
+}
+#shippingDetails .shippingClass{
+  /* margin-top: 70px; */
+  border:0px;
+  box-shadow:none;
+  background-color: white;
+}
+
+form.form-guest-checkout input[type="submit"] {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 4px 0;
+    width: 30%;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 0 0;
+    font-size: 14px;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    top: 0;
+    position: relative;
+    margin-right: 0px;
+    font-weight: normal;
+}
+input#login {
+    border: 2px solid #F07818;
+    color: #fff;
+    background: #F07818;
+    cursor: pointer;
+    padding: 4px 0;
+    width: 25%;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 1em 0 0;
+    font-size: 14px;
+    outline: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    top: 0;
+    position: relative;
+    margin-right: 0px;
+    font-weight: normal;
+}
+input#login:hover,form.form-guest-checkout input[type="submit"]:hover {
+    background-color: #fff;
+    color: #5D4B33;
+    border-color: #5D4B33;
+}
+form.form-guest-checkout a{
+  color:#333;
+  margin-left: 33px;
+}
+.row h4{
+    font-size: 16px;
+    color: #F07818;
+    line-height: 1.8em;
+    text-transform: uppercase;
+    margin-bottom: 0%;
+    border-bottom: 0px;
+}
+
+p#title-p {
+    font-size: 16px;
+    text-transform: uppercase;
+    /* color: #f07818; */
+    font-weight: normal;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+.returnCustomer{
+  border-right: 1px solid #eee;
+}
+form.form-guest-checkout div {
+    text-align: center;
+    width: 23%;
+    position: relative;
+    top: 13px;
+}
+.form-guest-checkout a{
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-left: 18px;
+}
+/* End of shipping page*/
+
+
+.about {
+  background: #fff;
+  padding: 5em 0;
+  float:left;
+  width:100%;
+  margin-top:0px;
+}
+.contact {
+  background: #fff;
+  padding: 5em 0;
+}
+.contact-form .btn2 {
+  border: 2px solid #F07818;
+  color: #fff;
+  background: #F07818;
+  cursor: pointer;
+  padding: 7px 0;
+  width: 30%;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 1em 0 0;
+  font-size: 1em;
+  outline: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.single-grid1 {
+  line-height: 5;
+}
+.address p{
+  font-size: 15px;
+  color:#555;
+  font-weight: normal;
+}
+
+.cdesign {
+    position: relative;
+    min-height: 200px;
+    margin-top: -15px;
+    /* margin-left: 25px; */
+}
+
+.prd_elements {
+    position: absolute;
+}
+
+.prd_elements  img {
+    /* width: 100%; */
+}
+div#Orderpage h2 {
+      margin-top: 60px;
+}
+#cart-items-all h4.heading{
+  color: #F07818;
+  font-weight: bold;
+  padding-left: 14px;
+  text-decoration: underline;
+}
