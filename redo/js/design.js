@@ -1,5 +1,5 @@
 'use strict';
-var des = angular.module('cdesign', []);
+var des = angular.module('cdesign', ['ngScrollable']);
 
  des.config(function($locationProvider) {
         $locationProvider.html5Mode({
@@ -59,6 +59,19 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 break;
         };
 
+
+        /* scrollarea */
+
+        $scope.posX = 0;
+        $scope.posY = 0;
+
+
+        $scope.moveY = function (pixels) {
+            $scope.posY = $scope.posY + pixels;
+        };
+        $scope.$evalAsync(function () {
+            $scope.$broadcast('content.changed', 1000);
+        });
 
         $scope.showMsg = false;
         // $scope.showMsg = ($window.model.showHelp == 0) ? true : false;

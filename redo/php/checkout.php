@@ -1,13 +1,23 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'].'/signature/merchant/cart/html/MerchantHTMLCartFactory.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/signature/common/cart/xml/XMLCartFactory.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/signature/common/signature/SignatureCalculator.php');
+
+// seller credentials - enter your own here
+$merchantID="A111O19OHHZ2JW";
+$accessKeyID="AKIAJVP37DC3GTETQI4A";
+$secretKeyID="bcoOQlP+GMQLff/RCaWaNjDo+/XFYe+dcV3CNt32";
+
+
+
 $categoriesArr= explode("|", CATEGORY) ;
 $cartItems = (isset($_SESSION['cartids'])) ? $_SESSION['cartids'] : [];
 
-
+$cartTotal=0;
 if(count($cartItems)  > 0) {
 	$cart = array_count_values($cartItems);
 	$cartids = array_keys($cart);
 	$cartProducts=[];
-	$cartTotal=0;
 
 	$cartLowPrice=0;
 	$cartHighPrice=500;
@@ -71,7 +81,7 @@ if(count($cartItems)  > 0) {
 	$cartLowPrice = abs($cartLowPrice - 100);
 	$cartHighPrice = abs($cartHighPrice + 100);
 
-	$rqry = "SELECT productid, name, price, bodypart, mainimg FROM products WHERE productid  not IN ( ".implode($cartids, ",")." ) AND  status=1 AND price <= $cartHighPrice AND price >= $cartLowPrice  ORDER BY featured, price ASC LIMIT 2";
+	$rqry = "SELECT productid, name, price, bodypart, mainimg FROM products WHERE productid  not IN ( ".implode($cartids, ",")." ) AND  status=1 AND price <= $cartHighPrice AND price >= $cartLowPrice  ORDER BY featured, price ASC LIMIT 4";
 
 	 if(!$stmt = $dbcon->prepare($rqry)){
 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
@@ -91,6 +101,12 @@ if(count($cartItems)  > 0) {
 
 }
 
+$cartFactory = new XMLCartFactory();
+$calculator = new SignatureCalculator();
+
+$cart = $cartFactory->getSignatureInput($merchantID, $accessKeyID);
+$signature = $calculator->calculateRFC2104HMAC($cart, $secretKeyID);
+$cartHtml = $cartFactory->getCartHTML($merchantID, $accessKeyID, $signature);
 
 ?>
 

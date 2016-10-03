@@ -186,7 +186,7 @@
 
  /******END OF MENU TOGGLE***/
  .register-top-grid span, .register-bottom-grid span {
-  color: #F07818;
+  color: #d78b2e;
  }
  #chngPwd{
    position: relative;
@@ -194,34 +194,17 @@
  }
  #editAddress{
    position: relative;
-   top: 83px;
+   top: 30px;
  }
  #viewOrders, .custdes{
    position: relative;
-   top:83px;
+   margin-top: 30px;
  }
  #editProfile{
    position: relative;
-   top: 83px;
+   top: 30px;
  }
- input#updateprofile, input#editAddr, input#chngpwd {
-    border: 2px solid #F07818;
-    color: #FFF;
-    font-size: 1.1em;
-    padding: 0.5em 2em;
-    transition: 0.5s all;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    display: inline-block;
-    outline: none;
-    background-color: #F07818;
-    border-radius: 4px;
-}
-input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
-  background: #FFF;
-  color: #F07818;
-}
+
  .contact-form .form-group{
    width: 32.3%;
    float: left;
@@ -256,7 +239,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
    width: auto;
    text-align: center;
    text-transform: uppercase;
-   color:#F07818;
+   color: #d78b2e;
    padding:10px;
  }
  .orders tr td{
@@ -289,7 +272,7 @@ input#updateprofile:hover, input#editAddr:hover, input#chngpwd:hover{
   text-decoration: none;
   display: inline-block;
   padding: 1px 7px;
-  background: #F07818;
+  background: #d78b2e;
   color: white;
   border-radius: 3px;
 }

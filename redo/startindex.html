@@ -1,3 +1,54 @@
+
+<style>
+.banner_content {
+    width: 300px;
+    width: 23vw;
+    position: absolute;
+    top: 20%;
+    font-size: 1.4vw;
+    left: 16%;
+     color: #fff;
+}
+.banner_content h3 {
+    color: #ffdcb1;
+}
+
+.cocreate{
+    /* background:url(../images/noise.png) repeat-x; */
+    background-color: transparent;
+    text-align: left;
+    /* margin-top: 290px; */
+    padding: 0em;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 70%;
+    /*width: 58vw;*/
+    left: 16%;
+    color: #fff;
+}
+
+.cocreate img {
+    background: #8f582c;
+    width: 98%;
+    border-radius: 50%;
+    margin: 12% 0 0;
+}
+
+.cocreate .icon:hover {
+	color: #8f582c;
+    background: #fff;
+    font-size: 5.8em;
+
+}
+
+
+.co_content {
+    font-size: 16px;
+    padding-top: 16px;
+    font-size: 1.4vw;
+    padding-right: 315px;
+}
+</style>
 	<!--banner-->
 	<section class="banner">
 		<div class="container">
@@ -9,32 +60,32 @@
 				  See How
 				</button>
 			</div>
+
+			<!--subscribe-->
+	<section class="cocreate">
+		 <!-- <div class="container"> -->
+				<div  class="row">
+					<div class="col-xs-12 co_content">
+						<h4>Co-Create</h4>
+							Choose a category to begin designing a jewelry for your occasion. To suit your attire,  you can customize colors as well !
+					</div>
+					<div class="col-sm-2 col-xs-2 co-icons">
+					<!-- <a href="index.php?designearrings=dangler"> <div class="icon icon-dangler"></div></a> -->
+					<a href="index.php?designearrings=dangler"><div class="icon icon-dangler"></div></a><p>Danglers</p></div>
+					<div class="col-sm-2 col-xs-2 co-icons"> <a href="index.php?designearrings=hoop"><div class="icon icon-jhumka"></div></a><p>Hoops</p></div>
+					<div class="col-sm-2 col-xs-2 co-icons"> <a href="index.php?designearrings=jhumka"><img src="images/jhumka_ic.png" alt=""></a><p>Jhumkas</p></div>
+					<div class="col-sm-2 col-xs-2 co-icons"> <a href="index.php?designearrings=chandelier"><img src="images/chandelier_ic.png" alt=""></a><p>Chandeliers</p></div>
+				</div>
+            <!-- </div> -->
+		 </div>
+	</section>
+	<!--//subscribe-->
 		</div>
 	</section>
 	<!--//banner-->
 
-
-	<!--subscribe-->
-	<section class="cocreate">
-		 <div class="container">
-				<div  class="row">
-					<div class="col-sm-4 co_content">
-						<h4>Co-Create</h4>
-							Choose a category to begin designing a jewelry for your occasion. To suit your attire,  you can customize colors as well !
-					</div>
-					<div class="col-sm-2"> <img src="images/earring_ic.png" alt=""></div>
-					<div class="col-sm-2"> <img src="images/hoop_ic.png" alt=""></div>
-					<div class="col-sm-2"> <img src="images/jhumka_ic.png" alt=""></div>
-					<div class="col-sm-2"> <img src="images/chandelier_ic.png" alt=""></div>
-				</div>
-            </div>
-		 </div>
-	</section>
-	<!--//subscribe-->
-
-
 	<!--gallery-->
-	<section class="featuredlist">
+	<section class="productlist featured">
 		<div class="container">
 				<h3>Featured Designs</h3>
 				<p>text text text text text text text</p><br>
@@ -51,11 +102,9 @@
 					<section class="productbox">
 						<div class="productimg" <?php echo $customImg; ?>>
 							<a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $fprd['productid']; ?>">
-								<img src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" alt="" />
+								<img class="shadowed" src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" alt="" />
 							</a>
-							<div class="pr-view">
-								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view
-							</div>
+
 						</div>
 						 <div class="pr-info">
 							<p class="pr-name"><?php echo $fprd['name']; ?></p>
@@ -79,6 +128,7 @@
 	<br>
 
 
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -90,7 +140,7 @@
       </div>
       <div class="modal-body">
         <div class="row videoWrapper">
-	      <iframe width="560" height="315" src="https://www.youtube.com/embed/bFq-IV9ZaKo?autoplay=1" frameborder="0" allowfullscreen></iframe>
+	      <iframe width="560" height="315" src="https://www.youtube.com/embed/bFq-IV9ZaKo?autoplay=0" frameborder="0" allowfullscreen></iframe>
 	    </div>
       </div>
     </div>

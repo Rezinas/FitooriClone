@@ -1,30 +1,63 @@
 /*---- responsive-design -----*/
 
 /* responsive for banner */
-@media (max-width: 1095px){
+@media (max-width: 1280px){
     .banner {
-         height: 300px;
+    }
+    .cocreate{
+
+    }
+    .banner_content {
+
     }
 }
 @media (max-width: 955px){
     .banner {
-         height: 250px;
+    }
+    .cocreate{
+
     }
 }
 @media (max-width: 800px){
     .banner {
-         height: 200px;
+    }
+    .cocreate{
+
     }
 }
 @media (max-width: 640px){
     .banner {
-         height: 145px;
+    }
+    .cocreate{
+
     }
 }
 @media (max-width: 480px){
+    .navbar-brand > img {
+}
     .banner {
-         height: 100px;
+        background-size: 100%;
+        background-position: right top;
+        height: 41vh;
+        border: 1px solid;
     }
+
+    .banner_content {
+        top: 30%;
+        left: 18%;
+    }
+    .cocreate{
+        padding: 0em 1.7em;
+        top: 0;
+    }
+    .co_content {
+        /* padding-left: 8em; */
+    }
+    .cocreate .co-icons {
+    /* margin: 0 4%; */
+    padding: 2px 11px;
+    }
+    .cocreate .co-icons img {width: 100%;margin-left: 15px;}
 }
 
 /* nav responsive styles */
@@ -43,23 +76,30 @@
         padding-left: 0px;
         padding-right: 0px;
     }
-    .navbar-right {
+    .homepage .navbar-right {
         margin-right: 230px;
     }
-    .top-nav-collapse .navbar-right {
+    .homepage.top-nav-collapse .navbar-right {
         margin-right: 0;
     }
 }
 
 /* productbox responsive styles */
+@media ( max-width: 600px ) {
+    .product-card {
+        flex: 1 46%;
+    }
+
+}
+
 @media (max-width: 991px){
-    .productbox .pr-view {
+    .product-image .pr-view {
         padding: 5px 20px;
     }
-    .navbar-right {
+    .homepage .navbar-right {
         margin-right: 190px;
     }
-    .top-nav-collapse .navbar-right {
+    .homepage.top-nav-collapse .navbar-right {
         margin-right: 0;
     }
 }

@@ -1,37 +1,33 @@
 
-<!-- Checkout -->
-<div class="about">
-   <!-- START STEPS -->
-   <h2>My Cart</h2>
-   <hr/>
-   <!-- END STEPS -->
+<!-- cart page -->
+<div class="pageContainer container">
+   <center> <h2>My Jewelry Basket</h2></center>
+   <br>
    <!-- START CARTDETAILS  -->
-   <div id="cartDetails" style="margin:0px 50px">
+   <div id="cartdetails" class="row">
       <div class="cart-items col-lg-9 col-md-9 col-sm-6 col-xs-12" id="cart-items-all">
          <div class="panel panel-default" id="panelCart" style="border:0px;box-shadow:none;">
             <div class="panel-heading">
-               <span>Currently in your shopping bag</span>
+               Currently in your shopping bag
             </div>
-            <div class="panel-body table-responsive cart-details">
+            <div class="panel-body cart-details">
                <table id="cartTable" width="100%">
                 <thead>
                   <tr>
                      <th>Your Item</th>
-                     <th>Quantity / Price</th>
+                     <th>Quantity </th>
+                     <th>Price</th>
                      <th>Total Amount</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <?php if(count($cartItems) > 0) {
+                    <?php if(count($cartItems) > 0) {
                      foreach($cartProducts as $prod) { ?>
                       <tr class="cartRows" id="cart<?php echo $prod['productid']; ?>">
                          <td data-th="">
                             <div class="cart-header">
                                <div class="cart-item cyc">
-
-                                  <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="img-responsive" alt="">
-
-
+                                  <img src="<?php echo SITE_URL;?>productImages/<?php echo $prod['mainimg']; ?>" class="shadowed img-responsive" alt="">
                                </div>
                                <div class="cart-item-info">
                                   <span>
@@ -40,11 +36,9 @@
                                   </span>
                                   <div class="delivery">
                                      <p>Item ID: &nbsp;<span>PNR00<?php echo $prod['productid']; ?></span></p>
-                                     <br>
                                       <?php if($prod['customized'] == 0) { ?>
 
                                       <p>Type: &nbsp;<span><?php echo $prod['material']; ?></span></p>
-                                      <br/>
                                       <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
                                       <br>
                                       <?php } ?>
@@ -54,23 +48,25 @@
                                <!-- </div> -->
                             </div>
                          </td>
-                         <td data-th="Price/Quantity" class="links">
+                         <td data-th="Quantity" class="links">
                             <div class="tbcontent">
                                <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete <?php if($cart[$prod['productid']] == 1)  echo 'hide'; ?>"><i class="fa  fa-minus-circle"></i></a>
                                <span class="cartQty"><?php echo $cart[$prod['productid']]; ?> </span>
                                <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
-                               /  &#8377; <span class="cartPrice"> <?php echo $prod['price'];?> </span>
                                <br>
                                <a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove</a>
                             </div>
 
                             <!-- <div><a href="#">Move to Wishlist</a></div>-->
                          </td>
+                         <td data-th="Price">
+                           &#8377; <span class="cartPrice"> <?php echo $prod['price'];?> </span>
+                         </td>
                          <td data-th="Total">
                              <div class="tbcontent">&#8377; <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span></div>
                          </td>
                       </tr>
-                  <?php }
+                     <?php }
                      } ?>
                       <tr>
                          <td colspan="3" id="emptyCartMsg" <?php if(count($cartItems) > 0) echo 'class="hide"'; else echo 'class="show"'; ?>>
@@ -79,74 +75,126 @@
 
                          </td>
                       </tr>
-                      </tbody>
+                   </tbody>
                </table>
             </div>
-         </div>
-      </div>
-      <?php if(count($cartItems) > 0) { ?>
-        <div id="cart-cost" class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12">
-           <div class="cart-summary">
-             <div class="panel-heading">
-                <h4>Cart Summary</h4>
-             </div>
-             <p>Estimated time of delivery : 8 - 14 business days </p>
-             <div class="tableClass">
-                <table>
-                  <!--  <tr>
-                      <th>Total (including Tax)</th>
-                      <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
-                   </tr> -->
-                   <!-- <tr>
-                      <th>Shipping</th>
-                      <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
-                   </tr> -->
-                   <tr>
-                      <th style="color:#F07818;font-weight:bold;">Cart - Total</th>
-                      <td>: &#8377; <span id="grandTotal"><?php echo money_format('%!i',$cartTotal); ?></span></td>
-                   </tr>
-                </table>
-             </div>
-             <div id="chkBtns" style="text-align: center;">
-                <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
-                <a href="index.php?orders" class="btn btn-primary">Place Order</a>
-             </div>
-          </div>
-           <div class="cart-items">
-              <div class="panel-heading">
-                <h4>You May Also Like</h4>
-             </div>
-              <!-- these should be maximum 2 suggestions here. if this and the summary are two separate panels it will be good -->
-              <div class="product-model-sec single-product-grids">
-                 <?php
+
+<?php if(count($cartItems) > 0)  { ?>
+            <div class="panel-body">
+                  <h3>You May Also Like</h3>
+                  <div class="products cartpage">
+
+                  <?php
                     foreach($relatedPrd as $rprod) {
-                    ?>
-                 <div class="product-grid single-product">
-                    <a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $rprod['productid']; ?>">
-                       <div class="more-product"><span> </span></div>
-                       <div class="product-img b-link-stripe b-animate-go  thickbox">
-                          <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$rprod['mainimg'];  ?>" class="img-responsive" alt="">
-                          <div class="b-wrapper">
-                             <h4 class="b-animate b-from-left  b-delay03">
-                                <button>View</button>
-                             </h4>
+                      $customImg = "";
+                      /* if($rprod['customized'] == 1) {
+                        $customImg = "style='padding-left: 0px;'";
+                      } */
+                  ?>
+                    <div class="product-card" >
+                        <div class="product-image" <?php echo $customImg; ?>>
+                          <a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $rprod['productid']; ?>">
+                            <img class="shadowed" src="<?php echo  SITE_URL.PRDIMGDIR."/".$rprod['mainimg'];  ?>" alt="" />
+                          </a>
+                        </div>
+                         <div class="product-info">
+                           <div class="details">
+                            <p class="pr-name"><?php echo $rprod['name'];  ?></p>
+                            <p class="pr-price">&#8377; <?php echo round($rprod['price']);  ?></p>
                           </div>
-                       </div>
-                    </a>
-                    <div class="product-info simpleCart_shelfItem">
-                       <div class="product-info-cust prt_name">
-                          <h4><?php echo $rprod['name']; ?></h4>
-                          <span class="item_price"> &#8377; <?php echo $rprod['price']; ?></span>
-                          <div class="clearfix"> </div>
-                       </div>
+                        </div>
+                      </div>
+                    <?php } ?>
+                  </div>
+            </div>
+          <?php } ?>
+         </div>
+      </div> <!-- end of cart items -->
+        <div id="cart-cost" class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12">
+           <div class="panel panel-default cart-summary">
+             <div class="panel-heading">
+                Cart Summary
+             </div>
+             <div class="panel-body">
+               <span>Estimated time of delivery : 8 - 14 business days </span>
+               <div class="tableClass">
+                  <table>
+                     <tr>
+                        <th>Cart - Total</th>
+                        <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i',$cartTotal); ?></span></td>
+                     </tr>
+                  </table>
+               </div>
+               <br>
+
+              <?php if(!isset($_SESSION["useremail"]) && !isset($_SESSION["guestemail"]) && count($cartItems) > 0) { ?>
+
+                  <input type="radio" name="collapseGroup"  data-toggle="collapse" data-target="#guestLogin" />
+                  <label>Checkout as Guest</label><br>
+                    <input type="radio"  name="collapseGroup"  data-toggle="collapse" data-target="#userLogin"/>
+                    <label>Checkout as Fitoori User</label>
+
+                    <?php  } ?>
+               <!-- <div id="chkBtns">
+                  <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
+                  <a href="index.php?orders" class="btn btn-primary">Place Order</a>
+               </div> -->
+             </div> <!-- panel body -->
+          </div>
+
+          <div id="userLogin" class="panel panel-default collapse">
+            <div class="panel-heading">
+              User Info
+            </div>
+            <div class="panel-body">
+                <form method="post" action="php/login.php">
+                  <input type="hidden" name="backto" value="checkout" />
+                    <div class="form-group">
+                       <label for="email">Email Address</label>
+                       <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
                     </div>
-                 </div>
-                 <?php } ?>
-                 <div class="clearfix"> </div>
+                    <div class="form-group">
+                       <label for="password" id="pwdLabel">Password</label>
+                       <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
+                    </div>
+                    <input type="submit" id="login" value="Login" name="login"> or
+                    <button><a href="index.php?register=checkout"> Register</a></button>
+                 </form>
+            </div>
+          </div>
+
+          <div id="guestLogin" class="panel panel-default collapse">
+            <div class="panel-heading">
+              Guest Info
+            </div>
+            <div class="panel-body">
+                <form method="post" action="php/login.php">
+                  <input type="hidden" name="backto" value="checkout" />
+                    <div class="form-group">
+                       <label for="email">Email Address</label>
+                       <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
+                    </div>
+                    <input type="submit" id="guest" value="Continue" name="guest"> or
+                    <button><a href="index.php?register=checkout"> Register</a></button>
+                 </form>
+            </div>
+          </div>
+
+          <?php if(isset($_SESSION["useremail"]) || isset($_SESSION["guestemail"])) {
+            $checkoutemail = isset($_SESSION["useremail"]) ?  $_SESSION["useremail"] : $_SESSION["guestemail"] ?>
+            <div class="panel panel-default">
+                <div class="panel-heading"> Checkout  </div>
+                <div class="panel-body" style="text-align: center">
+                      <span>Checking out as <?php echo $checkoutemail; ?></span>
+                      <?php echo $cartHtml; ?>
+                      <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
+                </div>
               </div>
-           </div>
+
+          <?php } ?>
+
+
+
         </div>
-      <?php } ?>
    </div>
 </div>
-<div class="clearfix"> </div>

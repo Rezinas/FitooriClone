@@ -1,9 +1,15 @@
 <?php
 
-/*$db_user = "fitoori_admin";
-$db_pass = "custom123";
-$db_host = "localhost";
-$db_name = "fitoori_fitooritest";*/
+// $db_user = "fitoori_admin";
+// $db_pass = "custom123";
+// $db_host = "localhost";
+// $db_name = "fitoori_fitooritest";
+
+// $db_user = "fitoori_admin";
+// $db_pass = "custom123";
+// $db_host = "localhost";
+// $db_name = "fitoori_fitoori";
+
 
 $db_user = "root";
 $db_pass = "";

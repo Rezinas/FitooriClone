@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once($_SERVER['DOCUMENT_ROOT']."/utils/constants.php");
+	require_once($_SERVER['DOCUMENT_ROOT']."/redo/utils/constants.php");
     require_once(SITE_ROOT."/utils/db_connection.php");
 	require_once(SITE_ROOT."/phpmailer/PHPMailerAutoload.php");
 

@@ -1,5 +1,4 @@
 
-body {padding-top: 0px !important;}
 /** for pages that don't load angular but have angular templates in them. **/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
@@ -329,77 +328,120 @@ body {padding-top: 0px !important;}
 /* display of quote author (alternatively use a class on the element following the blockquote) */
 .bubble span {color: #000;font-size: 1em;font-weight: bold;}
 
-/* creates the triangle
-.bubble:after {
-  content:"";
-  position:absolute;
-  bottom: -32px;
-  left: 33px;
-  border-width: 0 0 35px 25px;
-  border-style:solid;
-  border-color: transparent #F1B98B;
-  display:block;
-  width:0;
-}
- */
-
-
-
-/* .bubble {
-  position:relative;
-  width:200px;
-  height:200px;
-  margin:50px 0 200px;
-  text-align:center;
-  color:#fff;
-  background: #F07818;
-}
-
-/* creates the larger triangle */
-/* .bubble:before {
-  content:"";
-  position:absolute;
-  bottom: -134px;
-  right:0;
-  border-width: 0 0 140px 140px;
-  border-style:solid;
-  border-color: transparent #F07818;
-}
- */
-/* creates the larger triangle */
-/* .bubble:after {
-  content:"";
-  position:absolute;
-  bottom:-140px;
-  right:85px;
-  border-width:0 0 140px 55px;
-  border-style:solid;
-  border-color:transparent #fff;
-}
-
- */
-
 i.fa.fa-plus.placeholdit {
     font-size: 1.3em;
 }
-#mainContainer{
-	margin-top: 40px;
-	margin-bottom: 25px;
+
+
+/* new styles */
+#mainContainer .jumbotron {
+  padding-top: 70px;
+  margin-bottom: 0;
 }
-.page-header{
-	font-size: 3.5em;
-    color: #F07818;
-    font-family: 'Marvel-Regular';
+
+.imagecontainer {
+  width: 100vw;
+  height: 80vh;
+}
+.imagecontainer img {
+  width: 1280px;
+}
+.customize_banner {
+  background: url(../images/cocreate_banner_tall.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #464646;
+  height: 600px;
+  background-position: 100% 100%;
+  height: 80vh;
+  position: relative;
+}
+
+.scrollarea {
+  height: 300px;
+  margin-top: 15px;
+  margin-left: 10px;
+  position: relative;
+}
+
+.scrollable-content {
+   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.scroll-controls {
     text-align: center;
-    margin-top: 10px;
+    width: 660px;
+    margin-top: 23px;
 }
-.page-content{
-	position: relative;
-    text-align: left;
-    padding: 5px 0px 15px 0px;
-    font-size: 16px;
-    font-family: 'Roboto-Regular';
+
+/*.scroll-controls:after {
+	     z-index: 1;
+	     content: '';
+	     position: absolute;
+	     right: 0;
+	     bottom: 57px;
+	     left: 0;
+	     height: 83px;
+	     border-bottom: 35px solid #f9f9f9;
+	     background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(249,249,249,0)),color-stop(100%,#f9f9f9));
+	     background: -webkit-linear-gradient(top,rgba(249,249,249,0) 0,#f9f9f9 100%);
+	     background: -o-linear-gradient(top,rgba(249,249,249,0) 0,#f9f9f9 100%);
+	     background: -ms-linear-gradient(top,rgba(249,249,249,0) 0,#f9f9f9 100%);
+	     background: linear-gradient(to bottom,rgba(249,249,249,0) 0,#f9f9f9 100%);
 }
+*/
+.design_header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 117px;
+  border-bottom: 1px solid #8e5918;
+  width: 644px;
+  margin-left: 40px;
+}
+.design_header p {
+  font-size: 16px;
+}
+.design_header h4, p{
+  flex: 1;
+  margin: 0;
+  /* margin-bottom: 10px; */
+}
+.design_header  h4 {
+  text-transform: capitalize;
+}
+.product-img{
+	text-align: center;
+}
+.product-img:hover {
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid #f07818; */
+}
+
+
+  .product-grid.elem {
+     max-width: 80px;
+     margin: 1px 6px;
+     flex: 1;
+     max-height: 90px;
+  }
+  .product-grid.elem .product-img img {
+    padding: 0.8em;
+    cursor: pointer;
+    margin: 0 auto;
+    max-height: 90px;
+    text-align: center;
+ }
+
+
+
+
+
+
+
+
+
 #designDet h4{
 	background-color:#5D4B33;
 	color:#fff;
@@ -428,14 +470,11 @@ label.material {
 	margin-right: 45px;
 }
 .bgProduct {
-	background: url("../images/silhoutteversion3.png") no-repeat;
-	/* background-size: contain; */
-	height: 409px;
-	width: 380px;
-	/* border-radius: 50%; */
-	padding-top: 172px;
-	padding-left: 160px;
-	margin-left: -10px;
+	height: 80vh;
+	width: 315px;
+	border: 1px solid;
+	padding-top: 260px;
+	padding-left: 70px;
 }
 
 #designDet h4 {
@@ -483,11 +522,7 @@ button.addtoCart {
   position: relative;
   /* float: right; */
 }
-#chkBtn button:hover {
-    color: #5D4B33;
-    background-color: #fff;
-    border-color: #5D4B33;
-}
+
 button.addtoCart:hover{
 	background-color: #fff;
     color: #5D4B33;
@@ -605,29 +640,6 @@ button.addtoCart:hover{
 	    left: -5px;
 	}
 
-	.product-img:hover {
-    box-shadow: inset 10px 10px 50px #f3f3f3;
-    border: 1px solid #f07818;
-}
-
-	.product-img{
-	    width: 80px;
-	    text-align: center;
-	    margin: 0px 0px 0px -4px;
-	    height: 83px;
-	}
-	.product-grid.elem {
-	    border: 0px solid #EFE9E9;
-	    margin: 0 5px 8px 4px;
-	    width: 10%;
-	    min-height: 80px;
-	}
-	.product-grid.elem .product-img img {
-    max-width: 90px;
-    padding: 1em;
-    max-height: 80px;
-    cursor: pointer;
- }
 
 
  .pr-ribbon {
@@ -655,23 +667,7 @@ button.addtoCart:hover{
 		 width: 100%;
 
 	}
-	#chkBtn button {
-	border: 1px solid #F07818;
-	color: #fff;
-	background: #F07818;
-	cursor: pointer;
-	padding: 4px 0;
-	width: 12%;
-	border-radius: 4px;
-	display: inline-block;
-	font-size: 1em;
-	outline: none;
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	transition: all 0.5s;
-	position: relative;
-	/* margin-bottom: 20px; */
-	}
+
   	#chkBtn input[type="submit"]:hover {
       background-color: #5D4B33;
       color: #FFFFFF;

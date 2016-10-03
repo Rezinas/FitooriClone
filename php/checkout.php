@@ -1,5 +1,18 @@
 <?php
+require_once(SITE_ROOT."/utils/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT'].'/signature/merchant/cart/html/MerchantHTMLCartFactory.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/signature/common/cart/xml/XMLCartFactory.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/signature/common/signature/SignatureCalculator.php');
+
+
+// seller credentials - enter your own here
+$merchantID="A111O19OHHZ2JW";
+$accessKeyID="AKIAJVP37DC3GTETQI4A";
+$secretKeyID="bcoOQlP+GMQLff/RCaWaNjDo+/XFYe+dcV3CNt32";
+
+
 $categoriesArr= explode("|", CATEGORY) ;
+echo "in cart page";
 $cartItems = (isset($_SESSION['cartids'])) ? $_SESSION['cartids'] : [];
 
 
@@ -25,6 +38,7 @@ if(count($cartItems)  > 0) {
 	$stmt->store_result();
 	$stmt->bind_result( $a,$b, $c, $d, $e, $f, $g);
 	while ($stmt->fetch()) {
+		if($b == "") $b = "My Custom Design";
 		$cartTotal = $cartTotal + ($c * $cart[$a]);
 
 		if(floatval($c) > $cartLowPrice ) {
@@ -33,22 +47,6 @@ if(count($cartItems)  > 0) {
 		if(floatval($c) < $cartHighPrice){
 			$cartHighPrice = floatval($c);
 		}
-
-		// $desArr=[];
-		// if($f == 1 ){
-		// 	$design_qry = "SELECT elementid, leftPos,topPos,selectedImage,isProduct from customdesign where productid=$a";
-
-		// 	$stmt1 = $dbcon->prepare($design_qry);
-		// 	if(!$stmt1->execute()){
-		// 	    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-		// 	}
-		// 	$stmt1->store_result();
-		// 	$stmt1->bind_result($a1,$b1, $c1, $d1, $e1);
-		// 	while ($stmt1->fetch()) {
-		// 		$desArr[] = ['elementid' => $a1, 'leftPos' => $b1, 'topPos' =>$c1, 'selectedImage' => $d1, 'isProduct' => $e1];
-		// 	}
-		// 	$stmt1->close();
-		// }
 
 		$mat = ($g === NULL) ?  "" : $categoriesArr[$g-1];
 
@@ -71,6 +69,7 @@ if(count($cartItems)  > 0) {
 	$cartLowPrice = abs($cartLowPrice - 100);
 	$cartHighPrice = abs($cartHighPrice + 100);
 
+	/* you may also like section */
 	$rqry = "SELECT productid, name, price, bodypart, mainimg FROM products WHERE productid  not IN ( ".implode($cartids, ",")." ) AND  status=1 AND price <= $cartHighPrice AND price >= $cartLowPrice  ORDER BY featured, price ASC LIMIT 2";
 
 	 if(!$stmt = $dbcon->prepare($rqry)){
@@ -91,6 +90,14 @@ if(count($cartItems)  > 0) {
 
 }
 
+
+
+$cartFactory = new XMLCartFactory();
+$calculator = new SignatureCalculator();
+
+$cart = $cartFactory->getSignatureInput($merchantID, $accessKeyID);
+$signature = $calculator->calculateRFC2104HMAC($cart, $secretKeyID);
+$cartHtml = $cartFactory->getCartHTML($merchantID, $accessKeyID, $signature);
 
 ?>
 

@@ -1,3 +1,5 @@
+
+
 .menu-icon {
     padding: 10px 20px;
     background: #5D4B33;
@@ -33,12 +35,16 @@ section.sky-form.agent {
     height: 85px; width: auto;margin-top: -80px;
 }
 .filters {
-    position: relative;
-    margin-top: -25px;
+    position: fixed;
+    width: 85%;
+    z-index: 4;
+    background-color: #fff;
 }
 .filterOptions {
     display: none;
+    padding: 0em 1em;
 }
+.filtertags {border-top: 1px solid #8e5918;margin-top: 5px;}
  .filterpanel section {
         width: 20%;
     }

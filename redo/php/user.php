@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/redo/utils/functions.php");
 
 $user_id=$_SESSION['userid'];
 

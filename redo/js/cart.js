@@ -50,10 +50,19 @@ var cart = {
     	$("div#cart-items-all").append("<p class='text-uppercase'>your shopping bag is empty</p>");
 
 	},
+	openCloseCart: function() {
+          window.setTimeout(function() {
+                      $("a.dropdown-toggle.cart").dropdown("toggle");
+                  }, 500);
+         window.setTimeout(function() {
+                      $("a.dropdown-toggle.cart").dropdown("toggle");
+                      $("a.dropdown-toggle.cart").blur();
+                  },2000);
+	},
 	updateCartPopup: function(){
 		$("div.cart-box span.simpleCart_total"). html("&#8377;"+this.formatCurrency(this.getCartTotalPrice()));
     	$("div.cart-box span.simpleCart_quantity"). html(this.getCartTotalItems());
-    	$("div.header-right.cart span.badge"). html(this.getCartTotalItems());
+    	$("#badge"). html(this.getCartTotalItems());
 	},
 	updateCart : function(pid, pprice){
 		//add a cart item to the cart object and update the cart total items
