@@ -21,82 +21,152 @@
             </div>
           </div>
     </div>
-    <section class="hidden-xs hidden-sm ">
-      <div class="imagecontainer" >
-        <img src="../redo/images/cocreate_banner_tall.png">
-      </div>
+    <section class="hidden-xs hidden-sm customize_banner">
+      <div class="container">
         <div class="row">
-          <div class="col-lg-9 col-md-9" style="padding-left: 10%;">
+          <div class="col-lg-8 col-md-8">
                <div class="design_header">
                   <h4>{{startType }}s</h4>
                   <p  ng-if="mySelectedItems.length > 0" >Want to try another {{startType }} design? <a href="javscript: void(0)"  ng-click="resetDesign()" >Start Over</a> </p>
               </div>
-              <div ng-scrollable="{scrollX:'none',scrollY:'right', useBothWheelAxes: true}" class="scrollarea" spy-x="posX" spy-y="posY">
-                  <div class="product-grid elem" ng-repeat="imgElem in terracota = filteredSet | orderBy:'-priority'">
-                     <div class="product-img">
-                        <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" ng-click="selectImage(imgElem,  true);">
-                     </div>
-                  </div>
-              </div>
-             <div class="scroll-controls">
-                 <button class="btn btn-primary" ng-click="moveY(-80)"> <i class="fa fa-angle-double-up"></i> </button>
-                  <button class="btn btn-primary" ng-click="moveY(80)"><i class="fa fa-angle-double-down"></i> </button>
-             </div>
+              <div ng-scrollbars ng-scrollbars-config="config"   ng-scrollbars-update=updateScrollbar class="scrollarea">
+                    <div class="col-xs-4">
+                        <div class="product-grid elem" ng-repeat="imgElem in piecesElm = (filteredSet | category:1)  | orderBy:'-priority'" ng-click="selectImage(imgElem,  true);">
+                            <img ng-if="imgElem.images.length >0"  align="right" ng-src="{{siteUrl}}images/paint-board-and-brush.png" alt="">
+                            <div class="product-img">
+                                <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" />
 
-              <div ng-hide="startType == 'stud'" >
-                  <button type="button" ng-hide="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>&nbsp;&nbsp;
-                  <button class="btn btn-primary" ng-if="startType != 'stud'" ng-hide="nextDisable() || productAdded" ng-click="updateLevel()"> Next <i class="fa fa-check-circle"></i> </button>
-                  <!-- <p ng-if="startType != 'stud' && mySelectedItems.length > 0 && !nextDisable()"><small> No more possible designs.</small></p> -->
-                  <button   ng-click="processForm()" ng-show="showCartbtn && !productAdded && designPrice > 40" class="btn btn-primary">Save Design</button>
-              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="product-grid elem" ng-repeat="imgElem in piecesElm = (filteredSet | category:2)  | orderBy:'-priority'" ng-click="selectImage(imgElem,  true);">
+                            <img ng-if="imgElem.images.length >0"  align="right" ng-src="{{siteUrl}}images/paint-board-and-brush.png" alt="">
+                            <div class="product-img"> <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" /></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                      <div class="product-grid elem" ng-repeat="imgElem in piecesElm = (filteredSet | category:3)  | orderBy:'-priority'" ng-click="selectImage(imgElem,  true);">
+                            <img ng-if="imgElem.images.length >0"  align="right" ng-src="{{siteUrl}}images/paint-board-and-brush.png" alt="">
+                            <div class="product-img"> <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" /></div>
+                        </div>
+                    </div>
+              </div> <!-- scrollbar plugin ends -->
+
           </div><!-- col10 ends here -->
-          <div class="col-lg-3 col-md-3">
-              <div class="bgProduct">
-                  <!--  <i ng-if="feedbackMsg  != ''" class="fa fa-question-circle" ng-click="showHelp();"></i> -->
-                  <div class="designDiv">
-                     <figure class='star' style="left:33px; top: 7px;"><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>
-                     <div class="prd_elements elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem" level="designLevel">
-                     <!-- <zoom mark-height="20" mark-width="20" src="main.addImage(imgItem)" zoom-lvl="3"></zoom> -->
-                        <img  ng-src="{{siteUrl}}productImages/{{imgItem.selectedImage}}" />
-                     </div>
-                     <div class="clearfix"></div>
-                  </div>
+          <div class="col-lg-4 col-md-4">
+              <div class="previewParent">
+                <div class="previewbox">
+                    <!--  <i ng-if="feedbackMsg  != ''" class="fa fa-question-circle" ng-click="showHelp();"></i> -->
+                    <div class="designDiv">
+                       <figure class='star' style="left:20px; top: 15px;"><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>
+                       <div class="prd_elements shadowed elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem" level="designLevel">
+                       <!-- <zoom mark-height="20" mark-width="20" src="main.addImage(imgItem)" zoom-lvl="3"></zoom> -->
+                          <img  ng-src="{{siteUrl}}productImages/{{imgItem.selectedImage}}" />
+                       </div>
+                       <div class="clearfix"></div>
+                    </div>
 
-                   <!--  <div class="message" ng-style="{'display': showMsg?'block':'none'}">
-                      <div class="curvedarrow"></div>
-                      <div class="curvedarrowDown"></div>
-                      <div class="curvedarrowLeft"></div>
-                      <div class="info">
-                          {{feedbackMsg}}
-                         <i class="fa fa-times" ng-click="closeMsg()"></i>
-                      </div>
-                    </div> -->
-                  <!-- <span><span>&#8675;</span> color options are here!</span> -->
+                     <!--  <div class="message" ng-style="{'display': showMsg?'block':'none'}">
+                        <div class="curvedarrow"></div>
+                        <div class="curvedarrowDown"></div>
+                        <div class="curvedarrowLeft"></div>
+                        <div class="info">
+                            {{feedbackMsg}}
+                           <i class="fa fa-times" ng-click="closeMsg()"></i>
+                        </div>
+                      </div> -->
+                    <!-- <span><span>&#8675;</span> color options are here!</span> -->
+                </div>
               </div>
-
           </div> <!-- col ends -->
         </div> <!-- row ends here-->
+      </div> <!-- container ends here -->
 
+    </section>
+
+    <section class="customcontrols hidden-xs hidden-sm ">
+      <div class="container">
+        <div class="col-lg-8 col-md-8">
+            <div class="custombuttons" ng-hide="startType == 'stud'" >
+                <button type="button"  ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>
+
+                 <button   ng-click="processForm()"  ng-disabled="!showCartbtn && productAdded && designPrice <= 40" class="pull-right btn btn-primary">Save Design</button>
+
+                <button class="btn btn-primary pull-right nextbtn" ng-if="startType != 'stud'"  ng-disabled="nextDisable() || productAdded" ng-click="updateLevel()"> Next <i class="fa fa-check-circle"></i> </button>
+                <div class="clearfix"></div>
+                <p class="pull-right" ng-if="startType != 'stud' && mySelectedItems.length > 0 && levelFilled && nextDisable()"><small> No more possible designs.</small></p>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div id="imgOptions">
+              <h5 ng-show="levelFilled">{{mySelectedItems[prdIndex[designLevel][0]].name}}</h5>
+              <div ng-if="levelFilled" class="aelements"  ng-click="selectImage(mySelectedItems[designLevel].carouselImg, false);">
+                 <img ng-src="{{siteUrl}}productImages/{{mySelectedItems[prdIndex[designLevel][0]].carouselImg}}"  />
+              </div>
+              <div class="aelements" ng-repeat="altItem in mySelectedItems[prdIndex[designLevel][0]].images">
+                 <img ng-src="{{siteUrl}}productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, false);" />
+              </div>
+                <div class="clearfix"></div>
+           </div>
+        </div>
+      </div>
+
+   <section class="designerpick"  ng-if="designerPicks.length > 0">
+    <h3>Designer Pick</h3>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item" ng-repeat="despick in designerPicks"  ng-class={active:$first}>
+            <a target="_blank" ng-href="{{siteUrl}}index.php?single&amp;id={{despick['productid']}}">
+               <img ng-src="{{siteUrl}}/productImages/{{despick['mainimg']}}" />
+             </a>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> >
+        </a>
+    </div>
+    </section>
 
     </section>
 
 
-      <!-- show custom designs here -->
-      <div ng-if="customizedEarrings.length > 0" class="row hidden-xs hidden-sm">
-         <div  class="col-lg-12 col-sm-12 col-xs-12">
-         <h4>My Recent Designs</h4>
-            <div ng-repeat="cdes in customizedEarrings" class="product-grid" style="width: auto">
-               <div class="custom-img">
-                  <img ng-src="../productImages/{{ cdes.imgName }}"/>
-               </div>
-               <div class="product-info">
-                  <span class="item_price">Price: &#8377; {{ cdes.price }}</span>
-                  <button ng-if="!isAgent" type="button" class="add-cart item_add" ng-click="addDesToCart(cdes.pid, cdes.price);">Add To Cart</button>
 
-               </div>
-            </div>
-         </div>
-      </div>
+      <!-- show custom designs here -->
+      <section class="saved_designs hidden-xs hidden-sm ">
+        <div class="container">
+          <div  class="row hidden-xs hidden-sm">
+             <div  class="col-lg-12 col-sm-12 col-xs-12">
+             <h4>Your Saved Designs</h4>
+                <div  class="products" ng-if="customizedEarrings.length > 0">
+                  <div ng-repeat="cdes in customizedEarrings" class="product-card">
+                     <div class="product-image">
+                        <img ng-src="{{siteUrl}}productImages/{{ cdes.imgName }}"/>
+                     </div>
+                     <div class="product-info design">
+                         <div class="details">
+                          <p class="pr-price">Price: &#8377; {{ cdes.price }}</p>
+                            <button ng-if="!isAgent" type="button" class="btn btn-primary" ng-click="addDesToCart(cdes.pid, cdes.price);">Add To Cart</button>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+
+
+                <div  class="products" ng-if="customizedEarrings.length == 0">
+                      <p>View your recently created designs here. </p>
+                      <p>Add to cart to buy them. </p>
+                </div>
+             </div> <!-- col ends -->
+          </div> <!-- row ends -->
+      </div><!-- container ends -->
+      </section>
 
 
 

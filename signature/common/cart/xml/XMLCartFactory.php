@@ -73,17 +73,18 @@ class XMLCartFactory extends CartFactory {
     private function getCartXML($merchantID, $awsAccessKeyID) {
 
       $cartItemlist = (isset($_SESSION['cartitemlist'])) ? $_SESSION['cartitemlist'] : [];
+      $sess_orderID = (isset($_SESSION['orderID'])) ? $_SESSION['orderID'] : -1;
 
 
       $msg =  "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" .
       "<Order xmlns=\"http://payments.amazon.com/checkout/2009-05-15/\">" .
-      "    <ClientRequestId>123457</ClientRequestId>" .
+      "    <ClientRequestId>".$sess_orderID ."</ClientRequestId>" .
       "    <Cart>" .
       "    <Items>" ;
 
       foreach($cartItemlist as $citem) {
           $msg= $msg."      <Item>" .
-                    "         <SKU>CALVIN-HOBBES</SKU>" .
+                    "         <SKU>". $citem["productid"] ."</SKU>" .
                     "         <MerchantId>" . $merchantID . "</MerchantId>" .
                     "         <Title>" . $citem["name"] ."</Title>" .
                     "         <Description> By Fitoori Designs </Description>" .
@@ -94,6 +95,11 @@ class XMLCartFactory extends CartFactory {
                     "         <Quantity>".$citem["quantity"]. "</Quantity>" .
                     "      </Item>" ;
       }
+
+      /*
+           <Category> Electronics</Category>
+           <Hazmat>false</Hazmat>
+      */
         $msg=$msg."    </Items>" .
                   "    </Cart>" .
                   "</Order>";

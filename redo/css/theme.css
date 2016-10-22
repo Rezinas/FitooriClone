@@ -1075,6 +1075,7 @@ html {
 body {
   font-family: Overlock, Times, serif;
   font-size: 18px;
+  /* padding-top: 70px; */
   line-height: 1.42857143;
   color: #333333;
   background-color: #ffffff;
@@ -1088,7 +1089,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #8e5918;
+  color: #333;
   text-decoration: none;
 }
 a:hover,
@@ -1259,7 +1260,7 @@ h1,
 }
 h2,
 .h2 {
-  font-size: 38px;
+  font-size: 30px;
   color: #8e5918;
 }
 h3,
@@ -3002,9 +3003,9 @@ select[multiple].input-lg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 4px 12px;
-  font-size: 16px;
-  line-height: 1.42857143;
-  border-radius: 4px;
+  font-size: 1vw;
+  line-height: 1.7;
+  border-radius: 6px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3103,9 +3104,9 @@ fieldset[disabled] .btn-default.focus {
   background-color: #333333;
 }
 .btn-primary {
-  color: #a2597f;
-  background-color: #eeeeee;
-  border-color: #d78b2e;
+  color: #fff;
+  background-color: #8e5918;
+  border-color: #8e5918;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -5006,7 +5007,7 @@ a.badge:focus {
   margin-bottom: 25px;
   line-height: 1.42857143;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+  /* border: 1px solid #dddddd; */
   border-radius: 4px;
   -webkit-transition: border 0.2s ease-in-out;
   -o-transition: border 0.2s ease-in-out;
@@ -5677,12 +5678,12 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid #dddddd;
 }
 .panel-default {
-  border-color: #dddddd;
+  border-color: #eeeaea;
 }
 .panel-default > .panel-heading {
-  color: #fff;
-  background-color: #8e5918;
-  border-color: #8e5918;
+  /* color: #fff; */
+  background-color: #eeeaea;
+  /* border-color: #8e5918; */
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #dddddd;

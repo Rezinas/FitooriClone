@@ -1,5 +1,5 @@
 'use strict';
-var des = angular.module('cdesign', ['ngScrollable']);
+var des = angular.module('cdesign', ['ngScrollbars']);
 
  des.config(function($locationProvider) {
         $locationProvider.html5Mode({
@@ -8,11 +8,26 @@ var des = angular.module('cdesign', ['ngScrollable']);
         });
     });
 
+
+ des.config(function (ScrollBarsProvider) {
+    // the following settings are defined for all scrollbars unless the
+    // scrollbar has local scope configuration
+    ScrollBarsProvider.defaults = {
+        scrollButtons: {
+            scrollAmount: 'auto', // scroll amount when button pressed
+            enable: true // enable scrolling buttons by default
+        },
+        scrollInertia: 400, // adjust however you want
+        axis: 'y', // enable 2 axis scrollbars by default,
+        theme: 'rounded-dark',
+        autoHideScrollbar: true
+    };
+});
+
 des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$document', '$timeout', '$location', '$sce',
     function($scope, $rootScope, $http, $window, $document, $timeout, $location, $sce) {
         $scope.loaded = false;
       $timeout(function() { $scope.loaded = true; },1000);
-
 
         $scope.siteUrl = $window.model.siteUrl;
         $scope.earringPieces = [];
@@ -39,39 +54,26 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         var level2Msg = true;
         var level3Msg = true;
 
-        $scope.feedbackMsg = '';
 
-        switch($scope.startType) {
-            case 'stud':
-                $scope.feedbackMsg = 'Explore our range of studs , dont forget to click + and see all options.';
-                break;
-            case 'jhumka' :
-                $scope.feedbackMsg = 'Choose a top or hook for your jhumka to add here.';
-                break;
-            case 'hoop' :
-                $scope.feedbackMsg = 'Start by choosing a hoop to add here.';
-                break;
-            case 'chandelier' :
-                $scope.feedbackMsg = 'Start by choosing a hook or top for you chandelier to add here.';
-                break;
-            case 'dangler' :
-                $scope.feedbackMsg = 'Start by choosing a hook or top for you dangler to add here.';
-                break;
+        $scope.config = {
+            autoHideScrollbar: false,
+            theme: 'rounded-dark',
+            advanced:{
+                updateOnContentResize: true
+            },
+            callbacks:{
+                onUpdate:function(){
+                    console.log(this.mcs.top);
+                  console.log("Scrollbars updated");
+                   scrollTo('first', 0, {
+                                scrollInertia: 0
+                            });
+                }
+            },
+                // setHeight: 4,
+                scrollInertia: 0
         };
-
-
-        /* scrollarea */
-
-        $scope.posX = 0;
-        $scope.posY = 0;
-
-
-        $scope.moveY = function (pixels) {
-            $scope.posY = $scope.posY + pixels;
-        };
-        $scope.$evalAsync(function () {
-            $scope.$broadcast('content.changed', 1000);
-        });
+      //   $scope.updateScrollbar = function ('scrollTo', 0);
 
         $scope.showMsg = false;
         // $scope.showMsg = ($window.model.showHelp == 0) ? true : false;
@@ -97,7 +99,26 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         var round5x = function (x){
                 return Math.ceil(x/5)*5;
-            }
+        }
+
+        var filterByID = function (obj) {
+          if (obj.id !== undefined && typeof(obj.id) === 'number' && !isNaN(obj.id)) {
+            return true;
+          } else {
+            invalidEntries++;
+            return false;
+          }
+        };
+
+
+        var organize = function(arrElm) {
+            var resArr = arrElm;
+           // var terra = findCategory(arrElm, 1);
+         //   console.log(terra);
+            return resArr;
+
+        };
+
 
 
         var findEligibleElement = function(eitems, celem){
@@ -190,7 +211,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 }
 
             });
-            return resArr;
+
+            return organize(resArr);
         };
 
         var updateDesignerPick = function() {
@@ -361,7 +383,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 }
 
             }
-          //   $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
         };
 
         var updateQuantity = function (flag, level) {
@@ -380,14 +401,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             });
               console.log($scope.mySelectedItems);
         }
-
         $scope.updateLevel = function() {
             if($scope.levelFilled) {
               //  updateQuantity(true, $scope.designLevel);
                 $scope.designLevel++;
                 $scope.levelFilled = false;
                 $scope.filteredSet = findConnectionElements($scope.earringPieces);
-                $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
 
                 $scope.feedbackMsg = '';
                 $(".curvedarrowDown").hide();
@@ -511,7 +530,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
                 $scope.earringPieces = $window.model.elements;
                 $scope.filteredSet = findConnectionElements($scope.earringPieces);
-             $('.white_content').hide(); $('.black_overlay').hide(); $('.lightboxClose').hide();
 
         };
 
@@ -527,7 +545,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.addDesToCart = function(pid, pprice) {
              window.cart.updateCart(pid, pprice);
-             $('div.cart-box').slideDown('slow').delay(1000).slideUp('slow');
              return false;
         }
 
@@ -602,6 +619,7 @@ des.directive('prdPosition', function($timeout) {
         }
     };
 });
+
 
 des.filter('startFrom', function() {
     return function(input, start) {
@@ -770,26 +788,7 @@ des.factory('elementFactory', function() {
 
 
 
-function openOverlay(num) {
-    var lightDiv, fadeDiv;
-    if(num == 0){
-        lightDiv = "#light";
-        fadeDiv = "#fade";
-    }
-    else if(num == 1){
-        lightDiv = "#light1";
-        fadeDiv = "#fade1";
-    }
-    else if(num == 2) {
-        lightDiv = "#light2";
-        fadeDiv = "#fade2";
-    }
 
-    $(lightDiv).show();
-    $(fadeDiv).show();
-    $(".white_content").scrollTop(0);
-    $('.lightboxClose').show();
-}
 
 function addToCart() {
     var pid = $("#myModal input[name='pid']").val();

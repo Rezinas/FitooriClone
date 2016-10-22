@@ -63,6 +63,9 @@
    else if(isset($_GET["logout"])){
      $currenttab = 'logout';
    }
+   else if(isset($_GET["thankyou"])) {
+       $currenttab = 'thankyou';
+   }
    else {
        $currenttab = 'home';
 
@@ -385,6 +388,10 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
        else if($currenttab == "myorder") {
             include(SITE_ROOT. "/php/myorder.php");
             include(SITE_ROOT. "/myorder.html");
+        }
+         else if($currenttab == "thankyou") {
+            // include(SITE_ROOT. "/php/thankyou.php");
+            include(SITE_ROOT. "/thankyou.html");
         }
          ?>
       <!--footer-->

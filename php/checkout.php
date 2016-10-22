@@ -6,9 +6,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/signature/common/signature/SignatureCal
 
 
 // seller credentials - enter your own here
-$merchantID="A111O19OHHZ2JW";
-$accessKeyID="AKIAJVP37DC3GTETQI4A";
-$secretKeyID="bcoOQlP+GMQLff/RCaWaNjDo+/XFYe+dcV3CNt32";
+$merchantID="A1SBFLN3KA4G6H"; // seller id is the same as this
+$accessKeyID="AKIAI25FXQIWZBUUAH5Q";
+$secretKeyID="oyhR1mmQqbE/JDhleh/s2bgQ6TiftPecYoIIbk+e";
 
 
 $categoriesArr= explode("|", CATEGORY) ;
@@ -99,5 +99,7 @@ $cart = $cartFactory->getSignatureInput($merchantID, $accessKeyID);
 $signature = $calculator->calculateRFC2104HMAC($cart, $secretKeyID);
 $cartHtml = $cartFactory->getCartHTML($merchantID, $accessKeyID, $signature);
 
+
+echo "test";
 ?>
 

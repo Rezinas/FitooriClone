@@ -1,0 +1,22 @@
+@media (max-width: 1084px){
+     .flex-viewport {
+    }
+    .flex-control-thumbs {
+        width: 22% !important;
+    }
+    .nav-tabs > li {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px){
+    .flex-viewport {
+        width: 56%;
+    }
+    .thumb-image {
+        padding: 2.6em;
+    }
+    .nav-tabs > li {
+        font-size: 14px;
+    }
+}

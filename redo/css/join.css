@@ -1,5 +1,4 @@
 .contact h2 {
-    font-size: 3.5em;
   }
 .contact ul li {
   margin-left: 34px;
@@ -26,7 +25,6 @@
       font-size: 13.5px;
   }
   .contact hr {
-      margin-bottom: -45px;
   }
   .contact{
     padding: 4em
@@ -35,6 +33,5 @@
     padding: 0px 5px 0px 0px;
   }
   .contact-infom{
-    padding-top: 2.5em;;
   }
 

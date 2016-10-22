@@ -116,7 +116,7 @@ else{
 
 
 	$em = $curr_user['email'];
-	$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype from orders  where dateCreated  >= date_sub(now(), interval 6 month) and useremail='$em' and (status like 'confirmed' OR status like 'cancelled' OR status like 'shipped' OR status like 'delivered' OR status like 'completed') order by dateCreated DESC";
+	$ordqry = "SELECT orderid, useremail, amazonOrderID, status from orders  where dateCreated  >= date_sub(now(), interval 6 month) and useremail='$em' and (status like 'confirmed' OR status like 'cancelled' OR status like 'shipped' OR status like 'delivered' OR status like 'completed') order by dateCreated DESC";
 
 	// echo $ordqry;
 
@@ -129,11 +129,11 @@ else{
 	}
 
 	$stmt->store_result();
-	$stmt->bind_result($a,$b,$c,$d, $e, $f, $g, $h, $i);
+	$stmt->bind_result($a,$b,$c,$d);
 	$curr_orders=[];
 	while ($stmt->fetch()) {
 		if($c == "shippinginfo" || $c == "new" || $c == "Review") { $c= "Not Placed" ; }
-		$curr_orders[] = ['orderid' => $a, 'useremail' => $b, 'status' => $c, 'shippingaddress1' => $d, 'shippingaddress2' => $e, 'shippingcity' => $f, 'shippingstate' => $g, 'shippingpostal' => $h, 'paymenttype' => $i];
+		$curr_orders[] = ['orderid' => $a, 'useremail' => $b,  'amazonOrderID' => $c, 'status' => $d];
 	}
 	$stmt->close();
 

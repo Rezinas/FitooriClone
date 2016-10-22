@@ -70,6 +70,7 @@ var cart = {
 		pid = pid+"";
 		this.items.push(pid);
 		this.itemsTotal = this.itemsTotal + pprice;
+		this.sendCart();
 		this.updateCartPopup();
 	},
 	removeItem: function(pid, pprice){
@@ -77,6 +78,7 @@ var cart = {
 		var ix = this.items.indexOf(pid);
 		this.items.splice(ix, 1);
 		this.itemsTotal = this.itemsTotal - pprice;
+		this.sendCart();
 		this.updateCartPopup();
 	}
 };

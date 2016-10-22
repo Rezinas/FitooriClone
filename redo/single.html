@@ -1,4 +1,4 @@
-	<?php
+<?php
 $categoriesArr= explode("|", CATEGORY) ;
 if(isset($_GET["single"]) && isset($_GET["id"]) ) {
     $pid=trim($_GET["id"]);
@@ -48,12 +48,11 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 <!--//single-page-->
 <div class="single pageContainer">
 	<div class="container">
-	<h2>Product Details</h2>
+	<h2>Product Details </h2>
 	<hr/>
 		<div class="row">
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+			<div class=" col-sm-7 col-xs-12">
 				<div class="flexslider">
-					<p style="padding:0px 15px 10px;">Roll over image to zoom in</p>
 					<ul class="slides">
 						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>">
 							<div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>" data-imagezoom="true" class="img-responsive">
@@ -70,10 +69,13 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 						</li>
 						<?php  } ?>
 					</ul>
+					<div class="clearfix"></div>
 				</div>
+				<p class="sliderHelp">Roll over image to zoom in</p>
+
 			</div>
-			<div class="col-lg-5 col-md-4 col-sm-4 col-xs-12 prd_details">
-				<h4><?php echo $parr['name']; ?></h4>
+			<div class="col-sm-5 col-xs-12 prd_details">
+				<h3><?php echo $parr['name']; ?></h3>
 					<p><?php echo $parr['shortdesc']; ?></p>
 				<h4>Size (wxh)</h4>
 					<p><a href="javascript:void(0);"><?php echo $parr['size']; ?></a></p>
@@ -83,70 +85,47 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 						$url = (isAgent())? SITE_URL."admin/dashboard.php?search&amp;m=$mat" : SITE_URL."index.php?products&amp;m=$mat";
 					?>
 					<p><a href="<?php echo $url; ?>"> <?php echo $categoriesArr[$parr['material']-1]; ?> </a></p>
-				<h4>Price : &#8377; 	<?php echo round($parr['price']); ?></h4>
+				<h4>Price : </h4>&#8377; 	<?php echo round($parr['price']); ?>
+				<br><br>
 				<?php
 					$qtag = $parr['tags'];
 					$url = (isAgent())? SITE_URL."admin/dashboard.php?search&amp;m=$mat" : SITE_URL."index.php?products&amp;t=$qtag";
 				?>
 				<p>Tags : <a href="<?php echo $url; ?>"> <?php echo $parr['tags']; ?> </a></p>
 				<a href="javascript:void(0);" onclick="window.cart.updateCart(<?php echo $pid;?>, <?php echo round($parr['price']);?>);window.cart.openCloseCart();" class="btn btn-primary" >Add To Cart</a>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				<div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingOne">
-							<h4 class="panel-title" style="color:#F07818;">
-								<!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> -->
-								  DESCRIPTION
-								<!-- </a> -->
-							</h4>
-						</div>
-						<div class="panel-body" style="border-top: 1px solid #5D4B33;">
-							<?php echo $parr['detaildesc']; ?>
-						</div>
-						<!-- <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-							<div class="panel-body" style="border-top-color: #5D4B33;">
-							<?php echo $parr['detaildesc']; ?>
-							</div>
-						</div> -->
+				<br><br>
+
+				<ul  class="nav nav-tabs">
+					<li class="active"><a  href="#1b" data-toggle="tab">Description</a></li>
+					<li><a href="#2b" data-toggle="tab">Product Information</a></li>
+					<li><a href="#3b" data-toggle="tab">Care Instructions</a></li>
+				</ul>
+
+
+				<div class="tab-content clearfix">
+				  	<div class="tab-pane active" id="1b">
+	          			<?php echo $parr['detaildesc']; ?>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingTwo">
-							<h4 class="panel-title" style="color:#F07818">
-								<!-- <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> -->
-								  ADDITIONAL INFORMATION
-								<!-- </a> -->
-							</h4>
-						</div>
-						<div class="panel-body" style="border-top: 1px solid #5D4B33;">
-								<?php echo $parr['addinfo']; ?><br><br>
-						</div>
+					<div class="tab-pane" id="2b">
+	          			<?php echo $parr['addinfo']; ?>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingTwo">
-							<h4 class="panel-title" style="color:#F07818">CARE INSTRUCTIONS</h4>
-						</div>
-						<div class="panel-body" style="border-top: 1px solid #5D4B33;">
+	        		<div class="tab-pane" id="3b">
+	     				<?php if($parr['material'] == '1') { ?>
+						Color may slightly vary from photos due to different monitor settings. Handle with care , its clay after all! <br>
+						<?php } ?>
 
-							<?php if($parr['material'] == '1') { ?>
-							Color may slightly vary from photos due to different monitor settings. Handle with care , its clay after all! <br>
-							<?php } ?>
+						<?php if($parr['material'] == '2') { ?>
+						Color may slightly vary from photos due to different monitor settings. For best durability keep wrapped in tissue of soft cotton. Keep away from products containing alcohol. <br>
+						<?php } ?>
 
-							<?php if($parr['material'] == '2') { ?>
-							Color may slightly vary from photos due to different monitor settings. For best durability keep wrapped in tissue of soft cotton. Keep away from products containing alcohol. <br>
-							<?php } ?>
-
-							<?php if($parr['material'] == '3') { ?>
-							Color may slightly vary from photos due to different monitor settings. Keep away from water or products containing alcohol.
-							<?php } ?>
-
-						</div>
-					</div>
+						<?php if($parr['material'] == '3') { ?>
+						Color may slightly vary from photos due to different monitor settings. Keep away from water or products containing alcohol.
+						<?php } ?>
 					</div>
 				</div>
 			</div>
-			<!-- <div class="clearfix"> </div> -->
 		</div>
+
 	</div>
 </div>
 <!--related-products-->

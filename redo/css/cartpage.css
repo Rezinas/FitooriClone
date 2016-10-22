@@ -6,12 +6,29 @@
   justify-content: flex-start;
 }
 
+
+.cart-items .panel-heading {
+  background: none;
+  border-bottom: 1px solid #8e5918;
+}
 .cart-item  {
   border: 1px solid #eee;
   flex: 1;
-  width: 200px;
+  width: 100px;
 }
 
+.cart-summary .panel-body > span {
+      font-size: 12px;
+      display: block;
+}
+
+.amzcheckout  p {
+  font-size: 14px;
+}
+.tbcontent .btn {
+  padding: 0px 7px;
+  font-size: 14px;
+}
 .cartRows td {
   text-align: center;
   vertical-align: top;
@@ -29,8 +46,13 @@
 
 .products.cartpage .product-card {
   flex: 0 1 22%;
+  margin: 6px 3px 14px 0;
 }
 
+.products.cartpage .product-image img {
+
+padding: 0.5em;
+}
 #Orderpage{
   background-color:#fff; margin-top:15px
 }
@@ -274,8 +296,8 @@ font-size: 12px; */
   margin-top: 10px;
 }
 .cart-items table th, #collapseThree table th{
-  padding: 10px;
-  height: 50px;
+  padding: 5px;
+  height: 40px;
   color:#333;
 }
 
@@ -306,7 +328,7 @@ input#proceed{
 }
 .cart-items img {
     width: 100%;
-    padding: 2em;
+    padding: 2.5em;
     /*border: 1px solid #eee;
   box-shadow: inset 10px 10px 50px #f3f3f3; */
 }
@@ -329,6 +351,7 @@ input#proceed{
   color: #8e5918;
   font-weight: bold;
   cursor: default;
+  font-size: 20px;
 }
 .links a{
   color:#555;
@@ -342,7 +365,7 @@ input#proceed{
 }
 .delivery p {
     color: #333;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -362,7 +385,7 @@ input#proceed{
   }
 #cart-cost table tr:last-child{
  font-weight: bold;
- border:1px solid #ccc;
+ /* border:1px solid #ccc; */
 }
 .delivery p a:hover {
     text-decoration: underline;
@@ -379,6 +402,7 @@ input#proceed{
 #cart-cost .tableClass{
   width: 100%;
   position:relative;
+  border-bottom: 1px solid #eee;
 }
 #cart-cost #chkBtn{
   float: right;
@@ -401,8 +425,10 @@ input#proceed{
   margin:0px;
 }
 
-.cart-summary span {
-  /* font-size: 1em; */
+.cart-summary > span {
+   font-size: 16px;
+   line-height: 1;
+   display: block;
 }
 
 .product-grid.single-product {
@@ -499,51 +525,6 @@ div#shippingDetails .guest a{
   background-color: white;
 }
 
-form.form-guest-checkout input[type="submit"] {
-    border: 2px solid #F07818;
-    color: #fff;
-    background: #F07818;
-    cursor: pointer;
-    padding: 4px 0;
-    width: 30%;
-    border-radius: 4px;
-    display: inline-block;
-    margin: 1em 0 0;
-    font-size: 14px;
-    outline: none;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-    top: 0;
-    position: relative;
-    margin-right: 0px;
-    font-weight: normal;
-}
-input#login {
-    border: 2px solid #F07818;
-    color: #fff;
-    background: #F07818;
-    cursor: pointer;
-    padding: 4px 0;
-    width: 25%;
-    border-radius: 4px;
-    display: inline-block;
-    margin: 1em 0 0;
-    font-size: 14px;
-    outline: none;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
-    top: 0;
-    position: relative;
-    margin-right: 0px;
-    font-weight: normal;
-}
-input#login:hover,form.form-guest-checkout input[type="submit"]:hover {
-    background-color: #fff;
-    color: #5D4B33;
-    border-color: #5D4B33;
-}
 form.form-guest-checkout a{
   color:#333;
   margin-left: 33px;

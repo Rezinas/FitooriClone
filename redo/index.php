@@ -66,6 +66,9 @@
    else if(isset($_GET["logout"])){
      $currenttab = 'logout';
    }
+  else if(isset($_GET["thankyou"])) {
+       $currenttab = "thankyou";
+   }
    else {
        $currenttab = 'home';
 
@@ -177,6 +180,12 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                                    <li><a class="list" href="index.php?products&m=3">Metal</a></li>
                                    <li><a class="list" href="index.php?products&m=1">Teracotta</a></li>
                        </ul>
+                    </li>
+
+                    <li>
+                       <a href="http://fitoorifeed.com" target="_blank">
+                          Blog <!-- <img src="images/home.png"/> -->
+                       </a>
                     </li>
                  </ul>
 
@@ -350,9 +359,31 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
             include(SITE_ROOT. "/php/myorder.php");
             include(SITE_ROOT. "/myorder.html");
         }
+           else if($currenttab == "thankyou") {
+            // include(SITE_ROOT. "/php/thankyou.php");
+            include(SITE_ROOT. "/thankyou.html");
+        }
          ?>
       <!--footer-->
-      <div class="footer">
+
+       <section class="footerbanner">
+            <div class="container">
+              <div class="col-xs-4">
+                <img src="images/madel.jpg" alt="">
+                <p>Hand crafted with love</p>
+              </div>
+              <div class="col-xs-4">
+                <img src="images/lotus.jpg" alt="">
+                <p>Skin friendly Nickel-free products</p>
+              </div>
+              <div class="col-xs-4">
+                <img src="images/wind-mill.png" alt="">
+                <p>Easy and fun designing</p>
+              </div>
+            </div>
+        </section>
+
+      <section class="footer">
          <div class="container">
             <div class="footer-grids">
                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
@@ -362,7 +393,6 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                      <!-- <li>Our Partners</li>
                      <li>Social Responsibility</li> -->
                      <li><a href="index.php?join">Work Here</a></li>
-
                   </ul>
                </div>
                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
@@ -399,13 +429,13 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
             </div>
             <div class="clearfix"></div>
          </div>
-      </div>
-      </div>
+      </section>
+
       <!--//footer-->
-      <div class="footer-bottom">
+      <section class="footer-bottom">
          <div class="container">
             <p> © 2016 Fitoori . All rights reserved.</p>
          </div>
-      </div>
+      </section>
    </body>
 </html>

@@ -24,6 +24,7 @@
                     <?php if(count($cartItems) > 0) {
                      foreach($cartProducts as $prod) { ?>
                       <tr class="cartRows" id="cart<?php echo $prod['productid']; ?>">
+                      <form name="cartRowForm" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']).'?checkout'; ?>" method="post">
                          <td data-th="">
                             <div class="cart-header">
                                <div class="cart-item cyc">
@@ -42,7 +43,6 @@
                                       <p>Size: &nbsp;<span><?php echo $prod['size']; ?></span></p>
                                       <br>
                                       <?php } ?>
-
                                   </div>
                                </div>
                                <!-- </div> -->
@@ -50,11 +50,10 @@
                          </td>
                          <td data-th="Quantity" class="links">
                             <div class="tbcontent">
-                               <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartDelete <?php if($cart[$prod['productid']] == 1)  echo 'hide'; ?>"><i class="fa  fa-minus-circle"></i></a>
-                               <span class="cartQty"><?php echo $cart[$prod['productid']]; ?> </span>
-                               <a href="javascript:void(0);" id="cartDel_<?php echo $prod['productid']; ?>" class="cartUpdate"><i class="fa  fa-plus-circle"></i></a>
-                               <br>
-                               <a id="cartRemove_<?php echo $prod['productid']; ?>"  class="removeItem" href="javascript:void(0);">Remove</a>
+                              <input type="text" name="cartQty" class="cartQty" value="<?php echo $mycartCount[$prod['productid']]; ?>"> <br>
+                                    <input type="hidden" name="itemID" value="<?php echo $prod['productid']; ?>" />
+                                    <input type="submit" class="btn btn-primary" name="update" value="Update" />
+                                    <input type="submit" class="btn btn-primary" name="remove" value="Remove" />
                             </div>
 
                             <!-- <div><a href="#">Move to Wishlist</a></div>-->
@@ -63,8 +62,9 @@
                            &#8377; <span class="cartPrice"> <?php echo $prod['price'];?> </span>
                          </td>
                          <td data-th="Total">
-                             <div class="tbcontent">&#8377; <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?> </span></div>
+                             <div class="tbcontent">&#8377; <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($mycartCount[$prod['productid']]); ?> </span></div>
                          </td>
+                         </form>
                       </tr>
                      <?php }
                      } ?>
@@ -110,84 +110,79 @@
           <?php } ?>
          </div>
       </div> <!-- end of cart items -->
-        <div id="cart-cost" class="cart-items col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
            <div class="panel panel-default cart-summary">
              <div class="panel-heading">
                 Cart Summary
              </div>
              <div class="panel-body">
-               <span>Estimated time of delivery : 8 - 14 business days </span>
                <div class="tableClass">
                   <table>
+                   <tr>
+                        <th>Total Items </th>
+                        <td>: <span id="itemTot"><?php echo count($cartItems); ?></span></td>
+                     </tr>
                      <tr>
                         <th>Cart - Total</th>
                         <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i',$cartTotal); ?></span></td>
                      </tr>
                   </table>
                </div>
-               <br>
+               <span>Estimated time of delivery :  8 - 14 business days </span>
+              <br>
+
+             <center><a href="index.php?products" class="btn btn-primary">Continue Shopping</a></center><br>
+
 
               <?php if(!isset($_SESSION["useremail"]) && !isset($_SESSION["guestemail"]) && count($cartItems) > 0) { ?>
 
+                  Checkout as <br>
                   <input type="radio" name="collapseGroup"  data-toggle="collapse" data-target="#guestLogin" />
-                  <label>Checkout as Guest</label><br>
+                  <label>Guest</label> &nbsp;&nbsp;
                     <input type="radio"  name="collapseGroup"  data-toggle="collapse" data-target="#userLogin"/>
-                    <label>Checkout as Fitoori User</label>
+                    <label> Fitoori User</label> <br><br>
 
                     <?php  } ?>
-               <!-- <div id="chkBtns">
-                  <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
-                  <a href="index.php?orders" class="btn btn-primary">Place Order</a>
-               </div> -->
-             </div> <!-- panel body -->
-          </div>
 
-          <div id="userLogin" class="panel panel-default collapse">
-            <div class="panel-heading">
-              User Info
-            </div>
-            <div class="panel-body">
-                <form method="post" action="php/login.php">
-                  <input type="hidden" name="backto" value="checkout" />
-                    <div class="form-group">
-                       <label for="email">Email Address</label>
-                       <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
+                    <div id="userLogin" class="collapse">
+                          <form method="post" action="php/login.php">
+                            <input type="hidden" name="backto" value="checkout" />
+                              <div class="form-group">
+                                 <label for="email">Email Address</label>
+                                 <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
+                              </div>
+                              <div class="form-group">
+                                 <label for="password" id="pwdLabel">Password</label>
+                                 <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
+                              </div>
+                              <input type="submit"  class="btn btn-primary" value="Login" name="login"> or
+                              <a href="index.php?register=checkout" class="btn btn-default"> Register</a>
+                           </form>
                     </div>
-                    <div class="form-group">
-                       <label for="password" id="pwdLabel">Password</label>
-                       <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
-                    </div>
-                    <input type="submit" id="login" value="Login" name="login"> or
-                    <button><a href="index.php?register=checkout"> Register</a></button>
-                 </form>
-            </div>
-          </div>
 
-          <div id="guestLogin" class="panel panel-default collapse">
-            <div class="panel-heading">
-              Guest Info
-            </div>
-            <div class="panel-body">
-                <form method="post" action="php/login.php">
-                  <input type="hidden" name="backto" value="checkout" />
-                    <div class="form-group">
-                       <label for="email">Email Address</label>
-                       <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
+                  <div id="guestLogin" class="collapse">
+                        <form method="post" action="php/login.php">
+                          <input type="hidden" name="backto" value="checkout" />
+                            <div class="form-group">
+                               <label for="email">Email Address</label>
+                               <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus="">
+                            </div>
+                            <input type="submit" id="guest" class="btn btn-primary" value="Continue" name="guest"> or
+                            <a href="index.php?register=checkout" class="btn btn-default"> Register</a>
+                         </form>
                     </div>
-                    <input type="submit" id="guest" value="Continue" name="guest"> or
-                    <button><a href="index.php?register=checkout"> Register</a></button>
-                 </form>
+                </div>
             </div>
-          </div>
 
-          <?php if(isset($_SESSION["useremail"]) || isset($_SESSION["guestemail"])) {
+
+
+          <?php if( (isset($_SESSION["useremail"]) || isset($_SESSION["guestemail"])) && count($cartItems) > 0 ){
             $checkoutemail = isset($_SESSION["useremail"]) ?  $_SESSION["useremail"] : $_SESSION["guestemail"] ?>
             <div class="panel panel-default">
                 <div class="panel-heading"> Checkout  </div>
-                <div class="panel-body" style="text-align: center">
-                      <span>Checking out as <?php echo $checkoutemail; ?></span>
-                      <?php echo $cartHtml; ?>
-                      <a href="index.php?products" class="btn btn-primary">Continue Shopping</a>
+                <div class="panel-body amzcheckout">
+                      <p>Checking out as <?php echo $checkoutemail; ?>. you will be taken to Amazon website to complete the checkout.</p>
+                      <center><?php echo $cartHtml; ?> </center>
                 </div>
               </div>
 

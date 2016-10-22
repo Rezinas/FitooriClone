@@ -2,10 +2,10 @@
 	<div ng-controller="MainController" >
 		<div class="container">
 			<section class="filters">
-		<center><h2>Our Earring Collection</h2> </center>
+				<center><h2>Our Earring Collection</h2> </center>
 
 				<div class="filterpanel">
-					<a href="javascript:void(0)" ng-click="toggleFilter()"><i class="fa fa-sliders"></i> &nbsp;{{visibleFilter ? "Show" : "Hide"}} Filters</a>
+					<a href="javascript:void(0)" ng-class="{ 'collapsed': !visibleFilter}" ng-click="toggleFilter()"> {{visibleFilter ? "Show" : "Hide"}} Filters</a>
 					<section class="pull-right">
 							Sort By: <select  ng-change="orderByOptions()"  ng-model="selectedSort" >
 								<option value="new">Latest Designs</option>
@@ -151,7 +151,7 @@
 
 			<br><br>
 
-			<section class="products" style="margin-top:135px;">
+			<section class="products search" style="margin-top:135px;">
 				<!-- <div class="product-card" ng-repeat="product in resultSet = (allProducts | startFrom:currentPage*pageSize | limitTo:pageSize )"> -->
 				<!-- {{currentPage}} {{pageSize}}  {{$index}} {{product['productid']}} -->
 

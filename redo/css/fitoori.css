@@ -38,9 +38,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-dangler:before {
-  content: "\64";
-}
 .icon-jhumka:before {
   content: "\6a";
+}
+.icon-hoop:before {
+  content: "\68";
+}
+.icon-chand1:before {
+  content: "\63";
+}
+.icon-chand3-2:before {
+  content: "\62";
+}
+.icon-dangler-03:before {
+  content: "\64";
+  /* font-size: 8.5vw; */
+}
+.icon-chand3-1:before {
+  content: "\61";
 }

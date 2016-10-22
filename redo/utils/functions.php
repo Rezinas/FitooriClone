@@ -269,5 +269,4 @@ function showCustomDesign($config) {
   $htmlStr = "";
   return  $htmlStr;
 }
-
 ?>

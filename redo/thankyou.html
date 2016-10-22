@@ -1,0 +1,41 @@
+<?php
+$sess_orderID = (isset($_SESSION['orderID'])) ? $_SESSION['orderID'] : -1;
+if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
+    $amazonId=trim($_GET["amznPmtsOrderIds"]);
+    $myorderId=trim($_GET["amznPmtsReqId"]);
+    $ordStatus=trim($_GET["amznPmtsPaymentStatus"]);
+
+    $ord_update =  "UPDATE `orders` SET `amazonOrderID` = ?, `status` = ? WHERE `orders`.`orderid` = $myorderId";
+    $stmt = $dbcon->prepare($ord_update);
+    $stmt->bind_param('ss', $amazonId, $ordStatus );
+
+    if(!$stmt->execute()){
+        die(' UPDATE order update Error : ('. $dbcon->errno .') '. $dbcon->error);
+    }
+    $stmt->close();
+    echo $ord_update;
+
+    unset($_SESSION['cartitemlist']);
+    unset($_SESSION['orderID']);
+    unset($_SESSION['cartids']);
+    unset($_SESSION['orderStatus']);
+    unset($_SESSION['cartPrice']);
+
+}
+
+
+?>
+
+<Title>Fitoori Successful Payment Page</Title>
+
+<section class="pageContainer">
+   <div class="container">
+        <div class="col-xs-4">
+            <img src="images/Received-stamp.jpg" alt="">
+        </div>
+        <div class="col-xs-8">
+             <p><strong>Your payment was successful. Thank you for shopping with Fitoori.</strong> </p>
+        </div>
+    </div>
+
+</section>

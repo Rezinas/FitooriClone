@@ -171,8 +171,7 @@
 							<tr>
 								<th>Order ID</th>
 								<th>Order Email</th>
-								<th>Shipping Address</th>
-								<th>Payment Type</th>
+								<th>Amazon Order ID</th>
 								<th>Status</th>
 							</tr>
 							</thead>
@@ -181,8 +180,7 @@
 							<tr>
 								<td data-th="Order ID&nbsp;:&nbsp;"><a href="index.php?myorder&orderid=ORD000<?php echo $ord['orderid']; ?>">ORD000<?php echo $ord['orderid']; ?></a></td>
 								<td data-th="Order Email&nbsp;:&nbsp; "><?php echo $ord['useremail']; ?></td>
-								<td data-th="Shipping Address&nbsp;:&nbsp; "><?php echo $ord['shippingaddress1'] . ", <br>". $ord['shippingaddress2']. ", <br>". $ord['shippingcity'] . ", " .$ord['shippingstate'].", India-".$ord['shippingpostal']; ?></td>
-								<td data-th="Payment Type&nbsp;:&nbsp;"><?php echo $ord['paymenttype']; ?></td>
+								<td data-th="Amazon Order ID&nbsp;:&nbsp;"><?php echo $ord['amazonOrderID']; ?></td>
 								<td data-th="Status&nbsp;:&nbsp; "><?php echo $ord['status']; ?></td>
 							</tr>
 							<?php } ?>
