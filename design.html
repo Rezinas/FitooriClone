@@ -24,7 +24,7 @@
     <section class="hidden-xs hidden-sm customize_banner">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-md-8">
+          <div class="col-lg-8 col-md-7">
                <div class="design_header">
                   <h4>{{startType }}s</h4>
                   <p  ng-if="mySelectedItems.length > 0" >Want to try another {{startType }} design? <a href="javscript: void(0)"  ng-click="resetDesign()" >Start Over</a> </p>
@@ -54,8 +54,9 @@
               </div> <!-- scrollbar plugin ends -->
 
           </div><!-- col10 ends here -->
-          <div class="col-lg-4 col-md-4">
+          <div class="col-lg-4 col-md-5">
               <div class="previewParent">
+              <img class="ear" src="../images/cocreateFace.png" alt="">
                 <div class="previewbox">
                     <!--  <i ng-if="feedbackMsg  != ''" class="fa fa-question-circle" ng-click="showHelp();"></i> -->
                     <div class="designDiv">
@@ -161,12 +162,12 @@
 
                 <div  class="products" ng-if="customizedEarrings.length == 0">
                       <p>View your recently created designs here. </p>
-                      <p>Add to cart to buy them. </p>
                 </div>
              </div> <!-- col ends -->
           </div> <!-- row ends -->
       </div><!-- container ends -->
       </section>
+      <br><br>
 
 
 
@@ -196,12 +197,12 @@
            <div class="col-xs-6">
              <img style="max-width: 300px;" id="cimg" src='' />
            </div>
-           <div class="col-xs-6">
+           <div class="col-xs-6 savedlist">
              <h4 style="text-align: left;">Materials:</h4>
               <p id="matlist"></p><br>
               <h4 style="text-align: left;">Price: </h4>
               <p style="font-size: 25px;"> &#8377; <span id="pr_price"></span></p>
-        <button ng-if="!isAgent" type="button" class="btn addtoCart" onclick="addToCart();">Add To Cart</button>
+        <button ng-if="!isAgent" type="button" class="btn btn-primary" onclick="addToCart();">Add To Cart</button>
               <!-- <p><button onclick="openfb()"><img style="width:200px" src="images/fb_share.png" alt="" /></button></p> -->
            </div>
          </div>

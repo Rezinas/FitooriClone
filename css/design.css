@@ -343,29 +343,16 @@ i.fa.fa-plus.placeholdit {
 
 
 .customize_banner {
-  background: url(../images/cocreate1.png);
-  background-repeat: no-repeat;
-  height: 540px;
-  background-size: cover;
+  background: url(../images/cocreateBGpeach.png);
+  height: 660px;
   position: relative;
   overflow: hidden;
-  background-position: right -315px top;
 }
 
-.customize_banner1 {
-  background: url(../images/H470_01.jpg);
-  background-repeat: no-repeat;
-  /* background-size: 100% 100%; */
-  /* height: 100%; */
-  /* background-attachment: fixed; */
-  background-position: right -210px top;
-  height: 44vh;
-  position: relative;
-  overflow: hidden;
-}
+
 
 .scrollarea {
-  height: 400px;
+  height: 475px;
   margin-left: 10px;
   position: relative;
   /* padding-top: 10px; */
@@ -400,7 +387,7 @@ i.fa.fa-plus.placeholdit {
 .design_header {
   display: flex;
   justify-content: space-between;
-  margin-top: 110px;
+  margin-top: 20%;
   border-bottom: 1px solid #8e5918;
 }
 .design_header p {
@@ -481,13 +468,20 @@ i.fa.fa-plus.placeholdit {
 .previewbox {
 	position: absolute;
 	/* border: 1px solid; */
-	left: 75%;
-	top: 81%;
+	left: 68%;
+	top: 87%;
 	height: 245px;
 	width: 185px;
 	/* border: 1px solid; */
 }
 
+.previewParent img.ear {
+  height: 190%;
+  position: absolute;
+  width: auto;
+  left: -50px;
+  top: 0;
+}
 .triangle-right {
 	    position: relative;
 	    padding: 10px;
@@ -532,10 +526,7 @@ i.fa.fa-plus.placeholdit {
   flex:1;
 }
 
-.design .details button {
-font-size: smaller;
-margin-top: 0;
-}
+.design .details button {font-size: smaller;margin-top: 0;padding: 2px 0px;}
 
 .saved_designs {
   min-height: 200px;
@@ -544,6 +535,10 @@ margin-top: 0;
 .saved_designs h4 {
   margin-bottom: 0px;
   border-bottom: 1px solid #d78b2e;
+}
+
+.saved_designs .products {
+	justify-content: flex-start;
 }
 
 /********/

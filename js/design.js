@@ -545,6 +545,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         $scope.addDesToCart = function(pid, pprice) {
              window.cart.updateCart(pid, pprice);
+             window.cart.openCloseCart();
              return false;
         }
 

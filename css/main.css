@@ -263,7 +263,7 @@ article.item.read-full .item-body:after {
 }
 
 
-  @-webkit-keyframes arrows {
+/*   @-webkit-keyframes arrows {
     0% { top:0; }
     10% { top:12%; }
     20% { top:0; }
@@ -275,7 +275,7 @@ article.item.read-full .item-body:after {
     80% { top:-12%; }
     90% { top:12%; }
     100% { top:0; }
-  }
+  } */
 
   .arrow-wrap .arrow {
     -webkit-animation: arrows 2.8s 0.4s;
@@ -365,7 +365,7 @@ article.item.read-full .item-body:after {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    /* align-items: center; */
+    align-items: flex-start;
     justify-content: space-between;
 }
 
