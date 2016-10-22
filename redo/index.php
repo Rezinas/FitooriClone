@@ -373,12 +373,12 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                 <p>Hand crafted with love</p>
               </div>
               <div class="col-xs-4">
-                <img src="images/lotus.jpg" alt="">
+                <img src="images/lotus.png" alt="">
                 <p>Skin friendly Nickel-free products</p>
               </div>
               <div class="col-xs-4">
                 <img src="images/wind-mill.png" alt="">
-                <p>Easy and fun designing</p>
+                <p>Easy and fun customizing</p>
               </div>
             </div>
         </section>
