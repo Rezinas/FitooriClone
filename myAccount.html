@@ -1,6 +1,4 @@
-<div class="about">
-	 <div style="margin:0px 50px;">
-	 	<h2 id="pheader">My Page </h2>
+<div class="pageContainer container	">
 	 	<hr class="visible-xs" />
 	 	<div class="about-inform">
 	 		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" id="left-pane">
@@ -91,6 +89,8 @@
 
 	 		</div>
 	 		<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12" id="right-pane">
+	 			<h2 id="pheader">My Profile </h2>
+
 	 			<div  class="pagecontent" id="response"></div>
 	 			<div id="chngPwd" class="pagecontent">
 	 				<form id="chngPwdForm" name="chngPwdForm" role="form"  method="POST">
@@ -104,7 +104,7 @@
 								<input class="form-control" placeholder="Re-Type Password" name="cpass" type="password" value="">
 							 </div>
 						</div>
-						 <input type="submit" value="Change Password" id="chngpwd" name="chngpwd">
+						 <input type="submit" class="btn btn-primary" value="Change Password" id="chngpwd" name="chngpwd">
 					</form>
 				</div>
 				<div id="editProfile" class="pagecontent">
@@ -133,7 +133,7 @@
 									 <input type="radio" name="gender" value="F" <?php if($curr_user['gender'] == 'F') echo 'checked'; ?> > Female
 								</div>
 							</div>
-							 <input type="submit" value="Edit Profile" id="updateprofile" name="updateprofile">
+							 <input type="submit" class="btn btn-primary" value="Edit Profile" id="updateprofile" name="updateprofile">
 						</form>
 					</div>
 				</div>
@@ -160,7 +160,7 @@
 								<span>Postal Code</span>
 								<input class="form-control" data-validation="alphabets"  name="postalcode" type="text" autofocus value="<?php echo $curr_user['postalcode']; ?>">
 							</div>
-							<input type="submit" value="Update" id="editAddr" name="editAddr" class="btn1">
+							<input type="submit" class="btn btn-primary" value="Update" id="editAddr" name="editAddr" class="btn1">
 						</form>
 					</div>
 				</div>
@@ -171,8 +171,7 @@
 							<tr>
 								<th>Order ID</th>
 								<th>Order Email</th>
-								<th>Shipping Address</th>
-								<th>Payment Type</th>
+								<th>Amazon Order ID</th>
 								<th>Status</th>
 							</tr>
 							</thead>
@@ -181,8 +180,7 @@
 							<tr>
 								<td data-th="Order ID&nbsp;:&nbsp;"><a href="index.php?myorder&orderid=ORD000<?php echo $ord['orderid']; ?>">ORD000<?php echo $ord['orderid']; ?></a></td>
 								<td data-th="Order Email&nbsp;:&nbsp; "><?php echo $ord['useremail']; ?></td>
-								<td data-th="Shipping Address&nbsp;:&nbsp; "><?php echo $ord['shippingaddress1'] . ", <br>". $ord['shippingaddress2']. ", <br>". $ord['shippingcity'] . ", " .$ord['shippingstate'].", India-".$ord['shippingpostal']; ?></td>
-								<td data-th="Payment Type&nbsp;:&nbsp;"><?php echo $ord['paymenttype']; ?></td>
+								<td data-th="Amazon Order ID&nbsp;:&nbsp;"><?php echo $ord['amazonOrderID']; ?></td>
 								<td data-th="Status&nbsp;:&nbsp; "><?php echo $ord['status']; ?></td>
 							</tr>
 							<?php } ?>
@@ -194,18 +192,20 @@
 					</div>
 				</div>
 				<div id="designs" class="pagecontent">
-					<div class="custdes">
+					<div class="products custdes">
 						<?php
 							foreach($curr_des as $des) { ?>
 
-							<div class="product-grid">
-								<div class="product-img">
+							<div class="product-card" >
+								<div class="product-image">
 									<img src="../productImages/<?php echo $des['mainimg']; ?>" alt=""/>
 								</div>
-								<div class="product-info">
-				                  <span class="item_price">Price: &#8377; <?php echo $des['price']; ?></span>
-				                  <button type="button" class="add-cart item_add" onclick="addToCart(<?php echo $des['productid']; ?>, <?php echo $des['price']; ?>);">Add To Cart</button>
-				               </div>
+								 <div class="product-info">
+									 <div class="details">
+										<p class="pr-price">Price: &#8377; <?php echo $des['price']; ?></p>
+									</div>
+									<button type="button" class="btn btn-primary" onclick="addToCart(<?php echo $des['productid']; ?>, <?php echo $des['price']; ?>);">Add To Cart</button>
+								</div>
 							</div>
 
 						<?php } ?>
@@ -219,7 +219,6 @@
 	 			</div>
 	 		</div>
 	 	</div>
- 	</div>
  </div>
 
 

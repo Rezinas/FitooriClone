@@ -11,6 +11,9 @@
   else if(isset($_GET["designearrings"])) {
        $currenttab = "designearrings";
    }
+     else if(isset($_GET["designearrings1"])) {
+       $currenttab = "designearrings1";
+   }
    else if(isset($_GET["offers"])) {
        $currenttab = 'offers';
    }
@@ -63,8 +66,8 @@
    else if(isset($_GET["logout"])){
      $currenttab = 'logout';
    }
-   else if(isset($_GET["thankyou"])) {
-       $currenttab = 'thankyou';
+  else if(isset($_GET["thankyou"])) {
+       $currenttab = "thankyou";
    }
    else {
        $currenttab = 'home';
@@ -124,7 +127,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
 
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
+      if (d.getElementById(d)) return;
       js = d.createElement(s); js.id = id;
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1076977995697955";
       fjs.parentNode.insertBefore(js, fjs);
@@ -134,177 +137,140 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
 <!--   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
 
       <!--header-->
-      <div class="header">
+      <!-- <div class="header"> -->
          <!-- <div class="container"> -->
-         <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               </button>
-               <h1 class="navbar-brand"><img src="images/logo2.png"  class="img-responsive" id="logo"/><a  href="index.php" class="hidden-xs">fitoori</a></h1>
-            </div>
-            <!--navbar-header-->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <ul class="nav navbar-nav">
-                  <li>
-                     <a href="index.php" <?php if($currenttab == "home") echo 'class="active"'; ?>>
-                        Home<!-- <img src="images/home.png"/> -->
-                     </a>
-                  </li>
-                  <li class="dropdown">
-                     <a href="javascript:void(0);" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Our Collection<b class="caret"></b></a>
-                     <ul class="dropdown-menu multi-column columns-1">
-                        <div class="row">
-                           <div class="col-sm-12">
-                              <a class="list" href="index.php?products"><h4>Earrings</h4></a>
-                              <ul class="multi-column-dropdown">
-                                 <li><a class="list" href="index.php?products">All</a></li>
-                                 <li><a class="list" href="index.php?products&m=2">Beaded</a></li>
-                                 <li><a class="list" href="index.php?products&m=3">Metal</a></li>
-                                 <li><a class="list" href="index.php?products&m=1">Teracotta</a></li>
-                              </ul>
-                           </div>
+         <nav class="navbar navbar-default navbar-fixed-top <?php if($currenttab == 'home' || $currenttab == 'designearrings') { echo 'homepage'; } ?>" role="navigation">
+            <div class="container">
+              <div class="navbar-header">
+                <a class="navbar-brand"><img src="images/logo_dark.png"  class="img-responsive"/></a>
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 </button>
+
+              </div>
+              <!--navbar-header-->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 <ul class="nav navbar-nav">
+                    <li>
+                       <a href="index.php" <?php if($currenttab == "home") echo 'class="active"'; ?>>
+                          Fitoori <!-- <img src="images/home.png"/> -->
+                       </a>
+                    </li>
+                    <li class="dropdown grid">
+                       <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Co-Creation</a>
+                       <ul class="dropdown-menu">
+                                   <li><a class="list" href="index.php?designearrings=dangler ">
+                                   <img src="images/dangler_ic.png"  align="bottom" /> Danglers</a></li>
+                                   <li><a class="list" href="index.php?designearrings=jhumka">
+                                   <img src="images/jhumka_ic.png"  align="bottom" /> Jhumka</a></li>
+                                   <li><a class="list" href="index.php?designearrings=hoop">
+                                   <img src="images/hoop_ic.png"  align="bottom" /> Hoops</a></li>
+                                   <li><a class="list" href="index.php?designearrings=chandelier">
+                                   <img src="images/chandelier_ic.png"  align="bottom" /> Chandelier</a></li>
+                       </ul>
+                    </li>
+                    <li class="dropdown grid">
+                       <a href="javascript:void(0);" class="dropdown-toggle <?php if($currenttab == "products") echo 'active'; ?>" data-toggle="dropdown" >Products</a>
+                       <ul class="dropdown-menu">
+                                   <li><a class="list" href="index.php?products">All</a></li>
+                                   <li><a class="list" href="index.php?products&m=2">Beaded</a></li>
+                                   <li><a class="list" href="index.php?products&m=3">Metal</a></li>
+                                   <li><a class="list" href="index.php?products&m=1">Teracotta</a></li>
+                       </ul>
+                    </li>
+
+                    <li>
+                       <a href="http://fitoorifeed.com" target="_blank">
+                          Blog <!-- <img src="images/home.png"/> -->
+                       </a>
+                    </li>
+                 </ul>
+
+                   <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown grid">
+                       <a class="cart dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-shopping-bag fa-fw"></i><span id="badge" class="badge">0</span></a>
+                        <div class="dropdown-menu cart-box" id="cartbox" style="padding: 15px; padding-bottom: 0px;">
+                           <p><span>Your Total</span>
+                           <span class="simpleCart_total"> &#8377; 0.00 </span>
+                            </p>
+                            <hr>
+                            <p> <span class="simpleCart_quantity"> 0 </span>
+                            <span class="cartbtn"><a class="btn btn-primary" href="index.php?checkout">View cart</a></span>
+                            </p>
                         </div>
-                     </ul>
-                  </li>
-                  <li class="dropdown grid">
-                     <a href="javascript:void(0);" class="dropdown-toggle list1 <?php if($currenttab == "customearrings" || $currenttab == "customearrings") echo 'active'; ?>" data-toggle="dropdown">Customize<b class="caret"></b></a>
-                     <ul class="dropdown-menu multi-column columns-3">
-                        <div class="row">
-                           <div class="col-sm-6">
-                              <h4>Jewel</h4>
-                              <ul class="multi-column-dropdown">
-                                 <!-- <li class="list">Bracelets - <span>Coming Soon</span></li> -->
-                                 <li><a class="list" href="index.php?customearrings">Earrings</a></li>
-                                 <!-- <li class="list">Necklace - <span>Coming Soon</span></li> -->
-                                 <!-- <li class="list">Pendant Sets - <span>Coming Soon</span></li> -->
-                              </ul>
-                           </div>
-                           <div class="col-sm-6">
-                              <h4>Take a Tour</h4>
-                              <ul class="multi-column-dropdown">
-                                 <li><a class="list" href="index.php?customearrings"><i class="glyphicon glyphicon-film"></i> How to Videos</a></li>
-                                 <!-- <li><a class="list" href="index.php?customize"><i class="glyphicon glyphicon-info-sign"></i> How to Tutorials</a></li> -->
-                              </ul>
-                           </div>
+                      </li>
+                      <li class="dropdown grid">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                        <div class="dropdown-menu" id="loginbox" style="padding: 15px; padding-bottom: 0px;">
+                         <form  id="loginForm" name="loginForm" role="form" <?php  if(isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
+                           <div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Login Failed! Please try again</div>
+                           <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
+                           <div class="alert alert-danger hide" id="forgotpwdMessage" role="alert"> Please provide yor email address, you will recieve an email with your password.</div>
+                           <div class="alert alert-danger hide" id="fgtPwdMsg" role="alert">We have sent you an Email with password.</div>
+
+                           <fieldset id="loginform">
+                              <div class="form-group">
+                                 <label for="email">Email Address</label>
+                                 <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus>
+                              </div>
+                              <div class="form-group">
+                                 <label for="password" id="pwdLabel">Password</label>
+                                 <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
+                              </div>
+                              <input type="submit" class="btn btn-primary" id="login" value="Login" name="login" />
+                              <span><a href="javascript:void(0);" id="fgtpwd">Forgot your password?</a></span>
+                           </fieldset>
+                           <p>New User ? <a class="sign" href="index.php?register">Sign Up</a>
+                           </p>
+                        </form>
+                    <div class="userprofile"  <?php  if(!isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
+                       <ul class="list-group dropdown-user" id="userList" style="display:block">
+                          <li class="list-group-item">
+                             <span class="username">
+                                  <?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?>
+                             </span> &nbsp;&nbsp;
+                             <span class="logout">
+                             <a href="index.php?logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                             </span>
+                          </li>
+                          <li class="list-group-item"><a href="index.php?myaccount=profile"><i class="fa fa-user fa-fw"></i>My Account</a>
+                          </li>
+                          <li class="list-group-item"><a href="index.php?myaccount=custom"><i class="fa fa-picture-o"></i> My Designs</a>
+
+                          <li class="list-group-item"><a href="index.php?myaccount=orders"><i class="fa fa-shopping-bag fa-fw"></i> My Orders</a>
+                          </li>
+                       </ul>
+                    </div>
+                    <div class="submitForm" style="display:none">
+                      <form  id="submitForm" name="submitForm" role="form" style="display:none;">
+                         <div class="alert alert-danger hide" id="forgotpwdMessage" role="alert"> Please provide yor email address, you will recieve an email with your password.</div>
+                         <div class="alert alert-danger hide" id="fgtPwdMsg" role="alert">We have sent you an Email with password.</div>
+                         <div class="alert alert-danger hide" id="errorMsg" role="alert">Some Error</div>
+                         <fieldset id="submitfield">
+                            <div class="form-group">
+                               <label for="email">Email Address</label><br/>
+                               <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus>
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="submitEmail" value="Submit" name="submitEmail">
+                            <span><a href="javascript:void(0);" id="fgtcancel">cancel</a></span>
+                         </fieldset>
+                      </form> <br>
+                    </div>
+
                         </div>
-                     </ul>
-                  </li>
-                  <li><a href="index.php?join" <?php if($currenttab == "join") echo 'class="active"'; ?>>Join Us</a></li>
-                  <li><a href="index.php?corp" <?php if($currenttab == "corp") echo 'class="active"'; ?>>Corporate Orders</a></li>
-               </ul>
-               <!--/.navbar-collapse-->
+                      </li>
+                    </ul>
+                 <!--/.navbar-collapse-->
+              </div>
+              <!--//navbar-header-->
             </div>
-            <!--//navbar-header-->
          </nav>
-         <div class="header-info">
-           <!-- <div class="header-right search-box">
-               <a href="javascript:void(0);"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-                <div class="header-popup search">
-                  <form class="navbar-form">
-                     <input type="text" class="form-control">
-                     <button type="submit" class="btn btn-default" aria-label="Left Align">
-                     Search
-                     </button>
-                  </form>
-               </div>
-            </div> -->
 
-            <div class="header-right cart">
-               <a href="javascript:void(0);"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span class="badge">0</span></a>
-               <div class="header-popup cart-box">
-                  <h4><a href="javascript:void(0);">
-                     <span class="simpleCart_total"> &#8377; 0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)
-                     </a>
-                  </h4>
-                  <p><a href="index.php?checkout">View cart</a></p>
-                  <!-- <p><a href="javascript:window.cart.emptyCart();" class="simpleCart_empty">Empty cart</a></p> -->
-                  <div class="clearfix"> </div>
-               </div>
-            </div>
-                        <div class="header-right login">
-               <a href="javascript:void(0);"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-               <div class="header-popup" id="loginBox">
-                  <form  id="loginForm" name="loginForm" role="form" <?php  if(isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
-                     <div class="alert alert-danger hide" id="loginFailedMsg" role="alert"> Login Failed! Please try again</div>
-                     <div class="alert alert-danger hide" id="systemErrorMsg" role="alert"> System Failure! please try later.</div>
-                     <div class="alert alert-danger hide" id="forgotpwdMessage" role="alert"> Please provide yor email address, you will recieve an email with your password.</div>
-                     <div class="alert alert-danger hide" id="fgtPwdMsg" role="alert">We have sent you an Email with password.</div>
-
-                     <fieldset id="body">
-                        <div class="form-group">
-                           <label for="email">Email Address</label>
-                           <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus>
-                        </div>
-                        <div class="form-group">
-                           <label for="password" id="pwdLabel">Password</label>
-                           <input class="form-control" placeholder="Password" name="pass" type="password" value="" id="pwd">
-                        </div>
-                        <input type="submit" id="login" value="Login" name="login">
-                        <input type="submit" id="submitEmail" value="Sumit" name="submit" class="hide">
-                        <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
-                     </fieldset>
-                     <p>New User ? <a class="sign" href="index.php?register">Sign Up</a>
-                     <span><a href="javascript:void(0);" id="fgtpwd">Forgot your password?</a></span></p>
-                  </form>
-                  <div class="userprofile"  <?php  if(!isset($_SESSION["useremail"])) echo "style='display:none;'" ?>>
-                     <ul class="dropdown-menu dropdown-user" id="userList" style=
-                        "display:block">
-                        <li>
-                           <span class="username">
-                           <a id="loginemail" href="javascript:void(0);"><?php  if(isset($_SESSION["useremail"])) echo $_SESSION["useremail"]; ?></a>
-                           </span>
-                           <span class="logout">
-                           <a href="index.php?logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
-                           </span>
-                        </li>
-                        <li><a href="index.php?myaccount=profile"><i class="fa fa-user fa-fw"></i>My Account</a>
-                        </li>
-                        <li><a href="index.php?myaccount=custom"><i class="fa fa-picture-o"></i> My Designs</a>
-
-                        <li><a href="index.php?myaccount=orders"><i class="fa fa-shopping-cart fa-fw"></i> My Orders</a>
-                        </li>
-                       <!--  <li><a href="index.php?myaccount=credits"><i class="fa fa-gift fa-fw"></i>My Credits</a>
-                        <li><a href="index.php?myaccount=wishlist"><i class="fa fa-heart fa-fw"></i>My Wishlist</a>
-                        </li> -->
-                     </ul>
-                  </div>
-                  <div class="submitForm">
-                    <form  id="submitForm" name="submitForm" role="form" style="display:none;">
-                       <div class="alert alert-danger hide" id="forgotpwdMessage" role="alert"> Please provide yor email address, you will recieve an email with your password.</div>
-                       <div class="alert alert-danger hide" id="fgtPwdMsg" role="alert">We have sent you an Email with password.</div>
-                       <div class="alert alert-danger hide" id="errorMsg" role="alert">Some Error</div>
-                       <fieldset id="body">
-                          <div class="form-group">
-                             <label for="email">Email Address</label><br/>
-                             <input class="form-control" placeholder="Email Address" name="email" type="email" id="emailAddr" autofocus>
-                          </div>
-                          <input type="submit" id="submitEmail" value="Submit" name="submitEmail">
-                       </fieldset>
-                    </form>
-                  </div>
-               </div>
-            </div>
-            <!-- <div class="header-right track-box">
-               <a href="javascript:void(0);"><span aria-hidden="true"><img src="images/track.png"/></span></a>
-               <div class="header-popup track">
-                  <form id="trackorderForm" action="index.php?myorder" method="POST" class="navbar-form">
-                     <p>Order ID &nbsp;<input type="text"  name="orderid" class="form-control">
-                        <button type="submit" class="btn btn-default" aria-label="Left Align">
-                        Track
-                        </button>
-                     </p>
-                  </form>
-               </div>
-            </div> -->
-            <div class="clearfix"> </div>
-         </div>
-         <div class="clearfix"> </div>
          <!-- </div> -->
-      </div>
+      <!-- </div> -->
       <!--//header-->
       <?php
          if($currenttab == "home") {
@@ -336,6 +302,10 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                 include(SITE_ROOT. "/customizationLandingPage.html");
             }
          else if($currenttab == "designearrings") {
+                 include(SITE_ROOT. "/php/design.php");
+                 include(SITE_ROOT. "/design.html");
+            }
+          else if($currenttab == "designearrings1") {
                  include(SITE_ROOT. "/php/design.php");
                  include(SITE_ROOT. "/design.html");
             }
@@ -389,29 +359,46 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
             include(SITE_ROOT. "/php/myorder.php");
             include(SITE_ROOT. "/myorder.html");
         }
-         else if($currenttab == "thankyou") {
+           else if($currenttab == "thankyou") {
             // include(SITE_ROOT. "/php/thankyou.php");
             include(SITE_ROOT. "/thankyou.html");
         }
          ?>
       <!--footer-->
-      <div class="footer">
+
+       <section class="footerbanner">
+            <div class="container">
+              <div class="col-xs-4">
+                <img src="images/madel.jpg" alt="">
+                <p>Hand crafted with love</p>
+              </div>
+              <div class="col-xs-4">
+                <img src="images/lotus.png" alt="">
+                <p>Skin friendly Nickel-free products</p>
+              </div>
+              <div class="col-xs-4">
+                <img src="images/wind-mill.png" alt="">
+                <p>Easy and fun customizing</p>
+              </div>
+            </div>
+        </section>
+
+      <section class="footer">
          <div class="container">
             <div class="footer-grids">
                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
                   <h4>company</h4>
                   <ul>
                      <li><a href="index.php?about">About Us</a></li>
-                     <li>Our Partners</li>
-                     <li>Social Responsibility</li>
+                     <!-- <li>Our Partners</li>
+                     <li>Social Responsibility</li> -->
                      <li><a href="index.php?join">Work Here</a></li>
-
                   </ul>
                </div>
                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 footer-grid">
                   <h4>service</h4>
                   <ul>
-                     <li>FAQ</li>
+                     <!-- <li>FAQ</li> -->
                      <li><a href="index.php?contact">Contact Us</a></li>
                      <li><a href="index.php?support">Support</a></li>
                   </ul>
@@ -442,13 +429,13 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
             </div>
             <div class="clearfix"></div>
          </div>
-      </div>
-      </div>
+      </section>
+
       <!--//footer-->
-      <div class="footer-bottom">
+      <section class="footer-bottom">
          <div class="container">
             <p> © 2016 Fitoori . All rights reserved.</p>
          </div>
-      </div>
+      </section>
    </body>
 </html>

@@ -1,5 +1,5 @@
 'use strict';
-var searchapp = angular.module('productsearch', ['rzModule']);
+var searchapp = angular.module('productsearch', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'rzModule']);
 
 
 searchapp.config(function($locationProvider) {
@@ -16,7 +16,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         $scope.siteUrl = $window.model.siteUrl;
         $scope.allProducts = $window.model.products;
         $scope.isAgent = $window.model.isAgent;
-        $scope.currentPage = 0;
+        $scope.currentPage = 1;
         $scope.pageSize = 20;
         $scope.materials = $window.model.materials;
         $scope.tags = $.unique($window.model.tags);
@@ -65,7 +65,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         }
 
         $scope.orderByOptions = function() {
-          $scope.currentPage = 0;
+          $scope.currentPage = 1;
             if($scope.selectedSort == "new") {
                 $scope.reverseorder = true;
                 $scope.sortItem = "'dateAdded'";
@@ -91,14 +91,14 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
                       return 'Rs.' + value;
                     },
                     onChange : function(sliderId, modelValue, highValue) {
-                      $scope.currentPage = 0;
+                      $scope.currentPage = 1;
                     }
                   }
             };
 
         // toggle selection for a given fruit by name
         $scope.toggleSelection = function toggleSelection(matIndex) {
-             $scope.currentPage =0;
+             $scope.currentPage = 1;
 
             var idx = $scope.selectedMaterial.indexOf(matIndex);
             // is currently selected
@@ -125,7 +125,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         };
 
         $scope.toggleTagSelection = function toggleTagSelection(tagIndx) {
-             $scope.currentPage =0;
+             $scope.currentPage = 1;
             var idx = $scope.selectedTags.indexOf(tagIndx);
             // is currently selected
             if (idx > -1) {
@@ -138,7 +138,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
         };
 
         $scope.toggleItemSelection = function toggleItemSelection(itmIndex) {
-             $scope.currentPage =0;
+             $scope.currentPage =  1;
             var idx = $scope.selectedItem.indexOf(itmIndex);
             // is currently selected
             if (idx > -1) {
@@ -206,7 +206,9 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
 
         $scope.addCartItem = function(pid, pprice){
             cartObj.updateCart(pid, parseFloat(pprice,10));
-            $("div.cart-box").slideDown('slow').delay(1000).slideUp('slow');
+            cartObj.openCloseCart();
+
+             // $("div.cart-box").slideDown('slow').delay(1000).slideUp('slow');
         };
 
         $scope.numberOfPages=function(){
@@ -227,6 +229,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
 searchapp.filter('startFrom', function() {
     return function(input, start) {
         start = +start; //parse to int
+        console.log(start);
         return input.slice(start);
     }
 });

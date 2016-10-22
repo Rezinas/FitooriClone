@@ -1,5 +1,4 @@
 
-body {padding-top: 0px !important;}
 /** for pages that don't load angular but have angular templates in them. **/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
@@ -239,7 +238,7 @@ body {padding-top: 0px !important;}
  left: 50%;
  width: 8px;
  height: 8px;
- background: yellow;
+ background: #ebf143;
  overflow: hidden;
  z-index: 2;
  border-radius: 50%;
@@ -329,206 +328,164 @@ body {padding-top: 0px !important;}
 /* display of quote author (alternatively use a class on the element following the blockquote) */
 .bubble span {color: #000;font-size: 1em;font-weight: bold;}
 
-/* creates the triangle
-.bubble:after {
-  content:"";
-  position:absolute;
-  bottom: -32px;
-  left: 33px;
-  border-width: 0 0 35px 25px;
-  border-style:solid;
-  border-color: transparent #F1B98B;
-  display:block;
-  width:0;
-}
- */
-
-
-
-/* .bubble {
-  position:relative;
-  width:200px;
-  height:200px;
-  margin:50px 0 200px;
-  text-align:center;
-  color:#fff;
-  background: #F07818;
-}
-
-/* creates the larger triangle */
-/* .bubble:before {
-  content:"";
-  position:absolute;
-  bottom: -134px;
-  right:0;
-  border-width: 0 0 140px 140px;
-  border-style:solid;
-  border-color: transparent #F07818;
-}
- */
-/* creates the larger triangle */
-/* .bubble:after {
-  content:"";
-  position:absolute;
-  bottom:-140px;
-  right:85px;
-  border-width:0 0 140px 55px;
-  border-style:solid;
-  border-color:transparent #fff;
-}
-
- */
-
 i.fa.fa-plus.placeholdit {
     font-size: 1.3em;
 }
-#mainContainer{
-	margin-top: 40px;
-	margin-bottom: 25px;
-}
-.page-header{
-	font-size: 3.5em;
-    color: #F07818;
-    font-family: 'Marvel-Regular';
-    text-align: center;
-    margin-top: 10px;
-}
-.page-content{
-	position: relative;
-    text-align: left;
-    padding: 5px 0px 15px 0px;
-    font-size: 16px;
-    font-family: 'Roboto-Regular';
-}
-#designDet h4{
-	background-color:#5D4B33;
-	color:#fff;
-	font-size: 15px;
-}
-.slick-slide img {
-	height: 100px;
-	width: auto;
-}
-.slick-prev {
-	left: -10px;
-}
-.slick-next {
-	right: -10px;
-}
-.slick-slider {
-	margin-bottom: 5px;
+
+
+/* new styles */
+
+.navbar-right {margin-right: 135px;}
+#mainContainer .jumbotron {
+  padding-top: 70px;
+  margin-bottom: 0;
 }
 
-.selectedProduct img {
-	height: auto;
-	width: auto;
-}
 
-label.material {
-	margin-right: 45px;
-}
-.bgProduct {
-	background: url("../images/silhoutteversion3.png") no-repeat;
-	/* background-size: contain; */
-	height: 409px;
-	width: 380px;
-	/* border-radius: 50%; */
-	padding-top: 172px;
-	padding-left: 160px;
-	margin-left: -10px;
-}
-
-#designDet h4 {
-	margin-top: -14px;
-	margin-bottom: 7%;
-}
-
-.row h4{
-	text-align: center;
-	padding: 0px;
-	width: 100%;
-}
-div#designDet {
-    border-radius: 3px;
-    border: 1px solid #5D4B33;
-    /* padding: 5px; */
-}
-.cart-items table {
-    border: 0px solid;
-    font-size: 14px;
-    font-weight: normal;
-    color: #676363;
-    text-align: right;
-    position: relative;
-    left: 5px;
-}
-.cart-items table th{
-	text-align: right;
-}
-button.addtoCart {
-  border: 2px solid #F07818;
-  color: #fff;
-  background: #F07818;
-  cursor: pointer;
-  padding: 7px 10px;
-  width: auto;
-  border-radius: 4px;
-  display: inline-block;
-  margin: 3em 0 0;
-  font-size: 1em;
-  outline: none;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+.customize_banner {
+  background: url(../images/cocreate1.png);
+  background-repeat: no-repeat;
+  height: 540px;
+  background-size: cover;
   position: relative;
-  /* float: right; */
+  overflow: hidden;
+  background-position: right -315px top;
 }
-#chkBtn button:hover {
-    color: #5D4B33;
-    background-color: #fff;
-    border-color: #5D4B33;
+
+.customize_banner1 {
+  background: url(../images/H470_01.jpg);
+  background-repeat: no-repeat;
+  /* background-size: 100% 100%; */
+  /* height: 100%; */
+  /* background-attachment: fixed; */
+  background-position: right -210px top;
+  height: 44vh;
+  position: relative;
+  overflow: hidden;
 }
-button.addtoCart:hover{
-	background-color: #fff;
-    color: #5D4B33;
-    border-color: #5D4B33;
+
+.scrollarea {
+  height: 400px;
+  margin-left: 10px;
+  position: relative;
+  /* padding-top: 10px; */
+  /* padding-bottom: 10px; */
 }
-#alertDiv{
-	background-color:#f3f3f3;
-	border:0px;
-	width:99%;
-	box-shadow: 1px 1px 1px 1px #CAC5C5;
+
+.mCSB_container .col-xs-4 {
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 3px;
+	/* overflow: scroll; */
+}
+
+.mCSB_container .col-xs-4:not(:first-child) {
+  padding-left: 0;
+}
+
+
+
+.custombuttons {
+  padding: 2em 3em;
+}
+
+.custombuttons .btn {
+  font-size: 1vw;
+}
+
+.custombuttons  .nextbtn {
+  margin-right: 10px;
+}
+
+.design_header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 110px;
+  border-bottom: 1px solid #8e5918;
+}
+.design_header p {
+  font-size: 16px;
+  text-align: right;
+}
+.design_header h4, .design_header p{
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+.design_header  h4 {
+  text-transform: capitalize;
 }
 .designDiv {
-    position: relative;
+  position: relative;
 }
 
-.e-control {
-	position: absolute;
-	top: 30%;
-}
-.e-control.left {
-	left: 0px;
-}
-.e-control.right {
-	right: 0px;
-}
-.felements, .aelements{
-	float: left;
-}
-.felements img,  .aelements  img{
-/* 	height: 70px; */
-	width:  auto;
-	margin: 15px;
-
+.product-grid.elem:hover {
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
 }
 
+.product-grid.elem:hover > img {
+  display: block;
+}
+.product-grid.elem:hover  .product-img {
+}
+.product-grid.elem > img {
+    height: 16px;
+    position: absolute;
+    width: auto;
+    right: 0;
+    display: none;
+    margin: 5px 5px  0 5px;
+  }
 .prd_elements {
-	position: absolute;
-	left: 0;
+  position: absolute;
+  left: 0;
 }
 .prd_elements.current {
-	border: 1px solid black;
+  border: 1px solid black;
+}
+
+
+  .product-grid.elem {
+     width: 110px;
+     height: 105px;
+     position: relative;
+     float:left;
+     margin-top: 5px;
+  }
+
+  .product-img {
+        text-align: center;
+        padding: 0.3em;
+        height: 100%;
+        width: 100%;
+        line-height: 80px;
+  }
+
+  .product-grid.elem .product-img img {
+    padding: 0em;
+    cursor: pointer;
+    width: auto;
+    margin: 0 auto;
+    vertical-align: middle;
+    max-height: 70px;
+ }
+
+ .previewParent {
+  position: relative;
+  height: 356px;
+  /* border: 1px solid red; */
+ }
+
+
+.previewbox {
+	position: absolute;
+	/* border: 1px solid; */
+	left: 75%;
+	top: 81%;
+	height: 245px;
+	width: 185px;
+	/* border: 1px solid; */
 }
 
 .triangle-right {
@@ -542,62 +499,55 @@ button.addtoCart:hover{
 	    -moz-border-radius: 10px;
 	    border-radius: 10px;
 }
-.ribbon {
-	 font-size: 15px !important;
- /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
- /* width: 50%; */
- position: relative;
- background: #5D4B33;
- color: #fff;
- text-align: left;
- box-shadow: 0 0 30px rgba(236, 221, 210, 0.81) inset,            0 6px 10px rgba(0,0,0,.15);
- padding: 1em 2em; /* Adjust to suit */
- margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
- height: 80px;
+
+#imgOptions{
+    width:100%;
+    margin-top: 10px;
+    /* border: 1px solid; */
+    /* text-align: right; */
+    position: relative;
+  }
+#imgOptions h5 {
+  margin-left: 5px;
+  margin-bottom: 0;
+  font-size: 20px;
+  margin-top: 5px;
 }
-/*
-.ribbon:before, .ribbon:after {
- content: "";
- position: absolute;
- display: block;
- bottom: -0.5em;
- border: 1.5em solid #5D4B33;
- z-index: -1;
+.felements, .aelements{
+  float: left;
 }
-.ribbon:before {
- left: -2em;
- border-right-width: 1.5em;
- border-left-color: transparent;
-}
-.ribbon:after {
- right: -2em;
- border-left-width: 1.5em;
- border-right-color: transparent;
-} */
-.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
- content: "";
- position: absolute;
- display: block;
- border-style: solid;
- border-color: #804f7c transparent transparent transparent;
- bottom: -1em;
-}
-.ribbon .ribbon-content:before {
- left: 0;
- border-width: 1em 0 0 1em;
-}
-.ribbon .ribbon-content:after {
- right: 0;
- border-width: 1em 1em 0 0;
+.felements img,  .aelements  img{max-height: 50px;width:  auto;margin: 10px 15px;}
+
+.customcontrols {
+  height: 130px;
+  position: relative;
+  /* border: 1px solid; */
 }
 
+.design .details {
+  display: flex;
+}
+
+.design .details p, .design .details button {
+  flex:1;
+}
+
+.design .details button {
+font-size: smaller;
+margin-top: 0;
+}
+
+.saved_designs {
+  min-height: 200px;
+}
+
+.saved_designs h4 {
+  margin-bottom: 0px;
+  border-bottom: 1px solid #d78b2e;
+}
 
 /********/
-	#subElementsDiv{
-		min-height: 330px;
-		border: 0px solid;
-		margin: -17px 0px 15px 0px;
-	}
+
 	i.fa.fa-times-circle {
 	    font-size: 25px;
 	    position: relative;
@@ -605,142 +555,9 @@ button.addtoCart:hover{
 	    left: -5px;
 	}
 
-	.product-img:hover {
-    box-shadow: inset 10px 10px 50px #f3f3f3;
-    border: 1px solid #f07818;
-}
-
-	.product-img{
-	    width: 80px;
-	    text-align: center;
-	    margin: 0px 0px 0px -4px;
-	    height: 83px;
-	}
-	.product-grid.elem {
-	    border: 0px solid #EFE9E9;
-	    margin: 0 5px 8px 4px;
-	    width: 10%;
-	    min-height: 80px;
-	}
-	.product-grid.elem .product-img img {
-    max-width: 90px;
-    padding: 1em;
-    max-height: 80px;
-    cursor: pointer;
- }
 
 
- .pr-ribbon {
- 	 /* box-shadow: 0 0 30px rgba(236, 221, 210, 0.81) inset,            0 6px 10px rgba(0,0,0,.15); */
- 	  /* Adjust to suit */
- 	 height: 85px;
- 	 border: 1px solid #ddd;
- 	 /* border-top-color: #f07818; */
- }
-	.avlOptions #imgOptions{
-		position: relative;
-		width:100%;
-		text-align: center;
-		margin-top: 10px;
-	}
-
-	.fheight {
-		height: 150px;
-	}
-	#ear{
-		width:100%;
-	}
-
-	#ear img{
-		 width: 100%;
-
-	}
-	#chkBtn button {
-	border: 1px solid #F07818;
-	color: #fff;
-	background: #F07818;
-	cursor: pointer;
-	padding: 4px 0;
-	width: 12%;
-	border-radius: 4px;
-	display: inline-block;
-	font-size: 1em;
-	outline: none;
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	transition: all 0.5s;
-	position: relative;
-	/* margin-bottom: 20px; */
-	}
-  	#chkBtn input[type="submit"]:hover {
-      background-color: #5D4B33;
-      color: #FFFFFF;
-      border-color: #5D4B33;
-  	}
-	#chkBtn{
-		width:100%;
-	}
-
-	#chkBtn1{
-		width: 100%;
-	}
-
-	#chkBtn1 input[type="submit"] {
-      border: 2px solid #F07818;
-      color: #fff;
-      background: #F07818;
-      cursor: pointer;
-      padding: 7px 0;
-      width: 20%;
-      border-radius: 4px;
-      display: inline-block;
-      margin: 1em 0 0;
-      font-size: 1em;
-      outline: none;
-      -webkit-transition: all 0.5s;
-      -moz-transition: all 0.5s;
-      transition: all 0.5s;
-      top: -20px;
-      position: relative;
-	  margin-top: 28px;
-	  margin-bottom: 0px;
-	  float: right;
-	}
-	#chkBtn1 input[type="submit"]:hover {
-      background-color: #5D4B33;
-      color: #FFFFFF;
-      border-color: #5D4B33;
-  	}
-
-	div#type {
-	   border:0px solid;
-	}
-
-	div#type input[type="radio"] {
-	    margin-top: 11px;
-	    margin-left: 50px;
-	    vertical-align: baseline;
-	}
-	div#material{
-		float: left;
-	    margin-top: 10px;
-	    position: relative;
-	    font-size: 17px;
-	    width:16%;
-	}
-
-	div#material input[type="radio"] {
-	    margin-bottom: 30px;
-	    margin-top: 30px;
-	    vertical-align: middle;
-	}
-	div#alertDiv1 p, div#alertDiv2 p, div#alertDiv3 p, div#alertDiv4 p {
-	    margin-top: -2px;
-	    font-weight: bold;
-	    text-transform: uppercase;
-	}
-
-	.bgProduct .fa {
+	.previewbox .fa {
 		color: #f07818;
 		cursor: pointer;
 		border: none;
@@ -749,206 +566,49 @@ button.addtoCart:hover{
 		position: absolute;
 	}
 
-    .bgProduct .fa-times {
+    .previewbox .fa-times {
     top: 5px;
     right: 10px;
 }
 
 
-	.bgProduct .fa-question-circle {
+	.previewbox .fa-question-circle {
 		font-size: 1.5em;
 		top: 1%;
 		left: 2%;
         cursor: pointer;
 	}
 
-	.bgProduct button {
-		position: absolute;
-		top: 360px;
-		text-align: left;
-		right: 35px;
-		padding: 0;
-		padding-left: 13px;
-		border-radius: 40px;
-		font-weight: bold;
-		width: 20%;
-		color: #fff;
-		height: 36px;
-		background-color: #f07818;
-	}
 
-	.bgProduct button:hover {
-    color: #5D4B33;
-    background-color: #fff;
-    border-color: #5D4B33;
-    border: 2px solid;
-}
-
-.bgProduct button:hover .fa-check-circle {
-	color: #5D4b33;
-}
-
-	.bgProduct .fa-check-circle {
+	.previewbox .fa-check-circle {
 	    font-size: 2.8em;
 	    top: -2px;
 	    right: -2px;
 	    color: #fff;
 	}
 
+.designerpick {
+    position: absolute;
+    width: 125px;
+    right: 0;
+    top: 0;
+    /* border: 1px solid; */
+}
 
-	div#sampleImgs{
-	    border: 0px solid;
-	    width: 100%;
-	    /* float: left; */
-	    position: relative;
-	    top: 10px;
-	}
-	div#sampleImgs img{
-		/* margin: 7px; */
-	}
-	div#sampleImgs h4 {
-	    margin-bottom: 6px;
-	    font-size: 1.1em;
-	    /* margin-top: 1%; */
-	    text-align: left;
-	    border: none;
-	}
-	div#sampleImgs span{
-	    position: relative;
-	    /* float: right; */
-	}
-	div#sampleImgs h4 span a{
-	   font-size: 12px;
-	   float: right;
-	}
-	div#designerPick{
-		position: relative;
-		top: 27px;
-		border: 1px solid #5D4B33;
-		border-radius: 5px;
-		height: auto;
-		margin-bottom: 20px;
-		padding: 0px;
-	}
-	div#designerPick h4{
-		font-size: 15px;
-		margin-top: 0px;
-		border-radius: 1px;
-		height: 30px;
-		margin-bottom: 0px;
-		color: #fff;
-	}
-	div#designerPick img {
+.carousel-control {
+  display: none;
+}
+.designerpick h3 {
+  margin-top: 5px;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+
+.designerpick img {
 	    width: auto;
-	    margin-bottom: 15px;
-	    padding: 2.5em 5px;
+	    max-height: 115px;
+	    padding: 0 0px;
 	}
 
-	.about {
-	    background: #fff;
-	    padding: 65px 0 0px;
-	}
 
-/**** LIGHTBOX CODE ******/
-	.black_overlay{
-		display: none;
-		position: absolute;
-		top: -5%;
-		left: 0%;
-		width: 100%;
-		height: 84%;
-		background-color: white;
-		z-index:1001;
-		-moz-opacity: 1;
-		opacity:1;
-		filter: alpha(opacity=80);
-	}
-	.white_content {
-		display: none;
-		position: absolute;
-		top: -17px;
-		left: 0;
-		width: 100%;
-		height: 81%;
-		padding: 16px;
-		border: 1px solid #eee;
-		z-index: 1002;
-		overflow: auto;
-	}
-/*	#light a, #light1 a, #light2 a {
-	    color: #555;
-	    text-transform: Uppercase;
-	    float: right;
-	    font-size: 40px;
-	    text-decoration: underline;
-	}*/
-
-    a.lightboxClose {
-        position: absolute;
-        display: none;
-        z-index: 1003;
-        top: -35px;
-        right: -10px;
-        color: #555;
-        text-transform: Uppercase;
-        float: right;
-        font-size: 40px;
-    }
-	div#light img, div#light1 img, div#light2 img {
-	   margin: 10px 14px 6px 5px;
-	   /*margin: 10px 3px 6px 3px;
-	    border: 0px solid;
-	    height: 80px;
-	    width: 80px;
-	    padding: 10px;
-	    box-shadow: inset 10px 10px 50px #BBB8B8;*/
-	   width: auto;
-	   max-height: 80px;
-	   margin: 0px auto;
-	   padding: 13px;
-	   display: table-cell;
-	   vertical-align: middle;
-	}
-
-	.popupImageDiv:hover {
-		border:1px solid #f07818;
-	}
-
-	.popupImageDiv{
-		margin: 6px 2px 6px 3px;
-		display: table;
-		border: 1px solid transparent;
-		/*height: 80px;
-	    width: 80px;*/
-		cursor: pointer;
-		width: 13%;
-		height: 100px;
-		padding: 8px;
-		box-shadow: inset 10px 10px 50px #f3f3f3;
-		float: left;
-	}
-	#chkBtn {
-	    width: 100%;
-	    position: relative;
-	    /* top: -37px; */
-	}
-	.moreoptions{
-		border: 0px solid #eee;
-		width: 80px;
-		height: 83px;
-		float: right;
-		box-shadow: inset 10px 10px 50px #f3f3f3;
-		margin: 0px;
-	}
-	.moreoptions p,.moreoptions span {
-		position: relative;
-		text-align: center;
-		padding: 30% 0;
-		color: #f07818;
-	}
-	.white_content{
-		height: 95%;
-	}
-	.black_overlay{
-		height: 94%;
-	}

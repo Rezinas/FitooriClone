@@ -140,7 +140,7 @@ article.item.read-full .item-body:after {
   background-size: cover;
   background-position: right top;
   overflow: hidden;
-  height: 610px;
+  height: 700px;
   /* height: 96vh; */
   position: relative;
 }

@@ -365,7 +365,7 @@ if(isset($_GET["despicks"])) {
      $stmt->close();
      if(count($pids) > 0) {
         $pidStr = implode($pids, ",");
-        $qry = "SELECT productid, name, price, mainimg from products WHERE productid IN ( $pidStr )  AND designerPick=1 LIMIT 2 ";
+        $qry = "SELECT productid, name, price, mainimg from products WHERE productid IN ( $pidStr )  AND designerPick=1 LIMIT 5 ";
          if(!$stmt = $dbcon->prepare($qry)){
            die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
        }

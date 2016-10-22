@@ -1,1 +1,0 @@
-http://52.24.169.219/index.php/pwa_order/?amznPmtsOrderIds=171-8430730-5737157&amznPmtsReqId=123457&amznPageSource=CartPage&merchName=Edina%20Riojas&amznPmtsYALink=https%3A%2F%2Famazonetest.com%2Findex.php%2F%3FamznPmtsOrderIds%3D171-8430730-5737157%26amznPmtsReqId%3D123457&amznPmtsPaymentStatus=REJECTED

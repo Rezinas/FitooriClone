@@ -15,6 +15,9 @@ $startStyle = 'jhumka';
 if(isset($_REQUEST["designearrings"]) && $_REQUEST["designearrings"] != '') {
 	$startStyle = $_REQUEST["designearrings"];
 }
+if(isset($_REQUEST["designearrings1"]) && $_REQUEST["designearrings1"] != '') {
+	$startStyle = $_REQUEST["designearrings1"];
+}
 $_SESSION["startStyle"] = $startStyle;
 
 

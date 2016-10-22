@@ -21,16 +21,13 @@
         font-size: 12.5px;
     }
     .contact hr {
-        margin-bottom: -45px;
     }
     .contact h2{
-        font-size: 3em;
     }
     .contact-form.row .form-group {
       padding: 0px 5px 0px 0px;
     }
     .contact-infom{
-      padding-top: 2.5em;;
     }
 }
 @media (min-width:1081px) and (max-width:1280px){

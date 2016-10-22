@@ -30,7 +30,7 @@ if(isset($_POST) && isset($_POST['searchorders'])) {
 }
 $whereqry .= "1";
 
-$ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,shippingcity,shippingstate,shippingpostal, paymenttype, UNIX_TIMESTAMP(`dateCreated`) as dateCreated from orders $whereqry order by dateCreated DESC";
+$ordqry = "SELECT orderid, useremail, status, amazonOrderID, UNIX_TIMESTAMP(`dateCreated`) as dateCreated from orders $whereqry order by dateCreated DESC";
 
 
     if(!$stmt = $dbcon->prepare($ordqry)){
@@ -42,7 +42,7 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
     }
 
     $stmt->store_result();
-    $stmt->bind_result($a,$b,$c,$d, $e, $f, $g, $h, $i, $j);
+    $stmt->bind_result($a,$b,$c, $d, $j);
     $curr_orders=[];
     while ($stmt->fetch()) {
             $ordprdqry = "SELECT order_products.productid, order_products.quantity, order_products.order_price, products.name, products.mainimg, products.customized FROM order_products inner join products  on order_products.productid=products.productid WHERE order_products.orderid=$a";
@@ -62,7 +62,7 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
             }
             $stmt1->close();
 
-        $curr_orders[] = ['orderid' => $a, 'useremail' => $b, 'status' => $c, 'shippingaddress1' => $d, 'shippingaddress2' => $e, 'shippingcity' => $f, 'shippingstate' => $g, 'shippingpostal' => $h, 'paymenttype' => $i, 'dateCreated' => $j, 'ordProducts' => $orderProducts];
+        $curr_orders[] = ['orderid' => $a, 'useremail' => $b, 'status' => $c, 'amazonOrderID' => $d, 'dateCreated' => $j, 'ordProducts' => $orderProducts];
     }
     $stmt->close();
 
@@ -112,10 +112,9 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                         <thead>
                             <tr>
                                 <th>Order ID</th>
+                                <th>Amazon Order ID</th>
                                 <th>Order Date</th>
                                 <th>Order Email</th>
-                                <th>Shipping Address</th>
-                                <th>Payment Type</th>
                                 <th>Status</th>
                                 <th>Action</th>
                                 <th>Email Customer</th>
@@ -129,10 +128,9 @@ $ordqry = "SELECT orderid, useremail, status, shippingaddress1,shippingaddress2,
                                     <table width="100%">
                                         <tr>
                                              <td><a href="javascript:$('#order<?php echo $ord['orderid']; ?>').toggleClass('hide');">ORD000<?php echo $ord['orderid']; ?></a></td>
+                                             <td><?php echo $ord['amazonOrderID']; ?> </td>
                                             <td><?php echo  date('d M Y h:i:s A', $ord['dateCreated']); ?></td>
                                             <td><?php echo $ord['useremail'] ? $ord['useremail'] : "--"; ?></td>
-                                            <td style="width: 20%;"><?php echo $ord['shippingaddress1'] . ", <br>". $ord['shippingaddress2']. ", <br>". $ord['shippingcity'] . ", " .$ord['shippingstate'].", India-".$ord['shippingpostal']; ?></td>
-                                            <td style="width: 10%;"><?php echo $ord['paymenttype']; ?></td>
                                             <td style="width: 20%;><span id="orderstat_<?php echo $ord['orderid']; ?>"><?php echo $ord['status']; ?></span></td>
                                             <td>
                                             <!-- cancelled, shipped, delivered, completed -->

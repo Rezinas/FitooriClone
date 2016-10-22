@@ -1,30 +1,46 @@
 $(function() {
 
-   $(".header-popup").click(function(event){
-      event.stopPropagation();
-   });
+    //scroll event here
+    //jQuery to collapse the navbar on scroll
+    $(window).scroll(function() {
+      //get scroll position
+      var topWindow = $(window).scrollTop();
+      //multipl by 1.5 so the arrow will become transparent half-way up the page
+      var topWindow = topWindow * 1.5;
 
-    $(".header-right.track-box").click(function(event){
-      $(".header-popup").not("div.track").hide();
-      $("div.track").toggle();
+      //get height of window
+      var windowHeight = $(window).height();
 
+      //set position as percentage of how far the user has scrolled
+      var position = topWindow / windowHeight;
+      //invert the percentage
+      position = 1 - position;
+
+      //define arrow opacity as based on how far up the page the user has scrolled
+      //no scrolling = 1, half-way up the page = 0
+      $('.arrow-wrap').css('opacity', position);
+
+        if ($(".navbar").offset().top > 60) {
+            $(".navbar-fixed-top").addClass("top-nav-collapse");
+        } else {
+            $(".navbar-fixed-top").removeClass("top-nav-collapse");
+        }
     });
 
-    $(".header-right.search-box").click(function(event){
-      $(".header-popup").not("div.search").hide();
-      $("div.search").toggle();
 
-    });
-    $(".header-right.cart").click(function(event){
-      $(".header-popup").not("div.cart-box").hide();
-      $("div.cart-box").toggle();
+     $('a[href*="#content"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
 
-    });
-    $(".header-right.login").click(function(event){
-      $(".header-popup").not("div#loginBox").hide();
-      $("div#loginBox").toggle();
-
-    });
 
     $("#loginForm").validate({
      rules: {
@@ -79,9 +95,16 @@ $(function() {
      $("#submitForm").css('display', 'block');
      $("#submitForm #forgotpwdMessage").removeClass("hide");
     });
+     $("#submitfield #fgtcancel").click(function() {
+       $("#submitForm").css('display', 'none');
+       $("#submitForm #forgotpwdMessage").removeClass("hide");
+       $("#loginForm").css('display', 'block');
+       $("div.submitForm").hide();
+
+      });
 
 
-    $("#loginBox #submitForm").validate({
+    $("#submitForm").validate({
      rules: {
       email: {
        required: true,
@@ -123,19 +146,15 @@ $(function() {
      }
     });
 
-    $("#trackorderForm").validate({
-      rules: {
-        orderid: {required: true}
-      },
-      messages: {
-        orderid: {required: "Please enter an order id."}
-      },
-     errorPlacement: function(error, element) {
-            error.insertAfter(element.parents("p"));
-    },
-      submitHandler: function(form) {
-          form.submit();
-          return false;
+
+    $('input[name=collapseGroup]').click(function(e){
+      var elem  = $(this);
+      var target  = elem.data("target");
+      if(target == "#guestLogin") {
+        $("#userLogin").removeClass("in");
+      }
+       if(target == "#userLogin") {
+        $("#guestLogin").removeClass("in");
       }
     });
 

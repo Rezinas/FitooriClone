@@ -1,85 +1,181 @@
-	<!--banner-->
-	<div class="banner">
-		<img src="images/banner6.png" alt=""/>
-	</div>
-	<!--//banner-->
-
-
-	<!--subscribe-->
-	<div class="subscribe">
-		 <div class="container">
-		 	<h3>Pick a Jewel and have fun designing your own masterpiece...</h3>
-			<div  class="row" style="margin-top:65px;">
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="imageBox">
-					<a href="index.php?customearrings"><img src="images/beaded.png" alt id="img1"/>
-					<img src="images/Earring_icon.png" alt class="hoverImg"/></a>
-
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="imageBox1">
-					<img src="images/quilled.png" alt/>
-					<img src="images/coming_Soon.png" alt class="hoverImg1"/></a>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="imageBox2">
-					<img src="images/fashion.png" alt/>
-					<img src="images/coming_Soon.png" alt class="hoverImg2" /></a>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" id="imageBox3">
-					<img src="images/terra.png" alt/>
-					<img src="images/coming_Soon.png" alt class="hoverImg3"/></a>
-				</div>
-			</div>
-
+<!--banner-->
+<section class="banner">
+    <div class="container">
+        <div class="row">
+             <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12  banner_content">
+                Welcome to Fitoori, follow your passion
+                <h3>Design your own jewellery, make a fashion statement!</h3>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> See how &nbsp;&nbsp; <i class="fa fa-play-circle-o" aria-hidden="true"></i></button>
             </div>
-		 </div>
-	</div>
-	<!--//subscribe-->
+        </div>
+
+            <br><br>
+        <div class="co_content hidden-xs hidden-sm">
+                 <h3>Co-create</h3>
+                Choose a category to begin designing a jewelry for your occasion. To suit your attire,  you can customize colors and materials as well !
+        </div>
+        <div class="row">
+            <div class="col-sm-6 cocreate hidden-xs hidden-sm" >
+                <div class="col-sm-3 col-xs-3 co-icons"> <a href="index.php?designearrings=dangler"><div class="icon icon-dangler-03"></div></a><p>Danglers</p></div>
+                <div class="col-sm-3 col-xs-3 co-icons"> <a href="index.php?designearrings=hoop"><div class="icon icon-hoop"></div></a><p>Hoops</p></div>
+                <div class="col-sm-3 col-xs-3 co-icons"> <a href="index.php?designearrings=jhumka"><div class="icon icon-jhumka"></div></a><p>Jhumkas</p></div>
+                <div class="col-sm-3 col-xs-3 co-icons"> <a href="index.php?designearrings=chandelier"><div class="icon icon-chand1"></div></a><p>Chandeliers</p></div>
+            </div>
+        </div>
+
+     </div><!-- container -->
+        <div id="content">&nbsp;</div>
+</section>
+<!--//banner-->
+<section class="arrowsection" >
+    <a class="arrow-wrap" href="#content">
+        <span class="arrow"></span>
+        <!--<span class="hint">scroll</span>-->
+    </a>
+</section>
+
+<section class="visible-xs visible-sm">
+    <div class="container">
+       <div class="co_content">
+                 <h3>Co-create</h3>
+                Choose a category to begin designing a jewelry for your occasion. To suit your attire,  you can customize colors and materials as well !
+        </div>
+        <div class="row">
+            <div class="col-xs-12 cocreate" >
+                <div class=" col-xs-3 co-icons"> <a href="index.php?designearrings=dangler"><div class="icon icon-dangler-03"></div></a><p>Danglers</p></div>
+                <div class=" col-xs-3 co-icons"> <a href="index.php?designearrings=hoop"><div class="icon icon-hoop"></div></a><p>Hoops</p></div>
+                <div class=" col-xs-3 co-icons"> <a href="index.php?designearrings=jhumka"><div class="icon icon-jhumka"></div></a><p>Jhumkas</p></div>
+                <div class=" col-xs-3 co-icons"> <a href="index.php?designearrings=chandelier"><div class="icon icon-chand1"></div></a><p>Chandeliers</p></div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<!--gallery-->
-	<div class="gallery">
-		<div class="container">
+<section class="testimonials">
+<div class="container">
+    <h2>Testimonials</h2>
+</div>
 
-			<div class="gallery-grids">
-					<h2>Featured Products</h2>
-				<hr style="width:100%;"/>
-				<?php foreach($featuredPrd as $fprd) {
-						$customImg = "";
-						if($fprd['customized'] == 1) {
-							$customImg = "style='padding-left: 0px;'";
-						}
-				?>
+<div class="content">
+    <div class="carousel slide" data-ride="carousel" id="quote-carousel">
 
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gallery-grid featured ">
-					<a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $fprd['productid']; ?>"><!-- <img src="images/g3.png" class="img-responsive" alt=""/> -->
-						<img src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" class="feturedImg" alt="" <?php echo $customImg; ?> />
-						<div class="gallery-info">
-							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
-							<a class="shop" href="<?php echo SITE_URL; ?>index.php?products&m=<?php echo $fprd['material']; ?>">SHOP NOW</a>
-							<div class="clearfix"> </div>
-						</div>
-					</a>
-					<div class="galy-info">
-						<p><?php echo $fprd['name']; ?></p>
-						<div class="galry">
-							<div class="prices">
-								<p class="item_price"><strong>&#8377; <?php echo round(floatval($fprd['price'])); ?></strong></p>
-							</div>
-							<!-- <div class="rating">
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-								<span>☆</span>
-							</div> -->
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active container">
+                <blockquote>
+                  <div class="row">
+                    <div class="col-sm-2 text-center">
+                      <img class="img-circle" src="http://wp-desk.com/lovinflat/images/persons/person_1.png" style="width: 100px;height:100px;">
+                    </div>
+                    <div class="col-sm-10 text-center">
+                          <p>Friendly and reliable customer service, high quality traffic, a great user-friendly interface-what more is there to say!.Friendly and reliable customer service,!</p>
+                          <small class="pull-left">Someone famous</small>
+                    </div>
+                  </div>
+                </blockquote>
+            </div>
 
-		<?php } ?>
-			</div>
-		</div>
-	</div>
-	<!--//gallery-->
+              <div class="item container">
+                <blockquote>
+                  <div class="row">
+                    <div class="col-sm-2 text-center">
+                      <img class="img-circle" src="http://wp-desk.com/lovinflat/images/persons/person_1.png" style="width: 100px;height:100px;">
+                    </div>
+                    <div class="col-sm-10 text-center">
+                          <p>Friendly and reliable customer service, high quality traffic, a great user-friendly interface-what more is there to say!.Friendly and reliable customer service,!</p>
+                          <small class="pull-left">Someone famous</small>
+                    </div>
+                  </div>
+                </blockquote>
+            </div>
 
+              <div class="item container">
+                <blockquote>
+                  <div class="row">
+                    <div class="col-sm-2 text-center">
+                      <img class="img-circle" src="http://wp-desk.com/lovinflat/images/persons/person_1.png" style="width: 100px;height:100px;">
+                    </div>
+                    <div class="col-sm-10 text-center">
+                          <p>Friendly and reliable customer service, high quality traffic, a great user-friendly interface-what more is there to say!.Friendly and reliable customer service,!</p>
+                          <small class="pull-left">Someone famous</small>
+                    </div>
+                  </div>
+                </blockquote>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#quote-carousel" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+        <a class="right carousel-control" href="#quote-carousel" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+    </div>
+</div>
+
+
+</section>
+
+
+
+    <!--gallery-->
+    <section class="productlist featured" >
+
+        <div class="container">
+                <h3>Featured Designs</h3>
+                <?php foreach($featuredPrd as $key => $fprd) {
+                        $customImg = "";
+                        if($fprd['customized'] == 1) {
+                            $customImg = "style='padding-left: 0px;'";
+                        }
+                    if($key == 0 || $key == 4) {
+                        echo '<div class="row">';
+                    }
+                ?>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" >
+                    <section class="productbox">
+                        <div class="productimg" <?php echo $customImg; ?>>
+                            <a href="<?php echo SITE_URL; ?>index.php?single&id=<?php echo $fprd['productid']; ?>">
+                                <img class="shadowed" src="<?php echo  SITE_URL.PRDIMGDIR."/".$fprd['mainimg'];  ?>" alt="" />
+                            </a>
+
+                        </div>
+                         <div class="pr-info">
+                            <p class="pr-name"><?php echo $fprd['name']; ?></p>
+                            <p>
+                                <!-- &#8377; <?php echo round(floatval($fprd['price'])); ?> -->
+                                <a class="" href="<?php echo SITE_URL; ?>index.php?products&m=<?php echo $fprd['material']; ?>">Show More</a>
+                            </p>
+                        </div>
+                    </section>
+                </div>
+
+        <?php
+                    if($key == 3 || $key == 7) {
+                        echo '</div><br>';
+                        }
+                    }
+                ?>
+        </div>
+    </section>
+    <!--//gallery-->
+    <br>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header video_modal">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row videoWrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/bFq-IV9ZaKo?autoplay=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
