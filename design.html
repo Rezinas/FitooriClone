@@ -33,10 +33,13 @@
                     <li ng-class="{active: startType == 'chandelier'}"><a target="_self" href="{{siteUrl}}index.php?designearrings=chandelier">Chandeliers</a></li>
                   </ul>
               </div>
-              <div ng-scrollbars ng-scrollbars-config="config"   ng-scrollbars-update=updateScrollbar class="scrollarea">
-                    <div class="col-xs-4">
+              <div class="scrollarea loader" ng-hide="showPieces">
+                <img ng-src="{{siteUrl}}images/hourglass.gif" alt="">
+              </div>
+              <div ng-scrollbars ng-scrollbars-config="config"   ng-scrollbars-update=updateScrollbar class="scrollarea" ng-style="{'visibility': showPieces ? 'visible' : 'hidden'}">
+                    <div class="col-xs-4" >
                         <div class="product-grid elem" ng-repeat="imgElem in piecesElm = (filteredSet | category:1)  | orderBy:'-priority'" ng-click="selectImage(imgElem,  true);">
-                            <img ng-if="imgElem.images.length >0"  align="right" ng-src="{{siteUrl}}images/paint-board-and-brush.png" alt="">
+                            <img ng-if="imgElem.images.length >0"  align="right" ng-src="{{siteUrl}}images/paint-board-and-brush.svg" alt="">
                             <div class="product-img">
                                 <img ng-src="{{siteUrl}}productImages/{{imgElem.carouselImg}}" alt="" />
 
@@ -62,26 +65,13 @@
               <div class="previewParent">
               <img class="ear" src="../images/cocreateFace.png" alt="">
                 <div class="previewbox">
-                    <!--  <i ng-if="feedbackMsg  != ''" class="fa fa-question-circle" ng-click="showHelp();"></i> -->
                     <div class="designDiv">
                        <figure class='star' style="left:20px; top: 15px;"><figure class='star-top'></figure><figure class='star-bottom'></figure></figure>
                        <div class="prd_elements shadowed elements{{$index}}" ng-repeat="imgItem in mySelectedItems track by $index" prd-position selected-item="imgItem" level="designLevel">
-                       <!-- <zoom mark-height="20" mark-width="20" src="main.addImage(imgItem)" zoom-lvl="3"></zoom> -->
                           <img  ng-src="{{siteUrl}}productImages/{{imgItem.selectedImage}}" />
                        </div>
                        <div class="clearfix"></div>
                     </div>
-
-                     <!--  <div class="message" ng-style="{'display': showMsg?'block':'none'}">
-                        <div class="curvedarrow"></div>
-                        <div class="curvedarrowDown"></div>
-                        <div class="curvedarrowLeft"></div>
-                        <div class="info">
-                            {{feedbackMsg}}
-                           <i class="fa fa-times" ng-click="closeMsg()"></i>
-                        </div>
-                      </div> -->
-                    <!-- <span><span>&#8675;</span> color options are here!</span> -->
                 </div>
               </div>
           </div> <!-- col ends -->
@@ -95,10 +85,12 @@
         <div class="col-lg-8 col-md-8">
             <div class="custombuttons" ng-hide="startType == 'stud'" >
                 <button type="button"  ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>
-                 <button   ng-click="processForm()"  ng-disabled="!showCartbtn" class="btn btn-primary">Start Over</button>
+                 <button   ng-click="resetDesign()"  ng-disabled="!showCartbtn" class="btn btn-primary">Start Over</button>
 
 
+                <button   ng-click="processForm()"  ng-disabled="!showCartbtn" class="pull-right btn btn-primary">Save Design</button>
                 <button class="btn btn-primary pull-right nextbtn" ng-if="startType != 'stud'"  ng-disabled="nextDisable() || productAdded" ng-click="updateLevel()"> Next <i class="fa fa-check-circle"></i> </button>
+
                 <div class="clearfix"></div>
                 <p class="pull-right" ng-if="startType != 'stud' && mySelectedItems.length > 0 && levelFilled && nextDisable()"><small> No more possible designs.</small></p>
 

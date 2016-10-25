@@ -48,11 +48,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.startType = $window.model.startStyle;
         $scope.showCartbtn = false;
         $scope.customizedEarrings = [];
-        var nextMsg = true;
-        var attMsg = true;
-        var level1Msg = true;
-        var level2Msg = true;
-        var level3Msg = true;
+        $scope.showPieces = false;
 
 
         $scope.config = {
@@ -75,8 +71,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
       //   $scope.updateScrollbar = function ('scrollTo', 0);
 
-        $scope.showMsg = false;
-        // $scope.showMsg = ($window.model.showHelp == 0) ? true : false;
 
         $scope.getCustom =  function() {
             $http.get($scope.siteUrl+'php/ajax.php?getCustom').
@@ -112,10 +106,18 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
 
         var organize = function(arrElm) {
+
             var resArr = arrElm;
            // var terra = findCategory(arrElm, 1);
          //   console.log(terra);
-            return resArr;
+
+         setTimeout(function() {
+            $scope.$apply(function() {
+             $scope.showPieces = true;
+
+            });
+          }, 1000);
+          return resArr;
 
         };
 
@@ -211,7 +213,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 }
 
             });
-
             return organize(resArr);
         };
 
@@ -249,26 +250,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         $scope.selectImage = function(elem, mainlist) {
-
             $scope.levelFilled = true;
-
-            //for feedback messages
-            if(nextMsg && $scope.startType != 'stud') {
-                $scope.feedbackMsg = "Click 'Next' to add a " +$scope.startType+" design.";
-                $(".curvedarrow").hide();
-                $(".curvedarrowDown").show();
-                if ($scope.showMsg) $scope.showHelp();
-                nextMsg = false;
-            }
-            else if(elem.bottompoints == 0 && attMsg){
-                $scope.feedbackMsg = "Looks great! The \"Next\" button won't appear when no further attachments can be made. Save your  personalized "+$scope.startType+ "! ";
-                 if($scope.showMsg) $scope.showHelp();
-                $(".curvedarrowLeft").hide();
-                $(".curvedarrowLeft").hide();
-                $(".curvedarrow").show();
-                attMsg = false;
-
-            }
 
             //for sparkling connection point
             $('figure.star.level'+$scope.designLevel).remove();
@@ -402,31 +384,13 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
               console.log($scope.mySelectedItems);
         }
         $scope.updateLevel = function() {
+            $scope.showPieces = false;
+
             if($scope.levelFilled) {
               //  updateQuantity(true, $scope.designLevel);
                 $scope.designLevel++;
                 $scope.levelFilled = false;
                 $scope.filteredSet = findConnectionElements($scope.earringPieces);
-
-                $scope.feedbackMsg = '';
-                $(".curvedarrowDown").hide();
-                $(".curvedarrow").hide();
-                if($scope.designLevel == 1 && level1Msg) {
-                            $scope.feedbackMsg = "Wonderful! Now choose a design from our collection for your "+$scope.startType+", click + to see all options. Add to cart if you like your design.";
-                            $(".curvedarrowLeft").show();
-                            level1Msg = false;
-                }
-                else if($scope.designLevel == 2 && level2Msg) {
-                            $(".curvedarrowLeft").show();
-                    $scope.feedbackMsg = "Would you like to decorate it more? Go on choose another design. Add to cart if you like your design.";
-                    level2Msg = false;
-                }
-                else if($scope.designLevel == 3 && level3Msg) {
-                    $(".curvedarrowLeft").show();
-                    $scope.feedbackMsg = "Good going! Pick what you like from our collection one final time if you want to add more.";
-                    level3Msg = false;
-                }
-                if($scope.showMsg) $scope.showHelp();
 
             } else {
                 alert("you havent selected elements for this level yet.");
@@ -464,22 +428,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             else return false;
         };
 
-        $scope.showHelp = function(classname) {
-            // if(!classname) classname= ".bubble";
-            // $(classname).removeClass("fadeOutLeft");
-            // setTimeout(function(){
-            //   $(classname).addClass("fadeOutLeft");
-            // }, 2000);
-            if($scope.feedbackMsg != '')
-                $(".message").show();
-        }
 
         $scope.processForm = function() {
           if($scope.productAdded) {
              return;
           }
        //   updateQuantity(true, $scope.designLevel);
-          $scope.showMsg = false;
           var payload = {
                         custom_product : $scope.mySelectedItems,
                         product_price : $scope.designPrice
@@ -573,12 +527,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.getNumber = function(num) {
             return new Array(num);
         };
-
-        $scope.closeMsg = function(){
-            $(".message").hide();
-            return;
-        };
-
 
     }
 ]);
