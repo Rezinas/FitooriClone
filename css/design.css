@@ -344,15 +344,15 @@ i.fa.fa-plus.placeholdit {
 
 .customize_banner {
   background: url(../images/cocreateBGpeach.png);
-  height: 593px;
+  height: 548px;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 
 
 .scrollarea {
-  height: 430px;
+  height: 400px;
   margin-left: 10px;
   position: relative;
   /* padding-top: 10px; */
@@ -373,7 +373,7 @@ i.fa.fa-plus.placeholdit {
 
 
 .custombuttons {
-  padding: 2em 3em;
+  padding: 1em 3em;
 }
 
 .custombuttons .btn {
@@ -469,18 +469,18 @@ i.fa.fa-plus.placeholdit {
 	position: absolute;
 	/* border: 1px solid; */
 	left: 68%;
-	top: 68%;
+	top: 61%;
 	height: 245px;
 	width: 185px;
 	/* border: 1px solid; */
 }
 
 .previewParent img.ear {
-  height: 182%;
+  height: 170%;
   position: absolute;
   width: auto;
   left: -50px;
-  top: -55px;
+  top: -56px;
 }
 .triangle-right {
 	    position: relative;
@@ -504,7 +504,7 @@ i.fa.fa-plus.placeholdit {
 #imgOptions h5 {
   margin-left: 5px;
   margin-bottom: 0;
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 5px;
 }
 .felements, .aelements{
