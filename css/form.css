@@ -27,7 +27,8 @@ section.sky-form {
     padding: 1em 0;
     border-radius: 3px;
     margin-bottom: 15px;
-    height: 200px;
+    /*height: 200px;*/
+	height: auto;
 }
 section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{
 	border:0px;

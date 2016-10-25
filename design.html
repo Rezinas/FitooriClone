@@ -26,8 +26,12 @@
         <div class="row">
           <div class="col-lg-8 col-md-7">
                <div class="design_header">
-                  <h4>{{startType }}s</h4>
-                  <p  ng-if="mySelectedItems.length > 0" >Want to try another {{startType }} design? <a href="javscript: void(0)"  ng-click="resetDesign()" >Start Over</a> </p>
+                  <ul class="nav nav-tabs">
+                    <li ng-class="{active: startType == 'jhumka'}"><a target="_self" href="{{siteUrl}}index.php?designearrings=jhumka">Jhumkas</a></li>
+                    <li ng-class="{active: startType == 'dangler'}"><a target="_self" href="{{siteUrl}}index.php?designearrings=dangler">Danglers</a></li>
+                    <li ng-class="{active: startType == 'hoop'}"><a target="_self" href="{{siteUrl}}index.php?designearrings=hoop">Hoops</a></li>
+                    <li ng-class="{active: startType == 'chandelier'}"><a target="_self" href="{{siteUrl}}index.php?designearrings=chandelier">Chandeliers</a></li>
+                  </ul>
               </div>
               <div ng-scrollbars ng-scrollbars-config="config"   ng-scrollbars-update=updateScrollbar class="scrollarea">
                     <div class="col-xs-4">
@@ -91,8 +95,8 @@
         <div class="col-lg-8 col-md-8">
             <div class="custombuttons" ng-hide="startType == 'stud'" >
                 <button type="button"  ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>
+                 <button   ng-click="processForm()"  ng-disabled="!showCartbtn" class="btn btn-primary">Start Over</button>
 
-                 <button   ng-click="processForm()"  ng-disabled="!showCartbtn && productAdded && designPrice <= 40" class="pull-right btn btn-primary">Save Design</button>
 
                 <button class="btn btn-primary pull-right nextbtn" ng-if="startType != 'stud'"  ng-disabled="nextDisable() || productAdded" ng-click="updateLevel()"> Next <i class="fa fa-check-circle"></i> </button>
                 <div class="clearfix"></div>

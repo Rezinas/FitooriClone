@@ -344,15 +344,15 @@ i.fa.fa-plus.placeholdit {
 
 .customize_banner {
   background: url(../images/cocreateBGpeach.png);
-  height: 660px;
+  height: 593px;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 
 
 .scrollarea {
-  height: 475px;
+  height: 430px;
   margin-left: 10px;
   position: relative;
   /* padding-top: 10px; */
@@ -387,14 +387,14 @@ i.fa.fa-plus.placeholdit {
 .design_header {
   display: flex;
   justify-content: space-between;
-  margin-top: 20%;
+  margin-top: 12%;
   border-bottom: 1px solid #8e5918;
 }
 .design_header p {
   font-size: 16px;
   text-align: right;
 }
-.design_header h4, .design_header p{
+.design_header .nav-tabs, .design_header p{
   flex: 1;
   margin: 0;
   padding: 0;
@@ -469,18 +469,18 @@ i.fa.fa-plus.placeholdit {
 	position: absolute;
 	/* border: 1px solid; */
 	left: 68%;
-	top: 87%;
+	top: 68%;
 	height: 245px;
 	width: 185px;
 	/* border: 1px solid; */
 }
 
 .previewParent img.ear {
-  height: 190%;
+  height: 182%;
   position: absolute;
   width: auto;
   left: -50px;
-  top: 0;
+  top: -55px;
 }
 .triangle-right {
 	    position: relative;

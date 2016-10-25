@@ -1,0 +1,6 @@
+[25-Oct-2016 17:27:24 Etc/GMT] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/fitoori/public_html/admin/pieces.php on line 117
+[25-Oct-2016 17:27:24 Etc/GMT] PHP Fatal error:  Call to a member function execute() on boolean in /home/fitoori/public_html/admin/pieces.php on line 52
+[25-Oct-2016 17:27:46 Etc/GMT] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/fitoori/public_html/admin/pieces.php on line 117
+[25-Oct-2016 17:27:46 Etc/GMT] PHP Fatal error:  Call to a member function execute() on boolean in /home/fitoori/public_html/admin/pieces.php on line 52
+[25-Oct-2016 17:29:16 Etc/GMT] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/fitoori/public_html/admin/pieces.php on line 117
+[25-Oct-2016 17:29:16 Etc/GMT] PHP Fatal error:  Call to a member function execute() on boolean in /home/fitoori/public_html/admin/pieces.php on line 52

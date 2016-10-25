@@ -91,6 +91,10 @@
                            ?>
                      </select>
                   </div>
+				  <div class="form-group">
+                     <label>Components Contained</label>
+                     <input class="form-control" name="complist" placeholder="Enter Components"  <?php if( $complist  != "") echo "value='$complist'"; ?> >
+                  </div>
                   <div class="form-group ">
                      <label>Colors</label>
                      <select name="pccolors[]" id="pccolors" class="form-control" multiple  style="height:200px">
@@ -133,6 +137,10 @@
                            }
                            ?>
                      </select>
+                  </div>
+				  <div class="form-group">
+                     <label>Component Quantity</label>
+                     <input class="form-control" name="compquantity" placeholder="Enter Quantity"  <?php if( $compquantity  != "") echo "value='$compquantity'"; ?> >
                   </div>
                   <div class="form-group ">
                      <label>Texture Name</label>

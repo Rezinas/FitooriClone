@@ -118,7 +118,8 @@ div#page-wrapper h2.page-header{
     text-align: left;
     margin: 0px 0px 0px -4px;
     font-size: 14px;
-    height: 300px;
+	height: auto;
+    /*height: 300px;*/
     padding: 1px 14px;
     /* border: none; */
 }

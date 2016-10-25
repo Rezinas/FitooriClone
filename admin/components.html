@@ -1,0 +1,129 @@
+<h2 class="page-header">Add Component</h2>
+<div class="">
+	<div class="panel panel-default">
+		<div class="panel-heading"><?php echo ($compmode == "edit") ? "Update" : "New"; ?> Component Information   </div>
+		<div class="panel-body" id="createComponentPanelBody">
+			<div class="wrapper">
+
+				<form  role="form" name="componentForm"  id="compForm" enctype="multipart/form-data"  action="dashboard.php?components" method="POST">
+				<input type="hidden" name="compmode" <?php if( $compmode  != "") echo "value='$compmode'"; ?> />
+				<input type="hidden" name="cid" <?php if( $cid  != "") echo "value='$cid'"; ?> />
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Component ID</label>
+								<input class="form-control" name="compid" placeholder="Enter Usermade ID"  <?php if( $compid  != "") echo "value='$compid'"; ?> >
+							</div>
+							
+							<div class="form-group">
+								<label>Current Stock</label>
+								<input class="form-control" name="stock" placeholder="Enter Stock"  <?php if( $stock  != "") echo "value='$stock'"; ?> >
+							</div>
+							<div class="form-group">
+								<label>Cost per piece</label>
+								<input class="form-control" name="costpp" placeholder="Enter Price"  <?php if( $compcost  != "") echo "value='$compcost'"; ?> >
+							</div>
+							<div class="form-group">
+								<label>Cut-off Threshold</label>
+								<input class="form-control" name="cutoff" placeholder="Enter Cost Threshold"  <?php if( $cutoff  != "") echo "value='$cutoff'"; ?> >
+							</div>
+							<div class="form-group">
+								<label>Warning Threshold</label>
+								<input class="form-control" name="warn" placeholder="Enter Warning Threshold"  <?php if( $warn  != "") echo "value='$warn'"; ?> >
+							</div>
+							<div class="form-group ">
+								 <label>Material</label>
+								 <select name="material" id="material" class="form-control">
+									<option value=''>Select Material</option>
+									<?php
+									   foreach($categoriesArr as $catkey=>$category) {
+										   $catkey++;
+										   echo  "<option value='$catkey'";
+											echo ($material  == $catkey) ?   "selected" : "";
+											echo  ">$category</option>";
+									   }
+									   ?>
+								</select>
+							</div>
+							
+														<div class="form-group ">
+								<label>Colors</label>
+								 <select name="ccolor" id="ccolor" class="form-control">
+									<option value=''>Select Color</option>
+									<?php
+									   foreach($colorsArr as  $colour) {
+											  echo  "<option value='$colour'";
+											   echo ($color  == $colour) ?   "selected" : "";
+											   echo  ">$colour</option>";
+										   }
+									   ?>
+								</select>
+							</div>
+							
+							<div class="form-group ">
+								 <label>Source</label>
+								 <select name="csource" id="csource" class="form-control">
+									<option value=''>Select Source</option>
+									<?php
+									   foreach($sourceArr as $sorc) {
+										   
+										   echo  "<option value='$sorc'";
+											echo ($source  == $sorc) ?   "selected" : "";
+											echo  ">$sorc</option>";
+									   }
+									   ?>
+								</select>
+							</div>
+						
+							<button type="submit" class="btn btn-success" name="submit">
+                           <?php
+                              if($compmode == "new")
+                                 echo "Add New Component";
+                              else
+                                 echo "Update Component";
+                              ?>
+                           </button>
+						   
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Component Image</label>
+									<div class="input-group" v>
+									<input type="text" class="form-control" readonly=""  name="compimg" <?php if( $compimg  != "") echo "value='$compimg'"; ?>>
+									<span class="input-group-btn">
+									<span class="btn btn-primary btn-file">
+									Browse… <input type="file" name="compimg">
+									</span>
+									</span>
+									</div>
+							</div>
+							<div>
+								<div class="designDiv">
+									<div id="carouselImg"><img src=<?php if( $compimg  != "") echo "../componentImages/".$compimg; else  echo  "../images/placeholder.png"; ?> style='height: 100%; width: 100%; object-fit: contain' /></div>
+								</div>
+							</div>
+							
+							
+							<?php if($compmode == "edit") { ?>
+							<div class="col-md-4" style="padding-top: 50px">
+							<a href="dashboard.php?components&cdeleteid=<?php echo  $compid; ?>" class="btn btn-danger">Delete this Element</a>
+							</div>
+							<?php  } ?>
+							
+							<div class="col-md-4" style="padding-top: 50px">
+							<a href="dashboard.php?componentsearch" class="btn btn-primary">Browse Components</a>
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+			<!--form wrapper ends -->
+		</div>
+		<!-- panel body ends -->
+	</div>
+	<!-- panel ends -->
+</div>
+<!-- container ends -->
+

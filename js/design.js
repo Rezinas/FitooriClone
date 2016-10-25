@@ -157,7 +157,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             }
 
             $.each(eitems, function(ind, row) {
-                if(row.quantity < 2) { //we donot show elements that are less than 2 in quantity.
+                if(row.availability == 'Unavailable') { //we donot show elements that are less than 2 in quantity.
                     return true;
                 }
                 if ($scope.designLevel == 0) {

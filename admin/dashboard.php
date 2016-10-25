@@ -82,9 +82,37 @@ if(isset($_GET["pieces"]) && isset($_GET["deleteid"]) ) {
   $stmt1->bind_param('i', $pieceid);
   $stmt1->execute();
   $stmt1->close();
-        header("Location: ".SITE_URL. "admin/dashboard.php?pieces");
+        header("Location: ".SITE_URL. "redo/admin/dashboard.php?pieces");
 
 }
+
+if(isset($_GET["components"]) && isset($_GET["cdeleteid"]) ) {
+  $compid = trim($_GET["cdeleteid"]);
+  echo $compid;
+  $qry = "SELECT compimg from components WHERE compid='$compid'";
+  echo $qry;
+  $stmt = $dbcon->prepare($qry);
+  if(!$stmt->execute()){
+      die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+  }
+  $stmt->store_result();
+  $stmt->bind_result($a);
+  while ($stmt->fetch()) {
+    if (file_exists("../componentImages/".$a)) {
+        unlink("../componentImages/".$a);
+    }
+  }
+  $stmt->close();
+
+  $qry = "DELETE  from components WHERE compid=?";
+  $stmt1 = $dbcon->prepare($qry);
+  $stmt1->bind_param('s', $compid);
+  $stmt1->execute();
+  $stmt1->close();
+        header("Location: ".SITE_URL. "admin/dashboard.php?componentsearch");
+
+}
+
 $sitevariable  = "";
 if(isset($_POST["siteUpdate"])) {
 
@@ -121,6 +149,12 @@ else if(isset($_GET["pieces"])) {
 }
 else if(isset($_GET["product"])) {
     $currenttab = 'product';
+}
+else if(isset($_GET["components"])) {
+    $currenttab = 'components';
+}
+else if(isset($_GET["componentsearch"])) {
+    $currenttab = 'componentsearch';
 }
 else if(isset($_GET["customearrings"])) {
        $currenttab = "customearrings";
@@ -201,6 +235,12 @@ else {
                             <li>
                                 <a href="dashboard.php?product" <?php if($currenttab == "product") echo 'class="active"'; ?>><i class="fa fa-edit fa-fw"></i> Manage Product</a>
                             </li>
+							<li>
+                                <a href="dashboard.php?components" <?php if($currenttab == "components") echo 'class="active"'; ?>><i class="fa fa-edit fa-fw"></i>Create Component</a>
+                            </li>
+							<li>
+                                <a href="dashboard.php?componentsearch" <?php if($currenttab == "componentsearch") echo 'class="active"'; ?>><i class="fa fa-edit fa-fw"></i>Search Components</a>
+                            </li>
                             <li >
                                 <a href="dashboard.php?search" <?php if($currenttab == "search") echo 'class="active"'; ?>><i class="fa fa-search fa-fw"></i>Product Search</a>
                             </li>
@@ -267,6 +307,14 @@ else if($currenttab == "elements") {
 else if($currenttab == "product") {
     include(SITE_ROOT. "/admin/products.php");
     include(SITE_ROOT. "/admin/product.html");
+}
+else if($currenttab == "components") {
+    include(SITE_ROOT. "/admin/components.php");
+    include(SITE_ROOT. "/admin/components.html");
+}
+else if($currenttab == "componentsearch") {
+    include(SITE_ROOT. "/admin/componentsearch.php");
+    include(SITE_ROOT. "/admin/componentsearch.html");
 }
 else if($currenttab == "pieces") {
     include(SITE_ROOT. "/admin/pieces.php");
@@ -364,6 +412,13 @@ else if($currenttab == "report") {
   <script src="../js/elementapp.js"></script>
    <?php } ?>
 
+   <?php if($currenttab == "componentsearch") { ?>
+  <link href="../css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/rzslider.min.js"></script>
+  <script src="../js/componentapp.js"></script>
+   <?php } ?>
+   
    <?php if($currenttab == "email") { ?>
   <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
   <script src="../js/additional-methods.js" type="text/javascript"></script>
@@ -410,7 +465,7 @@ else if($currenttab == "report") {
    <?php } ?>
 
 
-<?php if($currenttab == "pieces") { ?>
+	<?php if($currenttab == "pieces") { ?>
   <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
   <script src="../js/additional-methods.js" type="text/javascript"></script>
   <script src="../js/pieces.js" type="text/javascript"></script>
