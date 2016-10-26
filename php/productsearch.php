@@ -56,7 +56,7 @@ $jsondata = array(
 	"tags" => $tags
 );
 
-// var_dump($elements);
+// var_dump($allproducts);
 ?>
 <script type="text/javascript">
 var model = <?php echo json_encode($jsondata) ?>;

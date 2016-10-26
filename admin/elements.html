@@ -80,17 +80,20 @@
 				</form>
 
 			</div>
-			<div class="col-md-9 product-model-sec">
-					<div ng-repeat="piece in resultSet = (allPieces | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid elements">
-					<a target="_self" ng-href="dashboard.php?pieces&id={{piece['id']}}">
-						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img ng-src="../productImages/{{ piece['carouselImg']}}" class="img-responsive" alt=""> <br>
-							<p>Name: {{piece['name']}}</p>
-							<p>Price: {{piece['price']}}</p>
-							<p>Quantity: {{piece['quantity']}}</p>
-							<p>Style:{{piece['style']}}</p>
+			<div class="col-md-9 products">
+						<div ng-repeat="piece in resultSet = (allPieces | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-card  elements">
+							<div class="product-image">
+								<a target="_self" ng-href="dashboard.php?pieces&id={{piece['id']}}">
+									<img ng-src="../productImages/{{ piece['carouselImg']}}" class="img-responsive" alt="">
+								</a>
+							</div>
+							<div class="product-info">
+								<p>Name: {{piece['name']}}</p>
+								<p>Price: {{piece['price']}}</p>
+								<p>Quantity: {{piece['quantity']}}</p>
+								<p>Style:{{piece['style']}}</p>
+							</div>
 						</div>
-					</a>
 				</div>
 			</div>
 

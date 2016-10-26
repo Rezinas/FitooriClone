@@ -1,7 +1,7 @@
 <div ng-app="componentsearch">
 	<div ng-controller="MainController">
 		<h2> Components Search </h2>
-		
+
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="pull-right">
@@ -13,7 +13,7 @@
 			<div class="clearfix"> </div>
 			</div>
 		</div>
-		
+
 		<div class="row">
 			<div class="col-md-3 rsidebar span_1_of_left">
 				<form>
@@ -27,7 +27,7 @@
 							</div>
 						</div>
 					</section>
-					
+
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Color</h4>
 						<div class="row row1 scroll-pane">
@@ -38,8 +38,8 @@
 							</div>
 						</div>
 					</section>
-					
-							
+
+
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Source</h4>
 						<div class="row  scroll-pane">
@@ -50,20 +50,22 @@
 							</div>
 						</div>
 					</section>
-					
+
 					<section  class="sky-form">
 						<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Price</h4>
 							<rzslider rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max" rz-slider-options="priceSlider.options" ></rzslider>
 					</section>
 				</form>
 			</div>
-			
-		
-			<div class="col-md-9 product-model-sec">
-				<div ng-repeat="component in resultSet = (allComponents | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-grid elements">
+
+
+			<div class="col-md-9 products">
+				<div ng-repeat="component in resultSet = (allComponents | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-card elements">
 					<a target="_self" ng-href="dashboard.php?components&cid={{component['compid']}}">
-						<div class="product-img b-link-stripe b-animate-go  thickbox">
-							<img ng-src="../componentImages/{{ component['compimg']}}" class="img-responsive" alt=""> <br>
+						<div class="product-image">
+							<img ng-src="../componentImages/{{ component['compimg']}}" class="img-responsive" alt="">
+						</div>
+						<div class="product-info">
 							<p>ID: {{component['compid']}}</p>
 							<p>Stock: {{component['stock']}} / {{component['cutoff']}}</p>
 							<p>Cost: {{component['costpercomp']}}</p>
@@ -88,6 +90,6 @@
 					</div>
 			</div>
 		</div>
-	
+
 	</div> <!-- Main controller ends -->
 </div>

@@ -152,9 +152,6 @@
 			<br><br>
 
 			<section class="products search" style="margin-top:135px;">
-				<!-- <div class="product-card" ng-repeat="product in resultSet = (allProducts | startFrom:currentPage*pageSize | limitTo:pageSize )"> -->
-				<!-- {{currentPage}} {{pageSize}}  {{$index}} {{product['productid']}} -->
-
 				<div class="product-card" ng-repeat="product in resultSet =(allProducts | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:(currentPage-1)*pageSize | limitTo:pageSize ">
 					<div class="product-image">
 						<a target="_self" ng-href="{{siteUrl}}index.php?single&amp;id={{product['productid']}}">

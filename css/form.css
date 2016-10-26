@@ -6,17 +6,16 @@
 	min-height: 162px;
 }
 .sky-form h4{
-	/*padding: 10px 0;*/	
-    padding: 5px 10px;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 1em;
-    border-bottom: 1px solid #5D4B33;
-    margin-top: -14px;
-    font-family: 'Roboto-Regular';
-    background-color: #5D4B33;
-    height: 30px;
-
+	padding: 10px 0;
+	padding: 5px 10px;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 1em;
+	border-bottom: 1px solid #5D4B33;
+	margin-top: -14px;
+	font-family: 'Roboto-Regular';
+	background-color: #5D4B33;
+	height: 30px;
 }
 /*section.sky-form{
 	border-top:1px solid #eee;

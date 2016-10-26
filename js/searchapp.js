@@ -46,6 +46,8 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
              prd.dateAdded = new Date(prd.dateAdded* 1000);
          });
 
+        console.log($scope.allProducts);
+
         var findInString = function(str, arr) {
             var found= false;
             $.each(arr, function(ind, val){
@@ -82,7 +84,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window', '$loc
 
          $scope.priceSlider = {
                  min: 0,
-                  max: 500,
+                  max: 1000,
                   options: {
                     floor: 0,
                     step: 10,

@@ -104,7 +104,7 @@ if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
     $pieceid=trim($_GET["id"]);
     $pcmode = "edit";
 
- 	$qry = "SELECT  id, carouselImg, quantity, priority, imgheight, imgwidth, bodypart, centerx, centery, toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name, hookImg  from pieces WHERE id=$pieceid";
+ 	$qry = "SELECT  id, carouselImg, quantity, priority, imgheight, imgwidth, bodypart, centerx, centery, toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name, hookImg, availability, complist, compquantity  from pieces WHERE id=$pieceid";
  	if(!$stmt = $dbcon->prepare($qry)){
 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}

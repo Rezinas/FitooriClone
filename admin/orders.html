@@ -68,15 +68,13 @@ $ordqry = "SELECT orderid, useremail, status, amazonOrderID, UNIX_TIMESTAMP(`dat
 
 ?>
 
-            <div class="row">
+<div class="pageContainer container">
                 <!-- Page Header -->
-                <div class="col-lg-12">
+                <br>
                     <h2 class="page-header">Orders </h2>
-                </div>
                 <!--End Page Header -->
-            </div>
 
-            <div class="container panel panel-default">
+            <div class="panel panel-default">
                 <div class="panel-heading">Filters</div>
                 <div class="panel-body row" style="text-align: center">
                     <form action="dashboard.php?orders" method="post">
@@ -107,9 +105,9 @@ $ordqry = "SELECT orderid, useremail, status, amazonOrderID, UNIX_TIMESTAMP(`dat
 
 
                 <!-- Welcome -->
-                <div class="container">
+                <div>
                         <table width="100%" id="orderstb" class="orderstb">
-                        <thead>
+                          <thead>
                             <tr>
                                 <th>Order ID</th>
                                 <th>Amazon Order ID</th>
@@ -194,3 +192,4 @@ $ordqry = "SELECT orderid, useremail, status, amazonOrderID, UNIX_TIMESTAMP(`dat
                         </table>
                 </div>
                 <!--end  Welcome -->
+</div>

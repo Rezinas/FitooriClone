@@ -34,9 +34,9 @@ nav.navbar.navbar-default {
     background: none;
 }
 nav.navbar.navbar-default {
-    background: none;
-    border: none;
-    margin: 0;
+    /* background: none; */
+    /* border: none; */
+    /* margin: 0; */
 }
 h1.navbar-brand {
     /*font-size: 3em;
@@ -52,9 +52,9 @@ h1.navbar-brand a {
     float: left;
 }
 nav.navbar.navbar-default {
-    float: left;
+    /* float: left; */
     width: 82%;
-    padding-left: 30px;
+    /* padding-left: 30px; */
 }
 /*--navigation--*/
 .navbar-collapse .navbar-nav > li > a {

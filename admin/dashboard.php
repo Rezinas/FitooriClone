@@ -178,10 +178,10 @@ else {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboad</title>
-    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/theme.css" rel="stylesheet" />
     <link href="../css/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="../css/form.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="../css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="../css/main.css" type="text/css" rel="stylesheet" media="all">
     <link href="../css/admin.css" type="text/css" rel="stylesheet" media="all">
 
 <?php if($currenttab == "search") { ?>
@@ -206,51 +206,52 @@ else {
 <div class="header">
               <nav class="adminNav navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"  >
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <h1 class="navbar-brand"><img src="../images/logo1.png"  class="img-responsive" style="    position: relative;top: -13px;float: left;"/><a  href="index.html">Fitoori</a></h1>
+                   <a  href="dashboard.php" class="navbar-brand"><img src="../images/logo_dark.png"  class="img-responsive"/></a>
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                   </button>
+
                 </div>
                 <!--navbar-links-->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                    <ul class="nav navbar-nav">
-                            <li>
-                                <a href="dashboard.php" <?php if($currenttab == "dash") echo 'class="active"'; ?>><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
-                            </li>
-                             <li>
-                                <a href="dashboard.php?customearrings" <?php if($currenttab == "customearrings") echo 'class="active"'; ?>><i class="fa fa-dashboard fa-fw"></i>Design Product</a>
-                            </li>
-                            <li >
-                                <a href="dashboard.php?custom" <?php if($currenttab == "custom") echo 'class="active"'; ?>><i class="fa fa-search fa-fw"></i>Custom Designs</a>
-                            </li>
-                            <li>
-                                <a href="dashboard.php?elements" <?php if($currenttab == "elements") echo 'class="active"'; ?>><i class="fa fa-search fa-fw"></i>Elements Search</a>
-                            </li>
-                               <li>
-                                <a href="dashboard.php?pieces" <?php if($currenttab == "pieces") echo 'class="active"'; ?>><i class="fa fa-edit fa-fw"></i> Manage Elements</a>
-                            </li>
-                            <li>
-                                <a href="dashboard.php?product" <?php if($currenttab == "product") echo 'class="active"'; ?>><i class="fa fa-edit fa-fw"></i> Manage Product</a>
-                            </li>
-							<li>
-                                <a href="dashboard.php?components" <?php if($currenttab == "components") echo 'class="active"'; ?>><i class="fa fa-edit fa-fw"></i>Create Component</a>
-                            </li>
-							<li>
-                                <a href="dashboard.php?componentsearch" <?php if($currenttab == "componentsearch") echo 'class="active"'; ?>><i class="fa fa-edit fa-fw"></i>Search Components</a>
-                            </li>
-                            <li >
-                                <a href="dashboard.php?search" <?php if($currenttab == "search") echo 'class="active"'; ?>><i class="fa fa-search fa-fw"></i>Product Search</a>
-                            </li>
-                            <li>
-                                <a href="dashboard.php?orders"  <?php if($currenttab == "orders" || $currenttab == "email" ) echo 'class="active"'; ?>><i class="fa fa-table fa-fw"></i>Orders</a>
-                            </li>
-                            <li>
-                                <a href="dashboard.php?reports" <?php if($currenttab == "reports") echo 'class="active"'; ?>   ><i class="fa fa-bar-chart-o fa-fw"></i>Reports</a>
-                            </li>
-                   </ul>
+                           <li>
+                              <a href="dashboard.php?customearrings" <?php if($currenttab == "customearrings") echo 'class="active"'; ?>>Design Product</a>
+                          </li>
+                          <li >
+                              <a href="dashboard.php?custom" <?php if($currenttab == "custom") echo 'class="active"'; ?>>Custom Designs</a>
+                          </li>
+                          <li class="dropdown grid">
+                             <a href="javascript:void(0);" <?php if($currenttab == "elements" || $currenttab == "pieces" ) echo 'class="active"'; ?> data-toggle="dropdown">Elements</a>
+                             <ul class="dropdown-menu">
+                                         <li><a href="dashboard.php?elements"><i class="fa fa-search fa-fw"></i>Elements Search</a></li>
+                                         <li> <a href="dashboard.php?pieces"><i class="fa fa-edit fa-fw"></i> Manage Elements</a></li>
+                             </ul>
+                          </li>
+
+                          <li class="dropdown grid">
+                             <a href="javascript:void(0);" <?php if($currenttab == "product" || $currenttab == "search" ) echo 'class="active"'; ?> data-toggle="dropdown">Products</a>
+                             <ul class="dropdown-menu">
+                                         <li><a href="dashboard.php?product"><i class="fa fa-edit fa-fw"></i> Manage Product</a></li>
+                                         <li> <a href="dashboard.php?search"><i class="fa fa-search fa-fw"></i>Product Search</a></li>
+                             </ul>
+                          </li>
+
+                           <li class="dropdown grid">
+                             <a href="javascript:void(0);" <?php if($currenttab == "components" || $currenttab == "componentsearch" ) echo 'class="active"'; ?> data-toggle="dropdown">Components</a>
+                             <ul class="dropdown-menu">
+                                         <li><a href="dashboard.php?componentsearch"><i class="fa fa-edit fa-fw"></i> Manage Component</a></li>
+                                         <li> <a href="dashboard.php?components"><i class="fa fa-search fa-fw"></i>Component Search</a></li>
+                             </ul>
+                          </li>
+
+                          <li>
+                              <a href="dashboard.php?orders"  <?php if($currenttab == "orders" || $currenttab == "email" ) echo 'class="active"'; ?>>Orders</a>
+                          </li>
+                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -400,9 +401,12 @@ else if($currenttab == "report") {
    <?php } ?>
    <?php if($currenttab == "search") { ?>
   <link href="../css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
-  <script src="../js/angular.min.js"></script>
-  <script src="../js/rzslider.min.js"></script>
-  <script src="../js/searchapp.js"></script>
+        <script src="../js/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
+        <script src="../js/rzslider.min.js"></script>
+        <script src="../js/searchapp.js"></script>
    <?php } ?>
 
    <?php if($currenttab == "elements") { ?>
@@ -418,7 +422,7 @@ else if($currenttab == "report") {
   <script src="../js/rzslider.min.js"></script>
   <script src="../js/componentapp.js"></script>
    <?php } ?>
-   
+
    <?php if($currenttab == "email") { ?>
   <script src="../js/jquery.validate.min.js" type="text/javascript"></script>
   <script src="../js/additional-methods.js" type="text/javascript"></script>
