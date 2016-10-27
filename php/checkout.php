@@ -137,7 +137,7 @@ if(count($cartItems)  > 0) {
 	if(isset($_SESSION["useremail"])) 	$currUserEmail = $_SESSION["useremail"];
 	if(isset($_SESSION["guestemail"]))	$currUserEmail = $_SESSION["guestemail"];
 
-	var_dump($currUserEmail);
+	// var_dump($currUserEmail);
 
 	if($sess_orderID == -1) {
 	    //order status could be new -when user has not initiated amazon payment.

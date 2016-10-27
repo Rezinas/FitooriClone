@@ -194,7 +194,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
                        <a class="cart dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-shopping-bag fa-fw"></i><span id="badge" class="badge">0</span></a>
                         <div class="dropdown-menu cart-box" id="cartbox" style="padding: 15px; padding-bottom: 0px;">
                            <p><span>Your Total</span>
-                           <span class="simpleCart_total"> &#8377; 0.00 </span>
+                           <span class="simpleCart_total">  <i class="fa fa-inr"></i> 0.00 </span>
                             </p>
                             <hr>
                             <p> <span class="simpleCart_quantity"> 0 </span>

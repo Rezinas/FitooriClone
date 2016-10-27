@@ -45,28 +45,28 @@
                             <p>Quantity: &nbsp;<span> <?php echo $prod['quantity' ]; ?></span></p>
                         </td>
                         <td data-th="Price: ">
-                          <span class="pr">  &#8377; <?php echo floatval($prod['order_price']) * intval($prod['quantity']); ?></span>
+                          <span class="pr">   <i class="fa fa-inr"></i> <?php echo floatval($prod['order_price']) * intval($prod['quantity']); ?></span>
                         </td>
                       </tr>
                  <?php } ?>
                    <tr>
                       <td class="leftvals" colspan="2">Total( including Tax)</td>
-                      <td class="rightvals">: &#8377; <span id="subTotal"><?php echo money_format('%!i', round($cartTotal, 0)); ?></span></td>
+                      <td class="rightvals">:  <i class="fa fa-inr"></i> <span id="subTotal"><?php echo money_format('%!i', round($cartTotal, 0)); ?></span></td>
                    </tr>
                     <tr>
                       <td class="leftvals" colspan="2">Shipping</td>
-                      <td class="rightvals">: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                      <td class="rightvals">:  <i class="fa fa-inr"></i> <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
                    </tr>
                    <?php if(isset($currOrder["offercode"]) && $currOrder["offercode"] === "FREESHIPPING") { ?>
                    <tr>
                         <td class="leftvals" colspan="2">Offers(Free Shipping)*</td>
-                        <td class="rightvals">: &#8377; -<?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                        <td class="rightvals">:  <i class="fa fa-inr"></i> -<?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
                      </tr>
                    <?php } ?>
 
                    <tr>
                       <td class="leftvals" colspan="2" style="color:#F07818;font-weight:bold;">Grand - Total</td>
-                      <td class="rightvals">: &#8377; <span id="grandTotal">
+                      <td class="rightvals">:  <i class="fa fa-inr"></i> <span id="grandTotal">
                       <?php
                           if(isset($currOrder["offercode"]) && $currOrder["offercode"] === "FREESHIPPING") {
                             echo money_format('%!i',$cartTotal);

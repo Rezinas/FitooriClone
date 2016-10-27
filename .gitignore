@@ -1,3 +1,7 @@
 productImages/
 utils/db_connection.php
 componentImages/
+signature/
+*.sublime-workspace
+phpmailer/.gitignore
+js/design.js_new.js

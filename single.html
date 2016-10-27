@@ -85,7 +85,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 						$url = (isAgent())? SITE_URL."admin/dashboard.php?search&amp;m=$mat" : SITE_URL."index.php?products&amp;m=$mat";
 					?>
 					<p><a href="<?php echo $url; ?>"> <?php echo $categoriesArr[$parr['material']-1]; ?> </a></p>
-				<h4>Price : </h4>&#8377; 	<?php echo round($parr['price']); ?>
+				<h4>Price : </h4> <i class="fa fa-inr"></i> 	<?php echo round($parr['price']); ?>
 				<br><br>
 				<?php
 					$qtag = $parr['tags'];
@@ -151,7 +151,7 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 					 <div class="product-info">
 						 <div class="details">
 							<p class="pr-name"><?php echo $rprod['name'];  ?></p>
-							<p class="pr-price">&#8377; <?php echo round($rprod['price']);  ?></p>
+							<p class="pr-price"> <i class="fa fa-inr"></i> <?php echo round($rprod['price']);  ?></p>
 						</div>
 					</div>
 				</div>

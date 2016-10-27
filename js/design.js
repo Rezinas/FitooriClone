@@ -145,10 +145,12 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             var resArr = [];
             var prevItem;
             var prevBottomPoints = 0;
+            var prevElemCount =0;
 
             if ($scope.designLevel != 0) {
                 prevItem = $scope.mySelectedItems[$scope.designLevel - 1];
                 prevBottomPoints = prevItem.bottompoints;
+                prevElemCount = $scope.prdIndex[$scope.designLevel - 1].length;
             }
 
             //if it is not level 1 and if the previous element was a stud..or didnt have bottompoints then there is no more options.
@@ -171,14 +173,16 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                     //for other levels find the options
 
                     //if the prev element bottom point is only one, the options will all have only one top point
-                    if(prevBottomPoints == 1){
+                    if(prevBottomPoints == 1 && prevElemCount == 1 ){
                         // all single top point elements are good options here.
                          if(row.toppoints == 1) resArr.push(row);
                     }
                     else {
                         // if the prev  element has multiple bottom points, we need to figure out if the element with only one toppoint fits into the multiple bottom points
-                        if(row.toppoints == 0 ) { return true; }
-                        else if(row.toppoints == 1 ) {
+                        if(row.toppoints == 0 ) { // eliminates all level0 elements like studs and hooks
+                            return true;
+                        }
+                        else if(row.toppoints == 1 && prevElemCount == 1 ) {
                             var botXs=  prevItem.botX.split(",");
                             var botYs=  prevItem.botY.split(",");
                             var curWidth = row.imgwidth;
@@ -194,6 +198,34 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                 }
                             }
                             if(fits) resArr.push(row);
+                        }
+                        else if(row.toppoints == 1 && prevElemCount > 1 ) {
+                            //previous element is probably attached to a multiple bottom point element or it is attached to elements that are attached to a multiple bottom point element.
+                            // we need to find the nearest element that has the multiple bottom points
+                            var leveltoCheck = $scope.designLevel - 1;
+                            //since prevElemCount is > 1 we know we need to look at a level before this.
+                            leveltoCheck--;
+                            if(leveltoCheck >= 0 && $scope.prdIndex[leveltoCheck].length == 1) { // this is the element we are lookingn for.
+                                var itemtoCheck = $scope.mySelectedItems[$scope.prdIndex[leveltoCheck][0]];
+                                var botXs=  itemtoCheck.botX.split(",");
+                                var botYs=  itemtoCheck.botY.split(",");
+                                var curWidth = row.imgwidth;
+                                var fits =true;
+
+                                for(var i=0; i < botXs.length && fits; i++){
+                                    var  a = botXs[i+1] - botXs[i];
+                                    var b = botYs[i+1] - botYs[i];
+                                   // console.log(curWidth);
+                                   // console.log(Math.sqrt(a*a + b*b));
+                                    if(Math.sqrt(a*a + b*b) <= (curWidth)) {
+                                        fits=false;
+                                    }
+                            }
+                            if(fits) resArr.push(row);
+                            }
+                            else {
+                                //this should not happen
+                            }
                         }
                         else if(row.toppoints == prevBottomPoints){
                             //if the element with multiple top point matches the multiple prev element bottom points

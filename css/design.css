@@ -371,6 +371,11 @@ i.fa.fa-plus.placeholdit {
 	padding-bottom: 10px;
 	padding-left: 3px;
 	/* overflow: scroll; */
+	border-left: 1px solid rgba(85, 85, 85, 0.13);
+}
+
+.mCSB_container .col-xs-4:first-child {
+	border: none;
 }
 
 .mCSB_container .col-xs-4:not(:first-child) {
@@ -462,7 +467,7 @@ i.fa.fa-plus.placeholdit {
     width: auto;
     margin: 0 auto;
     vertical-align: middle;
-    max-height: 70px;
+    max-height: 50px;
  }
 
  .previewParent {

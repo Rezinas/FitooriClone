@@ -178,7 +178,7 @@ $ordqry = "SELECT orderid, useremail, status, amazonOrderID, UNIX_TIMESTAMP(`dat
                                                     <p>Quantity: &nbsp;<span> <?php echo $prod['quantity' ]; ?></span></p>
                                                 </td>
                                                 <td>
-                                                  <span>  &#8377; <?php echo floatval($prod['order_price']) * intval($prod['quantity']); ?></span>
+                                                  <span>   <i class="fa fa-inr"></i> <?php echo floatval($prod['order_price']) * intval($prod['quantity']); ?></span>
                                                 </td>
                                               </tr>
                                          <?php } ?>

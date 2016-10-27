@@ -60,7 +60,7 @@ var cart = {
                   },2000);
 	},
 	updateCartPopup: function(){
-		$("div.cart-box span.simpleCart_total"). html("&#8377;"+this.formatCurrency(this.getCartTotalPrice()));
+		$("div.cart-box span.simpleCart_total"). html(" <i class='fa fa-inr'></i>"+this.formatCurrency(this.getCartTotalPrice()));
     	$("div.cart-box span.simpleCart_quantity"). html(this.getCartTotalItems());
     	$("#badge"). html(this.getCartTotalItems());
 	},

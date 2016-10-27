@@ -13,7 +13,7 @@ if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
         die(' UPDATE order update Error : ('. $dbcon->errno .') '. $dbcon->error);
     }
     $stmt->close();
-    echo $ord_update;
+    //echo $ord_update;
 
     unset($_SESSION['cartitemlist']);
     unset($_SESSION['orderID']);
@@ -21,12 +21,60 @@ if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
     unset($_SESSION['orderStatus']);
     unset($_SESSION['cartPrice']);
 
+    /* update the stock quantity in components table for all the elements in this order for inventory */
+
+        $eids = [];
+     $qry = "SELECT elementid FROM `customdesign` where productid in (SELECT productid FROM `order_products` where orderid=$myorderId)";
+       if(!$stmt = $dbcon->prepare($qry)){
+         die('select Error : ('. $dbcon->errno .') '. $dbcon->error);
+     }
+
+     if(!$stmt->execute()){
+         die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+     }
+
+     $stmt->store_result();
+     $stmt->bind_result($a);
+     while ($stmt->fetch()) {
+      $eids[] = $a;
+     }
+     $stmt->close();
+
+      if(count($eids) > 0) {
+        foreach($eids as $ee) {
+            $compqry = "SELECT complist from pieces where id=$ee";
+             if(!$stmt = $dbcon->prepare($compqry)){
+                 die('select Error : ('. $dbcon->errno .') '. $dbcon->error);
+             }
+
+             if(!$stmt->execute()){
+                 die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+             }
+
+             $stmt->store_result();
+             $stmt->bind_result($a);
+             while ($stmt->fetch()) {
+
+                $compupdqry = "update components set stock=stock-2 where compid in ('".implode("','", explode("," , $a))."')";
+                    //echo $compupdqry;
+                $updstmt = $dbcon->prepare($compupdqry);
+
+                if(!$updstmt->execute()){
+                    die(' UPDATE order update Error : ('. $dbcon->errno .') '. $dbcon->error);
+                }
+                $updstmt->close();
+             }
+             $stmt->close();
+
+        }
+      }
+
 }
 
 
 ?>
 
-<Title>Fitoori Successful Payment Page</Title>
+
 
 <section class="pageContainer">
    <div class="container">
@@ -34,7 +82,8 @@ if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
             <img src="images/Received-stamp.jpg" alt="">
         </div>
         <div class="col-xs-8">
-             <p><strong>Your payment was successful. Thank you for shopping with Fitoori.</strong> </p>
+             <p><strong>You have a great taste !
+             Thank you for shopping with fitoori !</strong> </p>
         </div>
     </div>
 

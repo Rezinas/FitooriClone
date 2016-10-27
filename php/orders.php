@@ -97,34 +97,34 @@ if(isset($_REQUEST["confirmOrder"])) {
         $message .= 'Quantity: &nbsp;<span> '.$citem["quantity"].'</span><br>';
         $message .= '</td>';
         $message .= '<td style="border-top: 1px solid #f07818">';
-        $message .= '<span>  &#8377;'.round(floatval($citem["price"]) * intval($citem["quantity"])).'</span>';
+        $message .= '<span>   <i class="fa fa-inr"></i>'.round(floatval($citem["price"]) * intval($citem["quantity"])).'</span>';
         $message .= '</td>';
         $message .= '</tr>';
     }
     $message .= '<tr>';
     $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">Total( including Tax)</td>';
-    $message .= '<td style="border-top: 1px solid #f07818" >: &#8377; <span id="subTotal">'. money_format("%!i", round($ctotal, 0)) .'</span></td>';
+    $message .= '<td style="border-top: 1px solid #f07818" >:  <i class="fa fa-inr"></i> <span id="subTotal">'. money_format("%!i", round($ctotal, 0)) .'</span></td>';
     $message .= '</tr>';
     $message .= '<tr>';
     $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">Shipping</td>';
-    $message .= '<td style="border-top: 1px solid #f07818">: &#8377;'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
+    $message .= '<td style="border-top: 1px solid #f07818">:  <i class="fa fa-inr"></i>'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
     $message .= '</tr>';
 
     if(isset($_SESSION['offer'])  && $_SESSION['offer'] == 1) {
         $message .= '<tr>';
         $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;">Offers(Free Shipping)*</td>';
-        $message .= '<td style="border-top: 1px solid #f07818">: &#8377;-'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
+        $message .= '<td style="border-top: 1px solid #f07818">:  <i class="fa fa-inr"></i>-'. money_format("%!i", SHIPPINGCHARGES_SMALL).'</td>';
         $message .= '</tr>';
 
         $message .= '<tr>';
         $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;color:#333;font-weight:bold;">Grand - Total</td>';
-        $message .= '<td style="border-top: 1px solid #f07818">: &#8377; <span id="grandTotal">'. money_format("%!i",round($ctotal, 0)) .'</span></td>';
+        $message .= '<td style="border-top: 1px solid #f07818">:  <i class="fa fa-inr"></i> <span id="grandTotal">'. money_format("%!i",round($ctotal, 0)) .'</span></td>';
         $message .= '</tr>';
     }
     else  {
         $message .= '<tr>';
         $message .= '<td style="border-right: 1px solid #f07818; border-top: 1px solid #f07818;color:#333;font-weight:bold;">Grand - Total</td>';
-        $message .= '<td style="border-top: 1px solid #f07818">: &#8377; <span id="grandTotal">'. money_format("%!i",round($ctotal + SHIPPINGCHARGES_SMALL, 0)) .'</span></td>';
+        $message .= '<td style="border-top: 1px solid #f07818">:  <i class="fa fa-inr"></i> <span id="grandTotal">'. money_format("%!i",round($ctotal + SHIPPINGCHARGES_SMALL, 0)) .'</span></td>';
         $message .= '</tr>';
     }
 

@@ -9,7 +9,7 @@
          <div id="cart-cost" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <h4 style="background: #5D4B33; padding-left: 6px; color: #fff;">Order Summary</h4>
             <h4>Order Number: ORD000<?php echo $sess_orderID; ?></h4>
-              <h4>Cart Total:  &#8377; <?php echo money_format('%!i',$cartTotal); ?></h4>
+              <h4>Cart Total:   <i class="fa fa-inr"></i> <?php echo money_format('%!i',$cartTotal); ?></h4>
 
                        <table style="width:100%;">
                                 <?php if(count($cartItems) > 0) {
@@ -39,7 +39,7 @@
                                               <?php } ?>
                                               <p>Quantity: &nbsp;<span> <?php echo $cart[$prod['productid']]; ?></span></p>
                                                <br>
-                                              <p>Total: &nbsp;<span>  &#8377;. <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span></p>
+                                              <p>Total: &nbsp;<span>   <i class="fa fa-inr"></i>. <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span></p>
                                             </div>
                                         </div>
                                        <!-- </div> -->
@@ -223,17 +223,17 @@
                                         <p>Quantity: &nbsp;<span> <?php echo $cart[$prod['productid']]; ?></span></p>
                                     </td>
                                     <td>
-                                      <span>: &#8377; <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span>
+                                      <span>:  <i class="fa fa-inr"></i> <?php echo floatval($prod['price']) * intval($cart[$prod['productid']]); ?></span>
                                     </td>
                                   </tr>
                              <?php } ?> -->
                                <tr>
                                   <td>Total( including Tax)</td>
-                                  <td>: &#8377; <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
+                                  <td>:  <i class="fa fa-inr"></i> <span id="subTotal"><?php echo money_format('%!i', $cartTotal); ?></span></td>
                                </tr>
                                 <tr>
                       <th>Shipping</th>
-                      <td>: &#8377; <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                      <td>:  <i class="fa fa-inr"></i> <?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
                    </tr>
                              <?php if($offer)  {?>
   <!--                           <tr>
@@ -241,12 +241,12 @@
                                  </tr> -->
                                  <tr>
                                     <th>Offers(Free Shipping)*</th>
-                                    <td>: &#8377; -<?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
+                                    <td>:  <i class="fa fa-inr"></i> -<?php echo  money_format('%!i', SHIPPINGCHARGES_SMALL); ?></td>
                                  </tr>
                                  <?php } ?>
                                  <tr>
                                     <th style="color:#F07818;font-weight:bold;">Grand - Total</th>
-                                    <td>: &#8377; <span id="grandTotal"><?php
+                                    <td>:  <i class="fa fa-inr"></i> <span id="grandTotal"><?php
                                       if($offer) {
                                         echo money_format('%!i',$cartTotal + SHIPPINGCHARGES_SMALL - SHIPPINGCHARGES_SMALL);
                                       }
