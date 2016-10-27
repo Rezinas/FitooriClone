@@ -428,7 +428,7 @@ i.fa.fa-plus.placeholdit {
     position: absolute;
     width: auto;
     right: 0;
-    display: none;
+    /*display: none;*/
     margin: 5px 5px  0 5px;
   }
 .prd_elements {

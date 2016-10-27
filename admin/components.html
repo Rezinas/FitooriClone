@@ -127,3 +127,36 @@
 </div>
 <!-- container ends -->
 
+<script type="text/javascript">
+$(document).on('change', '.btn-file :file', function() {
+                var input = $(this),
+                numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+
+                var inpname = this.name;
+
+                  var inputLabel = $(this).parents('.input-group').find(':text'),
+                log = numFiles > 1 ? numFiles + ' files selected' : label;
+                if( inputLabel.length ) {
+                    inputLabel.val(log);
+                } else {
+                     if( log ) alert(log);
+                }
+                if(inpname == "carouselImg")
+                 readURL(this, '#compimg img');
+               else {
+                 readURL(this, "#"+inpname+"Img img");
+               }
+        });
+
+function readURL(input, outputImg) {
+var files = input.files ? input.files : input.currentTarget.files;
+    if (files && files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(outputImg).attr('src', e.target.result);
+        }
+        reader.readAsDataURL(files[0]);
+    }
+}
+</script>
