@@ -243,8 +243,8 @@ else {
                            <li class="dropdown grid">
                              <a href="javascript:void(0);" <?php if($currenttab == "components" || $currenttab == "componentsearch" ) echo 'class="active"'; ?> data-toggle="dropdown">Components</a>
                              <ul class="dropdown-menu">
-                                         <li><a href="dashboard.php?componentsearch"><i class="fa fa-edit fa-fw"></i> Manage Component</a></li>
-                                         <li> <a href="dashboard.php?components"><i class="fa fa-search fa-fw"></i>Component Search</a></li>
+                                         <li><a href="dashboard.php?components"><i class="fa fa-edit fa-fw"></i> Manage Component</a></li>
+                                         <li> <a href="dashboard.php?componentsearch"><i class="fa fa-search fa-fw"></i>Component Search</a></li>
                              </ul>
                           </li>
 

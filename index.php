@@ -369,16 +369,16 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
        <section class="footerbanner">
             <div class="container">
               <div class="col-xs-4">
-                <img src="images/madel.jpg" alt="">
-                <p>Hand crafted with love</p>
+                <img src="images/madel.jpg" alt="" style="margin-top: 10px;">
+                <p><h5><b>Hand crafted with love</b></h5></p>
               </div>
               <div class="col-xs-4">
-                <img src="images/lotus.png" alt="">
-                <p>Skin friendly Nickel-free products</p>
+                <img src="images/lotus.png" alt="" style= height:60px>
+                <p><h5><b>Skin friendly Nickel-free products</b></h5></p>
               </div>
               <div class="col-xs-4">
-                <img src="images/wind-mill.png" alt="">
-                <p>Easy and fun customizing</p>
+                <img src="images/wind-mill.png" alt="" style="margin-top: 10px;">
+                <p><h5><b>Easy and fun customizing</b></h5></p>
               </div>
             </div>
         </section>

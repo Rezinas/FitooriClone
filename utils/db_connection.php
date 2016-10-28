@@ -14,7 +14,7 @@
 $db_user = "root";
 $db_pass = "";
 $db_host = "localhost";
-$db_name = "fitoori";
+$db_name = "fitoori_fitoori";
 
 //  $db_user = "samplep1_web";
 // $db_pass = "Site12";

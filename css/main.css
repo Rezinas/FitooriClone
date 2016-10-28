@@ -582,10 +582,10 @@ article.item.read-full .item-body:after {
 .footerbanner p {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: small;
+    font-size: large;
 }
 .footerbanner  img {
-    height: 63px;
+    height: 50px;
     /* background: #e8e8e7; */
     /* border-radius: 50%; */
     /* padding: 0.6em; */
