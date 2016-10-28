@@ -258,6 +258,12 @@ if(isset($_GET["addcustom"])) {
 
         $elements = $_POST["custom_product"];
 
+        //check if this element already exists in our database
+        $elementexists = true;
+
+
+
+
         $customImgName = createCustomPrdImage($elements);
 
         if($customImgName == "ERROR"){

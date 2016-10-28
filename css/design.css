@@ -481,18 +481,18 @@ i.fa.fa-plus.placeholdit {
 	position: absolute;
 	/* border: 1px solid; */
 	left: 70%;
-	top: 61%;
+	top: 58%;
 	height: 245px;
 	width: 185px;
 	/* border: 1px solid; */
 }
 
 .previewParent img.ear {
-  height: 170%;
+  height: 204%;
   position: absolute;
   width: auto;
-  left: -25px;
-  top: -56px;
+  left: -30px;
+  top: -62px;
 }
 .triangle-right {
 	    position: relative;
