@@ -25,7 +25,7 @@
 	define('GUEST',  2);
 
 
-	define('CATEGORY', 'Terracota|Beaded|Metal');
+	define('CATEGORY', 'Terracota|Beaded|Metal|Glass|Semi-precious|Pearl|Wood|Ceramic|Wired|Pearlized glass|Plastic');
 
 	define('PRD_ITEM', 'Anklets|Bangles|Earrings|Necklace|Pendant Sets');
 	define('STYLES', 'Daily Wear|Party Wear|Work Wear');
@@ -57,7 +57,7 @@
 
 
 
-	define('COLORS', 'Unspecified|Red|Blue|Orange|Yellow|Gold|Silver|Pink|Black|Brown|White|Green|Purple|Indigo|Aqua');
+	define('COLORS', 'Unspecified|Red|Blue|Orange|Yellow|Gold|Silver|Pink|Black|Brown|White|Green|Purple|Indigo|Aqua|Bronze|Antique|Copper|Gunmetal|Beige|Multicolor');
 	define('TEXTURES', 'Plain|Grilled|Engraved|Painted|DoubleTone|MutliColor');
 
 ?>
