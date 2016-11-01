@@ -42,7 +42,7 @@ if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
 
       if(count($eids) > 0) {
         foreach($eids as $ee) {
-            $compqry = "SELECT complist from pieces where id=$ee";
+            $compqry = "SELECT complist, compquantity from pieces where id=$ee";
              if(!$stmt = $dbcon->prepare($compqry)){
                  die('select Error : ('. $dbcon->errno .') '. $dbcon->error);
              }
@@ -52,7 +52,7 @@ if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
              }
 
              $stmt->store_result();
-             $stmt->bind_result($a);
+             $stmt->bind_result($a, $b);
              while ($stmt->fetch()) {
 
                 $compupdqry = "update components set stock=stock-2 where compid in ('".implode("','", explode("," , $a))."')";

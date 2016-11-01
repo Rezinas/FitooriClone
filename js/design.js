@@ -775,7 +775,7 @@ function addToCart() {
     var pid = $("#myModal input[name='pid']").val();
     var pprice = $("#myModal input[name='pprice']").val();
      window.cart.updateCart(pid, pprice);
-     $('div.cart-box').slideDown('slow').delay(1000).slideUp('slow');
+     window.cart.openCloseCart();
      return false;
 }
 
