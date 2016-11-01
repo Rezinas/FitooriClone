@@ -5,3 +5,6 @@ signature/
 *.sublime-workspace
 phpmailer/.gitignore
 js/design.js_new.js
+images/Testimonial(0).png
+images/Testimonial(1).png
+images/Testimonial(2).png
