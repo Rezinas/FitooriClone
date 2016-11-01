@@ -208,7 +208,7 @@ else {
 <body>
 
 <div class="header">
-              <nav class="adminNav navbar navbar-default navbar-fixed-top" role="navigation" id="navbar"  >
+              <nav class="navbar navbar-default navbar-fixed-top <?php if($currenttab == "customearrings" || $currenttab == "designearrings") echo 'homepage'; ?>" role="navigation" id="navbar"  >
                 <div class="navbar-header">
                    <a  href="dashboard.php" class="navbar-brand"><img src="../images/logo_dark.png"  class="img-responsive"/></a>
                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -223,7 +223,7 @@ else {
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                    <ul class="nav navbar-nav">
                            <li>
-                              <a href="dashboard.php?customearrings" <?php if($currenttab == "customearrings") echo 'class="active"'; ?>>Design Product</a>
+                              <a href="dashboard.php?customearrings" <?php if($currenttab == "customearrings" || $currenttab == "designearrings") echo 'class="active"'; ?>>Design Product</a>
                           </li>
                           <li >
                               <a href="dashboard.php?custom" <?php if($currenttab == "custom") echo 'class="active"'; ?>>Custom Designs</a>
