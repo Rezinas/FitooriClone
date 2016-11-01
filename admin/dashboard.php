@@ -82,7 +82,7 @@ if(isset($_GET["pieces"]) && isset($_GET["deleteid"]) ) {
   $stmt1->bind_param('i', $pieceid);
   $stmt1->execute();
   $stmt1->close();
-        header("Location: ".SITE_URL. "redo/admin/dashboard.php?pieces");
+        header("Location: ".SITE_URL. "admin/dashboard.php?pieces");
 
 }
 
@@ -193,8 +193,12 @@ else {
       <?php } ?>
 
 <?php if($currenttab == "designearrings") { ?>
-     <link rel="stylesheet" href="../css/design.css">
-     <link rel="stylesheet" href="../css/animate.css">
+        <link href="../css/animate.css" type="text/css" rel="stylesheet" media="all">
+        <link href="../css/jquery.mCustomScrollbar.min.css" type="text/css" rel="stylesheet" media="all">
+        <link href="../css/design.css" type="text/css" rel="stylesheet" media="all">
+        <link href="../css/design_media.css" type="text/css" rel="stylesheet" media="all">
+
+
 <?php  } ?>
 <?php if($currenttab == "orders") { ?>
      <link rel="stylesheet" href="../css/cartpage.css">
@@ -395,7 +399,8 @@ else if($currenttab == "report") {
 
    <?php if($currenttab == "designearrings") { ?>
   <script src="../js/angular.min.js"></script>
-  <script src="../js/angular-animate.min.js"></script>
+  <script src="../js/jquery.mCustomScrollbar.js"></script>
+  <script src="../js/scrollbars.min.js"></script>
   <script src="../js/design.js"></script>
 
    <?php } ?>
