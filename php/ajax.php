@@ -1,15 +1,26 @@
 <?php
 error_reporting(-1);
 ini_set('display_errors', 'On');
-set_error_handler("var_dump");
+// set_error_handler("var_dump");
 require_once($_SERVER['DOCUMENT_ROOT']."/utils/functions.php");
+
+
+
+function existsInArray($entry, $array) {
+    foreach ($array as $compare) {
+        if ($compare["pid"] == $entry["pid"]) {
+            return true;
+        }
+      }
+    return false;
+}
+
 
 // Trims an image then optionally adds padding around it.
 // $im  = Image link resource
 // $bg  = The background color to trim from the image
 // $pad = Amount of padding to add to the trimmed image
 //        (acts simlar to the "padding" CSS property: "top [right [bottom [left]]]")
-
 
 function imagetrim(&$im, $bg, $pad=null){
     // Calculate padding for each side.
@@ -250,7 +261,6 @@ if(isset($_GET["getCustom"])) {
 if(isset($_GET["addcustom"])) {
     if(isset($_SERVER["CONTENT_TYPE"]) && strpos($_SERVER["CONTENT_TYPE"], "application/json") !== false) {
       $_POST = array_merge($_POST, (array) json_decode(trim(file_get_contents('php://input')), true));
-      // var_dump($_POST["custom_product"]);
 
       $result ="";
 
@@ -258,77 +268,125 @@ if(isset($_GET["addcustom"])) {
 
         $elements = $_POST["custom_product"];
 
-        //check if this element already exists in our database
-        $elementexists = true;
-
-
-
-
-        $customImgName = createCustomPrdImage($elements);
-
-        if($customImgName == "ERROR"){
-          echo "ERROR";
-          exit();
-        }
-
-        $prod_price = $_POST["product_price"];
-        $customized = 1;
-
-        $prd_qry  = "insert into products (price, mainimg, customized) VALUES (?, ?, ?)";
-
-        $ins_stmt = $dbcon->prepare($prd_qry);
-        if(!$ins_stmt) {
-         die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
-        }
-        $ins_stmt->bind_param('dsi', $prod_price, $customImgName, $customized);
-
-        if($ins_stmt->execute()){
-              $prodid=$ins_stmt->insert_id;
-          }else{
-            die('Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
-        }
-        $ins_stmt->close();
-
-        $currUserEmail = isGuest() ? "guest" :  getCurrentUserEmail();
-        $currUsertype= isGuest() ? "2" : "1";
-
-
-        $elem_qry = "INSERT into customdesign (`productid`, `elementid`,`leftPos`, `topPos`, `selectedImage`, `addedBy`, `addedByType` ) VALUES (?,?,?,?,?,?,?)";
-        $ins_stmt1 = $dbcon->prepare($elem_qry);
-        if(!$ins_stmt1) {
-         die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
-        }
-
-
-        $matlist = "";
-        $previd = -1;
-        foreach($elements as $elem){
-        //  var_dump($elem);
-          if($previd != $elem["id"]) {
-            $matlist .=  $elem['name']."<br>";
-          }
-          $previd = $elem["id"];
-
-          $ins_stmt1->bind_param('iiiisss', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage'],$currUserEmail, $currUsertype);
-
-          if(!$ins_stmt1->execute()){
-              die('Custom Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
-          }
-        }
-
-        $ins_stmt1->close();
-
-        $result = "SUCCESS";
-        $earObj = array(
-                    "pid" => $prodid,
-                    "imgName" => $customImgName,
-                    "price" => $prod_price
-                  );
+        //initialize variables
         $custEarrings = isset($_SESSION['customEarrings']) ? $_SESSION['customEarrings'] : [];
-        $custEarrings[] = $earObj;
-        $_SESSION['customEarrings'] = $custEarrings;
+        $customImgName= '';
+        $prod_price = '';
+        $prodid = -1;
+        $designExists = false;
+        $existingProductId=-1;
+        $elemIdArr =[];
+        $matlist ='';
+        $previd = -1;
+
+        //check if this element already exists in our database
+        foreach($elements as $elem){
+            $elemIdArr[] = $elem["id"];
+            //for matlist
+            if($previd != $elem["id"]) {
+                $matlist .=  $elem['name']."<br>";
+              }
+              $previd = $elem["id"];
+
+        }
+        sort($elemIdArr);
+
+        //check all custom designs
+        $design_qry = "SELECT customdesign.productid, GROUP_CONCAT(elementid SEPARATOR ',') as elementids from customdesign, products  where  products.productid = customdesign.productid group by productid";
+
+          $stmt = $dbcon->prepare($design_qry);
+          if(!$stmt->execute()){
+              die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+          }
+          $stmt->store_result();
+          $stmt->bind_result($pid, $a);
+          while ($stmt->fetch()) {
+            $thisArr = explode(',', $a);
+            sort($thisArr);
+            if(count($thisArr) == count($elemIdArr) && $thisArr == $elemIdArr) {
+              $designExists = true;
+              $existingProductId= $pid;
+            }
+          }
+          $stmt->close();
+
+          if(!$designExists) {
+            $customImgName = createCustomPrdImage($elements);
+
+            if($customImgName == "ERROR"){
+              echo "ERROR";
+              exit();
+            }
+            $prod_price = $_POST["product_price"];
+            $customized = 1;
+            $prd_qry  = "insert into products (price, mainimg, customized) VALUES (?, ?, ?)";
+            $ins_stmt = $dbcon->prepare($prd_qry);
+            if(!$ins_stmt) {
+             die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+            }
+            $ins_stmt->bind_param('dsi', $prod_price, $customImgName, $customized);
+            if($ins_stmt->execute()){
+                  $prodid=$ins_stmt->insert_id;
+              }else{
+                die('Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
+            }
+            $ins_stmt->close();
+            $currUserEmail = isGuest() ? "guest" :  getCurrentUserEmail();
+            $currUsertype= isGuest() ? "2" : "1";
+
+            $elem_qry = "INSERT into customdesign (`productid`, `elementid`,`leftPos`, `topPos`, `selectedImage`, `addedBy`, `addedByType` ) VALUES (?,?,?,?,?,?,?)";
+            $ins_stmt1 = $dbcon->prepare($elem_qry);
+            if(!$ins_stmt1) {
+             die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
+            }
+
+
+            foreach($elements as $elem){
+              $ins_stmt1->bind_param('iiiisss', $prodid, $elem['id'], $elem['leftPos'], $elem['topPos'], $elem['selectedImage'],$currUserEmail, $currUsertype);
+
+              if(!$ins_stmt1->execute()){
+                  die('Custom Insert Error : ('. $dbcon->errno .') '. $dbcon->error);
+              }
+            }
+
+            $ins_stmt1->close();
+            $result = "SUCCESS";
+            $earObj = array(
+                        "pid" => $prodid,
+                        "imgName" => $customImgName,
+                        "price" => $prod_price
+                      );
+            $custEarrings[] = $earObj;
+            $_SESSION['customEarrings'] = $custEarrings;
+          }
+          else {
+              $existqry = "SELECT productid, price, mainimg FROM products WHERE productid=$existingProductId";
+              $dstmt = $dbcon->prepare($existqry);
+              if(!$dstmt->execute()){
+                  die('getproduct Error : ('. $dbcon->errno .') '. $dbcon->error);
+              }
+              $dstmt->store_result();
+              $dstmt->bind_result($p, $pr, $im);
+              while ($dstmt->fetch()) {
+                $prod_price = $pr;
+                $prodid = $p;
+                $customImgName = $im;
+              }
+              $result = "SUCCESS";
+              $dstmt->close();
+              $earObj = array(
+                        "pid" => $prodid,
+                        "imgName" => $customImgName,
+                        "price" => $prod_price
+                      );
+              if(count($custEarrings) == 0 || (!existsInArray($earObj, $custEarrings))) {
+                  $custEarrings[] = $earObj;
+                  $_SESSION['customEarrings'] = $custEarrings;
+              }
+          }
       }
-      else $result = "ERROR";
+        else $result = "ERROR";
+
 
        $jsondata = array(
           "result"  => $result,
