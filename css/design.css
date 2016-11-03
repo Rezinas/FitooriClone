@@ -370,6 +370,7 @@ i.fa.fa-plus.placeholdit {
 	padding-right: 0;
 	padding-bottom: 10px;
 	padding-left: 3px;
+	min-height: 400px;
 	/* overflow: scroll; */
 	border-left: 1px solid rgba(85, 85, 85, 0.13);
 }

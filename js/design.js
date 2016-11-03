@@ -59,8 +59,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             },
             callbacks:{
                 onUpdate:function(){
-                    console.log(this.mcs.top);
-                  console.log("Scrollbars updated");
+                   // console.log(this.mcs.top);
+                  // console.log("Scrollbars updated");
                    scrollTo('first', 0, {
                                 scrollInertia: 0
                             });
