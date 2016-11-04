@@ -437,5 +437,5 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
             <p> © 2016 Fitoori . All rights reserved.</p>
          </div>
       </section>
-   </body>
+    </body>
 </html>
