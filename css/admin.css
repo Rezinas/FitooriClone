@@ -79,6 +79,16 @@ div#page-wrapper h2.page-header{
 	position: absolute;
 	top: 0px;
 }
+
+.points.topPoints {
+	background: red;
+}
+
+.points.bottomPoints {
+	background: green;
+}
+
+
 .tcoords input,  .bcoords input {
 	width: 50px;
 }

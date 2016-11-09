@@ -221,6 +221,13 @@ $(document).ready( function() {
            showFileInp(filesDom);
         });
 
+        $("#carouselImg img").mousemove(function(){
+            var offset = $('#carouselImg img').offset();
+            var msg = "mouse is at ";
+              msg += (event.pageX - offset.left) + ", " + (event.pageY- offset.top);
+              $( "#carouselDimensions span#mouseDim" ).html( msg );
+        });
+
 
 $(document).on('change', '.tcoords input[type=text], .bcoords input[type=text]', function() {
        var inpE= this.name;
