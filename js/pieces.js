@@ -224,7 +224,7 @@ $(document).ready( function() {
         $("#carouselImg img").mousemove(function(){
             var offset = $('#carouselImg img').offset();
             var msg = "mouse is at ";
-              msg += (event.pageX - offset.left) + ", " + (event.pageY- offset.top);
+              msg += (event.pageX - offset.left - 5) + ", " + (event.pageY- offset.top - 5);
               $( "#carouselDimensions span#mouseDim" ).html( msg );
         });
 
