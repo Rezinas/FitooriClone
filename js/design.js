@@ -193,7 +193,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                 var b = botYs[i+1] - botYs[i];
                                // console.log(curWidth);
                                // console.log(Math.sqrt(a*a + b*b));
-                                if(Math.sqrt(a*a + b*b) <= (curWidth)) {
+                               if(Math.sqrt(a*a + b*b) <= (curWidth)) {
                                     fits=false;
                                 }
                             }
@@ -217,6 +217,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                     var b = botYs[i+1] - botYs[i];
                                    // console.log(curWidth);
                                    // console.log(Math.sqrt(a*a + b*b));
+                                   // if(Math.sqrt(a*a + b*b) <= (curWidth) && Math.sqrt(a*a + b*b) <= (curHeight)) {
                                     if(Math.sqrt(a*a + b*b) <= (curWidth)) {
                                         fits=false;
                                     }
