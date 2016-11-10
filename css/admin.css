@@ -13,7 +13,7 @@
     display: block;
     float: left;
     margin: 4em 2em 0% 0;
-    width: 22%;
+    width: 19%;
 }
 
 .btn-file {
@@ -97,19 +97,14 @@ div#page-wrapper h2.page-header{
 	height: 100px;
 	width: auto;
 } */
-.elements .product-img img {
-/*     height: 80px; */
-    width: auto;
-    margin: 1px auto;
-    padding: 10px;
-}
+.elements .product-image img {margin: 1px auto;padding: 1em;}
 
 
 .elements {
-    width: 20%;
-    min-height: 250px;
+    /* width: 20%; */
+    /* min-height: 250px; */
     border: 1px solid #EFE9E9;
-    margin: 0 1% 1% 0;
+    /* margin: 0 1% 1% 0; */
 }
 
 .adminsearch {

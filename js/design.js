@@ -44,7 +44,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         $scope.isAgent = $window.model.isAgent;
         $scope.shipping=$window.model.shipping;
         $scope.styles=$window.model.styles;
-        $scope.productAdded = false;
         $scope.startType = $window.model.startStyle;
         $scope.showCartbtn = false;
         $scope.customizedEarrings = [];
@@ -156,6 +155,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             //if it is not level 1 and if the previous element was a stud..or didnt have bottompoints then there is no more options.
             // we can show options if only there are bottom points on previous elements
             // the next button will not be available anyways.
+            //this case should not happen
             if ($scope.designLevel != 0 && prevBottomPoints == 0) {
                 return resArr;
             }
@@ -193,7 +193,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                 var b = botYs[i+1] - botYs[i];
                                // console.log(curWidth);
                                // console.log(Math.sqrt(a*a + b*b));
-                               if(Math.sqrt(a*a + b*b) <= (curWidth)) {
+                                if(Math.sqrt(a*a + b*b) <= (curWidth)) {
                                     fits=false;
                                 }
                             }
@@ -217,7 +217,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                     var b = botYs[i+1] - botYs[i];
                                    // console.log(curWidth);
                                    // console.log(Math.sqrt(a*a + b*b));
-                                   // if(Math.sqrt(a*a + b*b) <= (curWidth) && Math.sqrt(a*a + b*b) <= (curHeight)) {
                                     if(Math.sqrt(a*a + b*b) <= (curWidth)) {
                                         fits=false;
                                     }
@@ -401,7 +400,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         };
 
         var updateQuantity = function (flag, level) {
-
             var elemInd = $scope.prdIndex[level];
             var currEl = null;
             $.each(elemInd, function(indx, val){
@@ -463,9 +461,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
 
         $scope.processForm = function() {
-          if($scope.productAdded) {
-             return;
-          }
        //   updateQuantity(true, $scope.designLevel);
           var payload = {
                         custom_product : $scope.mySelectedItems,
@@ -479,9 +474,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
          })
           .success(function(data) {
             if(data.result == "SUCCESS"){
-                  $scope.productAdded = true;
                   $scope.customizedEarrings = data.customizedEarrings;
-                  $scope.resetDesign();
+                //  $scope.resetDesign();
 
                   $("#myModal span#earringType").html($scope.startType);
                   $("#myModal .fb-share-button").attr('data-href', 'http://fitoori.com/productImages/'+data.pimg);
@@ -512,7 +506,6 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                 $scope.allConnArr =[];
                 $scope.designerPicks=[];
                 $scope.designPrice=0;
-                $scope.productAdded = false;
                 $scope.showCartbtn = false;
 
                 $scope.earringPieces = $window.model.elements;
@@ -520,17 +513,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
         };
 
-        $scope.confirmDesign = function() {
-            var yes= false;
-            if( $scope.mySelectedItems.length > 0 && !$scope.productAdded ) yes = true;
-            if( yes && $scope.designLevel == 0 && $scope.mySelectedItems[$scope.designLevel]) {
-                 if($scope.mySelectedItems[$scope.designLevel].style.indexOf('hooks') < 0 ) yes = true;
-                 else yes= false;
-            }
-            return yes;
-        }
 
         $scope.addDesToCart = function(pid, pprice) {
+             $("#myModal").modal('hide');
              window.cart.updateCart(pid, pprice);
              window.cart.openCloseCart();
              return false;

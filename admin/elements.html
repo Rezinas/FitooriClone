@@ -1,5 +1,5 @@
-<div ng-app="elementsearch">
-	<div ng-controller="MainController">
+<div  class="pageContainer" ng-app="elementsearch">
+	<div class="container" ng-controller="MainController">
 		<h2>Admin Product Search</h2>
 		<div class="row">
 			<div class="col-xs-12">
@@ -15,22 +15,12 @@
 		</div>
 		<div class="row">
 
-					<div class="col-md-3 rsidebar span_1_of_left">
+					<div class="col-md-3">
 				<form>
-
-					<section  class="sky-form">
-						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Quantity</h4>
-						<div class="row  scroll-pane">
-							<div class="col col-4">
-								<input type="text" ng-model="selectedQuantity">
-							</div>
-						</div>
-					</section>
-
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Material</h4>
 						<div class="row  scroll-pane">
-							<div class="col col-4">
+							<div class="col col-2">
 								<label ng-repeat="mat in materials" class="checkbox">
 									  <input type="checkbox"  ng-checked="selectedMaterial.indexOf($index+1) > -1" ng-click="toggleSelection($index+1)"> <i></i>{{mat}}
 								</label>
@@ -41,7 +31,7 @@
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Style</h4>
 						<div class="row  scroll-pane">
-							<div class="col col-4">
+							<div class="col col-2">
 								<label ng-repeat="sty in styles" class="checkbox">
 									  <input type="checkbox"  ng-checked="selectedStyles.indexOf(sty) > -1" ng-click="toggleStyleSelection(sty)"> <i></i>{{sty}}
 								</label>
@@ -52,7 +42,7 @@
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Tags</h4>
 						<div class="row  scroll-pane">
-							<div class="col col-4">
+							<div class="col col-2">
 								<label ng-repeat="tag in tags" class="checkbox">
 									  <input type="checkbox"  ng-checked="selectedTags.indexOf(tag) > -1" ng-click="toggleTagSelection(tag)"> <i></i>{{tag}}
 								</label>
@@ -70,7 +60,7 @@
 					<section  class="sky-form">
 						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Jewelry Type</h4>
 						<div class="row row1 scroll-pane">
-							<div class="col col-4">
+							<div class="col col-2">
 								<label ng-repeat="itm in items" class="checkbox">
 									  <input type="checkbox"  ng-checked="selectedItem.indexOf($index+1) > -1" ng-click="toggleItemSelection($index+1)"> <i></i>{{itm}}
 								</label>
@@ -98,15 +88,13 @@
 			</div>
 
 			<div class="clearfix"> </div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-					<div class="pull-right">
-						<button ng-hide="currentPage == 0" ng-click="prevPage()">Previous</button>
-										<span ng-hide="currentPage == 0 && currentPage >= resultSet.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
-						<button ng-hide="currentPage >= resultSet.length/pageSize - 1" ng-click="nextPage()">Next</button>
-					</div>
+
+
+			<div class="container">
+				<ul uib-pagination boundary-links="true" total-items="resultSet.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
 			</div>
 		</div>
+
+
 	</div>
 </div>
