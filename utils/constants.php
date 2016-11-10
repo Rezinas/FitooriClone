@@ -41,6 +41,7 @@
 	define('DISCOUNTTYPE_PERCENT' , 2);
 
 	define('PRDIMGDIR', "productImages");
+	define('CMPIMGDIR', "componentImages");
 
 	define('MAINIMG', 1);
 	define('ALTERNATE1IMG', 2);
@@ -53,11 +54,12 @@
 	define('SHIPPINGCHARGES_SMALL', 40);
 	define('OVERHEADS', 40);
 	define('TAXPERCENT', 14.5);
-	define('PROFITPERCENT', 20);
+	define('PROFITPERCENT', 30);
 
 
 
 	define('COLORS', 'Unspecified|Red|Blue|Orange|Yellow|Gold|Silver|Pink|Black|Brown|White|Green|Purple|Indigo|Aqua|Bronze|Antique|Copper|Gunmetal|Beige|Multicolor');
 	define('TEXTURES', 'Plain|Grilled|Engraved|Painted|DoubleTone|MutliColor');
+	define ('SOURCES', 'Pandahall|ItsyBitsy|Other');
 
 ?>

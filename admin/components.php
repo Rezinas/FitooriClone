@@ -85,7 +85,7 @@ if (!empty($_POST)) {
 		die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 		}
 		else{
-			echo "<br /> Record Added Successfully!<br /><br /><br />";
+			echo "<br /><br /> Record Added Successfully!<br /><br /><br />";
 		}
 	 	$statement->close();
 		
@@ -101,12 +101,13 @@ if (!empty($_POST)) {
 
 			if(!$stmt->execute()){
 				die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+				echo "<br /><br />Action FAILED!";
 			}
 			else {
-				echo "<br /> Record Added Successfully!<br /><br /><br />";
+				echo "<br /><br /> Record Added Successfully!<br /><br /><br />";
 			}
 			$stmt->close();
-			echo "Record updated Successfully!";
+			echo "<br /><br />Record updated Successfully!<br /><br />";
 		}
 	 }
 	 else

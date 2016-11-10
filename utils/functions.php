@@ -265,8 +265,74 @@ if($filename == "") return "ERROR";
        }
 }
 
+function uploadCmpImage($origFile, $filename, $filerror){
+
+if($filename == "") return "ERROR";
+  $path_parts = pathinfo($filename);
+ $filename = $path_parts['filename'].'_'.time().'.'.$path_parts['extension'];
+
+    $destFile = "../".CMPIMGDIR."/".$filename;
+    if ( move_uploaded_file ($origFile, $destFile) ){
+        return  $filename;
+    }
+    else      {
+        $file_err = '';
+        switch ($filerror)
+         {  case 1:
+                   $file_err .= 'The file is bigger than this PHP installation allows';
+                   break;
+            case 2:
+                   $file_err .= 'The file is bigger than this form allows';
+                   break;
+            case 3:
+                   $file_err .= 'Only part of the file was uploaded';
+                   break;
+            case 4:
+                   $file_err .= 'No file was uploaded';
+                   break;
+         }
+        return "ERROR =".$file_err;
+       }
+}
+
 function showCustomDesign($config) {
   $htmlStr = "";
   return  $htmlStr;
+}
+
+function getPrice($compList, $compQuant){
+        $baseprice= 0.00 ;
+        $complistArr= explode(',', $v);
+        $compquantityArr=explode(',', $w);
+        $max=count($complistArr);
+        for ($i=0; $i<$max;$i++)
+        {
+            $pqry= "SELECT costpercomp FROM components WHERE compid='$complistArr[i]'";
+            $pstmt = $dbcon->prepare($pqry);
+            if(!$pstmt->execute()){
+                die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+            }
+            $pstmt->store_result();
+            $pstmt->bind_result($cp);
+            while($pstmt->fetch()){
+                $baseprice += $cp*$compquantityArr[i] ; 
+            }
+
+        }
+        return $baseprice;
+
+}
+
+function generatePrice($basePrice, $type = "Earrings"){
+    $FinalPrice=0;
+    switch ($type) {
+        case Earrings:
+            $productCost= 2*$basePrice;
+            // $FinalPrice= TAX*(TRANSACTION*(SHIPPING + (MARGIN*(OVERHEADS+$productCost)))));
+            break;
+
+        default:
+            return 500;        
+    }
 }
 ?>

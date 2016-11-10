@@ -5,8 +5,8 @@ $colorsArr= explode("|", COLORS) ;
 $styleArr= explode("|", STYLES) ;
 $texturesArr= explode("|", TEXTURES) ;
 $elements =[];
-$showHelp = 1;
-if(!isset($_SESSION['showhelp'])){
+$showHelp = 1
+;if(!isset($_SESSION['showhelp'])){
 	 $_SESSION['showhelp'] = 1;
 	 $showHelp = 0;
 }
@@ -22,7 +22,7 @@ $_SESSION["startStyle"] = $startStyle;
 
 
 //get only earring parts and filter by the startStyle.
-$qry = "SELECT id, carouselImg,  imgheight, imgwidth, bodypart, centerx, centery,  toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name, quantity, priority, hookImg, availability from pieces where bodypart=3 and quantity > 1 and find_in_set('$startStyle', style) <> 0 order by priority desc";
+$qry = "SELECT id, carouselImg,  imgheight, imgwidth, bodypart, centerx, centery,  toppoints, topX, topY, bottompoints, botX, botY, color, texture, style, admintags, material, price, name, priority, hookImg, availability, complist, compquantity from pieces where bodypart=3 and find_in_set('$startStyle', style) <> 0 order by priority desc";
 
 
  	$stmt = $dbcon->prepare($qry);
@@ -30,10 +30,11 @@ if(!$stmt->execute()){
     die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 }
 $stmt->store_result();
-$stmt->bind_result($a,$b,$bh, $bw, $c,  $cx, $cy, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p, $q, $s, $t, $u);
+$stmt->bind_result($a,$b,$bh, $bw, $c,  $cx, $cy, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $o, $p, $s, $t, $u, $v, $w);
+
 while ($stmt->fetch()) {
 	$row=[];
-	$row = ['id' => $a, 'carouselImg' => $b, 'imgheight'=>  $bh, 'imgwidth'=>  $bw, 'bodypart' => $c,  'centerx' => $cx, 'centery' => $cy, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n, 'price' => $o, 'name' => $p, 'quantity' =>$q, 'priority' => $s, 'hookImg' => $t, 'availability' => $u];
+	$row = ['id' => $a, 'carouselImg' => $b, 'imgheight'=>  $bh, 'imgwidth'=>  $bw, 'bodypart' => $c,  'centerx' => $cx, 'centery' => $cy, 'toppoints' => $d, 'topX' => $e, 'topY' => $f, 'bottompoints' => $g, 'botX' => $h, 'botY' => $i, 'color' => $j, 'texture' => $k, 'style' => $l, 'admintags' => $m, 'material' => $n, 'price' => $o, 'name' => $p, 'priority' => $s, 'hookImg' => $t, 'availability' => $u, 'complist' => $v, 'compquantity' => $w];
 
 	$qry2 = "SELECT color, design, imagefile, imageid, pieceid from pieceimages where pieceid = ".$a;
 	$stmt1 = $dbcon->prepare($qry2);
