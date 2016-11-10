@@ -1,12 +1,12 @@
 'use strict';
-var searchapp = angular.module('elementsearch', ['rzModule']);
+var searchapp = angular.module('elementsearch', ['rzModule','ui.bootstrap']);
 //https://github.com/angular-slider/angularjs-slider
 searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
     function($scope, $rootScope, $window) {
         $scope.allPieces = $window.model.pieces;
         $scope.isAgent = $window.model.isAgent;
         $scope.currentPage = 0;
-        $scope.pageSize = 50;
+        $scope.pageSize = 20;
         $scope.materials = $window.model.materials;
         $scope.items = $window.model.items;
         $scope.styles = $window.model.styles;
@@ -15,7 +15,6 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.selectedTags =[];
         $scope.selectedItem=[3];
         $scope.selectedSort ="phigh";
-        $scope.selectedQuantity= '';
         $scope.reverseorder = true;
         $scope.sortItem="'price'";
         $scope.toppoints=0;
@@ -59,13 +58,16 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
          $scope.priceSlider = {
                  min: 0,
-                  max: 200,
+                  max: 500,
                   options: {
                     floor: 0,
-                    step: 5,
-                    ceil: 500,
+                    step: 10,
+                    ceil: 1000,
                     translate: function(value) {
                       return 'Rs.' + value;
+                    },
+                      onChange : function(sliderId, modelValue, highValue) {
+                      $scope.currentPage = 1;
                     }
                   }
             };
@@ -85,6 +87,8 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
         // toggle selection for a given style by name
         $scope.toggleStyleSelection = function toggleStyleSelection(styleItem) {
+             $scope.currentPage = 0;
+
             var idx = $scope.selectedStyles.indexOf(styleItem);
             // is currently selected
             if (idx > -1) {
@@ -97,6 +101,8 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         };
 
         $scope.toggleTagSelection = function toggleTagSelection(tagIndx) {
+             $scope.currentPage = 0;
+
             var idx = $scope.selectedTags.indexOf(tagIndx);
             // is currently selected
             if (idx > -1) {
@@ -109,6 +115,8 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         };
 
         $scope.toggleItemSelection = function toggleItemSelection(itmIndex) {
+             $scope.currentPage = 0;
+
             var idx = $scope.selectedItem.indexOf(itmIndex);
             // is currently selected
             if (idx > -1) {
@@ -124,12 +132,10 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
         $scope.criterias = function(item) {
             var foundMat = false;
-            var foundPrice = false;
             var foundpoints = false;
             var foundItem = false;
             var foundTags = false;
             var foundStyles = false;
-            var foundQuantity = false;
             if( ($scope.bottompoints == 0 && $scope.toppoints == 0) || ($scope.bottompoints == item.bottompoints && $scope.toppoints == item.toppoints)){
                 foundpoints = true;
             }
@@ -142,16 +148,10 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             if(($scope.selectedStyles.length == 0) || (findInString(item.style, $scope.selectedStyles))){
                 foundStyles    = true;
             }
-            if($scope.selectedQuantity == '' || parseInt($scope.selectedQuantity, 10) >= item.quantity ) {
-                foundQuantity = true;
-            }
-            if(item.price >= $scope.priceSlider.min && item.price <= $scope.priceSlider.max ){
-                foundPrice = true;
-            }
             if(($scope.selectedItem.length == 0) || ($scope.selectedItem.indexOf(item.bodypart) > -1)){
                 foundItem = true;
             }
-            return (foundQuantity && foundMat && foundpoints && foundPrice && foundItem && foundTags && foundStyles);
+            return (foundMat && foundpoints &&  foundItem && foundTags && foundStyles);
         };
 
         $scope.numberOfPages=function(){
@@ -175,3 +175,4 @@ searchapp.filter('startFrom', function() {
         return input.slice(start);
     }
 });
+

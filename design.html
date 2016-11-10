@@ -92,10 +92,10 @@
         <div class="col-lg-8 col-md-8">
             <div class="custombuttons" ng-hide="startType == 'stud'" >
                  <button   ng-click="resetDesign()"  ng-disabled="!showCartbtn" class="btn btn-primary">Start Over</button>
-                <button type="button"  ng-disabled="designLevel == 0 || productAdded"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>
+                <button type="button"  ng-disabled="designLevel == 0"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>
 
                 <button   ng-click="processForm()"  ng-disabled="!showCartbtn" class="pull-right btn btn-primary">Show Pricing</button>
-                <button class="btn btn-primary pull-right nextbtn" ng-if="startType != 'stud'"  ng-disabled="nextDisable() || productAdded" ng-click="updateLevel()"> Next <i class="fa fa-check-circle"></i> </button>
+                <button class="btn btn-primary pull-right nextbtn" ng-if="startType != 'stud'"  ng-disabled="nextDisable()" ng-click="updateLevel()"> Next <i class="fa fa-check-circle"></i> </button>
 
                 <div class="clearfix"></div>
                 <p class="pull-right" ng-if="startType != 'stud' && mySelectedItems.length > 0 && levelFilled && nextDisable()"><small> No more possible designs.</small></p>
@@ -212,7 +212,7 @@
 
       </div>
       <!-- <div class="modal-footer" style="text-align: left;">
-      <strong>Quick Tip:</strong> Make sure the color of your hook or stud is matching with rest of your earring. You can always go back and edit this design<br><br> 
+      <strong>Quick Tip:</strong> Make sure the color of your hook or stud is matching with rest of your earring. You can always go back and edit this design<br><br>
       <small>Care Instructions : Keep away from water or products containing alcohol. For best durability store in a separate box. Keep away from fragrance and water. <br>
       <sup>Disclaimers : Colors may slightly vary from photos due to different monitor settings.</sup></small>
       </div> -->
@@ -225,7 +225,7 @@
 
         <div class="tab-content clearfix">
             <div class="tab-pane" id="1b">
-                  Keep away from water or fragrance. Store separately, wrapped in tissue or soft cotton for best durability. Do not bath or sleep wearing it. 
+                  Keep away from water or fragrance. Store separately, wrapped in tissue or soft cotton for best durability. Do not bath or sleep wearing it.
           </div>
           <div class="tab-pane active" id="2b">
                   Make sure the color of your hook or stud is matching with rest of your earring. You can always go back and edit this design.

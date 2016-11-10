@@ -416,7 +416,11 @@ else if($currenttab == "report") {
 
    <?php if($currenttab == "elements") { ?>
   <link href="../css/rzslider.min.css" type="text/css" rel="stylesheet" media="all">
+  <link href="../css/ui-bootstrap-custom.css" type="text/css" rel="stylesheet" media="all">
   <script src="../js/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
   <script src="../js/rzslider.min.js"></script>
   <script src="../js/elementapp.js"></script>
    <?php } ?>

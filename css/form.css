@@ -1,6 +1,6 @@
 .row1{outline:none;margin:0px 0 0px 0px;overflow:auto;padding-bottom:0px;min-height:162px;}
 .sky-form h4{padding:10px 0;padding:5px 10px;text-transform:uppercase;color:#fff;font-size:1em;border-bottom:1px solid #5D4B33;margin-top:-14px;font-family:'Roboto-Regular';background-color:#5D4B33;height:30px;}
-section.sky-form{border:1px solid #5D4B33;padding:1em 0;border-radius:3px;margin-bottom:15px;height:auto;}
+section.sky-form{border:1px solid #5D4B33;/* padding:1em 0; */border-radius:3px;margin-bottom:15px;height:auto;}
 section#sorter, select.ng-valid.ng-dirty.ng-valid-parse.ng-touched{border:0px;width:71%;}
 section#sorter select{width:70%;border:1px solid;border-radius:3px;margin-top:10px;padding:10px 0px;}
 .sky-form .input,
@@ -46,6 +46,9 @@ section#sorter select{width:70%;border:1px solid;border-radius:3px;margin-top:10
 .jspHorizontalBar .jspArrow{width:16px;float:left;height:100%;}
 .jspVerticalBar .jspArrow:focus{outline:none;}
 .jspCorner{background:#eeeef4;float:left;height:100%;}
+.scroll-pane {
+    padding: 0 10px;
+}
 @media screen and (max-width:1024px){.sky-form h4{font-size:0.95em;padding:8px;}
 }
 @media screen and (max-width:640px){.row1{margin:10px 0 0px 10px;padding-bottom:5px;height:160px;}
