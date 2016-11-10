@@ -760,6 +760,8 @@ des.factory('elementFactory', function() {
 function addToCart() {
     var pid = $("#myModal input[name='pid']").val();
     var pprice = $("#myModal input[name='pprice']").val();
+    $("#myModal").modal('hide');
+
      window.cart.updateCart(pid, pprice);
      window.cart.openCloseCart();
      return false;
