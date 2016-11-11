@@ -81,15 +81,9 @@
 
 			<div class="clearfix"> </div>
 		</div>
-		<div class="row">
-			<div class="col-xs-12">
-					<div class="pull-right">
-						<button ng-hide="currentPage == 0" ng-click="prevPage()">Previous</button>
-										<span ng-hide="currentPage == 0 && currentPage >= resultSet.length/pageSize - 1"> {{currentPage+1}}/{{numberOfPages()}}</span>
-						<button ng-hide="currentPage >= resultSet.length/pageSize - 1" ng-click="nextPage()">Next</button>
-					</div>
+		<div class="container">
+				<ul uib-pagination boundary-links="true" total-items="resultSet.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
 			</div>
-		</div>
 
 	</div> <!-- Main controller ends -->
 </div>

@@ -67,7 +67,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
                       return 'Rs.' + value;
                     },
                       onChange : function(sliderId, modelValue, highValue) {
-                      $scope.currentPage = 1;
+                      $scope.currentPage = 0;
                     }
                   }
             };

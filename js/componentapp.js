@@ -1,5 +1,5 @@
 'use strict';
-var searchapp = angular.module('componentsearch', ['rzModule']);
+var searchapp = angular.module('componentsearch', ['rzModule', 'ui.bootstrap']);
 //https://github.com/angular-slider/angularjs-slider
 searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
     function($scope, $rootScope, $window) {
@@ -16,9 +16,9 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         $scope.selectedSort ="phigh";
         $scope.reverseorder = true;
         $scope.sortItem="'costpercomp'";
-        
 
-            
+
+
          var findInString = function(str, arr) {
             var found= false;
             $.each(arr, function(ind, val){
@@ -56,12 +56,17 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
                     ceil: 100,
                     translate: function(value) {
                       return 'Rs.' + value;
+                    },
+                      onChange : function(sliderId, modelValue, highValue) {
+                      $scope.currentPage = 0;
                     }
                   }
             };
 
         // toggle selection for a given material by name
         $scope.toggleSelection = function toggleSelection(matIndex) {
+        $scope.currentPage = 0;
+
             var idx = $scope.selectedMaterial.indexOf(matIndex);
             // is currently selected
             if (idx > -1) {
@@ -75,6 +80,8 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
         // toggle selection for a given source by name
         $scope.toggleSourceSelection = function toggleSourceSelection(sourceItem) {
+        $scope.currentPage = 0;
+
             var idx = $scope.selectedSources.indexOf(sourceItem);
             // is currently selected
             if (idx > -1) {
@@ -88,6 +95,8 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
 		// toggle selection for a given color by name
         $scope.toggleColorSelection = function toggleColorSelection(clrIndex) {
+        $scope.currentPage = 0;
+
             var idx = $scope.selectedColor.indexOf(clrIndex);
             // is currently selected
             if (idx > -1) {
@@ -106,7 +115,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
             var foundPrice = false;
             var foundColor = false;
             var foundSources = false;
-            
+
             if(($scope.selectedMaterial.length == 0) || ($scope.selectedMaterial.indexOf(item.material) > -1)){
                 foundMat = true;
             }
