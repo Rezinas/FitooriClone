@@ -72,7 +72,7 @@
    else {
        $currenttab = 'home';
 
-      $rqry = "SELECT productid, name, price, material, mainimg, dateAdded, customized FROM products WHERE featured=1 ORDER BY dateAdded DESC LIMIT 8";
+      $rqry = "SELECT productid, name, price, material, mainimg, dateAdded, customized FROM products WHERE featured=1 ORDER BY dateAdded DESC LIMIT 12";
 
        if(!$stmt = $dbcon->prepare($rqry)){
           die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
