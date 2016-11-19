@@ -67,8 +67,10 @@ $jsondata = array(
 	"overheads" => OVERHEADS,
 	"vat" => TAXPERCENT,
 	"margin" => PROFITPERCENT,
+	"transaction" => TRANSACTIONPERCENT,
 	"showHelp" => $showHelp,
-	"shipping" => [SHIPPINGCHARGES_SMALL, SHIPPINGCHARGES_MEDIUM, SHIPPINGCHARGES_LARGE]
+	// "shipping" => [SHIPPINGCHARGES_SMALL, SHIPPINGCHARGES_MEDIUM, SHIPPINGCHARGES_LARGE]
+	"shipping" =>SHIPPING_GENERAL
 );
 
 // var_dump($elements);

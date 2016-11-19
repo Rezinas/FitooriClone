@@ -52,9 +52,11 @@
 	define('SHIPPINGCHARGES_LARGE', 40);
 	define('SHIPPINGCHARGES_MEDIUM', 40);
 	define('SHIPPINGCHARGES_SMALL', 40);
+	define('SHIPPING_GENERAL', 70);
 	define('OVERHEADS', 40);
-	define('TAXPERCENT', 14.5);
+	define('TAXPERCENT', 15.5);
 	define('PROFITPERCENT', 30);
+	define('TRANSACTIONPERCENT', 2.3);
 
 
 

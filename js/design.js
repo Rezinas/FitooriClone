@@ -83,7 +83,8 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         var marginPercent =$window.model.margin;
         var taxPercent =$window.model.vat;
         var overheads =$window.model.overheads;
-
+        var transPercent =$window.model.transaction;
+        var shipcost = $window.model.shipping;
         $scope.earringPieces = $window.model.elements;
 
         var isOdd = function(num){
@@ -186,6 +187,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                             var botXs=  prevItem.botX.split(",");
                             var botYs=  prevItem.botY.split(",");
                             var curWidth = row.imgwidth;
+                            var curHeight = row.imgheight;
                             var fits =true;
 
                             for(var i=0; i < botXs.length && fits; i++){
@@ -193,7 +195,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                 var b = botYs[i+1] - botYs[i];
                                // console.log(curWidth);
                                // console.log(Math.sqrt(a*a + b*b));
-                                if(Math.sqrt(a*a + b*b) <= (curWidth)) {
+                                if(Math.sqrt(a*a + b*b) <= (curWidth) || Math.sqrt(a*a + b*b) <= (curHeight)) {
                                     fits=false;
                                 }
                             }
@@ -210,6 +212,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                 var botXs=  itemtoCheck.botX.split(",");
                                 var botYs=  itemtoCheck.botY.split(",");
                                 var curWidth = row.imgwidth;
+                                var curHeight = row.imgheight;
                                 var fits =true;
 
                                 for(var i=0; i < botXs.length && fits; i++){
@@ -217,7 +220,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                     var b = botYs[i+1] - botYs[i];
                                    // console.log(curWidth);
                                    // console.log(Math.sqrt(a*a + b*b));
-                                    if(Math.sqrt(a*a + b*b) <= (curWidth)) {
+                                    if(Math.sqrt(a*a + b*b) <= (curWidth) || Math.sqrt(a*a + b*b) <= (curHeight)) {
                                         fits=false;
                                     }
                             }
@@ -432,14 +435,15 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
         var designTotal = function(){
             var total = 0;
             var marginFactor = 1 + marginPercent/100;
-            var overheadFactor = 1 + overheads/100;
             var taxFactor = 1 + taxPercent/100;
+            var transactionFactor = 1 + transPercent/100;
 
             $.each($scope.mySelectedItems, function(indx, sitem){
                   total = total + parseFloat(sitem.price, 10);
             });
 
             total  = total * marginFactor *overheadFactor *taxFactor;
+            // total  = (transactionFactor*(shipcost + taxFactor*(marginFactor*(overheads+$productCost))));
             $scope.designPrice = round5x(Math.round(total));
             return $scope.designPrice;
         };
