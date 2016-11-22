@@ -59,10 +59,10 @@
                             <!-- <div><a href="#">Move to Wishlist</a></div>-->
                          </td>
                          <td data-th="Price">
-                            <i class="fa fa-inr"></i> <span class="cartPrice"> <?php echo $prod['price'];?> </span>
+                            <i class="fa fa-inr"></i> <span class="cartPrice"> <?php echo round( floatval($prod['price']));?> </span>
                          </td>
                          <td data-th="Total">
-                             <div class="tbcontent"> <i class="fa fa-inr"></i> <span class="rowTotal"> <?php echo floatval($prod['price']) * intval($mycartCount[$prod['productid']]); ?> </span></div>
+                             <div class="tbcontent"> <i class="fa fa-inr"></i> <span class="rowTotal"> <?php echo round(floatval($prod['price'])) * intval($mycartCount[$prod['productid']]); ?> </span></div>
                          </td>
                          </form>
                       </tr>
