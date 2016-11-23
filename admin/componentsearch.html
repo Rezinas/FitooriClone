@@ -60,12 +60,13 @@
 
 
 			<div class="col-md-9 products">
-				<div ng-repeat="component in resultSet = (allComponents | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:currentPage*pageSize | limitTo:pageSize " class="product-card elements">
+				<div ng-repeat="component in resultSet = (allComponents | orderBy:sortItem:reverseorder | filter:criterias) | startFrom:(currentPage-1)*pageSize | limitTo:pageSize " class="product-card elements">
 					<a target="_self" ng-href="dashboard.php?components&cid={{component['compid']}}">
 						<div class="product-image">
 							<img ng-src="../componentImages/{{ component['compimg']}}" class="img-responsive" alt="">
 						</div>
 						<div class="product-info">
+							<p>index: {{$index}}</p>
 							<p>ID: {{component['compid']}}</p>
 							<p>Stock: {{component['stock']}} / {{component['cutoff']}}</p>
 							<p>Cost: {{component['costpercomp']}}</p>
@@ -81,6 +82,9 @@
 
 			<div class="clearfix"> </div>
 		</div>
+
+		<!-- <div> Resultset length : {{resultSet.length}}</div> -->
+		<!-- <div> <pre>The selected page no: {{currentPage}}</pre></div> -->
 		<div class="container">
 				<ul uib-pagination boundary-links="true" total-items="resultSet.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
 			</div>

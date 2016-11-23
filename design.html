@@ -103,6 +103,8 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-4">
+              <h5  ng-if="mySelectedItems[prdIndex[designLevel][0]].images.length == 0" ng-show="levelFilled">{{mySelectedItems[prdIndex[designLevel][0]].name}}</h5>
+
           <div id="imgOptions" ng-if="mySelectedItems[prdIndex[designLevel][0]].images.length > 0">
               <h5 ng-show="levelFilled">{{mySelectedItems[prdIndex[designLevel][0]].name}} options:</h5>
               <div ng-if="levelFilled" class="aelements"  ng-click="selectImage(mySelectedItems[designLevel].carouselImg, false);">

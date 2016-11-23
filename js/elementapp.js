@@ -5,7 +5,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
     function($scope, $rootScope, $window) {
         $scope.allPieces = $window.model.pieces;
         $scope.isAgent = $window.model.isAgent;
-        $scope.currentPage = 0;
+        $scope.currentPage = 1;
         $scope.pageSize = 20;
         $scope.materials = $window.model.materials;
         $scope.items = $window.model.items;
@@ -67,7 +67,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
                       return 'Rs.' + value;
                     },
                       onChange : function(sliderId, modelValue, highValue) {
-                      $scope.currentPage = 0;
+                      $scope.currentPage = 1;
                     }
                   }
             };
@@ -87,7 +87,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
         // toggle selection for a given style by name
         $scope.toggleStyleSelection = function toggleStyleSelection(styleItem) {
-             $scope.currentPage = 0;
+             $scope.currentPage = 1;
 
             var idx = $scope.selectedStyles.indexOf(styleItem);
             // is currently selected
@@ -101,7 +101,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         };
 
         $scope.toggleTagSelection = function toggleTagSelection(tagIndx) {
-             $scope.currentPage = 0;
+             $scope.currentPage = 1;
 
             var idx = $scope.selectedTags.indexOf(tagIndx);
             // is currently selected
@@ -115,7 +115,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
         };
 
         $scope.toggleItemSelection = function toggleItemSelection(itmIndex) {
-             $scope.currentPage = 0;
+             $scope.currentPage = 1;
 
             var idx = $scope.selectedItem.indexOf(itmIndex);
             // is currently selected

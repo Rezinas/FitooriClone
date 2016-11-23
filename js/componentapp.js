@@ -5,7 +5,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
     function($scope, $rootScope, $window) {
         $scope.allComponents = $window.model.components;
         $scope.isAgent = $window.model.isAgent;
-        $scope.currentPage = 0;
+        $scope.currentPage = 1;
         $scope.pageSize = 50;
         $scope.materials = $window.model.materials;
         $scope.colors = $window.model.colors;
@@ -49,23 +49,23 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
          $scope.priceSlider = {
                  min: 0,
-                  max: 60,
+                  max: 500,
                   options: {
                     floor: 0,
                     step: 1,
-                    ceil: 100,
+                    ceil: 1000,
                     translate: function(value) {
                       return 'Rs.' + value;
                     },
                       onChange : function(sliderId, modelValue, highValue) {
-                      $scope.currentPage = 0;
+                      $scope.currentPage = 1;
                     }
                   }
             };
 
         // toggle selection for a given material by name
         $scope.toggleSelection = function toggleSelection(matIndex) {
-        $scope.currentPage = 0;
+        $scope.currentPage = 1;
 
             var idx = $scope.selectedMaterial.indexOf(matIndex);
             // is currently selected
@@ -80,7 +80,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
         // toggle selection for a given source by name
         $scope.toggleSourceSelection = function toggleSourceSelection(sourceItem) {
-        $scope.currentPage = 0;
+        $scope.currentPage = 1;
 
             var idx = $scope.selectedSources.indexOf(sourceItem);
             // is currently selected
@@ -95,7 +95,7 @@ searchapp.controller('MainController', ['$scope', '$rootScope', '$window',
 
 		// toggle selection for a given color by name
         $scope.toggleColorSelection = function toggleColorSelection(clrIndex) {
-        $scope.currentPage = 0;
+        $scope.currentPage = 1;
 
             var idx = $scope.selectedColor.indexOf(clrIndex);
             // is currently selected
