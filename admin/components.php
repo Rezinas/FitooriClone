@@ -17,10 +17,10 @@ $cid="";
 
 
 if(isset($_GET["components"]) && isset($_GET["cid"]) ) {
-    $cid=trim($_GET["cid"]);
+    $compid=trim($_GET["cid"]);
     $compmode = "edit";
 
- 	$qry = "SELECT  compid, compimg, stock, costpercomp, material, color, source, cutoff, warning  from components WHERE compid='$cid'";
+ 	$qry = "SELECT  compid, compimg, stock, costpercomp, material, color, source, cutoff, warning  from components WHERE compid='$compid'";
  	if(!$stmt = $dbcon->prepare($qry)){
 	    die('Prepare Error : ('. $dbcon->errno .') '. $dbcon->error);
 	}
@@ -44,7 +44,7 @@ if(isset($_GET["components"]) && isset($_GET["cid"]) ) {
 	$source=$parr['source']."";
 	$cutoff=$parr['cutoff']."";
 	$warn=$parr['warning']."";
-	
+
 }
 
 
@@ -62,38 +62,40 @@ if (!empty($_POST)) {
 	  $color  = prepare_input($_POST['ccolor' ]);
 	  $source  = prepare_input($_POST['csource' ]);
 	  $material  = prepare_input($_POST['material' ]);
-	  
+
 	if($_FILES['compimg']['error'] == 0) {
 		$compimg = uploadCmpImage($_FILES['compimg'] ['tmp_name'], $_FILES['compimg'] ['name'], $_FILES['compimg'] ['error']);
 		if(strpos($compimg,'ERROR') !== false) { $error .= "Image upload error"; }
 	  }
-	  
-	  
+
+
 	if ($error  == "")
 	 {
-		 
+
 		if ($compmode == "new") {
-		
+
 		$query ="INSERT INTO `components` (`compid`, `compimg`, `stock`, `costpercomp`, `material`, `color`, `source`, `cutoff`, `warning`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$statement = $dbcon->prepare($query);
-	
+
 		//bind parameters for markers, where (s = string, i = integer, d = double,  b = blob)
 		$statement->bind_param('ssidissii', $compid, $compimg, intval($stock), floatval($compcost), $material, $color, $source, intval($cutoff), intval($warn));
-		
+
 		if(!$statement->execute()){
 		die('Error : ('. $dbcon->errno .') '. $dbcon->error);
 		}
 		else{
+    		$compmode = "edit";
+
 			echo "<br /><br /> Record Added Successfully!<br /><br /><br />";
 		}
 	 	$statement->close();
-		
+
 		}
-	 
+
 		else if ($compmode == "edit"){
 			//run the update query for the $pieceid.
-			
+
     	 	$updQuery1 =  "UPDATE components  SET `compimg`=?, `stock`=?, `costpercomp`=?, `material`=?, `color`=?, `source`=?, `cutoff`=?, `warning`=? WHERE compid='$compid'";
     	 	$stmt = $dbcon->prepare($updQuery1);
 
@@ -113,10 +115,10 @@ if (!empty($_POST)) {
 	 else
 	 {
 		echo "Error = ".$error;
- 	   exit(); 
+ 	   exit();
 	 }
-	
-			
+
+
 }
 
 
