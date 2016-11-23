@@ -465,7 +465,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
 
 
         $scope.processForm = function() {
-       //   updateQuantity(true, $scope.designLevel);
+          $scope.designPrice = designTotal();
           var payload = {
                         custom_product : $scope.mySelectedItems,
                         product_price : $scope.designPrice
