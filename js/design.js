@@ -195,8 +195,10 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                 var b = botYs[i+1] - botYs[i];
                                // console.log(curWidth);
                                // console.log(Math.sqrt(a*a + b*b));
-                                if(Math.sqrt(a*a + b*b) <= (curWidth) || Math.sqrt(a*a + b*b) <= (curHeight)) {
-                                    fits=false;
+                                // if(Math.sqrt(a*a + b*b) <= (curWidth) || Math.sqrt(a*a + b*b) <= (curHeight)) {
+                                if(Math.sqrt(a*a + b*b) <= curWidth) {
+                                // if( a <= curWidth) {
+                                   fits=false;
                                 }
                             }
                             if(fits) resArr.push(row);
@@ -220,7 +222,9 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
                                     var b = botYs[i+1] - botYs[i];
                                    // console.log(curWidth);
                                    // console.log(Math.sqrt(a*a + b*b));
-                                    if(Math.sqrt(a*a + b*b) <= (curWidth) || Math.sqrt(a*a + b*b) <= (curHeight)) {
+                                    // if(Math.sqrt(a*a + b*b) <= (curWidth) || Math.sqrt(a*a + b*b) <= (curHeight)) {
+                                    if(Math.sqrt(a*a + b*b) <= curWidth) {
+                                    // if( a <= curWidth) {
                                         fits=false;
                                     }
                             }
@@ -443,7 +447,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             });
 
             // total  = (total + overheads) * marginFactor *taxFactor;
-            total  = (transactionFactor*(shipcost + taxFactor*(marginFactor*(overheads+(total*2)))));
+            // total  = (transactionFactor*(shipcost + taxFactor*(marginFactor*(overheads+(total*2)))));
             // total = 300;
             $scope.designPrice = round5x(Math.round(total));
             return $scope.designPrice;
