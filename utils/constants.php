@@ -55,7 +55,7 @@
 	define('SHIPPING_GENERAL', 70);
 	define('OVERHEADS', 40);
 	define('TAXPERCENT', 15.5);
-	define('PROFITPERCENT', 30);
+	define('PROFITPERCENT', 40);
 	define('TRANSACTIONPERCENT', 2.3);
 
 

@@ -300,27 +300,31 @@ function showCustomDesign($config) {
   return  $htmlStr;
 }
 
-function getPrice($compList, $compQuant){
+function getPrice($v, $w, $dbcon){
         $baseprice= 0.00 ;
-        $complistArr= explode(',', $v);
-        $compquantityArr=explode(',', $w);
-        $max=count($complistArr);
-        for ($i=0; $i<$max;$i++)
-        {
-            $pqry= "SELECT costpercomp FROM components WHERE compid='$complistArr[i]'";
-            $pstmt = $dbcon->prepare($pqry);
-            if(!$pstmt->execute()){
-                die('Error : ('. $dbcon->errno .') '. $dbcon->error);
-            }
-            $pstmt->store_result();
-            $pstmt->bind_result($cp);
-            while($pstmt->fetch()){
-                $baseprice += $cp*$compquantityArr[i] ; 
-            }
+        if ($v == ""){
+            $baseprice = 15.00;
+        }
+        else{
+            $complistArr= explode(',', $v);
+            $compquantityArr=explode(',', $w);
+            $max=count($complistArr);
+              for ($i=0; $i<$max;$i++)
+            {
+                $pqry= "SELECT costpercomp FROM components WHERE compid='$complistArr[$i]'";
+                $pstmt = $dbcon->prepare($pqry);
+                if(!$pstmt->execute()){
+                    die('Error : ('. $dbcon->errno .') '. $dbcon->error);
+                }
+                $pstmt->store_result();
+                $pstmt->bind_result($cp);
+                while($pstmt->fetch()){
+                    $baseprice += $cp*$compquantityArr[$i] ; 
+                }
 
+            }
         }
         return $baseprice;
-
 }
 
 function generatePrice($basePrice, $type = "Earrings"){
