@@ -447,7 +447,7 @@ des.controller('MainController', ['$scope', '$rootScope', '$http', '$window', '$
             });
 
             // total  = (total + overheads) * marginFactor *taxFactor;
-            // total  = (transactionFactor*(shipcost + taxFactor*(marginFactor*(overheads+(total*2)))));
+            total  = (transactionFactor*(shipcost + taxFactor*(marginFactor*(overheads+(total*2)))));
             // total = 300;
             $scope.designPrice = round5x(Math.round(total));
             return $scope.designPrice;
