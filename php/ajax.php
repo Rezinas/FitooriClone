@@ -276,12 +276,14 @@ if(isset($_GET["addcustom"])) {
         $designExists = false;
         $existingProductId=-1;
         $elemIdArr =[];
+        $selImgArr=[];
         $matlist ='';
         $previd = -1;
 
         //check if this element already exists in our database
         foreach($elements as $elem){
             $elemIdArr[] = $elem["id"];
+            $selImgArr[] = $elem["selectedImage"];
             //for matlist
             if($previd != $elem["id"]) {
                 $matlist .=  $elem['name']."<br>";
@@ -289,21 +291,22 @@ if(isset($_GET["addcustom"])) {
               $previd = $elem["id"];
 
         }
-        sort($elemIdArr);
+       // sort($elemIdArr);
 
         //check all custom designs
-        $design_qry = "SELECT customdesign.productid, GROUP_CONCAT(elementid SEPARATOR ',') as elementids from customdesign, products  where  products.productid = customdesign.productid group by productid";
+        $design_qry = "SELECT customdesign.productid, GROUP_CONCAT(elementid SEPARATOR ',') as elementids, GROUP_CONCAT(selectedImage SEPARATOR ',') as selectedImage from customdesign, products  where  products.productid = customdesign.productid group by productid";
 
           $stmt = $dbcon->prepare($design_qry);
           if(!$stmt->execute()){
               die('Error : ('. $dbcon->errno .') '. $dbcon->error);
           }
           $stmt->store_result();
-          $stmt->bind_result($pid, $a);
+          $stmt->bind_result($pid, $a, $b);
           while ($stmt->fetch()) {
             $thisArr = explode(',', $a);
-            sort($thisArr);
-            if(count($thisArr) == count($elemIdArr) && $thisArr == $elemIdArr) {
+            $thisImgArr = explode(',', $b);
+           // sort($thisArr);
+            if(count($thisArr) == count($elemIdArr) && $thisArr == $elemIdArr && count($thisImgArr)== count($selImgArr) && $thisImgArr == $selImgArr) {
               $designExists = true;
               $existingProductId= $pid;
             }

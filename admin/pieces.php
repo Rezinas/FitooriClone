@@ -148,7 +148,7 @@ if(isset($_GET["pieces"]) && isset($_GET["id"]) ) {
 }
 
 if (!empty($_POST)) {
-// echo "<pre>";
+//echo "<pre>";
 // var_dump($_POST);
 // echo "</pre>";
 	$error = "";
@@ -160,9 +160,11 @@ if (!empty($_POST)) {
 	  	$carouselImg = prepare_input($_POST['carouselImgname']);
 	  	$hookImg = prepare_input($_POST['hookImgName']);
 		$cartesianArr = fetchImages($pieceid, $dbcon);
-// 		echo "<pre>";
+
+
+// echo "cartesianArr"; echo "<pre>";
 // var_dump($cartesianArr);
-// echo "</pre>";
+//  echo "</pre>";
 	  }
 
 	  $pcenterx  = prepare_input($_POST['pcenterx' ]);
@@ -201,27 +203,34 @@ if (!empty($_POST)) {
 
 	if($_FILES['carouselImg']['error'] == 0) {
 		$carouselImg = uploadPrdImage($_FILES['carouselImg'] ['tmp_name'], $_FILES['carouselImg'] ['name'], $_FILES['carouselImg'] ['error']);
-		if(strpos($carouselImg,'ERROR') !== false) { $error .= "Image upload error"; }
+		if(strpos($carouselImg,'ERROR') !== false) { $error .= "Carousel Image upload error"; }
 
 	}
 
 
 	if($_FILES['hookImg']['error'] == 0) {
 		$hookImg = uploadPrdImage($_FILES['hookImg'] ['tmp_name'], $_FILES['hookImg'] ['name'], $_FILES['hookImg'] ['error']);
-		if(strpos($hookImg,'ERROR') !== false) { $error .= "Image upload error"; }
+		if(strpos($hookImg,'ERROR') !== false) { $error .= "hook Image upload error"; }
 
 	}
 
 //TBD: Validations
 
+
+
 	  if( (count($pccolors) > 0 && count($pcdesign)> 0) ) {
 	  	$newcartesianArr = cartesian(array($pccolors, $pcdesign));
-	  	$cartesianArr = compareArr($cartesianArr, $newcartesianArr);
+	  	$cartesianArr =compareArr($cartesianArr, $newcartesianArr);
+
+//echo"<pre>"; var_dump($pccolors); var_dump($pcdesign); var_dump($cartesianArr);   echo "</pre>";
+
 	  	foreach($cartesianArr as $ind => &$product) {
+
+                //   echo "<pre>"; echo $_FILES[$filename]['error']; echo "</pre>";
 		  	$filename = $product['color']."_".$product['design'];
 		  	if($_FILES[$filename]['error'] == 0) {
 		  		$newfile = uploadPrdImage($_FILES[$filename] ['tmp_name'], $_FILES[$filename] ['name'], $_FILES[$filename] ['error']);
-				if(strpos($newfile,'ERROR') !== false) { $error .= "Image upload error"; }
+				if(strpos($newfile,'ERROR') !== false) { $error .= "here options Image upload error"; }
 			  	else  { $product['imagefile'] = $newfile; }
 		  	}
 	  	}
