@@ -441,6 +441,10 @@ i.fa.fa-plus.placeholdit {
   position: absolute;
   left: 0;
 }
+
+.prd_elements img {
+  vertical-align: top;
+}
 .prd_elements.current {
   border: 1px solid black;
 }
@@ -522,6 +526,7 @@ i.fa.fa-plus.placeholdit {
 }
 .felements, .aelements{
   float: left;
+  cursor: pointer;
 }
 .felements img,  .aelements  img{max-height: 50px;width:  auto;margin: 10px 15px;}
 

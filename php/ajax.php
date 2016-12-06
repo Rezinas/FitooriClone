@@ -105,8 +105,8 @@ function createCustomPrdImage($elemArr)
 
 
      //start constructing the image
-    $offsetx = 30;
-    $offsety = 30;
+    $offsetx = $totalwidth/2;
+    $offsety = 50;
      foreach($elemArr as $key => $elm) {
 
        $imgpath =  (strpos($elm['style'], 'hook') === false ) ?  "../productImages/".$elm['selectedImage'] : "../productImages/".$elm['hookImg'];
@@ -123,17 +123,27 @@ function createCustomPrdImage($elemArr)
         $dst_x += $offsetx;
         $dst_y += $offsety;
 
+
+
       imagealphablending($imgpart, false);
       imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w, $orig_h);
       imagesavealpha( $img, true );
     }
 
+/* for debug */
+        //     if(!imagepng($img, "../productImages/test0.png", 1)){
+        //       return "ERROR";
+        //     }
 
 
     imagetrim($img,$color, '33 25 33 25');
     $ow  = imagesx($img);
     $oh = imagesy($img);
 
+/* for debug */
+      //  if(!imagepng($img, "../productImages/test1.png", 1)){
+      //       return "ERROR";
+      //     }
 
     $out_w = $ow*2;
     $out = imagecreatetruecolor($out_w, $oh+20);
