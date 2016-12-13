@@ -89,7 +89,7 @@
 
     <section class="customcontrols hidden-xs hidden-sm ">
       <div class="container">
-        <div class="col-lg-8 col-md-8">
+        <div class="col-lg-7 col-md-7">
             <div class="custombuttons" ng-hide="startType == 'stud'" >
                  <button   ng-click="resetDesign()"  ng-disabled="!showCartbtn" class="btn btn-primary">Start Over</button>
                 <button type="button"  ng-disabled="designLevel == 0"  class="btn btn-primary" ng-click="gobackLevel()">Go Back</button>
@@ -102,19 +102,20 @@
 
             </div>
         </div>
-        <div class="col-lg-4 col-md-4">
+        <div class="col-lg-5 col-md-5">
               <h5  ng-if="mySelectedItems[prdIndex[designLevel][0]].images.length == 0" ng-show="levelFilled">{{mySelectedItems[prdIndex[designLevel][0]].name}}</h5>
 
           <div id="imgOptions" ng-if="mySelectedItems[prdIndex[designLevel][0]].images.length > 0">
               <h5 ng-show="levelFilled">{{mySelectedItems[prdIndex[designLevel][0]].name}} options:</h5>
-              <div ng-if="levelFilled" class="aelements"  ng-click="selectImage(mySelectedItems[designLevel].carouselImg, false);">
-                  <img ng-if="mySelectedItems[prdIndex[designLevel][0]].style.indexOf('hook') > -1" ng-src="{{siteUrl}}productImages/{{mySelectedItems[prdIndex[designLevel][0]].hookImg}}" alt="" />
+                <ul style="list-style: none;">
+                  <li ng-if="levelFilled" class="aelements"  ng-click="selectImage(mySelectedItems[designLevel].carouselImg, false);">
+                    <img ng-if="mySelectedItems[prdIndex[designLevel][0]].style.indexOf('hook') > -1" ng-src="{{siteUrl}}productImages/{{mySelectedItems[prdIndex[designLevel][0]].hookImg}}" alt="" />
                   <img ng-if="mySelectedItems[prdIndex[designLevel][0]].style.indexOf('hook') <= -1" ng-src="{{siteUrl}}productImages/{{mySelectedItems[prdIndex[designLevel][0]].carouselImg}}" alt="" />
-              </div>
-              <div class="aelements" ng-repeat="altItem in mySelectedItems[prdIndex[designLevel][0]].images">
-                 <img ng-src="{{siteUrl}}productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, false);" />
-              </div>
-                <div class="clearfix"></div>
+                  </li>
+                  <li  class="aelements" ng-repeat="altItem in mySelectedItems[prdIndex[designLevel][0]].images">
+                     <img ng-src="{{siteUrl}}productImages/{{altItem.imagefile}}"  ng-click="selectImage(altItem.imagefile, false);" />
+                  </li>
+                </ul>
            </div>
         </div>
       </div>

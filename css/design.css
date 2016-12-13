@@ -513,6 +513,7 @@ i.fa.fa-plus.placeholdit {
 
 #imgOptions{
     width:100%;
+    max-width: 285px;
     margin-top: 10px;
     /* border: 1px solid; */
     /* text-align: right; */
@@ -524,10 +525,20 @@ i.fa.fa-plus.placeholdit {
   font-size: 15px;
   margin-top: 5px;
 }
-.felements, .aelements{
+
+#imgOptions ul {
+  list-style: none;
+  padding: 0;
+}
+#imgOptions ul li {
+  display: inline-block;
+  cursor: pointer;
+}
+.felements {
   float: left;
   cursor: pointer;
 }
+
 .felements img,  .aelements  img{max-height: 50px;width:  auto;margin: 10px 15px;}
 
 .customcontrols {
