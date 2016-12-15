@@ -111,8 +111,6 @@ function createCustomPrdImage($elemArr)
 
        $imgpath =  (strpos($elm['style'], 'hook') === false ) ?  "../productImages/".$elm['selectedImage'] : "../productImages/".$elm['hookImg'];
       $imgpart = imagecreatefrompng($imgpath);
-        // $orig_w = $elm["imgwidth"];
-        // $orig_h = $elm["imgheight"];
         list($orig_w, $orig_h) = getimagesize($imgpath);
 
         $dst_x = $elm['leftPos'];
@@ -126,14 +124,14 @@ function createCustomPrdImage($elemArr)
 
 
       imagealphablending($imgpart, false);
-      imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w, $orig_h, $orig_w, $orig_h);
+      imagecopyresampled($img, $imgpart, $dst_x, $dst_y, 0, 0, $orig_w+2, $orig_h, $orig_w, $orig_h);
       imagesavealpha( $img, true );
     }
 
 /* for debug */
-        //     if(!imagepng($img, "../productImages/test0.png", 1)){
-        //       return "ERROR";
-        //     }
+            if(!imagepng($img, "../productImages/test/test0.png", 1)){
+              return "ERROR";
+            }
 
 
     imagetrim($img,$color, '33 25 33 25');
@@ -141,9 +139,9 @@ function createCustomPrdImage($elemArr)
     $oh = imagesy($img);
 
 /* for debug */
-      //  if(!imagepng($img, "../productImages/test1.png", 1)){
-      //       return "ERROR";
-      //     }
+       if(!imagepng($img, "../productImages/test/test1.png", 1)){
+            return "ERROR";
+          }
 
     $out_w = $ow*2;
     $out = imagecreatetruecolor($out_w, $oh+20);
@@ -178,7 +176,9 @@ function createCustomPrdImage($elemArr)
    $fn = md5(microtime()."new")."_custom.png";
 
     $result;
-    if(imagepng($out, "../productImages/".$fn, 9)){
+    /* for debug */
+    // if(imagepng($out, "../productImages/test/".$fn, 9)){
+   if(imagepng($out, "../productImages/".$fn, 9)){
       $result = $fn;
     }
     else {

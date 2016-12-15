@@ -1,8 +1,74 @@
 <?php
-error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+error_reporting(-1);
 ini_set('display_errors', 'On');
-// set_error_handler("var_dump");
+//set_error_handler("var_dump");
 // require_once($_SERVER['DOCUMENT_ROOT']."/php/ajax.php");
+
+$elements9 = array (
+  "custom_product" => [ array (
+      "id" => 130,
+      "carouselImg" => "DSC_1073trail_1480663648.png",
+      "imgheight" => 114,
+      "imgwidth" => 127,
+      "bodypart" => 3,
+      "centerx" => -28,
+      "centery" => 10,
+      "toppoints" => 0,
+      "topX" => "",
+      "topY" => "",
+      "bottompoints" => 1,
+      "botX" => "62",
+      "botY" => "111",
+      "color" => "",
+      "texture" => "",
+      "style" => "hook,hoop",
+      "admintags" => "",
+      "material" => 2,
+      "price" => 59,
+      "name" => "Jade Beaded Loop",
+      "priority" => 1,
+      "hookImg" => "gold_hoopsimple_1480322303.png",
+      "availability" => null,
+      "images" => [
+
+      ],
+      "selectedImage" => "gold_hoopsimple_ALT_1480322303.png",
+      "topPos" => 10,
+      "leftPos" => -28
+    ), array (
+      "id" => 44,
+      "carouselImg" => "CSC_1199_1478888429.png",
+      "imgheight" => 60,
+      "imgwidth" => 49,
+      "bodypart" => 3,
+      "centerx" => 0,
+      "centery" => 0,
+      "toppoints" => 1,
+      "topX" => "20",
+      "topY" => "-6",
+      "bottompoints" => 1,
+      "botX" => "20",
+      "botY" => "56",
+      "color" => "",
+      "texture" => "",
+      "style" => "dangler,jhumka,hoop",
+      "admintags" => "",
+      "material" => 1,
+      "price" => 75,
+      "name" => "Terracotta Jhumki",
+      "priority" => 1,
+      "hookImg" => "",
+      "availability" => null,
+      "images" => [
+
+      ],
+      "selectedImage" => "CSC_1199_1478888429.png",
+      "topPos" => 121,
+      "leftPos" => 14
+    )
+  ],
+  "product_price" => 585
+);
 
 $elements8 = array (
   "custom_product" => [ array(
@@ -845,9 +911,12 @@ function createCustomPrdImage($elemArr)
     $offsety = 30;
      foreach($elemArr as $key => $elm) {
       echo "<img src='../productImages/".$elm['selectedImage']."' /> <br>";
+      echo "<img src='../productImages/".$elm['hookImg']."' /> <br>";
       $imgpart = imagecreatefrompng("../productImages/".$elm['selectedImage']);
-        $orig_w = $elm["imgwidth"];
-        $orig_h = $elm["imgheight"];
+       $imgpath =  (strpos($elm['style'], 'hook') === false ) ?  "../productImages/".$elm['selectedImage'] : "../productImages/".$elm['hookImg'];
+    $imgpart = imagecreatefrompng($imgpath);
+      list($orig_w, $orig_h) = getimagesize($imgpath);
+
 
          echo "orig_w = ". $orig_w;
         echo "orig_h = ". $orig_h;
@@ -939,7 +1008,7 @@ function createCustomPrdImage($elemArr)
 
 
 echo " test 1 <br>";
-createCustomPrdImage($elements8["custom_product"]);
+createCustomPrdImage($elements9["custom_product"]);
 ?>
 
 
@@ -948,7 +1017,6 @@ createCustomPrdImage($elements8["custom_product"]);
 <img style="border: 1px solid;" src="../productImages/test/test2.png" />
 <img style="border: 1px solid;" src="../productImages/test/custom.png" />
 <!-- <img style="border: 1px solid;" src="../productImages/DSC03507_1455707404.png" /> -->
-
 
 
 
