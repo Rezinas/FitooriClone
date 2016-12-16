@@ -110,3 +110,6 @@
 .carousel-control.right{background-image:none;}
 @media screen and (max-width:768px){.media-object{margin-top:0;}
 }
+
+@media screen and (max-width:480px){.productbox img {width: 100%;height: auto;border: none;}
+}
