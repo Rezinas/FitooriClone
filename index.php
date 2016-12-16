@@ -142,7 +142,7 @@ if(isset($_SESSION['orderStatus'])  && $_SESSION['orderStatus'] == "confirmed" &
          <nav class="navbar navbar-default navbar-fixed-top <?php if($currenttab == 'home' || $currenttab == 'designearrings') { echo 'homepage'; } ?>" role="navigation">
             <div class="container">
               <div class="navbar-header">
-                <a class="navbar-brand"><img src="images/logo_dark.png"  class="img-responsive"/></a>
+                <a href="index.php" class="navbar-brand"><img src="images/logo_dark.png"  class="img-responsive"/></a>
                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                  <span class="sr-only">Toggle navigation</span>
                  <span class="icon-bar"></span>
