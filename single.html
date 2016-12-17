@@ -54,15 +54,15 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 			<div class=" col-sm-7 col-xs-12">
 				<div class="flexslider">
 					<ul class="slides">
-						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>">
-							<div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>" data-imagezoom="true" class="img-responsive">
-							 </div>
-						</li>
 						<?php if(!empty($parr['alt1img'])) { ?>
 						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['alt1img'];  ?>">
 							 <div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['alt1img'];  ?>" data-imagezoom="true" class="img-responsive"> </div>
 						</li>
 						<?php  } ?>
+						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>">
+							<div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['mainimg'];  ?>" data-imagezoom="true" class="img-responsive">
+							 </div>
+						</li>
 						<?php if(!empty($parr['alt2img'])) { ?>
 						<li data-thumb="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['alt2img'];  ?>">
 						   <div class="thumb-image"> <img src="<?php echo  SITE_URL.PRDIMGDIR."/".$parr['alt2img'];  ?>" data-imagezoom="true" class="img-responsive"> </div>
