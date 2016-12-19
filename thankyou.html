@@ -37,7 +37,7 @@ if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
      $stmt->bind_result($a);
      while ($stmt->fetch()) {
         $elemqry = "SELECT elementid FROM `customdesign` where productid=$a";
-       //  echo $elemqry;
+        // echo $elemqry;
        //  echo "<br>";
 
         if(!$estmt = $dbcon->prepare($elemqry)){
@@ -73,8 +73,8 @@ if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
 
                     for($in=0; $in < count($compqarr); $in++) {
                         $compupdqry = "update components set stock=stock-($compqarr[$in]*2) where compid = '$complistarr[$in]'";
-                       // echo $compupdqry;
-                       // echo "<br>";
+                     //   echo $compupdqry;
+                     //   echo "<br>";
                         $updstmt = $dbcon->prepare($compupdqry);
 
                         if(!$updstmt->execute()){
@@ -103,12 +103,14 @@ if(isset($_GET["amznPmtsOrderIds"]) && isset($_GET["amznPmtsReqId"]) ) {
 
 <section class="pageContainer">
    <div class="container">
-        <div class="col-xs-4">
-            <img src="images/Received-stamp.jpg" alt="">
-        </div>
+<!--         <div class="col-xs-4">
+    <img src="images/Received-stamp.jpg" alt="">
+</div> -->
         <div class="col-xs-8">
-             <p><strong>You have a great taste !
-             Thank you for shopping with fitoori !</strong> </p>
+             <h4><strong>You have a great taste! </strong></h4>
+             <p>Our best minds and hands are on it and we will ship it within 2-3 days.You can always track your order by logging into your amazon account.
+             </p>
+             <p><strong>Thank you for shopping with fitoori!</strong></p>
         </div>
     </div>
 

@@ -12,11 +12,18 @@
 @media (max-width: 480px){
     .flex-viewport {
         width: 56%;
+        height: 198.8px !important;
     }
     .thumb-image {
         padding: 2.6em;
     }
     .nav-tabs > li {
         font-size: 14px;
+    }   
+    .nav-tabs > li > a {
+        margin-right: 1px;
+    }
+    .nav > li > a{
+        padding: 10px 6px;
     }
 }
