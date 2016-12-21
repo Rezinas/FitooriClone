@@ -718,4 +718,8 @@ article.item.read-full .item-body:after {
     .navbar-toggle{
         margin-top:9px;
     }
+
+    span.arrow {
+        display: none;
+    }
 }
