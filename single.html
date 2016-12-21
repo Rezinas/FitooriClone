@@ -77,8 +77,8 @@ if(isset($_GET["single"]) && isset($_GET["id"]) ) {
 			<div class="col-sm-5 col-xs-12 prd_details">
 				<h3><?php echo $parr['name']; ?></h3>
 					<p><?php echo $parr['shortdesc']; ?></p>
-				<h4>Size (wxh)</h4>
-					<p><a href="javascript:void(0);"><?php echo $parr['size']; ?></a></p>
+				<h4 style="display:none;">Size (wxh)</h4>
+					<p style="display:none;"><a href="javascript:void(0);"><?php echo $parr['size']; ?></a></p>
 				<h4>Material</h4>
 					<?php
 						$mat = $parr['material'];
