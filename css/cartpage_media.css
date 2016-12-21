@@ -601,7 +601,8 @@
       /* font-size: 14px; */
     }
     .cart-items img{
-      padding: 0em;
+      padding: 0em !important;
+      width: auto;
     }
     .product-grid.single-product{
       width: 100%;
